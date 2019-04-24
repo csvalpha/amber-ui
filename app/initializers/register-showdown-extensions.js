@@ -2,7 +2,7 @@ import showdown from 'showdown';
 
 export function initialize() {
   showdown.extension('youtubeEmbed', () => {
-    const youtubeRegex = /.*(\$\(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([\w\-]+)\).*/g;
+    const youtubeRegex = /.*(\$\(youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([\w-]+)\).*/g;
     return [{
       type: 'lang',
       regex: youtubeRegex,
