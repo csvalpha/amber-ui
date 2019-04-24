@@ -15,6 +15,11 @@
     }
   }
 
+  thead .narrow {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
   .profile-picture {
     margin-right: 20px;
   }
@@ -56,4 +61,5 @@
     }
   }
 }
+
 // stylelint-enable max-nesting-depth

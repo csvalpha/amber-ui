@@ -58,11 +58,8 @@
                   <th>
                     {{t "Functie"}}
                   </th>
-                  {{#if (can 'destroy memberships')}}
-                    <th>
-                      <i class="fa fa-trash"></i>
-                    </th>
-                  {{/if}}
+                  <th class="narrow">
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -81,7 +78,7 @@
                       <td>
                         {{input value=membership.function class="form-control" disabled=(not (or (can 'update memberships') membership.isNew))}}
                       </td>
-                      {{#if (can 'destroy memberships')}}
+                      {{#if (can 'destroy membership' membership)}}
                         <td>
                           <button type="button" class="btn btn-danger" {{action "removeMembership" membership}} >
                             <i class="fa fa-trash"></i>
