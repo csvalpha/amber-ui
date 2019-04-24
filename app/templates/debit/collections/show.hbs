@@ -1,0 +1,62 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h5>{{model.collection.name}} - {{moment-format model.collection.date 'DD-MM-YYYY'}}</h5>
+    <span class="text-muted">{{t 'Gemaakt door'}} {{model.collection.author.fullName}}</span>
+  </div>
+  <div class="card-body">
+    {{#each groupedTransactions as |transactionGroup|}}
+      {{#link-to 'users.show' transactionGroup.user}}
+        <h5>{{transactionGroup.user.fullName}}</h5>
+      {{/link-to}}
+
+      <div class="row">
+        <div class="col-7">
+          <b> {{t "Beschrijving"}} </b>
+        </div>
+        <div class="col-5">
+          <b> {{t "Bedrag"}} </b>
+        </div>
+      </div>
+
+      {{#each transactionGroup.transactions as |transaction|}}
+        <div class="row">
+          <div class="col-7">
+            {{transaction.description}}
+          </div>
+          <div class="col-3">
+            <span> &euro; {{number-format transaction.amount}} </span>
+          </div>
+          <div class="col-2">
+            {{#if (can 'destroy debit/transactions')}}
+              {{#link-to 'debit.transactions.destroy' transaction}}
+                <i class="fa fa-trash"></i>
+              {{/link-to}}
+            {{/if}}
+            {{#if (can 'edit debit/transactions')}}
+              {{#link-to 'debit.transactions.edit' transaction}}
+                <i class="fa fa-pencil"></i>
+              {{/link-to}}
+            {{/if}}
+          </div>
+        </div>
+      {{else}}
+        <div class="alert alert-warning"> {{t 'Geen transacties gevonden'}} </div>
+      {{/each}}
+      {{#if transactionGroup.transactions}}
+        <div class="row mt-3">
+          <div class="col-7">
+            {{t 'Totaal'}}
+          </div>
+          <div class="col-5">
+            <span> &euro; {{number-format transactionGroup.totalTransactionAmount}} </span>
+          </div>
+        </div>
+      {{/if}}
+      <hr>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.article-col {
+  display: flex;
+
+  > a {
+    display: flex;
+
+    > .ember-view {
+      display: flex;
+    }
+  }
+
+  > .ember-view {
+    display: flex;
+  }
+
+  .card-body {
+    flex-grow: 1;
+  }
+}

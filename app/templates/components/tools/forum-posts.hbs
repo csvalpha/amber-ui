@@ -1,0 +1,29 @@
+<div class="card tool">
+  <div class="card-header">
+    {{#link-to 'forum.index'}}
+      <h5 class="card-text">{{t "Forum"}}</h5>
+    {{/link-to}}
+  </div>
+
+  <ul class="list-group list-group-flush">
+    {{#each threads as |thread|}}
+      {{#link-to 'forum.categories.category.threads.thread.show' thread.category.id thread.id}}
+        <li class="list-group-item">
+          <span>
+            {{#if (thread-has-new-posts thread)}}
+              <div class="new-forum-posts status-dot"></div>
+            {{/if}}
+            {{#unless thread.isOpen}}
+              <i class="fa fa-lock" aria-hidden="true"></i>
+            {{/unless}}
+            {{thread.title}}
+          </span>
+        </li>
+      {{/link-to}}
+    {{else}}
+      <li class="list-group-item">
+        {{t 'Er zijn helaas geen forum topics!'}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

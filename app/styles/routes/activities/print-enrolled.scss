@@ -1,0 +1,54 @@
+.printsettings {
+  .card-body {
+    padding: 1rem;
+  }
+
+  .streeplijst-items {
+    margin-bottom: 5px;
+  }
+
+  .streeplijst-itemfield {
+    margin-bottom: 5px;
+  }
+}
+
+.table-collumn-narrow {
+  width: 1%;
+}
+
+.table-filler {
+  height: 46px;
+  color: $white;
+}
+
+.printarea {
+  margin: 12px;
+  border: 1px solid $black;
+  background-color: $white;
+  padding: 20px;
+  min-height: 100vh;
+  overflow: auto;
+
+  .no-print {
+    display: none;
+  }
+
+  .responses-table tr {
+    background-color: transparent;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none;
+  }
+
+  .responses-table tfoot tr {
+    background-color: transparent;
+  }
+
+  .table-filler {
+    height: 46px;
+    color: $white;
+  }
+}

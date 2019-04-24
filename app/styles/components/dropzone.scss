@@ -1,0 +1,195 @@
+@keyframes rotating {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dropzone.dropzone {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  align-items: center;
+  border: 1px solid $gray-200;
+  border-radius: 4px;
+  background: $gray-100;
+  padding: 10px;
+  min-height: 200px;
+
+  .dz-message {
+    align-self: center;
+    width: 100%;
+    text-align: center;
+  }
+
+  &.dz-started {
+    .dz-message {
+      display: none;
+    }
+  }
+}
+
+.dz-error-message {
+  display: none;
+  position: absolute;
+  top: 10px;
+  left: 24px;
+  z-index: 12;
+  margin-top: 0;
+  border-radius: 4px;
+  background-color: $gray-900;
+  padding: 5px;
+  max-width: 160px;
+  color: $white;
+  font-size: small;
+}
+
+.dz-preview.dz-preview {
+  @include make-col-ready();
+  @include make-col(6);
+
+  @include media-breakpoint-up(sm) {
+    @include make-col(4);
+  }
+
+  @include media-breakpoint-up(md) {
+    @include make-col(3);
+  }
+
+  border-radius: 4px;
+  padding-bottom: 10px;
+  overflow: hidden;
+
+  .dz-image {
+    z-index: 10;
+    border-radius: 4px;
+    width: 100%;
+    height: 200px;
+
+    img {
+      border-radius: 4px;
+      width: inherit;
+      height: inherit;
+      object-fit: cover;
+    }
+  }
+
+  .dz-details {
+    position: absolute;
+    margin-top: -40px;
+    margin-left: 16px;
+    border-radius: 16px;
+    background: $opaque-black-two-thirds;
+    padding: 4px;
+    padding-right: 16px;
+    padding-left: 32px;
+    height: 32px;
+    color: $white;
+  }
+
+  .dz-success-mark,
+  .dz-error-mark {
+    display: none;
+  }
+
+  %dropzone-indicator-circle {
+    position: absolute;
+    top: auto;
+    left: auto;
+    opacity: 1;
+    z-index: 11;
+    margin-top: -40px;
+    margin-left: 8px;
+    border-radius: 100%;
+    background: $black;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .dz-progress {
+    @extend %dropzone-indicator-circle;
+
+    .dz-upload {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      background: $brand-info;
+      width: 0;
+
+      &::after {
+        // display: none;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        animation: rotating 2s linear infinite;
+        border-width: 3px;
+        border-style: solid;
+        border-radius: 100%;
+        border-color: $white $white $white $transparent;
+        width: 12px;
+        height: 12px;
+        content: '';
+      }
+    }
+  }
+
+  &.dz-success {
+    .dz-upload {
+      background: $brand-success;
+
+      &::after {
+        position: absolute;
+        top: 8px;
+        left: 12px;
+        transform: rotate(45deg);
+        animation: none;
+        border-width: 3px;
+        border-style: hidden solid solid hidden;
+        border-radius: 0;
+        border-color: $white;
+        width: 8px;
+        height: 12px;
+        content: '';
+      }
+    }
+  }
+
+  &.dz-error {
+    .dz-error-message {
+      display: block;
+    }
+
+    .dz-upload {
+      background: $brand-danger;
+
+      &::after {
+        position: absolute;
+        top: -6px;
+        left: 21px;
+        transform: rotate(45deg);
+        animation: none;
+        border-width: 4px;
+        border-style: hidden;
+        border-radius: 0;
+        border-color: $transparent;
+        width: 10px;
+        height: 10px;
+        color: $white;
+        font-size: 32px;
+        font-weight: bold;
+        content: '+';
+      }
+    }
+  }
+}
+
+.dz-filename.dz-filename {
+  display: none;
+}

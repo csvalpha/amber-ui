@@ -1,0 +1,18 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{#page-actions-buttons pageActions=pageActions}}
+    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
+  {{/page-actions-buttons}}
+{{/ember-wormhole}}
+
+<div class="row">
+  {{#each pagedModel as |user|}}
+    {{!-- only pass id when force reload is required, see http://emberigniter.com/force-store-reload-data-api-backend/ --}}
+    {{#link-to 'users.show' user.id class="col-6 col-sm-4 col-md-3"}}
+      {{cards/membership-card title=user.fullName subtitle=user.study imageSource=user.avatarThumbUrlOrDefault }}
+    {{/link-to}}
+  {{/each}}
+</div>
+
+<div class="row justify-content-center">
+  {{page-numbers content=paginator}}
+</div>

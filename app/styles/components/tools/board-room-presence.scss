@@ -1,0 +1,40 @@
+.presence-label {
+  border-radius: 10rem;
+  padding: .25em .6em;
+  vertical-align: baseline;
+  text-align: center;
+  line-height: 1.5;
+  white-space: nowrap;
+  color: $white;
+  font-size: 75%;
+  font-weight: bold;
+}
+
+.board-room-presence-dropdown {
+  color: $white;
+}
+
+.label-present {
+  background-color: $brand-success;
+}
+
+.label-busy {
+  background-color: $brand-warning;
+}
+
+.label-absent {
+  background-color: $brand-danger;
+}
+
+.edit-presence {
+  background-color: $gray-100;
+
+  .edit-presence-row {
+    margin: 5px;
+  }
+
+  .presence-time-input {
+    margin: 0;
+    padding: 0;
+  }
+}

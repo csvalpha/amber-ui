@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-header">
+    <h5> {{if model.isNew 'Artikel aanmaken' 'Artikel wijzigen'}} </h5>
+  </div>
+  <div class="card-body">
+    <form {{action "submit" on="submit"}}>
+      {{#if model.publiclyVisible}}
+        <div class="alert alert-info" role="alert">
+          {{t 'Een publiek artikel is ook zichtbaar voor niet-leden.
+          Fijn dat je ook helpt om te laten zien dat Alpha een levendige boel is!
+          Houd hier wel rekening mee in je artikel.'}} <br>
+          {{t 'Plaats je een coverfoto met mensen er op? Zorg dan wel dat je toestemming van deze mensen hebt.'}}
+        </div>
+      {{/if}}
+      {{model-form/text-input       model=model property='title'            label=(t 'Titel') maxlength=50}}
+      {{model-form/checkbox-input   model=model property='publiclyVisible'  label=(t 'Publiek zichtbaar')}}
+      {{model-form/file-input      model=model property="coverPhoto"       label=(t "Coverfoto") fileLoaded=(action "coverPhotoLoaded")}}
+
+      <div class="form-group row">
+        <label class="col-md-2 form-control-label">{{t 'Namens groep of commissie'}}</label>
+
+        <div class="col-sm-10">
+          {{#power-select
+            options=groups
+            onchange=(action (mut model.group))
+            selected=model.group
+            searchField="name" as |group|}}
+            {{group.name}}
+          {{/power-select}}
+
+          {{form-control-feedback (get model.errors property)}}
+        </div>
+      </div>
+
+      {{model-form/md-input       model=model property="content" label=(t "Inhoud") required=true inputIdentifier='article-form-content'}}
+
+
+
+      {{#model-form/form-actions errors=model.errors  errorMessage=errorMessage}}
+        {{#link-to "index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+      {{/model-form/form-actions}}
+
+    </form>
+  </div>
+</div>

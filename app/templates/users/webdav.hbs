@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h5>{{t "Contactsynchronizatie"}}</h5>
+      </div>
+      <div class="card-body">
+        <p>
+          {{t 'Hier kan je alle informatie vinden voor de contactsynchronizatie.
+                Met de contactsynchronizatie is het mogelijk om alle Alpha leden (die hier toestemming voor hebben gegeven) automatisch in je telefoon/contactenlijst toe te voegen.
+                Hoe je deze gegevens kan synchronizeren verschilt per apparaat. Hoe je dit kan instellen kan je vinden via Informatie -> Contacten Synchroniseren.'}}
+        </p>
+        <hr>
+
+        {{#if webDavEnabled}}
+          <p>
+            {{t 'Je persoonlijke contactsynchronizatie link staat hier onder.
+                  Voeg deze url toe aan je contacten om automatisch alle leden in je telefoon te hebben.
+                  Indien je contacten applicatie om een gebruikersnaam/wachtwoord vraagt kunt u hier gewoon iets invullen (bijvoorbeeld alpha/alpha).'}}
+          </p>
+
+          <div class="alert alert-warning">
+            <b> {{t "Dit is een persoonlijke link en kan dus niet gedeeld worden met anderen."}} </b>
+          </div>
+          <p><code>{{webDavURL}}</code></p>
+
+        {{else}}
+          <div class="alert alert-danger">
+            <p>{{t "Je hebt de contact synchronizatie nog niet geactiveerd. Als je gebruik wilt maken zal je deze eerst moeten activeren."}}</p>
+            <p>{{t "Door de contactsynchronizatie te activeren ga je er akkoord mee dat jouw gegevens ook in de contactsynchronizatie komen."}}</p>
+
+            <button class="btn btn-primary" {{action 'generateWebdavSecret'}}>{{t 'Contactsynchronizatie activeren'}}</button>
+          </div>
+        {{/if}}
+
+      </div>
+    </div>
+  </div>
+</div>

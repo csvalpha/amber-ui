@@ -1,0 +1,15 @@
+{{#if model.hasResponses}}
+  <div class="alert alert-danger">
+    {{t 'Je kunt deze poll niet verwijderen, omdat er al reacties zijn!'}}
+  </div>
+  {{#link-to "polls.show" model class="btn btn-default"}}{{t "Terug"}}{{/link-to}}
+{{else}}
+  <p>{{t "Weet je zeker dat je deze poll ("}}{{model.question.question}}{{t ") wilt verwijderen?"}}</p>
+
+  <button {{action "destroy"}} class="btn btn-danger">{{t "Ja"}}</button>
+  {{#link-to "polls.show" model class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+
+  {{#if errorMessage}}
+    <div class="text-danger">{{errorMessage}}</div>
+  {{/if}}
+{{/if}}

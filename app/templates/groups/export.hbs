@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h5> {{model.name}} {{t '- Exporteren'}} </h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-warning">
+          {{t "Selecteer hier de gegevens die je wilt exporteren. Wees voorzichtig met het bestand dat je krijgt, er staan persoonsgegevens in."}}
+          <br>
+          {{t "Zorg dat je het bestand niet laat slingeren en weer helemaal verwijderd zodra je het niet meer nodig hebt voor het doel dat je hieronder aangeeft."}}
+          <br>
+          <br>
+          <strong>{{t "Van het ingevulde formulier wordt een kopie verstuurd aan privacy@csvalpha.nl. "}}</strong>
+        </div>
+
+        <div class="row mb-2">
+          {{#each userPropertyOptions as |option|}}
+            <div class="col-md-6">
+              <label class="form-check-label">
+                {{input type="checkbox" checked=option.isChecked}}
+                {{option.label}}
+                <div class="custom-checkmark"></div>
+              </label>
+            </div>
+          {{/each}}
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label>{{t 'Waarom exporteer je deze gegevens?'}}*</label>
+              {{textarea value=description type="text" placeholder="Reden van export" class="form-control" required=true}}
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mb-3" {{action "exportUsers"}} disabled={{exportButtonDisabled}}>
+          {{t 'Exporteren'}}
+        </button>
+        {{#link-to 'groups.show' model}}
+          <button type="button" class="btn btn-default mb-3" >{{t 'Annuleren'}}</button>
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>

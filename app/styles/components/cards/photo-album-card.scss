@@ -1,0 +1,11 @@
+.photo-album-card {
+  height: $photo-card-height;
+
+  img {
+    height: $photo-card-height;
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+}

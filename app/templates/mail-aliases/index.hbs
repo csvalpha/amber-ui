@@ -1,0 +1,50 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{#page-actions-buttons pageActions=pageActions}}
+    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
+  {{/page-actions-buttons}}
+{{/ember-wormhole}}
+
+<div class="card">
+  <div class="row rtable-row header d-none d-md-flex">
+    <span class="col-4"> {{t "E-mail"}} </span>
+    <span class="col-2"> {{t "Type"}} </span>
+    <span class="col-3"> {{t "Omschrijving"}} </span>
+    <span class="col-3"> {{t "Groep/Gebruiker"}} </span>
+  </div>
+
+  {{#each model as |mailAlias|}}
+    {{#link-to 'mail-aliases.show' mailAlias}}
+      <div class="row rtable-row">
+        <span class="col-12 col-md-4 rtable-item"> {{mailAlias.email}} </span>
+        <span class="col-12 col-md-2 rtable-item">
+          <span class="d-inline d-md-none text-muted">
+            {{t "ModeratieType: "}}
+          </span>
+          {{mailAlias.moderationType}}
+        </span>
+        <span class="col-12 col-md-3 rtable-item">
+          <span class="d-inline d-md-none text-muted">
+            {{t "Omschrijving: "}}
+          </span>
+          {{mailAlias.description}}
+        </span>
+
+
+        <span class="col-12 col-md-3 rtable-item">
+          <span class="d-inline d-md-none text-muted"> {{t "Groep/Gebruiker: "}} </span>
+          {{#if mailAlias.group}}
+            {{#link-to 'groups.show' mailAlias.group}}
+              <span class="text-muted"> {{fa-icon 'group'}} </span>
+              {{mailAlias.group.name}}
+            {{/link-to}}
+          {{else}}
+            {{#link-to 'users.show' mailAlias.user}}
+              <span class="text-muted"> {{fa-icon 'user'}} </span>
+              {{mailAlias.user.fullName}}
+            {{/link-to}}
+          {{/if}}
+        </span>
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>

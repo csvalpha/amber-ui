@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+    <div class="col-12 col-md-6">
+      <div class="card login-form">
+        <div class="card-header">
+          <h5 class="card-title pl-2">{{t "Inloggen met je Alpha Account"}}</h5>
+        </div>
+
+        <div class="card-block p-4">
+          <p>
+            {{t 'Door op "Inloggen" te klikken log je met je C.S.V. Alpha account in bij de volgende applicatie:'}}
+          </p>
+
+          <ul>
+            <li><strong>{{t 'Tomato – Streepsysteem der C.S.V. Alpha'}}</strong></li>
+          </ul>
+          <p>
+            {{t 'Deze applicatie krijgt daarmee nu en in de toekomst toegang tot een aantal van jouw gegevens, waaronder je volledige naam, e-mail adres en in welke groepen je zit.'}}
+          </p>
+
+          {{#if errorMessage}}
+            <div class="alert alert-danger mt-3" role="alert" data-test-error>
+              <p>{{t 'Er ging iets mis met het inloggen. Probeer een keer opnieuw in te loggen. Als dat niet helpt, neem contact op met de ICT-commissie.'}}</p>
+              <pre> {{t errorMessage}} </pre>
+            </div>
+          {{/if}}
+
+          <button class="btn btn-primary login-button" {{action 'authorize'}} id="button-login">
+            {{t "Inloggen"}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-self: center;
+}
+
+@media (min-width: #{map-get($grid-breakpoints, md)}) {
+  .social-buttons.ember-view {
+    flex-direction: row-reverse;
+    align-items: right;
+  }
+}
+
+.social-button {
+  margin: 5px 0;
+  width: 100%;
+  text-align: left;
+  color: $white;
+  font-size: 1rem;
+  font-weight: bold;
+
+  .social-media-icon {
+    left: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    color: $brand-primary-dark;
+  }
+
+  &.instagram {
+    background-color: $black;
+  }
+
+  &.facebook {
+    background-color: $facebook-blue;
+  }
+
+  &.twitter {
+    background-color: $twitter-blue;
+  }
+}

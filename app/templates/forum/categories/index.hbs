@@ -1,0 +1,36 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+<div class="card">
+  <div class="row rtable-row header d-none d-md-flex">
+    <span class="col"> {{t "Recente topics"}} </span>
+    <span class="col-3"> {{t "Auteur"}} </span>
+    <span class="col-1 rtable-ta-right"> {{t "#"}} </span>
+  </div>
+
+  {{#each model.recentThreads as |thread|}}
+    {{#link-to 'forum.categories.category.threads.thread.show' thread.category thread }}
+      <div class="row rtable-row">
+        <span class="col-12 col-md rtable-item"> {{forum/status-icon thread}} {{thread.title}} </span>
+        <span class="col-6 col-md-3 text-muted rtable-item"> {{#link-to 'users.show' thread.author.id}}{{ thread.author.fullName }}{{/link-to}} </span>
+        <span class="col-6 col-md-1 text-muted rtable-item rtable-ta-right"> {{ thread.amountOfPosts }} <span class="d-inline d-md-none"> {{t "reacties"}} </span> </span>
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>
+
+<div class="card">
+  <div class="row rtable-row header">
+    <span class="col"> {{t "Categorie"}} </span>
+    <span class="col-1 rtable-ta-right"> {{t "#"}} </span>
+  </div>
+  {{#each model.categories as |category|}}
+    {{#link-to 'forum.categories.category' category}}
+      <div class="row rtable-row">
+        <span class="col"> {{category.name}} </span>
+        <span class="col-1 rtable-ta-right"> {{category.amountOfThreads}} </span>
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>

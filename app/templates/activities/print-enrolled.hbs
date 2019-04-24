@@ -1,0 +1,107 @@
+<div class="card printsettings">
+  <div class="card-header card-header-with-tabs ">
+    <h5 class="pl-2">{{t "Afdrukinstellingen"}}</h5>
+    <div class="row tabs-with-filterbar-row">
+      <div class="col">
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link {{if (eq currentTab 'form') "active"}}" {{action "selectForm"}}>{{t "Inschrijflijst"}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{if (eq currentTab 'consumptionList') "active"}}" {{action "selectConsumptionList"}}>{{t "Streeplijst"}}</a>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          {{filter-bar class="mr-3" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-body">
+    <p class="card-text">
+      <form class="col-12">
+        {{#if (eq currentTab 'form')}}
+          <div class="form-check">
+            <label class="form-check-label">
+              {{input type="checkbox" checked=showAllergyInfo class="form-check-input"}}
+              {{t "Allergie info weergeven"}}
+              <div class="custom-checkmark"></div>
+            </label>
+          </div>
+
+        {{else if (eq currentTab 'consumptionList')}}
+          <div class="row">
+            <div class="col-12">
+              <b>{{t "Extra opties"}}</b> <br>
+              {{#sortable-group tagName="ul" class="list-group" onChange="reorderItems" as |group|}}
+                {{#each options as |option index|}}
+                  {{#sortable-item tagName="li" class="list-group-item" model=option group=group handle=".handle"}}
+                    <div class="row">
+                      <span class="col"> {{option}} </span>
+                      <a class="pl-2 link-highlight text-danger" {{action "removeOption" index}}> {{t "Verwijderen"}} </a>
+                      <i class="fa fa-sort handle text-muted pl-3 pr-3 pt-1" aria-hidden="true"></i>
+                    </div>
+                  {{/sortable-item}}
+                {{else}}
+                  {{t "Geen extra opties ingesteld"}}
+                {{/each}}
+              {{/sortable-group}}
+
+              <div class="input-group consumptionList-itemfield mt-2">
+                {{input value=newOption class="form-control" placeholder="Optie toevoegen" enter="addOption"}}
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button" {{action "addOption"}}><i class="fa fa-plus"></i></button>
+                </span>
+              </div>
+
+              <div class="form-group mt-3">
+                <label> <b> {{t "Extra lege rijen"}} </b> </label>
+                {{input type="number" value=additionalEmptyRows class="form-control" placeholder="Extra velden" min="0"}}
+              </div>
+
+              <div class="form-check">
+                <label class="form-check-label">
+                  {{input type="checkbox" checked=showRobertHofstra class="form-check-input"}}
+                  {{t "Robert Hofstra toevoegen"}}
+                  <div class="custom-checkmark"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+        <div class="form-check">
+          <label class="form-check-label">
+            {{input type="checkbox" checked=showCheckbox class="form-check-input"}}
+            {{t "Aanvinkhokje weergeven"}}
+            <div class="custom-checkmark"></div>
+          </label>
+        </div>
+
+        <button type="button" class="btn btn-secondary" {{action 'print'}}>{{t "Afdrukken"}}</button>
+        {{#link-to 'activities.show' model class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+      </form>
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header d-flex justify-content-between">
+    <h5> {{t "Afdrukvoorbeeld"}} </h5>
+    <span class="text-muted"> {{t "Voorbeeld kan afwijken van uiteindelijke resultaat"}} </span>
+  </div>
+  <div class="card-body">
+    <p id="printarea" class="printarea">
+      {{#if (eq currentTab 'form')}}
+        <h5>{{t "Inschrijvingen voor "}}{{model.title}}</h5>
+        {{form/responses-table model.form filteredModels showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox class="responses-table" }}
+      {{else if (eq currentTab 'consumptionList')}}
+        <h5>{{t "Streeplijst voor "}}{{model.title}}</h5>
+        {{form/consumption-list responses=model showCheckbox=showCheckbox options=options extraRows=extraRows showRobertHofstra=showRobertHofstra additionalEmptyRows=additionalEmptyRows}}
+      {{/if}}
+    </p>
+  </div>
+</div>

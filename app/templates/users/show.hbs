@@ -1,0 +1,66 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+{{#tabbed-view tabItems=tabItems}}
+  <div class="col-md order-12 order-md-1">
+    <div class="card-body table-responsive">
+      <p class="card-text">
+        <h2 data-test-fullName> {{t model.fullName}} </h2>
+        <table class="table table-sm">
+          <tr>
+            <td>{{t "Email"}}</td>
+            <td data-test-email><a href='mailto:{{model.email}}'>{{model.email}}</a></td>
+          </tr>
+          <tr>
+            <td>{{t "Telefoon"}}</td>
+            <td data-test-phoneNumber><a href='tel:{{model.phoneNumber}}'>{{model.phoneNumber}}</a></td>
+          </tr>
+          <tr>
+            <td>{{t "Adres"}}</td>
+            <td data-test-address>
+              <a href='https://maps.google.com?q={{model.address}},{{model.city}}'>{{model.address}}</a>
+            </td>
+          </tr>
+          <tr>
+            <td>{{t "Postcode"}}</td>
+            <td data-test-postcode>{{model.postcode}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Stad"}}</td>
+            <td data-test-city>{{model.city}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Geboortedatum"}}</td>
+            <td data-test-birthday>{{moment-format model.birthday 'DD-MM-YYYY'}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Studie"}}</td>
+            <td data-test-study>{{model.study}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Start studie"}}</td>
+            <td data-test-startStudy>{{moment-format model.startStudy 'DD-MM-YYYY'}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Dieetwensen"}}</td>
+            <td data-test-foodPreferences>{{model.foodPreferences}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Vegetariër"}}</td>
+            <td data-test-vegetarian>{{boolean-tag model.vegetarian}}</td>
+          </tr>
+          <tr>
+            <td>{{t "Voorkeur voor publicatie van afbeeldingen (mediabeleid)"}}</td>
+            <td data-test-picture-publication-preference>
+              {{humanize-picture-publication-preference model.picturePublicationPreference}}
+            </td>
+          </tr>
+        </table>
+      </p>
+    </div>
+  </div>
+  <div class="col-md-5 col-xs-12 order-1 order-md-12">
+    <img class="card-img-rounded" src="{{model.avatarUrlOrDefault}}">
+  </div>
+{{/tabbed-view}}

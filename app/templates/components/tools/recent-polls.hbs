@@ -1,0 +1,29 @@
+<div class="card tool">
+  <div class="card-header">
+    {{#link-to 'polls.index'}}
+      <h5 class="card-text">{{t "Polls"}}</h5>
+    {{/link-to}}
+  </div>
+
+  <ul class="list-group list-group-flush">
+    {{#each polls as |poll|}}
+      {{#link-to 'polls.show' poll}}
+        <li class="list-group-item">
+          <div class="d-flex justify-content-between">
+            <span>
+              {{#if poll.currentUserCanRespond}}
+                <div class="new-forum-posts status-dot"></div>
+              {{/if}}
+              {{poll.question.question}}
+            </span>
+            <span class="float-xs-right"> {{poll.form.amountOfResponses}} </span>
+          </div>
+        </li>
+      {{/link-to}}
+    {{else}}
+      <li class="list-group-item">
+        {{t 'Er zijn helaas geen recente polls!'}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

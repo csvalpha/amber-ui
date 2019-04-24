@@ -1,0 +1,1 @@
+/* Empty file for the service worker which is used in the notification service */

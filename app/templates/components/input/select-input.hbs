@@ -1,0 +1,6 @@
+<option disabled selected={{not value}}>{{t 'Selecteer'}} {{placeholder}}</option>
+{{#each options as |option|}}
+  <option value={{option.value}} selected={{eq value option.value}}>
+    {{option.label}}
+  </option>
+{{/each}}

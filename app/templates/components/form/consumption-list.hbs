@@ -1,0 +1,50 @@
+<table class="table table-bordered table-print">
+
+  <thead>
+    <tr>
+      {{#if showCheckbox}}
+        <th class="table-collumn-narrow"></th>
+      {{/if}}
+      <th>{{t "Naam"}}</th>
+      {{#each options as |option|}}
+        <th>{{option}}</th>
+      {{/each}}
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each responses as |response|}}
+      <tr>
+        {{#if showCheckbox}}
+          <td><i class="fa fa-square-o"></i></td>
+        {{/if}}
+        <td>{{response.user.fullName}}</td>
+        {{#each options}}
+          <td></td>
+        {{/each}}
+      </tr>
+    {{/each}}
+    {{#if showRobertHofstra}}
+      <tr>
+        {{#if showCheckbox}}
+          <td><i class="fa fa-square-o"></i></td>
+        {{/if}}
+        <td>{{t "Robert Hofstra"}}</td>
+        {{#each options}}
+          <td></td>
+        {{/each}}
+      </tr>
+    {{/if}}
+    {{#each (range 0 additionalEmptyRows)}}
+      <tr>
+        {{#if showCheckbox}}
+          <td><i class="fa fa-square-o"></i></td>
+        {{/if}}
+        <td class="table-filler"></td>
+        {{#each options}}
+          <td></td>
+        {{/each}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

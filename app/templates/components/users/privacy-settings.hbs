@@ -1,0 +1,99 @@
+<h5>{{t "Privacyinstellingen"}}</h5>
+<form class="form" {{action "submit" on="submit"}}>
+  {{#if isOwnUser}}
+    <div class="form-group row">
+      <label class="col-sm-6 col-form-label form-control-label">
+        {{t 'Profieldetails (contactgegevens, studie, geboortedatum en dieetwensen) delen'}}
+      </label>
+      <div class="col-sm-6">
+        {{input/select-input
+          class="form-control"
+          required=true
+          options=userDetailsPreferenceTypes
+          placeholder=""
+          value=model.userDetailsSharingPreference}}
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-10 col-sm-6 col-form-label form-control-label">
+        {{t 'Gegevens (naam, mailadres, geboortedatum) mogen gedeeld worden met het streepsysteem'}}
+      </label>
+      <div class="col-2 col-sm-6">
+        <div class="form-check">
+          <label class="form-check-label">
+            {{input
+              type="checkbox"
+              checked=model.allowTomatoSharing
+              disabled=canChangeTomatoSettings
+              class="form-check-input"}}
+            <div class="custom-checkmark"></div>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    {{#if model.allowTomatoSharing}}
+      <div class="alert alert-info">
+        {{t 'Het is alleen mogelijk deze instelling uit te zetten via het bestuur. Om dit te deactiveren moet uw saldo namelijk eerst 0 zijn.'}}
+      </div>
+    {{/if}}
+  {{/if}}
+
+  <div class="form-group row">
+    <label class="col-sm-6 col-form-label form-control-label">
+      {{t 'Mediabeleidvoorkeur'}}
+    </label>
+    <div class="col-sm-6">
+      {{input/select-input
+        data-test-picturePublicationPreferenceTypes
+        class="form-control"
+        required=true
+        options=picturePublicationPreferenceTypes
+        placeholder="Mediabeleidvoorkeur"
+        value=model.picturePublicationPreference}}
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-10 col-sm-6 col-form-label form-control-label">
+      {{t 'Gegevens mogen gedeeld worden met IFES'}}
+    </label>
+    <div class="col-2 col-sm-6">
+      <div class="form-check">
+        <label class="form-check-label">
+          {{input
+            data-test-ifesDataSharingPreference
+            type="checkbox"
+            checked=model.ifesDataSharingPreference
+            class="form-check-input"}}
+          <div class="custom-checkmark"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-10 col-sm-6 col-form-label form-control-label">
+      {{t 'Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak'}}
+    </label>
+    <div class="col-2 col-sm-6">
+      <div class="form-check">
+        <label class="form-check-label">
+          {{input
+            data-test-infoInAlmanak
+            type="checkbox"
+            checked=model.infoInAlmanak
+            class="form-check-input"}}
+          <div class="custom-checkmark"></div>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  {{#if formActionsVisible}}
+    {{#model-form/form-actions errors=model.errors errorMessage=errorMessage inputLayout='vertical'}}
+      {{#link-to "users.show" model class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+    {{/model-form/form-actions}}
+  {{/if}}
+</form>

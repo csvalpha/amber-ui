@@ -1,0 +1,47 @@
+.upcoming-birthdays-tool {
+  .upcoming-birthdays-tool-header {
+    background: 0;
+  }
+
+  .list-group-item {
+    background: 0;
+  }
+}
+
+.next-week-header {
+  background: $gray-100;
+  width: 100%;
+  font-weight: bold;
+}
+
+.current-birthday-holder {
+  display: flex;
+  align-items: center;
+
+  .current-user-birthday-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .current-birthday-name {
+    flex: 1;
+    margin-left: 10px;
+  }
+}
+
+.upcoming-birthday-holder {
+  display: flex;
+}
+
+.upcoming-birthday-name {
+  flex: 1;
+}
+
+.upcoming-birthday-date {
+  margin-right: 20px;
+}
+
+.birthday-today-holder {
+  background-image: url('/images/confetti.png');
+  background-size: cover;
+}

@@ -1,0 +1,8 @@
+<p>{{t "Weet je zeker dat je dit mail-alias ("}}{{model.email}}{{t ")  wil verwijderen?"}}</p>
+
+<button {{action "destroy"}} class="btn btn-danger">{{t "Ja"}}</button>
+{{#link-to "mail-aliases.show" model class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+
+{{#if errorMessage}}
+  <div class="text-danger">{{errorMessage}}</div>
+{{/if}}

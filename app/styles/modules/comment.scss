@@ -1,0 +1,21 @@
+.comment {
+  padding: 6px 12px;
+
+  .destroy-icon {
+    opacity: 0;
+  }
+
+  &:hover {
+    .destroy-icon {
+      opacity: 1;
+    }
+  }
+}
+
+.comment-content {
+  margin: 0 5px;
+  border-radius: 4px;
+  background-color: $gray-200;
+  padding: 8px;
+  padding-right: 24px;
+}

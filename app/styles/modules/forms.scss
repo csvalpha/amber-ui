@@ -1,0 +1,100 @@
+.form-actions {
+  margin-top: 10px;
+}
+
+.create-new-question {
+  background-color: $gray-100;
+}
+
+legend {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.vertical-label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.responses-table {
+  table {
+    margin-bottom: 0;
+  }
+
+  tfoot tr {
+    background-color: $gray-100;
+  }
+
+  tfoot th {
+    border-top: 2px solid $gray-200;
+    font-weight: normal;
+  }
+}
+
+.pika-single {
+  border-radius: 4px;
+}
+
+.pika-lendar {
+  border-radius: 4px;
+
+  .is-today .pika-button {
+    color: $brand-secondary;
+  }
+
+  .pika-button:hover {
+    box-shadow: none;
+    background-color: $brand-secondary;
+    color: $white;
+  }
+
+  .is-selected .pika-button {
+    box-shadow: none;
+    background-color: $brand-secondary;
+    color: $white;
+  }
+}
+
+.page-actions-buttons {
+  display: flex;
+  align-items: center;
+  height: $navbar-height;
+
+  .input-group-prepend {
+    border: 0;
+    padding-right: 1px;
+  }
+
+  .input-group-append {
+    border: 0;
+  }
+
+  .fa.input-group-text {
+    border: 0;
+    background-color: rgba(255, 255, 255, .5);
+  }
+
+  .filter-bar-filter {
+    margin-right: 1px;
+    border: 0;
+    background-color: rgba(255, 255, 255, .5);
+    padding: 0;
+    padding-left: 12px;
+  }
+
+  .input-group-append button {
+    border: 0;
+    background-color: rgba(255, 255, 255, .5);
+  }
+
+  .input-group-prepend button {
+    border: 0;
+    background-color: rgba(255, 255, 255, .5);
+  }
+
+  .form-check {
+    .form-control {
+      position: absolute;
+    }
+  }
+}

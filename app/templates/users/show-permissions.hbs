@@ -1,0 +1,11 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+{{#tabbed-view tabItems=tabItems}}
+  <h5>{{t "Persoonlijke rechten"}}</h5>
+  <div class="table-responsive">
+    {{permissions/permissions-table modelPermissions=model.userPermissions
+                                    inheritedPermissions=model.permissions}}
+  </div>
+{{/tabbed-view}}

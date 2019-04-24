@@ -1,0 +1,24 @@
+{{model-form/datetime-input   model=model property="respondFrom"  label=(t "Invullen vanaf")}}
+{{model-form/datetime-input   model=model property="respondUntil" label=(t "Invullen tot")}}
+
+
+<div class="form-group row">
+  <label class="col-sm-2 col-form-label form-control-label" for={{inputIdentifier}}>{{t "Vraag *"}}</label>
+  <div class="col-sm-10">
+    {{#if model.hasResponses}}
+      <div class="alert alert-danger">
+        {{t 'Je kunt de poll niet meer aanpassen, omdat er al reacties zijn.'}}
+      </div>
+    {{/if}}
+
+    {{#each model.sortedQuestions as |question|}}
+      {{#unless question.isDeleted}}
+        {{poll/closed-question question
+                               onAddOption=(action 'addOption')
+                               onDeleteOption=(action 'deleteOption')
+                               onMoveOptionUp=(action 'moveOptionUp')
+                               onMoveOptionDown=(action 'moveOptionDown')}}
+      {{/unless}}
+    {{/each}}
+  </div>
+</div>

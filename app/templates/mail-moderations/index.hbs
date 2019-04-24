@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>{{t "ID"}}</th>
+          <th>{{t "Datum"}}</th>
+          <th>{{t "Onderwerp"}}</th>
+          <th>{{t "Afzender"}}</th>
+          <th>{{t "Aan"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model as |storedMail|}}
+          <tr>
+            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.id}}{{/link-to}}</td>
+            <td>{{#link-to 'mail-moderations.show' storedMail}}{{moment-format storedMail.date 'ddd D MMM YYYY hh:mm'}}{{/link-to}}</td>
+            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.subject}}{{/link-to}}</td>
+            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.sender}}{{/link-to}}</td>
+            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.mailAlias.email}}{{/link-to}}</td>
+          </tr>
+        {{else}}
+          <tr>
+            <td colspan="5">{{t "Er zijn geen mails om te modereren"}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

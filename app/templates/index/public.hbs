@@ -1,0 +1,27 @@
+{{index/index-poster}}
+
+<div class="container-fluid index-header">
+  <img src='images/alphalogowhite-large.svg' class="image">
+</div>
+
+{{index/index-activities class="full-width"}}
+
+{{tools/static-pages class="full-width"}}
+
+{{index/index-promo-video}}
+
+{{index/index-action-buttons}}
+
+<div class="row">
+  <div class="col-xs col-md-12">
+    {{#if (not showStatic)}}
+      {{index/index-recent-news pagedModel}}
+      {{index/index-photos}}
+    {{/if}}
+
+    {{advertisement-tool row=true}}
+
+    {{index/index-about}}
+    {{index/index-stories}}
+  </div>
+</div>

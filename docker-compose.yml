@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    image: docker.csvalpha.nl/amber-ui:latest
+    labels:
+    - traefik.enable=true
+    - traefik.frontend.rule=Host:csvalpha.nl
+    - traefik.frontend.headers.STSSeconds=31536000
+    - traefik.frontend.headers.STSIncludeSubdomains=true
+    - traefik.frontend.headers.STSPreload=true
+    - traefik.frontend.headers.contentSecurityPolicy=<ember csp-headers --environment production>

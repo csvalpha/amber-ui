@@ -1,0 +1,26 @@
+.rtable-row {
+  margin-left: 0;
+  border-bottom: 1px solid $gray-200;
+  padding: 12px 18px;
+  width: 100%;
+  overflow: hidden;
+
+  .status-icon {
+    display: inline;
+    position: absolute;
+    margin-left: -18px;
+  }
+
+  .rtable-header-item {
+    white-space: nowrap;
+  }
+
+  .rtable-ta-right {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  &.header {
+    font-weight: bold;
+  }
+}

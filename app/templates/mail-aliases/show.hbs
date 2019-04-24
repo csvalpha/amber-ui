@@ -1,0 +1,65 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="row">
+        <div class="col-md">
+          <div class="card-header">
+            <h2>{{model.email}}</h2>
+          </div>
+          <div class="card-body table-responsive">
+            <p class="card-text">
+              <table class="table table-sm">
+                <tr>
+                  <td>{{t "E-mail"}}</td>
+                  <td><a href='mailto:{{model.email}}'>{{model.email}}</a></td>
+                </tr>
+                <tr>
+                  <td>{{t "Moderatietype"}}</td>
+                  <td>{{model.moderationType}}</td>
+                </tr>
+                <tr>
+                  <td>{{t "Moderator"}}</td>
+                  <td>
+                    {{#if model.moderatorGroup}}
+                      {{#link-to 'groups.show' model.moderatorGroup}}{{model.moderatorGroup.name}}{{/link-to}}
+                    {{else}}
+                      --
+                    {{/if}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>{{t "Omschrijving"}}</td>
+                  <td>{{model.description}}</td>
+                </tr>
+                <tr>
+                  <td>{{t "Groep"}}</td>
+                  <td>
+                    {{#if model.group}}
+                      {{#link-to 'groups.show' model.group}}{{model.group.name}}{{/link-to}}
+                    {{else}}
+                      --
+                    {{/if}}
+                  </td>
+                </tr>
+                <tr>
+                  <td>{{t "Gebruiker"}}</td>
+                  <td>
+                    {{#if model.user}}
+                      {{#link-to 'users.show' model.user}}{{model.user.fullName}}{{/link-to}}
+                    {{else}}
+                      --
+                    {{/if}}
+                  </td>
+                </tr>
+              </table>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

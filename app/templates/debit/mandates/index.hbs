@@ -1,0 +1,32 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{#page-actions-buttons pageActions=pageActions}}
+    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
+  {{/page-actions-buttons}}
+{{/ember-wormhole}}
+
+<div class="card">
+  <div class="row rtable-row header d-none d-md-flex">
+    <span class="col-3"> {{t "ID"}} </span>
+    <span class="col-3"> {{t "Startdatum"}} </span>
+    <span class="col-3"> {{t "Einddatum"}} </span>
+    <span class="col-3"> {{t "Gebruiker"}} </span>
+  </div>
+
+  {{#each pagedModel as |mandate|}}
+    {{#link-to 'debit.mandates.show' mandate}}
+      <div class="row rtable-row">
+        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "ID: "}} </span> <b> {{mandate.id}} </b> </span>
+        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "Startdatum: "}} </span>{{moment-format mandate.startDate 'DD-M-YYYY'}} </span>
+        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "Einddatum: "}} </span> {{moment-format mandate.endDate 'DD-M-YYYY'}} </span>
+
+        {{#link-to 'users.show' mandate.user}}
+          <span class="col-8 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "Gebruiker: "}} </span> {{mandate.user.fullName}} </span>
+        {{/link-to}}
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>
+
+<div class="row justify-content-center">
+  {{page-numbers content=paginator}}
+</div>

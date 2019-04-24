@@ -1,0 +1,23 @@
+{{#if editable}}
+  <label class="form-check-label">
+    {{input type="checkbox" class="form-check-input" name=permission.name checked=hasPermission}}
+    {{permission.action}}
+    <div class="custom-checkmark"></div>
+  </label>
+{{else}}
+  {{#if (or hasPermission hasInheritedPermission)}}
+    <span class="badge {{if hasPermission "badge-success" "badge-info"}}">
+      {{#if hasPermission}}
+        <span class="fa fa-check"></span>
+      {{else}}
+        <span class="fa fa-group"></span>
+      {{/if}}
+      {{permission.action}}
+    </span>
+  {{else}}
+    <span class="badge badge-default">
+      <span class="fa fa-times"></span>
+      {{permission.action}}
+    </span>
+  {{/if}}
+{{/if}}

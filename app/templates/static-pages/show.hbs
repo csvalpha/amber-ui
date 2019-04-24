@@ -1,0 +1,14 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+<div class="card">
+  <div class="card-header">
+    <h1>{{model.title}}</h1>
+  </div>
+  <div class="card-body">
+    <p>
+      {{markdown-to-html model.contentCamofied extensions='youtubeEmbed bootstrapTable'}}
+    </p>
+  </div>
+</div>

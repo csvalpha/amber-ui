@@ -1,0 +1,41 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+<div class="row justify-content-center">
+  {{page-numbers content=model.posts}}
+</div>
+
+{{#each model.posts.content as |post index| }}
+  {{#unless post.isDeleted}}
+    {{forum/forum-post post newContent=newContent quoteAction=(action 'goToLastPageAndScrollDown') data-test-forum-post=post.id}}
+  {{/unless}}
+{{/each}}
+
+{{#if currentPageIsLastPage}}
+  {{#unless model.thread.isOpen}}
+    <div class="alert alert-danger" role="alert">
+      <strong>{{t "Dit topic is gesloten!"}}</strong>
+      {{#if (can 'create post for forum/thread' model.thread)}}
+        {{t "Jij kunt echter nog wel reageren omdat je moderatierechten hebt."}}
+      {{else}}
+        {{t "Je kunt niet meer reageren."}}
+      {{/if}}
+    </div>
+  {{/unless}}
+
+  {{#if (can 'create post for forum/thread' model.thread)}}
+    <div class="card">
+      <div class="card-header">
+        <h5>{{t "Reageren"}}</h5>
+      </div>
+      <div class="card-body">
+        {{forum/forum-post-new thread=model.thread content=newContent onSave='refreshModelsAndRedirectToLastPage'}}
+      </div>
+    </div>
+  {{/if}}
+{{/if}}
+
+<div class="row justify-content-center">
+  {{page-numbers content=model.posts}}
+</div>

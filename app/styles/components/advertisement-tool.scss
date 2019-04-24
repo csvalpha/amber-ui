@@ -1,0 +1,68 @@
+.advertisement-holder {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0 20px;
+
+  .advertisement-item {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 15px;
+    width: 33%;
+    min-width: 120px;
+
+    img {
+      justify-content: center;
+      width: 100%;
+      height: inherit;
+    }
+  }
+}
+
+.advertisement-tool {
+  width: 100%;
+}
+
+.adv-row {
+  max-height: 120px;
+}
+
+// CSS3 code for animation of advertisements
+$amount-of-advertisements: 8;
+$single-advertisement-width: 150px;
+$advertisement-animation-duration: 15s;
+$advertisement-animation-holder-width: -$amount-of-advertisements * $single-advertisement-width;
+$advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-advertisement-width);
+
+@keyframes bannermoves {
+  0% { margin-left: $advertisement-animation-holder-width; }
+  100% { margin-left: 0; }
+}
+
+@include media-breakpoint-down(md) {
+  .adv-container {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .adv-row {
+    width: $advertisement-row-width;
+
+    &:hover {
+      .firstAdv {
+        animation-play-state: paused;
+      }
+    }
+
+    &:first-child {
+      animation: bannermoves $advertisement-animation-duration linear infinite;
+      margin-left: 0;
+    }
+  }
+
+  .advertisement-item {
+    margin: 0;
+    width: $single-advertisement-width;
+  }
+}

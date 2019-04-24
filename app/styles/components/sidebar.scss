@@ -1,0 +1,145 @@
+$sidebar-width: 256px;
+
+.sidebar {
+  display: block;
+  position: fixed;
+  z-index: -2;
+  border-left: 1px solid $gray-300;
+  background-color: $gray-200;
+  padding-top: $navbar-height;
+  width: $sidebar-width;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sidebar-open {
+  z-index: -1;
+}
+
+.sidebar-right {
+  top: 0;
+  right: 0;
+  max-height: 100%;
+}
+
+.sidebar-left {
+  top: 0;
+  left: 0;
+  background-color: $gray-200;
+  overflow-y: scroll;
+
+  .left-menu-holder {
+    padding: 10px 10px 64px;
+  }
+}
+
+.menu-sidebar {
+  .nav-item {
+    display: block;
+    margin-top: 12px;
+    color: $white;
+
+    &.active {
+      color: $brand-primary-dark;
+    }
+  }
+}
+
+.panel {
+  transition: margin ease-in-out .3s;
+
+  .panel-overlay {
+    margin-bottom: -50px;
+    background-color: $gray-100;
+  }
+
+  .panel-close-overlay {
+    position: fixed;
+    z-index: 1;
+    padding-top: $navbar-height;
+  }
+}
+
+.panel-slide-right {
+  margin-left: $sidebar-width;
+
+  .panel-close-overlay {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.panel-slide-left {
+  margin-left: -$sidebar-width;
+
+  .panel-close-overlay {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sidebar-holder {
+  transition: flex ease-in-out .3s;
+}
+
+.sidebar-holder-collapsed {
+  flex: 0 0 0%;
+}
+
+.full-page-qp {
+  padding-right: 5px;
+  padding-bottom: .75rem;
+  padding-left: 10px;
+}
+
+.sidebar-menu-title {
+  border-bottom: 2px solid $gray-500;
+  padding-left: 8px;
+  width: 100%;
+  text-transform: uppercase;
+  color: $gray-500;
+  font-size: $font-size-sm;
+}
+
+.sidebar-menu-item {
+  display: flex;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  width: 100%;
+  color: $gray-800;
+  font-weight: bold;
+}
+
+@media (min-width: #{map-get($grid-breakpoints, lg)}) {
+  .panel-slide-left {
+    margin-left: 0;
+
+    .panel-overlay {
+      border-right: 15px solid $gray-200;
+    }
+  }
+
+  .sidebar-right {
+    margin-right: -$sidebar-width;
+  }
+
+  .sidebar-holder-collapsed {
+    .sidebar-right {
+      z-index: 0;
+    }
+  }
+
+  .sidebar-open {
+    margin-right: 15px;
+  }
+
+  .sidebar {
+    transition: margin ease-in-out .3s;
+  }
+
+  .panel-close-overlay {
+    display: none;
+  }
+}

@@ -1,0 +1,55 @@
+<div class="menu-sidebar {{if layoutManager.leftSideBarOpen 'left-sidebar-open'}} {{if layoutManager.leftSideBarExpanded 'expanded'}}">
+
+  {{#ember-wormhole to="ember-wormhole-destination"}}
+    <div class="close-left-sidebar-panel {{if layoutManager.leftSideBarOpen 'open'}}" {{action 'closeLeftSidebar'}}> </div>
+  {{/ember-wormhole}}
+
+  <div class="menu-items-holder">
+    {{!-- the first sidebar item is a dropdown, otherwise show login item --}}
+    {{#if session.isAuthenticated}}
+      <div class="menu-sidebar-item link" {{action 'toggleProfileMenu'}}>
+        <img class="menu-sidebar-item-icon profile-picture profile-picture-xs" src={{session.currentUser.avatarThumbUrlOrDefault}}>
+        <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{session.currentUser.firstName}}</span>
+        {{fa-icon "angle-down" class=(concat (concat "profile-menu-arrow " (if profileMenuOpen 'open')) (if layoutManager.leftSideBarExpanded ' visible'))}}
+      </div>
+    {{else}}
+      {{menu-sidebar-item link="login"     hasPermission=true       icon="sign-in"        title=(t 'tag.button.signin')}}
+    {{/if}}
+
+    <div class="profile-menu {{if layoutManager.profileMenuOpen 'open'}}">
+      {{menu-sidebar-item link="users.show"         hasPermission=(can 'show activities')           icon="user"         title=(t 'mixin.menuItems.profile')         minor=true  linkArgument=session.currentUser.id}}
+      {{menu-sidebar-item link="mail-aliases"       hasPermission=(can 'show mail-aliases')         icon="envelope-o"   title=(t 'mixin.menuItems.mailaliases')     minor=true  }}
+      {{menu-sidebar-item link="mail-moderations"   hasPermission=(can 'show mail-moderations')     icon="envelope-o"   title=(t 'mixin.menuItems.mailModerations') minor=true  }}
+      {{menu-sidebar-item link="users"              hasPermission=(can 'show users')                icon="users"        title=(t 'mixin.menuItems.users')           minor=true  }}
+      {{menu-sidebar-item link="debit.collections"  hasPermission=(can 'show debit/collections')    icon="credit-card"  title=(t 'mixin.menuItems.collections')     minor=true  }}
+      {{menu-sidebar-item link="debit.mandates"     hasPermission=(can 'show debit/mandates')       icon="money"        title=(t 'mixin.menuItems.mandates')        minor=true  }}
+
+      {{!-- Link to alpha-tomato --}}
+      <a class="link" href="https://streep.csvalpha.nl" target="_blank">
+        {{menu-sidebar-item link=""     hasPermission=session.isAuthenticated       icon="beer"        title=(t 'mixin.menuItems.tomato')        minor=true  }}
+      </a>
+
+      {{!-- Logout --}}
+      <a class="link" {{action 'invalidateSession'}}>
+        {{menu-sidebar-item link=""     hasPermission=session.isAuthenticated       icon="sign-out"        title=(t 'tag.button.signout')        minor=true  }}
+      </a>
+    </div>
+
+    {{menu-sidebar-item link="index"              hasPermission=true                              icon="home"         title=(t 'mixin.menuItems.home')         }}
+    {{menu-sidebar-item link="articles"           hasPermission=(can 'show articles')             icon="newspaper-o"  title=(t 'mixin.menuItems.articles')    }}
+    {{menu-sidebar-item link="activities"         hasPermission=(can 'show activities')           icon="calendar"     title=(t 'mixin.menuItems.activities') }}
+    {{menu-sidebar-item link="forum"              hasPermission=(can 'show forum/categories')     icon="comments"     title=(t 'mixin.menuItems.forum')        }}
+    {{menu-sidebar-item link="photo-albums"       hasPermission=(can 'show photo-albums')         icon="picture-o"    title=(t 'mixin.menuItems.photoAlbums')  }}
+    {{menu-sidebar-item link="polls"              hasPermission=(can 'show polls')                icon="check-circle" title=(t 'mixin.menuItems.polls')        }}
+    {{menu-sidebar-item link="groups"             hasPermission=(can 'show groups')               icon="users"        title=(t 'mixin.menuItems.groups')      }}
+    {{menu-sidebar-item link="users.members"      hasPermission=(can 'show users')                icon="user"         title=(t 'mixin.menuItems.members')        }}
+    {{menu-sidebar-item link="static-pages"       hasPermission=(can 'show static-pages')         icon="info-circle"  title=(t 'mixin.menuItems.staticPages')        }}
+
+  </div>
+
+  <div class="menu-sidebar-item d-none d-md-flex">
+    <span class="menu-sidebar-item-icon expand-menu-sidebar-btn link" {{action 'toggleLeftSidebarExpansion'}}>
+      {{fa-icon "chevron-right"}}
+    </span>
+  </div>
+</div>

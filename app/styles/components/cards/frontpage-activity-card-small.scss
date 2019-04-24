@@ -1,0 +1,56 @@
+.frontpage-activity-card-small {
+  box-shadow: none;
+  background-color: $white;
+  cursor: pointer;
+  overflow: hidden;
+  color: $white;
+
+  .frontpage-card-image {
+    transition: background-color .3s ease-in-out;
+    background-color: $gray-800;
+    background-position: center;
+    background-size: cover;
+    height: 120px;
+    background-blend-mode: overlay;
+  }
+
+  .activity-card-title {
+    transition: color .3s ease-in-out;
+    margin-top: 8px;
+    color: $white;
+    font-size: .8rem;
+    font-style: normal;
+  }
+
+  &:hover {
+    .frontpage-card-image {
+      background-color: $gray-900;
+    }
+
+    .card-title {
+      color: $brand-primary-dark;
+    }
+  }
+
+  .date-holder {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    color: $black;
+
+    .day-of-month {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .month-abbrev {
+      margin-top: -15px;
+    }
+
+    .time {
+      color: $gray-600;
+    }
+  }
+}

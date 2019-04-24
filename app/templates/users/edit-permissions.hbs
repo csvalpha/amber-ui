@@ -1,0 +1,10 @@
+{{#tabbed-view tabItems=tabItems}}
+  <form class="form" {{action "submit" on="submit"}}>
+    <h5>{{t "Permissies"}}</h5>
+    {{permissions/permissions-table modelPermissions=model.userPermissions editable=true}}
+
+    {{#model-form/form-actions errors=model.errors errorMessage=errorMessage inputLayout='vertical'}}
+      {{#link-to "users.show-permissions" model class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+    {{/model-form/form-actions}}
+  </form>
+{{/tabbed-view}}

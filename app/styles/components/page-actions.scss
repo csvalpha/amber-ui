@@ -1,0 +1,174 @@
+
+.page-actions {
+  margin-bottom: 15px;
+  background-color: $transparent;
+  padding: 0;
+
+  .pagination {
+    margin-top: 0;
+    margin-bottom: 0;
+    height: inherit;
+  }
+}
+
+.page-action {
+  margin-left: 4px;
+}
+
+.default-page-actions {
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.sort-list-group {
+  width: inherit;
+}
+
+.sort-list-holder {
+  width: inherit;
+}
+
+.sort-list-dropdown {
+  margin: 0;
+  padding: 0;
+  padding-right: 0;
+  padding-left: 0;
+
+  &:hover {
+    background-color: $white;
+  }
+}
+
+.sort-list-item {
+  border: 0;
+
+  .checkmark {
+    margin-right: 10px;
+  }
+
+  &.active {
+    background-color: $brand-primary-transparent-halfly;
+    color: $brand-primary-dark;
+
+    .list-group-item-text {
+      color: $brand-primary-dark;
+    }
+  }
+
+  &:first-child {
+    border-radius: 0;
+  }
+
+  &:last-child {
+    border-radius: 0;
+  }
+
+  &:hover {
+    background-color: $gray-200;
+  }
+}
+
+.filter-bar-sorted-attribute {
+  display: flex;
+  flex-direction: column;
+  border: 0;
+  padding: 0;
+
+  .sort-list-item {
+    width: 100%;
+    text-align: left;
+  }
+
+  .dropdown-item {
+    color: $brand-primary-dark;
+  }
+}
+
+.filter-bar-sorted-attribute:last-child {
+  border-radius: 0;
+}
+
+.sort-bar-list {
+  padding-right: 2px;
+  width: inherit;
+
+  li {
+    &:hover {
+      background-color: $brand-primary-transparent-halfly;
+      color: $brand-primary-dark;
+    }
+  }
+}
+
+.dropdown-divider {
+  margin: 0;
+}
+
+.dropdown-header {
+  font-size: 1rem;
+}
+
+.checkbox-holder {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 0;
+  padding-top: .4rem;
+  padding-bottom: 0;
+  color: $black;
+
+  .filter-bar-dropdown-checkbox {
+    margin-top: 5px;
+    margin-right: 10px;
+    width: 15px;
+  }
+
+  label {
+    display: flex;
+  }
+}
+
+.dropdown-menu {
+  min-width: 14rem;
+}
+
+.tabs-with-filterbar-row {
+  border-bottom: 1px solid $gray-200;
+
+  .nav-tabs {
+    border-bottom: 0;
+  }
+
+  .nav-link {
+    &:hover {
+      border-bottom: 0;
+    }
+
+    &.active {
+      border-bottom: 3px solid $white;
+    }
+  }
+}
+
+.custom-page-action-button {
+  margin-bottom: 5px;
+}
+
+.filter-bar button {
+  margin-bottom: .5px;
+  border: 1px solid $gray-400;
+
+  &::after {
+    display: none;
+  }
+}
+
+.breadcrumb {
+  margin-bottom: 0;
+  margin-left: 10px;
+  background-color: $transparent;
+  padding: 0;
+  padding-bottom: 0;
+  height: $navbar-height;
+}

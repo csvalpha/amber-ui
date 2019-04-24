@@ -1,0 +1,22 @@
+.file-picker {
+  border: 1px solid $gray-200;
+  border-radius: 4px;
+  background-color: $gray-100;
+  padding: 10px;
+
+  &.over {
+    background-color: $gray-200;
+  }
+}
+
+.file-picker__preview img {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.image-upload-text {
+  align-self: center;
+  width: 100%;
+  text-align: center;
+}

@@ -1,0 +1,13 @@
+{{#if hasPermission}}
+  {{#if (and link linkArgument)}}
+    {{#link-to link linkArgument invokeAction=(action "closeAfterNavigation")}}
+      {{menu-sidebar-link minor=minor title=title icon=icon}}
+    {{/link-to}}
+  {{else if link}}
+    {{#link-to link invokeAction=(action "closeAfterNavigation")}}
+      {{menu-sidebar-link minor=minor title=title icon=icon}}
+    {{/link-to}}
+  {{else}}
+    {{menu-sidebar-link minor=minor title=title icon=icon}}
+  {{/if}}
+{{/if}}

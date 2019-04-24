@@ -1,0 +1,114 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{#page-actions-buttons pageActions=pageActions}}
+    <div class="col col-md-auto page-action">
+      <button class="btn btn-primary" {{action "goToPreviousPhoto"}}>
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col col-md-auto page-action">
+      <button class="btn btn-primary" {{action "goToNextPhoto"}}>
+        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <div class="col col-md-auto page-action">
+      <a class="btn btn-primary col" href="{{model.imageUrl}}" download="{{model.id}}">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <span class="d-none d-md-inline"> {{t 'Foto downloaden'}} </span>
+      </a>
+    </div>
+  {{/page-actions-buttons}}
+{{/ember-wormhole}}
+
+<div class="d-flex justify-content-center align-items-center">
+  <img src={{model.imageUrl}} class="photo-large">
+</div>
+
+{{#if (can 'show individual users')}}
+  <p class="text-right text-muted">
+    {{t 'Foto geüpload door'}}
+    {{#link-to 'users.show' model.uploader}}
+      {{model.uploader.fullName}}
+    {{/link-to}}
+
+    {{#if model.hasExif}}
+      <button class="ml-1 btn btn-sm btn-outline-info" data-toggle="collapse" data-target="#collapsibleExif" type="button">
+        {{t 'Show Exif'}}
+      </button>
+    {{else}}
+      <button class="ml-1 btn btn-sm btn-outline-info disabled" type="button">
+        {{t 'No Exif'}}
+      </button>
+    {{/if}}
+  </p>
+
+  <div class="collapse" id="collapsibleExif">
+    <div class="card card-body">
+      <table class="table table-sm table-responsive">
+        <tr>
+          <th>{{t 'Make'}}</th>
+          <th>{{t 'Model'}}</th>
+          <th>{{t 'Original Datetime'}}</th>
+          <th>{{t 'Exposure'}}</th>
+          <th>{{t 'Aperture'}}</th>
+          <th>{{t 'ISO'}}</th>
+          <th>{{t 'Copyright'}}</th>
+          <th>{{t 'Lens'}}</th>
+          <th>{{t 'Zoom'}}</th>
+        </tr>
+        <tr>
+          <td>{{model.exifMake}}</td>
+          <td>{{model.exifModel}}</td>
+          <td>{{moment-format model.exifDateTimeOriginal 'DD-MM-YYYY HH:MM'}}</td>
+          <td>{{model.exifExposureTime}}</td>
+          <td>
+            {{#if model.exifApertureValue}}
+              {{t 'f/'}}{{model.exifApertureValue}}
+            {{/if}}
+          </td>
+          <td>{{model.exifIsoSpeedRatings}}</td>
+          <td>{{model.exifCopyright}}</td>
+          <td>{{model.exifLensModel}}</td>
+          <td>
+            {{#if model.exifFocalLength}}
+              {{model.exifApertureValue}}{{t 'mm'}}
+            {{/if}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+{{/if}}
+
+{{#if (can 'show photo comments of photo' model)}}
+  <div class="card">
+    <div class="card-header">
+      <h5> {{t 'Reacties'}} </h5>
+    </div>
+    <div class="card-body">
+      <div class="col">
+        <div class="photo-comments">
+          {{#each model.comments as |comment|}}
+            <div class="row"> {{user-comment comment data-test-photo-comment=comment.id}} </div>
+          {{else}}
+            <span class="text-muted no-comment-text"> {{t "Er zijn nog geen reacties"}} </span>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{#if (can 'create photo-comments')}}
+      <div class="card-footer">
+        {{#if model.photoAlbum.publiclyVisible}}
+          <div class="alert alert-info">
+            {{t "Deze foto is ook te zien voor niet-leden, dat geldt ook voor de reacties die er geplaatst worden. Het is natuurlijk heel fijn om te laten zien hoe actief Alpha is, maar houd er wel rekening mee als je wat plaatst. "}}
+          </div>
+        {{/if}}
+        <div class="input-group new-photo-comment">
+          {{input value=content class="form-control" placeholder="Typ hier je reactie" minlength="1" maxlength="500" enter=(action "submitPhotoComment" photo) id="new-photo-comment-input"}}
+          <span class="input-group-btn">
+            <button class="btn btn-default" {{action "submitPhotoComment"}}>{{t "Reageren"}}</button>
+          </span>
+        </div>
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

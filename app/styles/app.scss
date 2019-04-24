@@ -1,0 +1,68 @@
+// Set variables
+@import 'variables';
+
+// Compile bootstrap
+@import 'ember-bootstrap/bootstrap';
+
+// Import components
+// The styling is used in one component only
+// the filename should have the same name as the component
+@import 'components/advertisement-tool';
+@import 'components/basic-modal';
+@import 'components/bread-crumbs';
+@import 'components/cards/frontpage-activity-card-small';
+@import 'components/cards/membership-card';
+@import 'components/cards/photo-album-card';
+@import 'components/dropzone';
+@import 'components/flash-notice';
+@import 'components/forum/forum-post';
+@import 'components/footer';
+@import 'components/md-editor';
+@import 'components/menu-sidebar';
+@import 'components/navbar';
+@import 'components/page-actions';
+@import 'components/pagination';
+@import 'components/quickpost';
+@import 'components/sidebar';
+@import 'components/social-media-buttons';
+@import 'components/tools/board-room-presence';
+@import 'components/tools/upcoming-birthdays';
+@import 'components/tools/upcoming-activities';
+@import 'components/tools/forum-tool';
+@import 'components/tools/recent-photo-comments';
+
+// Import Modules
+// The styling is used throughout multiple pages and components
+@import 'modules/base';
+@import 'modules/button';
+@import 'modules/card';
+@import 'modules/checkbox';
+@import 'modules/comment';
+@import 'modules/dropdown';
+@import 'modules/forms';
+@import 'modules/image-upload';
+@import 'modules/profile-picture';
+@import 'modules/rtable';
+@import 'modules/table';
+@import 'modules/tabs';
+@import 'modules/tags';
+@import 'modules/text';
+@import 'modules/tools';
+@import 'modules/video';
+
+// Import pages
+// The styling is used in one route only
+// The filename should have the same name as the route
+@import 'routes/418-im-a-teapot';
+@import 'routes/activities/print-enrolled';
+@import 'routes/articles';
+@import 'routes/index';
+@import 'routes/loading';
+@import 'routes/login';
+@import 'routes/photos';
+@import 'routes/photo-comments';
+@import 'routes/polls';
+
+// Import package style
+@import 'ember-power-select/themes/bootstrap';
+@import 'ember-power-select';

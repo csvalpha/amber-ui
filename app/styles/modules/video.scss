@@ -1,0 +1,25 @@
+// source: https://jonsuh.com/blog/responsive-youtube-vimeo-embed-and-html5-video-with-css/
+.js-video {
+  position: relative;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  padding-top: 25px;
+  padding-bottom: 67.5%;
+  height: 0;
+  overflow: hidden;
+
+  &.widescreen {
+    padding-bottom: 56.34%;
+  }
+
+  embed,
+  iframe,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

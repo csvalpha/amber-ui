@@ -1,0 +1,19 @@
+.badge {
+  padding: 5px 10px;
+
+  &:hover {
+    color: $white;
+  }
+
+  &.administrative-group {
+    background-color: $brand-hidden;
+  }
+}
+
+.status-dot {
+  display: inline-block;
+  margin-right: 4px;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+}

@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h5>{{t "Alpha-agenda"}}</h5>
+      </div>
+      <div class="card-body">
+        <div class="alert alert-info">
+          <p>{{t "Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst in je agenda-programma je oude Alpha-agenda te verwijderen voordat je de nieuwe agenda-url toevoegt."}}</p>
+          <p>{{t "Hoe je de agenda in Google Calendar importeert staat"}} <a href="https://support.google.com/calendar/answer/37100">{{t "hier"}}</a> {{t "uitgelegd."}}</p>
+        </div>
+        <form class="row" id="activityCategoryForm" {{action "updateICalURL" on="change"}}>
+
+          {{#each activityCategoryOptions as |option|}}
+            <div class="col-sm-12 col-md-3">
+              <label class="form-check-label">
+                {{input type="checkbox" name=option.value checked="checked" class="form-check-input"}}
+                {{option.label}}
+                <div class="custom-checkmark"></div>
+              </label>
+            </div>
+          {{/each}}
+
+          <div class="col-sm-2">
+            <button class="btn" type="button" name="checkAll" {{action "toggleCheckAll"}}>{{if checkedAll "Deselecteer alles" "Selecteer alles" }}</button>
+          </div>
+        </form>
+
+        <hr>
+
+        <p>{{t "Je persoonlijke iCal-link voor Alpha-activiteiten staat hier onder. Voeg deze url toe aan je agenda om op de hoogte te blijven van Alpha-activiteiten. Wijzig hierboven eventueel welke agenda's je allemaal wilt volgen." }}</p>
+
+        <div class="alert alert-warning">
+          <b> {{t "Dit is een persoonlijke link en kan dus niet gedeeld worden met anderen."}} </b>
+        </div>
+        <p><a href='{{webcalURL}}'><code>{{iCalURL}}</code></a> </p>
+
+      </div>
+    </div>
+  </div>
+</div>

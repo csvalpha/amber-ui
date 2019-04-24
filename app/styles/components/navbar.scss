@@ -1,0 +1,118 @@
+.header-nav {
+  position: fixed;
+  top: 0;
+  transition: background-color .5s ease-in-out;
+  z-index: 5;
+  background-color: $brand-primary;
+  width: 100vw;
+  height: $navbar-height;
+
+  .navbar {
+    flex-wrap: nowrap;
+    height: inherit;
+  }
+}
+
+.navbar-authenticated {
+  background-color: $dies-blue;
+  color: $dies-gold;
+
+  .btn-primary {
+    border-color: $dies-gold;
+    background-color: $dies-gold;
+    color: $dies-blue;
+  }
+
+  .header-logo {
+    background-image: url('/images/dies-logo.png');
+  }
+}
+
+.navbar-nav {
+  overflow-x: scroll;
+  height: calc(100% + 20px);
+  min-height: calc(100% + 20px);
+}
+
+.navbar-contents-holder {
+  align-items: center;
+  width: calc(100% - 52px);
+  height: $navbar-height;
+}
+
+.navbar-overflow-wrapper {
+  flex: 1;
+  height: $navbar-height;
+  max-height: $navbar-height;
+  overflow: hidden;
+}
+
+.header-logo {
+  transition: background-image .5s ease-in-out;
+  margin: 0;
+  background-image: url('/images/alphalogonotext.svg');
+  background-size: contain;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.nav-item {
+  margin-left: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color: $black;
+}
+
+.profile-button {
+  float: right;
+}
+
+.profile-picture {
+  height: 40px;
+}
+
+.btn-locale {
+  transition: none;
+  margin-right: 24px;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 32px;
+  height: 16px;
+}
+
+.left-sidebar-toggle {
+  position: absolute;
+  left: -10px;
+  font-size: 1.5rem;
+}
+
+.navbar-brand {
+  margin-right: .5rem;
+}
+
+@media all and (max-width: #{map-get($grid-breakpoints, md)}) {
+  .btn-locale {
+    margin-right: 10px;
+    margin-left: -20px;
+  }
+}
+
+.btn-inverse-locale-nl {
+  background-image: url('/images/flag-locale-en.png');
+}
+
+.btn-inverse-locale-nl:active {
+  background-image: url('/images/flag-locale-en.png');
+}
+
+.btn-inverse-locale-en {
+  background-image: url('/images/flag-locale-nl.png');
+}
+
+.btn-inverse-locale-en:active {
+  background-image: url('/images/flag-locale-nl.png');
+}

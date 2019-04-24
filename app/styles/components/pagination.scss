@@ -1,0 +1,39 @@
+.pagination {
+  border: 1px solid $gray-300;
+  border-radius: .25rem;
+  background: $white;
+  height: inherit;
+}
+
+.page-item {
+  .page-link {
+    border: 0;
+    background: 0;
+    color: $opaque-black-two-thirds;
+
+    &.previous {
+      color: $gray-600;
+    }
+
+    &.next {
+      color: $gray-600;
+    }
+  }
+
+  &.active {
+    .page-link {
+      border: 0;
+      background: 0;
+      color: $brand-secondary;
+      font-weight: bold;
+    }
+  }
+
+  &.disabled {
+    .page-link {
+      border: 0;
+      background: 0;
+      color: $opaque-black-halfly;
+    }
+  }
+}

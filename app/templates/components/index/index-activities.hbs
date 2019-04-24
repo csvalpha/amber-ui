@@ -1,0 +1,49 @@
+<div class="index-activities">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-8 col-lg-9">
+        <h1 class="text-xl"> {{t 'component.index.activities.slogan'}} </h1>
+        <p class="info-text">
+          {{t 'component.index.activities.info'}}
+        </p>
+
+        {{#link-to 'static-pages.show' 'c-s-v-alpha' class="btn btn-lg frontpage-button--light"}}{{t 'Lees meer over de vereniging'}}{{/link-to}}
+      </div>
+
+      {{social-media-buttons class="col-xs col-md-4 col-lg-3 social-buttons"}}
+    </div>
+
+    {{#if activities}}
+      <hr>
+      <h2 class="pb-2"> {{t 'component.index.activities.title'}} </h2>
+      <div class="row">
+        {{#each activities as |activity index|}}
+          <div class="col-12 col-md-6 col-lg-4">
+            {{cards/frontpage-activity-card-small activity class=(if (gt index 5) 'hidden-sm-down') action=(action "openModal" activity)}}
+          </div>
+        {{/each}}
+      </div>
+    {{/if}}
+  </div>
+</div>
+
+{{#if modalIsOpen}}
+  {{#ember-wormhole to="ember-wormhole-destination"}}
+    <div class="modal d-block">
+      <div class="activity-modal-backdrop" {{action "closeModal"}}> </div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-image-header" style={{modalImageStyle}}></div>
+            <h2 class="modal-title"> {{modalTitle}} </h2>
+            <p> <i> {{modalLocation}} </i> </p>
+            {{markdown-to-html modalText extensions='youtubeEmbed bootstrapTable'}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" {{action "closeModal"}}> {{t 'tag.button.close'}} </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/ember-wormhole}}
+{{/if}}

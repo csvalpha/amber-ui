@@ -1,0 +1,44 @@
+.link {
+  cursor: pointer;
+}
+
+.link-highlight {
+  cursor: pointer;
+
+  &:hover {
+    color: $brand-primary;
+  }
+}
+
+.link-no-hightlight {
+  cursor: pointer;
+
+  &:hover {
+    color: $black;
+  }
+}
+
+.emojione {
+  height: 25px;
+}
+
+.code {
+  font-family: 'Courier New', monospace;
+}
+
+.alert-text {
+  align-self: center;
+  padding-right: 10px;
+  padding-left: 0;
+}
+
+blockquote {
+  margin: 1.5em 10px;
+  border-left: 5px solid $gray-200;
+  background-color: $gray-100;
+  padding: .5em 10px;
+}
+
+.badge-default {
+  background-color: $gray-600;
+}

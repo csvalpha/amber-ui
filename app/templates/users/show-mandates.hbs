@@ -1,0 +1,36 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+{{#tabbed-view tabItems=tabItems}}
+  <h5>{{t "Incasso mandaten"}}</h5>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td class="col-md-4">{{t 'Mandaat nummer'}}</td>
+        <td class="col-md-4">{{t 'IBAN nummer'}}</td>
+        <td class="col-md-2">{{t 'Start datum'}}</td>
+        <td class="col-md-2">{{t 'Eind datum'}}</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each model.mandates as |mandate|}}
+        <tr>
+          <td>
+            {{#link-to 'debit.mandates.show' mandate}}
+              {{t mandate.id}}
+            {{/link-to}}
+          </td>
+          <td>{{mandate.iban}}</td>
+          <td>{{moment-format mandate.startDate 'DD-M-YYYY'}}</td>
+          <td>{{moment-format mandate.endDate 'DD-M-YYYY'}}</td>
+        </tr>
+      {{else}}
+        <div class="alert alert-warning col-xs">
+          {{t 'Geen mandaten gevonden'}}
+        </div>
+      {{/each}}
+    </tbody>
+  </table>
+{{/tabbed-view}}

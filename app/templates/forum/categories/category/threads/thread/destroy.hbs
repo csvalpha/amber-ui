@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-header">
+    <h5> {{t "Topic verwijderen"}} </h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text">
+      {{t "Weet je zeker dat je dit forumtopic ("}}{{model.title}}{{t ") wilt verwijderen?"}}
+    </p>
+    {{#if errorMessage}}
+      <div class="text-danger">{{errorMessage}}</div>
+    {{/if}}
+  </div>
+  <div class="card-footer">
+    <button {{action 'destroy'}} class="btn btn-danger">{{t 'Ja'}}</button>
+    {{#link-to "forum.categories.category.threads.thread.show" model class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+  </div>
+</div>

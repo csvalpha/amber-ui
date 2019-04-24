@@ -1,0 +1,19 @@
+.photo-tool {
+  .card-body {
+    padding-top: 0;
+  }
+
+  .featured-picture {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 60px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .picture-link {
+    padding: 1px;
+    height: 60px;
+  }
+}

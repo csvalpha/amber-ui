@@ -1,0 +1,93 @@
+<div class="board-room-presence-dropdown page-action">
+  {{#bs-button type="primary"}}
+    {{fa-icon "coffee"}}
+    <span class="d-none d-md-inline"> {{t "Bestuurskamer"}} </span>
+    <span class="status-dot label-{{overallStatus}}"></span>
+
+    {{#bs-popover triggerEvents="focus" placement="bottom" title=(t "Aanwezig in de BK")}}
+      {{#each sortedPresences as |presence|}}
+        <div class="py-1">
+          <div class="d-block">
+            {{#link-to 'users.show' presence.user.id}}
+              <small><b> {{presence.user.fullName}} </b></small>
+            {{/link-to}}
+          </div>
+          <span class="presence-label label-{{presence.status}}">
+            {{presence.label}} {{t 'van'}} {{moment-format presence.startTime 'HH:mm'}} {{t 'tot'}} {{moment-format presence.endTime 'HH:mm'}}
+          </span>
+        </div>
+      {{else}}
+        <div class="pt-2">
+          {{t "Er is niemand aanwezig"}}
+        </div>
+      {{/each}}
+      {{#if (can 'create board-room-presences')}}
+        <a class="dropdown-divider"> </a>
+        <span class="d-flex">
+          <button class="btn btn-secondary mb-2 mt-3 update-presence-button" {{action "setPresenceModalState" "open"}}>
+            {{t "Beschikbaarheid updaten"}}
+          </button>
+        </span>
+      {{/if}}
+    {{/bs-popover}}
+  {{/bs-button}}
+</div>
+
+{{#if presenceModalIsOpen}}
+  {{#ember-wormhole to="ember-wormhole-destination"}}
+    {{#basic-modal title="Bestuurskamer beschikbaarheid opgeven" closeModal=(action "setPresenceModalState" "closed") submit=(action "save") submitText="Beschikbaarheid opslaan" submitDisabled=saveButtonDisabled}}
+      {{#if sortedPresences}}
+        <table class="table">
+          <tr>
+            <th> {{t "Persoon" }} </th>
+            <th> {{t "Status"}} </th>
+            <th> {{t "Tot"}} </th>
+            <th> </th>
+          </tr>
+          {{#each sortedPresences as |presence|}}
+            <tr>
+              <td> {{presence.user.fullName}} </td>
+              <td> {{presence.label }} </td>
+              <td> {{moment-format presence.endTime "HH:mm"}} </td>
+              <td>
+                {{#if (can 'destroy board-room-presences')}}
+                  <button class="btn btn-danger" aria-hidden="true" {{action "deletePresence"}}> {{fa-icon "trash"}} </button>
+                {{/if}}
+              </td>
+            </tr>
+          {{/each}}
+        </table>
+      {{else}}
+        <div class="alert alert-info">
+          {{t "Er zijn geen bestuursleden aanwezig"}}
+        </div>
+      {{/if}}
+
+      {{#if currentUserPresence}}
+        {{t 'Status'}}
+        {{input/select-input
+          class='form-control col-xs-12 presence-select'
+          required=true
+          options=statusOptions
+          placeholder=(t 'Status')
+          value=currentUserPresence.status}}
+        {{t "Van"}}
+        {{input/time-input
+          dateValue=currentUserPresence.startTime
+          class='col-xs-12 presence-time-input'
+          inputClass="form-control"
+          placeholder=currentUserPresence.startTime
+          required=true}}
+        {{t 'Tot'}}
+        {{input/time-input
+          dateValue=currentUserPresence.endTime
+          class='col-xs-12 presence-time-input'
+          inputClass="form-control"
+          placeholder=currentUserPresence.endTime
+          required=true}}
+      {{else}}
+        <button class="btn btn-secondary" {{action "newPresence"}}> {{t "Nieuw"}} </button>
+      {{/if}}
+    {{/basic-modal}}
+  {{/ember-wormhole}}
+{{/if}}

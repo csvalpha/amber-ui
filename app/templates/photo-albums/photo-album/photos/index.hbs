@@ -1,0 +1,22 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions}}
+{{/ember-wormhole}}
+
+<div class="row">
+  {{#each sortedPhotos as |photo|}}
+    <div class="col-md-3 col-xs-6 photo-album-image-card">
+      {{#link-to 'photo-albums.photo-album.photos.show' photo}}
+        {{#if photo.amountOfComments}}
+          <span class="comments-counter badge badge-info">
+            <i class="fa fa-comments"></i> {{photo.amountOfComments}}
+          </span>
+        {{/if}}
+        <img class="image" src="{{photo.imageThumbUrl}}">
+      {{/link-to}}
+    </div>
+  {{else}}
+    <div class="alert alert-warning">
+      {{#link-to photo-albums.photo-album.edit model}}{{t "Geen foto's gevonden, wil je die toevoegen?"}}{{/link-to}}
+    </div>
+  {{/each}}
+</div>

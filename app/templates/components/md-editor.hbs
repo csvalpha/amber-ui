@@ -1,0 +1,27 @@
+{{md-editor/md-editor-toolbar
+  editMode=(mut editMode)
+  applyStyleOptionAction=(action 'applyStyle')
+  openModalAction=(action 'openModal') }}
+
+{{#if editMode}}
+  {{textarea id=textareaIdentifier value=content class=textareaClass rows="15"}}
+{{else}}
+  <div class="alert alert-info" role="alert">
+    {{t 'Heb je een foto ingevoegd in dit artikel? Deze worden pas getoond als je het artikel hebt opgeslagen.'}}
+  </div>
+  {{markdown-to-html content extensions='youtubeEmbed bootstrapTable'}}
+{{/if}}
+
+
+{{#bs-modal-simple
+  open=modalOpen
+  fade=true
+  title=modalOption.name
+  submitTitle=(t "Invoegen")
+  closeTitle=(t "Sluiten")
+  onSubmit=(action "applyStyle" modalOption modalInput)
+  onHidden=(action (mut modalOpen) false)}}
+
+  {{modalOption.modal.question}}<br>
+  {{input type="text" class="form-control" id="md-editor-modal-input" value=modalInput}}
+{{/bs-modal-simple}}

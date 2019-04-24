@@ -1,0 +1,73 @@
+<article>
+  <div class="card">
+    <div class="card-header {{if activity.coverPhotoUrl 'card-header--overlay' 'card-header--no-overlay'}}">
+      {{#if activity.coverPhotoUrl}}
+        <img class="card-img-top" src={{activity.coverPhotoUrl}}>
+      {{/if}}
+      <div class="card-title-bar gradient-overlay">
+        <div class="hidden-xs-down">
+          {{#if activity.group}}
+            <img src="{{activity.group.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{activity.group.fullName}}" height="60px" style="display: inline;">
+          {{else}}
+            <img src="{{activity.author.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{activity.author.fullName}}" height="60px" style="display: inline;">
+          {{/if}}
+        </div>
+        <div class="card-titles">
+          <h2 class="card-title" data-test-activity-title>{{activity.title}}</h2>
+          <h3 class="card-subtitle">
+            <span class="subtitle-author" data-test-activity-author>
+              {{#if activity.group}}
+                {{#link-to 'groups.show' activity.group class="link-to card-subtitle-link"}}
+                  {{t activity.group.name}}
+                {{/link-to}}
+              {{else}}
+                {{#link-to 'users.show' activity.author class="link-to card-subtitle-link"}}
+                  {{activity.author.fullName}}
+                {{/link-to}}
+              {{/if}}
+            </span>
+
+          </h3>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row card-subheader-row ml-0 mr-0">
+      {{#if moreInfo}}
+        <div class="col-12 col-md-6 card-subheader-item align-items-center p-3">
+          <i class="fa fa-clock-o"></i>
+          <span data-test-activity-startTime>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
+          {{t 'tot'}}
+          <span data-test-activity-endTime>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
+        </div>
+        <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
+          <i class="fa fa-map-marker"></i> <span data-test-activity-location> <a href="https://maps.google.com/?q={{activity.location}}" target="_blank"> {{activity.location}} </a></span>
+        </div>
+        <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
+          <i class="fa fa-money"></i> &plusmn; &euro; <span data-test-activity-price>{{activity.formattedPrice}}</span>
+        </div>
+        <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
+          <i class="fa fa-calendar"></i>
+          <span data-test-activity-category>{{activity.formattedCategory}}</span>
+        </div>
+      {{else}}
+        <div class="col-12 col-md-8 card-subheader-item align-items-center p-3">
+          <i class="fa fa-clock-o"></i>
+          <span>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
+          {{t 'tot'}}
+          <span>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
+        </div>
+        <div class="col-12 col-md-4 card-subheader-item align-items-center p-3">
+          <i class="fa fa-map-marker"></i> <span> <a href="https://maps.google.com/?q={{activity.location}}" target="_blank"> {{activity.location}} </a></span>
+        </div>
+      {{/if}}
+    </div>
+
+    <div class="card-body">
+      <p class="card-text" data-test-activity-description>
+        {{markdown-to-html activity.descriptionCamofied extensions='youtubeEmbed bootstrapTable'}}
+      </p>
+    </div>
+  </div>
+</article>

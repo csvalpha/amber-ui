@@ -1,0 +1,126 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions}}
+{{/ember-wormhole}}
+
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <div class="card-header">
+        <h5> {{model.name}} {{#if model.administrative}} <span class="badge administrative-group"> {{t 'Administratieve groep'}} </span> {{/if}} </h5>
+      </div>
+      <div class="row">
+        <div class="col-md order-12 order-md-1">
+          <div class="card-body">
+            <i class="card-subtitle">{{model.recognitionPeriod}}</i>
+            <p class="card-text">{{markdown-to-html model.descriptionCamofied extensions='youtubeEmbed bootstrapTable'}}</p>
+          </div>
+        </div>
+        <div class="col-md-5 col-xs-12 order-1 order-md-12">
+          <img class="card-img-rounded" src="{{model.avatarUrlOrDefault}}" >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{#if (and (can 'show memberships') model.memberships)}}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header card-header-with-tabs">
+          <div class="row tabs-with-filterbar-row">
+            <div class="col order-12 order-md-1">
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link {{unless oldMembershipsTabActive 'active' }} {{if (eq currentMemberships.length 0) 'disabled'}}" {{action "hideOldMemberships"}}> {{t 'Leden'}}</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{if oldMembershipsTabActive 'active' }} {{if (eq oldMemberships.length 0) 'disabled'}}" {{action "showOldMemberships"}}> {{t 'Oud-leden'}}</a>
+                </li>
+              </ul>
+            </div>
+            {{filter-bar class="order-1 order-md-12 col-12 col-md-4 pb-1" filter=filter sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending enter=(action "selectFirstItem")}}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row userlist">
+            {{#each filteredModels as |membership|}}
+              {{#link-to 'users.show' membership.user class="col-6 col-sm-4 col-md-3"}}
+                {{#cards/membership-card title=membership.user.fullName imageSource=membership.user.avatarThumbUrlOrDefault subtitle=membership.function}}
+                  <small>
+                    {{moment-format membership.startDate 'DD-MM-YYYY'}} -
+                    {{#if membership.endDate}}
+                      {{moment-format membership.endDate 'DD-MM-YYYY'}}
+                    {{else}}
+                      {{t "heden"}}
+                    {{/if}}
+                  </small>
+                {{/cards/membership-card}}
+              {{/link-to}}
+            {{else}}
+              <div class="alert alert-warning col-xs">
+                {{t 'Geen leden of oud-leden gevonden'}}
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+{{#if (and (can 'show mail-aliases') model.mailAliases)}}
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h5>{{t "Mail aliassen"}}</h5>
+        </div>
+        <div class="card-body table-responsive">
+          <p class="card-text">
+            <div class="row rtable-row header d-none d-md-flex">
+              <span class="col-4">{{t 'Alias'}}</span>
+              <span class="col-5">{{t 'Beschrijving'}}</span>
+              <span class="col-2">{{t 'Moderatietype'}}</span>
+              {{#if (can 'edit mail-aliases')}}
+                <span class="col-1"></span>
+              {{/if}}
+            </div>
+
+            {{#each model.mailAliases as |alias|}}
+              <div class="row rtable-row">
+                <span class="col-12 col-md-4 rtable-item">{{t alias.email}}</span>
+                <span class="col-12 col-md-5 rtable-item">{{t alias.description}}</span>
+                <span class="col-12 col-md-2 rtable-item">{{t alias.moderationType}}</span>
+                {{#if (can 'edit mail-aliases')}}
+                  {{#link-to 'mail-aliases.edit' alias}}
+                    <span class="col-12 col-md-1 rtable-item">
+                      <button type="button" class="btn btn-danger">
+                        <i class="fa fa-pencil"></i>
+                      </button>
+                    </span>
+                  {{/link-to}}
+                {{/if}}
+              </div>
+            {{/each}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+{{#if (can 'create groups-permissions')}}
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h5>{{t "Groepsrechten"}}</h5>
+        </div>
+        <div class="card-body table-responsive">
+          <p class="card-text">
+            {{permissions/permissions-table modelPermissions=model.permissions}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

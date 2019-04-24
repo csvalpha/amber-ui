@@ -1,0 +1,112 @@
+// Basic colors
+$brand-primary:             #ffd218; //yellow
+$brand-primary-dark:        #e0b400; //dark yellow
+$brand-secondary:           #b9182c; //darkred
+$brand-info:                #6889cc; //blue
+$brand-warning:             #ff9904; //orange
+$brand-success:             #00af43; //green
+$brand-danger:              #ba211c; //red
+$brand-hidden:              #6c0894; //purple
+$facebook-blue:             #3b5998;
+$twitter-blue:              #4099ff;
+
+$dies-blue:                 #2e3186;
+$dies-gold:                 #daa520;
+
+// grayscales (white to black)
+$white:                     #fff;
+$black:                     #000;
+
+// transparent colors
+$transparent:               rgba(0, 0, 0, 0);
+$opaque-black-tenth:        rgba(0, 0, 0, .1);
+$opaque-black-halfly:       rgba(0, 0, 0, .5);
+$opaque-black-two-thirds:   rgba(0, 0, 0, .66);
+$opaque-black-dark:         rgba(0, 0, 0, .9);
+$opaque-white-halfly:       rgba(255, 255, 255, .5);
+$brand-primary-transparent-halfly: rgba(255, 210, 24, .3);
+
+$photo-card-height: 200px;
+
+// also set the color scheme for Bootstrap
+$theme-colors: (
+  primary: $brand-primary,
+  secondary: $brand-secondary,
+  success: $brand-success,
+  info: $brand-info,
+  warning: $brand-warning,
+  danger: $brand-danger,
+  light: #efefef,
+  dark: #333
+);
+
+// sizes
+$image-input-max-height:     100pt;
+$image-input-max-width:      600pt;
+$navbar-height:              56px;
+
+// pixel value used to responsively scale all typography, applied to the `<html>` element.
+$font-size-root:            15px;
+
+$font-size-base:            1rem !default;
+$font-size-lg:              1.25rem !default;
+$font-size-sm:              .875rem !default;
+$font-size-xs:              .75rem !default;
+
+$font-size-h1:               2rem !default;
+$font-size-h2:               1.8rem !default;
+$font-size-h3:               1.6rem !default;
+$font-size-h4:               1.4rem !default;
+$font-size-h5:               1.1rem !default;
+$font-size-h6:               1rem !default;
+
+$card-profile-picture-small-size: 40pt;
+$card-profile-picture-medium-size: 50pt;
+$card-profile-picture-large-size: 80pt;
+
+// Grid breakpoints
+//
+// Define the minimum and maximum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$enable-flex:               true;
+
+$grid-breakpoints: (
+  // Extra small screen / phone
+  xs: 0,
+  // Small screen / phone
+  sm: 544px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1400px
+);
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+  sm: 580px,
+  md: 940px,
+  lg: 1180px,
+  xl: 1300px
+);
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns:               12 !default;
+$grid-gutter-width:          1.875rem; // 30px
+
+// fonts
+$font-family-sans-serif:    'nunito sans', Arial, sans-serif;
+$font-family-serif:         Georgia, 'Times New Roman', Times, serif;
+$font-family-headers:       'nunito sans', Arial, sans-serif;
+$font-weight-headers:       700;
+$font-weight-nav-items:     700;
+$font-family-monospace:     Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-base:          $font-family-sans-serif;

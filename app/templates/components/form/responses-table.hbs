@@ -1,0 +1,34 @@
+<thead>
+  <tr>
+    {{#if showCheckbox}}
+      <th class="table-collumn-narrow"></th>
+    {{/if}}
+    <th> {{t 'Naam'}} </th>
+    {{#each form.sortedQuestions as |question|}}
+      <th> {{question.question}} </th>
+    {{/each}}
+    {{#if showAllergyInfo}}
+      <th>{{t 'dieetwensen'}}</th>
+      <th>{{t 'vegetariër'}}</th>
+    {{/if}}
+  </tr>
+</thead>
+
+<tbody>
+  {{#each responses as |response|}}
+    {{#if response.completed}}
+      {{form/responses-table-row form response showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox}}
+    {{/if}}
+  {{else}}
+    <tr>
+      <td colspan="100%">
+        <div class="alert alert-warning">
+          {{t 'Geen inschrijvingen die voldoen aan de huidige filteropties.'}}
+        </div>
+      </td>
+    </tr>
+  {{/each}}
+</tbody>
+<tfoot>
+  {{form/responses-table-totals form showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox}}
+</tfoot>

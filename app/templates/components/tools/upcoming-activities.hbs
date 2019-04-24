@@ -1,0 +1,36 @@
+<div class="card tool">
+  <div class="card-header">
+    <div class="d-flex justify-content-between">
+      {{#link-to 'activities.index'}}
+        <h5 class="card-text">{{t "Komende activiteiten"}}</h5>
+      {{/link-to}}
+      <div class="col-xs-1 tool-actions">
+        <a href="#">
+          <i class="fa fa-question tool-action link-highlight" id="upcoming-activities-help"></i>
+
+          {{#bs-popover triggerEvents="focus" placement="bottom"}}
+            <div class="d-block"><div class="status-dot badge-info"></div> {{t 'Inschrijving open'}}</div>
+            <div class="d-block"><div class="status-dot badge-success"></div> {{t 'Ingeschreven'}} / {{t 'vrij toegankelijk'}}</div>
+            <div class="d-block"><div class="status-dot badge-danger"></div> {{t 'Niet ingeschreven'}}</div>
+            <div class="d-block"><div class="status-dot badge-default"></div> {{t 'Inschrijving nog niet open'}}</div>
+          {{/bs-popover}}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    {{#each activities as |activity|}}
+      {{#link-to 'activities.show' activity}}
+        <li class="list-group-item">
+          <span class="activity-tool-title "> {{activity.title}} </span> <br>
+          <span class="activity-tool-start-time text-muted"> {{form/status-dot activity.form}} {{activity.formattedStartDate}} </span>
+        </li>
+      {{/link-to}}
+    {{else}}
+      <li class="list-group-item">
+        {{t 'Er zijn helaas geen komende activiteiten'}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

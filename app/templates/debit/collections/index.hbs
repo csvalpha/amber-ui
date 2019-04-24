@@ -1,0 +1,25 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{#page-actions-buttons pageActions=pageActions}}
+    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
+  {{/page-actions-buttons}}
+{{/ember-wormhole}}
+
+<div class="card">
+  <div class="row rtable-row header d-none d-md-flex">
+    <span class="col"> {{t "Naam"}} </span>
+    <span class="col-3"> {{t "Datum"}} </span>
+  </div>
+
+  {{#each pagedModel as |collection|}}
+    {{#link-to 'debit.collections.show' collection}}
+      <div class="row rtable-row">
+        <span class="col-12 col-md-9 rtable-item"> {{collection.name}} </span>
+        <span class="col-8 col-md-3 text-muted rtable-item"> {{moment-format collection.date 'DD-M-YYYY'}} </span>
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>
+
+<div class="row justify-content-center">
+  {{page-numbers content=paginator}}
+</div>

@@ -1,0 +1,50 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{#page-actions-buttons pageActions=pageActions}}
+    {{tools/board-room-presence}}
+    <div class="col col-md-auto page-action d-md-none">
+      {{#link-to "quickpost"}}
+        <button type="button" class="btn btn-primary" title={{t "quickpost"}}>
+          {{fa-icon "comments-o"}}
+          <span class="d-none d-md-inline"> {{t "Quickpost"}} </span>
+        </button>
+      {{/link-to}}
+    </div>
+  {{/page-actions-buttons}}
+{{/ember-wormhole}}
+
+<div class="article-cards-wrapper full-width-small-screens pl-3 pl-md-0">
+  <div class="row pb-3 horizontal-scroll-container">
+    {{#each pagedModel as |article|}}
+      {{cards/frontpage-article-card article class="col-10 col-sm-8 col-lg-4"}}
+    {{/each}}
+  </div>
+</div>
+
+<div class="d-flex full-width-small-screens">
+  {{advertisement-tool}}
+</div>
+
+<div class="row pt-4">
+  <div class="col-7 d-none d-md-block">
+    {{quick-post}}
+  </div>
+  <div class="col-12 col-md-5">
+    {{#if (can 'show activities')}}
+      {{tools/closing-activities}}
+      {{tools/upcoming-activities }}
+    {{/if}}
+    {{#if (can 'show users')}}
+      {{tools/upcoming-birthdays}}
+    {{/if}}
+    {{#if (can 'show forum/posts')}}
+      {{tools/forum-posts }}
+    {{/if}}
+    {{#if (can 'show polls')}}
+      {{tools/recent-polls}}
+    {{/if}}
+    {{#if (can 'show photo-comments')}}
+      {{tools/recent-photo-comments}}
+    {{/if}}
+    {{tools/daily-verse}}
+  </div>
+</div>

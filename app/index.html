@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>C.S.V. Alpha</title>
+    <meta name="description" content="Alpha is dé christelijke studentenvereniging van Enschede. In onze eigen sociëteit Flux aan de Oude Markt houden we van goede gesprekken onder het genot van een biertje.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    {{content-for "head"}}
+
+    <!-- additional functions for iOS, adding to homescreen will now make it look like an app -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C.S.V. Alpha">
+
+    <!-- chrome for android and PWA-->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="apple-touch-icon" href="{{rootURL}}images/alphalogo_ios.jpg">
+
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/alpha-amber.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,400,600,700" rel="stylesheet">
+
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/alpha-amber.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

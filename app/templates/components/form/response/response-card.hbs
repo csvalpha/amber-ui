@@ -1,0 +1,18 @@
+<div class="card-header">
+  <div class="d-flex justify-content-between">
+    <h5>{{t 'Inschrijven'}}</h5>
+    <span class="text-muted">{{form-opened-label form}}</span>
+  </div>
+</div>
+<div class="card-body">
+  <form {{action "submitResponse" on="submit"}}>
+    {{form/response/response-form form response}}
+
+    {{#model-form/form-actions errors=form.errors errorMessage=errorMessage submitButtonLabel='Inschrijven' inputLayout='vertical'}}
+      {{#if form.questions}}
+        {{#link-to "activities.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{t " Vragen met een * zijn verplicht"}}
+      {{/if}}
+    {{/model-form/form-actions}}
+  </form>
+</div>

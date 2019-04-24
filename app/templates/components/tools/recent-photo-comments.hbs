@@ -1,0 +1,36 @@
+<div class="card tool photo-tool">
+  <div class="card-header">
+    {{#link-to 'photo-albums'}}
+      <h5> {{t 'Foto\'s'}} </h5>
+    {{/link-to}}
+  </div>
+  <div class="card-body">
+    <div class="d-flex">
+      {{#each photosWithComments as |photo|}}
+        {{#link-to 'photo-albums.photo-album.photos.show' photo.photoAlbum.id photo.id class="picture-link col-xs"}}
+          <img class="featured-picture" src={{photo.imageThumbUrl}}>
+        {{/link-to}}
+      {{else}}
+        <div class="p-2">
+          {{t 'Er zijn helaas geen recente reacties op foto\'s!'}}
+        </div>
+      {{/each}}
+    </div>
+    {{#if photosWithComments}}
+      {{#link-to 'photo-comments'}}
+        <button class="btn btn-primary col-12 mt-2 mb-1"> {{t "Bekijk alle reacties" }} </button>
+      {{/link-to}}
+    {{/if}}
+  </div>
+  <ul class="list-group list-group-flush">
+    {{#each albums as |album|}}
+      {{#link-to 'photo-albums.photo-album' album}}
+        <li class="list-group-item"> {{album.title}} </li>
+      {{/link-to}}
+    {{else}}
+      <li class="list-group-item">
+        {{t 'Er zijn helaas geen recente foto-albums!'}}
+      </li>
+    {{/each}}
+  </ul>
+</div>

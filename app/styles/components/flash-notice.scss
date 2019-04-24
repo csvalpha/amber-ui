@@ -1,0 +1,37 @@
+.flash-notice {
+  position: fixed;
+  transition: all .3s ease-in-out;
+  z-index: 4;
+  margin-top: $navbar-height;
+  border-radius: 0;
+  padding-top: -15px;
+  width: 100%;
+
+  &.hidden {
+    transform: translateY(-$navbar-height);
+  }
+
+  &.success {
+    background-color: $brand-success;
+    color: $black;
+  }
+
+  &.info {
+    background-color: $brand-info;
+    color: $black;
+  }
+
+  &.warning {
+    background-color: $brand-warning;
+    color: $white;
+  }
+
+  &.danger {
+    background-color: $brand-danger;
+    color: $white;
+  }
+
+  .flash-notice-content {
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,54 @@
+<article class="article-card {{if useMaxHeight 'd-flex'}}" itemscope itemtype="http://schema.org/Article">
+  <div class="card" data-test-article-card>
+    <div class="card-header card-header--overlay">
+      <img itemprop="image" class="card-img-top" src={{article.coverPhotoUrlOrDefault}}>
+      <div class="card-title-bar gradient-overlay">
+        <div class="hidden-xs-down">
+          {{#if article.group}}
+            <img src="{{article.group.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{article.group.fullName}}" height="60px" style="display: inline;">
+          {{else}}
+            <img src="{{article.author.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{article.author.fullName}}" height="60px" style="display: inline;">
+          {{/if}}
+        </div>
+        <div class="card-titles">
+          {{#link-to 'articles.show' article}}
+            <h2 class="card-title" itemprop="name headline">{{article.title}}</h2>
+          {{/link-to}}
+          <h3 class="card-subtitle">
+            {{#if article.group}}
+              {{#link-to 'groups.show' article.group class="link-to card-subtitle-link"}}
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <span itemprop="name">{{article.group.name}}</span>
+                </span>
+              {{/link-to}}
+            {{else}}
+              {{#link-to 'users.show' article.author class="link-to card-subtitle-link"}}
+                <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                  <span itemprop="name">{{article.author.fullName}}</span>
+                </span>
+              {{/link-to}}
+            {{/if}}
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text" itemprop="articleBody">
+        {{#if showExcerpt}}
+          {{clean-markdown article.excerpt}}
+        {{else}}
+          {{markdown-to-html article.contentCamofied extensions='youtubeEmbed bootstrapTable'}}
+        {{/if}}
+      </p>
+      <meta itemprop="dateModified" content={{moment-format article.updatedAt}}>
+      <meta itemprop="publisher" itemscope itemtype="https://schema.org/Organization" itemref="organisation-alpha">
+    </div>
+    <div class="card-footer">
+      <span itemprop="datePublished" content={{moment-format article.createdAt}}> {{moment-calendar article.createdAt}} </span>
+      <span>{{t 'component.cards.articleCard.reactions' count=article.amountOfComments}}</span>
+      {{#link-to 'articles.show' article itemprop='url'}}
+        <span class="float-md-right"> {{t 'tag.button.readMore'}} </span>
+      {{/link-to}}
+    </div>
+  </div>
+</article>

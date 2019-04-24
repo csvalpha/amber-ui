@@ -1,0 +1,21 @@
+{{#if photoAlbums}}
+  <div class="index-photo-albums">
+    {{#link-to "photo-albums"}}
+      <h1> {{capitalize-translation (t 'model.photoAlbum.name.other')}} </h1>
+    {{/link-to}}
+    <div class="row">
+      {{#each photoAlbums as |album index|}}
+        {{#if (lt index amountOfAlbumsToShow)}}
+          <div class="col-md-6">
+            {{#link-to 'photo-albums.photo-album' album}}
+              {{cards/photo-album-card album}}
+            {{/link-to}}
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+    {{#link-to 'photo-albums'}}
+      <span class="float-right btn frontpage-button"> {{t 'component.index.photos.more'}} </span>
+    {{/link-to}}
+  </div>
+{{/if}}

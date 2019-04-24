@@ -1,0 +1,101 @@
+html {
+  font-size: $font-size-root;
+}
+
+body {
+  background-color: $white;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-family-headers;
+  font-weight: $font-weight-headers;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+p {
+  a {
+    color: $brand-primary-dark;
+  }
+}
+
+.app {
+  overflow-x: hidden;
+}
+
+.main {
+  transform: translateX(0);
+  transition: all .3s ease-in-out;
+  padding-top: 100px;
+  min-height: 100vh;
+
+  &.left-sidebar-open {
+    transform: translateX(36px);
+
+    &.left-sidebar-expanded {
+      transform: translateX(110px);
+    }
+  }
+}
+
+.main-content {
+  transition: max-width .3s linear;
+  padding-top: 20px;
+  min-height: 100vh;
+}
+
+.ember-wormhole-destination {
+  position: relative;
+  z-index: 1055;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+select {
+  // stylelint-disable-next-line property-no-vendor-prefix
+  -webkit-appearance: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+%full-width {
+  position: relative;
+  left: 50%;
+  margin-left: -50vw;
+  width: 100vw;
+}
+
+.full-width {
+  @extend %full-width;
+}
+
+.full-width-small-screens {
+  position: auto;
+  left: auto;
+  margin-left: 0;
+  width: auto;
+}
+
+@include media-breakpoint-down(sm) {
+  .full-width-small-screens {
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    width: 100vw;
+  }
+}

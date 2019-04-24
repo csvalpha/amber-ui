@@ -1,0 +1,49 @@
+{{#ember-wormhole to="navbar-wormhole"}}
+  {{page-actions-buttons pageActions=pageActions}}
+{{/ember-wormhole}}
+
+{{#tabbed-view tabItems=tabItems}}
+  <h5>{{t "Mail aliassen"}}</h5>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <td class="col-md-4">{{t 'Alias'}}</td>
+          <td class="col-md-8">{{t 'Beschrijving'}}</td>
+          <td class="col-md-8">{{t 'Moderatietype'}}</td>
+          <td class="col-md-8">{{t 'Groep'}}</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each model.mailAliases as |alias|}}
+          <tr>
+            <td>
+              {{#link-to 'mail-aliases.show' alias}}
+                {{t alias.email}}
+              {{/link-to}}
+            </td>
+            <td>{{t alias.description}}</td>
+            <td>{{t alias.moderationType}}</td>
+            <td>{{t '--'}}</td>
+          </tr>
+        {{/each}}
+        {{#each model.groupMailAliases as |alias|}}
+          <tr>
+            <td>
+              {{#link-to 'mail-aliases.show' alias}}
+                {{t alias.email}}
+              {{/link-to}}
+            </td>
+            <td>{{t alias.description}}</td>
+            <td>{{t alias.moderationType}}</td>
+            <td>
+              {{#link-to 'groups.show' alias.group}}
+                {{t alias.group.name}}
+              {{/link-to}}
+            </td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{/tabbed-view}}

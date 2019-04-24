@@ -1,0 +1,109 @@
+import Ember from 'ember';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { CanMixin } from 'ember-can';
+import { task, timeout } from 'ember-concurrency';
+
+const BoardRoomPresence = Component.extend(CanMixin, {
+  session: service(),
+  store: service(),
+  presenceModalIsOpen: false,
+  model: [],
+
+  statusOptions: [
+    {
+      value: 'present',
+      label: 'Aanwezig'
+    }, {
+      value: 'busy',
+      label: 'Bezig'
+    }, {
+      value: 'absent',
+      label: 'Afwezig'
+    }
+  ],
+
+  // Periodically poll for new boardroom data
+  poll: task(function* () {
+    // eslint-disable-next-line ember-suave/no-direct-property-access
+    while (!Ember.testing) {
+      this.get('fetchData').perform();
+      yield timeout(1000 * 30); // Wait 30 seconds
+    }
+  }).drop().on('didInsertElement'),
+
+  // Fetch task is seperate from polling task, so we can call it individually
+  fetchData: task(function* () {
+    // eslint-disable-next-line camelcase
+    const model = yield this.get('store').query('board-room-presence', { filter: { current_and_future: true } });
+
+    this.set('model', model);
+  }).restartable(),
+
+  currentUserPresence: computed('model.[]', function() {
+    return this.get('model').filter(presence => presence.get('user.isCurrentUser'))[0] || null;
+  }),
+
+  sortedPresences: computed('model.[]', function() {
+    return this.get('model').sortBy('endTime');
+  }),
+
+  overallStatus: computed('model.[]', function() {
+    const currentStatusses = this.get('model').filter(presence => {
+      return moment().isBetween(
+        moment(presence.get('startTime')),
+        moment(presence.get('endTime')),
+        'minute',
+        '[)'
+      );
+    }).mapBy('status');
+
+    if (currentStatusses.includes('present')) {
+      return 'present';
+    } else if (currentStatusses.includes('busy')) {
+      return 'busy';
+    }
+    return 'absent';
+  }),
+
+  saveButtonDisabled: computed('currentUserPresence', function() {
+    return this.get('currentUserPresence') === null;
+  }),
+
+  actions: {
+    setPresenceModalState(state) {
+      this.set('presenceModalIsOpen', state === 'open');
+    },
+
+    deletePresence() {
+      this.get('currentUserPresence').destroyRecord().then(() => {
+        this.set('currentUserPresence', null);
+      });
+    },
+
+    newPresence() {
+      if (this.can('create board-room-presences')) {
+        const user = this.get('session.currentUser');
+
+        const newPresenceObject = this.get('store').createRecord('board-room-presence', {
+          startTime: moment().startOf('minute').toDate(),
+          endTime: moment().startOf('minute').add(1, 'hours').toDate(),
+          status: 'present',
+          user
+        });
+        this.set('currentUserPresence', newPresenceObject);
+      }
+    },
+
+    save() {
+      const presence = this.get('currentUserPresence');
+      const fetch = this.get('fetchData');
+
+      presence.save().then(() => fetch.perform());
+      this.set('presenceModalIsOpen', false);
+    }
+  }
+});
+
+export default BoardRoomPresence;

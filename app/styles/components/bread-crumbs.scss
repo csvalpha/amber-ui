@@ -1,0 +1,50 @@
+.breadcrumb-item + .breadcrumb-item::before {
+  color: $black;
+  font-weight: normal;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+  word-wrap: nowrap;
+
+  &:last-child {
+    font-weight: bold;
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: nowrap;
+  padding-left: 0;
+  overflow: visible;
+  white-space: nowrap;
+  font-size: 1.1rem;
+}
+
+@media (max-width: #{map-get($grid-breakpoints, md)}) {
+  .breadcrumb-item {
+    display: none;
+    font-size: 1.2rem;
+    font-weight: normal;
+
+    &:last-child {
+      display: flex;
+      font-weight: normal;
+    }
+  }
+
+  .breadcrumb-item + .breadcrumb-item::before {
+    display: none;
+  }
+
+  .page-actions-buttons .page-action {
+    .btn {
+      font-size: 1.4rem;
+    }
+
+    .update-presence-button {
+      font-size: 1rem;
+    }
+  }
+}

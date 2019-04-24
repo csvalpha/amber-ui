@@ -1,0 +1,44 @@
+{{model-form/datetime-input   model=model property="respondFrom"  label=(t "Inschrijven vanaf")}}
+{{model-form/datetime-input   model=model property="respondUntil" label=(t "Inschrijven tot")}}
+
+<div class="row">
+  <div class="col-12 col-sm-2">
+    <span>{{t 'Vragen'}}</span>
+  </div>
+  <div class="col-12 col-sm-10">
+    {{#if model.hasResponses}}
+      <div class="alert alert-danger">
+        {{t 'Je kunt geen vragen meer toevoegen of aanpassen, omdat er al reacties zijn.'}}
+      </div>
+    {{/if}}
+
+    {{#each model.sortedQuestions as |question|}}
+      {{#unless question.isDeleted}}
+        <div class="card">
+          <div class="card-body create-new-question">
+            {{#if question.isOpenQuestion}}
+              {{form/open-question question
+                                   onMoveQuestionUp=(action 'moveQuestionUp')
+                                   onMoveQuestionDown=(action 'moveQuestionDown')
+                                   onDeleteQuestion=(action 'deleteQuestion')}}
+            {{else}}
+              {{form/closed-question question
+                                     onMoveQuestionUp=(action 'moveQuestionUp')
+                                     onMoveQuestionDown=(action 'moveQuestionDown')
+                                     onMoveOptionUp=(action 'moveOptionUp')
+                                     onMoveOptionDown=(action 'moveOptionDown')
+                                     onDeleteQuestion=(action 'deleteQuestion')
+                                     onAddOption=(action 'addOption')
+                                     onDeleteOption=(action 'deleteOption')}}
+            {{/if}}
+          </div>
+        </div>
+      {{/unless}}
+    {{/each}}
+
+    {{#unless model.hasResponses }}
+      <button type="button" class="btn btn-default" {{action "addOpenQuestion"}}>{{t "Open vraag toevoegen"}}</button>
+      <button type="button" class="btn btn-default" {{action "addClosedQuestion"}}>{{t "Gesloten vraag toevoegen"}}</button>
+    {{/unless}}
+  </div>
+</div>

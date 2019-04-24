@@ -1,0 +1,8 @@
+<p>{{t "Weet je zeker dat je de activatiecode voor deze gebruiker opnieuw wil versturen? Dit zal de oude activatiecode ongeldig maken."}}</p>
+
+<button {{action "resendActivation"}} class="btn btn-danger">{{t "Ja"}}</button>
+{{#link-to "users.show" model.id class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+
+{{#if errorMessage}}
+  <div class="text-danger">{{errorMessage}}</div>
+{{/if}}

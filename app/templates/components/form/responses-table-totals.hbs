@@ -1,0 +1,22 @@
+{{#if showCheckbox}}
+  <th></th>
+{{/if}}
+
+<th><strong>{{form.amountOfResponses}}</strong></th>
+
+{{#each form.sortedQuestions as |question|}}
+  <th>
+    {{#if question.isOpenQuestion}}
+      <strong>{{question.sumOfAnswers}}</strong>
+    {{else}}
+      {{#each question.options as |option|}}
+        <strong>{{option.sumOfAnswers}}</strong> {{option.option}}<br>
+      {{/each}}
+    {{/if}}
+  </th>
+{{/each}}
+
+{{#if showAllergyInfo}}
+  <th></th>
+  <th><strong>{{amountOfVegetarians}}</strong></th>
+{{/if}}

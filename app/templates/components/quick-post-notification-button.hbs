@@ -1,0 +1,11 @@
+{{#if notification.isSupported}}
+  {{#if notification.isEnabled}}
+    {{#if notification.isSoundEnabled}}
+      <button {{action "disable"}} class="btn btn-default"><span class="fa fa-volume-up"></span></button>
+    {{else}}
+      <button {{action "soundOn"}} class="btn btn-default"><span class="fa fa-bell"></span></button>
+    {{/if}}
+  {{else}}
+    <button {{action "activate"}} class="btn btn-default"><span class="fa fa-bell-slash"></span></button>
+  {{/if}}
+{{/if}}

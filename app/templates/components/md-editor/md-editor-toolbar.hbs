@@ -1,0 +1,49 @@
+<div class="btn-toolbar" role="toolbar" aria-label="{{t 'Editor toolbar'}}">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-secondary" {{action "toggleEditMode"}}>
+      {{if editMode (t 'Voorbeeld') (t 'Bewerk')}}
+    </button>
+  </div>
+
+  {{#if editMode}}
+    {{#each styleOptions.groups as |group|}}
+      {{#if group.dropdown}}
+
+        {{#bs-dropdown as |dd|}}
+          {{#dd.button type="secondary"}}{{fa-icon group.faIconName}}{{/dd.button}}
+
+          {{#dd.menu as |menu|}}
+            {{#each group.options as |option|}}
+              {{#menu.item}}
+                <button type="button" class="dropdown-item" {{action applyStyleOptionAction option}}>
+                  {{fa-icon option.faIconName size=option.size}}
+                  {{option.name}}
+                </button>
+              {{/menu.item}}
+            {{/each}}
+          {{/dd.menu}}
+        {{/bs-dropdown}}
+      {{else}}
+        <div class="btn-group" role="group" aria-label="{{group.name}}">
+          {{#each group.options as |option|}}
+            {{#if option.modal}}
+              <button type="button" class="btn btn-secondary" title="{{option.name}}" data-toggle="modal" data-target="#insertModal" {{action openModalAction option}}>
+                {{fa-icon option.faIconName}}
+              </button>
+            {{else}}
+              <button type="button" class="btn btn-secondary" title="{{option.name}}" {{action applyStyleOptionAction option}}>
+                {{fa-icon option.faIconName}}
+              </button>
+            {{/if}}
+          {{/each}}
+        </div>
+      {{/if}}
+    {{/each}}
+  {{/if}}
+
+  <div class="btn-group">
+    <a href="http://commonmark.org/help/" target="_blank">
+      <button type="button" class="btn btn-secondary" title="{{t "Help"}}">{{fa-icon "question"}}</button>
+    </a>
+  </div>
+</div>
