@@ -2,7 +2,7 @@
   <div class="col">
     <div class="card">
       <div class="card-header">
-        <h5>{{t "Contactsynchronizatie"}}</h5>
+        <h5>{{t "Contactsynchronisatie"}}</h5>
       </div>
       <div class="card-body">
         <p>
@@ -26,8 +26,12 @@
 
         {{else}}
           <div class="alert alert-danger">
-            <p>{{t "Je hebt de contact synchronizatie nog niet geactiveerd. Als je gebruik wilt maken zal je deze eerst moeten activeren."}}</p>
-            <p>{{t "Door de contactsynchronizatie te activeren ga je er akkoord mee dat jouw gegevens ook in de contactsynchronizatie komen."}}</p>
+            <p>
+              {{t "Je hebt de contact synchronizatie nog niet geactiveerd. Als je gebruik wilt maken zal je deze eerst moeten activeren."}}
+              <b>
+                {{t "Door de contactsynchronizatie te activeren ga je er akkoord mee dat jouw gegevens (naam, adres, email, geboortedatum)  ook in de contactsynchronizatie komen."}}
+              </b>
+            </p>
 
             <button class="btn btn-primary" {{action 'generateWebdavSecret'}}>{{t 'Contactsynchronizatie activeren'}}</button>
           </div>

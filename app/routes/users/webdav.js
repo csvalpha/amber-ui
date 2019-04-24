@@ -9,7 +9,7 @@ export default Route.extend(
   AuthenticatedRouteMixin,
   AuthorizationRouteMixin,
   BreadcrumbsRouteMixin, {
-    title: 'Contactsynchronizatie',
+    title: 'Contactsynchronisatie',
 
     canAccess() {
       return this.can('show webdav users');
