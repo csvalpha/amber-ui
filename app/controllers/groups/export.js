@@ -88,6 +88,9 @@ export default Controller.extend(FileSaverMixin, {
     }, {
       value: 'emergency_number',
       label: 'Noodnummer'
+    }, {
+      value: 'avatar_url',
+      label: 'Avatar URL'
     }
   ],
   descriptionValid: notEmpty('description'),
