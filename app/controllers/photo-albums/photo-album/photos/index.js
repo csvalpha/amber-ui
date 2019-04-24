@@ -13,7 +13,8 @@ export default Controller.extend(FileSaverMixin, {
       let model = this.get('model');
       return this.get('fetch').fetch(`/photo_albums/${model.id}/zip`).then(response => {
         return response.blob().then(blob => {
-          this.saveFileAs(`${moment(model.get('date')).format('YYYY-MM-DD')}_${dasherize(model.get('title'))}.zip`, blob, 'application/octet-stream');
+          let filename = `${moment(model.get('date')).format('YYYY-MM-DD')}_${dasherize(model.get('title'))}.zip`;
+          this.saveFileAs(filename, blob, 'application/octet-stream');
         });
       });
     }
