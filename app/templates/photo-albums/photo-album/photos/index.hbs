@@ -1,5 +1,12 @@
 {{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions}}
+  {{#page-actions-buttons pageActions}}
+    <div class="col col-md-auto page-action">
+      <button class="btn btn-primary" {{action "downloadAlbum"}}>
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <span class="d-none d-md-inline"> {{t 'Fotoalbum downloaden'}} </span>
+      </button>
+    </div>
+  {{/page-actions-buttons}}
 {{/ember-wormhole}}
 
 <div class="row">
