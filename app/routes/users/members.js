@@ -17,7 +17,7 @@ export default IndexRoute.extend({
       },
       {
         link: 'users.webdav',
-        title: 'Contactsynchronizatie',
+        title: 'Contactsynchronisatie',
         icon: 'address-book',
         canAccess: this.can('show webdav users')
       }

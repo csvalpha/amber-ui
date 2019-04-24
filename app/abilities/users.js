@@ -22,5 +22,5 @@ export default Ability.extend({
   canExport: computed('session.currentUser', function() {
     return this.get('session').hasPermission('user.update');
   }),
-  canShowWebdav: true
+  canShowWebdav: computed.alias('session.isAuthenticated')
 });
