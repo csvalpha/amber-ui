@@ -90,7 +90,7 @@ export default Controller.extend(FileSaverMixin, {
       label: 'Noodnummer'
     }, {
       value: 'avatar_url',
-      label: 'profielfoto url'
+      label: 'Profielfoto url'
     }
   ],
   descriptionValid: notEmpty('description'),
