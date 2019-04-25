@@ -28,21 +28,25 @@
           <span class="hidden-lg-up"> {{t "- bewerkt"}} </span>
         {{/if}}
       </p>
+
       <span>
         {{#if (can 'destroy forum/posts')}}
           {{#link-to 'forum.categories.category.threads.thread.posts.destroy' post.id}}
-            <i class="fa fa-trash forum-post-moderation-icon"></i>
+            {{fa-icon 'trash' class="forum-post-moderation-icon"}}
           {{/link-to}}
         {{/if}}
+
         {{#if (can 'edit forum/post' post)}}
           {{#link-to 'forum.categories.category.threads.thread.posts.edit' post.id}}
-            <i class="fa fa-pencil forum-post-moderation-icon"></i>
+            {{fa-icon 'pencil' class="forum-post-moderation-icon"}}
           {{/link-to}}
         {{/if}}
+
         {{#if (can 'quote post of forum/thread' post.thread)}}
-          <i {{action 'quote'}} class="fa fa-quote-left link-highlight forum-post-moderation-icon"></i>
+          {{fa-icon 'quote-left' class="link-highlight forum-post-moderation-icon" click=(action "quote")}}
         {{/if}}
-        <span class="link-highlight" {{action "toggleShowMarkdown"}}><i class="fa fa-code forum-post-moderation-icon"></i></span>
+
+        {{fa-icon 'code' class="link-highlight forum-post-moderation-icon" click=(action "toggleShowMarkdown")}}
       </span>
     </div>
   </div>

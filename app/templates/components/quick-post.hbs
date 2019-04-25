@@ -51,7 +51,7 @@
 
             <small class="text-muted pr-3">
               {{#if (can 'destroy quickpost-messages')}}
-                <i {{action 'destroyMessage' message}} class="fa fa-trash qp-destroy-icon link-highlight"></i>
+                {{fa-icon 'trash' class="qp-destroy-icon link-highlight" click=(action 'destroyMessage' message)}}
               {{/if}}
               {{moment-format message.createdAt 'dddd D MMMM HH:mm'}}
             </small>

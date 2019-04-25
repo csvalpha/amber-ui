@@ -1,6 +1,6 @@
 {{#if showCheckbox}}
   <td>
-    <i class="fa fa-square-o"></i>
+    {{fa-icon 'square-o'}}
   </td>
 {{/if}}
 
@@ -8,7 +8,7 @@
   {{#if (can 'destroy form/response')}}
     {{#if response.form.canRespond}}
       {{#link-to 'form.responses.destroy' response class="no-print"}}
-        <i class="fa fa-trash"></i>
+        {{fa-icon 'trash'}}
       {{/link-to}}
     {{/if}}
   {{/if}}

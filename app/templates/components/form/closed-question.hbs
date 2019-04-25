@@ -1,7 +1,8 @@
-<b> {{t 'Gesloten vraag'}} </b>
+<span class="font-weight-bold mb-3">{{t 'Gesloten vraag'}}</span>
+
 {{#unless question.form.hasResponses }}
-  <div class="float-md-right">
-    <a type="button" {{action "deleteQuestion"}}> <i class="fa fa-times" aria-hidden="true"></i> </a>
+  <div class="float-md-right mb-3">
+    {{fa-icon 'times' click=(action "deleteQuestion")}}
   </div>
 {{/unless}}
 
@@ -34,8 +35,13 @@
   {{#unless question.form.hasResponses }}
     <div class="col-md-7 col-sm-12">
       <div class="float-md-right">
-        <button type="button" class="btn btn-default" {{action "moveQuestionUp"}}><i class="fa fa-arrow-up"></i> {{t "Omhoog"}}</button>
-        <button type="button" class="btn btn-default" {{action "moveQuestionDown"}}><i class="fa fa-arrow-down"></i> {{t "Omlaag"}}</button>
+        <button type="button" class="btn btn-default" {{action "moveQuestionUp"}}>
+          {{fa-icon 'arrow-up'}} {{t "Omhoog"}}
+        </button>
+
+        <button type="button" class="btn btn-default" {{action "moveQuestionDown"}}>
+          {{fa-icon 'arrow-down'}} {{t "Omlaag"}}
+        </button>
       </div>
     </div>
   {{/unless}}
@@ -45,7 +51,7 @@
   {{#unless option.isDeleted}}
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon">
+        <span class="input-group-addon d-flex justify-content-center align-items-center">
           <label class="form-check-label" for="check-label">
             <input type={{question.fieldType}} disabled="disabled">
             {{#if (eq question.fieldType "checkbox")}}
@@ -55,13 +61,21 @@
             {{/if}}
           </label>
         </span>
+
         {{input type="text" class="form-control" name="option" placeholder="Optie" value=option.option disabled=question.form.hasResponses}}
+
         {{#unless question.form.hasResponses }}
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" {{action "moveOptionUp" option}}><i class="fa fa-arrow-up"></i></button>
-            <button type="button" class="btn btn-default" {{action "moveOptionDown" option}}><i class="fa fa-arrow-down"></i></button>
-            <button type="button" class="btn btn-default" {{action "deleteOption" option}}><i class="fa fa-trash"></i></button>
-          </span>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-default" {{action "moveOptionUp" option}}>
+              {{fa-icon 'arrow-up'}}
+            </button>
+            <button type="button" class="btn btn-default" {{action "moveOptionDown" option}}>
+              {{fa-icon 'arrow-down'}}
+            </button>
+            <button type="button" class="btn btn-default" {{action "deleteOption" option}}>
+              {{fa-icon 'trash'}}
+            </button>
+          </div>
         {{/unless}}
       </div>
     </div>

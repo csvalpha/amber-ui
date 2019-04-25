@@ -7,6 +7,7 @@
     <h5>{{model.collection.name}} - {{moment-format model.collection.date 'DD-MM-YYYY'}}</h5>
     <span class="text-muted">{{t 'Gemaakt door'}} {{model.collection.author.fullName}}</span>
   </div>
+
   <div class="card-body">
     {{#each groupedTransactions as |transactionGroup|}}
       {{#link-to 'users.show' transactionGroup.user}}
@@ -27,25 +28,30 @@
           <div class="col-7">
             {{transaction.description}}
           </div>
+
           <div class="col-3">
             <span> &euro; {{number-format transaction.amount}} </span>
           </div>
+
           <div class="col-2">
             {{#if (can 'destroy debit/transactions')}}
               {{#link-to 'debit.transactions.destroy' transaction}}
-                <i class="fa fa-trash"></i>
+                {{fa-icon 'trash'}}
               {{/link-to}}
             {{/if}}
+
             {{#if (can 'edit debit/transactions')}}
               {{#link-to 'debit.transactions.edit' transaction}}
-                <i class="fa fa-pencil"></i>
+                {{fa-icon 'pencil'}}
               {{/link-to}}
             {{/if}}
           </div>
         </div>
+
       {{else}}
         <div class="alert alert-warning"> {{t 'Geen transacties gevonden'}} </div>
       {{/each}}
+
       {{#if transactionGroup.transactions}}
         <div class="row mt-3">
           <div class="col-7">
@@ -56,7 +62,9 @@
           </div>
         </div>
       {{/if}}
+
       <hr>
+
     {{/each}}
   </div>
 </div>
