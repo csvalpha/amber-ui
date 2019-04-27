@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: Dockerfile.buildkite
       args:
-        - FA5_TOKEN=#{FA5_TOKEN}
+        FA5_TOKEN: ${FA5_TOKEN}
 
   app-production:
     build: .
