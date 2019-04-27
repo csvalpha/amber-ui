@@ -6,7 +6,7 @@ steps:
           config: docker-compose.buildkite.yml
       - seek-oss/private-npm#v1.1.1:
           env: "FA5_TOKEN"
-          registry: //npm.fortawesome.com/
+          registry: //npm.fontawesome.com/
 
   - wait
 
@@ -38,7 +38,7 @@ steps:
           config: docker-compose.buildkite.yml
       - seek-oss/private-npm#v1.1.1:
           env: "FA5_TOKEN"
-          registry: //npm.fortawesome.com/
+          registry: //npm.fontawesome.com/
 
   - label: ":docker: Build+Push `:production` image"
     branches: "master"
@@ -52,7 +52,7 @@ steps:
           config: docker-compose.buildkite.yml
       - seek-oss/private-npm#v1.1.1:
           env: "FA5_TOKEN"
-          registry: //npm.fortawesome.com/
+          registry: //npm.fontawesome.com/
 
   - block: "Deploy this stage"
     branches: "master staging"
