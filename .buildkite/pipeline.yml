@@ -4,9 +4,6 @@ steps:
       - docker-compose#v2.6.0:
           build: app
           config: docker-compose.buildkite.yml
-      - seek-oss/private-npm#v1.1.1:
-          env: "FA5_TOKEN"
-          registry: //npm.fontawesome.com/
 
   - wait
 
@@ -36,9 +33,6 @@ steps:
       - docker-compose#v2.6.0:
           push: app-production:docker.csvalpha.nl/amber-ui:staging
           config: docker-compose.buildkite.yml
-      - seek-oss/private-npm#v1.1.1:
-          env: "FA5_TOKEN"
-          registry: //npm.fontawesome.com/
 
   - label: ":docker: Build+Push `:production` image"
     branches: "master"
@@ -50,9 +44,6 @@ steps:
       - docker-compose#v2.6.0:
           push: app-production:docker.csvalpha.nl/amber-ui:latest
           config: docker-compose.buildkite.yml
-      - seek-oss/private-npm#v1.1.1:
-          env: "FA5_TOKEN"
-          registry: //npm.fontawesome.com/
 
   - block: "Deploy this stage"
     branches: "master staging"
