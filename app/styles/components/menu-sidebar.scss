@@ -76,7 +76,7 @@ $profile-menu-height: 360px;
   .expand-menu-sidebar-btn {
     bottom: 10px;
 
-    .fa {
+    svg {
       transform: rotate(0deg);
       transition: transform $animation-duration $animation-behaviour;
     }
@@ -95,7 +95,7 @@ $profile-menu-height: 360px;
     }
 
     .expand-menu-sidebar-btn {
-      .fa {
+      svg {
         transform: rotate(180deg);
       }
     }
@@ -123,19 +123,13 @@ $profile-menu-height: 360px;
 }
 
 .profile-menu-arrow {
-  transform: rotate(0deg) translateX(-40px);
+  align-self: center;
+  transform: rotate(0deg) translateX(0);
   transition: transform $animation-duration $animation-behaviour, $animation-duration $animation-behaviour;
-  opacity: 0;
-  padding: 12px;
+}
 
-  &.visible {
-    transform: translateX(0);
-    opacity: 1;
-  }
-
-  &.open {
-    transform: rotate(180deg) translateX(0);
-  }
+.profile-menu-open .profile-menu-arrow {
+  transform: rotate(180deg) translateX(0);
 }
 
 .close-left-sidebar-panel {

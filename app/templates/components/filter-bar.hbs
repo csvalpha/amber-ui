@@ -4,7 +4,9 @@
     {{#bs-dropdown as |dd|}}
       <div class="input-group">
         <div class="input-group-prepend">
-          {{fa-icon 'search' class="input-group-text"}}
+          <div class="input-group-text">
+            {{fa-icon 'search'}}
+          </div>
         </div>
 
         {{input value=filter class="filter-bar-filter form-control" placeholder="Zoeken" enter=enter}}

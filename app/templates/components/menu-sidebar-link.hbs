@@ -3,7 +3,7 @@
     {{#tooltip-on-element enableLazyRendering=true delay=tooltipDelay side='right' class=(if layoutManager.leftSideBarExpanded 'd-none') spacing=tooltipSpacing}}
       {{title}}
     {{/tooltip-on-element}}
-    {{fa-icon icon fixedWidth=true}}
+    {{fa-icon icon prefix="fas" fixedWidth=true}}
   </span>
   <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{title}} </span>
 </div>

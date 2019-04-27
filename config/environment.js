@@ -65,7 +65,7 @@ module.exports = function(environment) {
     // FontAwesome
     fontawesome: {
       // Regular icons as default
-      defaultPrefix: 'far'
+      defaultPrefix: 'fas'
     },
 
     locationType: 'router-scroll',

@@ -7,10 +7,11 @@
   <div class="menu-items-holder">
     {{!-- the first sidebar item is a dropdown, otherwise show login item --}}
     {{#if session.isAuthenticated}}
-      <div class="menu-sidebar-item link" {{action 'toggleProfileMenu'}}>
+      <div class="menu-sidebar-item link {{if layoutManager.profileMenuOpen "profile-menu-open"}}" {{action 'toggleProfileMenu'}}>
         <img class="menu-sidebar-item-icon profile-picture profile-picture-xs" src={{session.currentUser.avatarThumbUrlOrDefault}}>
         <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{session.currentUser.firstName}}</span>
-        {{fa-icon "angle-down" class=(concat (concat "profile-menu-arrow " (if profileMenuOpen 'open')) (if layoutManager.leftSideBarExpanded ' visible'))}}
+
+        {{fa-icon "angle-down" class="ml-3 profile-menu-arrow"}}
       </div>
     {{else}}
       {{menu-sidebar-item link="login"     hasPermission=true       icon="sign-in"        title=(t 'tag.button.signin')}}
@@ -39,7 +40,7 @@
     {{menu-sidebar-item link="articles"           hasPermission=(can 'show articles')             icon="newspaper"  title=(t 'mixin.menuItems.articles')    }}
     {{menu-sidebar-item link="activities"         hasPermission=(can 'show activities')           icon="calendar-alt"     title=(t 'mixin.menuItems.activities') }}
     {{menu-sidebar-item link="forum"              hasPermission=(can 'show forum/categories')     icon="comments"     title=(t 'mixin.menuItems.forum')        }}
-    {{menu-sidebar-item link="photo-albums"       hasPermission=(can 'show photo-albums')         icon="picture"    title=(t 'mixin.menuItems.photoAlbums')  }}
+    {{menu-sidebar-item link="photo-albums"       hasPermission=(can 'show photo-albums')         icon="image"    title=(t 'mixin.menuItems.photoAlbums')  }}
     {{menu-sidebar-item link="polls"              hasPermission=(can 'show polls')                icon="check-circle" title=(t 'mixin.menuItems.polls')        }}
     {{menu-sidebar-item link="groups"             hasPermission=(can 'show groups')               icon="users"        title=(t 'mixin.menuItems.groups')      }}
     {{menu-sidebar-item link="users.members"      hasPermission=(can 'show users')                icon="user"         title=(t 'mixin.menuItems.members')        }}
