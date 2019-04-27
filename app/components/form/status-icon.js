@@ -46,7 +46,7 @@ export const FormStatusIconComponent = Component.extend({
     if (form.get('canRespond')) {
       return 'circle';
     } else if (form.get('opensLater')) {
-      return 'clock-o';
+      return 'clock';
     }
     return 'lock';
   })

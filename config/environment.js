@@ -62,6 +62,12 @@ module.exports = function(environment) {
       strikethrough: true
     },
 
+    // FontAwesome
+    fontawesome: {
+      // Regular icons as default
+      defaultPrefix: 'far'
+    },
+
     locationType: 'router-scroll',
     historySupportMiddleware: true,
     EmberENV: {

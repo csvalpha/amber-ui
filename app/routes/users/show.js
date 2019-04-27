@@ -31,7 +31,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
       {
         link: 'users.resend_activation',
         title: 'Verstuur activatie code',
-        icon: 'send-o',
+        icon: 'paper-plane',
         linkArgument: user,
         canAccess: this.can('resend activation code of user', user)
       }

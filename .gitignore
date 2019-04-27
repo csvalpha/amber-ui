@@ -1,19 +1,38 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
+###################
+# Compiled output #
+###################
 /dist
 /tmp
 
-# dependencies
+################
+# Dependencies #
+################
 /node_modules
 /bower_components
 
-# misc
+########
+# Misc #
+########
 /.sass-cache
 /connect.lock
 /coverage/*
-/libpeerconnection.log
+
+########
+# Logs #
+########
+libpeerconnection.log
 npm-debug.log*
 yarn-error.log
 testem.log
-.idea/*
+
+###############
+# IDE Folders #
+###############
+/.idea/*
+
+###########
+# Secrets #
+###########
+.npmrc
