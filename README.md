@@ -17,6 +17,7 @@ You will need the following things properly installed on your computer.
 * `git clone <repository-url>` this repository
 * change into the new directory
 * `yarn install` (or `npm install`)
+* copy `.npmrc.example` to `.nmprc` and fill in the FontAwesome license key (from KeePass)
 
 ## Running / Development
 
@@ -66,7 +67,7 @@ Note: this should be configured automatically using `.editorconfig`.
 
 * `yarn run lint`
 
-For auto fix run 
+For auto fix run
 * `yarn run jsfix`
 * `yarn run stylefix`
 
