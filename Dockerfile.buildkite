@@ -3,7 +3,7 @@ MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 
 ENV NODE_ENV=test
 ENV BUILDKITE=true
-ENV FA5_TOKEN
+ARG FA5_TOKEN
 
 # Install chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
