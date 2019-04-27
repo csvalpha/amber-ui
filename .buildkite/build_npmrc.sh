@@ -1,4 +1,4 @@
-echo '--- Setting up access for :npm: :package: FontAwesome registry'
+echo 'Setting up access for :npm: :package: FontAwesome registry'
 
 cat << EOF >> /app/.npmrc
 @fortawesome:registry=https://npm.fontawesome.com/
