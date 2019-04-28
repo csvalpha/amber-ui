@@ -29,7 +29,7 @@ test('it renders page actions', function(assert) {
   assert.equal(pageActionChildren.length, 3);
   assert.equal(this.$(pageActionChildren[0]).text().trim(), 'Nieuw lid');
   assert.equal(this.$(pageActionChildren[1]).text().trim(), 'Nieuw artikel');
-  assert.ok(this.$(pageActionChildren[2]).children('i').hasClass('fa'));
+  assert.ok(this.$(pageActionChildren[2]).children('svg').hasClass('fa-plus'));
 });
 
 test('it does not render page actions for which the user is not authorized', function(assert) {
