@@ -12,7 +12,7 @@ RUN apt-get update
 RUN apt-get install -y google-chrome-stable
 
 # Install NPM Token
-COPY .buildkite/ /app/.buildkite/
+COPY .buildkite/build_npmrc.sh /app/.buildkite/build_npmrc.sh
 RUN /app/.buildkite/build_npmrc.sh
 
 # Install Dependencies
