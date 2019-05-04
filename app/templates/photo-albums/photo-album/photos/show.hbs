@@ -2,17 +2,17 @@
   {{#page-actions-buttons pageActions=pageActions}}
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "goToPreviousPhoto"}}>
-        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+        {{fa-icon 'arrow-left'}}
       </button>
     </div>
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "goToNextPhoto"}}>
-        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        {{fa-icon 'arrow-right'}}
       </button>
     </div>
     <div class="col col-md-auto page-action">
       <a class="btn btn-primary col" href="{{model.imageUrl}}" download="{{model.id}}">
-        <i class="fa fa-download" aria-hidden="true"></i>
+        {{fa-icon 'download'}}
         <span class="d-none d-md-inline"> {{t 'Foto downloaden'}} </span>
       </a>
     </div>

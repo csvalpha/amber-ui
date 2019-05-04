@@ -34,7 +34,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
       {
         link: 'activities.ical',
         title: 'Ical link',
-        icon: 'calendar',
+        icon: 'calendar-alt',
         canAccess: this.can('show ical activities')
       }
     ];

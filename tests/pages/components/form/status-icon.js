@@ -9,7 +9,7 @@ export default {
   hasSuccessClass: hasClass('text-success', 'span'),
   hasDangerClass: hasClass('text-danger', 'span'),
 
-  hasClockIconClass: hasClass('fa-clock-o', 'i'),
-  hasLockIconClass: hasClass('fa-lock', 'i'),
-  hasCircleIconClass: hasClass('fa-circle', 'i')
+  hasClockIconClass: hasClass('fa-clock', 'svg'),
+  hasLockIconClass: hasClass('fa-lock', 'svg'),
+  hasCircleIconClass: hasClass('fa-circle', 'svg')
 };

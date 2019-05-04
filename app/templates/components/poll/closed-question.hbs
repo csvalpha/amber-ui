@@ -24,7 +24,7 @@
   {{#unless option.isDeleted}}
     <div class="form-group">
       <div class="input-group">
-        <span class="input-group-addon">
+        <span class="input-group-addon d-flex justify-content-center align-items-center">
           <label class="form-check-label">
             <input type={{question.fieldType}} disabled="disabled">
             {{#if (eq fieldType "checkbox")}}
@@ -34,13 +34,21 @@
             {{/if}}
           </label>
         </span>
+
         {{input type="text" class="form-control" name="option" placeholder="Optie" value=option.option disabled=question.form.hasResponses}}
+
         {{#unless question.form.hasResponses }}
-          <span class="input-group-btn">
-            <button type="button" class="btn btn-default" {{action "moveOptionUp" option}}><i class="fa fa-arrow-up"></i></button>
-            <button type="button" class="btn btn-default" {{action "moveOptionDown" option}}><i class="fa fa-arrow-down"></i></button>
-            <button type="button" class="btn btn-danger" {{action "deleteOption" option}}><i class="fa fa-trash"></i></button>
-          </span>
+          <div class="input-group-append">
+            <button type="button" class="btn btn-default" {{action "moveOptionUp" option}}>
+              {{fa-icon 'arrow-up'}}
+            </button>
+            <button type="button" class="btn btn-default" {{action "moveOptionDown" option}}>
+              {{fa-icon 'arrow-down'}}
+            </button>
+            <button type="button" class="btn btn-default" {{action "deleteOption" option}}>
+              {{fa-icon 'trash'}}
+            </button>
+          </div>
         {{/unless}}
       </div>
     </div>

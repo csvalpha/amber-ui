@@ -1,7 +1,7 @@
 <h5 class="float-left">{{t "Privacyinstellingen"}}</h5>
 {{#if (can "edit user" model)}}
   {{#link-to "users.edit" model (query-params tab="privacy") class="float-right"}}
-    <i class="fa fa-edit"></i>
+    {{fa-icon 'edit'}}
   {{/link-to}}
 {{/if}}
 <table class="table table-sm">

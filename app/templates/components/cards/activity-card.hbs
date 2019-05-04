@@ -36,30 +36,44 @@
     <div class="row card-subheader-row ml-0 mr-0">
       {{#if moreInfo}}
         <div class="col-12 col-md-6 card-subheader-item align-items-center p-3">
-          <i class="fa fa-clock-o"></i>
+          {{fa-icon 'clock'}}
           <span data-test-activity-startTime>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
           {{t 'tot'}}
           <span data-test-activity-endTime>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
-          <i class="fa fa-map-marker"></i> <span data-test-activity-location> <a href="https://maps.google.com/?q={{activity.location}}" target="_blank"> {{activity.location}} </a></span>
+          {{fa-icon 'map-marker' prefix='fas'}}
+          <span data-test-activity-location>
+            <a href="https://maps.google.com/?q={{activity.location}}" target="_blank">
+              {{activity.location}}
+            </a>
+          </span>
         </div>
         <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
-          <i class="fa fa-money"></i> &plusmn; &euro; <span data-test-activity-price>{{activity.formattedPrice}}</span>
+          {{fa-icon 'money-bill'}}
+          &plusmn; &euro;
+          <span data-test-activity-price>
+            {{activity.formattedPrice}}
+          </span>
         </div>
         <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
-          <i class="fa fa-calendar"></i>
+          {{fa-icon 'calendar-alt'}}
           <span data-test-activity-category>{{activity.formattedCategory}}</span>
         </div>
       {{else}}
         <div class="col-12 col-md-8 card-subheader-item align-items-center p-3">
-          <i class="fa fa-clock-o"></i>
+          {{fa-icon 'clock'}}
           <span>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
           {{t 'tot'}}
           <span>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="col-12 col-md-4 card-subheader-item align-items-center p-3">
-          <i class="fa fa-map-marker"></i> <span> <a href="https://maps.google.com/?q={{activity.location}}" target="_blank"> {{activity.location}} </a></span>
+          {{fa-icon 'map-marker' prefix='fas'}}
+          <span>
+            <a href="https://maps.google.com/?q={{activity.location}}" target="_blank">
+              {{activity.location}}
+            </a>
+          </span>
         </div>
       {{/if}}
     </div>
