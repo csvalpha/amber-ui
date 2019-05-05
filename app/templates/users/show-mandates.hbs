@@ -8,10 +8,10 @@
   <table class="table">
     <thead>
       <tr>
-        <td class="col-md-4">{{t 'Mandaat nummer'}}</td>
-        <td class="col-md-4">{{t 'IBAN nummer'}}</td>
-        <td class="col-md-2">{{t 'Start datum'}}</td>
-        <td class="col-md-2">{{t 'Eind datum'}}</td>
+        <td>{{t 'Mandaat nummer'}}</td>
+        <td>{{t 'IBAN nummer'}}</td>
+        <td>{{t 'Start datum'}}</td>
+        <td>{{t 'Eind datum'}}</td>
       </tr>
     </thead>
     <tbody>
@@ -27,9 +27,13 @@
           <td>{{moment-format mandate.endDate 'DD-M-YYYY'}}</td>
         </tr>
       {{else}}
-        <div class="alert alert-warning col-xs">
-          {{t 'Geen mandaten gevonden'}}
-        </div>
+        <tr>
+          <td colspan="4">
+            <p class="text-center text-muted">
+              {{t 'Geen mandaten gevonden'}}
+            </p>
+          </td>
+        </tr>
       {{/each}}
     </tbody>
   </table>
