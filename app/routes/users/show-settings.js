@@ -6,5 +6,16 @@ export default UserShowRouteUnauthenticated.extend({
   afterModel(user, transition) {
     return this.checkAccessWithPromise(this.can('edit user', user), transition);
   },
-  pageActions: computed('controller.model', () => {})
+  pageActions: computed('controller.model', function() {
+    const user = this.get('controller.model');
+    return [
+      {
+        link: 'users.edit-privacy',
+        title: 'Wijzigen',
+        icon: 'pencil',
+        linkArgument: user,
+        canAccess: this.can('edit user', user)
+      }
+    ];
+  })
 });
