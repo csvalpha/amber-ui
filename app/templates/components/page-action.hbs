@@ -3,23 +3,29 @@
     {{#link-to pageAction.link pageAction.linkArgument data-test-link=pageAction.link}}
       {{#if pageAction.icon}}
         <button type="button" class="btn btn-primary" title="{{pageAction.title}}">
-          <i class="fa fa-{{pageAction.icon}}" aria-hidden="true"></i>
+          {{fa-icon pageAction.icon}}
           <span class="d-none d-md-inline"> {{pageAction.title}} </span>
         </button>
+
       {{else}}
+
         <button type="button" class="btn btn-primary">
           {{t pageAction.title}}
         </button>
       {{/if}}
     {{/link-to}}
+
   {{else}}
+
     {{#link-to pageAction.link data-test-link=pageAction.link}}
       {{#if pageAction.icon}}
         <button type="button" class="btn btn-primary" title="{{pageAction.title}}">
-          <i class="fa fa-{{pageAction.icon}}" aria-hidden="true"></i>
+          {{fa-icon pageAction.icon}}
           <span class="d-none d-md-inline"> {{pageAction.title}} </span>
         </button>
+
       {{else}}
+
         <button type="button" class="btn btn-primary">
           {{t pageAction.title}}
         </button>

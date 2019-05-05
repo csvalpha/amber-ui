@@ -2,7 +2,7 @@
   {{#page-actions-buttons pageActions}}
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "downloadAlbum"}}>
-        <i class="fa fa-download" aria-hidden="true"></i>
+        {{fa-icon 'download'}}
         <span class="d-none d-md-inline"> {{t 'Fotoalbum downloaden'}} </span>
       </button>
     </div>
@@ -15,7 +15,8 @@
       {{#link-to 'photo-albums.photo-album.photos.show' photo}}
         {{#if photo.amountOfComments}}
           <span class="comments-counter badge badge-info">
-            <i class="fa fa-comments"></i> {{photo.amountOfComments}}
+            {{fa-icon 'comments'}}
+            {{photo.amountOfComments}}
           </span>
         {{/if}}
         <img class="image" src="{{photo.imageThumbUrl}}">

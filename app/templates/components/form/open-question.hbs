@@ -1,7 +1,8 @@
-<b> {{t 'Open vraag'}} </b>
+<span class="font-weight-bold mb-3">{{t 'Open vraag'}}</span>
+
 {{#unless question.form.hasResponses }}
-  <div class="float-md-right">
-    <a type="button" {{action "deleteQuestion"}}> <i class="fa fa-times" aria-hidden="true"></i> </a>
+  <div class="float-md-right mb-3">
+    {{fa-icon 'times' click=(action "deleteQuestion")}}
   </div>
 {{/unless}}
 
@@ -34,8 +35,13 @@
   {{#unless question.form.hasResponses }}
     <div class="col-md-7 col-sm-12">
       <div class="float-md-right">
-        <button type="button" class="btn btn-default" {{action "moveQuestionUp"}}><i class="fa fa-arrow-up"></i> {{t "Omhoog"}}</button>
-        <button type="button" class="btn btn-default" {{action "moveQuestionDown"}}><i class="fa fa-arrow-down"></i> {{t "Omlaag"}}</button>
+        <button type="button" class="btn btn-default" {{action "moveQuestionUp"}}>
+          {{fa-icon 'arrow-up'}} {{t "Omhoog"}}
+        </button>
+
+        <button type="button" class="btn btn-default" {{action "moveQuestionDown"}}>
+          {{fa-icon 'arrow-down'}} {{t "Omlaag"}}
+        </button>
       </div>
     </div>
   {{/unless}}

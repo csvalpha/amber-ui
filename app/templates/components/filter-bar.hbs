@@ -1,19 +1,22 @@
 <div class="form filter-bar">
   <div class="form-group mb-0">
-    <div class="input-group">
-      <div class="input-group-prepend">
-        <i class="fa fa-search input-group-text" aria-hidden="true"></i>
-      </div>
-      {{input value=filter class="filter-bar-filter form-control" placeholder="Zoeken" enter=enter}}
 
-      <div class="input-group-append">
+    {{#bs-dropdown as |dd|}}
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            {{fa-icon 'search'}}
+          </div>
+        </div>
 
-        {{#bs-dropdown as |dd|}}
-          {{#dd.button type="default"}}
+        {{input value=filter class="filter-bar-filter form-control" placeholder="Zoeken" enter=enter}}
+
+        <div class="input-group-append">
+          {{#dd.button type="button"}}
             {{#if sortedAscending}}
-              {{fa-icon 'sort-amount-asc'}}
+              {{fa-icon 'sort-amount-up'}}
             {{else}}
-              {{fa-icon 'sort-amount-desc'}}
+              {{fa-icon 'sort-amount-down'}}
             {{/if}}
           {{/dd.button}}
 
@@ -46,8 +49,9 @@
 
             {{yield}}
           {{/dd.menu}}
-        {{/bs-dropdown}}
+        </div>
       </div>
-    </div>
+    {{/bs-dropdown}}
+
   </div>
 </div>

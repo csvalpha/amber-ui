@@ -7,15 +7,18 @@
       {{#link-to "users.show" comment.author.id}}
         <strong>{{comment.author.fullName}}</strong>
       {{/link-to}}
+
       {{#if (can 'destroy article-comments')}}
         {{#link-to 'article-comments.destroy' comment.id}}
-          <i class="fa fa-trash text-muted destroy-icon"></i>
+          {{fa-icon 'trash' class="text-muted destroy-icon ml-2"}}
         {{/link-to}}
       {{/if}}
     </div>
+
     <div class="d-flex">
       <span> {{comment.content}} </span>
     </div>
+
     <div class="d-flex">
       <small class="text-muted"> {{moment-calendar comment.createdAt}} </small>
     </div>

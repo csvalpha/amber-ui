@@ -13,23 +13,29 @@
   <div class="row card-subheader-row ml-0 mr-0">
 
     <div class="col-12 col-md-7 card-subheader-item align-items-center p-3">
-      <i class="fa fa-clock-o"></i>
+      {{fa-icon 'clock'}}
+
       {{#if model.form.currentUserCanRespond}}
         <span> {{t 'Deze poll sluit '}} {{moment-calendar model.form.respondUntil}} </span>
+
       {{else if model.poll.closedWithNoResponses}}
         <span> {{t 'Deze poll is '}} {{moment-calendar model.form.respondUntil}} {{t 'gesloten zonder reacties.'}} </span>
+
       {{else if model.poll.opensLater}}
         <span> {{t 'Deze poll opent '}} {{moment-calendar model.form.respondFrom}} </span>
+
       {{else}}
         <span> {{t 'Deze poll '}} {{if model.poll.closesLater 'sluit' 'sloot'}} {{moment-calendar model.form.respondUntil}} </span>
       {{/if}}
     </div>
+
     <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
-      <i class="fa fa-users"></i>
+      {{fa-icon 'users'}}
       {{model.form.amountOfResponses}} {{t " reacties"}}
     </div>
+
     <div class="col-12 col-md-3 card-subheader-item align-items-center p-3">
-      <i class="fa fa-user"></i>
+      {{fa-icon 'user'}}
       <span data-test-poll-author>
         {{#link-to 'users.show' model.poll.author class="link-to card-subtitle-link"}}
           {{model.poll.author.fullName}}
@@ -37,6 +43,7 @@
       </span>
     </div>
   </div>
+
   <div class="card-body p-3">
     {{#if model.form.currentUserCanRespond}}
       <form {{action "submitResponse" on="submit"}}>
@@ -45,14 +52,17 @@
           {{#link-to "polls.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
         {{/model-form/form-actions}}
       </form>
+
     {{else if model.poll.closedWithNoResponses}}
       <div class="alert alert-danger">
         {{t 'Deze poll is '}} {{moment-calendar model.form.respondUntil}} {{t 'gesloten zonder reacties.'}}
       </div>
+
     {{else if model.poll.opensLater}}
       <div class="alert alert-info">
         {{t 'Deze poll opent '}} {{moment-calendar model.form.respondFrom}}
       </div>
+
     {{else}}
       <div class="poll-horizontal-chart">
         {{#each optionsWithResults as |bar|}}

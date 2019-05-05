@@ -8,15 +8,15 @@
   {{#if (or hasPermission hasInheritedPermission)}}
     <span class="badge {{if hasPermission "badge-success" "badge-info"}}">
       {{#if hasPermission}}
-        <span class="fa fa-check"></span>
+        {{fa-icon 'check'}}
       {{else}}
-        <span class="fa fa-group"></span>
+        {{fa-icon 'users'}}
       {{/if}}
       {{permission.action}}
     </span>
   {{else}}
     <span class="badge badge-default">
-      <span class="fa fa-times"></span>
+      {{fa-icon 'times'}}
       {{permission.action}}
     </span>
   {{/if}}

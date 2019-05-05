@@ -40,7 +40,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       {
         link: 'activities.mail-enrolled',
         title: 'Mail ingeschrevenen',
-        icon: 'send-o',
+        icon: 'paper-plane',
         linkArgument: activity,
         canAccess: this.can('mail enrolled members of activity', activity)
       }
