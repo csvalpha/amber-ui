@@ -10,3 +10,5 @@ services:
 
   app-production:
     build: .
+      args:
+        FA5_TOKEN: ${FA5_TOKEN}
