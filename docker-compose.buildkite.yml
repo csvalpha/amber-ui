@@ -9,4 +9,7 @@ services:
         FA5_TOKEN: ${FA5_TOKEN}
 
   app-production:
-    build: .
+    build:
+      context: .
+      args:
+        FA5_TOKEN: ${FA5_TOKEN}
