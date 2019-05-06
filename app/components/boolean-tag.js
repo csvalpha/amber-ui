@@ -6,16 +6,14 @@ const BooleanTagComponent = Component.extend({
   classNames: ['badge'],
   classNameBindings: ['value:badge-success:badge-danger'],
   label: computed('value', function() {
-    switch(this.get('value')) {
+    switch (this.get('value')) {
       case null:
-        return 'Niet ingevuld'
-        break;
+        return 'Niet ingevuld';
       case true:
-        return 'Ja'
-        break;
+        return 'Ja';
       case false:
       default:
-        return 'Nee'
+        return 'Nee';
     }
   })
 });
