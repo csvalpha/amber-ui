@@ -25,9 +25,13 @@ export default EditController.extend({
       if (!isNone(collection)) {
         let failedTransactions = 0;
         collection.save().then(() => {
-          return all(collection.get('transactions').map((t) => t.save().catch(() => {
-            failedTransactions++;
-          })));
+          return all(collection.get('transactions').map((transaction) => {
+            if (transaction.get('hasDirtyAttributes')) {
+              return transaction.save().catch(() => {
+                failedTransactions++;
+              });
+            }
+          }));
         }).then(() => {
           if (failedTransactions) {
             const prefix = failedTransactions > 1 ? 'zijn' : 'is';
