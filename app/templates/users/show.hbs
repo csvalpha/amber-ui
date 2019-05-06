@@ -3,7 +3,7 @@
 {{/ember-wormhole}}
 
 {{#tabbed-view tabItems=tabItems}}
-  <div class="col-md order-12 order-md-1">
+  <div class="col">
     <div class="card-body table-responsive">
       <p class="card-text">
         <h2 data-test-fullName> {{t model.fullName}} </h2>
@@ -60,7 +60,7 @@
       </p>
     </div>
   </div>
-  <div class="col-md-5 col-xs-12 order-1 order-md-12">
+  <div class="col-md-5 col-xs-12">
     <img class="card-img-rounded" src="{{model.avatarUrlOrDefault}}">
   </div>
 {{/tabbed-view}}
