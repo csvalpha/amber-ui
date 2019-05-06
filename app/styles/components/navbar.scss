@@ -13,21 +13,6 @@
   }
 }
 
-.navbar-authenticated {
-  background-color: $dies-blue;
-  color: $dies-gold;
-
-  .btn-primary {
-    border-color: $dies-gold;
-    background-color: $dies-gold;
-    color: $dies-blue;
-  }
-
-  .header-logo {
-    background-image: url('/images/dies-logo.png');
-  }
-}
-
 .navbar-nav {
   overflow-x: scroll;
   height: calc(100% + 20px);
