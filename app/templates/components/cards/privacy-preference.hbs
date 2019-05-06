@@ -1,9 +1,14 @@
-<h5 class="float-left">{{t "Privacyinstellingen"}}</h5>
-{{#if (can "edit user" model)}}
-  {{#link-to "users.edit" model (query-params tab="privacy") class="float-right"}}
-    {{fa-icon 'edit'}}
-  {{/link-to}}
-{{/if}}
+<div class="d-flex justify-content-between align-items-center pb-2">
+  <h5 class="m-0">{{t "Privacyinstellingen"}}</h5>
+  
+  {{#if (can "edit user" model)}}
+    {{#link-to "users.edit-privacy" model class="btn btn-outline-info"}}
+      {{t "Voorkeuren wijzigen"}}
+      {{fa-icon 'edit' class="pl-1"}}
+    {{/link-to}}
+  {{/if}}
+</div>
+
 <table class="table table-sm">
   <tr>
     <td>{{t "Ik wil profieldetails (contactgegevens, studie, geboortedatum en dieetwensen) delen met:"}}</td>
