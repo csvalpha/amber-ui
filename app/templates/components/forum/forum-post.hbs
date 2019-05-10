@@ -29,24 +29,28 @@
         {{/if}}
       </p>
 
-      <span>
+      <span class="text-muted pr-1">
         {{#if (can 'destroy forum/posts')}}
-          {{#link-to 'forum.categories.category.threads.thread.posts.destroy' post.id}}
-            {{fa-icon 'trash' class="forum-post-moderation-icon"}}
+          {{#link-to 'forum.categories.category.threads.thread.posts.destroy' post.id class="link-highlight px-2"}}
+            {{fa-icon 'trash'}}
           {{/link-to}}
         {{/if}}
 
         {{#if (can 'edit forum/post' post)}}
-          {{#link-to 'forum.categories.category.threads.thread.posts.edit' post.id}}
-            {{fa-icon 'pencil' class="forum-post-moderation-icon"}}
+          {{#link-to 'forum.categories.category.threads.thread.posts.edit' post.id class="link-highlight px-2"}}
+            {{fa-icon 'pencil'}}
           {{/link-to}}
         {{/if}}
 
         {{#if (can 'quote post of forum/thread' post.thread)}}
-          {{fa-icon 'quote-left' class="link-highlight forum-post-moderation-icon" click=(action "quote")}}
+          <span class=" px-2">
+            {{fa-icon 'quote-left' class="link-highlight" click=(action "quote")}}
+          </span>
         {{/if}}
 
-        {{fa-icon 'code' class="link-highlight forum-post-moderation-icon" click=(action "toggleShowMarkdown")}}
+        <span class=" px-2">
+          {{fa-icon 'code' class="link-highlight" click=(action "toggleShowMarkdown")}}
+        </span>
       </span>
     </div>
   </div>
