@@ -13,7 +13,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
     return this.get('controller.model.activity.title');
   }),
   parents: ['activities.index'],
-  
+
   pageActions: computed('controller.model', function() {
     const activity = this.get('controller.model.activity');
     return [
@@ -47,7 +47,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       }
     ];
   }),
-  
+
   model(params) {
     const activityPromise = this._super(params);
     let formPromise,
@@ -68,7 +68,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       currentUserResponse: responsePromise
     });
   },
-  
+
   deactivate() {
     const response = this.get('controller.model.currentUserResponse');
     if (response) {
