@@ -12,7 +12,7 @@ export default Controller.extend(FileSaverMixin, {
   downloadStarted: false,
   downloadFinished: false,
   modalTitle: 'Fotoalbum downloaden',
-  modalText: 'Het inpakken en downloaden van het album kan even duren. Terwijl de download bezig is kun je de webstek niet gebruiken en dit tabblad niet sluiten. Klik op onderstaande knop om de download te starten.',
+  modalText: 'Het inpakken en downloaden van het album kan even duren. Terwijl de download bezig is kun je de webstek niet gebruiken en dit tabblad niet sluiten.',
   actions: {
     downloadAlbum() {
       let model = this.get('model');
