@@ -1,7 +1,7 @@
 {{#ember-wormhole to="navbar-wormhole"}}
   {{#page-actions-buttons pageActions}}
     <div class="col col-md-auto page-action">
-      <button class="btn btn-primary" {{action "downloadAlbum"}}>
+      <button class="btn btn-primary" {{action "openModal"}}>
         {{fa-icon 'download'}}
         <span class="d-none d-md-inline"> {{t 'Fotoalbum downloaden'}} </span>
       </button>
@@ -28,3 +28,45 @@
     </div>
   {{/each}}
 </div>
+
+{{#if modalIsOpen}}
+  {{#ember-wormhole to="ember-wormhole-destination"}}
+    <div class="modal d-block">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"> {{modalTitle}} </h5>
+          </div>
+          <div class="modal-body">
+            <p class="text-center">
+              {{#unless downloadStarted}}
+                {{fa-icon 'exclamation-circle' size='8x' prefix='far'}}
+              {{/unless}}
+              {{#if (and downloadStarted (not downloadFinished))}}
+                {{fa-icon 'spinner' size='8x' spin=true}}
+              {{/if}}
+              {{#if downloadFinished}}
+                {{fa-icon 'box-check' size='8x' prefix='far'}}
+              {{/if}}
+            </p>
+            <p> {{modalText}} </p>
+          </div>
+          <div class="modal-footer">
+            {{#unless downloadStarted}}
+              <button type="button" class="btn btn-primary" {{action "downloadAlbum"}}>
+                {{t 'Start de download'}}
+              </button>
+              <button type="button" class="btn btn-default" {{action "closeModal"}}> {{t 'Annuleren'}} </button>
+            {{/unless}}
+            {{#if (and downloadStarted (not downloadFinished))}}
+              <button type="button" class="btn btn-default disabled"> {{t 'Bezig...'}} </button>
+            {{/if}}
+            {{#if  downloadFinished}}
+              <button type="button" class="btn btn-primary" {{action "closeModal"}}> {{t 'Sluiten'}} </button>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/ember-wormhole}}
+{{/if}}
