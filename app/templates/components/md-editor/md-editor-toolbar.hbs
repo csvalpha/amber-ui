@@ -16,23 +16,25 @@
             {{#each group.options as |option|}}
               {{#menu.item}}
                 <button type="button" class="dropdown-item" {{action applyStyleOptionAction option}}>
-                  {{fa-icon option.faIconName size=option.size}}
+                  {{fa-icon option.faIconName size=option.size prefix=option.faIconPrefix fixedWidth=true}}
                   {{option.name}}
                 </button>
               {{/menu.item}}
             {{/each}}
           {{/dd.menu}}
         {{/bs-dropdown}}
+
       {{else}}
+
         <div class="btn-group" role="group" aria-label="{{group.name}}">
           {{#each group.options as |option|}}
             {{#if option.modal}}
               <button type="button" class="btn btn-secondary" title="{{option.name}}" data-toggle="modal" data-target="#insertModal" {{action openModalAction option}}>
-                {{fa-icon option.faIconName}}
+                {{fa-icon option.faIconName prefix=option.faIconPrefix}}
               </button>
             {{else}}
               <button type="button" class="btn btn-secondary" title="{{option.name}}" {{action applyStyleOptionAction option}}>
-                {{fa-icon option.faIconName}}
+                {{fa-icon option.faIconName prefix=option.faIconPrefix}}
               </button>
             {{/if}}
           {{/each}}
@@ -43,7 +45,7 @@
 
   <div class="btn-group">
     <a href="http://commonmark.org/help/" target="_blank">
-      <button type="button" class="btn btn-secondary" title="{{t "Help"}}">{{fa-icon "question"}}</button>
+      <button type="button" class="btn btn-secondary" title="{{t "Help"}}">{{fa-icon "question-circle"}}</button>
     </a>
   </div>
 </div>
