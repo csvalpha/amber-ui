@@ -8,8 +8,11 @@ services:
       args:
         FA5_TOKEN: ${FA5_TOKEN}
 
-  app-production:
+  app-production: &production
     build:
       context: .
       args:
         FA5_TOKEN: ${FA5_TOKEN}
+
+  app-staging:
+    <<: *production
