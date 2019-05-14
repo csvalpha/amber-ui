@@ -65,7 +65,15 @@ module.exports = function(environment) {
     // FontAwesome
     fontawesome: {
       // Regular icons as default
-      defaultPrefix: 'fas'
+      defaultPrefix: 'fas',
+      icons: {
+        'pro-light-svg-icons': 'all',
+        'pro-regular-svg-icons': 'all',
+        'pro-solid-svg-icons': 'all',
+        'free-brands-svg-icons': [
+          'youtube'
+        ]
+      }
     },
 
     locationType: 'router-scroll',
