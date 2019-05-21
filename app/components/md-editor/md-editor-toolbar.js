@@ -16,20 +16,20 @@ export default Component.extend({
           {
             name: 'Titel 1',
             format: '# $1',
-            faIconName: 'header',
-            size: 3
+            faIconName: 'heading',
+            size: '2x'
           },
           {
             name: 'Titel 2',
             format: '## $1',
-            faIconName: 'header',
-            size: 2
+            faIconName: 'heading',
+            size: 'lg'
           },
           {
             name: 'Titel 3',
             format: '### $1',
-            faIconName: 'header',
-            size: 'lg'
+            faIconName: 'heading',
+            size: 'sm'
           }
         ]
       },
@@ -85,7 +85,7 @@ export default Component.extend({
           {
             name: 'Afbeelding invoegen',
             format: '![$1]($2)',
-            faIconName: 'photo',
+            faIconName: 'image',
             modal: {
               question: 'Wat is de URL van de afbeelding? Momenteel worden alleen afbeeldingen van externe hosters ondersteund. Gebruik bijvoorbeeld Imgur, Giphy of een andere service.'
             }
@@ -94,6 +94,7 @@ export default Component.extend({
             name: 'Youtube filmpje invoegen',
             format: '$($2)\n',
             faIconName: 'youtube',
+            faIconPrefix: 'fab',
             modal: {
               question: 'Wat is de Youtube url van het filmpje? Bijvoorbeeld https://www.youtube.com/watch?v=-GLMBp6OxRY'
             }
