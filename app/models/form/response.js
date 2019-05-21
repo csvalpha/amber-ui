@@ -1,4 +1,4 @@
-import { union } from '@ember/object/computed';
+import { alias, union } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import { all } from 'rsvp';
@@ -18,6 +18,7 @@ export default Model.extend({
   closedQuestionAnswers: hasMany('form/closed-question-answer'),
 
   // Computed properties
+  userFullName: alias('user.fullName'),
   answers: union('openQuestionAnswers', 'closedQuestionAnswers'),
   groupedAnswersPromise: computed('openQuestionAnswers.[]', 'closedQuestionAnswers.[]', function() {
     // For the id of the question, we have to wait until the answers are actually loaded

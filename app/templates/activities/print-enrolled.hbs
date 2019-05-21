@@ -88,14 +88,29 @@
     <h5> {{t "Afdrukvoorbeeld"}} </h5>
     <span class="text-muted"> {{t "Voorbeeld kan afwijken van uiteindelijke resultaat"}} </span>
   </div>
+
   <div class="card-body">
     <p id="printarea" class="printarea">
       {{#if (eq currentTab 'form')}}
         <h5>{{t "Inschrijvingen voor "}}{{model.title}}</h5>
-        {{form/responses-table model.form model.form.responses showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox class="responses-table" }}
+        {{form/responses-table
+          model.form
+          sortedResponses
+          showAllergyInfo=showAllergyInfo
+          showCheckbox=showCheckbox
+          class="responses-table"
+        }}
+
       {{else if (eq currentTab 'consumptionList')}}
         <h5>{{t "Streeplijst voor "}}{{model.title}}</h5>
-        {{form/consumption-list responses=model showCheckbox=showCheckbox options=options extraRows=extraRows showRobertHofstra=showRobertHofstra additionalEmptyRows=additionalEmptyRows}}
+        {{form/consumption-list
+          responses=model
+          showCheckbox=showCheckbox
+          options=options
+          extraRows=extraRows
+          showRobertHofstra=showRobertHofstra
+          additionalEmptyRows=additionalEmptyRows
+        }}
       {{/if}}
     </p>
   </div>

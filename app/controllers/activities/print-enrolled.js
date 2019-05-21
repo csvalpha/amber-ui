@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { sort } from '@ember/object/computed';
 
 export default Controller.extend({
   showAllergyInfo: true,
@@ -8,7 +9,9 @@ export default Controller.extend({
   newOption: '',
   additionalEmptyRows: 5,
   showRobertHofstra: true,
-  modelPath: 'model.form.responses',
+
+  sortedString: Object.freeze(['userFullName']),
+  sortedResponses: sort('model.form.responses', 'sortedString'),
 
   actions: {
     print() {
