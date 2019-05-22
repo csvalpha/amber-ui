@@ -1,6 +1,6 @@
 <div class="card printsettings">
   <div class="card-header card-header-with-tabs ">
-    <h5 class="pl-2">{{t "Afdrukinstellingen"}}</h5>
+    <h5 class="pl-2 pb-3">{{t "Afdrukinstellingen"}}</h5>
     <div class="row tabs-with-filterbar-row">
       <div class="col">
         <ul class="nav nav-tabs">
@@ -12,11 +12,6 @@
           </li>
         </ul>
       </div>
-      <div class="col">
-        <div class="form-group">
-          {{filter-bar class="mr-3" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending}}
-        </div>
-      </div>
     </div>
   </div>
 
@@ -27,7 +22,7 @@
           <div class="form-check">
             <label class="form-check-label">
               {{input type="checkbox" checked=showAllergyInfo class="form-check-input"}}
-              {{t "Allergie info weergeven"}}
+              {{t "Dieetwensen weergeven"}}
               <div class="custom-checkmark"></div>
             </label>
           </div>
@@ -42,7 +37,7 @@
                     <div class="row">
                       <span class="col"> {{option}} </span>
                       <a class="pl-2 link-highlight text-danger" {{action "removeOption" index}}> {{t "Verwijderen"}} </a>
-                      {{fa-icon 'sort' class="handle text-muted px-3 pt-1"}}
+                      <span class="px-3">{{fa-icon 'sort' class="handle text-muted"}}</span>
                     </div>
                   {{/sortable-item}}
                 {{else}}
@@ -93,14 +88,29 @@
     <h5> {{t "Afdrukvoorbeeld"}} </h5>
     <span class="text-muted"> {{t "Voorbeeld kan afwijken van uiteindelijke resultaat"}} </span>
   </div>
+
   <div class="card-body">
     <p id="printarea" class="printarea">
       {{#if (eq currentTab 'form')}}
         <h5>{{t "Inschrijvingen voor "}}{{model.title}}</h5>
-        {{form/responses-table model.form filteredModels showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox class="responses-table" }}
+        {{form/responses-table
+          model.form
+          sortedResponses
+          showAllergyInfo=showAllergyInfo
+          showCheckbox=showCheckbox
+          class="responses-table"
+        }}
+
       {{else if (eq currentTab 'consumptionList')}}
         <h5>{{t "Streeplijst voor "}}{{model.title}}</h5>
-        {{form/consumption-list responses=model showCheckbox=showCheckbox options=options extraRows=extraRows showRobertHofstra=showRobertHofstra additionalEmptyRows=additionalEmptyRows}}
+        {{form/consumption-list
+          responses=model
+          showCheckbox=showCheckbox
+          options=options
+          extraRows=extraRows
+          showRobertHofstra=showRobertHofstra
+          additionalEmptyRows=additionalEmptyRows
+        }}
       {{/if}}
     </p>
   </div>

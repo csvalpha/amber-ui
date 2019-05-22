@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import { sort } from '@ember/object/computed';
 
-export default Controller.extend(FilterableAndSortableMixin, {
+export default Controller.extend({
   showAllergyInfo: true,
   showCheckbox: true,
   currentTab: 'form', // Possible options: [ form, consumptionList ]
@@ -9,26 +9,9 @@ export default Controller.extend(FilterableAndSortableMixin, {
   newOption: '',
   additionalEmptyRows: 5,
   showRobertHofstra: true,
-  modelPath: 'model.form.responses',
-  filterableAttributes: [
-    'user.firstName',
-    'user.lastName'
-  ],
-  sortableAttributes: [
-    {
-      value: 'user.firstName',
-      label: 'Voornaam'
-    },
-    {
-      value: 'user.lastName',
-      label: 'Achternaam'
-    },
-    {
-      value: 'createdAt',
-      label: 'Tijd van inschrijven'
-    }
-  ],
-  sortedAttribute: 'user.firstName',
+
+  sortedString: Object.freeze(['userFullName']),
+  sortedResponses: sort('model.form.responses', 'sortedString'),
 
   actions: {
     print() {
