@@ -7,6 +7,7 @@ export default Model.extend({
   email: attr('string'),
   moderationType: attr('string'),
   description: attr('string'),
+  smtpEnabled: attr('boolean', { defaultValue: false }),
 
   // Relations
   user: belongsTo('user', { inverse: 'mailAliases' }),
