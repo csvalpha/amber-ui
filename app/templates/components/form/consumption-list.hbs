@@ -16,7 +16,7 @@
     {{#each responses as |response|}}
       <tr>
         {{#if showCheckbox}}
-          <td>{{fa-icon 'square'}}</td>
+          <td>{{fa-icon 'square' prefix="far"}}</td>
         {{/if}}
         <td>{{response.user.fullName}}</td>
         {{#each options}}
@@ -27,7 +27,7 @@
     {{#if showRobertHofstra}}
       <tr>
         {{#if showCheckbox}}
-          <td>{{fa-icon 'square'}}</td>
+          <td>{{fa-icon 'square' prefix="far"}}</td>
         {{/if}}
         <td>{{t "Robert Hofstra"}}</td>
         {{#each options}}
@@ -38,7 +38,7 @@
     {{#each (range 0 additionalEmptyRows)}}
       <tr>
         {{#if showCheckbox}}
-          <td>{{fa-icon 'square'}}</td>
+          <td>{{fa-icon 'square' prefix="far"}}</td>
         {{/if}}
         <td class="table-filler"></td>
         {{#each options}}
