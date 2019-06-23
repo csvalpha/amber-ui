@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
-import {inject as service} from '@ember/service';
-import {computed} from '@ember/object';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
 
 export default Controller.extend({
   fetch: service(),
@@ -9,14 +9,14 @@ export default Controller.extend({
   queryParams: ['client_id', 'redirect_uri', 'response_type', 'state'],
   /* eslint-enable camelcase */
 
-  clientName: computed('client_id', function () {
+  clientName: computed('client_id', function() {
     this.get('fetch').fetch(`/oauth/authorize?client_id=${this.get('client_id')}&redirect_uri=${this.get('redirect_uri')}&response_type=${this.get('response_type')}&state=${this.get('state')}`
     ).then(response => {
       response.json().then(json => {
-        if (json.status === "redirect") {
+        if (json.status === 'redirect') {
           location.href = json.redirect_uri;
         } else {
-          this.set('clientName', json.client_name)
+          this.set('clientName', json.client_name);
         }
       });
     });
@@ -24,7 +24,7 @@ export default Controller.extend({
 
   actions: {
     authorize() {
-      this.get('fetch').fetch(`/oauth/authorize`, {
+      this.get('fetch').fetch('/oauth/authorize', {
         body: JSON.stringify({
           /* eslint-disable camelcase */
           client_id: this.get('client_id'),
@@ -34,7 +34,7 @@ export default Controller.extend({
           /* eslint-enable camelcase */
         }),
         method: 'POST',
-        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'}
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }
       }).then(response => {
         response.json().then(json => {
           if (json.error) {
