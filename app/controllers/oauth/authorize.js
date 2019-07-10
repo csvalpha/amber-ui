@@ -1,26 +1,13 @@
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 
 export default Controller.extend({
   fetch: service(),
+  clientName: 'Loading..',
 
   /* eslint-disable camelcase */
   queryParams: ['client_id', 'redirect_uri', 'response_type', 'state'],
   /* eslint-enable camelcase */
-
-  clientName: computed('client_id', function() {
-    this.get('fetch').fetch(`/oauth/authorize?client_id=${this.get('client_id')}&redirect_uri=${this.get('redirect_uri')}&response_type=${this.get('response_type')}&state=${this.get('state')}`
-    ).then(response => {
-      response.json().then(json => {
-        if (json.status === 'redirect') {
-          location.href = json.redirect_uri;
-        } else {
-          this.set('clientName', json.client_name);
-        }
-      });
-    });
-  }),
 
   actions: {
     authorize() {
