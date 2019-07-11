@@ -11,6 +11,12 @@ export default Controller.extend(FilterableAndSortableMixin, {
     {
       value: 'email',
       label: 'E-mail'
+    },
+    { value: 'moderation_type',
+      label: 'Moderatie type'
+    },
+    { value: 'smtp_enabled',
+      label: 'SMTP'
     }
   ]
 });

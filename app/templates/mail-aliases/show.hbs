@@ -36,6 +36,10 @@
                   <td>{{model.description}}</td>
                 </tr>
                 <tr>
+                  <td>{{t "SMTP"}}</td>
+                  <td>{{boolean-tag model.smtpEnabled}}</td>
+                </tr>
+                <tr>
                   <td>{{t "Groep"}}</td>
                   <td>
                     {{#if model.group}}
