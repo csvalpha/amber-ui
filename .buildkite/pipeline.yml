@@ -31,7 +31,7 @@ steps:
           username: buildkite
           password-env: DOCKER_PASSWORD
       - docker-compose#v2.6.0:
-          push: app-production:docker.csvalpha.nl/amber-ui:staging
+          push: app-staging:docker.csvalpha.nl/amber-ui:staging
           config: docker-compose.buildkite.yml
 
   - label: ":docker: Build+Push `:production` image"

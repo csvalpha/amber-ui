@@ -1,6 +1,8 @@
 FROM madnificent/ember:3.0.1 as ember
 MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 
+ARG DEPLOY_TARGET='production'
+
 # Install NPM Token
 ARG FA5_TOKEN
 COPY .buildkite/build_npmrc.sh /app/.buildkite/build_npmrc.sh
@@ -11,7 +13,7 @@ COPY yarn.lock /app/yarn.lock
 RUN yarn install --ignore-engines
 
 COPY . /app
-RUN ember build --environment=production
+RUN DEPLOY_TARGET=$DEPLOY_TARGET ember build --environment=production
 
 FROM nginx:1.15.5-alpine
 RUN rm /etc/nginx/conf.d/default.conf
