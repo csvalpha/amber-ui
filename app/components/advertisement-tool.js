@@ -33,11 +33,6 @@ export default Component.extend({
       image: 'advertisements/1.png'
     },
     {
-      title: 'Zoover',
-      link: 'http://www.zoover.nl',
-      image: 'advertisements/2.png'
-    },
-    {
       title: 'Wasmachine huren bij Meo Lease',
       link: 'http://www.meolease.nl',
       image: 'advertisements/6.gif'
