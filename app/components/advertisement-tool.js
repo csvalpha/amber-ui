@@ -6,16 +6,19 @@ export default Component.extend({
   classNames: ['advertisement-tool'],
   media: service(),
   advertisements: computed('media.isMobile', 'media.isTablet', 'media.isDesktop', function() {
-    if (this.get('media.isMobile') || this.get('media.isTablet')) {
-      // Double up the advertisement array to make an 'infinite loop' transition possible
-      return this.get('advertisementItems').concat(this.get('advertisementItems'));
-    }
-    return this.get('advertisementItems');
+    // Double up the advertisement array to make an 'infinite loop' transition possible
+    return this.get('advertisementItems').concat(this.get('advertisementItems'));
   }),
 
   // Don't forget to also increment the 'amountOfAdvertisements' variable
   // in styles/components/advertisement-tool.scss
   advertisementItems: [
+    {
+      title: 'Knaek',
+      alt: 'Knaek studentenkorting in Enschede',
+      link: 'https://www.knaek.nl/studentenkorting/enschede?&utm_campaign=SV_C.S.V. Alpha',
+      image: 'advertisements/knaek.png'
+    },
     {
       title: 'EasySwitch',
       alt: 'energie vergelijken',
@@ -30,12 +33,12 @@ export default Component.extend({
     {
       title: 'Sponsorkliks',
       link: 'https://www.sponsorkliks.com/products/shops.php?club=4509',
-      image: 'advertisements/1.png'
+      image: 'advertisements/sponsorkliks.png'
     },
     {
       title: 'Wasmachine huren bij Meo Lease',
       link: 'http://www.meolease.nl',
-      image: 'advertisements/6.gif'
+      image: 'advertisements/meolease.gif'
     },
     {
       title: 'Cibdol - Swiss purity',
@@ -45,7 +48,7 @@ export default Component.extend({
     {
       title: 'Student Wegwijzer',
       link: 'https://www.studentenwegwijzer.nl/',
-      image: 'advertisements/3.png'
+      image: 'advertisements/studentwegwijzer.png'
     },
     {
       title: 'Inshared',
