@@ -1,7 +1,10 @@
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import EditController from 'alpha-amber/controllers/application/edit';
-import { DigtusSubscriptionPreferenceTypes, AlmanakSubscriptionPreferenceTypes } from 'alpha-amber/constants';
+import {
+  DigtusSubscriptionPreferenceTypes,
+  AlmanakSubscriptionPreferenceTypes
+} from 'alpha-amber/constants';
 
 export default EditController.extend({
   session: service(),

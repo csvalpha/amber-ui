@@ -1,3 +1,4 @@
+import { alias } from '@ember/object/computed';
 import Mixin from '@ember/object/mixin';
 import { computed } from '@ember/object';
 
@@ -8,7 +9,7 @@ export default Mixin.create({
   sortedAttribute: null,
   sortedAscending: true,
   oldMembershipsAreVisible: false,
-  models: computed.alias('model.memberships'),
+  models: alias('model.memberships'),
   filteredModels: computed('models.[]', 'filter', 'sortedAttribute', 'sortedAscending', 'oldMemberships', 'currentMemberships', 'oldMembershipsAreVisible', function() {
     let records = null;
 

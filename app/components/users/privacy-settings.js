@@ -2,7 +2,10 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { isPresent } from '@ember/utils';
-import { PicturePublicationPreferenceTypes, UserDetailsPreferenceTypes } from 'alpha-amber/constants';
+import {
+  PicturePublicationPreferenceTypes,
+  UserDetailsPreferenceTypes
+} from 'alpha-amber/constants';
 import ModelSaveMixin from 'alpha-amber/mixins/model-save-mixin';
 
 export default Component.extend(ModelSaveMixin, {

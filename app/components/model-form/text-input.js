@@ -1,4 +1,4 @@
-import { none } from '@ember/object/computed';
+import { none, alias } from '@ember/object/computed';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 
@@ -26,5 +26,5 @@ export default Component.extend({
     // On why model.constructor.modelName is used instead of model.modelName
     return `${this.get('model.constructor.modelName')}-form-${this.property}`;
   }),
-  placeholder: computed.alias('label')
+  placeholder: alias('label')
 });

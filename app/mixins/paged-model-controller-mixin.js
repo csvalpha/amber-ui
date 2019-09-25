@@ -1,3 +1,4 @@
+import { alias } from '@ember/object/computed';
 import Mixin from '@ember/object/mixin';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
@@ -16,6 +17,6 @@ export default Mixin.create({
     }
   }),
 
-  paginator: computed.alias('model'),
-  pagedModel: computed.alias('model.content')
+  paginator: alias('model'),
+  pagedModel: alias('model.content')
 });

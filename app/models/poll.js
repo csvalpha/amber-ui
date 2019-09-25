@@ -1,3 +1,4 @@
+import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
 import DS from 'ember-data';
@@ -19,8 +20,8 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
     return this.get('form.closedQuestions.firstObject');
   }),
 
-  currentUserCanRespond: computed.alias('form.currentUserCanRespond'),
-  currentUserResponseCompleted: computed.alias('form.currentUserResponseCompleted'),
+  currentUserCanRespond: alias('form.currentUserCanRespond'),
+  currentUserResponseCompleted: alias('form.currentUserResponseCompleted'),
   closesLater: computed('form.respondUntil', function() {
     return moment().isBefore(this.get('form.respondUntil'));
   }),
