@@ -14,7 +14,7 @@ export default Route.extend(ApplicationRouteMixin, {
   beforeModel() {
     this._super(...arguments);
     moment.locale('nl');
-    return this.get('session').loadAndSetCurrentUser();
+    return this.session.loadAndSetCurrentUser();
   },
 
   sessionAuthenticated() {

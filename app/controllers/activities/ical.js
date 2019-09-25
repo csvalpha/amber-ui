@@ -27,11 +27,11 @@ export default Controller.extend({
   }),
 
   iCalURL: computed('iCalBase', 'categoriesParams', function() {
-    return `${window.location.origin}${this.get('iCalBase')}&${this.get('categoriesParams')}`;
+    return `${window.location.origin}${this.iCalBase}&${this.categoriesParams}`;
   }),
 
   webcalURL: computed('iCalBase', 'categoriesParams', function() {
-    return `webcal://${window.location.host}${this.get('iCalBase')}&${this.get('categoriesParams')}`;
+    return `webcal://${window.location.host}${this.iCalBase}&${this.categoriesParams}`;
   }),
 
   _activityCategoryToOption: activityCategory => {
@@ -42,7 +42,7 @@ export default Controller.extend({
   },
 
   activityCategoryOptions: computed(function() {
-    return ActivityCategories.map(this.get('_activityCategoryToOption'));
+    return ActivityCategories.map(this._activityCategoryToOption);
   }),
 
   actions: {
@@ -51,9 +51,9 @@ export default Controller.extend({
     },
     toggleCheckAll() {
       const form = $('#activityCategoryForm');
-      this.get('checkedAll');
+      this.checkedAll;
 
-      if (this.get('checkedAll')) {
+      if (this.checkedAll) {
         form.find(':checkbox').prop('checked', false);
       } else {
         form.find(':checkbox').prop('checked', true);

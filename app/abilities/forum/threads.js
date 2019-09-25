@@ -5,15 +5,15 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('forum/thread.create');
+    return this.session.hasPermission('forum/thread.create');
   }),
   canShow: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('forum/thread.read');
+    return this.session.hasPermission('forum/thread.read');
   }),
   canEdit: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('forum/thread.update');
+    return this.session.hasPermission('forum/thread.update');
   }),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('forum/thread.destroy');
+    return this.session.hasPermission('forum/thread.destroy');
   })
 });

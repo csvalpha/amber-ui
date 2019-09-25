@@ -33,7 +33,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
 
   saveWithForm() {
     // Every day fun with triple nested promises
-    return this.get('form').then(form => {
+    return this.form.then(form => {
       if (!isNone(form)) {
         return form.saveWithQuestions().then(() => {
           return this.save();
@@ -44,7 +44,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
   },
   rollbackAttributesAndForm() {
     this.rollbackAttributes();
-    this.get('form').then(form => {
+    this.form.then(form => {
       if (!isNone(form)) {
         form.rollbackAttributesAndQuestions();
       }

@@ -6,7 +6,7 @@ export default Controller.extend({
   layoutManager: service('layout-manager'),
   actions: {
     invalidateSession() {
-      this.get('session').invalidate();
+      this.session.invalidate();
     },
     refreshItems() {
       this.send('refresh');

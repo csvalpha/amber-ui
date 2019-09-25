@@ -5,12 +5,12 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canShow: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo-comment.read');
+    return this.session.hasPermission('photo-comment.read');
   }),
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo-comment.create');
+    return this.session.hasPermission('photo-comment.create');
   }),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo-comment.destroy');
+    return this.session.hasPermission('photo-comment.destroy');
   })
 });

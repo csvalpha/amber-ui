@@ -15,6 +15,6 @@ export default Model.extend({
 
   // Computed properties
   sumOfAnswers: computed('answers', 'answers.@each.completed', function() {
-    return this.get('answers').filterBy('completed', true).length;
+    return this.answers.filterBy('completed', true).length;
   })
 });

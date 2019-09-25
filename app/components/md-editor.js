@@ -17,13 +17,13 @@ export default Component.extend({
 
   textareaIdentifier: alias('textareaId'),
   textareaClass: computed('name', function() {
-    return `form-control md-editor ${this.get('name')}`;
+    return `form-control md-editor ${this.name}`;
   }),
   selectionStart: null,
   selectionEnd: null,
 
   textareaId: computed('elementId', function() {
-    return `${this.get('elementId')}-textarea`;
+    return `${this.elementId}-textarea`;
   }),
 
   actions: {
@@ -35,7 +35,7 @@ export default Component.extend({
       this.set('modalOption', option);
       this.set('modalOpen', true);
 
-      const textarea = $(`#${this.get('textareaIdentifier')}`);
+      const textarea = $(`#${this.textareaIdentifier}`);
       const selectionStart = textarea.prop('selectionStart');
       const selectionEnd = textarea.prop('selectionEnd');
 
@@ -44,17 +44,17 @@ export default Component.extend({
     },
 
     applyStyle(option) {
-      const content = this.get('content');
+      const content = this.content;
 
-      const textarea = $(`#${this.get('textareaIdentifier')}`);
-      const selectionStart = this.get('selectionStart') || textarea.prop('selectionStart');
-      const selectionEnd = this.get('selectionEnd') || textarea.prop('selectionEnd');
+      const textarea = $(`#${this.textareaIdentifier}`);
+      const selectionStart = this.selectionStart || textarea.prop('selectionStart');
+      const selectionEnd = this.selectionEnd || textarea.prop('selectionEnd');
 
       const selection = textarea.val().substring(selectionStart, selectionEnd);
       let styledSelection;
 
       if (option.modal) {
-        const modalInput = this.get('modalInput');
+        const modalInput = this.modalInput;
         styledSelection = option.format.replace('$1', selection);
         styledSelection = styledSelection.replace('$2', modalInput);
         this.set('modalInput', null);

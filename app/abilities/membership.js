@@ -5,6 +5,6 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canDestroy: computed('session.currentUser', 'model', function() {
-    return this.get('session').hasPermission('membership.destroy') || this.get('model').isNew;
+    return this.session.hasPermission('membership.destroy') || this.model.isNew;
   })
 });

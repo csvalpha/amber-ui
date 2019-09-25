@@ -13,7 +13,7 @@ export default Controller.extend({
     submitResponse() {
       const currentUserResponse = this.get('model.currentUserResponse');
       const form = this.get('model.form');
-      const flashNotice = this.get('flashNotice');
+      const flashNotice = this.flashNotice;
       currentUserResponse.saveWithAnswers().then(() => {
         // The response is the first thing that is saved (in order to save answers), so currently the response is
         // always 'incomplete'. Furthermore, the form has a field 'amountOfResponses' which should be updated.

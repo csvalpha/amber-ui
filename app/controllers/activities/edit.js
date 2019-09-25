@@ -17,7 +17,7 @@ export default Controller.extend(CanMixin, {
     },
     set(_, value) {
       if (value) {
-        const store = this.get('store');
+        const store = this.store;
         const form = store.createRecord('form/form');
         store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
         this.set('model.form', form);
@@ -30,7 +30,7 @@ export default Controller.extend(CanMixin, {
 
   groups: computed(function() {
     if (this.can('select all groups for activities')) {
-      return this.get('store').findAll('group');
+      return this.store.findAll('group');
     }
     return this.get('session.currentUser').get('groups');
   }),
@@ -43,13 +43,13 @@ export default Controller.extend(CanMixin, {
   },
 
   activityCategoryOptions: computed(function() {
-    return ActivityCategories.map(this.get('_activityCategoryToOption'));
+    return ActivityCategories.map(this._activityCategoryToOption);
   }),
 
   actions: {
     submit() {
-      const activity = this.get('model');
-      const flashNotice = this.get('flashNotice');
+      const activity = this.model;
+      const flashNotice = this.flashNotice;
       activity.saveWithForm().then(savedActivity => {
         this.transitionToRoute('activities.show', savedActivity.get('id'));
         flashNotice.sendSuccess('Activiteit opgeslagen!');
@@ -59,7 +59,7 @@ export default Controller.extend(CanMixin, {
     },
 
     coverPhotoLoaded(file) {
-      const activity = this.get('model');
+      const activity = this.model;
       activity.set('coverPhoto', file.data);
     }
   }

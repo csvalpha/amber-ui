@@ -6,7 +6,7 @@ export default EditController.extend({
   actions: {
     destroy() {
       this.set('errorMessage', null);
-      const model = this.get('model');
+      const model = this.model;
 
       if (!isNone(model)) {
         model.destroyRecord().then(() => {

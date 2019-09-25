@@ -11,9 +11,9 @@ export default Mixin.create({
   avatarUrl: attr('string'),
   avatarThumbUrl: attr('string'),
   avatarThumbUrlOrDefault: computed('avatarThumbUrl', function() {
-    return this.get('avatarThumbUrl') || this.get('defaultAvatarThumbUrl');
+    return this.avatarThumbUrl || this.defaultAvatarThumbUrl;
   }),
   avatarUrlOrDefault: computed('avatarUrl', function() {
-    return this.get('avatarUrl') || this.get('defaultAvatarUrl');
+    return this.avatarUrl || this.defaultAvatarUrl;
   })
 });

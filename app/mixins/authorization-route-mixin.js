@@ -13,7 +13,7 @@ export default Mixin.create({
     return false;
   },
   beforeModel(transition) {
-    return this.checkAccessWithPromise(this.get('skipBeforeModelAccessCheck') || this.canAccess(), transition);
+    return this.checkAccessWithPromise(this.skipBeforeModelAccessCheck || this.canAccess(), transition);
   },
   /**
    * In some cases, we need to check access based on a promise. This method takes either a boolean

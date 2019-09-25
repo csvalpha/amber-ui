@@ -6,7 +6,7 @@ const BooleanTagComponent = Component.extend({
   classNames: ['badge'],
   classNameBindings: ['value:badge-success:badge-danger'],
   label: computed('value', function() {
-    switch (this.get('value')) {
+    switch (this.value) {
       case null:
         return 'Niet ingevuld';
       case true:

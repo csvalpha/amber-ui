@@ -6,10 +6,10 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canShowArticleComments: computed('session.currentUser', 'model', function() {
-    return this.get('session').hasPermission('article-comment.read') || this.get('model.publiclyVisible');
+    return this.session.hasPermission('article-comment.read') || this.get('model.publiclyVisible');
   }),
   canEdit: computed('session.currentUser', 'model', function() {
-    return this.get('session').hasPermission('article.update') || this.isArticleOwner(this.get('model'));
+    return this.session.hasPermission('article.update') || this.isArticleOwner(this.model);
   }),
   isArticleOwner(article) {
     // This can be reached while not logged in: when a user visits a public article, this method is called to

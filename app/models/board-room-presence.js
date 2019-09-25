@@ -21,7 +21,7 @@ export default Model.extend({
 
   formattedEndTime: computed('endTime', {
     get() {
-      return moment(this.get('endTime')).format('HH:mm');
+      return moment(this.endTime).format('HH:mm');
     },
     set(key, value) {
       this.set('endTime', moment(value, ['Hmm', 'HH:mm', 'H:mm']).toDate());
@@ -30,6 +30,6 @@ export default Model.extend({
   }),
 
   label: computed('status', function() {
-    return this.get('statusOptions')[this.get('status')];
+    return this.statusOptions[this.status];
   })
 });

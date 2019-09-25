@@ -25,7 +25,7 @@ export const FormStatusIconComponent = Component.extend({
   // open always means dot
 
   color: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {
-    const form = this.get('form');
+    const form = this.form;
     if (isNone(form)) {
       return 'success';
     }
@@ -38,7 +38,7 @@ export const FormStatusIconComponent = Component.extend({
     return 'dark';
   }),
   icon: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
-    const form = this.get('form');
+    const form = this.form;
     if (isNone(form)) {
       return 'circle';
     }

@@ -16,7 +16,7 @@ export default Helper.extend({
       prefix = 'Sloot';
     }
 
-    prefix = this.get('i18n').t(prefix);
+    prefix = this.i18n.t(prefix);
     return `${prefix} ${dateFromNow}`;
   }
 });

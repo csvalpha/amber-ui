@@ -10,8 +10,8 @@ export default Component.extend({
   },
   actions: {
     save(message, thread) {
-      const flashNotice = this.get('flashNotice');
-      this.get('store').createRecord('forum/post', {
+      const flashNotice = this.flashNotice;
+      this.store.createRecord('forum/post', {
         message,
         thread
       }).save().then(() => {

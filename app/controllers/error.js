@@ -6,19 +6,19 @@ import { run } from '@ember/runloop';
 export default Controller.extend({
   flashNotice: service('flash-notice'),
   showNotFound: computed('status', function() {
-    const status = this.get('status');
+    const status = this.status;
     return this.get('model.isAuthorizationMixinError')
       || (this.get('model.isAdapterError') && ['403', '404'].includes(status));
   }),
   showStatic: computed('status', function() {
-    return ['502', '503'].includes(this.get('status'));
+    return ['502', '503'].includes(this.status);
   }),
   status: computed('model', function() {
     const status = this.get('model.errors.firstObject.status');
     return status ? String(status) : status;
   }),
   message: computed('status', function() {
-    const status = this.get('status');
+    const status = this.status;
     switch (status) {
       case '400': // Bad Request
         return 'Er is iets mis met de request. Geef de ICT-commissie even de tijd om dit op te lossen.';
@@ -47,8 +47,8 @@ export default Controller.extend({
   init() {
     this._super();
     run.scheduleOnce('afterRender', this, function() {
-      if (this.get('showStatic')) {
-        const flashNotice = this.get('flashNotice');
+      if (this.showStatic) {
+        const flashNotice = this.flashNotice;
         flashNotice.sendWarning('De backend is momenteel niet bereikbaar. U ziet een statische versie van de website.', true);
       }
     });

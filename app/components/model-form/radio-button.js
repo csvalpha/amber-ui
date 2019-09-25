@@ -14,11 +14,11 @@ export default Component.extend({
     'value'
   ],
   checked: computed('groupValue', 'value', function() {
-    return this.get('groupValue') === this.get('value');
+    return this.groupValue === this.value;
   }).readOnly(),
   change() {
-    const value = this.get('value');
-    const groupValue = this.get('groupValue');
+    const value = this.value;
+    const groupValue = this.groupValue;
 
     if (groupValue !== value) {
       this.set('groupValue', value);

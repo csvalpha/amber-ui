@@ -12,16 +12,16 @@ export default Mixin.create({
   filteredModels: computed('models.[]', 'filter', 'sortedAttribute', 'sortedAscending', 'oldMemberships', 'currentMemberships', 'oldMembershipsAreVisible', function() {
     let records = null;
 
-    if (this.get('oldMembershipsAreVisible')) {
-      records = this.get('oldMemberships');
+    if (this.oldMembershipsAreVisible) {
+      records = this.oldMemberships;
     } else {
-      records = this.get('currentMemberships');
+      records = this.currentMemberships;
     }
     return this.sortModels(this.filterModels(records));
   }),
   filterModels(models) {
-    const filter = this.get('filter');
-    const filterableAttributes = this.get('filterableAttributes');
+    const filter = this.filter;
+    const filterableAttributes = this.filterableAttributes;
 
     // Do not filter when no value is inserted
     if (isBlank(filter)) {
@@ -37,15 +37,15 @@ export default Mixin.create({
   },
 
   sortModels(models) {
-    const sortedAttribute = this.get('sortedAttribute');
-    const sortedAscending = this.get('sortedAscending');
+    const sortedAttribute = this.sortedAttribute;
+    const sortedAscending = this.sortedAscending;
     const sortedModels = models.sortBy(sortedAttribute);
 
     return sortedAscending ? sortedModels : sortedModels.reverse();
   },
 
   oldMemberships: computed('models.length', 'models.@each.endDate', function() {
-    return this.get('models').filter((membership) => {
+    return this.models.filter((membership) => {
       if (membership.get('endDate') && membership.get('endDate') < moment.now()) {
         return true;
       }
@@ -53,7 +53,7 @@ export default Mixin.create({
     });
   }),
   currentMemberships: computed('models.length', 'models.@each.endDate', function() {
-    return this.get('models').filter((membership) => {
+    return this.models.filter((membership) => {
       if (membership.get('endDate') && membership.get('endDate') < moment.now()) {
         return false;
       }
@@ -62,13 +62,13 @@ export default Mixin.create({
   }),
 
   oldMembershipsTabActive: computed('filteredModels', function() {
-    if (this.get('oldMembershipsAreVisible')) {
-      if (this.get('oldMemberships').length === 0 && this.get('currentMemberships').length > 0) {
+    if (this.oldMembershipsAreVisible) {
+      if (this.oldMemberships.length === 0 && this.currentMemberships.length > 0) {
         return false;
       }
       return true;
     }
-    if (this.get('currentMemberships').length === 0 && this.get('oldMemberships').length > 0) {
+    if (this.currentMemberships.length === 0 && this.oldMemberships.length > 0) {
       return true;
     }
     return false;
@@ -76,17 +76,17 @@ export default Mixin.create({
 
   actions: {
     selectFirstItem() {
-      if (this.get('filteredModels').length > 0) {
+      if (this.filteredModels.length > 0) {
         this.transitionToRoute('users.show', this.get('filteredModels.firstObject.user.id'));
       }
     },
     showOldMemberships() {
-      if (this.get('oldMemberships').length > 0) {
+      if (this.oldMemberships.length > 0) {
         this.set('oldMembershipsAreVisible', true);
       }
     },
     hideOldMemberships() {
-      if (this.get('currentMemberships').length > 0) {
+      if (this.currentMemberships.length > 0) {
         this.set('oldMembershipsAreVisible', false);
       }
     }

@@ -19,7 +19,7 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
 
   // Computed
   excerpt: computed('content', function() {
-    const content = this.get('content');
+    const content = this.content;
     const maxExcerptLength = 218;
     if (content && content.length > maxExcerptLength) {
       return `${content.substr(0, content.lastIndexOf(' ', maxExcerptLength))}...`;

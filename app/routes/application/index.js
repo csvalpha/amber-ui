@@ -21,12 +21,12 @@ export const IndexRouteUnauthenticated = Route.extend(
 
     setupController(controller, model) {
       this._super(controller, model);
-      controller.set('pageActions', this.get('pageActions'));
-      controller.set('tabItems', this.get('tabItems'));
+      controller.set('pageActions', this.pageActions);
+      controller.set('tabItems', this.tabItems);
     },
 
     model(params) {
-      return this.store.query(this.get('modelName'), params);
+      return this.store.query(this.modelName, params);
     }
   }
 );

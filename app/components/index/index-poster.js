@@ -6,7 +6,7 @@ export default Component.extend({
   classNames: ['index-poster'],
   attributeBindings: ['style'],
   style: computed('headerImageUrl', function() {
-    return htmlSafe(`background-image: url(${this.get('headerImageUrl')})`);
+    return htmlSafe(`background-image: url(${this.headerImageUrl})`);
   }),
   images: [
     '/images/frontpage/serious.jpg',
@@ -15,7 +15,7 @@ export default Component.extend({
     '/images/frontpage/fire.jpg'
   ],
   headerImageUrl: computed(function() {
-    const images = this.get('images');
+    const images = this.images;
     return images[Math.floor(Math.random() * images.length)];
   })
 });

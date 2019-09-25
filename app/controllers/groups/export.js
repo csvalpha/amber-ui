@@ -95,7 +95,7 @@ export default Controller.extend(FileSaverMixin, {
   ],
   descriptionValid: notEmpty('description'),
   checkedFieldsValid: computed('userPropertyOptions.@each.isChecked', function() {
-    return this.get('userPropertyOptions').filter(p => p.isChecked).length > 0;
+    return this.userPropertyOptions.filter(p => p.isChecked).length > 0;
   }),
   valid: and('descriptionValid', 'checkedFieldsValid'),
   exportButtonDisabled: not('valid'),
@@ -103,14 +103,14 @@ export default Controller.extend(FileSaverMixin, {
   actions: {
     exportUsers() {
       const selectedProperties = new A();
-      const givenDescription = this.get('description');
-      const model = this.get('model');
-      this.get('userPropertyOptions').forEach((property) => {
+      const givenDescription = this.description;
+      const model = this.model;
+      this.userPropertyOptions.forEach((property) => {
         if (property.isChecked) {
           selectedProperties.push(property.value);
         }
       });
-      this.get('ajax').request(
+      this.ajax.request(
         `/groups/${model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(givenDescription)}`,
         { dataType: 'text' }
       ).then(csvResponse => {

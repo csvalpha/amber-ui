@@ -5,7 +5,7 @@ export default Service.extend({
   isSupported: null,
   isEnabled: null,
   isSupportedAndEnabled: computed('isSupported', 'isEnabled', function() {
-    return this.get('isSupported') & this.get('isEnabled');
+    return this.isSupported & this.isEnabled;
   }),
 
   init() {
@@ -32,14 +32,14 @@ export default Service.extend({
   },
 
   getItem(key) {
-    if (this.get('isSupportedAndEnabled')) {
+    if (this.isSupportedAndEnabled) {
       return localStorage.getItem(key);
     }
     return null;
   },
 
   setItem(key, value) {
-    if (this.get('isSupportedAndEnabled')) {
+    if (this.isSupportedAndEnabled) {
       localStorage.setItem(key, value);
       return true;
     }

@@ -6,6 +6,6 @@ export default Component.extend({
   store: service(),
   ajax: service(),
   verses: computed(function() {
-    return this.get('store').query('daily-verse', {});
+    return this.store.query('daily-verse', {});
   })
 });

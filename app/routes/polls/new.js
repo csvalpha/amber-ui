@@ -8,7 +8,7 @@ export default NewRoute.extend({
   parents: ['polls.index'],
   title: 'Poll aanmaken',
   model() {
-    const newPoll = this.store.createRecord(this.get('modelName'));
+    const newPoll = this.store.createRecord(this.modelName);
     newPoll.set('author', this.get('session.currentUser'));
     const newForm = this.store.createRecord('form/form');
     const newQuestion = this.store.createRecord('form/closed-question');

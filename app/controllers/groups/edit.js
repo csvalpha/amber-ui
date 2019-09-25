@@ -16,17 +16,17 @@ export default Controller.extend({
   },
 
   groupKindOptions: computed(function() {
-    return GroupKinds.map(this.get('_groupKindToOption'));
+    return GroupKinds.map(this._groupKindToOption);
   }),
 
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   }),
 
   actions: {
     addUser(user) {
-      this.get('model').get('memberships').pushObject(
-        this.get('store').createRecord('membership', {
+      this.model.get('memberships').pushObject(
+        this.store.createRecord('membership', {
           user,
           endDate: null
         })
@@ -36,8 +36,8 @@ export default Controller.extend({
       membership.deleteRecord();
     },
     submit() {
-      const group = this.get('model');
-      const flashNotice = this.get('flashNotice');
+      const group = this.model;
+      const flashNotice = this.flashNotice;
       const membershipErrors = new A();
 
       if (group !== undefined) {
@@ -72,7 +72,7 @@ export default Controller.extend({
       }
     },
     fileLoaded(file) {
-      const group = this.get('model');
+      const group = this.model;
       group.set('avatar', file.data);
     }
   }

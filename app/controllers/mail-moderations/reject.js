@@ -8,8 +8,8 @@ export default Controller.extend({
     submit() {
       const id = this.get('model.id');
       this.set('errorMessage', null);
-      this.get('ajax').post(`/stored_mails/${id}/reject`).then(() => {
-        this.get('model').unloadRecord();
+      this.ajax.post(`/stored_mails/${id}/reject`).then(() => {
+        this.model.unloadRecord();
         this.transitionToRoute('mail-moderations.index');
       }).catch((error) => {
         this.set('errorMessage', error.message);

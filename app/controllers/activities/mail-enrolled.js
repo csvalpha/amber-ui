@@ -8,9 +8,9 @@ export default Controller.extend({
     submit() {
       const id = this.get('model.id');
       this.set('errorMessage', null);
-      const message = this.get('message');
+      const message = this.message;
       if (message && message.trim().length > 0) {
-        this.get('ajax').post(`/activities/${id}/mail_enrolled`, {
+        this.ajax.post(`/activities/${id}/mail_enrolled`, {
           data: {
             data: {
               attributes: {

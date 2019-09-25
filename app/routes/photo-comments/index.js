@@ -10,10 +10,10 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
   title: 'Fotoreacties',
   perPage: 4,
   model(params) {
-    params.paramMapping = this.get('paramMapping');
+    params.paramMapping = this.paramMapping;
     params.sort = '-updated_at';
     // eslint-disable-next-line camelcase
     params.filter = { with_comments: true };
-    return this.findPaged(this.get('modelName'), params);
+    return this.findPaged(this.modelName, params);
   }
 });

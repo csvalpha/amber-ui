@@ -23,12 +23,12 @@ export default Controller.extend(FilterableAndSortableMixin, PagedModelControlle
   actions: {
     submitPhotoComment(photo) {
       return new Promise((resolve, reject) => {
-        const commentContent = this.get('commentContent');
+        const commentContent = this.commentContent;
         const content = commentContent.get(photo.get('id')).trim();
 
         if (content.length > 0) {
-          const flashNotice = this.get('flashNotice');
-          const photoComment = this.get('store').createRecord('photoComment', { content, photo });
+          const flashNotice = this.flashNotice;
+          const photoComment = this.store.createRecord('photoComment', { content, photo });
 
           photoComment.save().then(() => {
             flashNotice.sendSuccess('Reactie opgeslagen!');

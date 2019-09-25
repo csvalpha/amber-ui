@@ -19,14 +19,14 @@ export default Controller.extend(FilterableAndSortableMixin, {
   ],
   sortedAttribute: 'name',
   groupKinds: computed('search', function() {
-    if (this.get('search')) {
+    if (this.search) {
       return ['zoekresultaten'];
     }
     return ['bestuur', 'commissie', 'dispuut', 'genootschap', 'groep', 'huis', 'jaargroep', 'werkgroep', 'kring', 'lichting'];
   }),
   selectedGroupKind: computed('search', {
     get() {
-      if (this.get('search')) {
+      if (this.search) {
         return 'zoekresultaten';
       }
       return this.get('groupKinds.firstObject');

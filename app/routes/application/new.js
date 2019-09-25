@@ -13,13 +13,13 @@ export const NewRoute = Route.extend(
   AuthenticatedRouteMixin, {
     modelName: null,
     model() {
-      return this.store.createRecord(this.get('modelName'));
+      return this.store.createRecord(this.modelName);
     },
     pageActions: [],
     setupController(controller, model) {
       this._super(controller, model);
-      controller.set('pageActions', this.get('pageActions'));
-      controller.set('tabItems', this.get('tabItems'));
+      controller.set('pageActions', this.pageActions);
+      controller.set('tabItems', this.tabItems);
     }
   }
 );

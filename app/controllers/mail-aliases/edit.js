@@ -10,10 +10,10 @@ export default EditController.extend({
   }),
 
   groups: computed(function() {
-    return this.get('store').findAll('group');
+    return this.store.findAll('group');
   }),
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   }),
 
   anyUser: computed('model.user.id', function() {
@@ -32,6 +32,6 @@ export default EditController.extend({
   },
 
   mailAliasModerationTypes: computed(function() {
-    return MailAliasModerationTypes.map(this.get('_mailAliasModerationTypes'));
+    return MailAliasModerationTypes.map(this._mailAliasModerationTypes);
   })
 });

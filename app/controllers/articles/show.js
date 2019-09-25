@@ -11,12 +11,12 @@ export default Controller.extend({
   actions: {
     submitArticleComment() {
       if (this.newArticleComment.trim().length > 0) {
-        const articleComment = this.get('store').createRecord('articleComment', {
-          content: this.get('newArticleComment'),
+        const articleComment = this.store.createRecord('articleComment', {
+          content: this.newArticleComment,
           article: this.model,
-          user: this.get('session').get('currentUser')
+          user: this.session.get('currentUser')
         });
-        const flashNotice = this.get('flashNotice');
+        const flashNotice = this.flashNotice;
         articleComment.save().then(() => {
           flashNotice.sendSuccess('Reactie opgeslagen!');
         });

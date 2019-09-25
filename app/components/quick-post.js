@@ -31,15 +31,15 @@ export default Component.extend(CanMixin, {
 
   maxCharacters: 400,
   currentCharacterCount: computed('newQpMessage', function() {
-    return this.get('newQpMessage').length;
+    return this.newQpMessage.length;
   }),
   characterCountPercentage: computed('currentCharacterCount', function() {
-    return Math.round(this.get('currentCharacterCount') / this.get('maxCharacters') * 100);
+    return Math.round(this.currentCharacterCount / this.maxCharacters * 100);
   }),
 
   progressBarClass: computed('currentCharacterCount', function() {
-    const count = this.get('currentCharacterCount');
-    const max = this.get('maxCharacters');
+    const count = this.currentCharacterCount;
+    const max = this.maxCharacters;
 
     if (count > max) {
       return 'danger';
@@ -49,11 +49,11 @@ export default Component.extend(CanMixin, {
     return 'primary';
   }),
   progressBarStyle: computed('characterCountPercentage', function() {
-    return htmlSafe(`width: ${this.get('characterCountPercentage')}%`);
+    return htmlSafe(`width: ${this.characterCountPercentage}%`);
   }),
 
   tooMuchText: computed('currentCharacterCount', function() {
-    return this.get('currentCharacterCount') > this.get('maxCharacters');
+    return this.currentCharacterCount > this.maxCharacters;
   }),
 
   welcomeText: computed(function() {
@@ -63,19 +63,19 @@ export default Component.extend(CanMixin, {
   emoticons: SuggestedEmojis,
 
   showLoaderButton: computed('page', 'totalPages', function() {
-    return this.get('page') < this.get('totalPages');
+    return this.page < this.totalPages;
   }),
 
   actions: {
     loadMore() {
-      this.send('loadMessages', this.get('page') + 1);
+      this.send('loadMessages', this.page + 1);
     },
 
     koeAan(message) {
       // The best easter egg
       if (message === 'KOE AAN!!') {
         const notificationSound = new Audio('/sounds/cow.ogg');
-        this.get('notification').set('notificationSound', notificationSound);
+        this.notification.set('notificationSound', notificationSound);
         if (this.get('notification.isSoundEnabled')) {
           notificationSound.play();
         }
@@ -83,9 +83,9 @@ export default Component.extend(CanMixin, {
     },
 
     appendSmileyToText(emoticon) {
-      const currentText = this.get('newQpMessage');
+      const currentText = this.newQpMessage;
       this.set('newQpMessage', htmlSafe((currentText || '') + emoticon));
-      this.get('element').querySelector('#qp-inputfield').focus();
+      this.element.querySelector('#qp-inputfield').focus();
     },
 
     destroyMessage(message) {
@@ -99,10 +99,10 @@ export default Component.extend(CanMixin, {
     },
 
     saveMessage() {
-      const message = this.get('newQpMessage');
-      if (message && message.length > 0 && !this.get('tooMuchText')) {
+      const message = this.newQpMessage;
+      if (message && message.length > 0 && !this.tooMuchText) {
         message.trim().replace(/(\r\n|\n|\r)/gm, '');
-        this.get('store').createRecord('quickpost-message', { message }).save();
+        this.store.createRecord('quickpost-message', { message }).save();
 
         this.send('koeAan', message);
         this.set('newQpMessage', '');
@@ -114,8 +114,8 @@ export default Component.extend(CanMixin, {
       pageParams['page[size]'] = 15;
       pageParams['page[number]'] = page;
       pageParams.sort = '-created_at';
-      this.get('store').query('quickpost-message', pageParams).then(result => {
-        this.get('messages').addObjects(result);
+      this.store.query('quickpost-message', pageParams).then(result => {
+        this.messages.addObjects(result);
         this.set('totalPages', result.get('meta.total-pages'));
       });
       this.set('page', page);
@@ -123,7 +123,7 @@ export default Component.extend(CanMixin, {
 
     subscribeToQuickpostMessagesMessageBus() {
       const channel = '/quickpost_messages';
-      this.get('messageBus').subscribe(channel, data => {
+      this.messageBus.subscribe(channel, data => {
         const json = JSON.parse(data);
         const quickpostMessageData = {
           data: {
@@ -143,8 +143,8 @@ export default Component.extend(CanMixin, {
             }
           }
         };
-        const quickpost = this.get('store').push(quickpostMessageData);
-        this.set('messages', this.get('store').peekAll('quickpostMessage'));
+        const quickpost = this.store.push(quickpostMessageData);
+        this.set('messages', this.store.peekAll('quickpostMessage'));
         this.send('notify', quickpost);
       }, null);
     },
@@ -152,7 +152,7 @@ export default Component.extend(CanMixin, {
     notify(quickpost) {
       if (this.get('notification.isEnabled')
         && quickpost.get('author.id') !== this.get('session.currentUser.id')) {
-        this.get('notification').new(
+        this.notification.new(
           quickpost.get('author.fullName'),
           quickpost.get('message'),
           quickpost.get('author.avatarThumbUrlOrDefault')

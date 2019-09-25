@@ -6,17 +6,17 @@ export default Component.extend({
   notification: service(),
   actions: {
     sendTest() {
-      this.get('notification').new('Test', 'Dit is een test bericht', '/images/alphalogonotext.png');
+      this.notification.new('Test', 'Dit is een test bericht', '/images/alphalogonotext.png');
     },
     activate() {
-      this.get('notification').getPermission();
+      this.notification.getPermission();
     },
     disable() {
-      this.get('notification').turnOff();
+      this.notification.turnOff();
       this.send('sendTest');
     },
     soundOn() {
-      this.get('notification').toggleSound();
+      this.notification.toggleSound();
       this.send('sendTest');
     }
   }

@@ -5,6 +5,6 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo.destroy');
+    return this.session.hasPermission('photo.destroy');
   })
 });

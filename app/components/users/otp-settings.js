@@ -11,7 +11,7 @@ export default Component.extend({
       this.set('otpVerificationImage', null);
 
       const userId = this.get('model.id');
-      this.get('ajax').patch(`/users/${userId}`, {
+      this.ajax.patch(`/users/${userId}`, {
         /* eslint-disable camelcase */
         data: {
           data: {
@@ -24,7 +24,7 @@ export default Component.extend({
         }
         /* eslint-enable camelcase */
       }).then(() => {
-        this.get('flashNotice').sendWarning('Two-factor authenticatie gedeactiveerd!');
+        this.flashNotice.sendWarning('Two-factor authenticatie gedeactiveerd!');
         this.set('model.otpRequired', false);
       }).catch((error) => {
         this.set('otpErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
@@ -35,7 +35,7 @@ export default Component.extend({
       this.set('otpVerificationImage', null);
 
       const userId = this.get('model.id');
-      this.get('ajax').post(`/users/${userId}/generate_otp_provisioning_uri`).then((response) => {
+      this.ajax.post(`/users/${userId}/generate_otp_provisioning_uri`).then((response) => {
         this.set('otpVerificationImage', response.data_url);
       }).catch((error) => {
         this.set('otpErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
@@ -45,17 +45,17 @@ export default Component.extend({
       this.set('otpErrorMessage', null);
 
       const userId = this.get('model.id');
-      this.get('ajax').post(`/users/${userId}/activate_otp`, {
+      this.ajax.post(`/users/${userId}/activate_otp`, {
         /* eslint-disable camelcase */
         data: {
-          one_time_password: this.get('verificationCode')
+          one_time_password: this.verificationCode
         }
         /* eslint-enable camelcase */
       }).then(() => {
         this.set('model.otpRequired', true);
         this.set('verificationCode', null);
         this.set('otpVerificationImage', null);
-        this.get('flashNotice').sendSuccess('Two-factor authenticatie geactiveerd!');
+        this.flashNotice.sendSuccess('Two-factor authenticatie geactiveerd!');
       }).catch((error) => {
         if (isInvalidError(error)) {
           this.set('otpErrorMessage', 'Deze authenticatiecode is niet geldig');

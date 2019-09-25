@@ -13,13 +13,13 @@ export const FormStatusTagComponent = Component.extend({
     'colorIndicatorClass'
   ],
   content: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
-    const form = this.get('form');
+    const form = this.form;
     if (isNone(form)) {
-      return this.get('isNoneValue');
+      return this.isNoneValue;
     }
 
     if (form.get('currentUserResponseCompleted')) {
-      return this.get('responseCompletedValue');
+      return this.responseCompletedValue;
     }
     if (form.get('canRespond')) {
       return 'Open';
@@ -30,7 +30,7 @@ export const FormStatusTagComponent = Component.extend({
     return 'Gesloten';
   }),
   colorIndicatorClass: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {
-    const form = this.get('form');
+    const form = this.form;
 
     if (isNone(form)) {
       return 'badge-success';

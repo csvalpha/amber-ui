@@ -6,7 +6,7 @@ export default Component.extend({
   layoutManager: service('layout-manager'),
   actions: {
     closeLeftSidebar() {
-      this.get('layoutManager').closeLeftSidebar();
+      this.layoutManager.closeLeftSidebar();
     }
   }
 });

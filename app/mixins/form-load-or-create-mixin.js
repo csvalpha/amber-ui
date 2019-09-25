@@ -7,7 +7,7 @@ import { hash } from 'rsvp';
 export default Mixin.create({
   store: service(),
   loadOrCreateCurrentUserResponse(form) {
-    const store = this.get('store');
+    const store = this.store;
     const currentUserResponseId = form.get('currentUserResponseId');
 
     if (currentUserResponseId) {
@@ -17,7 +17,7 @@ export default Mixin.create({
     return store.createRecord('form/response', { form, user });
   },
   loadOrCreateAnswers(response) {
-    const store = this.get('store');
+    const store = this.store;
     return response.get('form').then(form => {
       return hash({
         // First promise: We request the existing answers in the response, grouped by question id

@@ -11,13 +11,13 @@ export default Mixin.create({
   errorMessage: null,
   actions: {
     onSuccess(model) {
-      const flashNotice = this.get('flashNotice');
-      const successMessage = this.get('successMessage');
-      const successTransitionTarget = this.get('successTransitionTarget');
+      const flashNotice = this.flashNotice;
+      const successMessage = this.successMessage;
+      const successTransitionTarget = this.successTransitionTarget;
 
       // Show notice
       if (!isNone(successMessage)) {
-        flashNotice.sendSuccess(this.get('i18n').t(successMessage));
+        flashNotice.sendSuccess(this.i18n.t(successMessage));
       }
 
       // Redirect
@@ -26,18 +26,18 @@ export default Mixin.create({
           // In destroy routes, model is undefined
           this.transitionToRoute(successTransitionTarget);
         } else {
-          const targetModel = this.get('successTransitionModel') || model;
+          const targetModel = this.successTransitionModel || model;
           this.transitionToRoute(successTransitionTarget, targetModel);
         }
       }
     },
     onError(error) {
       this.set('errorMessage', error.errors.map((e) => {
-        return this.get('i18n').t(e.detail);
+        return this.i18n.t(e.detail);
       }).join(', '));
     },
     submit() {
-      const model = this.get('model');
+      const model = this.model;
       this.send('saveModel', model);
     },
     saveModel(model) {

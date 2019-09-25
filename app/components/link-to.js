@@ -10,7 +10,7 @@ export default LinkComponent.extend({
     // 1. The model is always reloaded when transitioning to a route, so we always have the last version
     // 2. When the model is passed, the routeParams as passed to Route.beforeModel is empty. However, we need these
     // for out authorization.
-    const models = this.get('models');
+    const models = this.models;
     const modelIds = models.map(model => typeOf(model) === 'instance' ? model.get('id') : model);
     this.set('models', modelIds);
   }

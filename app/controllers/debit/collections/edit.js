@@ -6,20 +6,20 @@ import EditController from 'alpha-amber/controllers/application/edit';
 export default EditController.extend({
   successMessage: 'Incasso aangepast!',
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   }),
   actions: {
     addUser(user) {
-      this.get('model').get('transactions').pushObject(
-        this.get('store').createRecord('debit/transaction', { user })
+      this.model.get('transactions').pushObject(
+        this.store.createRecord('debit/transaction', { user })
       );
     },
     removeTransaction(transaction) {
       transaction.deleteRecord();
     },
     submit() {
-      const collection = this.get('model');
-      const flashNotice = this.get('flashNotice');
+      const collection = this.model;
+      const flashNotice = this.flashNotice;
       this.set('errorMessage', null);
 
       if (!isNone(collection)) {

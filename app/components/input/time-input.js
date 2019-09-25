@@ -11,18 +11,18 @@ export default TextField.extend({
   // Transforms the Date object to string and vice versa
   inputValue: computed('dateValue', {
     get() {
-      const format = this.get('inputValueFormat');
-      return moment(this.get('dateValue')).format(format);
+      const format = this.inputValueFormat;
+      return moment(this.dateValue).format(format);
     },
     set(key, inputValue) {
-      const format = this.get('inputValueFormat');
+      const format = this.inputValueFormat;
       const updatedMomentValue = moment(inputValue, format);
       this.updateDateValue(updatedMomentValue);
       return inputValue;
     }
   }),
   updateDateValue(updatedMomentValue) {
-    let momentValue = moment(this.get('dateValue'));
+    let momentValue = moment(this.dateValue);
 
     if (momentValue.isValid()) {
       this.updateMomentDateValue(momentValue, updatedMomentValue);
@@ -33,7 +33,7 @@ export default TextField.extend({
     this.set('dateValue', momentValue.toDate());
   },
   updateMomentDateValue(momentValue, updatedMomentValue) {
-    this.get('momentFieldsToUpdate').forEach(fieldName => {
+    this.momentFieldsToUpdate.forEach(fieldName => {
       momentValue.set(fieldName, (updatedMomentValue.get(fieldName)));
     });
   }

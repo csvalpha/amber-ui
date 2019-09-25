@@ -9,7 +9,7 @@ export default Mixin.create({
     },
     set(key, value) {
       // The first time this is called, content is null resulting in an error
-      if (!isNone(this.get('model'))) {
+      if (!isNone(this.model)) {
         this.set('model.page', value);
       }
       return value;

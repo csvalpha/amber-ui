@@ -9,7 +9,7 @@ export default Component.extend({
   isOpen: false,
   actions: {
     save() {
-      this.get('model').save();
+      this.model.save();
       this.set('isOpen', false);
     }
   },

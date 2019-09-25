@@ -10,7 +10,7 @@ export default EditController.extend({
   successMessage: 'Gegevens gewijzigd!',
   successTransitionTarget: 'users.show',
   canEditOnlyOwnProperties: computed('session.currentUser', function() {
-    return !this.get('session').hasPermission('user.update') && !this.get('session').hasPermission('user.create');
+    return !this.session.hasPermission('user.update') && !this.session.hasPermission('user.create');
   }),
   digtusSubscriptionPreferenceTypes: computed(() => {
     return Object.entries(DigtusSubscriptionPreferenceTypes).map(([value, label]) => ({ value, label }));
@@ -19,11 +19,11 @@ export default EditController.extend({
     return Object.entries(AlmanakSubscriptionPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
   isOwnUser: computed('session.currentUser', 'model', function() {
-    return this.get('model') === this.get('session.currentUser');
+    return this.model === this.get('session.currentUser');
   }),
   actions: {
     fileLoaded(file) {
-      const user = this.get('model');
+      const user = this.model;
       user.set('avatar', file.data);
     }
   }

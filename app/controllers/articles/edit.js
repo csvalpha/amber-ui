@@ -24,13 +24,13 @@ export default EditController.extend(CanMixin, {
   }),
   groups: computed(function() {
     if (this.can('select all groups for articles')) {
-      return this.get('store').findAll('group');
+      return this.store.findAll('group');
     }
     return this.get('session.currentUser').get('groups');
   }),
   actions: {
     coverPhotoLoaded(file) {
-      const article = this.get('model');
+      const article = this.model;
       article.set('coverPhoto', file.data);
     }
   }
