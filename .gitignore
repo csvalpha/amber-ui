@@ -17,7 +17,7 @@
 ########
 /.sass-cache
 /connect.lock
-/coverage/*
+/coverage/
 
 ########
 # Logs #
@@ -31,6 +31,11 @@ testem.log
 # IDE Folders #
 ###############
 /.idea/*
+
+# ember-try
+/.node_modules.ember-try/
+/bower.json.ember-try
+/package.json.ember-try
 
 ###########
 # Secrets #
