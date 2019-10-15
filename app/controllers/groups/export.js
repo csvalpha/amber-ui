@@ -103,19 +103,17 @@ export default Controller.extend(FileSaverMixin, {
   actions: {
     exportUsers() {
       const selectedProperties = new A();
-      const givenDescription = this.description;
-      const model = this.model;
       this.userPropertyOptions.forEach((property) => {
         if (property.isChecked) {
           selectedProperties.push(property.value);
         }
       });
       this.ajax.request(
-        `/groups/${model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(givenDescription)}`,
+        `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(this.description)}`,
         { dataType: 'text' }
       ).then(csvResponse => {
-        this.saveFileAs(`${model.get('name')}-${new Date().toJSON()}.csv`, csvResponse, 'application/csv');
-        return this.transitionToRoute('groups.show', model);
+        this.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, csvResponse, 'application/csv');
+        return this.transitionToRoute('groups.show', this.model);
       }, null);
     }
   }

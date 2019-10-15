@@ -21,28 +21,22 @@ export default Mixin.create({
     return this.sortModels(this.filterModels(records));
   }),
   filterModels(models) {
-    const filter = this.filter;
-    const filterableAttributes = this.filterableAttributes;
-
     // Do not filter when no value is inserted
-    if (isBlank(filter)) {
+    if (isBlank(this.filter)) {
       return models;
     }
 
     return models.filter(model => {
-      return filterableAttributes.reduce((show, attribute) => {
+      return this.filterableAttributes.reduce((show, attribute) => {
         const value = model.get(attribute);
         return show + value;
-      }, '').toLowerCase().includes(filter.toLowerCase());
+      }, '').toLowerCase().includes(this.filter.toLowerCase());
     });
   },
 
   sortModels(models) {
-    const sortedAttribute = this.sortedAttribute;
-    const sortedAscending = this.sortedAscending;
-    const sortedModels = models.sortBy(sortedAttribute);
-
-    return sortedAscending ? sortedModels : sortedModels.reverse();
+    const sortedModels = models.sortBy(this.sortedAttribute);
+    return this.sortedAscending ? sortedModels : sortedModels.reverse();
   },
 
   oldMemberships: computed('models.length', 'models.@each.endDate', function() {

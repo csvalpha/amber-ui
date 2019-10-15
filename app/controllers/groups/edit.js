@@ -36,14 +36,12 @@ export default Controller.extend({
       membership.deleteRecord();
     },
     submit() {
-      const group = this.model;
-      const flashNotice = this.flashNotice;
       const membershipErrors = new A();
 
-      if (group !== undefined) {
+      if (this.model !== undefined) {
         let failedMembershipSavings = 0;
-        group.save().then(() => {
-          return all(group.get('memberships').map((membership) => {
+        this.model.save().then(() => {
+          return all(this.model.get('memberships').map((membership) => {
             if (membership.get('hasDirtyAttributes')) {
               return membership.save().catch((error) => {
                 membershipErrors.push({ membership, error });
@@ -63,8 +61,8 @@ export default Controller.extend({
             }, '');
             this.set('errorMessage', `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`);
           } else {
-            flashNotice.sendSuccess('Groep aangepast!');
-            this.transitionToRoute('groups.show', group.id);
+            this.flashNotice.sendSuccess('Groep aangepast!');
+            this.transitionToRoute('groups.show', this.model.id);
           }
         }).catch(error => {
           this.set('errorMessage', error.message);
@@ -72,8 +70,7 @@ export default Controller.extend({
       }
     },
     fileLoaded(file) {
-      const group = this.model;
-      group.set('avatar', file.data);
+      this.model.set('avatar', file.data);
     }
   }
 });

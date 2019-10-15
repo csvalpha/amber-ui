@@ -11,23 +11,19 @@ export default Mixin.create({
   errorMessage: null,
   actions: {
     onSuccess(model) {
-      const flashNotice = this.flashNotice;
-      const successMessage = this.successMessage;
-      const successTransitionTarget = this.successTransitionTarget;
-
       // Show notice
-      if (!isNone(successMessage)) {
-        flashNotice.sendSuccess(this.i18n.t(successMessage));
+      if (!isNone(this.successMessage)) {
+        this.flashNotice.sendSuccess(this.i18n.t(this.successMessage));
       }
 
       // Redirect
-      if (!isNone(successTransitionTarget)) {
+      if (!isNone(this.successTransitionTarget)) {
         if (isNone(model)) {
           // In destroy routes, model is undefined
-          this.transitionToRoute(successTransitionTarget);
+          this.transitionToRoute(this.successTransitionTarget);
         } else {
           const targetModel = this.successTransitionModel || model;
-          this.transitionToRoute(successTransitionTarget, targetModel);
+          this.transitionToRoute(this.successTransitionTarget, targetModel);
         }
       }
     },
@@ -37,8 +33,7 @@ export default Mixin.create({
       }).join(', '));
     },
     submit() {
-      const model = this.model;
-      this.send('saveModel', model);
+      this.send('saveModel', this.model);
     },
     saveModel(model) {
       this.set('errorMessage', null);

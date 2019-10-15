@@ -7,17 +7,15 @@ import { hash } from 'rsvp';
 export default Mixin.create({
   store: service(),
   loadOrCreateCurrentUserResponse(form) {
-    const store = this.store;
     const currentUserResponseId = form.get('currentUserResponseId');
 
     if (currentUserResponseId) {
-      return store.findRecord('form/response', currentUserResponseId);
+      return this.store.findRecord('form/response', currentUserResponseId);
     }
-    const user = this.get('session.currentUser');
-    return store.createRecord('form/response', { form, user });
+    const user = this.session.get('currentUser');
+    return this.store.createRecord('form/response', { form, user });
   },
   loadOrCreateAnswers(response) {
-    const store = this.store;
     return response.get('form').then(form => {
       return hash({
         // First promise: We request the existing answers in the response, grouped by question id
@@ -34,7 +32,7 @@ export default Mixin.create({
           if (answerExist) {
             question.set('linkedAnswer', existingAnswers.get('firstObject'));
           } else {
-            question.set('linkedAnswer', store.createRecord('form/open-question-answer', { response, question }));
+            question.set('linkedAnswer', this.store.createRecord('form/open-question-answer', { response, question }));
           }
         });
 
@@ -54,7 +52,7 @@ export default Mixin.create({
             if (answerExist) {
               question.set('linkedAnswer', existingAnswers.get('firstObject'));
             } else {
-              question.set('linkedAnswer', store.createRecord('form/closed-question-answer', { response }));
+              question.set('linkedAnswer', this.store.createRecord('form/closed-question-answer', { response }));
             }
           }
         });

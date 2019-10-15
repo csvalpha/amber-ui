@@ -16,9 +16,8 @@ export default Controller.extend({
           article: this.model,
           user: this.session.get('currentUser')
         });
-        const flashNotice = this.flashNotice;
         articleComment.save().then(() => {
-          flashNotice.sendSuccess('Reactie opgeslagen!');
+          this.flashNotice.sendSuccess('Reactie opgeslagen!');
         });
         this.set('newArticleComment', '');
       }

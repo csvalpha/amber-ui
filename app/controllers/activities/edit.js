@@ -17,9 +17,8 @@ export default Controller.extend(CanMixin, {
     },
     set(_, value) {
       if (value) {
-        const store = this.store;
-        const form = store.createRecord('form/form');
-        store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
+        const form = this.store.createRecord('form/form');
+        this.store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
         this.set('model.form', form);
       } else {
         this.set('model.form', null);
@@ -48,19 +47,16 @@ export default Controller.extend(CanMixin, {
 
   actions: {
     submit() {
-      const activity = this.model;
-      const flashNotice = this.flashNotice;
-      activity.saveWithForm().then(savedActivity => {
+      this.model.saveWithForm().then(savedActivity => {
         this.transitionToRoute('activities.show', savedActivity.get('id'));
-        flashNotice.sendSuccess('Activiteit opgeslagen!');
+        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
       }).catch(error => {
         this.set('errorMessage', error.message);
       });
     },
 
     coverPhotoLoaded(file) {
-      const activity = this.model;
-      activity.set('coverPhoto', file.data);
+      this.model.set('coverPhoto', file.data);
     }
   }
 });

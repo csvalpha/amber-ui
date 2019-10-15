@@ -8,13 +8,12 @@ export default Controller.extend({
     submit() {
       const id = this.get('model.id');
       this.set('errorMessage', null);
-      const message = this.message;
-      if (message && message.trim().length > 0) {
+      if (this.message && this.message.trim().length > 0) {
         this.ajax.post(`/activities/${id}/mail_enrolled`, {
           data: {
             data: {
               attributes: {
-                message
+                message: this.message
               }
             }
           }

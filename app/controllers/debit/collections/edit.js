@@ -19,7 +19,6 @@ export default EditController.extend({
     },
     submit() {
       const collection = this.model;
-      const flashNotice = this.flashNotice;
       this.set('errorMessage', null);
 
       if (!isNone(collection)) {
@@ -37,7 +36,7 @@ export default EditController.extend({
             const prefix = failedTransactions > 1 ? 'zijn' : 'is';
             this.set('errorMessage', `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`);
           } else {
-            flashNotice.sendSuccess('Incasso aangepast!');
+            this.flashNotice.sendSuccess('Incasso aangepast!');
             this.transitionToRoute('debit.collections.show', collection.id);
           }
         }).catch(error => {
