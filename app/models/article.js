@@ -19,12 +19,11 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
 
   // Computed
   excerpt: computed('content', function() {
-    const content = this.content;
     const maxExcerptLength = 218;
-    if (content && content.length > maxExcerptLength) {
-      return `${content.substr(0, content.lastIndexOf(' ', maxExcerptLength))}...`;
+    if (this.content && this.content.length > maxExcerptLength) {
+      return `${this.content.substr(0, this.content.lastIndexOf(' ', maxExcerptLength))}...`;
     }
-    return content;
+    return this.content;
   }),
 
   // Relations

@@ -15,7 +15,6 @@ export default Component.extend({
     '/images/frontpage/fire.jpg'
   ],
   headerImageUrl: computed(function() {
-    const images = this.images;
-    return images[Math.floor(Math.random() * images.length)];
+    return this.images[Math.floor(Math.random() * this.images.length)];
   })
 });

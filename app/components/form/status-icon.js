@@ -25,27 +25,25 @@ export const FormStatusIconComponent = Component.extend({
   // open always means dot
 
   color: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {
-    const form = this.form;
-    if (isNone(form)) {
+    if (isNone(this.form)) {
       return 'success';
     }
 
-    if (form.get('currentUserResponseCompleted')) {
+    if (this.form.get('currentUserResponseCompleted')) {
       return 'success';
-    } else if (form.get('canRespond')) {
+    } else if (this.form.get('canRespond')) {
       return 'primary';
     }
     return 'dark';
   }),
   icon: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
-    const form = this.form;
-    if (isNone(form)) {
+    if (isNone(this.form)) {
       return 'circle';
     }
 
-    if (form.get('canRespond')) {
+    if (this.form.get('canRespond')) {
       return 'circle';
-    } else if (form.get('opensLater')) {
+    } else if (this.form.get('opensLater')) {
       return 'clock';
     }
     return 'lock';

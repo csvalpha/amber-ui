@@ -10,10 +10,9 @@ export default Controller.extend(FileSaverMixin, {
   sortedPhotos: sort('model.photos', 'photoSorting'),
   actions: {
     downloadAlbum() {
-      let model = this.model;
-      return this.fetch.fetch(`/photo_albums/${model.id}/zip`).then(response => {
+      return this.fetch.fetch(`/photo_albums/${this.model.id}/zip`).then(response => {
         return response.blob().then(blob => {
-          let filename = `${moment(model.get('date')).format('YYYY-MM-DD')}_${dasherize(model.get('title'))}.zip`;
+          let filename = `${moment(this.model.get('date')).format('YYYY-MM-DD')}_${dasherize(this.model.get('title'))}.zip`;
           this.saveFileAs(filename, blob, 'application/octet-stream');
         });
       });

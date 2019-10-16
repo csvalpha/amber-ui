@@ -23,22 +23,20 @@ export default Controller.extend(FilterableAndSortableMixin, PagedModelControlle
   actions: {
     submitPhotoComment(photo) {
       return new Promise((resolve, reject) => {
-        const commentContent = this.commentContent;
-        const content = commentContent.get(photo.get('id')).trim();
+        const content = this.commentContent.get(photo.get('id')).trim();
 
         if (content.length > 0) {
-          const flashNotice = this.flashNotice;
           const photoComment = this.store.createRecord('photoComment', { content, photo });
 
           photoComment.save().then(() => {
-            flashNotice.sendSuccess('Reactie opgeslagen!');
+            this.flashNotice.sendSuccess('Reactie opgeslagen!');
             photo.reload(); // Reload for updated Photo#amountOfComments and updated_at
             resolve();
           }).catch(reject);
         } else {
           reject();
         }
-        commentContent.set(photo.get('id'), '');
+        this.commentContent.set(photo.get('id'), '');
       });
     }
   }

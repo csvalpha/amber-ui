@@ -10,8 +10,7 @@ export default Controller.extend({
 
   actions: {
     forgotPassword() {
-      const email = this.email;
-      const resetPasswordRequest = this.ajax.post('/users/reset_password', { data: { email } });
+      const resetPasswordRequest = this.ajax.post('/users/reset_password', { data: { email: this.email } });
       resetPasswordRequest.then(() => {
         const successMessage = this.i18n.t('Je ontvangt een e-mail met verdere instructies');
         this.set('successMessage', successMessage);

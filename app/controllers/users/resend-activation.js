@@ -7,11 +7,10 @@ export default Controller.extend({
   actions: {
     resendActivation() {
       this.set('errorMessage', null);
-      const model = this.model;
       const userId = this.get('model.id');
       const resendActivationRequest = this.ajax.post(`/users/${userId}/resend_activation_mail`);
       resendActivationRequest.then(() => {
-        this.transitionToRoute('users.show', model);
+        this.transitionToRoute('users.show', this.model);
       }).catch((error) => {
         if (isNotFoundError(error)) {
           this.set('errorMessage', 'Deze gebruiker is al geactiveerd!');

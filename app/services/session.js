@@ -56,8 +56,7 @@ export default Session.extend({
   },
 
   hasPermission(permissionName) {
-    const currentUser = this.currentUser;
-    const hasPermission = !isNone(currentUser) && currentUser.hasPermission(permissionName);
+    const hasPermission = !isNone(this.currentUser) && this.currentUser.hasPermission(permissionName);
     warn(
       `Current user does not have permission '${permissionName}'`,
       !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,

@@ -44,8 +44,6 @@ export default Component.extend({
     },
 
     applyStyle(option) {
-      const content = this.content;
-
       const textarea = $(`#${this.textareaIdentifier}`);
       const selectionStart = this.selectionStart || textarea.prop('selectionStart');
       const selectionEnd = this.selectionEnd || textarea.prop('selectionEnd');
@@ -54,9 +52,8 @@ export default Component.extend({
       let styledSelection;
 
       if (option.modal) {
-        const modalInput = this.modalInput;
         styledSelection = option.format.replace('$1', selection);
-        styledSelection = styledSelection.replace('$2', modalInput);
+        styledSelection = styledSelection.replace('$2', this.modalInput);
         this.set('modalInput', null);
         this.set('modalOption', null);
         this.set('modalOpen', false);
@@ -67,9 +64,9 @@ export default Component.extend({
       }
 
       const styledContent
-        = content.substring(0, selectionStart)
+        = this.content.substring(0, selectionStart)
         + styledSelection
-        + content.substring(selectionStart + selection.length);
+        + this.content.substring(selectionStart + selection.length);
 
       this.set('content', styledContent);
     }

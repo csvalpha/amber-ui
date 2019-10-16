@@ -27,12 +27,9 @@ export default Controller.extend({
 
   actions: {
     resetPassword() {
-      const password = this.password;
-      const passwordConfirmation = this.passwordConfirmation;
-      const activationToken = this.activation_token;
       const userId = this.get('model.id');
       const activateAccountRequest = this.ajax.post(`/users/${userId}/activate_account`,
-        { data: { password, passwordConfirmation, activationToken } }
+        { data: { password: this.password, passwordConfirmation: this.passwordConfirmation, activationToken: this.activation_token } }
       );
       activateAccountRequest.then(() => {
         this.set('successMessage', this.i18n.t('Wachtwoord is aangepast'));

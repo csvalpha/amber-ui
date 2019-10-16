@@ -13,31 +13,28 @@ export const FormStatusTagComponent = Component.extend({
     'colorIndicatorClass'
   ],
   content: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
-    const form = this.form;
-    if (isNone(form)) {
+    if (isNone(this.form)) {
       return this.isNoneValue;
     }
 
-    if (form.get('currentUserResponseCompleted')) {
+    if (this.form.get('currentUserResponseCompleted')) {
       return this.responseCompletedValue;
     }
-    if (form.get('canRespond')) {
+    if (this.form.get('canRespond')) {
       return 'Open';
     }
-    if (form.get('respondFrom') > new Date()) {
+    if (this.form.get('respondFrom') > new Date()) {
       return 'Opent later';
     }
     return 'Gesloten';
   }),
   colorIndicatorClass: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {
-    const form = this.form;
-
-    if (isNone(form)) {
+    if (isNone(this.form)) {
       return 'badge-success';
     }
 
-    const formIsOpen = form.get('canRespond');
-    const userHasResponded = form.get('currentUserResponseCompleted');
+    const formIsOpen = this.form.get('canRespond');
+    const userHasResponded = this.form.get('currentUserResponseCompleted');
 
     if (userHasResponded) {
       return 'badge-success';

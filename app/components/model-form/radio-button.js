@@ -17,11 +17,8 @@ export default Component.extend({
     return this.groupValue === this.value;
   }).readOnly(),
   change() {
-    const value = this.value;
-    const groupValue = this.groupValue;
-
-    if (groupValue !== value) {
-      this.set('groupValue', value);
+    if (this.groupValue !== this.value) {
+      this.set('groupValue', this.value);
     }
   }
 });

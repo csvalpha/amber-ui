@@ -6,10 +6,9 @@ export const ForumStatusIconComponent = Component.extend({
   storage: service('local-storage'),
   thread: null,
   threadHasNewPosts: computed('thread', 'storage', function() {
-    const thread = this.thread;
     const currentStore = JSON.parse(this.storage.getItem('forumLastRead') || '{}');
-    const lastRead = currentStore[thread.get('id')];
-    return lastRead === undefined || new Date(lastRead) < thread.get('updatedAt');
+    const lastRead = currentStore[this.thread.get('id')];
+    return lastRead === undefined || new Date(lastRead) < this.thread.get('updatedAt');
   })
 });
 

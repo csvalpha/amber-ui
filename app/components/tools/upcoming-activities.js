@@ -9,10 +9,9 @@ export default Component.extend({
   session: service(),
   activities: null,
   loadUpcomingActivities(context) {
-    const amountOfActivities = this.amountOfActivities;
     const data = { filter: { upcoming: true }, sort: 'start_time' };
     if (this.get('session.currentUser')) {
-      data.page = { size: amountOfActivities };
+      data.page = { size: this.amountOfActivities };
     }
     return this.ajax.request('/activities', { data }).then(result => {
       this.store.pushPayload(result);

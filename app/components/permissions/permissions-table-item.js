@@ -11,11 +11,10 @@ const PermissionsTableItemComponent = Component.extend({
       return this.modelPermissions.includes(this.permission);
     },
     set(key, value) {
-      const modelPermissions = this.modelPermissions;
-      if (value && !modelPermissions.includes(this.permission)) {
-        modelPermissions.pushObject(this.permission);
-      } else if (modelPermissions.includes(this.permission)) {
-        modelPermissions.removeObject(this.permission);
+      if (value && !this.modelPermissions.includes(this.permission)) {
+        this.modelPermissions.pushObject(this.permission);
+      } else if (this.modelPermissions.includes(this.permission)) {
+        this.modelPermissions.removeObject(this.permission);
       }
       return value;
     }

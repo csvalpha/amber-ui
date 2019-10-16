@@ -26,11 +26,10 @@ export default Controller.extend({
 
         if (content.length > 0) {
           const photo = this.model;
-          const flashNotice = this.flashNotice;
           const photoComment = this.store.createRecord('photoComment', { content, photo });
 
           photoComment.save().then(() => {
-            flashNotice.sendSuccess('Reactie opgeslagen!');
+            this.flashNotice.sendSuccess('Reactie opgeslagen!');
             photo.reload(); // Reload for updated Photo#amountOfComments
             resolve();
           }).catch(reject);
