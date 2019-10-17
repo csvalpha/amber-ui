@@ -4,7 +4,7 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 import { CanMixin } from 'ember-can';
-import { WelcomeTextLines, SuggestedEmojis } from 'alpha-amber/constants';
+import { SuggestedEmojis } from 'alpha-amber/constants';
 
 export default Component.extend(CanMixin, {
   session: service(),
@@ -54,10 +54,6 @@ export default Component.extend(CanMixin, {
 
   tooMuchText: computed('currentCharacterCount', function() {
     return this.get('currentCharacterCount') > this.get('maxCharacters');
-  }),
-
-  welcomeText: computed(function() {
-    return WelcomeTextLines[Math.floor(Math.random() * WelcomeTextLines.length)];
   }),
 
   emoticons: SuggestedEmojis,

@@ -9,7 +9,7 @@
         {{#link-to "users.show" session.currentUser.id}}
           <img class="profile-picture profile-picture-md ml-3 p-0" alt="{{session.currentUser.fullName}}" src="{{session.currentUser.avatarThumbUrlOrDefault}}">
         {{/link-to}}
-        {{textarea id="qp-inputfield" value=newQpMessage rows=4 class="col form-control ml-3 mr-3 qp-inputfield " placeholder=welcomeText min="1" max=maxCharacters enter="saveMessage"}}
+        {{textarea id="qp-inputfield" value=newQpMessage rows=4 class="col form-control ml-3 mr-3 qp-inputfield " placeholder="Schrijf een Quickpost bericht" min="1" max=maxCharacters enter="saveMessage"}}
       </div>
 
       <div class="d-flex float-right">
