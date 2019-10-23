@@ -116,7 +116,7 @@ export default Component.extend(CanMixin, {
       pageParams.sort = '-created_at';
       this.store.query('quickpost-message', pageParams).then(result => {
         this.messages.addObjects(result);
-        this.set('totalPages', result.get('meta.total-pages'));
+        this.set('totalPages', result.get('meta.page_count'));
       });
       this.set('page', page);
     },
