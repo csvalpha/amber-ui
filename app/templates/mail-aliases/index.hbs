@@ -9,7 +9,8 @@
     <span class="col-4"> {{t "E-mail"}} </span>
     <span class="col-2"> {{t "Type"}} </span>
     <span class="col-3"> {{t "Omschrijving"}} </span>
-    <span class="col-3"> {{t "Groep/Gebruiker"}} </span>
+    <span class="col-1"> {{t "SMTP"}} </span>
+    <span class="col-2"> {{t "Groep/Gebruiker"}} </span>
   </div>
 
   {{#each model as |mailAlias|}}
@@ -28,9 +29,16 @@
           </span>
           {{mailAlias.description}}
         </span>
+        <span class="col-12 col-md-1 rtable-item">
+          <span class="d-inline d-md-none text-muted">
+            {{t "SMTP: "}}
+          </span>
+          {{boolean-tag mailAlias.smtpEnabled}}
+        </span>
 
 
-        <span class="col-12 col-md-3 rtable-item">
+
+        <span class="col-12 col-md-2 rtable-item">
           <span class="d-inline d-md-none text-muted"> {{t "Groep/Gebruiker: "}} </span>
           {{#if mailAlias.group}}
             {{#link-to 'groups.show' mailAlias.group}}

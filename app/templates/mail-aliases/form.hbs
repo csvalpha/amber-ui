@@ -63,6 +63,8 @@
         </div>
       </div>
 
+      {{model-form/checkbox-input model=model property="smtpEnabled" label=(t "SMTP inschakelen")}}
+
       {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
         {{#link-to "mail-aliases.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
       {{/model-form/form-actions}}

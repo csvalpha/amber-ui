@@ -1,3 +1,15 @@
+// CSS3 code for animation of advertisements
+$amount-of-advertisements: 10;
+$single-advertisement-width: 175px;
+$advertisement-animation-duration: 15s;
+$advertisement-animation-holder-width: -$amount-of-advertisements * $single-advertisement-width;
+$advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-advertisement-width);
+
+@keyframes bannermoves {
+  0% { margin-left: $advertisement-animation-holder-width; }
+  100% { margin-left: 0; }
+}
+
 .advertisement-holder {
   display: flex;
   flex-direction: row;
@@ -24,45 +36,28 @@
   width: 100%;
 }
 
+.adv-container {
+  max-width: 100%;
+  overflow: hidden;
+}
+
 .adv-row {
-  max-height: 120px;
-}
+  width: $advertisement-row-width;
+  max-height: 140px;
 
-// CSS3 code for animation of advertisements
-$amount-of-advertisements: 8;
-$single-advertisement-width: 150px;
-$advertisement-animation-duration: 15s;
-$advertisement-animation-holder-width: -$amount-of-advertisements * $single-advertisement-width;
-$advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-advertisement-width);
-
-@keyframes bannermoves {
-  0% { margin-left: $advertisement-animation-holder-width; }
-  100% { margin-left: 0; }
-}
-
-@include media-breakpoint-down(md) {
-  .adv-container {
-    max-width: 100%;
-    overflow: hidden;
-  }
-
-  .adv-row {
-    width: $advertisement-row-width;
-
-    &:hover {
-      .firstAdv {
-        animation-play-state: paused;
-      }
-    }
-
-    &:first-child {
-      animation: bannermoves $advertisement-animation-duration linear infinite;
-      margin-left: 0;
+  &:hover {
+    .firstAdv {
+      animation-play-state: paused;
     }
   }
 
-  .advertisement-item {
-    margin: 0;
-    width: $single-advertisement-width;
+  &:first-child {
+    animation: bannermoves $advertisement-animation-duration linear infinite;
+    margin-left: 0;
   }
+}
+
+.advertisement-item {
+  margin: 0;
+  width: $single-advertisement-width;
 }
