@@ -67,11 +67,13 @@ module.exports = function(environment) {
       // Regular icons as default
       defaultPrefix: 'fas',
       icons: {
-        'pro-light-svg-icons': 'all',
-        'pro-regular-svg-icons': 'all',
-        'pro-solid-svg-icons': 'all',
+        'free-regular-svg-icons': 'all',
+        'free-solid-svg-icons': 'all',
         'free-brands-svg-icons': [
-          'youtube'
+          'youtube',
+          'facebook',
+          'instagram',
+          'twitter'
         ]
       }
     },
