@@ -18,7 +18,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
       {
         link: 'debit.collections.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: collection,
         canAccess: this.can('edit debit/collections')
       },

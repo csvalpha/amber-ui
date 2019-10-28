@@ -20,7 +20,7 @@ export default IndexRouteUnauthenticated.extend({
       {
         link: 'photo-albums.photo-album.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: this.get('controller.model.photoAlbum'),
         canAccess: this.can('edit photo-albums')
       },

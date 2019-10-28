@@ -17,7 +17,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
       {
         link: 'users.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: user,
         canAccess: this.can('edit user', user)
       },

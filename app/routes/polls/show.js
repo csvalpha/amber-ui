@@ -20,7 +20,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       {
         link: 'polls.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: poll,
         canAccess: this.can('edit poll', poll)
       },

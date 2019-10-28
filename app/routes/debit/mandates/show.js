@@ -15,7 +15,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
       {
         link: 'debit.mandates.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: this.get('controller.model'),
         canAccess: this.can('edit debit/mandates')
       }
