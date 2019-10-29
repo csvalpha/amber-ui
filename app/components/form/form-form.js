@@ -6,9 +6,9 @@ export const FormFormComponent = Component.extend({
   store: service(),
   actions: {
     createQuestion(modelClass, fieldType) {
-      const form = this.get('model');
+      const form = this.model;
       const position = form.get('sortedQuestions.lastObject.position') + 1 || 0;
-      const question = this.get('store').createRecord(modelClass, {
+      const question = this.store.createRecord(modelClass, {
         form,
         fieldType,
         position,
@@ -29,7 +29,7 @@ export const FormFormComponent = Component.extend({
     },
     addOption(question) {
       const position = question.get('sortedOptions.lastObject.position') + 1 || 0;
-      this.get('store').createRecord('form/closed-question-option', {
+      this.store.createRecord('form/closed-question-option', {
         question,
         position
       });
@@ -38,7 +38,7 @@ export const FormFormComponent = Component.extend({
       option.deleteRecord();
     },
     moveQuestionUp(question) {
-      const form = this.get('model');
+      const form = this.model;
       const index = form.get('sortedQuestions').indexOf(question);
       if (index > 0) {
         const previousQuestion = form.get('sortedQuestions').objectAt(index - 1);
@@ -46,7 +46,7 @@ export const FormFormComponent = Component.extend({
       }
     },
     moveQuestionDown(question) {
-      const form = this.get('model');
+      const form = this.model;
       const index = form.get('sortedQuestions').indexOf(question);
       if (index < (form.get('sortedQuestions.length') - 1)) {
         const nextQuestion = form.get('sortedQuestions').objectAt(index + 1);

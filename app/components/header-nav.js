@@ -16,19 +16,19 @@ export default Component.extend(CanMixin, {
     return [
       {
         link: 'articles',
-        title: this.get('i18n').t('mixin.menuItems.articles'),
+        title: this.i18n.t('mixin.menuItems.articles'),
         icon: '',
         canAccess: this.can('show articles')
       },
       {
         link: 'photo-albums',
-        title: this.get('i18n').t('mixin.menuItems.photoAlbums'),
+        title: this.i18n.t('mixin.menuItems.photoAlbums'),
         icon: '',
         canAccess: this.can('show photo-albums')
       },
       {
         link: 'static-pages',
-        title: this.get('i18n').t('mixin.menuItems.staticPages'),
+        title: this.i18n.t('mixin.menuItems.staticPages'),
         icon: '',
         canAccess: this.can('show static-pages')
       }
@@ -41,20 +41,20 @@ export default Component.extend(CanMixin, {
       } else if (this.get('routing.currentRouteName') === 'index') {
         this.send('refreshItems');
       } else {
-        this.get('router').transitionTo('index');
+        this.router.transitionTo('index');
       }
     },
     invalidateSession() {
-      this.get('session').invalidate();
+      this.session.invalidate();
     },
     toggleLeftSidebar() {
-      this.get('layoutManager').toggleLeftSidebar();
+      this.layoutManager.toggleLeftSidebar();
     },
     toggleRightSidebar() {
-      this.get('layoutManager').toggleRightSidebar();
+      this.layoutManager.toggleRightSidebar();
     },
     closeSidebars() {
-      this.get('layoutManager').closeSidebars();
+      this.layoutManager.closeSidebars();
     },
     toggleLocale() {
       const locale = this.get('i18n.locale');

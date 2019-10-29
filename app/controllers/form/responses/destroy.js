@@ -13,7 +13,7 @@ export default DestroyController.extend({
     onSuccess() {
       this._super(...arguments);
       // Reload form to update fields as 'currentUserResponseCompleted', 'currentUserResponseId' and 'amountOfResponses'
-      this.get('store').peekRecord('form/form', this.get('form.id')).reload();
+      this.store.peekRecord('form/form', this.get('form.id')).reload();
     },
     onError() {
       this.set('errorMessage', 'Er ging iets fout bij het verwijderen');

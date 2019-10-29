@@ -8,22 +8,22 @@ export default Component.extend({
   tooltipSpacing: 25,
   actions: {
     toggleLeftSidebarExpansion() {
-      this.get('layoutManager').toggleLeftSidebarExpansion();
+      this.layoutManager.toggleLeftSidebarExpansion();
     },
     invalidateSession() {
-      this.get('session').invalidate();
+      this.session.invalidate();
     },
     toggleProfileMenu() {
-      this.get('layoutManager').toggleProfileMenu();
+      this.layoutManager.toggleProfileMenu();
     },
     closeProfileMenu() {
-      this.get('layoutManager').closeProfileMenu();
+      this.layoutManager.closeProfileMenu();
     },
     closeLeftSidebar() {
-      this.get('layoutManager').closeLeftSidebar();
+      this.layoutManager.closeLeftSidebar();
     },
     openProfileMenu() {
-      this.get('layoutManager').openProfileMenu();
+      this.layoutManager.openProfileMenu();
     }
   }
 });

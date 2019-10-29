@@ -21,7 +21,7 @@ export default Route.extend(UnauthenticatedRouteMixin, {
       // This is wrapped in a promise, to let the tests
       // know there is a promise which should be resolved first.
       return resolve(
-        this.get('session')
+        this.session
           .authenticate('authenticator:oauth-2', username, password, undefined, headers)
           .then(() => {
             this.set('controller.username', null);

@@ -30,7 +30,6 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
   },
 
   // Some internal query params should be mapped to other params for API requests
-  /* eslint camelcase: "off" */
   paramMapping: {
     search: 'filter[search]'
   },

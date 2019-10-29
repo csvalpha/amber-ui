@@ -8,20 +8,20 @@ const OpenQuestionComponent = Component.extend({
   question: null,
   questionTypes: OpenQuestionTypes,
   questionTypeOptions: computed('questionTypes', function() {
-    return this.get('questionTypes').map(questionType => ({
+    return this.questionTypes.map(questionType => ({
       value: questionType,
-      label: this.get('i18n').t(`tag.input.types.${questionType}`)
+      label: this.i18n.t(`tag.input.types.${questionType}`)
     }));
   }),
   actions: {
     moveQuestionUp() {
-      this.sendAction('onMoveQuestionUp', this.get('question'));
+      this.sendAction('onMoveQuestionUp', this.question);
     },
     moveQuestionDown() {
-      this.sendAction('onMoveQuestionDown', this.get('question'));
+      this.sendAction('onMoveQuestionDown', this.question);
     },
     deleteQuestion() {
-      this.sendAction('onDeleteQuestion', this.get('question'));
+      this.sendAction('onDeleteQuestion', this.question);
     }
   }
 });

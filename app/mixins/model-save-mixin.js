@@ -11,34 +11,29 @@ export default Mixin.create({
   errorMessage: null,
   actions: {
     onSuccess(model) {
-      const flashNotice = this.get('flashNotice');
-      const successMessage = this.get('successMessage');
-      const successTransitionTarget = this.get('successTransitionTarget');
-
       // Show notice
-      if (!isNone(successMessage)) {
-        flashNotice.sendSuccess(this.get('i18n').t(successMessage));
+      if (!isNone(this.successMessage)) {
+        this.flashNotice.sendSuccess(this.i18n.t(this.successMessage));
       }
 
       // Redirect
-      if (!isNone(successTransitionTarget)) {
+      if (!isNone(this.successTransitionTarget)) {
         if (isNone(model)) {
           // In destroy routes, model is undefined
-          this.transitionToRoute(successTransitionTarget);
+          this.transitionToRoute(this.successTransitionTarget);
         } else {
-          const targetModel = this.get('successTransitionModel') || model;
-          this.transitionToRoute(successTransitionTarget, targetModel);
+          const targetModel = this.successTransitionModel || model;
+          this.transitionToRoute(this.successTransitionTarget, targetModel);
         }
       }
     },
     onError(error) {
       this.set('errorMessage', error.errors.map((e) => {
-        return this.get('i18n').t(e.detail);
+        return this.i18n.t(e.detail);
       }).join(', '));
     },
     submit() {
-      const model = this.get('model');
-      this.send('saveModel', model);
+      this.send('saveModel', this.model);
     },
     saveModel(model) {
       this.set('errorMessage', null);

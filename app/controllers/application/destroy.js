@@ -6,10 +6,9 @@ export default EditController.extend({
   actions: {
     destroy() {
       this.set('errorMessage', null);
-      const model = this.get('model');
 
-      if (!isNone(model)) {
-        model.destroyRecord().then(() => {
+      if (!isNone(this.model)) {
+        this.model.destroyRecord().then(() => {
           this.send('onSuccess');
         }).catch(error => {
           this.send('onError', error);

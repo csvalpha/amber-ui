@@ -2,7 +2,10 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { isPresent } from '@ember/utils';
-import { PicturePublicationPreferenceTypes, UserDetailsPreferenceTypes } from 'alpha-amber/constants';
+import {
+  PicturePublicationPreferenceTypes,
+  UserDetailsPreferenceTypes
+} from 'alpha-amber/constants';
 import ModelSaveMixin from 'alpha-amber/mixins/model-save-mixin';
 
 export default Component.extend(ModelSaveMixin, {
@@ -15,10 +18,10 @@ export default Component.extend(ModelSaveMixin, {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
   isOwnUser: computed('session.currentUser', 'model', function() {
-    return this.get('model') === this.get('session.currentUser');
+    return this.model === this.get('session.currentUser');
   }),
   canChangeTomatoSettings: computed('model.allowTomatoSharing', function() {
-    return !isPresent(this.get('model').changedAttributes().allowTomatoSharing) && this.get('model.allowTomatoSharing');
+    return !isPresent(this.model.changedAttributes().allowTomatoSharing) && this.get('model.allowTomatoSharing');
   }),
   successMessage: 'Privacyinstellingen gewijzigd!'
 });

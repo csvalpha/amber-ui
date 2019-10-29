@@ -9,9 +9,9 @@ export default Model.extend({
 
   // Computed properties
   model: computed('name', function() {
-    return this.get('name').split('.')[0];
+    return this.name.split('.')[0];
   }),
   action: computed('name', function() {
-    return this.get('name').split('.')[1];
+    return this.name.split('.')[1];
   })
 });

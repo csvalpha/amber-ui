@@ -8,6 +8,6 @@ export default Mixin.create({
   coverPhoto: attr('raw'),
   coverPhotoUrl: attr('string'),
   coverPhotoUrlOrDefault: computed('coverPhotoUrl', function() {
-    return this.get('coverPhotoUrl') || '/images/fallback/coverphoto_default.jpg';
+    return this.coverPhotoUrl || '/images/fallback/coverphoto_default.jpg';
   })
 });

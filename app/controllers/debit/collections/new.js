@@ -12,7 +12,7 @@ export default NewController.extend({
 
   actions: {
     fileLoaded(file) {
-      const collection = this.get('model');
+      const collection = this.model;
       collection.set('importFile', file.data);
     }
 

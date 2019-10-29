@@ -15,7 +15,7 @@ export default Route.extend(CanMixin, AuthorizationRouteMixin, BreadcrumbsRouteM
 
   model(params) {
     return this.store.findRecord('debit/collection', params.id).then(collection => {
-      return this.get('ajax').request(`/debit/collections/${collection.id}/sepa`, { dataType: 'text' }).then(xmlData => {
+      return this.ajax.request(`/debit/collections/${collection.id}/sepa`, { dataType: 'text' }).then(xmlData => {
         this.saveFileAs(`${collection.get('name')}.xml`, xmlData, 'application/xml');
         return this.transitionTo('debit.collections.show', collection.id);
       }).catch(error => {

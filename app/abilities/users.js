@@ -1,3 +1,4 @@
+import { alias } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
@@ -5,22 +6,22 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canShow: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('user.read');
+    return this.session.hasPermission('user.read');
   }),
   /**
    * You can view all users if you have sufficient permissions, but each individual user can be viewed when the user can
    * view members (member of group 'Leden').
    */
-  canShowIndividual: computed.alias('session.isAuthenticated'),
+  canShowIndividual: alias('session.isAuthenticated'),
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('user.create');
+    return this.session.hasPermission('user.create');
   }),
   canEditAllProperties: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('user.update') || this.get('session').hasPermission('user.create');
+    return this.session.hasPermission('user.update') || this.session.hasPermission('user.create');
   }),
-  canBatchUpload: computed.alias('canCreate'),
+  canBatchUpload: alias('canCreate'),
   canExport: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('user.update');
+    return this.session.hasPermission('user.update');
   }),
-  canShowWebdav: computed.alias('session.isAuthenticated')
+  canShowWebdav: alias('session.isAuthenticated')
 });

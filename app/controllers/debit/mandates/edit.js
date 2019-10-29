@@ -5,6 +5,6 @@ export default EditController.extend({
   successTransitionTarget: 'debit.mandates.show',
 
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   })
 });

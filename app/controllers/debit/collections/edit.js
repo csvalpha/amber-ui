@@ -6,20 +6,19 @@ import EditController from 'alpha-amber/controllers/application/edit';
 export default EditController.extend({
   successMessage: 'Incasso aangepast!',
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   }),
   actions: {
     addUser(user) {
-      this.get('model').get('transactions').pushObject(
-        this.get('store').createRecord('debit/transaction', { user })
+      this.model.get('transactions').pushObject(
+        this.store.createRecord('debit/transaction', { user })
       );
     },
     removeTransaction(transaction) {
       transaction.deleteRecord();
     },
     submit() {
-      const collection = this.get('model');
-      const flashNotice = this.get('flashNotice');
+      const collection = this.model;
       this.set('errorMessage', null);
 
       if (!isNone(collection)) {
@@ -37,7 +36,7 @@ export default EditController.extend({
             const prefix = failedTransactions > 1 ? 'zijn' : 'is';
             this.set('errorMessage', `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`);
           } else {
-            flashNotice.sendSuccess('Incasso aangepast!');
+            this.flashNotice.sendSuccess('Incasso aangepast!');
             this.transitionToRoute('debit.collections.show', collection.id);
           }
         }).catch(error => {

@@ -32,7 +32,7 @@ export default Model.extend({
     });
   },
   rollbackAttributesAndOptions() {
-    this.get('options').forEach(option => {
+    this.options.forEach(option => {
       option.rollbackAttributes();
     });
     this.rollbackAttributes();

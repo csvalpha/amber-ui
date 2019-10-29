@@ -6,12 +6,12 @@ export default Ability.extend({
   session: service(),
   canShow: true,
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo-album.create');
+    return this.session.hasPermission('photo-album.create');
   }),
   canEdit: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo-album.update');
+    return this.session.hasPermission('photo-album.update');
   }),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('photo-album.destroy');
+    return this.session.hasPermission('photo-album.destroy');
   })
 });

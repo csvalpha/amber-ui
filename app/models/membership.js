@@ -16,9 +16,6 @@ export default Model.extend({
 
   administrative: alias('group.administrative'),
   userIsCurrentlyMember: computed('startDate', 'endDate', function() {
-    const startDate = this.get('startDate');
-    const endDate = this.get('endDate');
-
-    return (startDate < moment.now() && (!endDate || endDate > moment.now()));
+    return (this.startDate < moment.now() && (!this.endDate || this.endDate > moment.now()));
   })
 });

@@ -6,7 +6,7 @@ const { Model } = DS;
 export function initialize(/* application */) {
   Model.reopen({
     saveIfDirty() {
-      if (this.get('hasDirtyAttributes')) {
+      if (this.hasDirtyAttributes) {
         return this.save();
       }
       return resolve(this);

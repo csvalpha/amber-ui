@@ -11,7 +11,7 @@ export default Mixin.create(RouteMixin, {
   },
 
   model(params) {
-    params.paramMapping = this.get('paramMapping');
-    return this.findPaged(this.get('modelName'), params);
+    params.paramMapping = this.paramMapping;
+    return this.findPaged(this.modelName, params);
   }
 });

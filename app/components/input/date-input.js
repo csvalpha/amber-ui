@@ -18,8 +18,8 @@ export default TimeInputComponent.extend({
   pikadayFormat: 'DD-MM-YYYY',
   pikadayI18n: computed(function() {
     return {
-      previousMonth: this.get('i18n').t('Vorige maand'),
-      nextMonth: this.get('i18n').t('Volgende maand'),
+      previousMonth: this.i18n.t('Vorige maand'),
+      nextMonth: this.i18n.t('Volgende maand'),
       months: moment.localeData()._months,
       weekdays: moment.localeData()._weekdays,
       weekdaysShort: moment.localeData()._weekdaysShort

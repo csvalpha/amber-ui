@@ -52,10 +52,10 @@ export default ShowRouteUnauthenticated.extend({
 
   actions: {
     goToPreviousPhoto() {
-      this.get('controller').send('goToPreviousPhoto');
+      this.controller.send('goToPreviousPhoto');
     },
     goToNextPhoto() {
-      this.get('controller').send('goToNextPhoto');
+      this.controller.send('goToNextPhoto');
     }
   }
 });

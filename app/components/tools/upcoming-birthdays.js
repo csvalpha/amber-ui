@@ -11,9 +11,9 @@ export default Component.extend({
 
   loadUpcomingBirthdays() {
     // eslint-disable-next-line camelcase
-    return this.get('ajax').request('/users', { data: { filter: { upcoming_birthdays: true, group: 'Leden' } } }).then(contents => {
+    return this.ajax.request('/users', { data: { filter: { upcoming_birthdays: true, group: 'Leden' } } }).then(contents => {
       // Push in store
-      this.get('store').pushPayload(contents);
+      this.store.pushPayload(contents);
 
       const usersWithBirthdayToday = new A();
       const usersWithUpcomingBirthday = new A();
@@ -21,7 +21,7 @@ export default Component.extend({
       // Peek from store and add to arrays
       if (contents.data && isArray(contents.data)) {
         contents.data.forEach(jsonUser => {
-          const user = this.get('store').peekRecord('user', jsonUser.id);
+          const user = this.store.peekRecord('user', jsonUser.id);
           if (user.get('hasBirthdayToday')) {
             usersWithBirthdayToday.push(user);
           } else {

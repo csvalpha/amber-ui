@@ -12,7 +12,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'photo-album',
 
   title: computed(function() {
-    return this.get('i18n').t('model.photoAlbum.name.other').toString().capitalize();
+    return this.i18n.t('model.photoAlbum.name.other').toString().capitalize();
   }),
 
   perPage: 10,

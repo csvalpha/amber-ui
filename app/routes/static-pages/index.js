@@ -9,7 +9,7 @@ export default IndexRouteUnauthenticated.extend({
   },
   modelName: 'static-page',
   title: computed(function() {
-    return this.get('i18n').t('model.staticPage.name.other').toString().capitalize();
+    return this.i18n.t('model.staticPage.name.other').toString().capitalize();
   }),
   pageActions: computed(function() {
     return [

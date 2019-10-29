@@ -16,7 +16,7 @@ export default Component.extend({
   }),
   actions: {
     dismissFlashNotice() {
-      this.get('flashNotice').dismiss();
+      this.flashNotice.dismiss();
     }
   },
   init() {

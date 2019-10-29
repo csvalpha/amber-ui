@@ -5,9 +5,9 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canShow: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('forum/post.read');
+    return this.session.hasPermission('forum/post.read');
   }),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('forum/post.destroy');
+    return this.session.hasPermission('forum/post.destroy');
   })
 });

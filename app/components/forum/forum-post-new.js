@@ -10,12 +10,11 @@ export default Component.extend({
   },
   actions: {
     save(message, thread) {
-      const flashNotice = this.get('flashNotice');
-      this.get('store').createRecord('forum/post', {
+      this.store.createRecord('forum/post', {
         message,
         thread
       }).save().then(() => {
-        flashNotice.sendSuccess('Forumbericht toegevoegd!');
+        this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
         this.set('content', '');
         this.sendAction('onSave');
       });

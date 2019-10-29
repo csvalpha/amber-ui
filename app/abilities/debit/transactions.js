@@ -5,12 +5,12 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canEdit: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('debit/transaction.update');
+    return this.session.hasPermission('debit/transaction.update');
   }),
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('debit/transaction.create');
+    return this.session.hasPermission('debit/transaction.create');
   }),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('debit/transaction.destroy');
+    return this.session.hasPermission('debit/transaction.destroy');
   })
 });

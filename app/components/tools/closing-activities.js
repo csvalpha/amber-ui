@@ -14,11 +14,11 @@ export default Component.extend({
       sort: 'form.respond_until'
     };
 
-    return this.get('ajax').request('/activities', { data }).then(result => {
-      this.get('store').pushPayload(result);
+    return this.ajax.request('/activities', { data }).then(result => {
+      this.store.pushPayload(result);
       const activities = new A();
       result.data.forEach(jsonObject => {
-        const activity = this.get('store').peekRecord('activity', jsonObject.id);
+        const activity = this.store.peekRecord('activity', jsonObject.id);
         activities.push(activity);
       });
       context.set('activities', activities);

@@ -95,7 +95,7 @@ export default Controller.extend(FileSaverMixin, {
   ],
   descriptionValid: notEmpty('description'),
   checkedFieldsValid: computed('userPropertyOptions.@each.isChecked', function() {
-    return this.get('userPropertyOptions').filter(p => p.isChecked).length > 0;
+    return this.userPropertyOptions.filter(p => p.isChecked).length > 0;
   }),
   valid: and('descriptionValid', 'checkedFieldsValid'),
   exportButtonDisabled: not('valid'),
@@ -103,19 +103,17 @@ export default Controller.extend(FileSaverMixin, {
   actions: {
     exportUsers() {
       const selectedProperties = new A();
-      const givenDescription = this.get('description');
-      const model = this.get('model');
-      this.get('userPropertyOptions').forEach((property) => {
+      this.userPropertyOptions.forEach((property) => {
         if (property.isChecked) {
           selectedProperties.push(property.value);
         }
       });
-      this.get('ajax').request(
-        `/groups/${model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(givenDescription)}`,
+      this.ajax.request(
+        `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(this.description)}`,
         { dataType: 'text' }
       ).then(csvResponse => {
-        this.saveFileAs(`${model.get('name')}-${new Date().toJSON()}.csv`, csvResponse, 'application/csv');
-        return this.transitionToRoute('groups.show', model);
+        this.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, csvResponse, 'application/csv');
+        return this.transitionToRoute('groups.show', this.model);
       }, null);
     }
   }

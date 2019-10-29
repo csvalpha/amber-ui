@@ -16,17 +16,15 @@ export default Component.extend({
     'value'
   ],
   checked: computed('groupValue', 'value', function() {
-    return this.get('groupValue').includes(this.get('value'));
+    return this.groupValue.includes(this.value);
   }).readOnly(),
   change() {
-    const value = this.get('value');
-    const groupValue = this.get('groupValue');
-    assert(`Group value of a checkbox group (name=${this.get('name')}) should be an array!`, isArray(groupValue));
-    if (groupValue.includes(value)) {
-      groupValue.removeObject(value);
+    assert(`Group value of a checkbox group (name=${this.name}) should be an array!`, isArray(this.groupValue));
+    if (this.groupValue.includes(this.value)) {
+      this.groupValue.removeObject(this.value);
     } else {
-      groupValue.pushObject(value);
+      this.groupValue.pushObject(this.value);
     }
-    this.set('groupValue', groupValue);
+    this.set('groupValue', this.groupValue);
   }
 });

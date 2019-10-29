@@ -17,9 +17,8 @@ export default Controller.extend(CanMixin, {
     },
     set(_, value) {
       if (value) {
-        const store = this.get('store');
-        const form = store.createRecord('form/form');
-        store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
+        const form = this.store.createRecord('form/form');
+        this.store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
         this.set('model.form', form);
       } else {
         this.set('model.form', null);
@@ -30,7 +29,7 @@ export default Controller.extend(CanMixin, {
 
   groups: computed(function() {
     if (this.can('select all groups for activities')) {
-      return this.get('store').findAll('group');
+      return this.store.findAll('group');
     }
     return this.get('session.currentUser').get('groups');
   }),
@@ -43,24 +42,21 @@ export default Controller.extend(CanMixin, {
   },
 
   activityCategoryOptions: computed(function() {
-    return ActivityCategories.map(this.get('_activityCategoryToOption'));
+    return ActivityCategories.map(this._activityCategoryToOption);
   }),
 
   actions: {
     submit() {
-      const activity = this.get('model');
-      const flashNotice = this.get('flashNotice');
-      activity.saveWithForm().then(savedActivity => {
+      this.model.saveWithForm().then(savedActivity => {
         this.transitionToRoute('activities.show', savedActivity.get('id'));
-        flashNotice.sendSuccess('Activiteit opgeslagen!');
+        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
       }).catch(error => {
         this.set('errorMessage', error.message);
       });
     },
 
     coverPhotoLoaded(file) {
-      const activity = this.get('model');
-      activity.set('coverPhoto', file.data);
+      this.model.set('coverPhoto', file.data);
     }
   }
 });
