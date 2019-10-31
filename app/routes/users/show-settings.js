@@ -12,7 +12,7 @@ export default UserShowRouteUnauthenticated.extend({
       {
         link: 'users.edit-privacy',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: user,
         canAccess: this.can('edit user', user)
       }

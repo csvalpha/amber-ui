@@ -3,11 +3,6 @@ MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 
 ARG DEPLOY_TARGET='production'
 
-# Install NPM Token
-ARG FA5_TOKEN
-COPY .buildkite/build_npmrc.sh /app/.buildkite/build_npmrc.sh
-RUN /app/.buildkite/build_npmrc.sh
-
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 RUN yarn install --ignore-engines
