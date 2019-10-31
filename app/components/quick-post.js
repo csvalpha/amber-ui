@@ -125,8 +125,8 @@ export default Component.extend(CanMixin, {
 
     checkZeep(result) {
       let zeepMessages = 0;
-      result.forEach(message => {
-        if (message.get('message').includes('zeep')) {
+      result.forEach(function(message, index) {
+        if (message.get('message').includes('zeep') && index < 10) {
           zeepMessages += 1;
         }
       });
