@@ -11,12 +11,7 @@ export default Session.extend({
   store: service(),
   i18n: service(),
   localStorage: service(),
-
-  raven: computed(() => {
-    if (ENV.EMBER_ENV === 'production') {
-      service('raven');
-    }
-  }),
+  raven: service(),
 
   currentUser: null,
   loadCurrentUser() {
@@ -46,12 +41,9 @@ export default Session.extend({
       if (user === null) {
         return;
       }
-
-      if (ENV.EMBER_ENV === 'production') {
-        this.raven.callRaven('setUserContext', {
-          id: user.get('id')
-        });
-      }
+      this.raven.callRaven('setUserContext', {
+        id: user.get('id')
+      });
     });
   },
 
