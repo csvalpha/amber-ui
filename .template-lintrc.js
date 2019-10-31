@@ -3,8 +3,7 @@
 
 module.exports = {
   rules: {
-    'bare-strings': ['(', ')', ',', '.', '&', '+', '-', '=', '*', '/', '#', '%', '!', '?', ':', '[', ']', '{', '}', '|',
-      '±', '€', 'Bart', 'Suzanne', 'Andreas', 'Sara'],
+    'bare-strings': false,
     'block-indentation': 2,
     'html-comments': true,
     'triple-curlies': true
