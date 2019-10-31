@@ -39,14 +39,14 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     ];
   }),
   model(params) {
-    const collectionPromise = this.store.findRecord(this.get('modelName'), params.id);
+    const collectionPromise = this.store.findRecord(this.modelName, params.id);
     assign(params, {
-      paramMapping: this.get('paramMapping'),
+      paramMapping: this.paramMapping,
       filter: { collection: params.id },
       sort: 'created_at'
     });
     delete params.id;
-    const transactionsPromise = this.get('store').query('debit/transaction', params);
+    const transactionsPromise = this.store.query('debit/transaction', params);
 
     return hash({
       collection: collectionPromise,

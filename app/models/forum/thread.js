@@ -22,7 +22,7 @@ export default Model.extend({
   sortDefinition: ['createdAt:asc'],
   isOpen: computed('closedAt', {
     get() {
-      return (this.get('closedAt') === null);
+      return this.closedAt === null;
     },
     set(_key, value) {
       if (value) {

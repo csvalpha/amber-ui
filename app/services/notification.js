@@ -25,7 +25,7 @@ export default Service.extend({
   },
 
   getPermission() {
-    if (!this.get('isEnabled')) {
+    if (!this.isEnabled) {
       Notification.requestPermission(permission => {
         if (permission === 'granted') {
           this.set('permissionIsGranted', true);
@@ -41,10 +41,10 @@ export default Service.extend({
         }
       });
     }
-    this.set('isEnabled', this.get('permissionIsGranted'));
-    localStorage.setItem('notificationEnabled', this.get('permissionIsGranted'));
+    this.set('isEnabled', this.permissionIsGranted);
+    localStorage.setItem('notificationEnabled', this.permissionIsGranted);
     this.set('isSoundEnabled', false);
-    localStorage.setItem('notificationSoundEnabled', this.get('isSoundEnabled'));
+    localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
   },
 
   turnOff() {
@@ -57,7 +57,7 @@ export default Service.extend({
       body,
       icon
     };
-    if (this.get('permissionIsGranted') && this.get('isEnabled')) {
+    if (this.permissionIsGranted && this.isEnabled) {
       try {
         return new Notification(title, options);
       } catch(error) {
@@ -67,8 +67,8 @@ export default Service.extend({
           });
         }
       } finally {
-        if (this.get('isSoundEnabled')) {
-          this.get('notificationSound').play();
+        if (this.isSoundEnabled) {
+          this.notificationSound.play();
         }
       }
     }
@@ -76,11 +76,11 @@ export default Service.extend({
 
   toggleSound() {
     this.toggleProperty('isSoundEnabled');
-    localStorage.setItem('notificationSoundEnabled', this.get('isSoundEnabled'));
+    localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
   },
 
   soundOn() {
     this.set('isSoundEnabled', true);
-    localStorage.setItem('notificationSoundEnabled', this.get('isSoundEnabled'));
+    localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
   }
 });

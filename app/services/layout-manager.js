@@ -20,10 +20,10 @@ export default Service.extend({
       }
       // On non-mobile it is optional according to localstorage
       // localstorage stores it as a string
-      return this.get('localStorage').getItem('leftSideBarExpanded') === 'true';
+      return this.localStorage.getItem('leftSideBarExpanded') === 'true';
     },
     set(key, value) {
-      this.get('localStorage').setItem('leftSideBarExpanded', value);
+      this.localStorage.setItem('leftSideBarExpanded', value);
       return value;
     }
   }),

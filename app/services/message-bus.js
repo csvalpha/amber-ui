@@ -13,6 +13,6 @@ export default Service.extend({
   },
 
   subscribe(channel, func, lastId) {
-    this.get('message-bus').subscribe(channel, func, lastId);
+    this['message-bus'].subscribe(channel, func, lastId);
   }
 });

@@ -10,7 +10,7 @@ export default Controller.extend({
   advanceToPhoto(delta) {
     const photos = this.get('model.photoAlbum.photos');
     const length = photos.get('length');
-    const index = (photos.indexOf(this.get('model')) + delta + length) % length;
+    const index = (photos.indexOf(this.model) + delta + length) % length;
     return this.transitionToRoute('photo-albums.photo-album.photos.show', photos.objectAt(index));
   },
   actions: {
@@ -22,15 +22,14 @@ export default Controller.extend({
     },
     submitPhotoComment() {
       return new Promise((resolve, reject) => {
-        const content = this.get('content').trim();
+        const content = this.content.trim();
 
         if (content.length > 0) {
-          const photo = this.get('model');
-          const flashNotice = this.get('flashNotice');
-          const photoComment = this.get('store').createRecord('photoComment', { content, photo });
+          const photo = this.model;
+          const photoComment = this.store.createRecord('photoComment', { content, photo });
 
           photoComment.save().then(() => {
-            flashNotice.sendSuccess('Reactie opgeslagen!');
+            this.flashNotice.sendSuccess('Reactie opgeslagen!');
             photo.reload(); // Reload for updated Photo#amountOfComments
             resolve();
           }).catch(reject);

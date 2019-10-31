@@ -6,7 +6,7 @@ const MultipleChoiceQuestionComponent = ClosedQuestionBaseComponent.extend({
   answers: null,
   selectedOptionIds: mapBy('answers', 'option.id'),
   selectedOptionIdsObserver: observer('selectedOptionIds.[]', function() {
-    this.sendAction('updateAnswers', this.get('question'), this.get('selectedOptionIds'));
+    this.sendAction('updateAnswers', this.question, this.selectedOptionIds);
   }),
   requiredAndNothingSelected: computed('question.required', 'selectedOptionIds.length', function() {
     return this.get('question.required') && this.get('selectedOptionIds.length') === 0;

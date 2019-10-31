@@ -16,13 +16,13 @@ export const EditRoute = Route.extend(
     pageActions: [],
 
     model(params) {
-      return this.store.findRecord(this.get('modelName'), params[this.get('modelRouteParam')], params);
+      return this.store.findRecord(this.modelName, params[this.modelRouteParam], params);
     },
 
     setupController(controller, model) {
       this._super(controller, model);
-      controller.set('pageActions', this.get('pageActions'));
-      controller.set('tabItems', this.get('tabItems'));
+      controller.set('pageActions', this.pageActions);
+      controller.set('tabItems', this.tabItems);
     }
   }
 );

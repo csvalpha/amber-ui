@@ -23,6 +23,6 @@ export default UpcomingActivitiesToolComponent.extend({
   },
 
   modalImageStyle: computed('modalImage', function() {
-    return htmlSafe(`background: url('${this.get('modalImage')}'); background-size: cover; background-position: center;"`);
+    return htmlSafe(`background: url('${this.modalImage}'); background-size: cover; background-position: center;"`);
   })
 });

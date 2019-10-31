@@ -16,7 +16,7 @@ export default Controller.extend({
     },
     set(key, value) {
       // The first time this is called, content is null resulting in an error
-      if (!isNone(this.get('model'))) {
+      if (!isNone(this.model)) {
         this.set('model.posts.page', value);
       }
       return value;
@@ -26,13 +26,13 @@ export default Controller.extend({
   totalPages: alias('model.posts.totalPages'),
 
   currentPageIsLastPage: computed('page', 'totalPages', function() {
-    const totalPages = parseInt(this.get('totalPages'), 10);
-    return totalPages === 0 || parseInt(this.get('page'), 10) === totalPages;
+    const totalPages = parseInt(this.totalPages, 10);
+    return totalPages === 0 || parseInt(this.page, 10) === totalPages;
   }),
 
   actions: {
     goToLastPageAndScrollDown() {
-      this.set('page', this.get('totalPages'));
+      this.set('page', this.totalPages);
       $('#newForumPost')[0].scrollIntoView(true);
     }
   }

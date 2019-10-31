@@ -26,7 +26,7 @@ const ClosedQuestionComponent = ClosedQuestionBaseComponent.extend({
     },
     set(key, value) {
       const option = this.get('question.options').findBy('id', value);
-      this.get('answer').set('option', option);
+      this.answer.set('option', option);
       return value;
     }
   })

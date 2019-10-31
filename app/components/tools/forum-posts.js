@@ -6,6 +6,6 @@ export default Component.extend({
   store: service(),
   ajax: service(),
   threads: computed(function() {
-    return this.get('store').query('forum/thread', { sort: '-updated_at', page: { number: '1', size: 7 } });
+    return this.store.query('forum/thread', { sort: '-updated_at', page: { number: '1', size: 7 } });
   })
 });

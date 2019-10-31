@@ -1,3 +1,4 @@
+import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
 import DS from 'ember-data';
@@ -19,8 +20,8 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
     return this.get('form.closedQuestions.firstObject');
   }),
 
-  currentUserCanRespond: computed.alias('form.currentUserCanRespond'),
-  currentUserResponseCompleted: computed.alias('form.currentUserResponseCompleted'),
+  currentUserCanRespond: alias('form.currentUserCanRespond'),
+  currentUserResponseCompleted: alias('form.currentUserResponseCompleted'),
   closesLater: computed('form.respondUntil', function() {
     return moment().isBefore(this.get('form.respondUntil'));
   }),
@@ -33,7 +34,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
 
   saveWithForm() {
     // Every day fun with triple nested promises
-    return this.get('form').then(form => {
+    return this.form.then(form => {
       if (!isNone(form)) {
         return form.saveWithQuestions().then(() => {
           return this.save();
@@ -44,7 +45,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
   },
   rollbackAttributesAndForm() {
     this.rollbackAttributes();
-    this.get('form').then(form => {
+    this.form.then(form => {
       if (!isNone(form)) {
         form.rollbackAttributesAndQuestions();
       }

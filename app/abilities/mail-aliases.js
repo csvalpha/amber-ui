@@ -5,15 +5,15 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canShow: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('mail-alias.read');
+    return this.session.hasPermission('mail-alias.read');
   }),
   canEdit: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('mail-alias.update');
+    return this.session.hasPermission('mail-alias.update');
   }),
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('mail-alias.create');
+    return this.session.hasPermission('mail-alias.create');
   }),
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('mail-alias.destroy');
+    return this.session.hasPermission('mail-alias.destroy');
   })
 });

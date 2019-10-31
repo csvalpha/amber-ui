@@ -34,11 +34,11 @@ export default Controller.extend({
       this.set('currentTab', 'consumptionList');
     },
     removeOption(index) {
-      this.get('options').removeAt(index, 1);
+      this.options.removeAt(index, 1);
     },
     addOption() {
-      const option = this.get('newOption');
-      this.get('options').pushObject(option);
+      const option = this.newOption;
+      this.options.pushObject(option);
       this.set('newOption', '');
     },
     reorderItems(itemModels) {

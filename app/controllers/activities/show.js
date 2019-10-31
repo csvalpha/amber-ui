@@ -13,14 +13,13 @@ export default Controller.extend({
     submitResponse() {
       const currentUserResponse = this.get('model.currentUserResponse');
       const form = this.get('model.form');
-      const flashNotice = this.get('flashNotice');
       currentUserResponse.saveWithAnswers().then(() => {
         // The response is the first thing that is saved (in order to save answers), so currently the response is
         // always 'incomplete'. Furthermore, the form has a field 'amountOfResponses' which should be updated.
         // We now reload the response and the corresponding form.
         currentUserResponse.reload();
         form.reload();
-        flashNotice.sendSuccess('Inschrijving opgeslagen');
+        this.flashNotice.sendSuccess('Inschrijving opgeslagen');
       }).catch(error => {
         this.set('errorMessage', error.message);
         if (error.payload.errors && error.payload.errors.isAny('source.pointer', '/data/attributes/user')) {

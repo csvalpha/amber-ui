@@ -5,13 +5,13 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canCreate: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('article.create');
+    return this.session.hasPermission('article.create');
   }),
   canShow: true,
   canDestroy: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('article.destroy');
+    return this.session.hasPermission('article.destroy');
   }),
   canSelectAllGroups: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('article.update');
+    return this.session.hasPermission('article.update');
   })
 });

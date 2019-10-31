@@ -21,12 +21,12 @@ export default Session.extend({
   currentUser: null,
   loadCurrentUser() {
     return new Promise(resolve => {
-      if (this.get('isAuthenticated')) {
-        this.get('i18n').set('locale', 'nl');
-        this.get('localStorage').setItem('locale', 'nl');
-        this.get('ajax').request('/users?filter[me]').then(content => {
-          this.get('store').pushPayload(content);
-          const user = this.get('store').peekRecord('user', content.data[0].id);
+      if (this.isAuthenticated) {
+        this.i18n.set('locale', 'nl');
+        this.localStorage.setItem('locale', 'nl');
+        this.ajax.request('/users?filter[me]').then(content => {
+          this.store.pushPayload(content);
+          const user = this.store.peekRecord('user', content.data[0].id);
           user.get('permissions').then(permissions => { // eslint-disable-line no-unused-vars
             resolve(user);
           });
@@ -48,7 +48,7 @@ export default Session.extend({
       }
 
       if (ENV.EMBER_ENV === 'production') {
-        this.get('raven').callRaven('setUserContext', {
+        this.raven.callRaven('setUserContext', {
           id: user.get('id')
         });
       }
@@ -56,8 +56,7 @@ export default Session.extend({
   },
 
   hasPermission(permissionName) {
-    const currentUser = this.get('currentUser');
-    const hasPermission = !isNone(currentUser) && currentUser.hasPermission(permissionName);
+    const hasPermission = !isNone(this.currentUser) && this.currentUser.hasPermission(permissionName);
     warn(
       `Current user does not have permission '${permissionName}'`,
       !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,

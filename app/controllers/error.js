@@ -6,20 +6,18 @@ import { run } from '@ember/runloop';
 export default Controller.extend({
   flashNotice: service('flash-notice'),
   showNotFound: computed('status', function() {
-    const status = this.get('status');
     return this.get('model.isAuthorizationMixinError')
-      || (this.get('model.isAdapterError') && ['403', '404'].includes(status));
+      || (this.get('model.isAdapterError') && ['403', '404'].includes(this.status));
   }),
   showStatic: computed('status', function() {
-    return ['502', '503'].includes(this.get('status'));
+    return ['502', '503'].includes(this.status);
   }),
   status: computed('model', function() {
     const status = this.get('model.errors.firstObject.status');
     return status ? String(status) : status;
   }),
   message: computed('status', function() {
-    const status = this.get('status');
-    switch (status) {
+    switch (this.status) {
       case '400': // Bad Request
         return 'Er is iets mis met de request. Geef de ICT-commissie even de tijd om dit op te lossen.';
       case '402': // Payment required
@@ -47,9 +45,8 @@ export default Controller.extend({
   init() {
     this._super();
     run.scheduleOnce('afterRender', this, function() {
-      if (this.get('showStatic')) {
-        const flashNotice = this.get('flashNotice');
-        flashNotice.sendWarning('De backend is momenteel niet bereikbaar. U ziet een statische versie van de website.', true);
+      if (this.showStatic) {
+        this.flashNotice.sendWarning('De backend is momenteel niet bereikbaar. U ziet een statische versie van de website.', true);
       }
     });
   }

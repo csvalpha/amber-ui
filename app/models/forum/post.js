@@ -16,6 +16,6 @@ export default Model.extend({
 
   // Computed properties
   isUpdated: computed('createdAt', 'updatedAt', function() {
-    return moment(this.get('updatedAt')).isAfter(this.get('createdAt'));
+    return moment(this.updatedAt).isAfter(this.createdAt);
   })
 });

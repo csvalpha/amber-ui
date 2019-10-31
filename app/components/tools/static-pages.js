@@ -5,6 +5,6 @@ import { computed } from '@ember/object';
 export default Component.extend({
   store: service(),
   staticPages: computed(function() {
-    return this.get('store').findAll('static-page');
+    return this.store.findAll('static-page');
   })
 });

@@ -26,19 +26,19 @@ export default Model.extend(AvatarModelMixin, {
 
   // Computed properties
   recognitionPeriod: computed('recognizedAtGma', 'rejectedAtGma', function() {
-    if (this.get('rejectedAtGma') !== null) {
-      return `${this.get('recognizedAtGma')} - ${this.get('rejectedAtGma')}`;
+    if (this.rejectedAtGma !== null) {
+      return `${this.recognizedAtGma} - ${this.rejectedAtGma}`;
     }
-    if (this.get('recognizedAtGma') !== null) {
-      return `${this.get('recognizedAtGma')} - heden`;
+    if (this.recognizedAtGma !== null) {
+      return `${this.recognizedAtGma} - heden`;
     }
     return null;
   }),
   alternativeGroupLogoText: computed('name', function() {
-    return `Het logo van ${this.get('name')}`;
+    return `Het logo van ${this.name}`;
   }),
   rollbackAttributesAndMemberships() {
-    this.get('memberships').forEach(membership => {
+    this.memberships.forEach(membership => {
       if (membership !== undefined) {
         membership.rollbackAttributes();
       }

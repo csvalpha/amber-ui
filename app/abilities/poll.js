@@ -6,7 +6,7 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canEdit: computed('session.currentUser', 'model', function() {
-    return this.get('session').hasPermission('poll.update') || this.isPollOwner(this.get('model'));
+    return this.session.hasPermission('poll.update') || this.isPollOwner(this.model);
   }),
   isPollOwner(poll) {
     const currentUser = this.get('session.currentUser');
