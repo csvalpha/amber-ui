@@ -1,6 +1,5 @@
 import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
-import { computed } from '@ember/object';
 import { warn } from '@ember/debug';
 import { Promise } from 'rsvp';
 import Session from 'ember-simple-auth/services/session';
