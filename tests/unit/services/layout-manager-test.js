@@ -1,7 +1,7 @@
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('service:layout-manager', 'Unit | Service | layoutManager', {
-  needs: ['service:media', 'service:local-storage', 'service:session', 'service:ajax', 'service:i18n']
+  needs: ['service:media', 'service:local-storage', 'service:session', 'service:ajax', 'service:i18n', 'service:raven']
 });
 
 test('it sets the left sidebar visibility according to media device', function(assert) {
