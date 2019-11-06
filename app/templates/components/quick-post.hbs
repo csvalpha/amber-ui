@@ -36,6 +36,20 @@
       </div>
     </div>
 
+    {{#if zeepFound}}
+      <hr>
+      <div class="row qp-message p-3">
+        <img class="profile-picture profile-picture-md ml-3 p-0" alt="{{t 'ICT Commissie'}}" src="zeep.png">
+
+        <div class="pl-3 col">
+          <div class="row">
+            <b class="text-sm text-muted"> {{t 'ICT commissie'}} </b>
+          </div>
+          <p class="qp-message-text"> {{t 'Jaa, we hebben de zeep gevonden! Er moest 4x zeep in de laatste 10 quickpost berichten staan om te zorgen dat de zeep gevonden werd, echt teamwork dus!'}} </p>
+        </div>
+      </div>
+    {{/if}}
+
     {{#each sortedMessages as |message index|}}
       <hr>
       <div class="row qp-message p-3">

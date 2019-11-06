@@ -25,6 +25,7 @@ export default Component.extend(CanMixin, {
   page: 1,
   totalPages: 1,
   messages: null,
+  zeepFound: false,
 
   messagesSort: Object.freeze(['id:desc']),
   sortedMessages: sort('messages', 'messagesSort'),
@@ -117,8 +118,21 @@ export default Component.extend(CanMixin, {
       this.store.query('quickpost-message', pageParams).then(result => {
         this.messages.addObjects(result);
         this.set('totalPages', result.get('meta.page_count'));
+        this.send('checkZeep', result);
       });
       this.set('page', page);
+    },
+
+    checkZeep(result) {
+      let zeepMessages = 0;
+      result.forEach(function(message, index) {
+        if (message.get('message').includes('zeep') && index < 10) {
+          zeepMessages += 1;
+        }
+      });
+      if (zeepMessages >= 4) {
+        this.set('zeepFound', true);
+      }
     },
 
     subscribeToQuickpostMessagesMessageBus() {
