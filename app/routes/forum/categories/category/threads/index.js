@@ -18,7 +18,7 @@ export default IndexRoute.extend({
       {
         link: 'forum.categories.category.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: this.get('controller.model'),
         canAccess: this.can('edit forum/categories')
       },

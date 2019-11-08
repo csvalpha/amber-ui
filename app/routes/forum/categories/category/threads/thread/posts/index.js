@@ -37,7 +37,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
       {
         link: 'forum.categories.category.threads.thread.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: this.get('controller.model.thread'),
         canAccess: this.can('edit forum/threads')
       },

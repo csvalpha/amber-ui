@@ -20,7 +20,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       {
         link: 'activities.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: activity,
         canAccess: this.can('edit activity', activity)
       },

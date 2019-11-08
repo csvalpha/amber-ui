@@ -26,7 +26,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
       {
         link: 'groups.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: group,
         canAccess: this.can('edit group', group)
       },
