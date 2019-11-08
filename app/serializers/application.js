@@ -23,20 +23,20 @@ export default JSONAPISerializer.extend({
   normalizeResponse(store, primaryModelClass, payload) {
     if (Array.isArray(payload.data)) {
       payload.data.forEach(data => {
-        delete data.links;
-
         if (data.relationships) {
           Object.keys(data.relationships).forEach(relationship => {
-            delete data.relationships[relationship].links;
+            if (data.relationships[relationship].data) {
+              delete data.relationships[relationship].links;
+            }
           });
         }
       });
     } else {
-      delete payload.data.links;
-
       if (payload.data.relationships) {
         Object.keys(payload.data.relationships).forEach(relationship => {
-          delete payload.data.relationships[relationship].links;
+          if (payload.data.relationships[relationship].data) {
+            delete payload.data.relationships[relationship].links;
+          }
         });
       }
     }
