@@ -29,7 +29,7 @@ export default JSONAPISerializer.extend({
       });
     }
 
-    return this._super(...arguments)
+    return this._super(...arguments);
   },
   permissionNameForRoute(routeName, owner) {
     const parts = routeName.split('.');
