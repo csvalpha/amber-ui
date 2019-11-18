@@ -6,7 +6,7 @@ export default Controller.extend({
   clientName: 'Loading..',
 
   /* eslint-disable camelcase */
-  queryParams: ['client_id', 'redirect_uri', 'response_type', 'state'],
+  queryParams: ['client_id', 'redirect_uri', 'response_type', 'state', 'scope'],
   /* eslint-enable camelcase */
 
   actions: {
@@ -17,7 +17,8 @@ export default Controller.extend({
           client_id: this.client_id,
           redirect_uri: this.redirect_uri,
           response_type: this.response_type,
-          state: this.state
+          state: this.state,
+          scope: this.scope
           /* eslint-enable camelcase */
         }),
         method: 'POST',
