@@ -4,5 +4,5 @@ import {Ability} from 'ember-can';
 
 export default Ability.extend({
   session: service(),
-  canIndex: alias('session.isAuthenticated'),
+  canShow: alias('session.isAuthenticated')
 });

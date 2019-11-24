@@ -183,6 +183,7 @@ export default {
   mixin: {
     menuItems: {
       recent: 'Actueel',
+      lustrum: 'Lustrum',
       association: 'Vereniging',
       members: 'Leden',
       information: 'Informatie',

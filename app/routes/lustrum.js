@@ -6,7 +6,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('index lustrum');
+    return this.can('show lustrum');
   },
   title: 'Lustrum',
   pageActions: [],
