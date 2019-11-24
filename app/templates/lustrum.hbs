@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <article class="card">
+            <h1 class="card-header">{{t "Lustrum - Bestemming"}}</h1>
+            <div class="card-block">
+                <div class="col-md-4 pull-right"><img class="float-right" src="{{model.group.avatarUrl}}" alt="{{model.group.name}}"></div>
+                <p class="card-text text-enlarged">
+                  {{t "Mooie tekst.... "}}<strong>{{t "Bestemming"}}</strong>
+                </p>
+            </div>
+        </article>
+    </div>
+</div>
+
+<div class="row">
+
+  {{#each model.activities as |activity|}}
+      <div class="col-md-12 col-lg-6">
+        {{#link-to 'activities.show' activity}}
+          {{cards/activity-card activity}}
+        {{/link-to}}
+      </div>
+  {{/each}}
+
+</div>
