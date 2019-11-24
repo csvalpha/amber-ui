@@ -13,7 +13,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
   model() {
     const groupId = 23;
     return hash({
-      activities: this.store.query('activity', {reload: true, filter: {group: groupId}}),
+      activities: this.store.query('activity', {reload: true, filter: {group: groupId, upcoming: true}}),
       group: this.get('store').findRecord('group', groupId)
     });
   }
