@@ -177,7 +177,6 @@ export default {
     socialMediaButtons: {
       facebook: 'Like us on Facebook',
       instagram: 'Follow us on Instagram',
-      twitter: 'Follow us on Twitter'
     }
   },
   mixin: {
