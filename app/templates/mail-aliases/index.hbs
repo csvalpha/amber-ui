@@ -6,18 +6,19 @@
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
-    <span class="col-4"> {{t "E-mail"}} </span>
-    <span class="col-2"> {{t "Type"}} </span>
+    <span class="col-3"> {{t "E-mail"}} </span>
+    <span class="col-1"> {{t "Type"}} </span>
     <span class="col-3"> {{t "Omschrijving"}} </span>
     <span class="col-1"> {{t "SMTP"}} </span>
     <span class="col-2"> {{t "Groep/Gebruiker"}} </span>
+    <span class="col-2"> {{t "Laatst ontvangen"}} </span>
   </div>
 
   {{#each model as |mailAlias|}}
     {{#link-to 'mail-aliases.show' mailAlias}}
       <div class="row rtable-row">
-        <span class="col-12 col-md-4 rtable-item"> {{mailAlias.email}} </span>
-        <span class="col-12 col-md-2 rtable-item">
+        <span class="col-12 col-md-3 rtable-item"> {{mailAlias.email}} </span>
+        <span class="col-12 col-md-1 rtable-item">
           <span class="d-inline d-md-none text-muted">
             {{t "ModeratieType: "}}
           </span>
@@ -51,6 +52,13 @@
               {{mailAlias.user.fullName}}
             {{/link-to}}
           {{/if}}
+        </span>
+
+        <span class="col-12 col-md-2 rtable-item">
+          <span class="d-inline d-md-none text-muted">
+            {{t "Laatste ontvangen"}}
+          </span>
+          {{moment-format mailAlias.lastReceivedAt 'DD-M-YYYY'}}
         </span>
       </div>
     {{/link-to}}
