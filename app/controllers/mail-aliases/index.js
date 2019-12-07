@@ -17,6 +17,9 @@ export default Controller.extend(FilterableAndSortableMixin, {
     },
     { value: 'smtp_enabled',
       label: 'SMTP'
+    },
+    { value: 'last_received_at',
+      label: 'Laatst ontvangen'
     }
   ]
 });
