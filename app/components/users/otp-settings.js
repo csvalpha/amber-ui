@@ -32,11 +32,11 @@ export default Component.extend({
     },
     generateOTP() {
       this.set('otpErrorMessage', null);
-      this.set('otpVerificationImage', null);
+      this.set('otpKey', null);
 
       const userId = this.get('model.id');
       this.ajax.post(`/users/${userId}/generate_otp_provisioning_uri`).then((response) => {
-        this.set('otpVerificationImage', response.data_url);
+        this.set('otpKey', response.otp_code);
       }).catch((error) => {
         this.set('otpErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
       });
