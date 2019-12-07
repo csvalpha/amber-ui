@@ -16,7 +16,7 @@ export default ShowRouteUnauthenticated.extend({
       {
         link: 'articles.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: article,
         canAccess: this.can('edit article', article)
       },

@@ -20,30 +20,17 @@ export default JSONAPISerializer.extend({
 
   // Remove all Links data, since AMBER API's JsonAPI::Resources
   // provides wrong links data for namespaced models
-  normalizeResponse(store, primaryModelClass, payload) {
-    if (Array.isArray(payload.data)) {
-      payload.data.forEach(data => {
-        delete data.links;
-
-        if (data.relationships) {
-          Object.keys(data.relationships).forEach(relationship => {
-            delete data.relationships[relationship].links;
-          });
+  normalize(typeHash, hash) {
+    if (hash.relationships) {
+      Object.keys(hash.relationships).forEach(relationship => {
+        if (hash.relationships[relationship].data) {
+          delete hash.relationships[relationship].links;
         }
       });
-    } else {
-      delete payload.data.links;
-
-      if (payload.data.relationships) {
-        Object.keys(payload.data.relationships).forEach(relationship => {
-          delete payload.data.relationships[relationship].links;
-        });
-      }
     }
 
     return this._super(...arguments);
   },
-
   permissionNameForRoute(routeName, owner) {
     const parts = routeName.split('.');
 
