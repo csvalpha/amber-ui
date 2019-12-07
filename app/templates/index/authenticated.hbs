@@ -30,7 +30,9 @@
   </div>
   <div class="col-12 col-md-5">
     {{#if (can 'show activities')}}
-      {{tools/closing-activities}}
+      {{#if (can 'create form/responses')}}
+        {{tools/closing-activities}}
+      {{/if}}
       {{tools/upcoming-activities }}
     {{/if}}
     {{#if (can 'show users')}}
