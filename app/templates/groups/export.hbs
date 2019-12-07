@@ -25,14 +25,16 @@
             </div>
           {{/each}}
         </div>
-        <div class="row">
-          <div class="col">
-            <div class="form-group">
-              <label>{{t 'Waarom exporteer je deze gegevens?'}}*</label>
-              {{textarea value=description type="text" placeholder="Reden van export" class="form-control" required=true}}
+        {{#each questions as |question|}}
+          <div class="row">
+            <div class="col">
+              <div class="form-group">
+                <label>{{t question.question}}*</label>
+                {{textarea value=question.answer type="text" class="form-control" required=true}}
+              </div>
             </div>
           </div>
-        </div>
+        {{/each}}
 
         <button type="button" class="btn btn-primary mb-3" {{action "exportUsers"}} disabled={{exportButtonDisabled}}>
           {{t 'Exporteren'}}
