@@ -24,7 +24,7 @@
     </div>
   </div>
 {{else}}
-  {{#if otpVerificationImage}}
+  {{#if otpKey}}
     <p>
       {{t '
               Scan de QR-code hieronder met een authenticatorapp.
@@ -64,7 +64,7 @@
 
     <form class="form" {{action "confirmOTP" on="submit"}}>
       <div>
-        <span><img src="{{otpVerificationImage}}"></span>
+        {{qr-code text=otpKey size=240}}
       </div>
 
       <div class="form-group row">
