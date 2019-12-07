@@ -72,8 +72,7 @@ module.exports = function(environment) {
         'free-brands-svg-icons': [
           'youtube',
           'facebook',
-          'instagram',
-          'twitter'
+          'instagram'
         ]
       }
     },
