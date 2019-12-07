@@ -8,6 +8,7 @@ export default Model.extend({
   moderationType: attr('string'),
   description: attr('string'),
   smtpEnabled: attr('boolean', { defaultValue: false }),
+  lastReceivedAt: attr('date'),
 
   // Relations
   user: belongsTo('user', { inverse: 'mailAliases' }),
