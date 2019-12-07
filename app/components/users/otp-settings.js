@@ -35,7 +35,7 @@ export default Component.extend({
       this.set('otpKey', null);
 
       const userId = this.get('model.id');
-      this.ajax.post(`/users/${userId}/generate_otp_provisioning_uri`).then((response) => {
+      this.ajax.post(`/users/${userId}/generate_otp_secret`).then((response) => {
         this.set('otpKey', response.otp_code);
       }).catch((error) => {
         this.set('otpErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
