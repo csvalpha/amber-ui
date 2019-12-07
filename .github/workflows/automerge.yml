@@ -14,7 +14,7 @@ on:
 #    types:
 #      - submitted
   check_run:
-    types: completed
+    types: [created, rerequested, completed, requested_action]
 #  status: {}
 jobs:
   automerge:
