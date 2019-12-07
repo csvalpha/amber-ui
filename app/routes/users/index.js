@@ -1,3 +1,4 @@
+import { merge } from '@ember/polyfills';
 import { computed } from '@ember/object';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import IndexRouteUnauthenticated from 'alpha-amber/routes/application/index';
@@ -7,9 +8,13 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
   canAccess() {
     return this.can('show users');
   },
-  modelName: 'user',
   title: 'Gebruikers',
   perPage: 12,
+  model(params) {
+
+    params = merge({ 'filter': { 'archived': false } }, params);
+    return this.store.query('user', params);
+  },
   pageActions: computed(function() {
     return [
       {
