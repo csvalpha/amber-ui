@@ -1,18 +1,18 @@
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import {computed} from '@ember/object';
-import {notEmpty, and, not} from '@ember/object/computed';
-import {A} from '@ember/array';
+import { computed } from '@ember/object';
+import { and, not } from '@ember/object/computed';
+import { A } from '@ember/array';
 
 import FileSaverMixin from 'ember-cli-file-saver/mixins/file-saver';
 
 export default Controller.extend(FileSaverMixin, {
   ajax: service(),
   questions: [
-    {question: 'Wat moet je doen dat je zonder deze data niet kan?', answer: ''},
-    {question: 'Wie gaat er bij de data kunnen?', answer: ''},
-    {question: 'Waar gaat de data worden opgeslagen?', answer: ''},
-    {question: 'Wanneer gaat de data verwijderd worden?', answer: ''}
+    { question: 'Wat moet je doen dat je zonder deze data niet kan?', answer: '' },
+    { question: 'Wie gaat er bij de data kunnen?', answer: '' },
+    { question: 'Waar gaat de data worden opgeslagen?', answer: '' },
+    { question: 'Wanneer gaat de data verwijderd worden?', answer: '' }
   ],
   error: '',
   userPropertyOptions: [
@@ -98,10 +98,10 @@ export default Controller.extend(FileSaverMixin, {
       label: 'Profielfoto url'
     }
   ],
-  questionAnswered: computed('questions.@each.answer', function () {
+  questionAnswered: computed('questions.@each.answer', function() {
     return this.questions.filter(q => q.answer.length > 0).length > 0;
   }),
-  checkedFieldsValid: computed('userPropertyOptions.@each.isChecked', function () {
+  checkedFieldsValid: computed('userPropertyOptions.@each.isChecked', function() {
     return this.userPropertyOptions.filter(p => p.isChecked).length > 0;
   }),
   valid: and('questionAnswered', 'checkedFieldsValid'),
@@ -116,11 +116,11 @@ export default Controller.extend(FileSaverMixin, {
         }
       });
       const description = this.questions.map((question) => {
-        return `${question.question}\n ${question.answer}\n\n`
+        return `${question.question}\n ${question.answer}\n\n`;
       }).join('\n');
       this.ajax.request(
         `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(description)}`,
-        {dataType: 'text'}
+        { dataType: 'text' }
       ).then(csvResponse => {
         this.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, csvResponse, 'application/csv');
         return this.transitionToRoute('groups.show', this.model);
