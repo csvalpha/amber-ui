@@ -13,8 +13,8 @@ on:
 #  pull_request_review:
 #    types:
 #      - submitted
-  check_run:
-    types: [created, rerequested, completed, requested_action]
+  check_suite:
+    types: [created, requested, rerequested]
 #  status: {}
 jobs:
   automerge:
