@@ -131,9 +131,9 @@ module.exports = function(environment) {
         'free-brands-svg-icons': [
           'android',
           'apple',
-          'windows',
           'facebook',
           'instagram',
+          'windows',
           'youtube'
         ]
       }
