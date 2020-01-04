@@ -84,7 +84,7 @@
     "ember-tether": "^1.0.0",
     "ember-tooltips": "2.11",
     "ember-truth-helpers": "^1.2.0",
-    "ember-wormhole": "^0.5.1",
+    "ember-wormhole": "^0.5",
     "emojione": "^2.2.6",
     "eslint": "5.9.0",
     "eslint-plugin-ember": "5.2.0",
