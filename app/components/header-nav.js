@@ -58,11 +58,11 @@ export default Component.extend(CanMixin, {
     },
     toggleLocale() {
       const locale = this.get('intl.locale');
-      if (locale === 'nl') {
-        this.set('int.locale', 'en');
-        localStorage.setItem('locale', 'en');
+      if (locale[0] === 'nl') {
+        this.set('intl.locale', 'en');
+        localStorage.setItem('locale', 'en-');
       } else {
-        this.set('int.locale', 'nl');
+        this.set('intl.locale', 'nl');
         localStorage.setItem('locale', 'nl');
       }
     }

@@ -4,62 +4,62 @@
 
 {{#tabbed-view tabItems=tabItems}}
   <p>
-    {{t 'Deze informatie is alleen voor jou, het bestuur en de ICT-commissie beschikbaar'}}
+    Deze informatie is alleen voor jou, het bestuur en de ICT-commissie beschikbaar
   </p>
   {{cards/privacy-preference model data-test-privacy-preference-card}}
 
-  <h5>{{t "Afgeschermde informatie"}}</h5>
+  <h5>Afgeschermde informatie</h5>
   <table class="table table-sm">
     <tr>
-      <td>{{t "Noodcontact"}}</td>
+      <td>Noodcontact</td>
       <td data-test-emergencyContact>{{model.emergencyContact}}</td>
     </tr>
     <tr>
-      <td>{{t "Noodnummer"}}</td>
+      <td>Noodnummer</td>
       <td data-test-emergencyNumber>{{model.emergencyNumber}}</td>
     </tr>
     <tr>
-      <td>{{t "Almanak voorkeur"}}</td>
+      <td>Almanak voorkeur</td>
       <td data-test-almanakSubscriptionPreference>
         {{humanize-almanak-subscription-preference model.almanakSubscriptionPreference}}
       </td>
     </tr>
     <tr>
-      <td>{{t "Digtus voorkeur"}}</td>
+      <td>Digtus voorkeur</td>
       <td data-test-digtusSubscriptionPreference>
         {{humanize-digtus-subscription-preference model.digtusSubscriptionPreference}}
       </td>
     </tr>
   </table>
 
-  <h5>{{t "Technische informatie"}}</h5>
+  <h5>Technische informatie</h5>
   <table class="table table-sm">
     <tr>
-      <td>{{t "Id"}}</td>
+      <td>Id</td>
       <td data-test-id>{{model.id}}</td>
     </tr>
     <tr>
-      <td>{{t "Gebruikersnaam"}}</td>
+      <td>Gebruikersnaam</td>
       <td data-test-username>{{model.username}}</td>
     </tr>
     <tr>
-      <td>{{t "Ingeschakeld"}}</td>
+      <td>Ingeschakeld</td>
       <td data-test-loginEnabled>{{boolean-tag model.loginEnabled}}</td>
     </tr>
     <tr>
-      <td>{{t "Activatiedatum"}}</td>
+      <td>Activatiedatum</td>
       <td data-test-activatedAt>{{moment-format model.activatedAt 'DD-MM-YYYY'}}</td>
     </tr>
     <tr>
-      <td>{{t "Aangemaakt"}}</td>
+      <td>Aangemaakt</td>
       <td data-test-createdAt>{{moment-format model.createdAt 'DD-MM-YYYY'}}</td>
     </tr>
     <tr>
-      <td>{{t "Laatst gewijzigd"}}</td>
+      <td>Laatst gewijzigd</td>
       <td data-test-updatedAt>{{moment-format model.updatedAt 'DD-MM-YYYY'}}</td>
     </tr>
     <tr>
-      <td>{{t "Two-Factor geactiveerd"}}</td>
+      <td>Two-Factor geactiveerd</td>
       <td data-test-otpRequired>{{boolean-tag model.otpRequired}}</td>
     </tr>
   </table>

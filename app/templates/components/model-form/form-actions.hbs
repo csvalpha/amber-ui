@@ -2,7 +2,7 @@
   <div class={{if (not-eq inputLayout 'vertical') "col-sm-10"}}>
     {{#if (or errors errorMessage)}}
       <div class="alert alert-danger form-submit-error">
-        {{t "Er zijn nog fouten in de invoer"}}
+        Er zijn nog fouten in de invoer
         <ul>
           {{#each errors as |error|}}<li>{{error.message}}</li>{{/each}}
         </ul>

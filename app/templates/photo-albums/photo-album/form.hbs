@@ -6,33 +6,33 @@
 
     {{#if model.publiclyVisible}}
       <div class="alert alert-info" role="alert">
-        {{t 'Een publiek foto-album verschijnt op de voorpagina, en is ook voor externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg dat je toestemming hebt. Zie het mediabeleid voor meer informatie. '}}
+        Een publiek foto-album verschijnt op de voorpagina, en is ook voor externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg dat je toestemming hebt. Zie het mediabeleid voor meer informatie.
       </div>
     {{/if}}
 
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property="title" label=(t "Titel") required=true}}
-      {{model-form/date-input model=model property="date" label=(t "Datum van activiteit")}}
-      {{model-form/checkbox-input model=model property="publiclyVisible" label=(t "Publiek zichtbaar")}}
+      {{model-form/text-input model=model property="title" label='Titel' required=true}}
+      {{model-form/date-input model=model property="date" label='Datum van activiteit'}}
+      {{model-form/checkbox-input model=model property="publiclyVisible" label='Publiek zichtbaar'}}
 
       {{#if model.isNew}}
         <div class="alert alert-info">
-          {{t "In de volgende stap kun je de foto's uploaden"}}
+          In de volgende stap kun je de foto's uploaden
         </div>
       {{else}}
         <div class="alert alert-info" role="alert">
-          <p> {{t 'Geplaatste afbeeldingen moeten aan de volgende eisen voldoen:'}} </p>
+          <p> Geplaatste afbeeldingen moeten aan de volgende eisen voldoen: </p>
           <ul>
-            <li>{{t 'Resolutie: Maximaal 4096 pixels breed en hoog'}}</li>
-            <li>{{t 'Bestandsgrootte: Maximaal 8 mb'}}</li>
-            <li>{{t 'Bestandsformaat: .jpg, .jpeg of .png'}}</li>
+            <li>Resolutie: Maximaal 4096 pixels breed en hoog</li>
+            <li>Bestandsgrootte: Maximaal 8 mb</li>
+            <li>Bestandsformaat: .jpg, .jpeg of .png</li>
           </ul>
         </div>
         {{drop-zone url=model.dropzoneEndpoint headers=dropzoneHeaders maxFilesize=model.maxFilesize}}
       {{/if}}
 
       {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "photo-albums.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "photo-albums.index" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </form>
   </div>

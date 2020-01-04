@@ -13,7 +13,7 @@
     <div class="col col-md-auto page-action">
       <a class="btn btn-primary col" href="{{model.imageUrl}}" download="{{model.id}}">
         {{fa-icon 'download'}}
-        <span class="d-none d-md-inline"> {{t 'Foto downloaden'}} </span>
+        <span class="d-none d-md-inline"> Foto downloaden </span>
       </a>
     </div>
   {{/page-actions-buttons}}
@@ -25,18 +25,18 @@
 
 {{#if (can 'show individual users')}}
   <p class="text-right text-muted">
-    {{t 'Foto geüpload door'}}
+    Foto geüpload door
     {{#link-to 'users.show' model.uploader}}
       {{model.uploader.fullName}}
     {{/link-to}}
 
     {{#if model.hasExif}}
       <button class="ml-1 btn btn-sm btn-outline-info" data-toggle="collapse" data-target="#collapsibleExif" type="button">
-        {{t 'Show Exif'}}
+        Show Exif
       </button>
     {{else}}
       <button class="ml-1 btn btn-sm btn-outline-info disabled" type="button">
-        {{t 'No Exif'}}
+        No Exif
       </button>
     {{/if}}
   </p>
@@ -45,15 +45,15 @@
     <div class="card card-body">
       <table class="table table-sm table-responsive">
         <tr>
-          <th>{{t 'Make'}}</th>
-          <th>{{t 'Model'}}</th>
-          <th>{{t 'Original Datetime'}}</th>
-          <th>{{t 'Exposure'}}</th>
-          <th>{{t 'Aperture'}}</th>
-          <th>{{t 'ISO'}}</th>
-          <th>{{t 'Copyright'}}</th>
-          <th>{{t 'Lens'}}</th>
-          <th>{{t 'Zoom'}}</th>
+          <th>Make</th>
+          <th>Model</th>
+          <th>Original Datetime</th>
+          <th>Exposure</th>
+          <th>Aperture</th>
+          <th>ISO</th>
+          <th>Copyright</th>
+          <th>Lens</th>
+          <th>Zoom</th>
         </tr>
         <tr>
           <td>{{model.exifMake}}</td>
@@ -62,7 +62,7 @@
           <td>{{model.exifExposureTime}}</td>
           <td>
             {{#if model.exifApertureValue}}
-              {{t 'f/'}}{{model.exifApertureValue}}
+              f/{{model.exifApertureValue}}
             {{/if}}
           </td>
           <td>{{model.exifIsoSpeedRatings}}</td>
@@ -70,7 +70,7 @@
           <td>{{model.exifLensModel}}</td>
           <td>
             {{#if model.exifFocalLength}}
-              {{model.exifApertureValue}}{{t 'mm'}}
+              {{model.exifApertureValue}}mm
             {{/if}}
           </td>
         </tr>
@@ -82,7 +82,7 @@
 {{#if (can 'show photo comments of photo' model)}}
   <div class="card">
     <div class="card-header">
-      <h5> {{t 'Reacties'}} </h5>
+      <h5> Reacties </h5>
     </div>
     <div class="card-body">
       <div class="col">
@@ -90,7 +90,7 @@
           {{#each model.comments as |comment|}}
             <div class="row"> {{user-comment comment data-test-photo-comment=comment.id}} </div>
           {{else}}
-            <span class="text-muted no-comment-text"> {{t "Er zijn nog geen reacties"}} </span>
+            <span class="text-muted no-comment-text"> Er zijn nog geen reacties </span>
           {{/each}}
         </div>
       </div>
@@ -99,13 +99,13 @@
       <div class="card-footer">
         {{#if model.photoAlbum.publiclyVisible}}
           <div class="alert alert-info">
-            {{t "Deze foto is ook te zien voor niet-leden, dat geldt ook voor de reacties die er geplaatst worden. Het is natuurlijk heel fijn om te laten zien hoe actief Alpha is, maar houd er wel rekening mee als je wat plaatst. "}}
+            Deze foto is ook te zien voor niet-leden, dat geldt ook voor de reacties die er geplaatst worden. Het is natuurlijk heel fijn om te laten zien hoe actief Alpha is, maar houd er wel rekening mee als je wat plaatst.
           </div>
         {{/if}}
         <div class="input-group new-photo-comment">
           {{input value=content class="form-control" placeholder="Typ hier je reactie" minlength="1" maxlength="500" enter=(action "submitPhotoComment" photo) id="new-photo-comment-input"}}
           <span class="input-group-btn">
-            <button class="btn btn-default" {{action "submitPhotoComment"}}>{{t "Reageren"}}</button>
+            <button class="btn btn-default" {{action "submitPhotoComment"}}>Reageren</button>
           </span>
         </div>
       </div>

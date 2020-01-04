@@ -16,7 +16,6 @@ export default Helper.extend({
       prefix = 'Sloot';
     }
 
-    prefix = this.intl.t(prefix);
     return `${prefix} ${dateFromNow}`;
   }
 });

@@ -1,10 +1,10 @@
 <div class="board-room-presence-dropdown page-action">
   {{#bs-button type="primary"}}
     {{fa-icon "coffee"}}
-    <span class="d-none d-md-inline"> {{t "Bestuurskamer"}} </span>
+    <span class="d-none d-md-inline"> Bestuurskamer </span>
     <span class="status-dot label-{{overallStatus}}"></span>
 
-    {{#bs-popover triggerEvents="focus" placement="bottom" title=(t "Aanwezig in de BK")}}
+    {{#bs-popover triggerEvents="focus" placement="bottom" title='Aanwezig in de BK'}}
       {{#each sortedPresences as |presence|}}
         <div class="py-1">
           <div class="d-block">
@@ -13,19 +13,19 @@
             {{/link-to}}
           </div>
           <span class="presence-label label-{{presence.status}}">
-            {{presence.label}} {{t 'van'}} {{moment-format presence.startTime 'HH:mm'}} {{t 'tot'}} {{moment-format presence.endTime 'HH:mm'}}
+            {{presence.label}} van {{moment-format presence.startTime 'HH:mm'}} tot {{moment-format presence.endTime 'HH:mm'}}
           </span>
         </div>
       {{else}}
         <div class="pt-2">
-          {{t "Er is niemand aanwezig"}}
+          Er is niemand aanwezig
         </div>
       {{/each}}
       {{#if (can 'create board-room-presences')}}
         <a class="dropdown-divider"> </a>
         <span class="d-flex">
           <button class="btn btn-secondary mb-2 mt-3 update-presence-button" {{action "setPresenceModalState" "open"}}>
-            {{t "Beschikbaarheid updaten"}}
+            Beschikbaarheid updaten
           </button>
         </span>
       {{/if}}
@@ -39,9 +39,9 @@
       {{#if sortedPresences}}
         <table class="table">
           <tr>
-            <th> {{t "Persoon" }} </th>
-            <th> {{t "Status"}} </th>
-            <th> {{t "Tot"}} </th>
+            <th> {{"Persoon" }} </th>
+            <th> Status </th>
+            <th> Tot </th>
             <th> </th>
           </tr>
           {{#each sortedPresences as |presence|}}
@@ -59,26 +59,26 @@
         </table>
       {{else}}
         <div class="alert alert-info">
-          {{t "Er zijn geen bestuursleden aanwezig"}}
+          Er zijn geen bestuursleden aanwezig
         </div>
       {{/if}}
 
       {{#if currentUserPresence}}
-        {{t 'Status'}}
+        Status
         {{input/select-input
           class='form-control col-xs-12 presence-select'
           required=true
           options=statusOptions
-          placeholder=(t 'Status')
+          placeholder=Status
           value=currentUserPresence.status}}
-        {{t "Van"}}
+        Van
         {{input/time-input
           dateValue=currentUserPresence.startTime
           class='col-xs-12 presence-time-input'
           inputClass="form-control"
           placeholder=currentUserPresence.startTime
           required=true}}
-        {{t 'Tot'}}
+        Tot
         {{input/time-input
           dateValue=currentUserPresence.endTime
           class='col-xs-12 presence-time-input'
@@ -86,7 +86,7 @@
           placeholder=currentUserPresence.endTime
           required=true}}
       {{else}}
-        <button class="btn btn-secondary" {{action "newPresence"}}> {{t "Nieuw"}} </button>
+        <button class="btn btn-secondary" {{action "newPresence"}}> Nieuw </button>
       {{/if}}
     {{/basic-modal}}
   {{/ember-wormhole}}

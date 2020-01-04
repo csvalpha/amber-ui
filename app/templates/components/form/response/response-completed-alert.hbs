@@ -1,11 +1,11 @@
 <div class="alert alert-success" role="alert" data-test-response-completed-alert>
   <div class="container">
     <div class="row">
-      <strong class="col alert-text">{{t 'Je bent ingeschreven!'}}</strong>
-      <span class="alert-text"> {{t 'Deze inschrijflijst '}} {{lowercase (form-opened-label form)}}</span>
+      <strong class="col alert-text">Je bent ingeschreven!</strong>
+      <span class="alert-text"> Deze inschrijflijst  {{lowercase (form-opened-label form)}}</span>
       {{#if form.canRespond}}
         {{#link-to 'form.responses.destroy' form.currentUserResponseId class="btn btn-secondary"}}
-          {{t 'Uitschrijven'}}
+          Uitschrijven
         {{/link-to}}
       {{/if}}
     </div>

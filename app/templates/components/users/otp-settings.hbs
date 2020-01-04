@@ -1,11 +1,11 @@
-<h5>{{t 'Two-factor-authenticatie'}} </h5>
+<h5>Two-factor-authenticatie </h5>
 
 <p>
-  {{t '
+
         Two-factor-authenticatie geeft een extra beveiligingslaag door bij het inloggen naast je wachtwoord ook om een zescijferige code te vragen.
         Deze code wordt gegenereerd door een app op je telefoon.
         Zo heb je naast iets dat je weet (wachtwoord) ook iets nodig dat je hebt (telefoon) om in te kunnen loggen.
-        '}}
+
 </p>
 
 {{#if model.otpRequired}}
@@ -13,11 +13,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-12">
-          <strong>{{t "Je hebt two-factor-authenticatie geactiveerd!"}}</strong>
+          <strong>Je hebt two-factor-authenticatie geactiveerd!</strong>
         </div>
         <div class="col-lg-4 col-md-12">
           <button type="button" class="btn btn-primary float-right" {{action "disableOTP"}}>
-            {{t "Deactiveren"}}
+            Deactiveren
           </button>
         </div>
       </div>
@@ -26,34 +26,34 @@
 {{else}}
   {{#if otpKey}}
     <p>
-      {{t '
+
               Scan de QR-code hieronder met een authenticatorapp.
               Er zijn authenticatorapps beschikbaar voor alle mobiele platforms. Hier volgen enkele links naar apps:
-              '}}
+
     </p>
 
     <ul>
       <li>
         {{fa-icon 'android'}}
         <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">
-          {{t 'Google Authenticator'}}
+          Google Authenticator
         </a>
       </li>
       <li>
         {{fa-icon 'apple'}}
         <a href="https://itunes.apple.com/us/app/authenticator/id766157276?mt=8" target="_blank">
-          {{t 'Authenticator'}}
+          Authenticator
         </a>
       </li>
       <li>
         {{fa-icon 'windows'}}
         <a href="https://www.microsoft.com/en-us/store/p/microsoft-authenticator/9nblgggzmcj6" target="_blank">
-          {{t 'Microsoft Authenticator'}}
+          Microsoft Authenticator
         </a>
       </li>
     </ul>
     <p>
-      {{t 'Nadat je de code gescand heb, bevestig je de set-up door een keer een gegenereerde code in te voeren.'}}
+      Nadat je de code gescand heb, bevestig je de set-up door een keer een gegenereerde code in te voeren.
     </p>
 
     {{#if otpErrorMessage}}
@@ -68,19 +68,19 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-sm-4 col-form-label form-control-label">{{t 'Verificatiecode'}}</label>
+        <label class="col-sm-4 col-form-label form-control-label">Verificatiecode</label>
         <div class="col-sm-8">
           {{input type="text" min="6" value=verificationCode placeholder="Verificatiecode" required="true"
                   class="form-control"}}
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">{{t "Verifiëren"}}</button>
+      <button type="submit" class="btn btn-primary">Verifiëren</button>
     </form>
 
   {{else}}
     <div class="alert alert-warning" role="alert">
-      <span>{{t "Je hebt geen two-factor-authenticatie geactiveerd"}}</span>
+      <span>Je hebt geen two-factor-authenticatie geactiveerd</span>
     </div>
 
     {{#if otpErrorMessage}}
@@ -89,6 +89,6 @@
       </div>
     {{/if}}
 
-    <button type="button" class="btn btn-primary" {{action "generateOTP"}}>{{t "Instellen"}}</button>
+    <button type="button" class="btn btn-primary" {{action "generateOTP"}}>Instellen</button>
   {{/if}}
 {{/if}}

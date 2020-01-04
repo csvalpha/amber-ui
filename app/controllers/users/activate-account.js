@@ -7,7 +7,6 @@ import { isNotFoundError } from 'ember-ajax/errors';
 
 export default Controller.extend({
   ajax: service(),
-  intl: service(),
 
   isSaveButtonDisabled: computed('password', 'passwordConfirmation', function() {
     return isNone(this.password) || this.password.length < 12 || this.password !== this.passwordConfirmation;
@@ -32,14 +31,14 @@ export default Controller.extend({
         { data: { password: this.password, passwordConfirmation: this.passwordConfirmation, activationToken: this.activation_token } }
       );
       activateAccountRequest.then(() => {
-        this.set('successMessage', this.intl.t('Wachtwoord is aangepast'));
+        this.set('successMessage', 'Wachtwoord is aangepast');
         run.later(() => {
           this.transitionToRoute('login');
         }, 2000);
       }).catch(error => {
-        let errorMessage = this.intl.t('Er ging iets mis...');
+        let errorMessage = 'Er ging iets mis...';
         if (isNotFoundError(error)) {
-          errorMessage = this.intl.t('Token niet geldig, vraag een nieuwe aan');
+          errorMessage = 'Token niet geldig, vraag een nieuwe aan';
         }
         this.set('errorMessage', errorMessage);
       });

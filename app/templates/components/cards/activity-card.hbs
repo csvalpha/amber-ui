@@ -18,7 +18,7 @@
             <span class="subtitle-author" data-test-activity-author>
               {{#if activity.group}}
                 {{#link-to 'groups.show' activity.group class="link-to card-subtitle-link"}}
-                  {{t activity.group.name}}
+                  {{activity.group.name}}
                 {{/link-to}}
               {{else}}
                 {{#link-to 'users.show' activity.author class="link-to card-subtitle-link"}}
@@ -38,7 +38,7 @@
         <div class="col-12 col-md-6 card-subheader-item align-items-center p-3">
           {{fa-icon 'clock'}}
           <span data-test-activity-startTime>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
-          {{t 'tot'}}
+          tot
           <span data-test-activity-endTime>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
@@ -64,7 +64,7 @@
         <div class="col-12 col-md-8 card-subheader-item align-items-center p-3">
           {{fa-icon 'clock'}}
           <span>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
-          {{t 'tot'}}
+          tot
           <span>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="col-12 col-md-4 card-subheader-item align-items-center p-3">

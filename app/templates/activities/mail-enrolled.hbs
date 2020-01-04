@@ -1,18 +1,18 @@
 <article class="card">
   <div class="card-body">
     <p class="card-text">
-      {{t 'U kunt hier een bericht versturen naar alle ingeschrevenen van de activiteit. Let er hierbij op dat u niet te vaak een mail verstuurt.'}}
+      U kunt hier een bericht versturen naar alle ingeschrevenen van de activiteit. Let er hierbij op dat u niet te vaak een mail verstuurt.
     </p>
     <form {{action "submit" on="submit"}}>
       <div class="form-group row">
-        <label class="col-sm-2 col-form-label form-control-label" for="message">{{t 'Bericht *'}}</label>
+        <label class="col-sm-2 col-form-label form-control-label" for="message">Bericht *</label>
         <div class="col-sm-10">
           {{textarea value=message class="form-control" required=true}}
         </div>
       </div>
 
       {{#model-form/form-actions errorMessage=errorMessage submitButtonLabel='Versturen'}}
-        {{#link-to "activities.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "activities.index" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </form>
   </div>

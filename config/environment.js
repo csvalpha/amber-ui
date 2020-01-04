@@ -31,10 +31,6 @@ module.exports = function(environment) {
       'worker-src': '\'self\''
     },
 
-    intl: {
-      defaultLocale: 'nl'
-    },
-
     moment: {
       includeLocales: ['nl'],
       allowEmpty: true

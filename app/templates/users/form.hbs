@@ -1,65 +1,65 @@
 <form class="form" {{action "submit" on="submit"}}>
-  <h5>{{t "Publieke gegevens"}}</h5>
-  <p>{{t 'Deze gegevens zijn zichtbaar voor alle leden en oud-leden.'}}</p>
-  {{model-form/file-input    model=model property="avatar"             label=(t "Profielfoto")
+  <h5>Publieke gegevens</h5>
+  <p>Deze gegevens zijn zichtbaar voor alle leden en oud-leden.</p>
+  {{model-form/file-input    model=model property="avatar"             label='Profielfoto'
                              fileLoaded=(action "fileLoaded") labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="firstName"          label=(t "Voornaam")        required=true
+  {{model-form/text-input     model=model property="firstName"          label='Voornaam'        required=true
                               disabled=canEditOnlyOwnProperties labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="lastNamePrefix"     label=(t "Tussenvoegsel")
+  {{model-form/text-input     model=model property="lastNamePrefix"     label='Tussenvoegsel'
                               disabled=canEditOnlyOwnProperties labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="lastName"           label=(t "Achternaam")      required=true
+  {{model-form/text-input     model=model property="lastName"           label='Achternaam'      required=true
                               disabled=canEditOnlyOwnProperties labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
 
-  <h5>{{t "Contactgegevens"}}</h5>
+  <h5>Contactgegevens</h5>
   <p>
-    {{t 'Deze gegevens zijn alleen zichtbaar voor degene wie je toegang geeft dmv de privacy instellingen.'}}
-    {{t 'Deze gegevens zijn wel altijd zichtbaar voor het Bestuur en de ICT-commissie'}}
+    Deze gegevens zijn alleen zichtbaar voor degene wie je toegang geeft dmv de privacy instellingen.
+    Deze gegevens zijn wel altijd zichtbaar voor het Bestuur en de ICT-commissie
   </p>
-  {{model-form/text-input     model=model property="email"              label=(t "E-mail")          required=false
+  {{model-form/text-input     model=model property="email"              label='E-mail'          required=false
                               type="email" labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="address"            label=(t "Adres")           required=true
+  {{model-form/text-input     model=model property="address"            label='Adres'           required=true
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="postcode"           label=(t "Postcode")        required=true
+  {{model-form/text-input     model=model property="postcode"           label='Postcode'        required=true
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="city"               label=(t "Stad")            required=true
+  {{model-form/text-input     model=model property="city"               label='Stad'            required=true
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="phoneNumber"        label=(t "Telefoon") labelClass="col-sm-5"
+  {{model-form/text-input     model=model property="phoneNumber"        label='Telefoon' labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="emergencyContact"   label=(t "Noodcontact") labelClass="col-sm-5"
+  {{model-form/text-input     model=model property="emergencyContact"   label='Noodcontact' labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="emergencyNumber"    label=(t "Noodnummer") labelClass="col-sm-5"
+  {{model-form/text-input     model=model property="emergencyNumber"    label='Noodnummer' labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
 
-  <h5>{{t "Overige gegevens"}}</h5>
-  {{model-form/date-input     model=model property="birthday"           label=(t "Geboortedatum")
+  <h5>Overige gegevens</h5>
+  {{model-form/date-input     model=model property="birthday"           label='Geboortedatum'
                               yearRange='1900,currentYear' disabled=canEditOnlyOwnProperties labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="foodPreferences"          label=(t "Dieetwensen") labelClass="col-sm-5"
+  {{model-form/text-input     model=model property="foodPreferences"          label='Dieetwensen' labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
-  {{model-form/checkbox-input model=model property="vegetarian"         label=(t "Vegetariër") labelClass="col-sm-5"
+  {{model-form/checkbox-input model=model property="vegetarian"         label='Vegetariër' labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
-  {{model-form/text-input     model=model property="study"              label=(t "Studie") labelClass="col-sm-5"
+  {{model-form/text-input     model=model property="study"              label='Studie' labelClass="col-sm-5"
                               inputWrapperClass="col-sm-7"}}
-  {{model-form/date-input     model=model property="startStudy"         label=(t "Startdatum studie")
+  {{model-form/date-input     model=model property="startStudy"         label='Startdatum studie'
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
 
-  <h5>{{t "Voorkeuren"}}</h5>
+  <h5>Voorkeuren</h5>
   {{model-form/select-input   model=model property='almanakSubscriptionPreference'
-                              options=almanakSubscriptionPreferenceTypes label=(t 'Almanakvoorkeur')
+                              options=almanakSubscriptionPreferenceTypes label='Almanakvoorkeur'
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
   {{model-form/select-input   model=model property='digtusSubscriptionPreference'
-                              options=digtusSubscriptionPreferenceTypes label=(t 'Digtusvoorkeur')
+                              options=digtusSubscriptionPreferenceTypes label='Digtusvoorkeur'
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
 
-  <h5>{{t "Technische gegevens"}}</h5>
-  {{model-form/text-input     model=model property="username"           label=(t "Gebruikersnaam")
+  <h5>Technische gegevens</h5>
+  {{model-form/text-input     model=model property="username"           label='Gebruikersnaam'
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7" required=true
                               disabled=canEditOnlyOwnProperties}}
   {{model-form/checkbox-input model=model property="loginEnabled"   labelClass="col-sm-5" inputWrapperClass="col-sm-7"
-                              label=(t "Gebruiker kan inloggen")
+                              label='Gebruiker kan inloggen'
                               disabled=canEditOnlyOwnProperties labelColspan=5}}
 
   {{#model-form/form-actions errors=model.errors errorMessage=errorMessage inputLayout='vertical'}}
-    {{#link-to "users.show" model class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+    {{#link-to "users.show" model class="btn btn-default"}}Annuleren{{/link-to}}
   {{/model-form/form-actions}}
 </form>

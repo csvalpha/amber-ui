@@ -1,6 +1,6 @@
 <div class="card-header">
   <div class="d-flex justify-content-between">
-    <h5>{{t 'Inschrijven'}}</h5>
+    <h5>Inschrijven</h5>
     <span class="text-muted">{{form-opened-label form}}</span>
   </div>
 </div>
@@ -10,8 +10,8 @@
 
     {{#model-form/form-actions errors=form.errors errorMessage=errorMessage submitButtonLabel='Inschrijven' inputLayout='vertical'}}
       {{#if form.questions}}
-        {{#link-to "activities.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
-        {{t " Vragen met een * zijn verplicht"}}
+        {{#link-to "activities.index" class="btn btn-default"}}Annuleren{{/link-to}}
+         Vragen met een * zijn verplicht
       {{/if}}
     {{/model-form/form-actions}}
   </form>

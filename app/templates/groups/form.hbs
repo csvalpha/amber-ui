@@ -1,20 +1,20 @@
 <form {{action "submit" on="submit"}}>
   <div class="card">
     <div class="card-header">
-      <h5> {{t "Details"}} </h5>
+      <h5> Details </h5>
     </div>
     <div class="card-body">
-      {{model-form/file-input    model=model property="avatar" label=(t "Groepsafbeeling")     fileLoaded=(action "fileLoaded")}}
-      {{model-form/text-input     model=model property="name"               label=(t "Naam")          required=true disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/textarea-input model=model property="description"        label=(t "Omschrijving")}}
-      {{model-form/select-input   model=model property="kind"               label=(t "Soort")         options=groupKindOptions required=true disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/text-input     model=model property="recognizedAtGma"    label=(t "Erkend sinds") disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/text-input     model=model property="rejectedAtGma"      label=(t "Erkend tot") disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/checkbox-input model=model property="administrative"     label=(t "Administratieve groep") disabled=(not (can "edit protected fields of groups"))}}
+      {{model-form/file-input    model=model property="avatar" label='Groepsafbeeling'     fileLoaded=(action "fileLoaded")}}
+      {{model-form/text-input     model=model property="name"               label='Naam'          required=true disabled=(not (can "edit protected fields of groups"))}}
+      {{model-form/textarea-input model=model property="description"        label='Omschrijving'}}
+      {{model-form/select-input   model=model property="kind"               label='Soort'         options=groupKindOptions required=true disabled=(not (can "edit protected fields of groups"))}}
+      {{model-form/text-input     model=model property="recognizedAtGma"    label='Erkend sinds' disabled=(not (can "edit protected fields of groups"))}}
+      {{model-form/text-input     model=model property="rejectedAtGma"      label='Erkend tot' disabled=(not (can "edit protected fields of groups"))}}
+      {{model-form/checkbox-input model=model property="administrative"     label='Administratieve groep' disabled=(not (can "edit protected fields of groups"))}}
     </div>
     <div class="card-footer">
       {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "groups.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "groups.index" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </div>
   </div>
@@ -22,12 +22,12 @@
   {{#if (or (can "create memberships") (can "update memberships"))}}
     <div class="card">
       <div class="card-header">
-        <h5 >{{t "Leden"}}</h5>
+        <h5 >Leden</h5>
       </div>
       <div class="card-body">
         {{#if (can "create memberships")}}
           <div class="form-group row">
-            <span class="col-md-2 form-control-label">{{t "Toevoegen"}}</span>
+            <span class="col-md-2 form-control-label">Toevoegen</span>
 
             <div class="col-sm-10">
               {{#power-select
@@ -47,16 +47,16 @@
               <thead>
                 <tr>
                   <th>
-                    {{t "Naam"}}
+                    Naam
                   </th>
                   <th>
-                    {{t "Startdatum"}}
+                    Startdatum
                   </th>
                   <th>
-                    {{t "Einddatum"}}
+                    Einddatum
                   </th>
                   <th>
-                    {{t "Functie"}}
+                    Functie
                   </th>
                   <th class="narrow">
                   </th>
@@ -97,7 +97,7 @@
   {{/if}}
   <div class="card">
     <div class="card-header">
-      <h5> {{t "Permissies"}} </h5>
+      <h5> Permissies </h5>
     </div>
     {{#if (can 'create groups-permissions')}}
       {{permissions/permissions-table modelPermissions=model.permissions editable=true}}

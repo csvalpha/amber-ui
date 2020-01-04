@@ -1,13 +1,13 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t "Forumbericht verwijderen"}} </h5>
+    <h5> Forumbericht verwijderen </h5>
   </div>
   <div class="card-body">
     <p class="card-text">
-      {{t "Weet je zeker dat je dit forumbericht van "}} <b> {{model.author.fullName}} </b> {{t " wilt verwijderen?"}}
+      Weet je zeker dat je dit forumbericht van  <b> {{model.author.fullName}} </b>  wilt verwijderen?
     </p>
     <p class="card-text">
-      <b> {{t "Inhoud: "}} </b> <br>
+      <b> Inhoud:  </b> <br>
       {{model.message}}
     </p>
     {{#if errorMessage}}
@@ -15,7 +15,7 @@
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">{{t "Verwijderen"}}</button>
-    {{#link-to "forum.categories.category.threads.thread" model.thread class="btn btn-default" tagName="button"}}{{t "Annuleren"}}{{/link-to}}
+    <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+    {{#link-to "forum.categories.category.threads.thread" model.thread class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
   </div>
 </div>
