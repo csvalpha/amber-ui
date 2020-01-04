@@ -1,13 +1,13 @@
 export function initialize(instance) {
-  const i18n = instance.lookup('service:i18n');
+  const intl = instance.lookup('service:intl');
   const localStorage = instance.lookup('service:local-storage');
-  if (i18n.get('locales').includes(localStorage.getItem('locale'))) {
-    i18n.set('locale', localStorage.getItem('locale'));
+  if (intl.get('locales').includes(localStorage.getItem('locale'))) {
+    intl.set('locale', localStorage.getItem('locale'));
   }
 }
 
 export default {
-  name: 'i18n',
+  name: 'intl',
   after: 'ember-data',
   initialize
 };

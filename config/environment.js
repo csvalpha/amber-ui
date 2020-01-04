@@ -31,7 +31,7 @@ module.exports = function(environment) {
       'worker-src': '\'self\''
     },
 
-    i18n: {
+    intl: {
       defaultLocale: 'nl'
     },
 

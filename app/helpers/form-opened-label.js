@@ -2,7 +2,7 @@ import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 
 export default Helper.extend({
-  i18n: service(),
+  intl: service(),
   compute([form]) {
     const currentDateTime = new Date();
 
@@ -16,7 +16,7 @@ export default Helper.extend({
       prefix = 'Sloot';
     }
 
-    prefix = this.i18n.t(prefix);
+    prefix = this.intl.t(prefix);
     return `${prefix} ${dateFromNow}`;
   }
 });

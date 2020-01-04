@@ -64,7 +64,7 @@
     "ember-crumbly": "^3.0.1",
     "ember-data": "^3.15",
     "ember-group-by": "^0.0.6",
-    "ember-i18n": "^5.0",
+    "ember-intl": "^4.2",
     "ember-keyboard-shortcuts": "^1.2",
     "ember-link-action": "^0.1.0",
     "ember-linkify": "^3.0.0",

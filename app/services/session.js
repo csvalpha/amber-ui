@@ -8,7 +8,7 @@ import ENV from 'alpha-amber/config/environment';
 export default Session.extend({
   ajax: service(),
   store: service(),
-  i18n: service(),
+  intl: service(),
   localStorage: service(),
   raven: service(),
 
@@ -16,7 +16,7 @@ export default Session.extend({
   loadCurrentUser() {
     return new Promise(resolve => {
       if (this.isAuthenticated) {
-        this.i18n.set('locale', 'nl');
+        this.intl.set('locale', 'nl');
         this.localStorage.setItem('locale', 'nl');
         this.ajax.request('/users?filter[me]').then(content => {
           this.store.pushPayload(content);

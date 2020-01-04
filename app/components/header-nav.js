@@ -9,26 +9,26 @@ export default Component.extend(CanMixin, {
   session: service(),
   layoutManager: service('layout-manager'),
   media: service(),
-  i18n: service(),
+  intl: service(),
   localStorage: service(),
   router: service(),
-  unAuthenticatedMenuOptions: computed('i18n.locale', function() {
+  unAuthenticatedMenuOptions: computed('intl.locale', function() {
     return [
       {
         link: 'articles',
-        title: this.i18n.t('mixin.menuItems.articles'),
+        title: this.intl.t('mixin.menuItems.articles'),
         icon: '',
         canAccess: this.can('show articles')
       },
       {
         link: 'photo-albums',
-        title: this.i18n.t('mixin.menuItems.photoAlbums'),
+        title: this.intl.t('mixin.menuItems.photoAlbums'),
         icon: '',
         canAccess: this.can('show photo-albums')
       },
       {
         link: 'static-pages',
-        title: this.i18n.t('mixin.menuItems.staticPages'),
+        title: this.intl.t('mixin.menuItems.staticPages'),
         icon: '',
         canAccess: this.can('show static-pages')
       }
@@ -57,12 +57,12 @@ export default Component.extend(CanMixin, {
       this.layoutManager.closeSidebars();
     },
     toggleLocale() {
-      const locale = this.get('i18n.locale');
+      const locale = this.get('intl.locale');
       if (locale === 'nl') {
-        this.set('i18n.locale', 'en');
+        this.set('int.locale', 'en');
         localStorage.setItem('locale', 'en');
       } else {
-        this.set('i18n.locale', 'nl');
+        this.set('int.locale', 'nl');
         localStorage.setItem('locale', 'nl');
       }
     }
