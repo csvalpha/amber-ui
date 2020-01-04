@@ -39,10 +39,10 @@
       {{#if sortedPresences}}
         <table class="table">
           <tr>
-            <th> {{"Persoon" }} </th>
-            <th> Status </th>
-            <th> Tot </th>
-            <th> </th>
+            <th>Persoon</th>
+            <th>Status</th>
+            <th>Tot</th>
+            <th></th>
           </tr>
           {{#each sortedPresences as |presence|}}
             <tr>
@@ -86,7 +86,7 @@
           placeholder=currentUserPresence.endTime
           required=true}}
       {{else}}
-        <button class="btn btn-secondary" {{action "newPresence"}}> Nieuw </button>
+        <button class="btn btn-secondary" {{action "newPresence"}}>Nieuw</button>
       {{/if}}
     {{/basic-modal}}
   {{/ember-wormhole}}
