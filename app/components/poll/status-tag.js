@@ -1,4 +1,4 @@
-import { FormStatusTagComponent } from 'app/components/form/status-tag';
+import { FormStatusTagComponent } from 'alpha-amber/components/form/status-tag';
 
 const PollStatusTagComponent = FormStatusTagComponent.extend({
   isNoneValue: 'laden...',
