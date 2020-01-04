@@ -12,6 +12,7 @@ export default Service.extend({
     if (!args.headers) {
       args.headers = {};
     }
+
     args.headers.Authorization = this.authorizationHeader();
 
     return basefetch(url, args);

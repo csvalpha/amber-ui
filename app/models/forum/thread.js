@@ -30,6 +30,7 @@ export default Model.extend({
       } else {
         this.set('closedAt', new Date());
       }
+
       return value;
     }
   })

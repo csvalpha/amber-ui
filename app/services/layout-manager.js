@@ -18,6 +18,7 @@ export default Service.extend({
       if (this.get('media.isMobile')) {
         return true;
       }
+
       // On non-mobile it is optional according to localstorage
       // localstorage stores it as a string
       return this.localStorage.getItem('leftSideBarExpanded') === 'true';

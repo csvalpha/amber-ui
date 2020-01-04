@@ -25,6 +25,7 @@ export default Component.extend({
     } else {
       this.groupValue.pushObject(this.value);
     }
+
     this.set('groupValue', this.groupValue);
   }
 });
