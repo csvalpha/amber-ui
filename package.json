@@ -96,7 +96,7 @@
     "moment-duration-format": "^2.3",
     "morgan": "^1.9.1",
     "node-sass": "^4.13.0",
-    "qunit-dom": "^0.9",
+    "qunit-dom": "^0.6.2",
     "remove-markdown": "^0.3.0",
     "stylelint": "^12.0",
     "stylelint-config-sass-guidelines": "^6.2",
