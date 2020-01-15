@@ -11,8 +11,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
       const redirectUri = this.controller.get('redirect_uri');
       const responseType = this.controller.get('response_type');
       const state = this.controller.get('state');
+      const scope =  this.controller.get('scope');
 
-      this.fetch.fetch(`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&state=${state}`
+      this.fetch.fetch(`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&state=${state}&scope=${scope}`
       ).then(response => {
         response.json().then(json => {
           if (json.status === 'redirect') {
