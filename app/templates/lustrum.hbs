@@ -1,25 +1,39 @@
 <div class="row">
-    <div class="col-md-12">
-        <article class="card">
-            <h1 class="card-header">{{t "Lustrum - Bestemming"}}</h1>
-            <div class="card-block">
-                <div class="col-md-4 pull-right"><img class="float-right" src="{{model.group.avatarUrl}}" alt="{{model.group.name}}"></div>
-                <p class="card-text text-enlarged">
-                  {{t "Mooie tekst.... "}}<strong>{{t "Bestemming"}}</strong>
-                </p>
-            </div>
-        </article>
-    </div>
-</div>
-
-<div class="row">
-
-  {{#each model.activities as |activity|}}
-      <div class="col-md-12 col-lg-6">
-        {{#link-to 'activities.show' activity}}
-          {{cards/activity-card activity}}
-        {{/link-to}}
+  <div class="col-md-12">
+    <article class="lustrumcard">
+      <header class="lustrumcard-header">
+        <img class="lustrumcard-logo" src="{{rootUrl}}images/lustrum/lustrum-logo-basis-kleur.svg" alt="{{t "Lustrum logo"}}">
+        <div class="lustrumcard-titles">
+          <h1 class="lustrumcard-title">{{t "Bestemming"}}</h1>
+          <p class="lustrumcard-subtitle">{{t "8"}}<sup>{{t "e"}}</sup>{{t " Lustrum der C.S.V. Alpha"}}</p>
+        </div>
+      </header>
+      <img class="lustrumcard-line" src="{{rootUrl}}images/lustrum/lustrum-lijn-kleur.svg">
+      <div class="lustrumcard-block">
+        <p class="lustrumcard-text text-enlarged">
+          {{t "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ac massa cursus, cursus ipsum tempor, ornare dui. Proin turpis dolor, dignissim in dignissim nec, lobortis quis justo. Aenean in sapien eget ligula posuere gravida egestas at lacus. Morbi sit amet ultricies mauris. Morbi tempus nisi nec odio elementum pretium. Nam congue dictum eros, id tempor quam tincidunt quis. In et lacinia ipsum, ac vehicula ex. Nulla nec lacus in neque sagittis dapibus. Pellentesque interdum lacus laoreet finibus condimentum. Integer nec imperdiet nulla. Ut consequat risus nec mattis cursus. Ut orci felis, lobortis eget cursus sed, porta sit amet nibh. Aliquam ut justo odio. Ut vitae efficitur augue, eu auctor tellus. "}}
+        </p>
+        <p class="lustrumcard-text">
+          {{t " Pellentesque magna quam, laoreet vel lobortis non, ornare at sem. Quisque mattis tortor ligula, quis cursus enim blandit id. Praesent id tempor ex, quis vulputate purus. Suspendisse quis semper quam. Pellentesque tristique volutpat maximus. In hac habitasse platea dictumst. Praesent sodales mattis elit vitae vehicula. Vestibulum et enim eu urna facilisis faucibus eu non massa. Nullam vitae quam interdum, mattis eros convallis, tristique mi. Nam orci sem, tincidunt at lectus ut, auctor viverra mi. Etiam tincidunt, nunc et rhoncus aliquam, turpis ipsum posuere sem, id porttitor dolor justo in tellus. Proin rutrum a dolor ut placerat. Aenean ut libero convallis, lacinia leo sit amet, dignissim sem. Interdum et malesuada fames ac ante ipsum primis in faucibus. "}}
+        </p>
       </div>
-  {{/each}}
-
+    </article>
+  </div>
 </div>
+
+{{#if model}}
+  <div class="row lustrumactivities">
+    <h2 class="col-md-12 lustrumactivities-title">{{t 'template.lustrum.activities'}}</h2>
+    <div class="col-md-12 lustrumactivities-list">
+      {{#each model as |activity index|}}
+        {{#if (can 'show activities')}}
+          {{#link-to 'activities.show' activity}}
+            {{lustrum/lustrum-bar activity index}}
+          {{/link-to}}
+        {{else}}
+          {{lustrum/lustrum-bar activity index expandable=true}}
+        {{/if}}
+      {{/each}}
+    </div>
+  </div>
+{{/if}}

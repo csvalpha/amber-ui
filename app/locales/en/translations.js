@@ -121,6 +121,9 @@ export default {
       show: {
         photographer: 'Photo uploaded by'
       }
+    },
+    lustrum: {
+      activities: 'Activities'
     }
   },
   component: {
@@ -174,6 +177,12 @@ export default {
         sara2: 'I have finished studying quite some time ago and gave myself the title "the fossil of Alpha”, but I love to be active within the association and love to mingle with people. After the summer holidays I\'m eager to  dive back into the association and  hope to meet more people who I can give my “wisdom” to. I hope to see you there!'
       }
     },
+    lustrum: {
+      lustrumBar: {
+        signUp: 'Sign up!',
+        signedUp: 'Signed up!'
+      }
+    },
     socialMediaButtons: {
       facebook: 'Like us on Facebook',
       instagram: 'Follow us on Instagram',
@@ -202,7 +211,8 @@ export default {
       polls: 'Polls',
       groups: 'Groups',
       users: 'Users',
-      staticPages: 'Information'
+      staticPages: 'Information',
+      lustrum: 'Lustrum'
     }
   },
   tag: {

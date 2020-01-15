@@ -121,6 +121,9 @@ export default {
       show: {
         photographer: 'Foto geüpload door'
       }
+    },
+    lustrum: {
+      activities: 'Activiteiten'
     }
   },
   component: {
@@ -172,6 +175,12 @@ export default {
         andreas: 'Hallo, ik ben Andreas. Ik was niet van plan bij een studentenvereniging te gaan voor ik in Enschede ging studeren. Maar na tijdens de Kick-In veel bij Alpha geweest te zijn heb ik me meteen ingeschreven. Bij Alpha heb ik namelijk heel snel een nieuw sociaal netwerk kunnen opbouwen wat ik erg fijn vond omdat ik niemand kende hier. Daarnaast geeft Alpha je de mogelijkheden in commissies te gaan wat je dingen leert die je niet bij je studie meekrijgt, onder andere op het gebied van leiderschap en verantwoordelijkheid. Als je geïnteresseerd bent moet je zeker een keer langskomen!',
         sara1: 'In mijn derde studiejaar ben ik bij Alpha gegaan, omdat ik op een andere manier met geloof wilde omgaan dan gebruikelijk is. Ik heb veel mensen leren kennen door deze beslissing en veel fijne, echte vrienden gemaakt, waar ik zeer dankbaar voor ben. Binnen Alpha is er voor ieder wat wils! Of je nu gezellig wilt borrelen op de donderdagavond of dat je van commissie naar commissie wilt duiken, voor iedereen is een plek. Door de verschillende (christelijke) achtergronden staan we niet met z’n allen met de neus dezelfde kant op en dat is juist zo tof. Kritisch nadenken over heftige dingen in het leven vind ik toch wel belangrijk.',
         sara2: 'Ik ben al geen student meer en heb mezelf de titel van Alpha-fossiel toegeëigend, maar ik ben graag actief binnen de vereniging en houd mezelf graag onder de mensen. Na de zomervakantie duik ik weer vrolijk het verenigingsleven in en hoop ik weer nieuwe mensen te leren kennen aan wie ik mijn "wijze levenslessen" mag gaan doorgeven. Hopelijk tot dan!'
+      }
+    },
+    lustrum: {
+      lustrumBar: {
+        signUp: 'Schrijf je in!',
+        signedUp: 'Ingeschreven!'
       }
     },
     socialMediaButtons: {
