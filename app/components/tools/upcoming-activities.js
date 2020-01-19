@@ -13,6 +13,7 @@ export default Component.extend({
     if (this.get('session.currentUser')) {
       data.page = { size: this.amountOfActivities };
     }
+
     return this.ajax.request('/activities', { data }).then(result => {
       this.store.pushPayload(result);
       const activities = new A();

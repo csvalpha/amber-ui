@@ -74,12 +74,15 @@ export default JSONAPISerializer.extend({
       'open-question', 'open-question-answer', 'response'].includes(key)) {
       return `form/${key}`;
     }
+
     if (['category', 'post', 'thread'].includes(key)) {
       return `forum/${key}`;
     }
+
     if (['collection', 'transaction', 'mandate'].includes(key)) {
       return `debit/${key}`;
     }
+
     return key;
   },
 

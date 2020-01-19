@@ -1,4 +1,3 @@
-
 import { helper } from '@ember/component/helper';
 
 export function convertToUnicode(text) {

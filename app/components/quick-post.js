@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 import { CanMixin } from 'ember-can';
 import { WelcomeTextLines, SuggestedEmojis } from 'alpha-amber/constants';
-import { convertToUnicode } from '../helpers/convert-to-unicode-';
+import { convertToUnicode } from 'alpha-amber/helpers/convert-to-unicode';
 
 export default Component.extend(CanMixin, {
   session: service(),
@@ -47,6 +47,7 @@ export default Component.extend(CanMixin, {
     } else if (count > 0.8 * max) {
       return 'warning';
     }
+
     return 'primary';
   }),
   progressBarStyle: computed('characterCountPercentage', function() {

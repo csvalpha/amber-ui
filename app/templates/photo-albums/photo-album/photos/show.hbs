@@ -31,17 +31,17 @@
     {{/link-to}}
 
     {{#if model.hasExif}}
-      <button class="ml-1 btn btn-sm btn-outline-info" data-toggle="collapse" data-target="#collapsibleExif" type="button">
-        {{t 'Show Exif'}}
+      <button class="ml-1 btn btn-sm btn-outline-info" {{action 'toggleShowExif'}}>
+        {{t 'Toon Exif data'}}
       </button>
     {{else}}
       <button class="ml-1 btn btn-sm btn-outline-info disabled" type="button">
-        {{t 'No Exif'}}
+        {{t 'Geen Exif data'}}
       </button>
     {{/if}}
   </p>
 
-  <div class="collapse" id="collapsibleExif">
+  {{#if showExif}}
     <div class="card card-body">
       <table class="table table-sm table-responsive">
         <tr>
@@ -76,7 +76,7 @@
         </tr>
       </table>
     </div>
-  </div>
+  {{/if}}
 {{/if}}
 
 {{#if (can 'show photo comments of photo' model)}}
@@ -103,7 +103,8 @@
           </div>
         {{/if}}
         <div class="input-group new-photo-comment">
-          {{input value=content class="form-control" placeholder="Typ hier je reactie" minlength="1" maxlength="500" enter=(action "submitPhotoComment" photo) id="new-photo-comment-input"}}
+          {{input value=content class="form-control" placeholder="Typ hier je reactie" minlength="1" maxlength="500"
+                  enter=(action "submitPhotoComment" photo) id="new-photo-comment-input"}}
           <span class="input-group-btn">
             <button class="btn btn-default" {{action "submitPhotoComment"}}>{{t "Reageren"}}</button>
           </span>
