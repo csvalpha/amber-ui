@@ -21,6 +21,7 @@ export default Service.extend({
       this.set('isEnabled', false);
       this.set('isSoundEnabled', false);
     }
+
     this._super(...arguments);
   },
 
@@ -41,6 +42,7 @@ export default Service.extend({
         }
       });
     }
+
     this.set('isEnabled', this.permissionIsGranted);
     localStorage.setItem('notificationEnabled', this.permissionIsGranted);
     this.set('isSoundEnabled', false);

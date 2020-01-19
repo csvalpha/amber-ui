@@ -20,12 +20,15 @@ export const FormStatusTagComponent = Component.extend({
     if (this.form.get('currentUserResponseCompleted')) {
       return this.responseCompletedValue;
     }
+
     if (this.form.get('canRespond')) {
       return 'Open';
     }
+
     if (this.form.get('respondFrom') > new Date()) {
       return 'Opent later';
     }
+
     return 'Gesloten';
   }),
   colorIndicatorClass: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {

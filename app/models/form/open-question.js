@@ -25,6 +25,7 @@ export default Model.extend({
         return parseFloat(a) + parseFloat(b);
       }, 0);
     }
+
     return null;
   })
 });

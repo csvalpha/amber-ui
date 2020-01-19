@@ -12,6 +12,7 @@ export default Mixin.create({
     if (currentUserResponseId) {
       return this.store.findRecord('form/response', currentUserResponseId);
     }
+
     const user = this.session.get('currentUser');
     return this.store.createRecord('form/response', { form, user });
   },

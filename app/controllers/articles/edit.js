@@ -26,6 +26,7 @@ export default EditController.extend(CanMixin, {
     if (this.can('select all groups for articles')) {
       return this.store.findAll('group');
     }
+
     return this.get('session.currentUser').get('groups');
   }),
   actions: {
