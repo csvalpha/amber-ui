@@ -13,7 +13,8 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
   model(params) {
 
     params = merge({ 'filter': { 'archived': false } }, params);
-    return this.store.query('user', params);
+    params.paramMapping = this.paramMapping;
+    return this.findPaged('user', params);
   },
   pageActions: computed(function() {
     return [
