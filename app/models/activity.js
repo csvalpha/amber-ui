@@ -27,17 +27,17 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
 
   // Computed properties
   formattedPrice: computed('price', function() {
-    return parseFloat(this.get('price')).toFixed(2);
+    return parseFloat(this.price).toFixed(2);
   }),
   formattedCategory: computed('category', function() {
-    return this.get('category').capitalize();
+    return this.category.capitalize();
   }),
   endsOnSameDate: computed('startTime', 'endTime', function() {
-    return moment(this.get('startTime')).isSame(this.get('endTime'), 'day');
+    return moment(this.startTime).isSame(this.endTime, 'day');
   }),
   formattedStartDate: computed('startTime', 'endTime', function() {
-    const startTime = moment(this.get('startTime'));
-    const endTime = moment(this.get('endTime'));
+    const startTime = moment(this.startTime);
+    const endTime = moment(this.endTime);
     const prettyStartDateTime = startTime.format('ddd DD MMMM HH:mm');
     const prettyStartTime = startTime.format('HH:mm');
 
@@ -55,7 +55,7 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
 
   saveWithForm() {
     // Every day fun with triple nested promises
-    return this.get('form').then(form => {
+    return this.form.then(form => {
       if (!isNone(form)) {
         return form.saveWithQuestions().then(() => {
           return this.save();
@@ -66,7 +66,7 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
   },
   rollbackAttributesAndForm() {
     this.rollbackAttributes();
-    this.get('form').then(form => {
+    this.form.then(form => {
       if (!isNone(form)) {
         form.rollbackAttributesAndQuestions();
       }

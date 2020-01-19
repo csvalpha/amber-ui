@@ -7,7 +7,7 @@ export default Component.extend({
   media: service(),
   advertisements: computed('media.isMobile', 'media.isTablet', 'media.isDesktop', function() {
     // Double up the advertisement array to make an 'infinite loop' transition possible
-    return this.get('advertisementItems').concat(this.get('advertisementItems'));
+    return this.advertisementItems.concat(this.advertisementItems);
   }),
 
   // Don't forget to also increment the 'amountOfAdvertisements' variable

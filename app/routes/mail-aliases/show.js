@@ -17,7 +17,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
       {
         link: 'mail-aliases.edit',
         title: 'Wijzigen',
-        icon: 'pencil',
+        icon: 'pencil-alt',
         linkArgument: mailAlias,
         canAccess: this.can('edit mail-aliases')
       },

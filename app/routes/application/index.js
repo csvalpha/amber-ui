@@ -1,14 +1,17 @@
 import Route from '@ember/routing/route';
+import { computed } from '@ember/object';
 import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixin';
-import BreadcrumbsRouteMixin from 'alpha-amber/mixins/breadcrumbs-route-mixin';
 import { CanMixin } from 'ember-can';
 
 export const IndexRouteUnauthenticated = Route.extend(
   CanMixin,
-  AuthorizationRouteMixin,
-  BreadcrumbsRouteMixin, {
+  AuthorizationRouteMixin, {
     modelName: null,
     pageActions: [],
+
+    breadCrumb: computed('title', function() {
+      return { title: this.title };
+    }),
 
     queryParams: {
       search: {
@@ -21,12 +24,12 @@ export const IndexRouteUnauthenticated = Route.extend(
 
     setupController(controller, model) {
       this._super(controller, model);
-      controller.set('pageActions', this.get('pageActions'));
-      controller.set('tabItems', this.get('tabItems'));
+      controller.set('pageActions', this.pageActions);
+      controller.set('tabItems', this.tabItems);
     },
 
     model(params) {
-      return this.store.query(this.get('modelName'), params);
+      return this.store.query(this.modelName, params);
     }
   }
 );

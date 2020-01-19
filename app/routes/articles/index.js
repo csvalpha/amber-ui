@@ -12,7 +12,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'article',
 
   title: computed(function() {
-    return this.get('i18n').t('model.article.name.other').toString().capitalize();
+    return this.i18n.t('model.article.name.other').toString().capitalize();
   }),
 
   pageActions: computed(function() {

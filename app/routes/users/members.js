@@ -25,6 +25,6 @@ export default IndexRoute.extend({
   }),
   model(params) {
     params.filter = { group: 'Leden' };
-    return this.store.query(this.get('modelName'), params);
+    return this.store.query(this.modelName, params);
   }
 });

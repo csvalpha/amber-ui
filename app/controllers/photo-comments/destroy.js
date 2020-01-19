@@ -9,7 +9,7 @@ export default DestroyController.extend({
     },
     onSuccess() {
       this._super(...arguments);
-      this.transitionToRoute('photo-album.show', this.get('photoAlbum'));
+      this.transitionToRoute('photo-album.show', this.photoAlbum);
     }
   }
 });

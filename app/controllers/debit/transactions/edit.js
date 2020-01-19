@@ -7,12 +7,12 @@ export default EditController.extend({
   successTransitionTarget: 'debit.collections.show',
   successTransitionModel: alias('model.collection.id'),
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   }),
 
   actions: {
     setUser(user) {
-      this.get('model').set('user', user);
+      this.model.set('user', user);
     }
   }
 });

@@ -1,23 +1,18 @@
-import { moduleForComponent, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupRenderingTest } from 'ember-qunit';
+import { render } from '@ember/test-helpers';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('md-editor', 'Integration | Component | md editor', {
-  integration: true
+module('Integration | Component | markdown editor', function(hooks) {
+  setupRenderingTest(hooks);
+
+  test('should render the textarea content', async function(assert) {
+    assert.expect(1);
+
+    this.set('markdownContent', 'This is some text');
+    await render(hbs`{{md-editor content=markdownContent textareaIdentifier='newForumPost'}}`);
+
+    assert.equal(this.element.querySelector('textarea').value, 'This is some text');
+  });
 });
 
-test('it renders with content', function(assert) {
-  assert.expect(2);
-
-  this.set('value', 'foo');
-
-  this.render(hbs`
-    <div id="ember-wormhole-destination"></div>
-    {{md-editor content=value}}`);
-  assert.equal(this.$('textarea').val(), 'foo', 'content starts as foo');
-
-  this.set('value', 'bar');
-
-  assert.equal(this.$('textarea').val(), 'bar', 'content updates to bar');
-});
-
-// TODO: Complete testing, not necessary if this component is replaced

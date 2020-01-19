@@ -12,7 +12,7 @@ const ForumPostComponent = Component.extend({
       let message = this.get('post.message');
       message = `> ${message}`;
       message = message.split('\n').join('\n> ');
-      this.set('newContent', `${this.get('newContent')}${header}${message} \n\n`);
+      this.set('newContent', `${this.newContent}${header}${message} \n\n`);
       this.sendAction('quoteAction');
     }
   }

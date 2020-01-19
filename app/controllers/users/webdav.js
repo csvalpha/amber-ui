@@ -16,7 +16,7 @@ export default Controller.extend({
     generateWebdavSecret() {
       let user = this.get('session.currentUser');
 
-      return this.get('fetch').fetch(`/users/${user.id}/activate_webdav`, { method: 'POST' }).then(function() {
+      return this.fetch.fetch(`/users/${user.id}/activate_webdav`, { method: 'POST' }).then(function() {
         user.reload();
       });
     }

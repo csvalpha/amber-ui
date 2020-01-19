@@ -41,10 +41,10 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
   }),
 
   model(params) {
-    params.paramMapping = this.get('paramMapping');
+    params.paramMapping = this.paramMapping;
     if (!params.showPassed) {
       params.filter = { upcoming: true };
     }
-    return this.findPaged(this.get('modelName'), params);
+    return this.findPaged(this.modelName, params);
   }
 });

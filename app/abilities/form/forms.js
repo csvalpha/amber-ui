@@ -5,6 +5,6 @@ import { Ability } from 'ember-can';
 export default Ability.extend({
   session: service(),
   canShow: computed('session.currentUser', function() {
-    return this.get('session').hasPermission('form/form.read');
+    return this.session.hasPermission('form/form.read');
   })
 });

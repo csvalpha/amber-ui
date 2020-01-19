@@ -8,7 +8,7 @@ export default NewRoute.extend({
   parents: ['articles.index'],
   title: 'Artikel aanmaken',
   model() {
-    const newArticle = this.store.createRecord(this.get('modelName'));
+    const newArticle = this.store.createRecord(this.modelName);
     newArticle.set('author', this.get('session.currentUser'));
     return newArticle;
   }

@@ -9,12 +9,12 @@ export default Component.extend({
   modelPermissions: null,
   inheritedPermissions: [],
   permissions: computed(function() {
-    return this.get('store').findAll('permission');
+    return this.store.findAll('permission');
   }),
   groupedPermissions: computed('permissions', 'permissions.@each.model', 'permissions.@each.action', function() {
     const groups = [];
 
-    this.get('permissions').then(permissions => {
+    this.permissions.then(permissions => {
       permissions.forEach(permission => {
         const permissionModel = permission.get('model');
         const modelGroup = groups.findBy('model', permissionModel);

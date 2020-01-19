@@ -8,20 +8,19 @@ const PermissionsTableItemComponent = Component.extend({
   editable: null,
   hasPermission: computed('permission', 'modelPermissions.@each.permission', 'modelPermissions.@each.model', {
     get() {
-      return this.get('modelPermissions').includes(this.get('permission'));
+      return this.modelPermissions.includes(this.permission);
     },
     set(key, value) {
-      const modelPermissions = this.get('modelPermissions');
-      if (value && !modelPermissions.includes(this.get('permission'))) {
-        modelPermissions.pushObject(this.get('permission'));
-      } else if (modelPermissions.includes(this.get('permission'))) {
-        modelPermissions.removeObject(this.get('permission'));
+      if (value && !this.modelPermissions.includes(this.permission)) {
+        this.modelPermissions.pushObject(this.permission);
+      } else if (this.modelPermissions.includes(this.permission)) {
+        this.modelPermissions.removeObject(this.permission);
       }
       return value;
     }
   }),
   hasInheritedPermission: computed('permission', 'inheritedPermissions.@each.permission', 'inheritedPermissions.@each.model', function() {
-    return (this.get('inheritedPermissions').includes(this.get('permission')));
+    return this.inheritedPermissions.includes(this.permission);
   })
 });
 

@@ -54,6 +54,6 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     delete params.showAdministrative;
     delete params.showInactive;
     delete params.search;
-    return this.store.query(this.get('modelName'), params);
+    return this.store.query(this.modelName, params);
   }
 });

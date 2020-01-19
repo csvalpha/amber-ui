@@ -19,8 +19,8 @@ export default Model.extend({
 
   // Computed properties
   sumOfAnswers: computed('answers.@each.answer', 'answers.@each.completed', function() {
-    if (this.get('fieldType') === 'number') {
-      const answers = this.get('answers').filterBy('completed', true);
+    if (this.fieldType === 'number') {
+      const answers = this.answers.filterBy('completed', true);
       return answers.mapBy('answer').reduce((a, b) => {
         return parseFloat(a) + parseFloat(b);
       }, 0);

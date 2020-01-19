@@ -9,11 +9,10 @@ export default Controller.extend({
   combinedErrors: union('model.errors', 'model.form.errors'),
   actions: {
     submit() {
-      const poll = this.get('model');
-      const flashNotice = this.get('flashNotice');
+      const poll = this.model;
       poll.saveWithForm().then(savedPoll => {
         this.transitionToRoute('polls.show', savedPoll.get('id'));
-        flashNotice.sendSuccess('Poll opgeslagen!');
+        this.flashNotice.sendSuccess('Poll opgeslagen!');
       }).catch(error => {
         this.set('errorMessage', error.message);
       });

@@ -59,27 +59,26 @@ export default Model.extend(AvatarModelMixin, {
 
   // Computed properties
   fullName: computed('firstName', 'lastNamePrefix', 'lastName', function() {
-    if (this.get('lastNamePrefix') === null) {
-      return `${this.get('firstName')} ${this.get('lastName')}`;
+    if (this.lastNamePrefix === null) {
+      return `${this.firstName} ${this.lastName}`;
     }
-    return `${this.get('firstName')} ${this.get('lastNamePrefix')} ${this.get('lastName')}`;
+    return `${this.firstName} ${this.lastNamePrefix} ${this.lastName}`;
   }),
 
   age: computed('birthday', function() {
-    return moment().diff(this.get('birthday'), 'years');
+    return moment().diff(this.birthday, 'years');
   }),
 
   upcomingBirthdayAge: computed('age', function() {
-    return this.get('age') + 1;
+    return this.age + 1;
   }),
 
   upcomingBirthdayDate: computed('birthday', function() {
-    const birthday = this.get('birthday');
-    return moment(birthday).add(this.get('upcomingBirthdayAge'), 'years').toDate();
+    return moment(this.birthday).add(this.upcomingBirthdayAge, 'years').toDate();
   }),
 
   hasBirthdayToday: computed('birthday', function() {
-    const birthdayDate = moment(this.get('birthday'));
+    const birthdayDate = moment(this.birthday);
 
     const monthIsTheSame = moment().month() === birthdayDate.month();
     const dayOfMonthIsTheSame = moment().date() === birthdayDate.date();
@@ -88,15 +87,15 @@ export default Model.extend(AvatarModelMixin, {
   }),
 
   hasPermission(name) {
-    return this.get('permissions').findBy('name', name) !== undefined;
+    return this.permissions.findBy('name', name) !== undefined;
   },
 
   isCurrentUser: computed('session.currentUser.id', 'id', function() {
-    return this.get('session').currentUser.id === this.get('id');
+    return this.session.currentUser.id === this.id;
   }),
 
   currentMemberships: computed('memberships', 'memberships.@each.endDate', 'memberships.@each.startDate', function() {
-    return this.get('memberships').filter(membership => membership.get('userIsCurrentlyMember'));
+    return this.memberships.filter(membership => membership.get('userIsCurrentlyMember'));
   }),
 
   setNullIfEmptyString(property) {

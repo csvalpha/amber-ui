@@ -25,14 +25,14 @@ export default Model.extend({
     // Furthermore, for the closed question answers we have to wait until the linked options are loaded
     // (the question is linked to the answer through the option)
     return all([
-      this.get('openQuestionAnswers'),
-      this.get('closedQuestionAnswers')
+      this.openQuestionAnswers,
+      this.closedQuestionAnswers
         .then(
           closedQuestionAnswers =>
             all(closedQuestionAnswers.map(closedQuestionAnswer => closedQuestionAnswer.get('option')))
         )
     ]).then(() => {
-      const groupedAnswers = this.groupAnswers(this.get('answers'));
+      const groupedAnswers = this.groupAnswers(this.answers);
       this.set('groupedAnswers', groupedAnswers);
       return groupedAnswers;
     });
@@ -41,8 +41,8 @@ export default Model.extend({
   groupedAnswers: computed('groupedAnswersPromise', {
     get() {
       // Lazy loading: only load answers when requested
-      this.get('groupedAnswersPromise');
-      return this.get('_groupedAnswers');
+      this.groupedAnswersPromise;
+      return this._groupedAnswers;
     },
     set(key, value) {
       this.set('_groupedAnswers', value);
@@ -76,7 +76,7 @@ export default Model.extend({
     });
   },
   rollbackAttributesAndAnswers() {
-    this.get('answers').forEach(answer => answer.rollbackAttributes());
+    this.answers.forEach(answer => answer.rollbackAttributes());
     this.rollbackAttributes();
   }
 });

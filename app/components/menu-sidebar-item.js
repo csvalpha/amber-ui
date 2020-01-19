@@ -6,10 +6,10 @@ const MenuSidebarItemComponent = Component.extend({
   minor: false,
   actions: {
     closeAfterNavigation() {
-      if (this.get('minor')) {
-        this.get('layoutManager').closeProfileMenu();
+      if (this.minor) {
+        this.layoutManager.closeProfileMenu();
       }
-      this.get('layoutManager').closeLeftSidebarIfOnMobile();
+      this.layoutManager.closeLeftSidebarIfOnMobile();
     }
   }
 });

@@ -18,6 +18,19 @@ const { JSONAPISerializer } = DS;
 export default JSONAPISerializer.extend({
   session: service('session'),
 
+  // Remove all Links data, since AMBER API's JsonAPI::Resources
+  // provides wrong links data for namespaced models
+  normalize(typeHash, hash) {
+    if (hash.relationships) {
+      Object.keys(hash.relationships).forEach(relationship => {
+        if (hash.relationships[relationship].data) {
+          delete hash.relationships[relationship].links;
+        }
+      });
+    }
+
+    return this._super(...arguments);
+  },
   permissionNameForRoute(routeName, owner) {
     const parts = routeName.split('.');
 

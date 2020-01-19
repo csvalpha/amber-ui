@@ -16,17 +16,17 @@ export default Controller.extend({
   },
 
   groupKindOptions: computed(function() {
-    return GroupKinds.map(this.get('_groupKindToOption'));
+    return GroupKinds.map(this._groupKindToOption);
   }),
 
   users: computed(function() {
-    return this.get('store').findAll('user');
+    return this.store.findAll('user');
   }),
 
   actions: {
     addUser(user) {
-      this.get('model').get('memberships').pushObject(
-        this.get('store').createRecord('membership', {
+      this.model.get('memberships').pushObject(
+        this.store.createRecord('membership', {
           user,
           endDate: null
         })
@@ -36,14 +36,12 @@ export default Controller.extend({
       membership.deleteRecord();
     },
     submit() {
-      const group = this.get('model');
-      const flashNotice = this.get('flashNotice');
       const membershipErrors = new A();
 
-      if (group !== undefined) {
+      if (this.model !== undefined) {
         let failedMembershipSavings = 0;
-        group.save().then(() => {
-          return all(group.get('memberships').map((membership) => {
+        this.model.save().then(() => {
+          return all(this.model.get('memberships').map((membership) => {
             if (membership.get('hasDirtyAttributes')) {
               return membership.save().catch((error) => {
                 membershipErrors.push({ membership, error });
@@ -63,8 +61,8 @@ export default Controller.extend({
             }, '');
             this.set('errorMessage', `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`);
           } else {
-            flashNotice.sendSuccess('Groep aangepast!');
-            this.transitionToRoute('groups.show', group.id);
+            this.flashNotice.sendSuccess('Groep aangepast!');
+            this.transitionToRoute('groups.show', this.model.id);
           }
         }).catch(error => {
           this.set('errorMessage', error.message);
@@ -72,8 +70,7 @@ export default Controller.extend({
       }
     },
     fileLoaded(file) {
-      const group = this.get('model');
-      group.set('avatar', file.data);
+      this.model.set('avatar', file.data);
     }
   }
 });

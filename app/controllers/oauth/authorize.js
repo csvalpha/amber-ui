@@ -6,18 +6,19 @@ export default Controller.extend({
   clientName: 'Loading..',
 
   /* eslint-disable camelcase */
-  queryParams: ['client_id', 'redirect_uri', 'response_type', 'state'],
+  queryParams: ['client_id', 'redirect_uri', 'response_type', 'state', 'scope'],
   /* eslint-enable camelcase */
 
   actions: {
     authorize() {
-      this.get('fetch').fetch('/oauth/authorize', {
+      this.fetch.fetch('/oauth/authorize', {
         body: JSON.stringify({
           /* eslint-disable camelcase */
-          client_id: this.get('client_id'),
-          redirect_uri: this.get('redirect_uri'),
-          response_type: this.get('response_type'),
-          state: this.get('state')
+          client_id: this.client_id,
+          redirect_uri: this.redirect_uri,
+          response_type: this.response_type,
+          state: this.state,
+          scope: this.scope
           /* eslint-enable camelcase */
         }),
         method: 'POST',

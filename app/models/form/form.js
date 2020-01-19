@@ -25,18 +25,18 @@ export default Model.extend({
   questionsSorting: ['position'],
   sortedQuestions: sort('questions', 'questionsSorting'),
   currentUserCanRespond: computed('canRespond', 'currentUserResponseCompleted', function() {
-    return !this.get('currentUserResponseCompleted') && this.get('canRespond');
+    return !this.currentUserResponseCompleted && this.canRespond;
   }),
   canRespond: computed('respondFrom', 'respondTo', function() {
     const now = moment();
-    const respondFrom = moment(this.get('respondFrom'));
-    const respondUntil = moment(this.get('respondUntil'));
+    const respondFrom = moment(this.respondFrom);
+    const respondUntil = moment(this.respondUntil);
 
     return now.isAfter(respondFrom) && now.isBefore(respondUntil);
   }),
   opensLater: computed('respondFrom', 'respondTo', function() {
     const now = moment();
-    const respondFrom = moment(this.get('respondFrom'));
+    const respondFrom = moment(this.respondFrom);
 
     return now.isBefore(respondFrom);
   }),
@@ -53,10 +53,10 @@ export default Model.extend({
     });
   },
   rollbackAttributesAndQuestions() {
-    this.get('openQuestions').forEach(openQuestion => {
+    this.openQuestions.forEach(openQuestion => {
       openQuestion.rollbackAttributes();
     });
-    this.get('closedQuestions').forEach(closedQuestion => {
+    this.closedQuestions.forEach(closedQuestion => {
       closedQuestion.rollbackAttributesAndOptions();
     });
     this.rollbackAttributes();

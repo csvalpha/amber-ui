@@ -28,7 +28,7 @@ const BoardRoomPresence = Component.extend(CanMixin, {
   poll: task(function* () {
     // eslint-disable-next-line ember-suave/no-direct-property-access
     while (!Ember.testing) {
-      this.get('fetchData').perform();
+      this.fetchData.perform();
       yield timeout(1000 * 30); // Wait 30 seconds
     }
   }).drop().on('didInsertElement'),
@@ -36,21 +36,21 @@ const BoardRoomPresence = Component.extend(CanMixin, {
   // Fetch task is seperate from polling task, so we can call it individually
   fetchData: task(function* () {
     // eslint-disable-next-line camelcase
-    const model = yield this.get('store').query('board-room-presence', { filter: { current_and_future: true } });
+    const model = yield this.store.query('board-room-presence', { filter: { current_and_future: true } });
 
     this.set('model', model);
   }).restartable(),
 
   currentUserPresence: computed('model.[]', function() {
-    return this.get('model').filter(presence => presence.get('user.isCurrentUser'))[0] || null;
+    return this.model.filter(presence => presence.get('user.isCurrentUser'))[0] || null;
   }),
 
   sortedPresences: computed('model.[]', function() {
-    return this.get('model').sortBy('endTime');
+    return this.model.sortBy('endTime');
   }),
 
   overallStatus: computed('model.[]', function() {
-    const currentStatusses = this.get('model').filter(presence => {
+    const currentStatusses = this.model.filter(presence => {
       return moment().isBetween(
         moment(presence.get('startTime')),
         moment(presence.get('endTime')),
@@ -68,7 +68,7 @@ const BoardRoomPresence = Component.extend(CanMixin, {
   }),
 
   saveButtonDisabled: computed('currentUserPresence', function() {
-    return this.get('currentUserPresence') === null;
+    return this.currentUserPresence === null;
   }),
 
   actions: {
@@ -77,7 +77,7 @@ const BoardRoomPresence = Component.extend(CanMixin, {
     },
 
     deletePresence() {
-      this.get('currentUserPresence').destroyRecord().then(() => {
+      this.currentUserPresence.destroyRecord().then(() => {
         this.set('currentUserPresence', null);
       });
     },
@@ -86,7 +86,7 @@ const BoardRoomPresence = Component.extend(CanMixin, {
       if (this.can('create board-room-presences')) {
         const user = this.get('session.currentUser');
 
-        const newPresenceObject = this.get('store').createRecord('board-room-presence', {
+        const newPresenceObject = this.store.createRecord('board-room-presence', {
           startTime: moment().startOf('minute').toDate(),
           endTime: moment().startOf('minute').add(1, 'hours').toDate(),
           status: 'present',
@@ -97,8 +97,8 @@ const BoardRoomPresence = Component.extend(CanMixin, {
     },
 
     save() {
-      const presence = this.get('currentUserPresence');
-      const fetch = this.get('fetchData');
+      const presence = this.currentUserPresence;
+      const fetch = this.fetchData;
 
       presence.save().then(() => fetch.perform());
       this.set('presenceModalIsOpen', false);

@@ -35,14 +35,13 @@ export default Controller.extend(formLoadOrCreateMixin, {
     submitResponse() {
       const currentUserResponse = this.get('model.currentUserResponse');
       const form = this.get('model.form');
-      const flashNotice = this.get('flashNotice');
       currentUserResponse.saveWithAnswers().then(() => {
         // The response is the first thing that is saved (in order to save answers), so currently the response is
         // always 'incomplete'. Furthermore, the form has a field 'amountOfResponses' which should be updated.
         // We now reload the response and the corresponding form.
         currentUserResponse.reload();
         form.reload();
-        flashNotice.sendSuccess('Keuze opgeslagen');
+        this.flashNotice.sendSuccess('Keuze opgeslagen');
       }).catch(error => {
         this.set('errorMessage', error.message);
         if (error.errors && error.errors.isAny('source.pointer', '/data/relationships/user')) {
