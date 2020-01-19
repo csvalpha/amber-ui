@@ -3,17 +3,16 @@
     <h5>{{if model.isNew "Foto-album aanmaken" "Foto-album wijzigen"}}</h5>
   </div>
   <div class="card-body">
-
-    {{#if model.publiclyVisible}}
-      <div class="alert alert-info" role="alert">
-        {{t 'Een publiek foto-album verschijnt op de voorpagina, en is ook voor externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg dat je toestemming hebt. Zie het mediabeleid voor meer informatie. '}}
-      </div>
-    {{/if}}
-
     <form {{action "submit" on="submit"}}>
       {{model-form/text-input model=model property="title" label=(t "Titel") required=true}}
       {{model-form/date-input model=model property="date" label=(t "Datum van activiteit")}}
-      {{model-form/checkbox-input model=model property="publiclyVisible" label=(t "Publiek zichtbaar")}}
+      {{model-form/checkbox-input model=model property="publiclyVisible" label=(t "Zichtbaar voor externen")}}
+
+      {{#if model.publiclyVisible}}
+        <div class="alert alert-warning" role="alert">
+          {{t 'Een publiek foto-album verschijnt op de voorpagina, en is ook voor externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg dat je toestemming hebt. Zie het mediabeleid voor meer informatie. '}}
+        </div>
+      {{/if}}
 
       {{#if model.isNew}}
         <div class="alert alert-info">
