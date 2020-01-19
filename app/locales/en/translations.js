@@ -179,8 +179,7 @@ export default {
     },
     lustrum: {
       lustrumBar: {
-        signUp: 'Sign up!',
-        signedUp: 'Signed up!'
+        signUp: 'Sign up via email!',
       }
     },
     socialMediaButtons: {

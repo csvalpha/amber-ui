@@ -31,14 +31,7 @@ const ActivityCardBar = Component.extend({
       return `${content.substr(0, content.lastIndexOf(' ', maxExcerptLength))}...`;
     }
     return content;
-  }),
-  actions: {
-    expand() {
-      if (this.expandable) {
-        this.toggleProperty('expanded');
-      }
-    }
-  }
+  })
 });
 
 ActivityCardBar.reopenClass({

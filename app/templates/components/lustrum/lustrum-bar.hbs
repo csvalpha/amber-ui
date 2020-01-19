@@ -1,5 +1,5 @@
-<aside class="lustrumbar {{colorClass}} {{if expandable "lustrumbar-expandable"}}">
-  <div class="lustrumbar-header" {{action "expand"}}>
+<aside class="lustrumbar {{colorClass}}">
+  <div class="lustrumbar-header">
     <div class="lustrumbar-titles">
       <h2 class="lustrumbar-title" data-test-activity-title>{{activity.title}}</h2>
       <p class="lustrumbar-date" data-test-activity-date>
@@ -22,12 +22,12 @@
     {{#if hasForm}}
       {{#if (can 'create form/responses')}}
         {{#if canSubmitResponse}}
-          <div class="lustrumbar-button" {{action "expand"}}>
-            {{t 'component.lustrum.lustrumBar.signUp'}}
+          <div class="lustrumbar-button">
+            {{t 'Schrijf je in!'}}
           </div>
         {{/if}}
       {{else if activity.publiclyVisible}}
-        <div class="lustrumbar-button" {{action "expand"}}>
+        <div class="lustrumbar-button">
           {{t 'component.lustrum.lustrumBar.signUp'}}
         </div>
       {{/if}}

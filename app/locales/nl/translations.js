@@ -179,8 +179,7 @@ export default {
     },
     lustrum: {
       lustrumBar: {
-        signUp: 'Schrijf je in!',
-        signedUp: 'Ingeschreven!'
+        signUp: 'Schrijf je in via de mail!',
       }
     },
     socialMediaButtons: {
