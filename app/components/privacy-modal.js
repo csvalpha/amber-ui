@@ -16,10 +16,10 @@ export default Component.extend({
   step: 1,
   maxSteps: 6,
   errorMessage: null,
-  userDetailsPreferenceTypes: computed(() => {
+  userDetailsPreferenceTypes: computed(function() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
-  picturePublicationPreferenceTypes: computed(() => {
+  picturePublicationPreferenceTypes: computed(function() {
     return Object.entries(PicturePublicationPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
   actions: {
