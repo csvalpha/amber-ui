@@ -5775,17 +5775,6 @@ ember-cli-dropzonejs@^1.0.0:
     dropzone "^4.3.0"
     ember-cli-babel "^6.0.0"
 
-ember-cli-emojione-shim@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-emojione-shim/-/ember-cli-emojione-shim-1.0.0.tgz#9febec2a35ad5b74005e4fd9eb678e332e27ec7b"
-  integrity sha1-n+vsKjWtW3QAXk/Z62eOMy4n7Hs=
-  dependencies:
-    broccoli-funnel "^1.0.2"
-    broccoli-merge-trees "^1.1.1"
-    ember-cli-babel "^5.1.6"
-    emojione "^2.2.5"
-    lodash.defaults "^4.0.1"
-
 ember-cli-file-picker@^0.0.12:
   version "0.0.12"
   resolved "https://registry.yarnpkg.com/ember-cli-file-picker/-/ember-cli-file-picker-0.0.12.tgz#24cf889c8a7f753f4ebe0e40bf9512e799704fa5"
@@ -6852,11 +6841,6 @@ emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
-
-emojione@^2.2.5, emojione@^2.2.6:
-  version "2.2.7"
-  resolved "https://registry.yarnpkg.com/emojione/-/emojione-2.2.7.tgz#46457cf6b9b2f8da13ae8a2e4e547de06ee15e96"
-  integrity sha1-RkV89rmy+NoTroouTlR94G7hXpY=
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -10303,7 +10287,7 @@ lodash.debounce@^3.1.1:
   dependencies:
     lodash._getnative "^3.0.0"
 
-lodash.defaults@^4.0.1, lodash.defaults@^4.2.0:
+lodash.defaults@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-4.2.0.tgz#d09178716ffea4dde9e5fb7b37f6f0802274580c"
   integrity sha1-0JF4cW/+pN3p5ft7N/bwgCJ0WAw=
