@@ -40,6 +40,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
           return this.save();
         });
       }
+
       return this.save();
     });
   },

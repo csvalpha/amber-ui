@@ -35,7 +35,7 @@ AppRouter.map(function() {
         this.route('edit');
         this.route('destroy');
 
-        this.route('threads', { path: '/threads' }, function() {
+        this.route('threads',  function() {
           this.route('new');
 
           this.route('thread', { path: ':thread_id' }, function() {
@@ -61,7 +61,7 @@ AppRouter.map(function() {
       this.route('edit');
       this.route('destroy');
 
-      this.route('photos', { path: '/photos' }, function() {
+      this.route('photos',  function() {
         this.route('show', { path: '/:photo_id' });
         this.route('destroy', { path: '/:photo_id/destroy' });
       });
@@ -88,7 +88,7 @@ AppRouter.map(function() {
     this.route('show-permissions', { path: '/:id/permissions' });
     this.route('destroy', { path: '/:id/destroy' });
 
-    this.route('webdav', { path: '/webdav' });
+    this.route('webdav');
 
     this.route('forgot_password');
     this.route('activate_account', { path: '/:id/activate_account' });
@@ -134,7 +134,7 @@ AppRouter.map(function() {
 
   this.route('activities', function() {
     this.route('show', { path: '/:id' });
-    this.route('ical', { path: '/ical' });
+    this.route('ical');
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
     this.route('destroy', { path: '/:id/destroy' });

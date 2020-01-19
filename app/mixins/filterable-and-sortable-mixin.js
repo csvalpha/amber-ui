@@ -11,6 +11,7 @@ export default Mixin.create({
       if (this.sortedAscending) {
         return this.sortedAttribute;
       }
+
       return `-${this.sortedAttribute}`;
     },
     set(key, value) {
@@ -22,8 +23,10 @@ export default Mixin.create({
           this.set('sortedAscending', true);
           this.set('sortedAttribute', value);
         }
-        return value;
+
       }
+
+      return value;
     }
   }),
   actions: {

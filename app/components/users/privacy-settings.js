@@ -11,10 +11,10 @@ import ModelSaveMixin from 'alpha-amber/mixins/model-save-mixin';
 export default Component.extend(ModelSaveMixin, {
   session: service(),
   formActionsVisible: true,
-  picturePublicationPreferenceTypes: computed(() => {
+  picturePublicationPreferenceTypes: computed(function() {
     return Object.entries(PicturePublicationPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
-  userDetailsPreferenceTypes: computed(() => {
+  userDetailsPreferenceTypes: computed(function() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
   isOwnUser: computed('session.currentUser', 'model', function() {
