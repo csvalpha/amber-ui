@@ -15,7 +15,7 @@
     {{t 'Deze gegevens zijn alleen zichtbaar voor degene wie je toegang geeft dmv de privacy instellingen.'}}
     {{t 'Deze gegevens zijn wel altijd zichtbaar voor het Bestuur en de ICT-commissie'}}
   </p>
-  {{model-form/text-input     model=model property="email"              label=(t "E-mail")          required=false
+  {{model-form/text-input     model=model property="email"              label=(t "E-mail")          required=true
                               type="email" labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
   {{model-form/text-input     model=model property="address"            label=(t "Adres")           required=true
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
@@ -52,9 +52,6 @@
                               labelClass="col-sm-5" inputWrapperClass="col-sm-7"}}
 
   <h5>{{t "Technische gegevens"}}</h5>
-  {{model-form/text-input     model=model property="username"           label=(t "Gebruikersnaam")
-                              labelClass="col-sm-5" inputWrapperClass="col-sm-7" required=true
-                              disabled=canEditOnlyOwnProperties}}
   {{model-form/checkbox-input model=model property="loginEnabled"   labelClass="col-sm-5" inputWrapperClass="col-sm-7"
                               label=(t "Gebruiker kan inloggen")
                               disabled=canEditOnlyOwnProperties labelColspan=5}}

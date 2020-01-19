@@ -46,9 +46,11 @@
     <div class="card-footer">
       <span itemprop="datePublished" content={{moment-format article.createdAt}}> {{moment-calendar article.createdAt}} </span>
       <span>{{t 'component.cards.articleCard.reactions' count=article.amountOfComments}}</span>
-      {{#link-to 'articles.show' article itemprop='url'}}
-        <span class="float-md-right"> {{t 'tag.button.readMore'}} </span>
-      {{/link-to}}
+      {{#if useMaxHeight}}
+        {{#link-to 'articles.show' article itemprop='url'}}
+          <span class="float-md-right"> {{t 'tag.button.readMore'}} </span>
+        {{/link-to}}
+      {{/if}}
     </div>
   </div>
 </article>
