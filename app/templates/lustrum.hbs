@@ -16,9 +16,11 @@
         <p class="lustrumcard-text">
           {{t "Dit alles doen we onder het thema 'Bestemming'. We willen dit jaar samen met u allen kijken waar we vandaan zijn gekomen en verder zoeken waar we heen mogen."}}
         </p>
-        <p class="lustrumcard-text">
-          {{t "Hieronder ziet u alle activiteiten die we organiseren als Lustrumcommissie. We hopen u alleen hier te zien."}}
-        </p>
+        {{#if model}}
+          <p class="lustrumcard-text">
+            {{t "Hieronder ziet u alle activiteiten die we organiseren als Lustrumcommissie. We hopen u alleen hier te zien."}}
+          </p>
+        {{/if}}
       </div>
     </article>
   </div>

@@ -179,7 +179,7 @@ export default {
     },
     lustrum: {
       lustrumBar: {
-        signUp: 'Sign up via email!',
+        signUp: 'Sign up via email!'
       }
     },
     socialMediaButtons: {
@@ -190,6 +190,7 @@ export default {
   mixin: {
     menuItems: {
       recent: 'Recent',
+      lustrum: 'Lustrum',
       association: 'Association',
       members: 'Members',
       information: 'Information',
@@ -209,8 +210,7 @@ export default {
       polls: 'Polls',
       groups: 'Groups',
       users: 'Users',
-      staticPages: 'Information',
-      lustrum: 'Lustrum'
+      staticPages: 'Information'
     }
   },
   tag: {
