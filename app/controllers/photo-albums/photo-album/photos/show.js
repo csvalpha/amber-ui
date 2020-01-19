@@ -7,6 +7,7 @@ export default Controller.extend({
   store: service(),
   flashNotice: service('flash-notice'),
   content: null,
+  showExif: false,
   advanceToPhoto(delta) {
     const photos = this.get('model.photoAlbum.photos');
     const length = photos.get('length');
@@ -39,6 +40,9 @@ export default Controller.extend({
 
         this.set('content', null);
       });
+    },
+    toggleShowExif() {
+      this.toggleProperty('showExif');
     }
   }
 });
