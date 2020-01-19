@@ -90,6 +90,7 @@ module.exports = function(environment) {
           'circle',
           'clock',
           'code',
+          'coffee',
           'comments',
           'credit-card',
           'download',
