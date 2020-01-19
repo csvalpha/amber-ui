@@ -27,6 +27,7 @@ export default Controller.extend({
             errorMessage = this.i18n.t('Er ging iets mis, probeer het nog een keer');
             break;
         }
+
         this.set('errorMessage', errorMessage);
       });
     }

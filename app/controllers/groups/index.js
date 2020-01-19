@@ -22,6 +22,7 @@ export default Controller.extend(FilterableAndSortableMixin, {
     if (this.search) {
       return ['zoekresultaten'];
     }
+
     return ['bestuur', 'commissie', 'dispuut', 'genootschap', 'groep', 'huis', 'jaargroep', 'werkgroep', 'kring', 'lichting'];
   }),
   selectedGroupKind: computed('search', {
@@ -29,6 +30,7 @@ export default Controller.extend(FilterableAndSortableMixin, {
       if (this.search) {
         return 'zoekresultaten';
       }
+
       return this.get('groupKinds.firstObject');
     },
     set(key, value) {

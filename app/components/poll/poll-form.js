@@ -1,4 +1,4 @@
-import { FormFormComponent } from '../form/form-form';
+import { FormFormComponent } from 'alpha-amber/components/form/form-form';
 
 const PollFormComponent = FormFormComponent.extend();
 

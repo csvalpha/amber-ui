@@ -15,10 +15,10 @@ export default EditController.extend({
   canEditOnlyOwnProperties: computed('session.currentUser', function() {
     return !this.session.hasPermission('user.update') && !this.session.hasPermission('user.create');
   }),
-  digtusSubscriptionPreferenceTypes: computed(() => {
+  digtusSubscriptionPreferenceTypes: computed(function() {
     return Object.entries(DigtusSubscriptionPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
-  almanakSubscriptionPreferenceTypes: computed(() => {
+  almanakSubscriptionPreferenceTypes: computed(function() {
     return Object.entries(AlmanakSubscriptionPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
   isOwnUser: computed('session.currentUser', 'model', function() {

@@ -9,11 +9,13 @@ export default RavenService.extend({
         const status = get(error, 'errors.firstObject.status');
         return ['401', '404'].includes(String(status));
       }
+
       if (error.isAuthorizationMixinError) {
         // This is an error caused by the authorization route mixin denying access to a user (not when a 403 is returned)
         return true;
       }
     }
+
     return false;
   }
 });
