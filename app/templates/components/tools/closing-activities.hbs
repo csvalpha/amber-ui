@@ -1,36 +1,34 @@
-<div class="card tool">
-  <div class="card-header">
-    <div class="d-flex justify-content-between">
-      {{#link-to 'activities.index'}}
-        <h5 class="card-text">{{t "Sluitende inschrijflijsten"}}</h5>
-      {{/link-to}}
-      <div class="col-xs-1 tool-actions">
-        <a href="#">
-          {{fa-icon 'question-circle' class="link-highlight"}}
+{{#if activities}}
+  <div class="card tool">
+    <div class="card-header">
+      <div class="d-flex justify-content-between">
+        {{#link-to 'activities.index'}}
+          <h5 class="card-text">{{t "Sluitende inschrijflijsten"}}</h5>
+        {{/link-to}}
+        <div class="col-xs-1 tool-actions">
+          <a href="#">
+            {{fa-icon 'question-circle' class="link-highlight"}}
 
-          {{#bs-popover triggerEvents="focus" placement="bottom"}}
-            <div class="d-block"><div class="status-dot badge-info"></div> {{t 'Inschrijving open'}}</div>
-            <div class="d-block"><div class="status-dot badge-success"></div> {{t 'Ingeschreven'}} / {{t 'vrij toegankelijk'}}</div>
-            <div class="d-block"><div class="status-dot badge-danger"></div> {{t 'Niet ingeschreven'}}</div>
-            <div class="d-block"><div class="status-dot badge-default"></div> {{t 'Inschrijving nog niet open'}}</div>
-          {{/bs-popover}}
-        </a>
+            {{#bs-popover triggerEvents="focus" placement="bottom"}}
+              <div class="d-block"><div class="status-dot badge-info"></div> {{t 'Inschrijving open'}}</div>
+              <div class="d-block"><div class="status-dot badge-success"></div> {{t 'Ingeschreven'}} / {{t 'vrij toegankelijk'}}</div>
+              <div class="d-block"><div class="status-dot badge-danger"></div> {{t 'Niet ingeschreven'}}</div>
+              <div class="d-block"><div class="status-dot badge-default"></div> {{t 'Inschrijving nog niet open'}}</div>
+            {{/bs-popover}}
+          </a>
+        </div>
       </div>
     </div>
-  </div>
 
-  <ul class="list-group list-group-flush">
-    {{#each activities as |activity|}}
-      {{#link-to 'activities.show' activity}}
-        <li class="list-group-item">
-          <span class="activity-tool-title "> {{activity.title}} </span> <br>
-          <span class="activity-tool-start-time text-muted"> {{form/status-dot activity.form}} {{form-opened-label activity.form}}</span>
-        </li>
-      {{/link-to}}
-    {{else}}
-      <li class="list-group-item">
-        {{t 'Er zijn de komende 7 dagen geen inschrijflijsten die sluiten'}}
-      </li>
-    {{/each}}
-  </ul>
-</div>
+    <ul class="list-group list-group-flush">
+      {{#each activities as |activity|}}
+        {{#link-to 'activities.show' activity}}
+          <li class="list-group-item">
+            <span class="activity-tool-title "> {{activity.title}} </span> <br>
+            <span class="activity-tool-start-time text-muted"> {{form/status-dot activity.form}} {{form-opened-label activity.form}}</span>
+          </li>
+        {{/link-to}}
+      {{/each}}
+    </ul>
+  </div>
+{{/if}}

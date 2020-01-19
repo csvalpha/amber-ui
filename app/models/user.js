@@ -62,6 +62,7 @@ export default Model.extend(AvatarModelMixin, {
     if (this.lastNamePrefix === null) {
       return `${this.firstName} ${this.lastName}`;
     }
+
     return `${this.firstName} ${this.lastNamePrefix} ${this.lastName}`;
   }),
 

@@ -22,10 +22,14 @@ module.exports = {
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
     'ember/closure-actions': 1,
+    'ember/no-observers': 1,
+    'ember/no-new-mixins': 1,
     'object-curly-spacing': [
       'error',
       'always'
     ],
+    'ember-suave/lines-between-object-properties': 0,
+    'ember-suave/require-access-in-comments': 0
   },
   globals: {
     'moment': true,

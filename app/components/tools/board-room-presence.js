@@ -64,6 +64,7 @@ const BoardRoomPresence = Component.extend(CanMixin, {
     } else if (currentStatusses.includes('busy')) {
       return 'busy';
     }
+
     return 'absent';
   }),
 
