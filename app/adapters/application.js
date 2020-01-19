@@ -1,6 +1,5 @@
-import { get } from '@ember/object';
+import { get, computed } from '@ember/object';
 import { underscore } from '@ember/string';
-import { computed } from '@ember/object';
 import $ from 'jquery';
 import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';

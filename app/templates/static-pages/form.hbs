@@ -5,7 +5,7 @@
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
       {{model-form/text-input model=model property='title'                label='Titel'}}
-      {{model-form/select-input   model=model property="category"         label="Categorie")         options=staticPageCategoryOptions required=true}}
+      {{model-form/select-input   model=model property="category"         label="Categorie"         options=staticPageCategoryOptions required=true}}
       {{model-form/checkbox-input model=model property='publiclyVisible'  label='Zichtbaar voor externen'}}
 
       {{#if model.publiclyVisible}}
