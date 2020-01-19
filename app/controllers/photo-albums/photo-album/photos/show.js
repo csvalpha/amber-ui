@@ -7,7 +7,7 @@ export default Controller.extend({
   store: service(),
   flashNotice: service('flash-notice'),
   content: null,
-  showExif: true,
+  showExif: false,
   advanceToPhoto(delta) {
     const photos = this.get('model.photoAlbum.photos');
     const length = photos.get('length');
