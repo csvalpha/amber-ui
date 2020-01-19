@@ -47,6 +47,7 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
     } else if (moment().isSame(startTime, 'day')) {
       return `Vandaag, ${prettyStartTime}`;
     }
+
     return prettyStartDateTime;
   }),
 
@@ -61,6 +62,7 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
           return this.save();
         });
       }
+
       return this.save();
     });
   },

@@ -9,6 +9,7 @@ export function initialize(/* application */) {
       if (this.hasDirtyAttributes) {
         return this.save();
       }
+
       return resolve(this);
     }
   });

@@ -34,6 +34,7 @@ export const FormStatusIconComponent = Component.extend({
     } else if (this.form.get('canRespond')) {
       return 'primary';
     }
+
     return 'dark';
   }),
   icon: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
@@ -46,6 +47,7 @@ export const FormStatusIconComponent = Component.extend({
     } else if (this.form.get('opensLater')) {
       return 'clock';
     }
+
     return 'lock';
   })
 });

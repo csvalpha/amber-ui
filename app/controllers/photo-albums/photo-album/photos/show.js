@@ -37,6 +37,7 @@ export default Controller.extend({
         } else {
           reject();
         }
+
         this.set('content', null);
       });
     },

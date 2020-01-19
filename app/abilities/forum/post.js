@@ -10,6 +10,7 @@ export default Ability.extend({
       // Permission to both update post and thread
       return this.session.hasPermission('forum/post.update') && this.session.hasPermission('forum/thread.update');
     }
+
     // Permission to update or owner of post
     return this.session.hasPermission('forum/post.update') || this.isPostOwner(this.model);
   }),
