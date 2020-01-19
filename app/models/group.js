@@ -29,9 +29,11 @@ export default Model.extend(AvatarModelMixin, {
     if (this.rejectedAtGma !== null) {
       return `${this.recognizedAtGma} - ${this.rejectedAtGma}`;
     }
+
     if (this.recognizedAtGma !== null) {
       return `${this.recognizedAtGma} - heden`;
     }
+
     return null;
   }),
   alternativeGroupLogoText: computed('name', function() {

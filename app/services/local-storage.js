@@ -28,6 +28,7 @@ export default Service.extend({
         this.set('isEnabled', false);
       }
     }
+
     this._super(...arguments);
   },
 
@@ -35,6 +36,7 @@ export default Service.extend({
     if (this.isSupportedAndEnabled) {
       return localStorage.getItem(key);
     }
+
     return null;
   },
 
@@ -43,6 +45,7 @@ export default Service.extend({
       localStorage.setItem(key, value);
       return true;
     }
+
     return false;
   }
 

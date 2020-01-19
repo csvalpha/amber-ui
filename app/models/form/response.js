@@ -33,6 +33,7 @@ export default Model.extend({
         )
     ]).then(() => {
       const groupedAnswers = this.groupAnswers(this.answers);
+      // eslint-disable-next-line ember/no-side-effects
       this.set('groupedAnswers', groupedAnswers);
       return groupedAnswers;
     });
@@ -60,6 +61,7 @@ export default Model.extend({
         if (!result.get(questionId)) {
           result.set(questionId, new A());
         }
+
         result.get(questionId).push(answer);
       }
     });

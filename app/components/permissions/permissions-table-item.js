@@ -16,6 +16,7 @@ const PermissionsTableItemComponent = Component.extend({
       } else if (this.modelPermissions.includes(this.permission)) {
         this.modelPermissions.removeObject(this.permission);
       }
+
       return value;
     }
   }),

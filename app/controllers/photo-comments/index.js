@@ -36,6 +36,7 @@ export default Controller.extend(FilterableAndSortableMixin, PagedModelControlle
         } else {
           reject();
         }
+
         this.commentContent.set(photo.get('id'), '');
       });
     }
