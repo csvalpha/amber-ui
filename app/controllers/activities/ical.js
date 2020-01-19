@@ -6,12 +6,12 @@ import { ActivityCategories } from 'alpha-amber/constants';
 
 export default Controller.extend({
   session: service(),
-  checkedAll: computed(() => {
+  checkedAll: computed(function() {
     const categorySelector = $('#activityCategoryForm');
     return categorySelector.find('input:checked').length === categorySelector.find('input').length;
   }),
 
-  categoriesParams: computed(() => {
+  categoriesParams: computed(function() {
     const form = $('#activityCategoryForm');
     const selected = [];
     form.serializeArray()

@@ -46,6 +46,7 @@ export default Component.extend(CanMixin, {
     } else if (count > 0.8 * max) {
       return 'warning';
     }
+
     return 'primary';
   }),
   progressBarStyle: computed('characterCountPercentage', function() {

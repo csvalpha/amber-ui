@@ -45,6 +45,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
     if (!params.showPassed) {
       params.filter = { upcoming: true };
     }
+
     return this.findPaged(this.modelName, params);
   }
 });
