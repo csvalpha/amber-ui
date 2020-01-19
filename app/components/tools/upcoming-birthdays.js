@@ -29,6 +29,7 @@ export default Component.extend({
           }
         });
       }
+
       // Set on component
       this.set('usersWithBirthdayToday', usersWithBirthdayToday.sortBy('birthday'));
       this.set('usersWithUpcomingBirthday', usersWithUpcomingBirthday.sortBy('upcomingBirthdayDate'));

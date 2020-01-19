@@ -19,6 +19,7 @@ export default Controller.extend({
       if (!isNone(this.model)) {
         this.set('model.posts.page', value);
       }
+
       return value;
     }
   }),

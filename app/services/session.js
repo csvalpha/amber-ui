@@ -40,6 +40,7 @@ export default Session.extend({
       if (user === null) {
         return;
       }
+
       this.raven.callRaven('setUserContext', {
         id: user.get('id')
       });

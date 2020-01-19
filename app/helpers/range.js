@@ -5,6 +5,7 @@ export function range([first, last]) {
   for (let i = first; i < last; ++i) {
     range.push(i);
   }
+
   return range;
 }
 

@@ -9,6 +9,7 @@ const MenuSidebarItemComponent = Component.extend({
       if (this.minor) {
         this.layoutManager.closeProfileMenu();
       }
+
       this.layoutManager.closeLeftSidebarIfOnMobile();
     }
   }
