@@ -39,17 +39,21 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     if (!params.filter) {
       params.filter = {};
     }
+
     if (params.search) {
       params.filter.search = params.search;
     } else if (params.selectedGroupKind) {
       params.filter.kind = params.selectedGroupKind;
     }
+
     if (!params.showAdministrative) {
       params.filter.administrative = false;
     }
+
     if (!params.showInactive) {
       params.filter.active = true;
     }
+
     delete params.selectedGroupKind;
     delete params.showAdministrative;
     delete params.showInactive;

@@ -13,6 +13,7 @@ export default Mixin.create({
       if (!isNone(this.model)) {
         this.set('model.page', value);
       }
+
       return value;
     }
   }),

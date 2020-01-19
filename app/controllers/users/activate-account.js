@@ -19,6 +19,7 @@ export default Controller.extend({
     } else if (isNone(this.passwordConfirmation) || this.password !== this.passwordConfirmation) {
       return 'De 2 wachtwoorden komen niet overeen.';
     }
+
     return false;
   }),
 
@@ -40,6 +41,7 @@ export default Controller.extend({
         if (isNotFoundError(error)) {
           errorMessage = 'Token niet geldig, vraag een nieuwe aan';
         }
+
         this.set('errorMessage', errorMessage);
       });
     }

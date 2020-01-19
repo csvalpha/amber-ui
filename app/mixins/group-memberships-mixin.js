@@ -18,6 +18,7 @@ export default Mixin.create({
     } else {
       records = this.currentMemberships;
     }
+
     return this.sortModels(this.filterModels(records));
   }),
   filterModels(models) {
@@ -44,6 +45,7 @@ export default Mixin.create({
       if (membership.get('endDate') && membership.get('endDate') < moment.now()) {
         return true;
       }
+
       return false;
     });
   }),
@@ -52,6 +54,7 @@ export default Mixin.create({
       if (membership.get('endDate') && membership.get('endDate') < moment.now()) {
         return false;
       }
+
       return true;
     });
   }),
@@ -61,11 +64,14 @@ export default Mixin.create({
       if (this.oldMemberships.length === 0 && this.currentMemberships.length > 0) {
         return false;
       }
+
       return true;
     }
+
     if (this.currentMemberships.length === 0 && this.oldMemberships.length > 0) {
       return true;
     }
+
     return false;
   }),
 

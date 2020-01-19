@@ -42,7 +42,7 @@
           <span data-test-activity-endTime>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
-          {{fa-icon 'map-marker' prefix='fas'}}
+          {{fa-icon 'map-marker'}}
           <span data-test-activity-location>
             <a href="https://maps.google.com/?q={{activity.location}}" target="_blank">
               {{activity.location}}
@@ -68,7 +68,7 @@
           <span>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="col-12 col-md-4 card-subheader-item align-items-center p-3">
-          {{fa-icon 'map-marker' prefix='fas'}}
+          {{fa-icon 'map-marker'}}
           <span>
             <a href="https://maps.google.com/?q={{activity.location}}" target="_blank">
               {{activity.location}}

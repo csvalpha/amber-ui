@@ -4,17 +4,18 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
+      {{model-form/text-input model=model property='title'                label='Titel'}}
+      {{model-form/select-input   model=model property="category"         label="Categorie")         options=staticPageCategoryOptions required=true}}
+      {{model-form/checkbox-input model=model property='publiclyVisible'  label='Zichtbaar voor externen'}}
+
       {{#if model.publiclyVisible}}
-        <div class="alert alert-info" role="alert">
-          Een publiek informatie pagina is ook zichtbaar voor niet-leden. Hou hier rekening mee.
+        <div class="alert alert-warning" role="alert">
+          Een publiek informatie pagina is ook zichtbaar voor niet-leden. Houd hier rekening mee.
         </div>
       {{/if}}
-      {{model-form/text-input model=model property='title'                label='Titel'}}
-      {{model-form/select-input   model=model property="category"         label='Categorie'         options=staticPageCategoryOptions required=true}}
-      {{model-form/checkbox-input model=model property='publiclyVisible'  label='Publiek zichtbaar'}}
 
       <div class="row">
-        <label for="article-form-content col-form-label form-control-label" class="col-sm-2">Inhoud</label>
+        <label for="article-form-content col-form-label form-control-label" class="col-sm-2">{{t "Inhoud"}}</label>
         <div class="col-sm-10">
           {{md-editor content=model.content}}
         </div>

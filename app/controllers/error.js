@@ -44,10 +44,11 @@ export default Controller.extend({
   }),
   init() {
     this._super();
-    run.scheduleOnce('afterRender', this, function() {
-      if (this.showStatic) {
-        this.flashNotice.sendWarning('De backend is momenteel niet bereikbaar. U ziet een statische versie van de website.', true);
-      }
-    });
+    run.scheduleOnce('afterRender', this, this.checkBackend);
+  },
+  checkBackend() {
+    if (this.showStatic) {
+      this.flashNotice.sendWarning('De backend is momenteel niet bereikbaar. U ziet een statische versie van de website.', true);
+    }
   }
 });

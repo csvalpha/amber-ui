@@ -35,6 +35,7 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
     if (query) {
       url += `?${$.param(query)}`;
     }
+
     return url;
   },
 
@@ -48,9 +49,11 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
       if (!query.filter) {
         query.filter = {};
       }
+
       query.filter.search = query.search;
       delete query.search;
     }
+
     return this._super(store, type, query);
   }
 });

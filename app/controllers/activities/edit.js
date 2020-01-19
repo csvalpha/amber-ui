@@ -23,6 +23,7 @@ export default Controller.extend(CanMixin, {
       } else {
         this.set('model.form', null);
       }
+
       return value;
     }
   }),
@@ -31,6 +32,7 @@ export default Controller.extend(CanMixin, {
     if (this.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
+
     return this.get('session.currentUser').get('groups');
   }),
 
