@@ -85,6 +85,8 @@ template:
   photos:
     show:
       photographer: Photo uploaded by
+  lustrum:
+    activities: Activities
 component:
   cards:
     articleCard:
@@ -174,12 +176,16 @@ component:
         The good conversations, the friendships and epic drinks and parties in our
         pub make sure that Alpha is a great completion of my time as a student in
         Enschede!
+  lustrum:
+    lustrumBar:
+      signUp: Sign up!
   socialMediaButtons:
     facebook: Like us on Facebook
     instagram: Follow us on Instagram
 mixin:
   menuItems:
     recent: Recent
+    lustrum: Lustrum
     association: Association
     members: Members
     information: Information
