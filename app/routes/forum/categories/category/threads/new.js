@@ -19,6 +19,7 @@ export default NewRoute.extend({
     if (thread) {
       thread.rollbackAttributes();
     }
+
     if (post) {
       post.rollbackAttributes();
     }

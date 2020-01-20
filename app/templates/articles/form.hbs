@@ -4,17 +4,18 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
+      {{model-form/text-input       model=model property='title'            label=(t 'Titel') maxlength=50}}
+      {{model-form/file-input      model=model property="coverPhoto"       label=(t "Coverfoto") fileLoaded=(action "coverPhotoLoaded")}}
+      {{model-form/checkbox-input   model=model property='publiclyVisible'  label=(t 'Zichtbaar voor externen')}}
+
       {{#if model.publiclyVisible}}
-        <div class="alert alert-info" role="alert">
+        <div class="alert alert-warning" role="alert">
           {{t 'Een publiek artikel is ook zichtbaar voor niet-leden.
           Fijn dat je ook helpt om te laten zien dat Alpha een levendige boel is!
           Houd hier wel rekening mee in je artikel.'}} <br>
           {{t 'Plaats je een coverfoto met mensen er op? Zorg dan wel dat je toestemming van deze mensen hebt.'}}
         </div>
       {{/if}}
-      {{model-form/text-input       model=model property='title'            label=(t 'Titel') maxlength=50}}
-      {{model-form/checkbox-input   model=model property='publiclyVisible'  label=(t 'Publiek zichtbaar')}}
-      {{model-form/file-input      model=model property="coverPhoto"       label=(t "Coverfoto") fileLoaded=(action "coverPhotoLoaded")}}
 
       <div class="form-group row">
         <label class="col-md-2 form-control-label">{{t 'Namens groep of commissie'}}</label>
