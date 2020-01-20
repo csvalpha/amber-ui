@@ -26,7 +26,7 @@
           {{#dd.menu class="emoticon-holder" as |menu|}}
             <div class="row">
               {{#each emoticons as |emoticon|}}
-                <div class="emoticon" {{action 'appendSmileyToText' emoticon }}> {{convert-to-emojione emoticon}} </div>
+                <div class="emoticon" {{action 'appendSmileyToText' emoticon }}> {{emoticon}} </div>
               {{/each}}
             </div>
           {{/dd.menu}}
@@ -56,7 +56,7 @@
               {{moment-format message.createdAt 'dddd D MMMM HH:mm'}}
             </small>
           </div>
-          <p class="qp-message-text"> {{convert-to-emojione (linkify message.message "_blank" urlLength=30)}} </p>
+          <p class="qp-message-text"> {{linkify message.message "_blank" urlLength=30}} </p>
         </div>
       </div>
     {{/each}}

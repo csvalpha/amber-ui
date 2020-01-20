@@ -33,7 +33,6 @@ module.exports = {
   },
   globals: {
     'moment': true,
-    'emojione': true,
   },
   overrides: [
     // node files
