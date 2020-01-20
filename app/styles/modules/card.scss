@@ -168,7 +168,7 @@ $card-border: 0 solid $gray-300;
 %gradient-overlay {
   background: linear-gradient(to bottom, $transparent 0%, $opaque-black-two-thirds 100%);
   // stylelint-disable-next-line function-name-case
-  filter: progid:dximagetransform.microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
 }
 
 .gradient-overlay {
