@@ -4,7 +4,7 @@ import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index'
 import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
-  i18n: service(),
+  intl: service(),
   canAccess() {
     return this.can('show articles');
   },
@@ -12,7 +12,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'article',
 
   title: computed(function() {
-    return this.i18n.t('model.article.name.other').toString().capitalize();
+    return this.intl.t('model.article.name.other').toString().capitalize();
   }),
 
   pageActions: computed(function() {

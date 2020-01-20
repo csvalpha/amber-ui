@@ -15,11 +15,11 @@
 {{#if currentPageIsLastPage}}
   {{#unless model.thread.isOpen}}
     <div class="alert alert-danger" role="alert">
-      <strong>{{t "Dit topic is gesloten!"}}</strong>
+      <strong>Dit topic is gesloten!</strong>
       {{#if (can 'create post for forum/thread' model.thread)}}
-        {{t "Jij kunt echter nog wel reageren omdat je moderatierechten hebt."}}
+        Jij kunt echter nog wel reageren omdat je moderatierechten hebt.
       {{else}}
-        {{t "Je kunt niet meer reageren."}}
+        Je kunt niet meer reageren.
       {{/if}}
     </div>
   {{/unless}}
@@ -27,7 +27,7 @@
   {{#if (can 'create post for forum/thread' model.thread)}}
     <div class="card">
       <div class="card-header">
-        <h5>{{t "Reageren"}}</h5>
+        <h5>Reageren</h5>
       </div>
       <div class="card-body">
         {{forum/forum-post-new thread=model.thread content=newContent onSave='refreshModelsAndRedirectToLastPage'}}

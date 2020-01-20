@@ -14,7 +14,7 @@
 
       <div class="d-flex float-right">
         <span class="qp-characters-indicator {{if tooMuchText 'text-danger' 'text-muted'}} {{unless currentCharacterCount 'hidden'}} pt-2 pr-3">
-          {{currentCharacterCount}} {{t "/"}} {{maxCharacters}}
+          {{currentCharacterCount}} / {{maxCharacters}}
         </span>
 
         {{quick-post-notification-button}}
@@ -26,13 +26,13 @@
           {{#dd.menu class="emoticon-holder" as |menu|}}
             <div class="row">
               {{#each emoticons as |emoticon|}}
-                <div class="emoticon" {{action 'appendSmileyToText' emoticon }}> {{convert-to-emojione emoticon}} </div>
+                <div class="emoticon" {{action 'appendSmileyToText' emoticon }}> {{emoticon}} </div>
               {{/each}}
             </div>
           {{/dd.menu}}
         {{/bs-dropdown}}
 
-        <button class="btn btn-primary ml-1 mb-3 {{if tooMuchText 'disabled'}}" {{action "saveMessage"}}> {{t "Versturen"}} </button>
+        <button class="btn btn-primary ml-1 mb-3 {{if tooMuchText 'disabled'}}" {{action "saveMessage"}}> Versturen </button>
       </div>
     </div>
 
@@ -56,12 +56,12 @@
               {{moment-format message.createdAt 'dddd D MMMM HH:mm'}}
             </small>
           </div>
-          <p class="qp-message-text"> {{convert-to-emojione (linkify message.message "_blank" urlLength=30)}} </p>
+          <p class="qp-message-text"> {{linkify message.message "_blank" urlLength=30}} </p>
         </div>
       </div>
     {{/each}}
     {{#if showLoaderButton}}
-      <button class="btn btn-sm btn-block btn-secondary btn-read-more" {{action "loadMore"}}>{{t 'Meer laden'}}</button>
+      <button class="btn btn-sm btn-block btn-secondary btn-read-more" {{action "loadMore"}}>Meer laden</button>
     {{/if}}
   </div>
 </div>

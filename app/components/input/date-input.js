@@ -4,7 +4,6 @@ import { oneWay } from '@ember/object/computed';
 import TimeInputComponent from './time-input';
 
 export default TimeInputComponent.extend({
-  i18n: service(),
   media: service(),
   momentFieldsToUpdate: ['year', 'month', 'date'],
   showNativeDateInput: oneWay('media.isMobile'),
@@ -18,8 +17,8 @@ export default TimeInputComponent.extend({
   pikadayFormat: 'DD-MM-YYYY',
   pikadayI18n: computed(function() {
     return {
-      previousMonth: this.i18n.t('Vorige maand'),
-      nextMonth: this.i18n.t('Volgende maand'),
+      previousMonth: 'Vorige maand',
+      nextMonth: 'Volgende maand',
       months: moment.localeData()._months,
       weekdays: moment.localeData()._weekdays,
       weekdaysShort: moment.localeData()._weekdaysShort

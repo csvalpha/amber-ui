@@ -8,7 +8,7 @@ moduleFor('route:articles/index', 'Unit | Route | articles/index', {
     'service:layout-manager',
     'service:router-scroll',
     'service:scheduler',
-    'service:i18n'
+    'service:intl'
   ]
 });
 

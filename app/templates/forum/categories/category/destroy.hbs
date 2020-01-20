@@ -1,17 +1,17 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t "Categorie verwijderen"}} </h5>
+    <h5> Categorie verwijderen </h5>
   </div>
   <div class="card-body">
     <p class="card-text">
-      {{t 'Weet je zeker dat je deze forumcategorie ('}}{{model.name}}{{t ') wilt verwijderen?'}}
+      Weet je zeker dat je deze forumcategorie ({{model.name}}) wilt verwijderen?
     </p>
     {{#if errorMessage}}
       <div class="text-danger">{{errorMessage}}</div>
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action 'destroy'}} class="btn btn-danger">{{t 'Verwijderen'}}</button>
-    {{#link-to 'forum.categories.category' model class='btn btn-default'}}{{t 'Annuleren'}}{{/link-to}}
+    <button {{action 'destroy'}} class="btn btn-danger">Verwijderen</button>
+    {{#link-to 'forum.categories.category' model class='btn btn-default'}}Annuleren{{/link-to}}
   </div>
 </div>

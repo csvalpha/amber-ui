@@ -2,39 +2,39 @@
   <div class="col">
     <div class="card">
       <div class="card-header">
-        <h5>{{t "Contactsynchronisatie"}}</h5>
+        <h5>Contactsynchronisatie</h5>
       </div>
       <div class="card-body">
         <p>
-          {{t 'Hier kan je alle informatie vinden voor de contactsynchronisatie.
+          Hier kan je alle informatie vinden voor de contactsynchronisatie.
                 Met de contactsynchronisatie is het mogelijk om alle Alpha leden (die hier toestemming voor hebben gegeven) automatisch in je telefoon/contactenlijst toe te voegen.
-                Hoe je deze gegevens kan synchroniseren verschilt per apparaat.'}}
-          <b>{{t 'Hoe je dit kan instellen kan je vinden via Informatie -> Contacten Synchroniseren.'}}</b>
+                Hoe je deze gegevens kan synchroniseren verschilt per apparaat.
+          <b>Hoe je dit kan instellen kan je vinden via Informatie -> Contacten Synchroniseren.</b>
         </p>
         <hr>
 
         {{#if webDavEnabled}}
           <p>
-            {{t 'Je persoonlijke contactsynchronisatie link staat hier onder.
+            Je persoonlijke contactsynchronisatie link staat hier onder.
                   Voeg deze url toe aan je contacten om automatisch alle leden in je telefoon te hebben.
-                  Indien je contacten applicatie om een gebruikersnaam/wachtwoord vraagt kunt u hier gewoon iets invullen (bijvoorbeeld alpha/alpha).'}}
+                  Indien je contacten applicatie om een gebruikersnaam/wachtwoord vraagt kunt u hier gewoon iets invullen (bijvoorbeeld alpha/alpha).
           </p>
 
           <div class="alert alert-warning">
-            <b> {{t "Dit is een persoonlijke link en kan dus niet gedeeld worden met anderen."}} </b>
+            <b> Dit is een persoonlijke link en kan dus niet gedeeld worden met anderen. </b>
           </div>
           <p><code>{{webDavURL}}</code></p>
 
         {{else}}
           <div class="alert alert-danger">
             <p>
-              {{t "Je hebt de contactsynchronisatie nog niet geactiveerd. Als je gebruik wilt maken zal je deze eerst moeten activeren."}}
+              Je hebt de contactsynchronisatie nog niet geactiveerd. Als je gebruik wilt maken zal je deze eerst moeten activeren.
               <b>
-                {{t "Door de contactsynchronisatie te activeren ga je er akkoord mee dat jouw gegevens (naam, adres, email, geboortedatum)  ook in de contactsynchronisatie komen."}}
+                Door de contactsynchronisatie te activeren ga je er akkoord mee dat jouw gegevens (naam, adres, email, geboortedatum)  ook in de contactsynchronisatie komen.
               </b>
             </p>
 
-            <button class="btn btn-primary" {{action 'generateWebdavSecret'}}>{{t 'Contactsynchronisatie activeren'}}</button>
+            <button class="btn btn-primary" {{action 'generateWebdavSecret'}}>Contactsynchronisatie activeren</button>
           </div>
         {{/if}}
 

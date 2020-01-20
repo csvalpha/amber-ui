@@ -6,21 +6,21 @@
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
-    <span class="col-3"> {{t "ID"}} </span>
-    <span class="col-3"> {{t "Startdatum"}} </span>
-    <span class="col-3"> {{t "Einddatum"}} </span>
-    <span class="col-3"> {{t "Gebruiker"}} </span>
+    <span class="col-3"> ID </span>
+    <span class="col-3"> Startdatum </span>
+    <span class="col-3"> Einddatum </span>
+    <span class="col-3"> Gebruiker </span>
   </div>
 
   {{#each pagedModel as |mandate|}}
     {{#link-to 'debit.mandates.show' mandate}}
       <div class="row rtable-row">
-        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "ID: "}} </span> <b> {{mandate.id}} </b> </span>
-        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "Startdatum: "}} </span>{{moment-format mandate.startDate 'DD-M-YYYY'}} </span>
-        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "Einddatum: "}} </span> {{moment-format mandate.endDate 'DD-M-YYYY'}} </span>
+        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> ID:  </span> <b> {{mandate.id}} </b> </span>
+        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Startdatum:  </span>{{moment-format mandate.startDate 'DD-M-YYYY'}} </span>
+        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Einddatum:  </span> {{moment-format mandate.endDate 'DD-M-YYYY'}} </span>
 
         {{#link-to 'users.show' mandate.user}}
-          <span class="col-8 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> {{t "Gebruiker: "}} </span> {{mandate.user.fullName}} </span>
+          <span class="col-8 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Gebruiker:  </span> {{mandate.user.fullName}} </span>
         {{/link-to}}
       </div>
     {{/link-to}}

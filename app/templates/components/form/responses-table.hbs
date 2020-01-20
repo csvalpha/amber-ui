@@ -3,13 +3,13 @@
     {{#if showCheckbox}}
       <th class="table-collumn-narrow"></th>
     {{/if}}
-    <th> {{t 'Naam'}} </th>
+    <th> Naam </th>
     {{#each form.sortedQuestions as |question|}}
       <th> {{question.question}} </th>
     {{/each}}
     {{#if showAllergyInfo}}
-      <th>{{t 'dieetwensen'}}</th>
-      <th>{{t 'vegetariër'}}</th>
+      <th>dieetwensen</th>
+      <th>vegetariër</th>
     {{/if}}
   </tr>
 </thead>
@@ -23,7 +23,7 @@
     <tr>
       <td colspan="100%">
         <div class="alert alert-warning">
-          {{t 'Geen inschrijvingen die voldoen aan de huidige filteropties.'}}
+          Geen inschrijvingen die voldoen aan de huidige filteropties.
         </div>
       </td>
     </tr>

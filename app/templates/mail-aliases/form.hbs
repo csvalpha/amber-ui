@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header">
-    <h2>{{t "Details"}}</h2>
+    <h2>Details</h2>
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property='email' label=(t 'E-mail') required=true type="email" placeholder="voorbeeld@csvalpha.nl"}}
-      {{model-form/select-input model=model property='moderationType' options=mailAliasModerationTypes label=(t 'Moderatietype')}}
+      {{model-form/text-input model=model property='email' label='E-mail' required=true type="email" placeholder="voorbeeld@csvalpha.nl"}}
+      {{model-form/select-input model=model property='moderationType' options=mailAliasModerationTypes label='Moderatietype'}}
 
       <div class="form-group row">
-        <label class="col-md-2 form-control-label">{{t 'Moderator'}}</label>
+        <label class="col-md-2 form-control-label">Moderator</label>
 
         <div class="col-sm-10">
           {{#power-select
@@ -16,7 +16,7 @@
             onchange=(action (mut model.moderatorGroup))
             selected=model.moderatorGroup
             disabled=moderationTypeOpen
-            placeholder=(t 'Moderator')
+            placeholder=Moderator
             searchField="name" as |group|}}
             {{group.name}}
           {{/power-select}}
@@ -25,10 +25,10 @@
         </div>
       </div>
 
-      {{model-form/text-input model=model property='description' label=(t 'Omschrijving')}}
+      {{model-form/text-input model=model property='description' label='Omschrijving'}}
 
       <div class="form-group row">
-        <label class="col-md-2 form-control-label">{{t 'Groep'}}</label>
+        <label class="col-md-2 form-control-label">Groep</label>
 
         <div class="col-sm-10">
           {{#power-select
@@ -36,7 +36,7 @@
             onchange=(action (mut model.group))
             selected=model.group
             disabled=anyUser
-            placeholder=(t 'Groep')
+            placeholder=Groep
             searchField="name" as |group|}}
             {{group.name}}
           {{/power-select}}
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-group row">
-        <label class="col-md-2 form-control-label">{{t 'Groep'}}</label>
+        <label class="col-md-2 form-control-label">Groep</label>
 
         <div class="col-sm-10">
           {{#power-select
@@ -54,7 +54,7 @@
             onchange=(action (mut model.user))
             selected=model.user
             disabled=anyGroup
-            placeholder=(t 'Gebruiker')
+            placeholder=Gebruiker
             searchField="fullName" as |user|}}
             {{user.fullName}}
           {{/power-select}}
@@ -63,10 +63,10 @@
         </div>
       </div>
 
-      {{model-form/checkbox-input model=model property="smtpEnabled" label=(t "SMTP inschakelen")}}
+      {{model-form/checkbox-input model=model property="smtpEnabled" label='SMTP inschakelen'}}
 
       {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "mail-aliases.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "mail-aliases.index" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </form>
   </div>

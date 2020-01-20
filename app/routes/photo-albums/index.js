@@ -4,7 +4,7 @@ import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index'
 import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
-  i18n: service(),
+  intl: service(),
   canAccess() {
     return this.can('show photo-albums');
   },
@@ -12,7 +12,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'photo-album',
 
   title: computed(function() {
-    return this.i18n.t('model.photoAlbum.name.other').toString().capitalize();
+    return this.intl.t('model.photoAlbum.name.other').toString().capitalize();
   }),
 
   perPage: 10,

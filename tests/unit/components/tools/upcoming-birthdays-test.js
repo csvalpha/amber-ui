@@ -3,7 +3,7 @@ import { moduleForComponent, test } from 'ember-qunit';
 import startMirage from 'alpha-amber/tests/helpers/setup-mirage-for-integration';
 
 moduleForComponent('tools/upcoming_birthdays', 'Unit | Component | tools/upcoming birthdays', {
-  needs: ['service:ajax', 'service:session', 'service:i18n', 'service:localStorage', 'service:raven'],
+  needs: ['service:ajax', 'service:session', 'service:intl', 'service:localStorage', 'service:raven'],
   unit: true,
   beforeEach() {
     startMirage(this.container);

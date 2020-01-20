@@ -1,4 +1,4 @@
-import { get } from '@ember/object';
+import { get, computed } from '@ember/object';
 import { underscore } from '@ember/string';
 import $ from 'jquery';
 import DS from 'ember-data';
@@ -9,8 +9,16 @@ const { JSONAPIAdapter } = DS;
 import { pluralize } from 'ember-inflector';
 
 export default JSONAPIAdapter.extend(DataAdapterMixin, {
-  authorizer: 'authorizer:oauth-2',
   host: ENV.api.hostname,
+
+  headers: computed('session.data.authenticated.access_token', function() {
+    const headers = {};
+    if (this.session.isAuthenticated) {
+      headers.Authorization = `Bearer ${this.session.data.authenticated.access_token}`;
+    }
+
+    return headers;
+  }),
 
   coalesceFindRequests: true,
 

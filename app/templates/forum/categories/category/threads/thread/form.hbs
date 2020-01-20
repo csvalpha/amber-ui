@@ -4,22 +4,22 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model.thread property="title" label=(t "Titel") required=true}}
+      {{model-form/text-input model=model.thread property="title" label='Titel' required=true}}
 
       {{#if model.post}}
-        <label for="forumpost-message"> {{t "Bericht *"}} </label>
+        <label for="forumpost-message"> Bericht * </label>
         {{md-editor content=model.post.message textareaIdentifier='forumpost-message'}}
       {{else}}
         {{#if (can "edit forum/threads")}}
-          {{model-form/checkbox-input model=model.thread property="isOpen" label=(t "Open voor reacties")}}
+          {{model-form/checkbox-input model=model.thread property="isOpen" label='Open voor reacties'}}
         {{/if}}
       {{/if}}
 
       {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
         {{#if model.thread.isNew}}
-          {{#link-to "forum.categories.category.threads" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+          {{#link-to "forum.categories.category.threads" class="btn btn-default"}}Annuleren{{/link-to}}
         {{else}}
-          {{#link-to "forum.categories.category.threads.thread" model.thread class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+          {{#link-to "forum.categories.category.threads.thread" model.thread class="btn btn-default"}}Annuleren{{/link-to}}
         {{/if}}
       {{/model-form/form-actions}}
     </form>

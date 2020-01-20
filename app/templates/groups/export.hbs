@@ -2,16 +2,16 @@
   <div class="col">
     <div class="card">
       <div class="card-header">
-        <h5> {{model.name}} {{t '- Exporteren'}} </h5>
+        <h5> {{model.name}} - Exporteren </h5>
       </div>
       <div class="card-body">
         <div class="alert alert-warning">
-          {{t "Selecteer hier de gegevens die je wilt exporteren. Wees voorzichtig met het bestand dat je krijgt, er staan persoonsgegevens in."}}
+          Selecteer hier de gegevens die je wilt exporteren. Wees voorzichtig met het bestand dat je krijgt, er staan persoonsgegevens in.
           <br>
-          {{t "Zorg dat je het bestand niet laat slingeren en weer helemaal verwijderd zodra je het niet meer nodig hebt voor het doel dat je hieronder aangeeft."}}
+          Zorg dat je het bestand niet laat slingeren en weer helemaal verwijderd zodra je het niet meer nodig hebt voor het doel dat je hieronder aangeeft.
           <br>
           <br>
-          <strong>{{t "Van het ingevulde formulier wordt een kopie verstuurd aan privacy@csvalpha.nl. "}}</strong>
+          <strong>Van het ingevulde formulier wordt een kopie verstuurd aan privacy@csvalpha.nl. </strong>
         </div>
 
         <div class="row mb-2">
@@ -29,7 +29,7 @@
           <div class="row">
             <div class="col">
               <div class="form-group">
-                <label>{{t question.question}}*</label>
+                <label>{{question.question}}*</label>
                 {{textarea value=question.answer type="text" class="form-control" required=true}}
               </div>
             </div>
@@ -37,10 +37,10 @@
         {{/each}}
 
         <button type="button" class="btn btn-primary mb-3" {{action "exportUsers"}} disabled={{exportButtonDisabled}}>
-          {{t 'Exporteren'}}
+          Exporteren
         </button>
         {{#link-to 'groups.show' model}}
-          <button type="button" class="btn btn-default mb-3" >{{t 'Annuleren'}}</button>
+          <button type="button" class="btn btn-default mb-3" >Annuleren</button>
         {{/link-to}}
       </div>
     </div>

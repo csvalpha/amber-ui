@@ -3,7 +3,7 @@
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "downloadAlbum"}}>
         {{fa-icon 'download'}}
-        <span class="d-none d-md-inline"> {{t 'Fotoalbum downloaden'}} </span>
+        <span class="d-none d-md-inline"> Fotoalbum downloaden </span>
       </button>
     </div>
   {{/page-actions-buttons}}
@@ -24,7 +24,7 @@
     </div>
   {{else}}
     <div class="alert alert-warning">
-      {{#link-to photo-albums.photo-album.edit model}}{{t "Geen foto's gevonden, wil je die toevoegen?"}}{{/link-to}}
+      {{#link-to photo-albums.photo-album.edit model}}Geen foto's gevonden, wil je die toevoegen?{{/link-to}}
     </div>
   {{/each}}
 </div>

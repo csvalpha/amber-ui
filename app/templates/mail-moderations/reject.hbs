@@ -1,8 +1,8 @@
-<p>{{t "Weet je zeker dat je deze mail ("}}{{model.subject}}{{t ")  wil afkeuren?"}}</p>
-<p>{{t "Er wordt een bericht naar de afzender gestuurd dat dit bericht is afgekeurd."}}</p>
+<p>Weet je zeker dat je deze mail ({{model.subject}})  wil afkeuren?</p>
+<p>Er wordt een bericht naar de afzender gestuurd dat dit bericht is afgekeurd.</p>
 
-<button {{action "submit"}} class="btn btn-danger">{{t "Ja"}}</button>
-{{#link-to "mail-moderations.show" model class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+<button {{action "submit"}} class="btn btn-danger">Ja</button>
+{{#link-to "mail-moderations.show" model class="btn btn-default" tagName="button"}}Nee{{/link-to}}
 
 {{#if errorMessage}}
   <div class="text-danger">{{errorMessage}}</div>
