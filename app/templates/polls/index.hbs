@@ -6,17 +6,17 @@
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
-    <span class="col"> {{t "Vraag"}} </span>
-    <span class="col-3"> {{t "Sluitingsdatum"}} </span>
-    <span class="col-1 rtable-ta-right"> {{t "#"}} </span>
+    <span class="col"> Vraag </span>
+    <span class="col-3"> Sluitingsdatum </span>
+    <span class="col-1 rtable-ta-right"> # </span>
   </div>
 
   {{#each pagedModel as |poll|}}
     {{#link-to 'polls.show' poll data-test-poll-item=true}}
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item"> {{form/status-icon poll.form}} {{poll.question.question}} </span>
-        <span class="col-8 col-md-3 text-muted rtable-item"> <span class="d-inline d-md-none"> {{t "Sluit "}} </span> {{moment-calendar poll.form.respondUntil}} </span>
-        <span class="col-4 col-md-1 text-muted rtable-item rtable-ta-right"> {{poll.form.amountOfResponses}} <span class="d-inline d-md-none"> {{t "reacties"}} </span> </span>
+        <span class="col-8 col-md-3 text-muted rtable-item"> <span class="d-inline d-md-none"> Sluit  </span> {{moment-calendar poll.form.respondUntil}} </span>
+        <span class="col-4 col-md-1 text-muted rtable-item rtable-ta-right"> {{poll.form.amountOfResponses}} <span class="d-inline d-md-none"> reacties </span> </span>
       </div>
     {{/link-to}}
   {{/each}}

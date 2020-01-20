@@ -1,8 +1,8 @@
-<p>{{t "Weet je zeker dat je deze mail ("}}{{model.subject}}{{t ")  wil negeren?"}}</p>
-<p>{{t "Er wordt geen bericht gestuurd naar de afzender."}}</p>
+<p>Weet je zeker dat je deze mail ({{model.subject}})  wil negeren?</p>
+<p>Er wordt geen bericht gestuurd naar de afzender.</p>
 
-<button {{action "destroy"}} class="btn btn-danger">{{t "Ja"}}</button>
-{{#link-to "mail-moderations.show" model class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+<button {{action "destroy"}} class="btn btn-danger">Ja</button>
+{{#link-to "mail-moderations.show" model class="btn btn-default" tagName="button"}}Nee{{/link-to}}
 
 {{#if errorMessage}}
   <div class="text-danger">{{errorMessage}}</div>

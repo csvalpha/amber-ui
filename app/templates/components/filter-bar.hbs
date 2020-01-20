@@ -21,7 +21,7 @@
           {{/dd.button}}
 
           {{#dd.menu as |ddm|}}
-            <div class="ml-2 text-muted text-bold"> {{t "Sorteren"}} </div>
+            <div class="ml-2 text-muted text-bold"> Sorteren </div>
 
             {{#ddm.item}}
               {{model-form/radio-group
@@ -41,7 +41,7 @@
               <div class="form-check">
                 <label for="sort-order" class="form-check-label">
                   {{input type="checkbox" id="sort-order" checked=sortedAscending class="filter-bar-sorted-ascending form-check-input"}}
-                  {{t "Oplopend"}}
+                  Oplopend
                   <div class="custom-checkmark"></div>
                 </label>
               </div>

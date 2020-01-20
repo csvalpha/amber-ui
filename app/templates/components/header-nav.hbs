@@ -1,6 +1,6 @@
 <nav class="navbar container-fluid pb-0 pt-0 d-flex justify-content-between" aria-label="breadcrumb">
   <span class="left-sidebar-toggle d-block d-md-none link" {{action 'toggleLeftSidebar'}}>
-    {{t "☰"}}
+    ☰
   </span>
 
   <span {{action 'handleLogoAction'}} class="navbar-brand">
@@ -30,7 +30,7 @@
   </div>
 
   {{#unless session.isAuthenticated}}
-    <button class="btn btn-locale btn-inverse-locale-{{i18n.locale}}" title="{{t 'component.headerNav.changeLocale'}}" {{action 'toggleLocale'}}>
+    <button class="btn btn-locale btn-inverse-locale-{{intl.locale}}" title="{{t 'component.headerNav.changeLocale'}}" {{action 'toggleLocale'}}>
     </button>
   {{/unless}}
 </nav>

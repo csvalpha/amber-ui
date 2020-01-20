@@ -3,15 +3,15 @@
 {{/ember-wormhole}}
 
 {{#tabbed-view tabItems=tabItems}}
-  <h5>{{t "Mail aliassen"}}</h5>
+  <h5>Mail aliassen</h5>
   <div class="table-responsive">
     <table class="table">
       <thead>
         <tr>
-          <td class="col-md-4">{{t 'Alias'}}</td>
-          <td class="col-md-8">{{t 'Beschrijving'}}</td>
-          <td class="col-md-8">{{t 'Moderatietype'}}</td>
-          <td class="col-md-8">{{t 'Groep'}}</td>
+          <td class="col-md-4">Alias</td>
+          <td class="col-md-8">Beschrijving</td>
+          <td class="col-md-8">Moderatietype</td>
+          <td class="col-md-8">Groep</td>
         </tr>
       </thead>
       <tbody>
@@ -19,26 +19,26 @@
           <tr>
             <td>
               {{#link-to 'mail-aliases.show' alias}}
-                {{t alias.email}}
+                {{alias.email}}
               {{/link-to}}
             </td>
-            <td>{{t alias.description}}</td>
-            <td>{{t alias.moderationType}}</td>
-            <td>{{t '--'}}</td>
+            <td>{{alias.description}}</td>
+            <td>{{alias.moderationType}}</td>
+            <td>--</td>
           </tr>
         {{/each}}
         {{#each model.groupMailAliases as |alias|}}
           <tr>
             <td>
               {{#link-to 'mail-aliases.show' alias}}
-                {{t alias.email}}
+                {{alias.email}}
               {{/link-to}}
             </td>
-            <td>{{t alias.description}}</td>
-            <td>{{t alias.moderationType}}</td>
+            <td>{{alias.description}}</td>
+            <td>{{alias.moderationType}}</td>
             <td>
               {{#link-to 'groups.show' alias.group}}
-                {{t alias.group.name}}
+                {{alias.group.name}}
               {{/link-to}}
             </td>
           </tr>

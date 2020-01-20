@@ -2,12 +2,12 @@
   <div class="col">
     <div class="card">
       <div class="card-header">
-        <h5>{{t "Alpha-agenda"}}</h5>
+        <h5>Alpha-agenda</h5>
       </div>
       <div class="card-body">
         <div class="alert alert-info">
-          <p>{{t "Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst in je agenda-programma je oude Alpha-agenda te verwijderen voordat je de nieuwe agenda-url toevoegt."}}</p>
-          <p>{{t "Hoe je de agenda in Google Calendar importeert staat"}} <a href="https://support.google.com/calendar/answer/37100">{{t "hier"}}</a> {{t "uitgelegd."}}</p>
+          <p>Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst in je agenda-programma je oude Alpha-agenda te verwijderen voordat je de nieuwe agenda-url toevoegt.</p>
+          <p>Hoe je de agenda in Google Calendar importeert staat <a href="https://support.google.com/calendar/answer/37100">hier</a> uitgelegd.</p>
         </div>
         <form class="row" id="activityCategoryForm" {{action "updateICalURL" on="change"}}>
 
@@ -28,10 +28,10 @@
 
         <hr>
 
-        <p>{{t "Je persoonlijke iCal-link voor Alpha-activiteiten staat hier onder. Voeg deze url toe aan je agenda om op de hoogte te blijven van Alpha-activiteiten. Wijzig hierboven eventueel welke agenda's je allemaal wilt volgen." }}</p>
+        <p>Je persoonlijke iCal-link voor Alpha-activiteiten staat hier onder. Voeg deze url toe aan je agenda om op de hoogte te blijven van Alpha-activiteiten. Wijzig hierboven eventueel welke agenda's je allemaal wilt volgen."</p>
 
         <div class="alert alert-warning">
-          <b> {{t "Dit is een persoonlijke link en kan dus niet gedeeld worden met anderen."}} </b>
+          <b> Dit is een persoonlijke link en kan dus niet gedeeld worden met anderen. </b>
         </div>
         <p><a href='{{webcalURL}}'><code>{{iCalURL}}</code></a> </p>
 

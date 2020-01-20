@@ -1,7 +1,7 @@
-<div class="btn-toolbar" role="toolbar" aria-label="{{t 'Editor toolbar'}}">
+<div class="btn-toolbar" role="toolbar" aria-label="Editor toolbar">
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-secondary" {{action "toggleEditMode"}}>
-      {{if editMode (t 'Voorbeeld') (t 'Bewerk')}}
+      {{if editMode Voorbeeld Bewerk}}
     </button>
   </div>
 
@@ -45,7 +45,7 @@
 
   <div class="btn-group">
     <a href="http://commonmark.org/help/" target="_blank">
-      <button type="button" class="btn btn-secondary" title="{{t "Help"}}">{{fa-icon "question-circle"}}</button>
+      <button type="button" class="btn btn-secondary" title="Help">{{fa-icon "question-circle"}}</button>
     </a>
   </div>
 </div>

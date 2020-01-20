@@ -24,8 +24,8 @@
       <p class="text-muted col mb-0">
         {{moment-format post.createdAt 'DD-M-YYYY HH:mm'}}
         {{#if post.isUpdated}}
-          <span class="hidden-md-down"> {{t " - Laatst bewerkt op "}}{{moment-format post.updatedAt 'DD-M-YYYY [om] HH:mm'}} </span>
-          <span class="hidden-lg-up"> {{t "- bewerkt"}} </span>
+          <span class="hidden-md-down">  - Laatst bewerkt op {{moment-format post.updatedAt 'DD-M-YYYY [om] HH:mm'}} </span>
+          <span class="hidden-lg-up"> - bewerkt </span>
         {{/if}}
       </p>
 

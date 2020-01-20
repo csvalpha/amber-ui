@@ -1,9 +1,9 @@
-<p>{{t "Weet je zeker dat je dit formulierantwoord  wilt verwijderen?"}}</p>
+<p>Weet je zeker dat je dit formulierantwoord  wilt verwijderen?</p>
 <div class="table-responsive card">
   <table class="table">
     <thead>
       <tr>
-        <th> {{t 'Naam'}} </th>
+        <th> Naam </th>
         {{#each model.form.sortedQuestions as |question|}}
           <th> {{question.question}} </th>
         {{/each}}
@@ -15,8 +15,8 @@
   </table>
 </div>
 
-<button {{action "destroy"}} class="btn btn-danger">{{t "Ja"}}</button>
-{{#link-to "activities.index" class="btn btn-default" tagName="button"}}{{t "Nee"}}{{/link-to}}
+<button {{action "destroy"}} class="btn btn-danger">Ja</button>
+{{#link-to "activities.index" class="btn btn-default" tagName="button"}}Nee{{/link-to}}
 
 {{#if errorMessage}}
   <div class="text-danger">{{errorMessage}}</div>

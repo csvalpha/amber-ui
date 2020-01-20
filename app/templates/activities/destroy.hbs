@@ -1,18 +1,18 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t "Activiteit verwijderen"}} </h5>
+    <h5> Activiteit verwijderen </h5>
   </div>
   <div class="card-block p-3">
     {{#if model.hasResponses}}
       <div class="alert alert-danger">
-        {{t 'Je kunt deze activiteit niet verwijderen, omdat er al reacties zijn!'}}
+        Je kunt deze activiteit niet verwijderen, omdat er al reacties zijn!
       </div>
-      {{#link-to "activities.show" model class="btn btn-default"}}{{t "Terug"}}{{/link-to}}
+      {{#link-to "activities.show" model class="btn btn-default"}}Terug{{/link-to}}
     {{else}}
-      <p>{{t "Weet je zeker dat je deze activiteit ("}}{{model.title}}{{t ") wilt verwijderen?"}}</p>
+      <p>Weet je zeker dat je deze activiteit ({{model.title}}) wilt verwijderen?</p>
 
-      <button {{action "destroy"}} class="btn btn-danger">{{t "Verwijderen"}}</button>
-      {{#link-to "activities.show" model class="btn btn-default" tagName="button"}}{{t "Annuleren"}}{{/link-to}}
+      <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+      {{#link-to "activities.show" model class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
       {{#if errorMessage}}
         <div class="text-danger">{{errorMessage}}</div>
       {{/if}}

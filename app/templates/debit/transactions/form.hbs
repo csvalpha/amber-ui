@@ -1,14 +1,14 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t 'Transactie aanmaken'}} </h5>
+    <h5> Transactie aanmaken </h5>
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property="description" label=(t "Beschrijving") required=true}}
-      {{model-form/text-input model=model property="amount"      label=(t "Bedrag")       required=true type="number" step="0.01"}}
+      {{model-form/text-input model=model property="description" label='Beschrijving' required=true}}
+      {{model-form/text-input model=model property="amount"      label='Bedrag'       required=true type="number" step="0.01"}}
 
       <div class="form-group row">
-        <span class="col-md-2 form-control-label">{{t "Gebruiker"}}</span>
+        <span class="col-md-2 form-control-label">Gebruiker</span>
 
         <div class="col-md-10">
           {{#power-select
@@ -22,7 +22,7 @@
       </div>
 
       {{#model-form/form-actions model=model  errorMessage=errorMessage}}
-        {{#link-to "debit.collections" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "debit.collections" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </form>
   </div>

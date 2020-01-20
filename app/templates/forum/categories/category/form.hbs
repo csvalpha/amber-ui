@@ -4,13 +4,13 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property="name" label=(t "Naam") required=true}}
+      {{model-form/text-input model=model property="name" label='Naam' required=true}}
 
       {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
         {{#if model.isNew}}
-          {{#link-to "forum.categories" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+          {{#link-to "forum.categories" class="btn btn-default"}}Annuleren{{/link-to}}
         {{else}}
-          {{#link-to "forum.categories.category" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+          {{#link-to "forum.categories.category" class="btn btn-default"}}Annuleren{{/link-to}}
         {{/if}}
       {{/model-form/form-actions}}
     </form>

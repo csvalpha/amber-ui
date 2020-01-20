@@ -4,13 +4,13 @@ import { computed } from '@ember/object';
 import { OpenQuestionTypes } from 'alpha-amber/constants';
 
 const OpenQuestionComponent = Component.extend({
-  i18n: service(),
+  intl: service(),
   question: null,
   questionTypes: OpenQuestionTypes,
   questionTypeOptions: computed('questionTypes', function() {
     return this.questionTypes.map(questionType => ({
       value: questionType,
-      label: this.i18n.t(`tag.input.types.${questionType}`)
+      label: this.intl.t(`tag.input.types.${questionType}`)
     }));
   }),
   actions: {

@@ -4,21 +4,21 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input       model=model property='title'            label=(t 'Titel') maxlength=50}}
-      {{model-form/file-input      model=model property="coverPhoto"       label=(t "Coverfoto") fileLoaded=(action "coverPhotoLoaded")}}
-      {{model-form/checkbox-input   model=model property='publiclyVisible'  label=(t 'Zichtbaar voor externen')}}
+      {{model-form/text-input       model=model property='title'            label='Titel' maxlength=50}}
+      {{model-form/file-input      model=model property="coverPhoto"       label="Coverfoto" fileLoaded=(action "coverPhotoLoaded")}}
+      {{model-form/checkbox-input   model=model property='publiclyVisible'  label='Zichtbaar voor externen'}}
 
       {{#if model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
-          {{t 'Een publiek artikel is ook zichtbaar voor niet-leden.
+          Een publiek artikel is ook zichtbaar voor niet-leden.
           Fijn dat je ook helpt om te laten zien dat Alpha een levendige boel is!
-          Houd hier wel rekening mee in je artikel.'}} <br>
-          {{t 'Plaats je een coverfoto met mensen er op? Zorg dan wel dat je toestemming van deze mensen hebt.'}}
+          Houd hier wel rekening mee in je artikel. <br>
+          Plaats je een coverfoto met mensen er op? Zorg dan wel dat je toestemming van deze mensen hebt.
         </div>
       {{/if}}
 
       <div class="form-group row">
-        <label class="col-md-2 form-control-label">{{t 'Namens groep of commissie'}}</label>
+        <label class="col-md-2 form-control-label">Namens groep of commissie</label>
 
         <div class="col-sm-10">
           {{#power-select
@@ -33,12 +33,12 @@
         </div>
       </div>
 
-      {{model-form/md-input       model=model property="content" label=(t "Inhoud") required=true inputIdentifier='article-form-content'}}
+      {{model-form/md-input       model=model property="content" label='Inhoud' required=true inputIdentifier='article-form-content'}}
 
 
 
       {{#model-form/form-actions errors=model.errors  errorMessage=errorMessage}}
-        {{#link-to "index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "index" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
 
     </form>

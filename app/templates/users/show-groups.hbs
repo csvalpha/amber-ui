@@ -10,7 +10,7 @@
       <div class="form-check">
         <label class="form-check-label">
           {{input type="checkbox" checked=showAdministrativeGroups class="form-check-input"}}
-          {{t "Toon administratieve groepen"}}
+          Toon administratieve groepen
           <div class="custom-checkmark"></div>
         </label>
       </div>
@@ -19,10 +19,10 @@
     <div class="col-12 col-lg-7">
       <ul class="nav nav-tabs">
         <li class="nav-item">
-          <a class="nav-link {{unless oldMembershipsTabActive 'active' }} {{if (eq currentMemberships.length 0) 'disabled'}}" {{action "hideOldMemberships"}}> {{t 'Huidige groepen'}}</a>
+          <a class="nav-link {{unless oldMembershipsTabActive 'active' }} {{if (eq currentMemberships.length 0) 'disabled'}}" {{action "hideOldMemberships"}}> Huidige groepen</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{if oldMembershipsTabActive 'active' }} {{if (eq oldMemberships.length 0) 'disabled'}}" {{action "showOldMemberships"}}> {{t 'Voorheen'}}</a>
+          <a class="nav-link {{if oldMembershipsTabActive 'active' }} {{if (eq oldMemberships.length 0) 'disabled'}}" {{action "showOldMemberships"}}> Voorheen</a>
         </li>
       </ul>
     </div>
@@ -39,14 +39,14 @@
             {{#if membership.endDate}}
               {{moment-format membership.endDate 'DD-MM-YYYY'}}
             {{else}}
-              {{t "heden"}}
+              heden
             {{/if}}
           </small>
         {{/cards/membership-card}}
       {{/link-to}}
     {{else}}
       <div class="alert alert-warning col-xs">
-        {{t 'Geen groepen gevonden'}}
+        Geen groepen gevonden
       </div>
     {{/each}}
   </div>

@@ -1,4 +1,4 @@
-<span class="font-weight-bold mb-3">{{t 'Open vraag'}}</span>
+<span class="font-weight-bold mb-3">Open vraag</span>
 
 {{#unless question.form.hasResponses }}
   <div class="float-md-right mb-3">
@@ -14,19 +14,19 @@
   <div class="col-md-5 col-sm-12">
     <div class="form-inline">
       <div class="form-group">
-        <label class="sr-only">{{t 'Vraagtype'}}</label>
+        <label class="sr-only">Vraagtype</label>
         {{input/select-input
           class='form-control'
           required=required
           options=questionTypeOptions
-          placeholder=(t 'Vraagtype')
+          placeholder=Vraagtype
           value=question.fieldType
           disabled=question.form.hasResponses
         }}
       </div>
       <div class="form-group ml-2">
         <label class="form-check-label pl-3">
-          {{input class="form-check-input" type="checkbox" name="required" checked=question.required disabled=question.form.hasResponses }} {{t "Verplicht"}}
+          {{input class="form-check-input" type="checkbox" name="required" checked=question.required disabled=question.form.hasResponses }} Verplicht
           <div class="custom-checkmark"></div>
         </label>
       </div>
@@ -36,11 +36,11 @@
     <div class="col-md-7 col-sm-12">
       <div class="float-md-right">
         <button type="button" class="btn btn-default" {{action "moveQuestionUp"}}>
-          {{fa-icon 'arrow-up'}} {{t "Omhoog"}}
+          {{fa-icon 'arrow-up'}} Omhoog
         </button>
 
         <button type="button" class="btn btn-default" {{action "moveQuestionDown"}}>
-          {{fa-icon 'arrow-down'}} {{t "Omlaag"}}
+          {{fa-icon 'arrow-down'}} Omlaag
         </button>
       </div>
     </div>

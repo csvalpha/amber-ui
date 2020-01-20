@@ -4,7 +4,6 @@ import { isNone } from '@ember/utils';
 
 export default Mixin.create({
   flashNotice: service('flash-notice'),
-  i18n: service(),
   successMessage: 'Wijzigen gelukt!',
   successTransitionTarget: null,
   successTransitionModel: null,
@@ -13,7 +12,7 @@ export default Mixin.create({
     onSuccess(model) {
       // Show notice
       if (!isNone(this.successMessage)) {
-        this.flashNotice.sendSuccess(this.i18n.t(this.successMessage));
+        this.flashNotice.sendSuccess(this.successMessage);
       }
 
       // Redirect
@@ -29,7 +28,7 @@ export default Mixin.create({
     },
     onError(error) {
       this.set('errorMessage', error.errors.map((e) => {
-        return this.i18n.t(e.detail);
+        return this.intl.t(e.detail);
       }).join(', '));
     },
     submit() {

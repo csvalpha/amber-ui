@@ -14,27 +14,27 @@
             <p class="card-text">
               <table class="table table-sm">
                 <tr>
-                  <td>{{t "Datum"}}</td>
+                  <td>Datum</td>
                   <td>{{moment-format model.receivedAt 'ddd D MMM YYYY HH:mm'}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Afzender"}}</td>
+                  <td>Afzender</td>
                   <td>{{model.sender}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Aan"}}</td>
+                  <td>Aan</td>
                   <td>{{model.mailAlias.email}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Body"}}</td>
+                  <td>Body</td>
                   <td><pre>{{model.plainBody}}</pre></td>
                 </tr>
                 <tr>
-                  <td>{{t "Bijlages"}}</td>
+                  <td>Bijlages</td>
                   <td>
                     <ul>
                       {{#each model.attachments as |attachment|}}
-                        <li><pre>{{attachment.name}} ({{attachment.size}} {{t "bytes"}})</pre></li>
+                        <li><pre>{{attachment.name}} ({{attachment.size}} bytes)</pre></li>
                       {{/each}}
                     </ul>
                   </td>

@@ -2,7 +2,7 @@
   <ul class="list-group list-group-flush">
     <div class="{{if usersWithBirthdayToday 'birthday-today-holder'}}">
       <div class="card-header upcoming-birthdays-tool-header">
-        <h5 class="card-text">{{t "Verjaardagen"}}</h5>
+        <h5 class="card-text">Verjaardagen</h5>
       </div>
 
       {{#each usersWithBirthdayToday as |user|}}
@@ -13,7 +13,7 @@
               <strong>
                 {{#link-to 'users.show' user.id}}
                   {{user.fullName}}
-                  {{t 'is vandaag'}} {{user.age}} {{t 'geworden!'}}
+                  is vandaag {{user.age}} geworden!
                 {{/link-to}}
               </strong>
             </h6>
@@ -23,7 +23,7 @@
     </div>
 
     {{#if (and usersWithBirthdayToday usersWithUpcomingBirthday)}}
-      <li class="list-group-item next-week-header"> {{t 'Komende week:'}} </li>
+      <li class="list-group-item next-week-header"> Komende week: </li>
     {{/if}}
 
     {{#each usersWithUpcomingBirthday as |user|}}
@@ -32,13 +32,13 @@
           <div class="upcoming-birthday-holder">
             <span class="upcoming-birthday-name"> {{user.fullName}} </span>
             <span class="upcoming-birthday-date"> {{moment-format user.birthday 'DD-MMM'}} </span>
-            <span> {{user.upcomingBirthdayAge}} {{t "jaar"}}</span>
+            <span> {{user.upcomingBirthdayAge}} jaar</span>
           </div>
         {{/link-to}}
       </li>
     {{/each}}
     {{#unless (or usersWithUpcomingBirthday usersWithBirthdayToday)}}
-      <li class="list-group-item"> {{t 'Geen jarigen deze week'}} </li>
+      <li class="list-group-item"> Geen jarigen deze week </li>
     {{/unless}}
   </ul>
 </div>

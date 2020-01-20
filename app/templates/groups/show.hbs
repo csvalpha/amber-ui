@@ -6,7 +6,7 @@
   <div class="col">
     <div class="card">
       <div class="card-header">
-        <h5> {{model.name}} {{#if model.administrative}} <span class="badge administrative-group"> {{t 'Administratieve groep'}} </span> {{/if}} </h5>
+        <h5> {{model.name}} {{#if model.administrative}} <span class="badge administrative-group"> Administratieve groep </span> {{/if}} </h5>
       </div>
       <div class="row">
         <div class="col-md order-12 order-md-1">
@@ -32,10 +32,10 @@
             <div class="col order-12 order-md-1">
               <ul class="nav nav-tabs">
                 <li class="nav-item">
-                  <a class="nav-link {{unless oldMembershipsTabActive 'active' }} {{if (eq currentMemberships.length 0) 'disabled'}}" {{action "hideOldMemberships"}}> {{t 'Leden'}}</a>
+                  <a class="nav-link {{unless oldMembershipsTabActive 'active' }} {{if (eq currentMemberships.length 0) 'disabled'}}" {{action "hideOldMemberships"}}> Leden</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{if oldMembershipsTabActive 'active' }} {{if (eq oldMemberships.length 0) 'disabled'}}" {{action "showOldMemberships"}}> {{t 'Oud-leden'}}</a>
+                  <a class="nav-link {{if oldMembershipsTabActive 'active' }} {{if (eq oldMemberships.length 0) 'disabled'}}" {{action "showOldMemberships"}}> Oud-leden</a>
                 </li>
               </ul>
             </div>
@@ -52,14 +52,14 @@
                     {{#if membership.endDate}}
                       {{moment-format membership.endDate 'DD-MM-YYYY'}}
                     {{else}}
-                      {{t "heden"}}
+                      heden
                     {{/if}}
                   </small>
                 {{/cards/membership-card}}
               {{/link-to}}
             {{else}}
               <div class="alert alert-warning col-xs">
-                {{t 'Geen leden of oud-leden gevonden'}}
+                Geen leden of oud-leden gevonden
               </div>
             {{/each}}
           </div>
@@ -73,14 +73,14 @@
     <div class="col-sm-12">
       <div class="card">
         <div class="card-header">
-          <h5>{{t "Mail aliassen"}}</h5>
+          <h5>Mail aliassen</h5>
         </div>
         <div class="card-body table-responsive">
           <p class="card-text">
             <div class="row rtable-row header d-none d-md-flex">
-              <span class="col-4">{{t 'Alias'}}</span>
-              <span class="col-5">{{t 'Beschrijving'}}</span>
-              <span class="col-2">{{t 'Moderatietype'}}</span>
+              <span class="col-4">Alias</span>
+              <span class="col-5">Beschrijving</span>
+              <span class="col-2">Moderatietype</span>
               {{#if (can 'edit mail-aliases')}}
                 <span class="col-1"></span>
               {{/if}}
@@ -88,9 +88,9 @@
 
             {{#each model.mailAliases as |alias|}}
               <div class="row rtable-row">
-                <span class="col-12 col-md-4 rtable-item">{{t alias.email}}</span>
-                <span class="col-12 col-md-5 rtable-item">{{t alias.description}}</span>
-                <span class="col-12 col-md-2 rtable-item">{{t alias.moderationType}}</span>
+                <span class="col-12 col-md-4 rtable-item">{{alias.email}}</span>
+                <span class="col-12 col-md-5 rtable-item">{{alias.description}}</span>
+                <span class="col-12 col-md-2 rtable-item">{{alias.moderationType}}</span>
                 {{#if (can 'edit mail-aliases')}}
                   {{#link-to 'mail-aliases.edit' alias}}
                     <span class="col-12 col-md-1 rtable-item">
@@ -113,7 +113,7 @@
     <div class="col">
       <div class="card">
         <div class="card-header">
-          <h5>{{t "Groepsrechten"}}</h5>
+          <h5>Groepsrechten</h5>
         </div>
         <div class="card-body table-responsive">
           <p class="card-text">

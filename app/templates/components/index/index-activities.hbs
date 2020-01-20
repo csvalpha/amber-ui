@@ -7,7 +7,7 @@
           {{t 'component.index.activities.info'}}
         </p>
 
-        {{#link-to 'static-pages.show' 'c-s-v-alpha' class="btn btn-lg frontpage-button--light"}}{{t 'Lees meer over de vereniging'}}{{/link-to}}
+        {{#link-to 'static-pages.show' 'c-s-v-alpha' class="btn btn-lg frontpage-button--light"}}Lees meer over de vereniging{{/link-to}}
       </div>
 
       {{social-media-buttons class="col-xs col-md-4 col-lg-3 social-buttons"}}
@@ -40,7 +40,7 @@
             {{markdown-to-html modalText extensions='youtubeEmbed bootstrapTable'}}
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" {{action "closeModal"}}> {{t 'tag.button.close'}} </button>
+            <button type="button" class="btn btn-default" {{action "closeModal"}}> tag.button.close </button>
           </div>
         </div>
       </div>

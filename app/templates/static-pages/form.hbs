@@ -4,13 +4,13 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property='title'                label=(t 'Titel')}}
-      {{model-form/select-input   model=model property="category"         label=(t "Categorie")         options=staticPageCategoryOptions required=true}}
-      {{model-form/checkbox-input model=model property='publiclyVisible'  label=(t 'Zichtbaar voor externen')}}
+      {{model-form/text-input model=model property='title'                label='Titel'}}
+      {{model-form/select-input   model=model property="category"         label="Categorie"         options=staticPageCategoryOptions required=true}}
+      {{model-form/checkbox-input model=model property='publiclyVisible'  label='Zichtbaar voor externen'}}
 
       {{#if model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
-          {{t 'Een publiek informatie pagina is ook zichtbaar voor niet-leden. Houd hier rekening mee.'}}
+          Een publiek informatie pagina is ook zichtbaar voor niet-leden. Houd hier rekening mee.
         </div>
       {{/if}}
 
@@ -22,7 +22,7 @@
       </div>
 
       {{#model-form/form-actions model=model  errorMessage=errorMessage}}
-        {{#link-to "static-pages.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "static-pages.index" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </form>
   </div>

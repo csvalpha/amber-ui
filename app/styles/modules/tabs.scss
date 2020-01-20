@@ -1,5 +1,4 @@
 
-
 @media (min-width: #{map-get($grid-breakpoints, md)}) {
   %active-nav-link {
     margin-right: -1px;
@@ -29,4 +28,3 @@
     }
   }
 }
-
