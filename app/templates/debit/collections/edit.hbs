@@ -1,21 +1,21 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t 'Incasso bewerken'}} </h5>
+    <h5> Incasso bewerken </h5>
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input   model=model property="name" label=(t "Titel")             required=true}}
-      {{model-form/date-input   model=model property="date" label=(t "Datum van incasso") required=true}}
+      {{model-form/text-input   model=model property="name" label='Titel'             required=true}}
+      {{model-form/date-input   model=model property="date" label='Datum van incasso' required=true}}
 
       {{#model-form/form-actions model=model  errorMessage=errorMessage}}
-        {{#link-to "debit.collections" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+        {{#link-to "debit.collections" class="btn btn-default"}}Annuleren{{/link-to}}
       {{/model-form/form-actions}}
     </form>
   </div>
 
   <div class="card-body">
     <div class="form-group row">
-      <span class="col-md-2 form-control-label">{{t "Toevoegen"}}</span>
+      <span class="col-md-2 form-control-label">Toevoegen</span>
 
       <div class="col-sm-10">
         {{#power-select
@@ -35,13 +35,13 @@
           <thead>
             <tr>
               <th>
-                {{t "Gebruiker"}}
+                Gebruiker
               </th>
               <th>
-                {{t "Beschrijving"}}
+                Beschrijving
               </th>
               <th>
-                {{t "Bedrag"}}
+                Bedrag
               </th>
               <th>
                 {{fa-icon 'trash'}}

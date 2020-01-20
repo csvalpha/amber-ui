@@ -3,15 +3,15 @@
 {{/ember-wormhole}}
 
 {{#tabbed-view tabItems=tabItems}}
-  <h5>{{t "Incasso mandaten"}}</h5>
+  <h5>Incasso mandaten</h5>
 
   <table class="table">
     <thead>
       <tr>
-        <td>{{t 'Mandaat nummer'}}</td>
-        <td>{{t 'IBAN nummer'}}</td>
-        <td>{{t 'Start datum'}}</td>
-        <td>{{t 'Eind datum'}}</td>
+        <td>Mandaat nummer</td>
+        <td>IBAN nummer</td>
+        <td>Start datum</td>
+        <td>Eind datum</td>
       </tr>
     </thead>
     <tbody>
@@ -19,7 +19,7 @@
         <tr>
           <td>
             {{#link-to 'debit.mandates.show' mandate}}
-              {{t mandate.id}}
+              {{mandate.id}}
             {{/link-to}}
           </td>
           <td>{{mandate.iban}}</td>
@@ -30,7 +30,7 @@
         <tr>
           <td colspan="4">
             <p class="text-center text-muted">
-              {{t 'Geen mandaten gevonden'}}
+              Geen mandaten gevonden
             </p>
           </td>
         </tr>

@@ -4,14 +4,14 @@
       <div class="form-check">
         <label class="form-check-label">
           {{input type="checkbox" checked=showAdministrative class="form-check-input"}}
-          {{t "Toon administratieve groepen"}}
+          Toon administratieve groepen
           <div class="custom-checkmark"></div>
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
           {{input type="checkbox" checked=showInactive class="form-check-input"}}
-          {{t "Toon inactieve groepen"}}
+          Toon inactieve groepen
           <div class="custom-checkmark"></div>
         </label>
       </div>
@@ -35,7 +35,7 @@
     {{/bs-dropdown}}
     <div class="col-12 col-md-3">
       <div class="nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex" id="v-pills-tab-groups" role="tablist" aria-orientation="vertical">
-        <h5 class="ml-3 mb-3"> {{t "Groepen"}}</h5>
+        <h5 class="ml-3 mb-3"> Groepen</h5>
         {{#each groupKinds as |item index|}}
           {{#link-to "groups" (query-params kind=item) class=(if (eq item selectedGroupKind) "nav-link active" "nav-link") id=(concat "v-pills-" item) data-toggle="pill" href=(concat "#v-pills-" item) role="tab" aria-controls=(concat "v-pills-" item) aria-selected="true"}}
             {{uc-words item}}
@@ -53,7 +53,7 @@
               {{/link-to}}
             {{else}}
               <div class="alert alert-warning col mr-4 mt-3">
-                {{t 'Er zijn geen resultaten gevonden'}}
+                Er zijn geen resultaten gevonden
               </div>
             {{/each}}
           </div>

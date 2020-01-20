@@ -23,11 +23,13 @@ moduleFor('route:groups/edit', 'Unit | Route | groups/edit', {
   }
 });
 
-test('model is rolled back on deactivation', function(assert) {
-  itShouldRollbackUnsavedChanges(assert, this.subject(), 'group', ['name', 'description']);
+test('it exists', function(assert) {
+  const route = this.subject();
+  assert.ok(route);
 });
 
-test('memberships are rolled back on deactivation', function(assert) {
-  itShouldRollbackRelationship(assert, this.subject(), 'group', 'memberships', 'membership', ['function']);
-});
+test('it has a correct modelName', function(assert) {
+  const route = this.subject();
 
+  assert.equal('group', route.get('modelName'));
+});

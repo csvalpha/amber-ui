@@ -28,6 +28,8 @@ test('it exists', function(assert) {
   assert.ok(route);
 });
 
-test('model is rolled back on deactivation', function(assert) {
-  itShouldRollbackUnsavedChanges(assert, this.subject(), 'user', ['firstName', 'lastName']);
+test('it has a correct modelName', function(assert) {
+  const route = this.subject();
+
+  assert.equal('user', route.get('modelName'));
 });

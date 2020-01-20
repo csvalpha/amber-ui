@@ -3,17 +3,17 @@
     <div class="card-header">
       <div class="d-flex justify-content-between">
         {{#link-to 'activities.index'}}
-          <h5 class="card-text">{{t "Sluitende inschrijflijsten"}}</h5>
+          <h5 class="card-text">Sluitende inschrijflijsten</h5>
         {{/link-to}}
         <div class="col-xs-1 tool-actions">
           <a href="#">
             {{fa-icon 'question-circle' class="link-highlight"}}
 
             {{#bs-popover triggerEvents="focus" placement="bottom"}}
-              <div class="d-block"><div class="status-dot badge-info"></div> {{t 'Inschrijving open'}}</div>
-              <div class="d-block"><div class="status-dot badge-success"></div> {{t 'Ingeschreven'}} / {{t 'vrij toegankelijk'}}</div>
-              <div class="d-block"><div class="status-dot badge-danger"></div> {{t 'Niet ingeschreven'}}</div>
-              <div class="d-block"><div class="status-dot badge-default"></div> {{t 'Inschrijving nog niet open'}}</div>
+              <div class="d-block"><div class="status-dot badge-info"></div> Inschrijving open</div>
+              <div class="d-block"><div class="status-dot badge-success"></div> Ingeschreven / vrij toegankelijk</div>
+              <div class="d-block"><div class="status-dot badge-danger"></div> Niet ingeschreven</div>
+              <div class="d-block"><div class="status-dot badge-default"></div> Inschrijving nog niet open</div>
             {{/bs-popover}}
           </a>
         </div>

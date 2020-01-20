@@ -23,7 +23,7 @@
             <div class="input-group new-photo-comment bg-light p-3">
               {{input value=(mut (get commentContent (get photo 'id'))) class="form-control photo-comment-input" placeholder="Typ hier je reactie" minlength="1" maxlength="500" enter=(action "submitPhotoComment" photo)}}
               <span class="input-group-btn">
-                <button class="btn btn-default submit-photo-comment-button" {{action "submitPhotoComment" photo}}>{{t "Reageren"}}</button>
+                <button class="btn btn-default submit-photo-comment-button" {{action "submitPhotoComment" photo}}>Reageren</button>
               </span>
             </div>
           </div>

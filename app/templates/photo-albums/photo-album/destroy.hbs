@@ -1,17 +1,17 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t "Foto-album verwijderen"}} </h5>
+    <h5> Foto-album verwijderen </h5>
   </div>
   <div class="card-block p-3">
     <p class="card-text">
-      {{t "Weet je zeker dat je dit foto-album ("}}{{model.title}}{{t ") wilt verwijderen?"}}
+      Weet je zeker dat je dit foto-album ({{model.title}}) wilt verwijderen?
     </p>
     {{#if errorMessage}}
       <div class="text-danger">{{errorMessage}}</div>
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">{{t "Verwijderen"}}</button>
-    {{#link-to "photo-albums.photo-album" model class="btn btn-default" tagName="button"}}{{t "Annuleren"}}{{/link-to}}
+    <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+    {{#link-to "photo-albums.photo-album" model class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
   </div>
 </div>

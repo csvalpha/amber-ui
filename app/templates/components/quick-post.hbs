@@ -14,7 +14,7 @@
 
       <div class="d-flex float-right">
         <span class="qp-characters-indicator {{if tooMuchText 'text-danger' 'text-muted'}} {{unless currentCharacterCount 'hidden'}} pt-2 pr-3">
-          {{currentCharacterCount}} {{t "/"}} {{maxCharacters}}
+          {{currentCharacterCount}} / {{maxCharacters}}
         </span>
 
         {{quick-post-notification-button}}
@@ -32,7 +32,7 @@
           {{/dd.menu}}
         {{/bs-dropdown}}
 
-        <button class="btn btn-primary ml-1 mb-3 {{if tooMuchText 'disabled'}}" {{action "saveMessage"}}> {{t "Versturen"}} </button>
+        <button class="btn btn-primary ml-1 mb-3 {{if tooMuchText 'disabled'}}" {{action "saveMessage"}}> Versturen </button>
       </div>
     </div>
 
@@ -61,7 +61,7 @@
       </div>
     {{/each}}
     {{#if showLoaderButton}}
-      <button class="btn btn-sm btn-block btn-secondary btn-read-more" {{action "loadMore"}}>{{t 'Meer laden'}}</button>
+      <button class="btn btn-sm btn-block btn-secondary btn-read-more" {{action "loadMore"}}>Meer laden</button>
     {{/if}}
   </div>
 </div>

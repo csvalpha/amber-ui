@@ -6,12 +6,12 @@
   <div class="col-md-5 col-sm-12">
     <div class="form-inline">
       <div class="form-group">
-        <label class="sr-only">{{t 'Vraagtype'}}</label>
+        <label class="sr-only">Vraagtype</label>
         {{input/select-input
           class='form-control'
           required=required
           options=questionTypeOptions
-          placeholder=(t 'Vraagtype')
+          placeholder=Vraagtype
           value=question.fieldType
           disabled=question.form.hasResponses
         }}
@@ -56,5 +56,5 @@
 {{/each}}
 
 {{#unless question.form.hasResponses }}
-  <button type="button" class="btn btn-secondary" {{action "addOption"}}>{{t "Optie toevoegen"}}</button>
+  <button type="button" class="btn btn-secondary" {{action "addOption"}}>Optie toevoegen</button>
 {{/unless}}

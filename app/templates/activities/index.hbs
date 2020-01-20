@@ -4,7 +4,7 @@
       <div class="form-check">
         <label class="form-check-label">
           {{input type="checkbox" checked=showPassed class="form-check-input"}}
-          {{t "Toon activiteiten in verleden"}}
+          Toon activiteiten in verleden
           <div class="custom-checkmark"></div>
         </label>
       </div>
@@ -14,9 +14,9 @@
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
-    <span class="col"> {{t "Naam"}} </span>
-    <span class="col-3"> {{t "Startdatum"}} </span>
-    <span class="col-1 rtable-ta-right"> {{t "#"}} </span>
+    <span class="col"> Naam </span>
+    <span class="col-3"> Startdatum </span>
+    <span class="col-1 rtable-ta-right"> # </span>
   </div>
 
   {{#each pagedModel as |activity|}}
@@ -32,7 +32,7 @@
           {{activity.form.amountOfResponses}}
           <span class="d-inline d-md-none">
             {{#if activity.form.amountOfResponses}}
-              {{t "Inschrijvingen"}}
+              Inschrijvingen
             {{/if}}
           </span>
         </span>

@@ -6,12 +6,12 @@
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
-    <span class="col-3"> {{t "E-mail"}} </span>
-    <span class="col-1"> {{t "Type"}} </span>
-    <span class="col-3"> {{t "Omschrijving"}} </span>
-    <span class="col-1"> {{t "SMTP"}} </span>
-    <span class="col-2"> {{t "Groep/Gebruiker"}} </span>
-    <span class="col-2"> {{t "Laatst ontvangen"}} </span>
+    <span class="col-3"> E-mail </span>
+    <span class="col-1"> Type </span>
+    <span class="col-3"> Omschrijving </span>
+    <span class="col-1"> SMTP </span>
+    <span class="col-2"> Groep/Gebruiker </span>
+    <span class="col-2"> Laatst ontvangen </span>
   </div>
 
   {{#each model as |mailAlias|}}
@@ -20,19 +20,19 @@
         <span class="col-12 col-md-3 rtable-item"> {{mailAlias.email}} </span>
         <span class="col-12 col-md-1 rtable-item">
           <span class="d-inline d-md-none text-muted">
-            {{t "ModeratieType: "}}
+            ModeratieType:
           </span>
           {{mailAlias.moderationType}}
         </span>
         <span class="col-12 col-md-3 rtable-item">
           <span class="d-inline d-md-none text-muted">
-            {{t "Omschrijving: "}}
+            Omschrijving:
           </span>
           {{mailAlias.description}}
         </span>
         <span class="col-12 col-md-1 rtable-item">
           <span class="d-inline d-md-none text-muted">
-            {{t "SMTP: "}}
+            SMTP:
           </span>
           {{boolean-tag mailAlias.smtpEnabled}}
         </span>
@@ -40,7 +40,7 @@
 
 
         <span class="col-12 col-md-2 rtable-item">
-          <span class="d-inline d-md-none text-muted"> {{t "Groep/Gebruiker: "}} </span>
+          <span class="d-inline d-md-none text-muted"> Groep/Gebruiker:  </span>
           {{#if mailAlias.group}}
             {{#link-to 'groups.show' mailAlias.group}}
               <span class="text-muted"> {{fa-icon 'users'}} </span>
@@ -56,7 +56,7 @@
 
         <span class="col-12 col-md-2 rtable-item">
           <span class="d-inline d-md-none text-muted">
-            {{t "Laatste ontvangen"}}
+            Laatste ontvangen
           </span>
           {{moment-format mailAlias.lastReceivedAt 'DD-M-YYYY'}}
         </span>

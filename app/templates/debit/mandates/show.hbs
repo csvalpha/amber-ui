@@ -8,29 +8,29 @@
       <div class="row">
         <div class="col-md">
           <div class="card-header">
-            <h2>{{t 'Mandaat'}} {{model.id}}</h2>
+            <h2>Mandaat {{model.id}}</h2>
           </div>
           <div class="card-body table-responsive">
             <p class="card-text">
               <table class="table table-sm">
                 <tr>
-                  <td>{{t "Start datum"}}</td>
+                  <td>Start datum</td>
                   <td>{{moment-format model.startDate 'DD-M-YYYY'}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Eind datum"}}</td>
+                  <td>Eind datum</td>
                   <td>{{moment-format model.endDate 'DD-M-YYYY'}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "IBAN"}}</td>
+                  <td>IBAN</td>
                   <td>{{model.iban}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "IBAN houder"}}</td>
+                  <td>IBAN houder</td>
                   <td>{{model.ibanHolder}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Gebruiker"}}</td>
+                  <td>Gebruiker</td>
                   <td>
                     {{#link-to 'users.show' model.user}}{{model.user.fullName}}{{/link-to}}
                   </td>

@@ -16,22 +16,22 @@
       {{fa-icon 'clock'}}
 
       {{#if model.form.currentUserCanRespond}}
-        <span> {{t 'Deze poll sluit '}} {{moment-calendar model.form.respondUntil}} </span>
+        <span> Deze poll sluit  {{moment-calendar model.form.respondUntil}} </span>
 
       {{else if model.poll.closedWithNoResponses}}
-        <span> {{t 'Deze poll is '}} {{moment-calendar model.form.respondUntil}} {{t 'gesloten zonder reacties.'}} </span>
+        <span> Deze poll is  {{moment-calendar model.form.respondUntil}} gesloten zonder reacties. </span>
 
       {{else if model.poll.opensLater}}
-        <span> {{t 'Deze poll opent '}} {{moment-calendar model.form.respondFrom}} </span>
+        <span> Deze poll opent  {{moment-calendar model.form.respondFrom}} </span>
 
       {{else}}
-        <span> {{t 'Deze poll '}} {{if model.poll.closesLater 'sluit' 'sloot'}} {{moment-calendar model.form.respondUntil}} </span>
+        <span> Deze poll  {{if model.poll.closesLater 'sluit' 'sloot'}} {{moment-calendar model.form.respondUntil}} </span>
       {{/if}}
     </div>
 
     <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
       {{fa-icon 'users'}}
-      {{model.form.amountOfResponses}} {{t " reacties"}}
+      {{model.form.amountOfResponses}}  reacties
     </div>
 
     <div class="col-12 col-md-3 card-subheader-item align-items-center p-3">
@@ -49,18 +49,18 @@
       <form {{action "submitResponse" on="submit"}}>
         {{form/response/response-form model.form model.currentUserResponse}}
         {{#model-form/form-actions errors=form.errors errorMessage=errorMessage submitButtonLabel='Opslaan' inputLayout='vertical'}}
-          {{#link-to "polls.index" class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+          {{#link-to "polls.index" class="btn btn-default"}}Annuleren{{/link-to}}
         {{/model-form/form-actions}}
       </form>
 
     {{else if model.poll.closedWithNoResponses}}
       <div class="alert alert-danger">
-        {{t 'Deze poll is '}} {{moment-calendar model.form.respondUntil}} {{t 'gesloten zonder reacties.'}}
+        Deze poll is  {{moment-calendar model.form.respondUntil}} gesloten zonder reacties.
       </div>
 
     {{else if model.poll.opensLater}}
       <div class="alert alert-info">
-        {{t 'Deze poll opent '}} {{moment-calendar model.form.respondFrom}}
+        Deze poll opent  {{moment-calendar model.form.respondFrom}}
       </div>
 
     {{else}}
@@ -71,7 +71,7 @@
             <div class="d-flex">
               <div class="bg-primary poll-horizontal-bar" style={{bar.style}}> </div>
               <b class="ml-3">
-                {{concat bar.percentage '%'}} {{t "("}}{{bar.value}}{{t ")"}}
+                {{concat bar.percentage '%'}} ({{bar.value}})
               </b>
             </div>
           </div>

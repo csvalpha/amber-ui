@@ -1,9 +1,9 @@
-<h5>{{t "Privacyinstellingen"}}</h5>
+<h5>Privacyinstellingen</h5>
 <form class="form" {{action "submit" on="submit"}}>
   {{#if isOwnUser}}
     <div class="form-group row">
       <label class="col-sm-6 col-form-label form-control-label">
-        {{t 'Profieldetails (contactgegevens, studie, geboortedatum en dieetwensen) delen'}}
+        Profieldetails (contactgegevens, studie, geboortedatum en dieetwensen) delen
       </label>
       <div class="col-sm-6">
         {{input/select-input
@@ -17,7 +17,7 @@
 
     <div class="form-group row">
       <label class="col-10 col-sm-6 col-form-label form-control-label">
-        {{t 'Gegevens (naam, mailadres, geboortedatum) mogen gedeeld worden met het streepsysteem'}}
+        Gegevens (naam, mailadres, geboortedatum) mogen gedeeld worden met het streepsysteem
       </label>
       <div class="col-2 col-sm-6">
         <div class="form-check">
@@ -35,14 +35,14 @@
 
     {{#if model.allowTomatoSharing}}
       <div class="alert alert-info">
-        {{t 'Het is alleen mogelijk deze instelling uit te zetten via het bestuur. Om dit te deactiveren moet uw saldo namelijk eerst 0 zijn.'}}
+        Het is alleen mogelijk deze instelling uit te zetten via het bestuur. Om dit te deactiveren moet uw saldo namelijk eerst 0 zijn.
       </div>
     {{/if}}
   {{/if}}
 
   <div class="form-group row">
     <label class="col-sm-6 col-form-label form-control-label">
-      {{t 'Mediabeleidvoorkeur'}}
+      Mediabeleidvoorkeur
     </label>
     <div class="col-sm-6">
       {{input/select-input
@@ -57,7 +57,7 @@
 
   <div class="form-group row">
     <label class="col-10 col-sm-6 col-form-label form-control-label">
-      {{t 'Gegevens mogen gedeeld worden met IFES'}}
+      Gegevens mogen gedeeld worden met IFES
     </label>
     <div class="col-2 col-sm-6">
       <div class="form-check">
@@ -75,7 +75,7 @@
 
   <div class="form-group row">
     <label class="col-10 col-sm-6 col-form-label form-control-label">
-      {{t 'Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak'}}
+      Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak
     </label>
     <div class="col-2 col-sm-6">
       <div class="form-check">
@@ -93,7 +93,7 @@
 
   {{#if formActionsVisible}}
     {{#model-form/form-actions errors=model.errors errorMessage=errorMessage inputLayout='vertical'}}
-      {{#link-to "users.show" model class="btn btn-default"}}{{t "Annuleren"}}{{/link-to}}
+      {{#link-to "users.show" model class="btn btn-default"}}Annuleren{{/link-to}}
     {{/model-form/form-actions}}
   {{/if}}
 </form>

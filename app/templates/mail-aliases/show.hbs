@@ -14,15 +14,15 @@
             <p class="card-text">
               <table class="table table-sm">
                 <tr>
-                  <td>{{t "E-mail"}}</td>
+                  <td>E-mail</td>
                   <td><a href='mailto:{{model.email}}'>{{model.email}}</a></td>
                 </tr>
                 <tr>
-                  <td>{{t "Moderatietype"}}</td>
+                  <td>Moderatietype</td>
                   <td>{{model.moderationType}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Moderator"}}</td>
+                  <td>Moderator</td>
                   <td>
                     {{#if model.moderatorGroup}}
                       {{#link-to 'groups.show' model.moderatorGroup}}{{model.moderatorGroup.name}}{{/link-to}}
@@ -32,15 +32,15 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{t "Omschrijving"}}</td>
+                  <td>Omschrijving</td>
                   <td>{{model.description}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "SMTP"}}</td>
+                  <td>SMTP</td>
                   <td>{{boolean-tag model.smtpEnabled}}</td>
                 </tr>
                 <tr>
-                  <td>{{t "Groep"}}</td>
+                  <td>Groep</td>
                   <td>
                     {{#if model.group}}
                       {{#link-to 'groups.show' model.group}}{{model.group.name}}{{/link-to}}
@@ -50,7 +50,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>{{t "Gebruiker"}}</td>
+                  <td>Gebruiker</td>
                   <td>
                     {{#if model.user}}
                       {{#link-to 'users.show' model.user}}{{model.user.fullName}}{{/link-to}}

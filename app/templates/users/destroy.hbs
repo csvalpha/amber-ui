@@ -1,10 +1,10 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{t "Gebruiker verwijderen"}} </h5>
+    <h5> Gebruiker verwijderen </h5>
   </div>
   <div class="card-block p-3">
     <p class="card-text">
-      {{t "Weet je zeker dat je deze gebruiker wil verwijderen?"}}
+      Weet je zeker dat je deze gebruiker wil verwijderen?
     </p>
 
     {{#if errorMessage}}
@@ -12,95 +12,95 @@
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">{{t "Verwijderen"}}</button>
-    {{#link-to "users.show" model class="btn btn-default" tagName="button"}}{{t "Annuleren"}}{{/link-to}}
+    <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+    {{#link-to "users.show" model class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
   </div>
 </div>
 <div class="card">
   <div class="card-header">
-    <h5> {{t "Details"}} </h5>
+    <h5> Details </h5>
   </div>
   <div class="table-responsive">
     <table class="table table-striped">
       <tr>
-        <td>{{t "Id"}}</td>
+        <td>Id</td>
         <td>{{model.id}}</td>
       </tr>
       <tr>
-        <td>{{t "Gebruikersnaam"}}</td>
+        <td>Gebruikersnaam</td>
         <td>{{model.username}}</td>
       </tr>
       <tr>
-        <td>{{t "Email"}}</td>
+        <td>Email</td>
         <td>{{model.email}}</td>
       </tr>
       <tr>
-        <td>{{t "Voornaam"}}</td>
+        <td>Voornaam</td>
         <td>{{model.firstName}}</td>
       </tr>
       <tr>
-        <td>{{t "Tussenvoegsel"}}</td>
+        <td>Tussenvoegsel</td>
         <td>{{model.lastNamePrefix}}</td>
       </tr>
       <tr>
-        <td>{{t "Achternaam"}}</td>
+        <td>Achternaam</td>
         <td>{{model.lastName}}</td>
       </tr>
       <tr>
-        <td>{{t "Geboortedatum"}}</td>
+        <td>Geboortedatum</td>
         <td>{{model.birthday}}</td>
       </tr>
       <tr>
-        <td>{{t "Adres"}}</td>
+        <td>Adres</td>
         <td>{{model.address}}</td>
       </tr>
       <tr>
-        <td>{{t "Postcode"}}</td>
+        <td>Postcode</td>
         <td>{{model.postcode}}</td>
       </tr>
       <tr>
-        <td>{{t "Stad"}}</td>
+        <td>Stad</td>
         <td>{{model.city}}</td>
       </tr>
       <tr>
-        <td>{{t "Telefoon"}}</td>
+        <td>Telefoon</td>
         <td>{{model.phoneNumber}}</td>
       </tr>
       <tr>
-        <td>{{t "Allergiën"}}</td>
+        <td>Allergiën</td>
         <td>{{model.foodPreferences}}</td>
       </tr>
       <tr>
-        <td>{{t "IBAN"}}</td>
+        <td>IBAN</td>
         <td>{{model.iban}}</td>
       </tr>
       <tr>
-        <td>{{t "IBAN houder"}}</td>
+        <td>IBAN houder</td>
         <td>{{model.ibanHolder}}</td>
       </tr>
       <tr>
-        <td>{{t "Studie"}}</td>
+        <td>Studie</td>
         <td>{{model.study}}</td>
       </tr>
       <tr>
-        <td>{{t "Start studie"}}</td>
+        <td>Start studie</td>
         <td>{{model.startStudy}}</td>
       </tr>
       <tr>
-        <td>{{t "Ingeschakeld"}}</td>
+        <td>Ingeschakeld</td>
         <td>{{model.enabled}}</td>
       </tr>
       <tr>
-        <td>{{t "Activatiedatum"}}</td>
+        <td>Activatiedatum</td>
         <td>{{model.activatedAt}}</td>
       </tr>
 
       <tr>
-        <td>{{t "Aangemaakt"}}</td>
+        <td>Aangemaakt</td>
         <td>{{model.createdAt}}</td>
       </tr>
       <tr>
-        <td>{{t "Laatst gewijzigd"}}</td>
+        <td>Laatst gewijzigd</td>
         <td>{{model.updatedAt}}</td>
       </tr>
     </table>

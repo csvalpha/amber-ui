@@ -1,7 +1,7 @@
 <div class="card tool photo-tool">
   <div class="card-header">
     {{#link-to 'photo-albums'}}
-      <h5> {{t 'Foto\'s'}} </h5>
+      <h5>Foto's</h5>
     {{/link-to}}
   </div>
   <div class="card-body">
@@ -12,13 +12,13 @@
         {{/link-to}}
       {{else}}
         <div class="p-2">
-          {{t 'Er zijn helaas geen recente reacties op foto\'s!'}}
+          Er zijn helaas geen recente reacties op foto\'s!
         </div>
       {{/each}}
     </div>
     {{#if photosWithComments}}
       {{#link-to 'photo-comments'}}
-        <button class="btn btn-primary col-12 mt-2 mb-1"> {{t "Bekijk alle reacties" }} </button>
+        <button class="btn btn-primary col-12 mt-2 mb-1">Bekijk alle reacties</button>
       {{/link-to}}
     {{/if}}
   </div>
@@ -29,7 +29,7 @@
       {{/link-to}}
     {{else}}
       <li class="list-group-item">
-        {{t 'Er zijn helaas geen recente foto-albums!'}}
+        Er zijn helaas geen recente foto-albums!
       </li>
     {{/each}}
   </ul>
