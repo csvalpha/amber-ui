@@ -30,6 +30,7 @@ const ActivityCardBar = Component.extend({
     if (content && content.length > maxExcerptLength) {
       return `${content.substr(0, content.lastIndexOf(' ', maxExcerptLength))}...`;
     }
+
     return content;
   })
 });
