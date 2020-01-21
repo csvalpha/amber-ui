@@ -85,6 +85,8 @@ template:
   photos:
     show:
       photographer: Foto geüpload door
+  lustrum:
+    activities: Activiteiten
 component:
   cards:
     articleCard:
@@ -176,12 +178,16 @@ component:
         Alpha. De goede gesprekken, de vriendschappen en de epische borrels en feesten
         in onze sociëteit zorgen ervoor dat Alpha een superinvulling is van mijn studententijd
         in Enschede!
+  lustrum:
+    lustrumBar:
+      signUp: Schrijf je in!
   socialMediaButtons:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
 mixin:
   menuItems:
     recent: Actueel
+    lustrum: Lustrum
     association: Vereniging
     members: Leden
     information: Informatie
