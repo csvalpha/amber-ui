@@ -41,6 +41,12 @@ export default Component.extend({
       image: 'advertisements/meolease.gif'
     },
     {
+      title: 'Bierglazen bedrukken met logo',
+      alt: 'Bierglazen bedrukken met logo',
+      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
+      image: 'advertisements/rike.png'
+    },
+    {
       title: 'Cibdol - Swiss purity',
       link: 'https://www.cibdol.nl/',
       image: 'advertisements/cibdol.gif'
@@ -49,21 +55,6 @@ export default Component.extend({
       title: 'Student Wegwijzer',
       link: 'https://www.studentenwegwijzer.nl/',
       image: 'advertisements/studentwegwijzer.png'
-    },
-    {
-      title: 'Inshared',
-      link: 'https://www.inshared.nl/autoverzekering',
-      image: 'advertisements/inshared.png'
-    },
-    {
-      title: 'Geld.nl',
-      link: 'https://www.geld.nl/lenen/vergelijken',
-      image: 'advertisements/geldnl.png'
-    },
-    {
-      title: 'Traffic Today',
-      link: 'https://www.traffictoday.nl/',
-      image: 'advertisements/traffic-today.png'
     }
   ]
 });
