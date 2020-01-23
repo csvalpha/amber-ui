@@ -8,7 +8,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   title: 'Lustrum',
   pageActions: [],
   model() {
-    const groupId = 23; // Group 23 is lustrum commissie
+    const groupId = 78; // Group 78 is lustrum commissie
     return this.store.query('activity', { reload: true, sort: 'start_time', filter: { group: groupId, upcoming: true } });
   }
 });
