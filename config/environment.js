@@ -104,6 +104,7 @@ module.exports = function(environment) {
           'lock',
           'magic',
           'map-marker',
+          'map-marker-alt',
           'money-bill',
           'newspaper',
           'pencil-alt',
