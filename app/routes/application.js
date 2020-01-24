@@ -5,6 +5,7 @@ import moment from 'moment';
 
 export default Route.extend(ApplicationRouteMixin, {
   session: service(),
+  intl: service(),
   actions: {
     refresh() {
       this.refresh();
@@ -14,6 +15,7 @@ export default Route.extend(ApplicationRouteMixin, {
   beforeModel() {
     this._super(...arguments);
     moment.locale('nl');
+    this.intl.setLocale(['nl']);
     return this.session.loadAndSetCurrentUser();
   },
 
