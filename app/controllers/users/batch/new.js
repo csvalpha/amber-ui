@@ -2,10 +2,11 @@ import { inject as service } from '@ember/service';
 import EmberArray, { A } from '@ember/array';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { isInvalidResponse } from 'ember-fetch/errors';
 
 export default Controller.extend({
   flashNotice: service('flash-notice'),
-  ajax: service('ajax'),
+  fetch: service(),
   successMessage: null,
   importFile: null,
   addToGroup: null,
@@ -17,7 +18,7 @@ export default Controller.extend({
   validMimetypes: 'text/csv',
   validExtensions: EmberArray.apply(['csv']),
 
-  groups: computed(function() {
+  groups: computed(function () {
     return this.store.findAll('group');
   }),
 
@@ -27,45 +28,56 @@ export default Controller.extend({
       this.importErrors.clear();
       this.set('importFile', file.data);
     },
-    uploadFile() {
+    async uploadFile() {
       const groupId = this.addToGroup ? this.addToGroup.id : null;
-      return this.ajax.post('/users/batch_import', { data: { file: this.importFile, group: groupId } }).then(result => {
+      let response = await this.fetch.post('/users/batch_import', { body: { file: this.importFile, group: groupId } });
+      const json = await response.json();
+
+      if (response.ok) {
         this.newUsers.clear();
         this.importErrors.clear();
 
-        JSON.parse(result.users).forEach(jsonObject => {
+        JSON.parse(json.users).forEach(jsonObject => {
           this.set('properties', Object.keys(jsonObject));
           this.newUsers.pushObject(jsonObject);
         });
 
-        if (result.errors && result.errors.user) {
-          result.errors.user.forEach(jsonObject => {
+        if (json.errors && json.errors.user) {
+          json.errors.user.forEach(jsonObject => {
             this.importErrors.pushObject(jsonObject);
           });
         }
-      }).catch(error => {
+      } else if (isInvalidResponse(response)) {
         this.newUsers.clear();
         this.importErrors.clear();
 
-        if (error.payload.errors && error.payload.errors.header) {
-          error.payload.errors.header.forEach(jsonObject => {
+        if (json.errors && json.errors.header) {
+          json.errors.header.forEach(jsonObject => {
             this.importErrors.pushObject(jsonObject);
           });
         }
-      });
+      }
     },
-    confirmUpload() {
+    async confirmUpload() {
       const groupId = this.addToGroup ? this.addToGroup.id : null;
 
-      /* eslint-disable camelcase */
-      return this.ajax.post('/users/batch_import', { data: { file: this.importFile, group: groupId, live_run: true } }).then(() => {
+      const response = await this.fetch.post('/users/batch_import', {
+        body: {
+          file: this.importFile,
+          group: groupId,
+          /* eslint-disable-next-line camelcase */
+          live_run: true
+        }
+      });
+
+      if (response.ok) {
         this.flashNotice.sendSuccess('Gebruikers opgeslagen');
         this.transitionToRoute('users.index');
-      }).catch(() => {
+      } else {
         this.flashNotice.sendError('Gebruikers niet opgeslagen');
         this.transitionToRoute('users.batch.new');
-      });
-      /* eslint-enable camelcase */
+      }
+
     }
   }
 });

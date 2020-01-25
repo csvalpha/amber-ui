@@ -29,7 +29,7 @@ export default Component.extend({
         this.flashNotice.sendWarning('Two-factor authenticatie gedeactiveerd!');
         this.set('model.otpRequired', false);
       } else if (isInvalidResponse(response)) {
-        const json = response.json();
+        const json = await response.json();
         this.set('otpErrorMessage', json.errors ? json.errors[0].detail : response);
       }
     },
