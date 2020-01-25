@@ -5,7 +5,7 @@ export default Service.extend({
   ajax: service(),
 
   init() {
-    messageBus.headers = this.get('ajax.headers');
+    messageBus.headers = {'Authorization': this.get('fetch.authorizationHeader')};
     messageBus.baseUrl = '/api/';
     messageBus.start();
     this.set('message-bus', messageBus);
