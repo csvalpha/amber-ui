@@ -106,6 +106,7 @@ module.exports = function(environment) {
           'map-marker-alt',
           'money-bill',
           'newspaper',
+          'paper-plane',
           'pencil-alt',
           'phone',
           'plus',

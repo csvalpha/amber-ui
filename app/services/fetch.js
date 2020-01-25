@@ -18,6 +18,11 @@ export default Service.extend({
     return basefetch(url, args);
   },
 
+  post(url, args  = {}) {
+    args.method = 'POST';
+    return this.fetch(url, args);
+  },
+
   authorizationHeader() {
     const accessToken = this.get('session.data.authenticated.access_token');
     if (accessToken) {
