@@ -15,7 +15,7 @@ export default Controller.extend({
         this.model.unloadRecord();
         this.transitionToRoute('mail-moderations.index');
       } else if (isInvalidResponse(response)) {
-        const json = await response.json()
+        const json = await response.json();
         this.set('errorMessage', json.error);
       }
     }

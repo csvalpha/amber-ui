@@ -18,7 +18,7 @@ export default Controller.extend({
   validMimetypes: 'text/csv',
   validExtensions: EmberArray.apply(['csv']),
 
-  groups: computed(function () {
+  groups: computed(function() {
     return this.store.findAll('group');
   }),
 

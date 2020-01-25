@@ -2,6 +2,8 @@ import Service, { inject as service } from '@ember/service';
 import messageBus from 'message-bus';
 
 export default Service.extend({
+  fetch: service(),
+
   init() {
     messageBus.headers = { 'Authorization': this.get('fetch.authorizationHeader') };
     messageBus.baseUrl = '/api/';

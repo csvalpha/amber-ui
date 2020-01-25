@@ -2,7 +2,7 @@ import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('route:articles/show', 'Unit | Route | articles/show', {
   needs: [
-    'service:ajax',
+    'service:fetch',
     'service:can',
     'service:layout-manager',
     'service:session',

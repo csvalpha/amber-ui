@@ -9,13 +9,13 @@ export default Controller.extend({
     async submit() {
       const id = this.get('model.id');
       this.set('errorMessage', null);
-      const response = await this.fetch.post(`/stored_mails/${id}/reject`)
+      const response = await this.fetch.post(`/stored_mails/${id}/reject`);
 
       if (response.ok) {
         this.model.unloadRecord();
         this.transitionToRoute('mail-moderations.index');
       } else if (isInvalidResponse(response)) {
-        const json = await response.json()
+        const json = await response.json();
         this.set('errorMessage', json.error);
       }
     }

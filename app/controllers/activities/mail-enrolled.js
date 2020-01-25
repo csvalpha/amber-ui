@@ -1,6 +1,6 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import { isInvalidResponse } from "ember-fetch/errors";
+import { isInvalidResponse } from 'ember-fetch/errors';
 
 export default Controller.extend({
   fetch: service(),
