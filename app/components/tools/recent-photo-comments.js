@@ -4,7 +4,6 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  ajax: service(),
   photosWithComments: computed(function() {
     // eslint-disable-next-line camelcase
     return this.store.query('photo', { sort: '-updated_at', filter: { with_comments: true }, page: { number: '1', size: 4 } });
