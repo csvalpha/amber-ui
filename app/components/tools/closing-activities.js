@@ -4,7 +4,6 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  ajax: service(),
   activities: computed(function() {
     const params = {
       filter: { closing: true },
