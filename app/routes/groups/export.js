@@ -5,7 +5,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   skipBeforeModelAccessCheck: true,
   afterModel(group, transition) {
-    return this.checkAccessWithPromise(this.can('export group', group), transition);
+    return this.checkAccessWithPromise(this.can.can('export group', group), transition);
   },
   modelName: 'group',
   title: computed('controller.model.name', function() {

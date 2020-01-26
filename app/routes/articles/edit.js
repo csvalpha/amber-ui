@@ -3,7 +3,7 @@ import EditRoute from 'alpha-amber/routes/application/edit';
 export default EditRoute.extend({
   skipBeforeModelAccessCheck: true,
   afterModel(article, transition) {
-    return this.checkAccessWithPromise(this.can('edit article', article), transition);
+    return this.checkAccessWithPromise(this.can.can('edit article', article), transition);
   },
   modelName: 'article',
   title: 'Artikel aanpassen',

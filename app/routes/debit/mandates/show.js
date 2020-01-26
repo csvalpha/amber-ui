@@ -5,7 +5,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show debit/mandates');
+    return this.can.can('show debit/mandates');
   },
   modelName: 'debit/mandate',
   title: alias('controller.model.uid'),
@@ -17,7 +17,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.get('controller.model'),
-        canAccess: this.can('edit debit/mandates')
+        canAccess: this.can.can('edit debit/mandates')
       }
     ];
   })

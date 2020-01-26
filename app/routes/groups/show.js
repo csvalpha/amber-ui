@@ -5,11 +5,11 @@ import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show groups');
+    return this.can.can('show groups');
   },
   afterModel(group) {
     // This ensures all memberships and users are loaded
-    if (this.can('show memberships')) {
+    if (this.can.can('show memberships')) {
       return group.get('memberships').then(memberships => {
         return all(memberships.mapBy('user'));
       });
@@ -28,14 +28,14 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: group,
-        canAccess: this.can('edit group', group)
+        canAccess: this.can.can('edit group', group)
       },
       {
         link: 'groups.export',
         title: 'Gebruikers exporteren',
         icon: 'download',
         linkArgument: group,
-        canAccess: this.can('export group', group)
+        canAccess: this.can.can('export group', group)
       }
     ];
   })

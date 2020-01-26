@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy mail-moderations');
+    return this.can.can('destroy mail-moderations');
   },
   modelName: 'stored-mail',
   title: 'Moderatieverzoek negeren',

@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy static-pages');
+    return this.can.can('destroy static-pages');
   },
   modelName: 'static-page',
   title: 'Informatie pagina verwijderen',

@@ -6,7 +6,7 @@ import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin'
 
 export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show activities');
+    return this.can.can('show activities');
   },
   modelName: 'activity',
   title: computed('controller.model.activity.title', function() {
@@ -22,28 +22,28 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: activity,
-        canAccess: this.can('edit activity', activity)
+        canAccess: this.can.can('edit activity', activity)
       },
       {
         link: 'activities.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: activity,
-        canAccess: this.can('destroy activities')
+        canAccess: this.can.can('destroy activities')
       },
       {
         link: 'activities.print-enrolled',
         title: 'Print ingeschrevenen',
         icon: 'print',
         linkArgument: activity,
-        canAccess: this.can('print enrolled members of activity', activity)
+        canAccess: this.can.can('print enrolled members of activity', activity)
       },
       {
         link: 'activities.mail-enrolled',
         title: 'Mail ingeschrevenen',
         icon: 'paper-plane',
         linkArgument: activity,
-        canAccess: this.can('mail enrolled members of activity', activity)
+        canAccess: this.can.can('mail enrolled members of activity', activity)
       }
     ];
   }),
@@ -53,7 +53,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
     let formPromise,
       responsePromise;
 
-    if (this.can('show form/forms') && this.can('show form/responses')) {
+    if (this.can.can('show form/forms') && this.can.can('show form/responses')) {
       formPromise = activityPromise.then(activity => activity.get('form'));
       responsePromise = formPromise
       // Load or create the response

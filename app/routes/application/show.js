@@ -1,10 +1,8 @@
 import Route from '@ember/routing/route';
 import { computed } from '@ember/object';
 import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixin';
-import { CanMixin } from 'ember-can';
 
 export const ShowRouteUnauthenticated = Route.extend(
-  CanMixin,
   AuthorizationRouteMixin, {
     modelName: null,
     modelRouteParam: 'id',

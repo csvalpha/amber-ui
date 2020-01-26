@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy photo-comments');
+    return this.can.can('destroy photo-comments');
   },
   modelName: 'photo-comment',
   title: 'Fotoreactie verwijderen',
