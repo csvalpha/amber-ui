@@ -9,7 +9,7 @@ const ActivityCardBar = Component.extend({
     return moment(this.get('activity.endTime')).isSameOrBefore(moment(this.get('activity.startTime')).endOf('day').add(5, 'hours'));
   }),
   colorClass: computed('index', function() {
-    switch (this.get('index') % 4) {
+    switch (this.index % 4) {
       case 0: return 'lustrumbar-red';
       case 1: return 'lustrumbar-navyblue';
       case 2: return 'lustrumbar-yellow';
@@ -18,7 +18,7 @@ const ActivityCardBar = Component.extend({
     }
   }),
   hasForm: computed('activity', function() {
-    return !isNone(this.get('activity').belongsTo('form').id());
+    return !isNone(this.activity.belongsTo('form').id());
   }),
   canSubmitResponse: computed('activity.form', 'activity.form.currentUserCanRespond', function() {
     const form = this.get('activity.form');

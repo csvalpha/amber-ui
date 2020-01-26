@@ -1,37 +1,29 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 import startApp from '../../../helpers/start-app';
 import destroyApp from '../../../helpers/destroy-app';
 
 let App;
 
-moduleFor('route:groups/new', 'Unit | Route | groups/new', {
-  needs: [
-    'model:group',
-    'model:membership',
-    'model:permission',
-    'model:user',
-    'service:can',
-    'service:layout-manager',
-    'service:session',
-    'service:router-scroll',
-    'service:scheduler'
-  ],
+module('Unit | Route | groups/new', function(hooks) {
+  setupTest(hooks);
 
-  beforeEach() {
+  hooks.beforeEach(function() {
     App = startApp();
-  },
-  afterEach() {
+  });
+
+  hooks.afterEach(function() {
     destroyApp(App);
-  }
-});
+  });
 
-test('model is removed on deactivation', function(assert) {
-  itShouldRemoveNewModel(assert, this.subject(), 'group');
-});
+  test('model is removed on deactivation', function(assert) {
+    itShouldRemoveNewModel(assert, this.owner.lookup('route:groups/new'), 'group');
+  });
 
-test('memberships are removed on deactivation', function(assert) {
-  const relationshipType = 'membership';
-  const relationshipName = 'memberships';
+  test('memberships are removed on deactivation', function(assert) {
+    const relationshipType = 'membership';
+    const relationshipName = 'memberships';
 
-  itShouldRemoveRelationship(assert, this.subject(), relationshipName, relationshipType);
+    itShouldRemoveRelationship(assert, this.owner.lookup('route:groups/new'), relationshipName, relationshipType);
+  });
 });
