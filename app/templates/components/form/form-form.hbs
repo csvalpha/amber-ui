@@ -17,19 +17,9 @@
         <div class="card">
           <div class="card-body create-new-question">
             {{#if question.isOpenQuestion}}
-              {{form/open-question question
-                                   onMoveQuestionUp=(action 'moveQuestionUp')
-                                   onMoveQuestionDown=(action 'moveQuestionDown')
-                                   onDeleteQuestion=(action 'deleteQuestion')}}
+              {{form/open-question question form=model}}
             {{else}}
-              {{form/closed-question question
-                                     onMoveQuestionUp=(action 'moveQuestionUp')
-                                     onMoveQuestionDown=(action 'moveQuestionDown')
-                                     onMoveOptionUp=(action 'moveOptionUp')
-                                     onMoveOptionDown=(action 'moveOptionDown')
-                                     onDeleteQuestion=(action 'deleteQuestion')
-                                     onAddOption=(action 'addOption')
-                                     onDeleteOption=(action 'deleteOption')}}
+              {{form/closed-question question form=model}}
             {{/if}}
           </div>
         </div>
