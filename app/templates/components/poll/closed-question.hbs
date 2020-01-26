@@ -20,8 +20,8 @@
   </div>
 </div>
 
-{{#each question.sortedOptions as |option|}}
-  {{#unless option.isDeleted}}
+{{#each question.sortedOptions as |opt|}}
+  {{#unless opt.isDeleted}}
     <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon d-flex justify-content-center align-items-center">
@@ -35,17 +35,17 @@
           </label>
         </span>
 
-        {{input type="text" class="form-control" name="option" placeholder="Optie" value=option.option disabled=question.form.hasResponses}}
+        {{input type="text" class="form-control" name="option" placeholder="Optie" value=opt.option disabled=question.form.hasResponses}}
 
         {{#unless question.form.hasResponses }}
           <div class="input-group-append">
-            <button type="button" class="btn btn-default" {{action "moveOptionUp" option}}>
+            <button type="button" class="btn btn-default" {{action "moveOptionUp" opt}}>
               {{fa-icon 'arrow-up'}}
             </button>
-            <button type="button" class="btn btn-default" {{action "moveOptionDown" option}}>
+            <button type="button" class="btn btn-default" {{action "moveOptionDown" opt}}>
               {{fa-icon 'arrow-down'}}
             </button>
-            <button type="button" class="btn btn-default" {{action "deleteOption" option}}>
+            <button type="button" class="btn btn-default" {{action "deleteOption" opt}}>
               {{fa-icon 'trash'}}
             </button>
           </div>
