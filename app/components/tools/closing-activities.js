@@ -16,7 +16,7 @@ export default Component.extend({
 
     return this.ajax.request('/activities', { data }).then(result => {
       this.store.pushPayload(result);
-      const activities = new A();
+      const activities = A();
       result.data.forEach(jsonObject => {
         const activity = this.store.peekRecord('activity', jsonObject.id);
         activities.push(activity);

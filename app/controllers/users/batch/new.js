@@ -10,9 +10,9 @@ export default Controller.extend({
   importFile: null,
   addToGroup: null,
   reviewing: false,
-  newUsers: new A(),
-  importErrors: new A(),
-  properties: new A(),
+  newUsers: A(),
+  importErrors: A(),
+  properties: A(),
 
   validMimetypes: 'text/csv',
   validExtensions: EmberArray.apply(['csv']),

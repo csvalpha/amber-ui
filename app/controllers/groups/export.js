@@ -109,7 +109,7 @@ export default Controller.extend(FileSaverMixin, {
 
   actions: {
     exportUsers() {
-      const selectedProperties = new A();
+      const selectedProperties = A();
       this.userPropertyOptions.forEach((property) => {
         if (property.isChecked) {
           selectedProperties.push(property.value);

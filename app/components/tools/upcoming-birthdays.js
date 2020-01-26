@@ -6,8 +6,8 @@ export default Component.extend({
   ajax: service(),
   store: service(),
 
-  usersWithBirthdayToday: new A(),
-  usersWithUpcomingBirthday: new A(),
+  usersWithBirthdayToday: A(),
+  usersWithUpcomingBirthday: A(),
 
   loadUpcomingBirthdays() {
     // eslint-disable-next-line camelcase
@@ -15,8 +15,8 @@ export default Component.extend({
       // Push in store
       this.store.pushPayload(contents);
 
-      const usersWithBirthdayToday = new A();
-      const usersWithUpcomingBirthday = new A();
+      const usersWithBirthdayToday = A();
+      const usersWithUpcomingBirthday = A();
 
       // Peek from store and add to arrays
       if (contents.data && isArray(contents.data)) {
