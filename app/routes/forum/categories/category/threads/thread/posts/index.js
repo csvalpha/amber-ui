@@ -28,6 +28,18 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     };
   },
 
+  init() {
+    this._super(...arguments);
+
+    this.router.on('routeDidChange', () => {
+      // Update forumLastRead
+      let currentStore = this.storage.getItem('forumLastRead') || '{}';
+      currentStore = JSON.parse(currentStore);
+      currentStore[this.get('controller.model.thread.id')] = new Date();
+      this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
+    });
+  },
+
   title: computed('controller.model.thread.title', function() {
     return this.get('controller.model.thread.title');
   }),
@@ -52,13 +64,6 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
   }),
 
   actions: {
-    didTransition() {
-      // Update forumLastRead
-      let currentStore = this.storage.getItem('forumLastRead') || '{}';
-      currentStore = JSON.parse(currentStore);
-      currentStore[this.get('controller.model.thread.id')] = new Date();
-      this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
-    },
     refreshModelsAndRedirectToLastPage() {
       // Refresh thread too to update thread.amountOfPosts
       this.get('controller.model.thread').reload();

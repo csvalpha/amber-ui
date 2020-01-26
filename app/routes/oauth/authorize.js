@@ -5,8 +5,10 @@ import { inject as service } from '@ember/service';
 export default Route.extend(AuthenticatedRouteMixin, {
   fetch: service(),
 
-  actions: {
-    didTransition() {
+  init() {
+    this._super(...arguments);
+
+    this.router.on('routeDidChange', () => {
       const clientId = this.controller.get('client_id');
       const redirectUri = this.controller.get('redirect_uri');
       const responseType = this.controller.get('response_type');
@@ -23,7 +25,6 @@ export default Route.extend(AuthenticatedRouteMixin, {
           }
         });
       });
-    }
+    });
   }
-
 });
