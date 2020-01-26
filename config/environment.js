@@ -68,6 +68,7 @@ module.exports = function(environment) {
           'square'
         ],
         'free-solid-svg-icons': [
+          'address-book',
           'angle-down',
           'arrow-down',
           'arrow-left',
@@ -106,6 +107,7 @@ module.exports = function(environment) {
           'map-marker-alt',
           'money-bill',
           'newspaper',
+          'paper-plane',
           'pencil-alt',
           'phone',
           'plus',
@@ -120,6 +122,7 @@ module.exports = function(environment) {
           'strikethrough',
           'times',
           'trash',
+          'upload',
           'user',
           'users',
           'volume-up',

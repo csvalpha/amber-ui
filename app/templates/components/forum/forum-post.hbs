@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-3 forum-post-author-info">
         {{#link-to 'users.show' post.author.id}}
-          <img src="{{post.author.avatarThumbUrlOrDefault}}" alt="{{ t 'avatar' }}" class="profile-picture profile-picture-large">
+          <img src="{{post.author.avatarThumbUrlOrDefault}}" alt="avatar" class="profile-picture profile-picture-large">
         {{/link-to}}
         {{#link-to 'users.show' post.author.id}}
           <p> <strong> {{post.author.fullName}} </strong> </p>
