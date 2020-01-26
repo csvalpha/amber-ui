@@ -7,7 +7,7 @@
           {{moment-format activity.startTime 'D MMMM'}}
         {{else}}
           {{moment-format activity.startTime 'D'}}
-          {{t '-'}}
+          -
           {{moment-format activity.endTime 'D MMMM'}}
         {{/if}}
       </p>
@@ -39,11 +39,11 @@
         <div class="lustrumbar-subheader-item">
           {{fa-icon 'clock'}}
           <span data-test-activity-startTime>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
-          {{t 'tot'}}
+          tot
           <span data-test-activity-endTime>{{moment-format activity.endTime (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')}}</span>
         </div>
         <div class="lustrumbar-subheader-item">
-          {{fa-icon 'map-marker' prefix='fas'}}
+          {{fa-icon 'map-marker-alt'}}
           <span data-test-activity-location>
             <a href="https://maps.google.com/?q={{activity.location}}" target="_blank">
               {{activity.location}}

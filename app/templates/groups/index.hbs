@@ -23,12 +23,12 @@
   <div class="row">
     {{#bs-dropdown class="col d-block d-md-none" as |dd|}}
       {{#dd.toggle class="btn btn-default col"}}
-        {{uc-words selectedGroupKind}}
+        {{capitalize selectedGroupKind}}
       {{/dd.toggle}}
       {{#dd.menu as |ddm|}}
         {{#each groupKinds as |item index|}}
           {{#link-to "groups" (query-params kind=item) class="dropdown-item" data-toggle="pill" href=(concat "#v-pills-" item) role="tab" aria-controls=(concat "v-pills-" item) aria-selected="true"}}
-            {{uc-words item}}
+            {{capitalize item}}
           {{/link-to}}
         {{/each}}
       {{/dd.menu}}
@@ -38,7 +38,7 @@
         <h5 class="ml-3 mb-3"> Groepen</h5>
         {{#each groupKinds as |item index|}}
           {{#link-to "groups" (query-params kind=item) class=(if (eq item selectedGroupKind) "nav-link active" "nav-link") id=(concat "v-pills-" item) data-toggle="pill" href=(concat "#v-pills-" item) role="tab" aria-controls=(concat "v-pills-" item) aria-selected="true"}}
-            {{uc-words item}}
+            {{capitalize item}}
           {{/link-to}}
         {{/each}}
       </div>

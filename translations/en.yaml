@@ -192,7 +192,7 @@ mixin:
     sponsorkliks: Sponsorkliks
     profile: Profile
     settings: Settings
-    mailaliases: Mail Aliases
+    mailaliases: Mail aliases
     collections: Collections
     mailModerations: Mail Moderations
     mandates: Mandates

@@ -103,7 +103,7 @@ module.exports = function(environment) {
           'list-ul',
           'lock',
           'magic',
-          'map-marker',
+          'map-marker-alt',
           'money-bill',
           'newspaper',
           'pencil-alt',

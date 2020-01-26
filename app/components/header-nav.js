@@ -16,7 +16,7 @@ export default Component.extend(CanMixin, {
     return [
       {
         link: 'lustrum',
-        title: this.i18n.t('mixin.menuItems.lustrum'),
+        title: this.intl.t('mixin.menuItems.lustrum'),
         icon: '',
         canAccess: this.can('show lustrum')
       },
