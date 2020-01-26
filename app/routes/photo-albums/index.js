@@ -6,7 +6,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   intl: service(),
   canAccess() {
-    return this.can('show photo-albums');
+    return this.can.can('show photo-albums');
   },
 
   modelName: 'photo-album',
@@ -23,13 +23,13 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         link: 'photo-comments.index',
         title: 'Bekijk fotoreacties',
         icon: 'comments',
-        canAccess: this.can('show photo-comments')
+        canAccess: this.can.can('show photo-comments')
       },
       {
         link: 'photo-albums.new',
         title: 'Nieuw foto-album',
         icon: 'plus',
-        canAccess: this.can('create photo-albums')
+        canAccess: this.can.can('create photo-albums')
       }
     ];
   })

@@ -3,7 +3,7 @@ import IndexRoute from 'alpha-amber/routes/application/index';
 
 export default IndexRoute.extend({
   canAccess() {
-    return this.can('show forum/categories');
+    return this.can.can('show forum/categories');
   },
   model() {
     return {
@@ -19,7 +19,7 @@ export default IndexRoute.extend({
         link: 'forum.categories.new',
         title: 'Nieuwe categorie',
         icon: 'plus',
-        canAccess: this.can('create forum/categories')
+        canAccess: this.can.can('create forum/categories')
       }
     ];
   })

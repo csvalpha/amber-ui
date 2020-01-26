@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy debit/transactions');
+    return this.can.can('destroy debit/transactions');
   },
   modelName: 'debit/transaction',
   title: 'Transactie verwijderen'

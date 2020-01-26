@@ -4,7 +4,7 @@ import IndexRouteUnauthenticated from 'alpha-amber/routes/application/index';
 
 export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show groups');
+    return this.can.can('show groups');
   },
   queryParams: {
     search: {
@@ -31,7 +31,7 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         link: 'groups.new',
         title: 'Nieuwe groep',
         icon: 'plus',
-        canAccess: this.can('create groups')
+        canAccess: this.can.can('create groups')
       }
     ];
   }),

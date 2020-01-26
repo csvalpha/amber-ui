@@ -3,10 +3,8 @@ import { computed } from '@ember/object';
 import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixin';
 import RollbackModelOnDeactivationRouteMixin from 'alpha-amber/mixins/rollback-model-on-deactivation-route-mixin';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import { CanMixin } from 'ember-can';
 
 export const NewRoute = Route.extend(
-  CanMixin,
   AuthorizationRouteMixin,
   RollbackModelOnDeactivationRouteMixin,
   AuthenticatedRouteMixin, {

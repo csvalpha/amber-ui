@@ -15,7 +15,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         link: 'articles.new',
         title: 'Nieuw artikel',
         icon: 'plus',
-        canAccess: this.can('create articles')
+        canAccess: this.can.can('create articles')
       }
     ];
   })

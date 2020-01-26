@@ -3,7 +3,7 @@ import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index'
 
 export default IndexRouteUnauthenticated.extend({
   canAccess() {
-    return this.can('show photo-albums');
+    return this.can.can('show photo-albums');
   },
   modelName: 'photo',
 
@@ -22,14 +22,14 @@ export default IndexRouteUnauthenticated.extend({
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.get('controller.model.photoAlbum'),
-        canAccess: this.can('edit photo-albums')
+        canAccess: this.can.can('edit photo-albums')
       },
       {
         link: 'photo-albums.photo-album.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.get('controller.model.photoAlbum'),
-        canAccess: this.can('destroy photo-albums')
+        canAccess: this.can.can('destroy photo-albums')
       }
     ];
   })

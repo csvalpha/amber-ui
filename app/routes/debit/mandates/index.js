@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 
 export default IndexRoute.extend(PagedModelRouteMixin, {
   canAccess() {
-    return this.can('show debit/mandates');
+    return this.can.can('show debit/mandates');
   },
   perPage: 15,
   modelName: 'debit/mandate',
@@ -15,7 +15,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         link: 'debit.mandates.new',
         title: 'Nieuwe mandaat',
         icon: 'plus',
-        canAccess: this.can('create debit/mandates')
+        canAccess: this.can.can('create debit/mandates')
       }
     ];
   })

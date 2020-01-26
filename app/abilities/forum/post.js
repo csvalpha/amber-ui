@@ -5,6 +5,12 @@ import { Ability } from 'ember-can';
 
 export default Ability.extend({
   session: service(),
+  canShow: computed('session.currentUser', function() {
+    return this.session.hasPermission('forum/post.read');
+  }),
+  canDestroy: computed('session.currentUser', function() {
+    return this.session.hasPermission('forum/post.destroy');
+  }),
   canEdit: computed('session.currentUser', 'model.author.id', 'model.thread.closedAt', function() {
     if (this.isThreadClosed(this.get('model.thread'))) {
       // Permission to both update post and thread

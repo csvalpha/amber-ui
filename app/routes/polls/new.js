@@ -2,7 +2,7 @@ import NewRoute from 'alpha-amber/routes/application/new';
 
 export default NewRoute.extend({
   canAccess() {
-    return this.can('create polls');
+    return this.can.can('create polls');
   },
   modelName: 'poll',
   parents: ['polls.index'],

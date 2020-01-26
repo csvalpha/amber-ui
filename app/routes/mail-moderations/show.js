@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show mail-moderations');
+    return this.can.can('show mail-moderations');
   },
   modelName: 'stored-mail',
   title: computed('controller.model.subject', function() {
@@ -18,21 +18,21 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         title: 'Goedkeuren',
         icon: 'check',
         linkArgument: this.get('controller.model'),
-        canAccess: this.can('accept mail-moderations')
+        canAccess: this.can.can('accept mail-moderations')
       },
       {
         link: 'mail-moderations.reject',
         title: 'Afkeuren',
         icon: 'minus-circle',
         linkArgument: this.get('controller.model'),
-        canAccess: this.can('reject mail-moderations')
+        canAccess: this.can.can('reject mail-moderations')
       },
       {
         link: 'mail-moderations.destroy',
         title: 'Negeren',
         icon: 'trash',
         linkArgument: this.get('controller.model'),
-        canAccess: this.can('destroy mail-moderations')
+        canAccess: this.can.can('destroy mail-moderations')
       }
     ];
   })
