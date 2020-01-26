@@ -5,7 +5,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   skipBeforeModelAccessCheck: true,
 
   afterModel(activity, transition) {
-    return this.checkAccessWithPromise(this.can('edit activity', activity), transition);
+    return this.checkAccessWithPromise(this.can.can('edit activity', activity), transition);
   },
 
   modelName: 'activity',

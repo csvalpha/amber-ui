@@ -4,7 +4,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   canAccess() {
-    return this.can('show polls');
+    return this.can.can('show polls');
   },
   modelName: 'poll',
   title: 'Polls',
@@ -15,7 +15,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         link: 'polls.new',
         title: 'Nieuwe Poll',
         icon: 'plus',
-        canAccess: this.can('create polls')
+        canAccess: this.can.can('create polls')
       }
     ];
   })

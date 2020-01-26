@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show mail-aliases');
+    return this.can.can('show mail-aliases');
   },
   modelName: 'mail-alias',
   title: computed('controller.model.email', function() {
@@ -19,14 +19,14 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: mailAlias,
-        canAccess: this.can('edit mail-aliases')
+        canAccess: this.can.can('edit mail-aliases')
       },
       {
         link: 'mail-aliases.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: mailAlias,
-        canAccess: this.can('destroy mail-aliases')
+        canAccess: this.can.can('destroy mail-aliases')
       }
     ];
   })

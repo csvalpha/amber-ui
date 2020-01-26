@@ -3,7 +3,7 @@ import IndexRoute from 'alpha-amber/routes/application/index';
 
 export default IndexRoute.extend({
   canAccess() {
-    return this.can('show mail-aliases');
+    return this.can.can('show mail-aliases');
   },
   modelName: 'mail-alias',
   title: 'Mail-aliassen',
@@ -13,7 +13,7 @@ export default IndexRoute.extend({
         link: 'mail-aliases.new',
         title: 'Nieuw mailalias',
         icon: 'plus',
-        canAccess: this.can('create mail-aliases')
+        canAccess: this.can.can('create mail-aliases')
       }
     ];
   })

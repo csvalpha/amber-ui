@@ -1,10 +1,7 @@
 import Route from '@ember/routing/route';
 import { computed } from '@ember/object';
 import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixin';
-import { CanMixin } from 'ember-can';
-
 export const IndexRouteUnauthenticated = Route.extend(
-  CanMixin,
   AuthorizationRouteMixin, {
     modelName: null,
     pageActions: [],

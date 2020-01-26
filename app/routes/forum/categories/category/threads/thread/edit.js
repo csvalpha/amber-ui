@@ -2,7 +2,7 @@ import EditRoute from 'alpha-amber/routes/application/edit';
 
 export default EditRoute.extend({
   canAccess() {
-    return this.can('edit forum/threads');
+    return this.can.can('edit forum/threads');
   },
   model() {
     const thread = this.modelFor('forum.categories.category.threads.thread');

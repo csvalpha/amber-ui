@@ -6,7 +6,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show polls');
+    return this.can.can('show polls');
   },
   modelName: 'poll',
 
@@ -22,14 +22,14 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: poll,
-        canAccess: this.can('edit poll', poll)
+        canAccess: this.can.can('edit poll', poll)
       },
       {
         link: 'polls.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: poll,
-        canAccess: this.can('destroy polls')
+        canAccess: this.can.can('destroy polls')
       }
     ];
   }),

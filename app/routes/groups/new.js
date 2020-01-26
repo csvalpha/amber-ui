@@ -2,7 +2,7 @@ import NewRoute from 'alpha-amber/routes/application/new';
 
 export default NewRoute.extend({
   canAccess() {
-    return this.can('create groups');
+    return this.can.can('create groups');
   },
   modelName: 'group',
   title: 'Groep aanmaken',

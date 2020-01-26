@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show forum/threads');
+    return this.can.can('show forum/threads');
   },
   modelName: 'forum/thread',
   modelRouteParam: 'thread_id',

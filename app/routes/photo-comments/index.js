@@ -4,7 +4,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show photo-comments');
+    return this.can.can('show photo-comments');
   },
   modelName: 'photo',
   title: 'Fotoreacties',

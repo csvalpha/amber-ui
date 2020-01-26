@@ -6,7 +6,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRoute.extend(PagedModelRouteMixin, {
   canAccess() {
-    return this.can('show forum/posts');
+    return this.can.can('show forum/posts');
   },
   storage: service('local-storage'),
   modelName: 'forum/post',
@@ -39,14 +39,14 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.get('controller.model.thread'),
-        canAccess: this.can('edit forum/threads')
+        canAccess: this.can.can('edit forum/threads')
       },
       {
         link: 'forum.categories.category.threads.thread.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.get('controller.model.thread'),
-        canAccess: this.can('destroy forum/threads')
+        canAccess: this.can.can('destroy forum/threads')
       }
     ];
   }),
