@@ -3,7 +3,7 @@ import IndexRoute from 'alpha-amber/routes/application/index';
 
 export default IndexRoute.extend({
   canAccess() {
-    return this.can('show members');
+    return this.can.can('show members');
   },
   modelName: 'user',
   title: 'Leden',
@@ -13,13 +13,13 @@ export default IndexRoute.extend({
         link: 'users.new',
         title: 'Nieuw lid',
         icon: 'plus',
-        canAccess: this.can('create users')
+        canAccess: this.can.can('create users')
       },
       {
         link: 'users.webdav',
         title: 'Contactsynchronisatie',
         icon: 'address-book',
-        canAccess: this.can('show webdav users')
+        canAccess: this.can.can('show webdav users')
       }
     ];
   }),

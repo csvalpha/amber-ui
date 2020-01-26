@@ -4,7 +4,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRoute.extend(PagedModelRouteMixin, {
   canAccess() {
-    return this.can('show debit/collections');
+    return this.can.can('show debit/collections');
   },
   perPage: 15,
   modelName: 'debit/collection',
@@ -15,7 +15,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         link: 'debit.collections.new',
         title: 'Nieuwe incasso',
         icon: 'plus',
-        canAccess: this.can('create debit/collections')
+        canAccess: this.can.can('create debit/collections')
       }
     ];
   })

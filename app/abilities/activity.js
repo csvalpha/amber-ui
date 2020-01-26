@@ -6,6 +6,21 @@ import { Ability } from 'ember-can';
 
 export default Ability.extend({
   session: service(),
+  canCreate: computed('session.currentUser', function() {
+    return this.session.hasPermission('activity.create');
+  }),
+  canShow: computed('session.currentUser', function() {
+    return this.session.hasPermission('activity.read');
+  }),
+  canDestroy: computed('session.currentUser', function() {
+    return this.session.hasPermission('activity.destroy');
+  }),
+  canSelectAllGroups: computed('session.currentUser', function() {
+    return this.session.hasPermission('activity.update');
+  }),
+  canShowIcal: computed('session.currentUser', function() {
+    return this.session.hasPermission('activity.read');
+  }),
   canEdit: computed('session.currentUser', 'model', function() {
     return this.session.hasPermission('activity.update') || this.isActivityOwner(this.model);
   }),

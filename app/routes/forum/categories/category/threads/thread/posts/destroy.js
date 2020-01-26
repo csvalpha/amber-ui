@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy forum/posts');
+    return this.can.can('destroy forum/posts');
   },
   modelName: 'forum/post',
   modelRouteParam: 'post_id',

@@ -3,7 +3,7 @@ import UserShowRouteUnauthenticated from 'alpha-amber/routes/users/show';
 
 export default UserShowRouteUnauthenticated.extend({
   canAccess() {
-    return this.can('show permissions-users');
+    return this.can.can('show permissions-users');
   },
   pageActions: computed('controller.model', function() {
     const user = this.get('controller.model');
@@ -13,7 +13,7 @@ export default UserShowRouteUnauthenticated.extend({
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: user,
-        canAccess: this.can('edit user', user)
+        canAccess: this.can.can('edit user', user)
       }
     ];
   })

@@ -6,7 +6,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show users');
+    return this.can.can('show users');
   },
   title: 'Gebruikers',
   perPage: 12,
@@ -22,12 +22,12 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
         link: 'users.new',
         title: 'Nieuwe gebruiker',
         icon: 'plus',
-        canAccess: this.can('create users')
+        canAccess: this.can.can('create users')
       }, {
         link: 'users.batch.new',
         title: 'Gebruikers importeren vanuit bestand',
         icon: 'upload',
-        canAccess: this.can('batch upload users')
+        canAccess: this.can.can('batch upload users')
       }
     ];
   })

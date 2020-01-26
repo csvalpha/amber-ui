@@ -6,7 +6,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   intl: service(),
   canAccess() {
-    return this.can('show articles');
+    return this.can.can('show articles');
   },
 
   modelName: 'article',
@@ -21,7 +21,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         link: 'articles.new',
         title: 'Nieuw artikel',
         icon: 'plus',
-        canAccess: this.can('create articles')
+        canAccess: this.can.can('create articles')
       }
     ];
   })

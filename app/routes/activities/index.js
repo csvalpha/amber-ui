@@ -5,7 +5,7 @@ import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show activities');
+    return this.can.can('show activities');
   },
   perPage: 15,
   modelName: 'activity',
@@ -29,13 +29,13 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
         link: 'activities.new',
         title: 'Nieuwe activiteit',
         icon: 'plus',
-        canAccess: this.can('create activities')
+        canAccess: this.can.can('create activities')
       },
       {
         link: 'activities.ical',
         title: 'Ical link',
         icon: 'calendar-alt',
-        canAccess: this.can('show ical activities')
+        canAccess: this.can.can('show ical activities')
       }
     ];
   }),

@@ -4,7 +4,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   skipBeforeModelAccessCheck: true,
   afterModel(activity, transition) {
-    return this.checkAccessWithPromise(this.can('mail enrolled members of activity', activity), transition);
+    return this.checkAccessWithPromise(this.can.can('mail enrolled members of activity', activity), transition);
   },
   model() {
     // For the permission check, the form needs to be loaded

@@ -3,7 +3,7 @@ import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
 
 export default ShowRouteUnauthenticated.extend({
   canAccess() {
-    return this.can('show static-pages');
+    return this.can.can('show static-pages');
   },
   modelName: 'static-page',
   title: computed('controller.model.title', function() {
@@ -17,14 +17,14 @@ export default ShowRouteUnauthenticated.extend({
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.get('controller.model'),
-        canAccess: this.can('edit static-pages')
+        canAccess: this.can.can('edit static-pages')
       },
       {
         link: 'static-pages.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.get('controller.model'),
-        canAccess: this.can('destroy static-pages')
+        canAccess: this.can.can('destroy static-pages')
       }
     ];
   })

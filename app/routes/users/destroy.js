@@ -4,7 +4,7 @@ import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   skipBeforeModelAccessCheck: true,
   afterModel(user, transition) {
-    return this.checkAccessWithPromise(this.can('destroy user', user), transition);
+    return this.checkAccessWithPromise(this.can.can('destroy user', user), transition);
   },
   modelName: 'user',
   title: 'Lid verwijderen',

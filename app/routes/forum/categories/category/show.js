@@ -3,7 +3,7 @@ import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show forum/categories');
+    return this.can.can('show forum/categories');
   },
   modelName: 'forum/category',
   beforeModel() {
