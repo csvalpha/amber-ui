@@ -63,8 +63,9 @@ Also change this in `File` > `Settings` > `Editor` > `Code Style` > `Line sepera
 Note: this should be configured automatically using `.editorconfig`.
 
 ### Linting
-
-* `yarn run lint`
+* `yarn run lint:hbs`
+* `yarn run lint:js`
+* `yarn run lint:js -- --fix`
 
 For auto fix run
 * `yarn run jsfix`
