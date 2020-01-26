@@ -30,7 +30,8 @@
         <h5>Reageren</h5>
       </div>
       <div class="card-body">
-        {{forum/forum-post-new thread=model.thread content=newContent onSave='refreshModelsAndRedirectToLastPage'}}
+        {{model}}
+        {{forum/forum-post-new thread=model.thread content=newContent onSubmit=(action 'newPostCreated')}}
       </div>
     </div>
   {{/if}}

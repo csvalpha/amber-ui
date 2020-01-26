@@ -10,6 +10,10 @@ export default Controller.extend({
   newContent: '',
   queryParams: ['page', 'perPage'],
 
+  count: computed('model.posts', function(){
+    return this.get('model.posts').length;
+  }),
+
   page: computed('model.posts.page', {
     get() {
       return this.get('model.posts.page');
@@ -32,6 +36,10 @@ export default Controller.extend({
   }),
 
   actions: {
+    async newPostCreated() {
+      await this.model.posts.reload();
+      this.send('goToLastPageAndScrollDown');
+    },
     goToLastPageAndScrollDown() {
       this.set('page', this.totalPages);
       $('#newForumPost')[0].scrollIntoView(true);
