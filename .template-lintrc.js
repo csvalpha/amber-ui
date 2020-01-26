@@ -3,9 +3,9 @@
 
 module.exports = {
   rules: {
-    'bare-strings': false,
+    'no-bare-strings': false,
     'block-indentation': 2,
-    'html-comments': true,
-    'triple-curlies': true
+    'no-html-comments': true,
+    'no-triple-curlies': true
   }
 };
