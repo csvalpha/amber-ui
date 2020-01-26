@@ -10,6 +10,10 @@ const FormResponseComponent = Component.extend({
       const removedOptionIds = previousOptionIds.reject(id => optionIds.includes(id));
       const addedOptionIds = optionIds.reject(id => previousOptionIds.includes(id));
 
+      console.log(previousOptionIds)
+      console.log(removedOptionIds)
+      console.log(addedOptionIds)
+
       removedOptionIds.forEach(removedOptionId => {
         const removedAnswer = answers.findBy('option.id', removedOptionId);
         answers.removeObject(removedAnswer);
