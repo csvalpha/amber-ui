@@ -15,6 +15,8 @@
 ########
 # Misc #
 ########
+/.env*
+/.pnp*
 /.sass-cache
 /connect.lock
 /coverage/
