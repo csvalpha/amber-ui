@@ -163,8 +163,8 @@ module.exports = function(environment) {
   if (environment === 'development') {
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
-      enabled: false,
-      excludeFilesFromBuild: true
+      enabled: true,
+      excludeFilesFromBuild: false
     };
 
     // Disable Sentry to prevent 'Error: Raven not configured' as no DSN is configured

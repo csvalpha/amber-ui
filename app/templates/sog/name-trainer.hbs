@@ -1,0 +1,64 @@
+<div class="row justify-content-md-center">
+{{#if groupSelected}}
+  <div class="card col-md-6">
+    <h1 class="card-header">{{model.firstObject.group.name}} namen trainer</h1>
+    {{#if started}}
+      <h6 class="card-subtitle mb-2 text-muted">Vraag {{current}} van {{max}} ({{success}} goed)</h6>
+      <div class="card-body text-center">
+        {{#if (gt difficulty 1)}}
+          <h2 class="card-title">Wie is dit?</h2>
+          <img height="100px" width="100px" src="{{question.avatarThumbUrlOrDefault}}">
+        {{else}}
+          <h2 class="card-title">Wie is {{question.fullName}}?</h2>
+        {{/if}}
+      </div>
+      <ul class="list-group list-group-flush">
+        {{#each options as |option|}}
+          <li class="list-group-item">
+            {{#if (gt difficulty 1)}}
+              {{option.fullName}}
+            {{else}}
+              <img height="50px" width="50px" src="{{option.avatarThumbUrlOrDefault}}">
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+      <div class="card-body">
+        <a class="btn btn-default" {{action 'stopTrainer'}}>Stoppen</a>
+      </div>
+    {{else}}
+      <div class="card-body">
+        <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
+        <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
+      </div>
+    {{/if}}
+  </div>
+
+{{else}}
+  <div class="card card col-md-6">
+    <h1 class="card-header">Namen trainer</h1>
+    <div class="card-body">
+      <div class="form-group">
+        <label>Groep</label>
+        {{#power-select
+          options=model
+          onchange=(action (mut selectedGroup))
+          selected=selectedGroup
+          searchField="name" as |group|}}
+          {{group.name}}
+        {{/power-select}}
+      </div>
+      <div class="form-group">
+        <label>Moeilijkheidsgraad</label>
+        {{input/select-input
+          class='form-control'
+          options=difficultyOptions
+          placeholder=Moeilijkheidsgraad
+          value=difficulty
+        }}
+      </div>
+      <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
+    </div>
+  </div>
+{{/if}}
+</div>

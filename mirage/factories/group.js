@@ -1,4 +1,4 @@
-import { Factory, faker } from 'ember-cli-mirage';
+import { Factory, faker, trait } from 'ember-cli-mirage';
 
 export default Factory.extend({
   name: faker.name.firstName,
@@ -6,5 +6,15 @@ export default Factory.extend({
   descriptionCamofied: () => faker.lorem.paragraph(),
   kind: () => faker.helpers.randomize(['bestuur', 'commissie', 'dispuut', 'genootschap', 'groep', 'huis', 'jaargroep']),
   recognizedAtGma: 'ALV 1',
-  avatarThumbUrl: null
+  avatarThumbUrl: null,
+
+  withMembers: trait({
+    afterCreate(group, server) {
+      server.create('membership', { group: group, user: server.create('user') });
+      server.create('membership', { group: group, user: server.create('user') });
+      server.create('membership', { group: group, user: server.create('user') });
+      server.create('membership', { group: group, user: server.create('user') });
+      server.create('membership', { group: group, user: server.create('user') });
+    }
+  })
 });
