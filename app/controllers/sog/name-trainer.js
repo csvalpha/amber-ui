@@ -34,13 +34,13 @@ export default Controller.extend(GroupMembershipsMixin, {
     return this.get('difficultyOptions').find(option => option.value === this.get('difficulty')).label;
   }),
   currentQuestion: computed('current', 'questions', function() {
-    return this.get('questions').objectAt(this.get('current')-1).question;
+    return this.get('questions').objectAt(this.get('current') - 1).question;
   }),
   currentOptions: computed('current', 'questions', function() {
-    return this.get('questions').objectAt(this.get('current')-1).options;
+    return this.get('questions').objectAt(this.get('current') - 1).options;
   }),
   currentQuestionItem: computed('current', 'questions', function() {
-    return this.get('questions').objectAt(this.get('current')-1);
+    return this.get('questions').objectAt(this.get('current') - 1);
   }),
   progress: computed('current', 'questions.length', function() {
     return (100 / this.get('questions.length')) * this.get('current');
@@ -56,7 +56,7 @@ export default Controller.extend(GroupMembershipsMixin, {
     return 'form-control';
   }),
   grade: computed('questions.length', 'success', function() {
-    return 1 + (9/this.get('questions.length')) * this.get('success');
+    return 1 + (9 / this.get('questions.length')) * this.get('success');
   }),
   actions: {
     startTrainer() {
@@ -74,13 +74,15 @@ export default Controller.extend(GroupMembershipsMixin, {
       this.set('started', false);
     },
     chooseOption(option) {
-      let currentQuestionItem = this.get('currentQuestionItem');
-      currentQuestionItem.answer = option;
-      currentQuestionItem.success = (option === currentQuestionItem.question);
-      if (currentQuestionItem.success) {
-        this.incrementProperty('success');
+      if (!this.get('answered')) {
+        let currentQuestionItem = this.get('currentQuestionItem');
+        currentQuestionItem.answer = option;
+        currentQuestionItem.success = (option === currentQuestionItem.question);
+        if (currentQuestionItem.success) {
+          this.incrementProperty('success');
+        }
+        this.goToNextQuestion();
       }
-      this.goToNextQuestion();
     },
     checkAnswer() {
       let currentQuestionItem = this.get('currentQuestionItem');
