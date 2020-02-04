@@ -123,7 +123,8 @@ module.exports = function(environment) {
           'user',
           'users',
           'volume-up',
-          'wrench'
+          'wrench',
+          'gamepad'
         ],
         'free-brands-svg-icons': [
           'android',
@@ -163,8 +164,8 @@ module.exports = function(environment) {
   if (environment === 'development') {
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
-      enabled: true,
-      excludeFilesFromBuild: false
+      enabled: false,
+      excludeFilesFromBuild: true
     };
 
     // Disable Sentry to prevent 'Error: Raven not configured' as no DSN is configured
