@@ -206,6 +206,7 @@ mixin:
     groups: Groups
     users: Users
     staticPages: Information
+    sog: SOG
 tag:
   button:
     close: Close

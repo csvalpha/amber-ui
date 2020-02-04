@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import GroupMembershipsMixin from 'alpha-amber/mixins/group-memberships-mixin';
+import { run } from '@ember/runloop';
 
 export default Controller.extend(GroupMembershipsMixin, {
   queryParams: ['group', 'difficulty'],
@@ -20,32 +21,113 @@ export default Controller.extend(GroupMembershipsMixin, {
     }
   ],
   current: 1,
-  max: 20,
   success: 0,
-  options: [],
-  question: null,
+  questions: [],
+  textInput: '',
   started: false,
+  finished: false,
+  answered: false,
   groupSelected: computed('group', function() {
     return this.get('group') != null;
   }),
+  humanizedDifficulty: computed('difficultyOptions', 'difficulty', function() {
+    return this.get('difficultyOptions').find(option => option.value === this.get('difficulty')).label;
+  }),
+  currentQuestion: computed('current', 'questions', function() {
+    return this.get('questions').objectAt(this.get('current')-1).question;
+  }),
+  currentOptions: computed('current', 'questions', function() {
+    return this.get('questions').objectAt(this.get('current')-1).options;
+  }),
+  currentQuestionItem: computed('current', 'questions', function() {
+    return this.get('questions').objectAt(this.get('current')-1);
+  }),
+  progress: computed('current', 'questions.length', function() {
+    return (100 / this.get('questions.length')) * this.get('current');
+  }),
+  inputClass: computed('currentQuestionItem', 'answered', function() {
+    if (this.get('answered')) {
+      if (this.get('currentQuestionItem').success) {
+        return 'form-control is-valid';
+      } else {
+        return 'form-control is-invalid';
+      }
+    }
+    return 'form-control';
+  }),
+  grade: computed('questions.length', 'success', function() {
+    return 1 + (9/this.get('questions.length')) * this.get('success');
+  }),
   actions: {
     startTrainer() {
-      if (this.get('group') == null) this.set('group', this.get('selectedGroup.id'));
+      if (this.get('group') == null) {
+        this.set('group', this.get('selectedGroup.id'));
+      }
+      this.generateQuestions();
       this.set('started', true);
-      this.generateOptions();
+      this.set('finished', false);
+      this.set('current', 1);
+      this.set('success', 0);
     },
     stopTrainer() {
       this.set('group', null);
       this.set('started', false);
+    },
+    chooseOption(option) {
+      let currentQuestionItem = this.get('currentQuestionItem');
+      currentQuestionItem.answer = option;
+      currentQuestionItem.success = (option === currentQuestionItem.question);
+      if (currentQuestionItem.success) {
+        this.incrementProperty('success');
+      }
+      this.goToNextQuestion();
+    },
+    checkAnswer() {
+      let currentQuestionItem = this.get('currentQuestionItem');
+      currentQuestionItem.answer = this.get('textInput');
+      currentQuestionItem.success = (currentQuestionItem.answer === currentQuestionItem.question.get('fullName'));
+      if (currentQuestionItem.success) {
+        this.incrementProperty('success');
+      }
+      this.goToNextQuestion();
     }
   },
-  generateOptions: function() {
-    let shuffled = this.get('model')
-      .map((a) => ({sort: Math.random(), value: a.get('user')}))
+  generateQuestions: function() {
+    let people = this.get('model');
+    let shuffledPeople = this.shuffleArray(people);
+    let questions = shuffledPeople.map((person) => ({
+      question: person,
+      options: this.generateOptions(people, person),
+      answer: null,
+      success: null
+    }));
+    this.set('questions', questions);
+  },
+  generateOptions: function(items, item) {
+    let shuffledItems = this.shuffleArray(items);
+    shuffledItems.splice(shuffledItems.indexOf(item), 1);
+    let options = shuffledItems.slice(0, 4);
+    options[Math.floor(Math.random() * options.length)] = item;
+    return options;
+  },
+  shuffleArray: function(array) {
+    return array.map((a) => ({ sort: Math.random(), value: a.get('user') }))
       .sort((a, b) => a.sort - b.sort)
       .map((a) => a.value);
-    let options = shuffled.slice(0,4);
-    this.set('options', options);
-    this.set('question', options[Math.floor(Math.random() * (options.length + 1))]);
+  },
+  goToNextQuestion: function() {
+    this.set('answered', true);
+    let _this = this;
+    run.later((function() {
+      if (_this.get('current') < _this.get('questions.length')) {
+        _this.set('answered', false);
+        _this.incrementProperty('current');
+        _this.set('textInput', '');
+      } else {
+        _this.set('answered', false);
+        _this.set('finished', true);
+        _this.set('started', false);
+      }
+    }), 2000);
   }
 });

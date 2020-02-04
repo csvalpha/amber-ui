@@ -1,11 +1,10 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixin';
-import { all } from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
-  title: 'Namen trainer',
-  breadCrumb: { title: 'Namen trainer' },
+  title: 'Namen leren',
+  breadCrumb: { title: 'Namen leren' },
   queryParams: {
     group: {
       refreshModel: true

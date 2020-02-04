@@ -208,6 +208,7 @@ mixin:
     groups: Groepen
     users: Gebruikers
     staticPages: Informatie
+    sog: SOG
 tag:
   button:
     close: Sluiten

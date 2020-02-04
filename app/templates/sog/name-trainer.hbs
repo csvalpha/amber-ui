@@ -1,64 +1,182 @@
-<div class="row justify-content-md-center">
-{{#if groupSelected}}
-  <div class="card col-md-6">
-    <h1 class="card-header">{{model.firstObject.group.name}} namen trainer</h1>
-    {{#if started}}
-      <h6 class="card-subtitle mb-2 text-muted">Vraag {{current}} van {{max}} ({{success}} goed)</h6>
-      <div class="card-body text-center">
-        {{#if (gt difficulty 1)}}
-          <h2 class="card-title">Wie is dit?</h2>
-          <img height="100px" width="100px" src="{{question.avatarThumbUrlOrDefault}}">
-        {{else}}
-          <h2 class="card-title">Wie is {{question.fullName}}?</h2>
-        {{/if}}
+<div class="row justify-content-sm-center name-trainer">
+  <div class="card col-xl-6 col-lg-8 col-md-10">
+
+    {{#if groupSelected}}
+      <div class="card-header">
+        <h1 class="card-title">{{model.firstObject.group.name}} namen leren</h1>
+        <p class="card-subtitle text-muted">
+          Moeilijkheidsgraad: {{humanizedDifficulty}}
+        </p>
       </div>
-      <ul class="list-group list-group-flush">
-        {{#each options as |option|}}
-          <li class="list-group-item">
-            {{#if (gt difficulty 1)}}
-              {{option.fullName}}
+
+      {{#if started}}
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{current}}"
+               aria-valuemin="0" aria-valuemax="{{questions.length}}">{{current}}/{{questions.length}}</div>
+        </div>
+
+        {{#if (eq difficulty 1)}}
+          <div class="card-body text-center trainer-question">
+            <h2 class="card-title">Wie is {{currentQuestion.fullName}}?</h2>
+          </div>
+          <ul class="list-group list-group-flush trainer-options">
+            {{#each currentOptions as |option|}}
+              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion option))
+                                                             "bg-success"}}" {{action 'chooseOption' option}}>
+                <img class="card-img-rounded trainer-thumb-small" src="{{option.avatarThumbUrlOrDefault}}">
+              </li>
+            {{/each}}
+          </ul>
+
+        {{else if (eq difficulty 2)}}
+          <div class="card-body text-center trainer-question">
+            <h2 class="card-title">Wie is dit?</h2>
+            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.avatarThumbUrlOrDefault}}">
+          </div>
+          <ul class="list-group list-group-flush trainer-options">
+            {{#each currentOptions as |option|}}
+              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion option))
+                                                             "bg-success"}}" {{action 'chooseOption' option}}>
+                {{option.fullName}}
+              </li>
+            {{/each}}
+          </ul>
+
+        {{else if (eq difficulty 3)}}
+          <div class="card-body text-center trainer-question">
+            {{#if answered}}
+              <h2 class="card-title">Dit is {{currentQuestion.fullName}}</h2>
             {{else}}
-              <img height="50px" width="50px" src="{{option.avatarThumbUrlOrDefault}}">
+              <h2 class="card-title">Wie is dit?</h2>
             {{/if}}
-          </li>
-        {{/each}}
-      </ul>
-      <div class="card-body">
-        <a class="btn btn-default" {{action 'stopTrainer'}}>Stoppen</a>
-      </div>
+            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.avatarThumbUrlOrDefault}}">
+          </div>
+          <div class="card-body">
+            <div class="input-group">
+              {{input
+                type="text"
+                value=textInput
+                id="answer"
+                class=inputClass
+                placeholder='Type hier de volledige naam'
+                enter='checkAnswer'}}
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary" {{action 'checkAnswer'}}>Antwoord</button>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+        <div class="card-footer text-right">
+          <a class="btn btn-default" {{action 'stopTrainer'}}>Stoppen</a>
+        </div>
+
+      {{else if finished}}
+        <div class="card-body text-center trainer-question">
+          <h2 class="card-title">Je hebt {{success}} van de {{questions.length}} vragen goed</h2>
+          <p class="card-subtitle text-muted">
+            Dat is toch wel een {{grade}} waard
+          </p>
+        </div>
+
+        <div class="card-body">
+          <h3>Antwoorden</h3>
+          <table class="table table-sm">
+            <thead>
+            <tr>
+              <th scope="col">Vraag</th>
+              <th scope="col">Correcte antwoord</th>
+              <th scope="col">Jouw antwoord</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each questions as |item|}}
+              <tr class="{{unless item.success "table-danger"}}">
+                {{#if (eq difficulty 1)}}
+                  <td>Wie is {{item.question.fullName}}?</td>
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                  </td>
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
+                    {{item.answer.fullName}}
+                  </td>
+
+                {{else if (eq difficulty 2)}}
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                    Wie is dit?
+                  </td>
+                  <td>
+                    {{item.question.fullName}}
+                  </td>
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
+                    {{item.answer.fullName}}
+                  </td>
+
+                {{else if (eq difficulty 3)}}
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                    Wie is dit?
+                  </td>
+                  <td>
+                    {{item.question.fullName}}
+                  </td>
+                  <td>
+                    {{item.answer}}
+                  </td>
+
+                {{/if}}
+              </tr>
+            {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-footer text-right">
+          <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
+          <a class="btn btn-primary" {{action 'startTrainer'}}>Nogmaals proberen</a>
+        </div>
+
+      {{else}}
+        <div class="card-footer text-right">
+          <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
+          <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
+        </div>
+
+      {{/if}}
+
+
     {{else}}
+      <div class="card-header">
+        <h1 class="card-title">Namen leren</h1>
+      </div>
       <div class="card-body">
-        <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
+        <div class="form-group">
+          <label>Groep</label>
+          {{#power-select
+            options=model
+            onchange=(action (mut selectedGroup))
+            selected=selectedGroup
+            searchField="name" as |group|}}
+            {{group.name}}
+          {{/power-select}}
+        </div>
+        <div class="form-group">
+          <label>Moeilijkheidsgraad</label>
+          {{input/select-input
+            class='form-control'
+            options=difficultyOptions
+            placeholder=Moeilijkheidsgraad
+            value=difficulty
+          }}
+        </div>
+      </div>
+      <div class="card-footer text-right">
         <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
       </div>
+
     {{/if}}
   </div>
-
-{{else}}
-  <div class="card card col-md-6">
-    <h1 class="card-header">Namen trainer</h1>
-    <div class="card-body">
-      <div class="form-group">
-        <label>Groep</label>
-        {{#power-select
-          options=model
-          onchange=(action (mut selectedGroup))
-          selected=selectedGroup
-          searchField="name" as |group|}}
-          {{group.name}}
-        {{/power-select}}
-      </div>
-      <div class="form-group">
-        <label>Moeilijkheidsgraad</label>
-        {{input/select-input
-          class='form-control'
-          options=difficultyOptions
-          placeholder=Moeilijkheidsgraad
-          value=difficulty
-        }}
-      </div>
-      <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
-    </div>
-  </div>
-{{/if}}
 </div>

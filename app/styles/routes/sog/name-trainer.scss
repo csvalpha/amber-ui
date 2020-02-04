@@ -1,0 +1,49 @@
+.name-trainer {
+  .card-header > .card-title,
+  .card-header > .card-subtitle {
+    margin-bottom: 0;
+  }
+
+  .trainer-question {
+    padding-top: 60px;
+    padding-bottom: 30px;
+  }
+
+  .progress {
+    margin: 0 10px;
+  }
+
+  .trainer-options {
+    margin: 0 -14px;
+
+    .trainer-option:first-of-type {
+      border-top-width: 1px;
+    }
+  }
+
+  .trainer-option:hover {
+    background-color: $brand-primary;
+    cursor: pointer;
+  }
+
+  .trainer-thumb-large,
+  .trainer-thumb-small,
+  .trainer-thumb-tiny {
+    border-radius: 50%;
+  }
+
+  .trainer-thumb-large {
+    width: 200px;
+    height: 200px;
+  }
+
+  .trainer-thumb-small {
+    width: 50px;
+    height: 50px;
+  }
+
+  .trainer-thumb-tiny {
+    width: 25px;
+    height: 25px;
+  }
+}
