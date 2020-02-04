@@ -14,7 +14,7 @@ export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
     }
   },
   canAccess() {
-    return this.can.can('show groups');
+    return this.can.can('show membership');
   },
   model(params) {
     if (params.group == null) {

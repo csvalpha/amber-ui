@@ -7,6 +7,6 @@ export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
   breadCrumb: { title: 'SOG' },
 
   canAccess() {
-    return true;
+    return this.can.can('show sog');
   }
 });
