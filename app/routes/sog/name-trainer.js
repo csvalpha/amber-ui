@@ -4,7 +4,7 @@ import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixi
 
 export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
   title: 'Namen leren',
-  breadCrumb: {title: 'Namen leren'},
+  breadCrumb: { title: 'Namen leren' },
   queryParams: {
     group: {
       refreshModel: true
@@ -27,5 +27,5 @@ export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
         }
       });
     }
-  },
+  }
 });

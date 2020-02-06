@@ -12,7 +12,9 @@
       {{#if started}}
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{current}}"
-               aria-valuemin="0" aria-valuemax="{{questions.length}}">{{current}}/{{questions.length}}</div>
+               aria-valuemin="0" aria-valuemax="{{questions.length}}">
+            {{current}}/{{questions.length}}
+          </div>
         </div>
 
         {{#if (eq difficulty 1)}}
@@ -83,53 +85,53 @@
           <h3>Antwoorden</h3>
           <table class="table table-sm">
             <thead>
-            <tr>
-              <th scope="col">Vraag</th>
-              <th scope="col">Correcte antwoord</th>
-              <th scope="col">Jouw antwoord</th>
-            </tr>
+              <tr>
+                <th scope="col">Vraag</th>
+                <th scope="col">Correcte antwoord</th>
+                <th scope="col">Jouw antwoord</th>
+              </tr>
             </thead>
             <tbody>
-            {{#each questions as |item|}}
-              <tr class="{{unless item.success "table-danger"}}">
-                {{#if (eq difficulty 1)}}
-                  <td>Wie is {{item.question.fullName}}?</td>
-                  <td>
-                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
-                  </td>
-                  <td>
-                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
-                    {{item.answer.fullName}}
-                  </td>
+              {{#each questions as |item|}}
+                <tr class="{{unless item.success "table-danger"}}">
+                  {{#if (eq difficulty 1)}}
+                    <td>Wie is {{item.question.fullName}}?</td>
+                    <td>
+                      <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                    </td>
+                    <td>
+                      <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
+                      {{item.answer.fullName}}
+                    </td>
 
-                {{else if (eq difficulty 2)}}
-                  <td>
-                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
-                    Wie is dit?
-                  </td>
-                  <td>
-                    {{item.question.fullName}}
-                  </td>
-                  <td>
-                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
-                    {{item.answer.fullName}}
-                  </td>
+                  {{else if (eq difficulty 2)}}
+                    <td>
+                      <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                      Wie is dit?
+                    </td>
+                    <td>
+                      {{item.question.fullName}}
+                    </td>
+                    <td>
+                      <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
+                      {{item.answer.fullName}}
+                    </td>
 
-                {{else if (eq difficulty 3)}}
-                  <td>
-                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
-                    Wie is dit?
-                  </td>
-                  <td>
-                    {{item.question.fullName}}
-                  </td>
-                  <td>
-                    {{item.answer}}
-                  </td>
+                  {{else if (eq difficulty 3)}}
+                    <td>
+                      <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                      Wie is dit?
+                    </td>
+                    <td>
+                      {{item.question.fullName}}
+                    </td>
+                    <td>
+                      {{item.answer}}
+                    </td>
 
-                {{/if}}
-              </tr>
-            {{/each}}
+                  {{/if}}
+                </tr>
+              {{/each}}
             </tbody>
           </table>
         </div>
