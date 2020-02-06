@@ -27,7 +27,8 @@ export default Controller.extend(GroupMembershipsMixin, {
   started: false,
   finished: false,
   answered: false,
-  groupSelected: computed('group', function() {
+  groupSelected: computed('group', 'model', function() {
+    this.generateQuestions(this.get('model'));
     return this.get('group') != null;
   }),
   humanizedDifficulty: computed('difficultyOptions', 'difficulty', function() {
@@ -53,17 +54,25 @@ export default Controller.extend(GroupMembershipsMixin, {
         return 'form-control is-invalid';
       }
     }
+
     return 'form-control';
   }),
   grade: computed('questions.length', 'success', function() {
-    return 1 + (9 / this.get('questions.length')) * this.get('success');
+    return 1 + Math.round((90 / this.get('questions.length')) * this.get('success')) / 10;
   }),
   actions: {
     startTrainer() {
       if (this.get('group') == null) {
         this.set('group', this.get('selectedGroup.id'));
       }
-      this.generateQuestions();
+
+      this.set('started', true);
+      this.set('finished', false);
+      this.set('current', 1);
+      this.set('success', 0);
+    },
+    restartTrainer() {
+      this.generateQuestions(this.get('model'));
       this.set('started', true);
       this.set('finished', false);
       this.set('current', 1);
@@ -81,6 +90,7 @@ export default Controller.extend(GroupMembershipsMixin, {
         if (currentQuestionItem.success) {
           this.incrementProperty('success');
         }
+
         this.goToNextQuestion();
       }
     },
@@ -91,11 +101,11 @@ export default Controller.extend(GroupMembershipsMixin, {
       if (currentQuestionItem.success) {
         this.incrementProperty('success');
       }
+
       this.goToNextQuestion();
     }
   },
-  generateQuestions: function() {
-    let people = this.get('model');
+  generateQuestions(people) {
     let shuffledPeople = this.shuffleArray(people);
     let questions = shuffledPeople.map((person) => ({
       question: person,
@@ -105,19 +115,19 @@ export default Controller.extend(GroupMembershipsMixin, {
     }));
     this.set('questions', questions);
   },
-  generateOptions: function(items, item) {
+  generateOptions(items, item) {
     let shuffledItems = this.shuffleArray(items);
     shuffledItems.splice(shuffledItems.indexOf(item), 1);
     let options = shuffledItems.slice(0, 4);
     options[Math.floor(Math.random() * options.length)] = item;
     return options;
   },
-  shuffleArray: function(array) {
+  shuffleArray(array) {
     return array.map((a) => ({ sort: Math.random(), value: a.get('user') }))
       .sort((a, b) => a.sort - b.sort)
       .map((a) => a.value);
   },
-  goToNextQuestion: function() {
+  goToNextQuestion() {
     this.set('answered', true);
     let _this = this;
     run.later((function() {

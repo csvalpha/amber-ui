@@ -3,7 +3,7 @@
 
     {{#if groupSelected}}
       <div class="card-header">
-        <h1 class="card-title">{{model.firstObject.group.name}} namen leren</h1>
+        <h1 class="card-title">{{model.firstObject.group.name}}</h1>
         <p class="card-subtitle text-muted">
           Moeilijkheidsgraad: {{humanizedDifficulty}}
         </p>
@@ -136,7 +136,7 @@
 
         <div class="card-footer text-right">
           <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
-          <a class="btn btn-primary" {{action 'startTrainer'}}>Nogmaals proberen</a>
+          <a class="btn btn-primary" {{action 'restartTrainer'}}>Nogmaals proberen</a>
         </div>
 
       {{else}}
