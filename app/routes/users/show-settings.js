@@ -4,7 +4,7 @@ import UserShowRouteUnauthenticated from 'alpha-amber/routes/users/show';
 export default UserShowRouteUnauthenticated.extend({
   skipBeforeModelAccessCheck: true,
   afterModel(user, transition) {
-    return this.checkAccessWithPromise(this.can('edit user', user), transition);
+    return this.checkAccessWithPromise(this.can.can('edit user', user), transition);
   },
   pageActions: computed('controller.model', function() {
     const user = this.get('controller.model');
@@ -14,7 +14,7 @@ export default UserShowRouteUnauthenticated.extend({
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: user,
-        canAccess: this.can('edit user', user)
+        canAccess: this.can.can('edit user', user)
       }
     ];
   })

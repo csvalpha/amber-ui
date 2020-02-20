@@ -2,7 +2,7 @@ import EditRoute from 'alpha-amber/routes/application/edit';
 
 export default EditRoute.extend({
   canAccess() {
-    return this.can('edit static-pages');
+    return this.can.can('edit static-pages');
   },
   modelName: 'static-page',
   title: 'Artikel aanpassen',

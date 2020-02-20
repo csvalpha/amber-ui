@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 export default EditRoute.extend({
   skipBeforeModelAccessCheck: true,
   afterModel(user, transition) {
-    return this.checkAccessWithPromise(this.can('edit user', user), transition);
+    return this.checkAccessWithPromise(this.can.can('edit user', user), transition);
   },
   modelName: 'user',
   title: 'Lid aanpassen',
@@ -22,7 +22,7 @@ export default EditRoute.extend({
         link: 'users.edit-permissions',
         title: 'Rechten',
         linkArgument: user,
-        canAccess: this.can('create permissions-users')
+        canAccess: this.can.can('create permissions-users')
       },
       {
         link: 'users.edit-privacy',

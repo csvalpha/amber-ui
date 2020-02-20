@@ -3,19 +3,19 @@ import { htmlSafe } from '@ember/string';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
-import { CanMixin } from 'ember-can';
 import { WelcomeTextLines, SuggestedEmojis } from 'alpha-amber/constants';
 import { convertToUnicode } from 'alpha-amber/helpers/convert-to-unicode';
 
-export default Component.extend(CanMixin, {
+export default Component.extend({
   session: service(),
   store: service(),
   messageBus: service(),
   notification: service(),
+  can: service(),
   init() {
     this._super(...arguments);
     this.set('messages', []);
-    if (this.can('show quickpost-messages')) {
+    if (this.can.can('show quickpost-messages')) {
       this.send('loadMessages', 1);
       this.send('subscribeToQuickpostMessagesMessageBus');
     }

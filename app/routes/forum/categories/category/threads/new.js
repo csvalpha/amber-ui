@@ -2,7 +2,7 @@ import NewRoute from 'alpha-amber/routes/application/new';
 
 export default NewRoute.extend({
   canAccess() {
-    return this.can('create forum/threads');
+    return this.can.can('create forum/threads');
   },
   modelName: 'forum/thread',
   title: 'Topic aanmaken',

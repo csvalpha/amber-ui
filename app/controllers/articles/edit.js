@@ -1,10 +1,10 @@
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
-import { CanMixin } from 'ember-can';
 import EditController from 'alpha-amber/controllers/application/edit';
 
-export default EditController.extend(CanMixin, {
+export default EditController.extend({
   session: service('session'),
+  can: service(),
   successTransitionTarget: 'articles.show',
   groupOptions: computed(function() {
     const optionArray = [
@@ -23,7 +23,7 @@ export default EditController.extend(CanMixin, {
     return optionArray;
   }),
   groups: computed(function() {
-    if (this.can('select all groups for articles')) {
+    if (this.can.can('select all groups for articles')) {
       return this.store.findAll('group');
     }
 

@@ -2,16 +2,14 @@ import { inject as service } from '@ember/service';
 import FileSaverMixin from 'ember-cli-file-saver/mixins/file-saver';
 import Route from '@ember/routing/route';
 import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixin';
-import { CanMixin } from 'ember-can';
-
-export default Route.extend(CanMixin, AuthorizationRouteMixin, FileSaverMixin, {
+export default Route.extend(AuthorizationRouteMixin, FileSaverMixin, {
   title: 'Sepa downloaden',
   ajax: service('ajax'),
 
   breadCrumb: { title: 'Sepa downloaden' },
 
   canAccess() {
-    return this.can('download sepa debit/collections');
+    return this.can.can('download sepa debit/collections');
   },
 
   model(params) {

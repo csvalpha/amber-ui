@@ -7,7 +7,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show debit/collections');
+    return this.can.can('show debit/collections');
   },
   modelName: 'debit/collection',
   title: alias('controller.model.collection.name'),
@@ -20,21 +20,21 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: collection,
-        canAccess: this.can('edit debit/collections')
+        canAccess: this.can.can('edit debit/collections')
       },
       {
         link: 'debit.collections.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: collection,
-        canAccess: this.can('destroy debit/collections')
+        canAccess: this.can.can('destroy debit/collections')
       },
       {
         link: 'debit.collections.sepa',
         title: 'SEPA bestand downloaden',
         icon: 'download',
         linkArgument: collection,
-        canAccess: this.can('download sepa debit/collections')
+        canAccess: this.can.can('download sepa debit/collections')
       }
     ];
   }),

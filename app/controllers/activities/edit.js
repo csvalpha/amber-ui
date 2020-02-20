@@ -3,12 +3,12 @@ import { union } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import { CanMixin } from 'ember-can';
 import { ActivityCategories } from 'alpha-amber/constants';
 
-export default Controller.extend(CanMixin, {
+export default Controller.extend({
   session: service(),
   store: service(),
+  can: service(),
   flashNotice: service('flash-notice'),
   combinedErrors: union('model.errors', 'model.form.errors'),
   activityHasForm: computed('model.form', {
@@ -29,7 +29,7 @@ export default Controller.extend(CanMixin, {
   }),
 
   groups: computed(function() {
-    if (this.can('select all groups for activities')) {
+    if (this.can.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
 
