@@ -10,11 +10,7 @@ export default Factory.extend({
 
   withMembers: trait({
     afterCreate(group, server) {
-      server.create('membership', { group: group, user: server.create('user') });
-      server.create('membership', { group: group, user: server.create('user') });
-      server.create('membership', { group: group, user: server.create('user') });
-      server.create('membership', { group: group, user: server.create('user') });
-      server.create('membership', { group: group, user: server.create('user') });
+      server.createList('membership', 5, { group, user: server.create('user') });
     }
   })
 });

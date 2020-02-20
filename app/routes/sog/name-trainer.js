@@ -14,7 +14,7 @@ export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
     }
   },
   canAccess() {
-    return this.can.can('show membership');
+    return this.can.can('show sog/name-trainer');
   },
   model(params) {
     if (params.group == null) {

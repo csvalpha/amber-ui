@@ -20,7 +20,7 @@ export default Controller.extend(GroupMembershipsMixin, {
       label: 'Moeilijk'
     }
   ],
-  current: 1,
+  currentQuestionIndex: 1,
   success: 0,
   questions: [],
   textInput: '',
@@ -31,24 +31,18 @@ export default Controller.extend(GroupMembershipsMixin, {
     this.generateQuestions(this.get('model'));
     return this.get('group') != null;
   }),
-  humanizedDifficulty: computed('difficultyOptions', 'difficulty', function() {
-    return this.get('difficultyOptions').find(option => option.value === this.get('difficulty')).label;
+  humanizedDifficulty: computed('difficulty', function() {
+    return this.difficultyOptions.find(option => option.value === this.get('difficulty')).label;
   }),
-  currentQuestion: computed('current', 'questions', function() {
-    return this.get('questions').objectAt(this.get('current') - 1).question;
+  currentQuestion: computed('currentQuestionIndex', 'questions', function() {
+    return this.get('questions').objectAt(this.get('currentQuestionIndex') - 1);
   }),
-  currentOptions: computed('current', 'questions', function() {
-    return this.get('questions').objectAt(this.get('current') - 1).options;
+  progress: computed('currentQuestionIndex', 'questions.length', function() {
+    return (100 / this.get('questions.length')) * this.get('currentQuestionIndex');
   }),
-  currentQuestionItem: computed('current', 'questions', function() {
-    return this.get('questions').objectAt(this.get('current') - 1);
-  }),
-  progress: computed('current', 'questions.length', function() {
-    return (100 / this.get('questions.length')) * this.get('current');
-  }),
-  inputClass: computed('currentQuestionItem', 'answered', function() {
+  inputClass: computed('currentQuestion', 'answered', function() {
     if (this.get('answered')) {
-      if (this.get('currentQuestionItem').success) {
+      if (this.get('currentQuestion').success) {
         return 'form-control is-valid';
       } else {
         return 'form-control is-invalid';
@@ -68,14 +62,14 @@ export default Controller.extend(GroupMembershipsMixin, {
 
       this.set('started', true);
       this.set('finished', false);
-      this.set('current', 1);
+      this.set('currentQuestionIndex', 1);
       this.set('success', 0);
     },
     restartTrainer() {
       this.generateQuestions(this.get('model'));
       this.set('started', true);
       this.set('finished', false);
-      this.set('current', 1);
+      this.set('currentQuestionIndex', 1);
       this.set('success', 0);
     },
     stopTrainer() {
@@ -84,10 +78,10 @@ export default Controller.extend(GroupMembershipsMixin, {
     },
     chooseOption(option) {
       if (!this.get('answered')) {
-        let currentQuestionItem = this.get('currentQuestionItem');
-        currentQuestionItem.answer = option;
-        currentQuestionItem.success = (option === currentQuestionItem.question);
-        if (currentQuestionItem.success) {
+        let currentQuestion = this.get('currentQuestion');
+        currentQuestion.answer = option;
+        currentQuestion.success = (option === currentQuestion.question);
+        if (currentQuestion.success) {
           this.incrementProperty('success');
         }
 
@@ -95,10 +89,10 @@ export default Controller.extend(GroupMembershipsMixin, {
       }
     },
     checkAnswer() {
-      let currentQuestionItem = this.get('currentQuestionItem');
-      currentQuestionItem.answer = this.get('textInput');
-      currentQuestionItem.success = (currentQuestionItem.answer === currentQuestionItem.question.get('fullName'));
-      if (currentQuestionItem.success) {
+      let currentQuestion = this.get('currentQuestion');
+      currentQuestion.answer = this.get('textInput');
+      currentQuestion.success = (currentQuestion.answer === currentQuestion.question.get('fullName'));
+      if (currentQuestion.success) {
         this.incrementProperty('success');
       }
 
@@ -131,9 +125,9 @@ export default Controller.extend(GroupMembershipsMixin, {
     this.set('answered', true);
     let _this = this;
     run.later((function() {
-      if (_this.get('current') < _this.get('questions.length')) {
+      if (_this.get('currentQuestionIndex') < _this.get('questions.length')) {
         _this.set('answered', false);
-        _this.incrementProperty('current');
+        _this.incrementProperty('currentQuestionIndex');
         _this.set('textInput', '');
       } else {
         _this.set('answered', false);

@@ -11,21 +11,21 @@
 
       {{#if started}}
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{current}}"
+          <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{currentQuestionIndex}}"
                aria-valuemin="0" aria-valuemax="{{questions.length}}">
-            {{current}}/{{questions.length}}
+            {{currentQuestionIndex}}/{{questions.length}}
           </div>
         </div>
 
         {{#if (eq difficulty 1)}}
           <div class="card-body text-center trainer-question">
-            <h2 class="card-title">Wie is {{currentQuestion.fullName}}?</h2>
+            <h2 class="card-title">Wie is {{currentQuestion.question.fullName}}?</h2>
           </div>
           <ul class="list-group list-group-flush trainer-options">
-            {{#each currentOptions as |option|}}
-              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion option))
-                                                             "bg-success"}}" {{action 'chooseOption' option}}>
-                <img class="card-img-rounded trainer-thumb-small" src="{{option.avatarThumbUrlOrDefault}}">
+            {{#each currentQuestion.options as |opt|}}
+              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion.question opt))
+                                                             "bg-success"}}" {{action 'chooseOption' opt}}>
+                <img class="card-img-rounded trainer-thumb-small" src="{{opt.avatarThumbUrlOrDefault}}">
               </li>
             {{/each}}
           </ul>
@@ -33,13 +33,13 @@
         {{else if (eq difficulty 2)}}
           <div class="card-body text-center trainer-question">
             <h2 class="card-title">Wie is dit?</h2>
-            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.avatarThumbUrlOrDefault}}">
+            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.question.avatarThumbUrlOrDefault}}">
           </div>
           <ul class="list-group list-group-flush trainer-options">
-            {{#each currentOptions as |option|}}
-              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion option))
-                                                             "bg-success"}}" {{action 'chooseOption' option}}>
-                {{option.fullName}}
+            {{#each currentQuestion.options as |opt|}}
+              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion.question opt))
+                                                             "bg-success"}}" {{action 'chooseOption' opt}}>
+                {{opt.fullName}}
               </li>
             {{/each}}
           </ul>
@@ -47,11 +47,11 @@
         {{else if (eq difficulty 3)}}
           <div class="card-body text-center trainer-question">
             {{#if answered}}
-              <h2 class="card-title">Dit is {{currentQuestion.fullName}}</h2>
+              <h2 class="card-title">Dit is {{currentQuestion.question.fullName}}</h2>
             {{else}}
               <h2 class="card-title">Wie is dit?</h2>
             {{/if}}
-            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.avatarThumbUrlOrDefault}}">
+            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.question.avatarThumbUrlOrDefault}}">
           </div>
           <div class="card-body">
             <div class="input-group">
@@ -137,13 +137,13 @@
         </div>
 
         <div class="card-footer text-right">
-          <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
+          <a class="btn btn-default" {{action 'stopTrainer'}}>Terug naar instellingen</a>
           <a class="btn btn-primary" {{action 'restartTrainer'}}>Nogmaals proberen</a>
         </div>
 
       {{else}}
         <div class="card-footer text-right">
-          <a class="btn btn-default" {{action 'stopTrainer'}}>Annuleren</a>
+          <a class="btn btn-default" {{action 'stopTrainer'}}>Terug naar instellingen</a>
           <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
         </div>
 
