@@ -38,6 +38,8 @@ export default Controller.extend({
         return 'Te snel: dit is nog niet geïmplementeerd!';
       case '503':
         return 'De website is momenteel niet beschikbaar. Probeer het later opnieuw.';
+      case '509': // Bandwidth Limit Exceeded
+        return 'Jij of anderen op hetzelfde ip-adres hebben teveel verzoeken gedaan aan de server in een korte tijd. Daarom zal de server de komende tijd niet op je verzoeken reageren. Probeer het later opnieuw.';
       default:
         return 'Er is iets mis gegaan. Probeer het later opnieuw.';
     }
