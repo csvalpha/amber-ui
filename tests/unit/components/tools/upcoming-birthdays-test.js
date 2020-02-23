@@ -1,41 +1,25 @@
-import EmberObject from '@ember/object';
-import { moduleForComponent, test } from 'ember-qunit';
-import startMirage from 'alpha-amber/tests/helpers/setup-mirage-for-integration';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
+import { setupMirage } from 'ember-cli-mirage/test-support';
 
-moduleForComponent('tools/upcoming_birthdays', 'Unit | Component | tools/upcoming birthdays', {
-  needs: ['service:ajax', 'service:session', 'service:intl', 'service:localStorage', 'service:raven'],
-  unit: true,
-  beforeEach() {
-    startMirage(this.container);
-  },
-  afterEach() {
-    window.server.shutdown();
-  }
-});
+module('Unit | Component | tools/upcoming birthdays', function(hooks) {
+  setupTest(hooks);
+  setupMirage(hooks);
 
-test('it splits the birthdays today and upcoming birthdays correct', function(assert) {
-  server.createList('user', 2, { hasBirthdayToday: false });
-  server.createList('user', 3, { hasBirthdayToday: true });
+  test('it splits the birthdays today and upcoming birthdays correct', function(assert) {
+    let component = this.owner.lookup('component:tools/upcoming_birthdays');
+    this.server.createList('user', 2, { birthday: moment().add(1, 'day') });
+    this.server.createList('user', 3, { birthday: moment().subtract(1, 'year') });
 
-  const done = assert.async();
+    let done = assert.async();
 
-  const component = this.subject({
-    // Mock the store
-    store: EmberObject.create({
-      peekRecord(type, id) {
-        if (type === 'user') {
-          return EmberObject.create(server.db.users.find(id));
-        }
-      },
-      pushPayload() {
-        return true;
-      }
-    })
+    component.loadUpcomingBirthdays().then(() => {
+      assert.equal(component.get('usersWithUpcomingBirthday').length, 2);
+      assert.equal(component.get('usersWithBirthdayToday').length, 3);
+      done();
+    });
   });
 
-  component.loadUpcomingBirthdays().then(() => {
-    assert.equal(component.get('usersWithUpcomingBirthday').length, 2);
-    assert.equal(component.get('usersWithBirthdayToday').length, 3);
-    done();
-  });
 });
+
+
