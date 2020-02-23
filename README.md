@@ -10,13 +10,13 @@ You will need the following things properly installed on your computer.
 * [Git](https://git-scm.com/)
 * [Node.js](https://nodejs.org/) (with NPM, see `.node-version`, install preferably with [nvm](https://github.com/creationix/nvm#install-script))
 * [Yarn](https://yarnpkg.com/) (Alternative to NPM. Not strictly required, but uses version locking and is much faster)
-* [Ember CLI](https://www.ember-cli.com/): `yarn global install ember-cli` (or `npm install -g ember-cli`)
+* [Ember CLI](https://www.ember-cli.com/): `yarn global add ember-cli` (or `npm install -g ember-cli`)
 
 ## Installation
 
 * `git clone <repository-url>` this repository
 * change into the new directory
-* `yarn install` (or `npm install`)
+* `yarn add` (or `npm install`)
 
 ## Running / Development
 
@@ -63,13 +63,13 @@ Also change this in `File` > `Settings` > `Editor` > `Code Style` > `Line sepera
 Note: this should be configured automatically using `.editorconfig`.
 
 ### Linting
-* `yarn run lint:hbs`
-* `yarn run lint:js`
-* `yarn run lint:js -- --fix`
+* `yarn lint:hbs`
+* `yarn lint:js`
+* `yarn lint:js -- --fix`
 
 For auto fix run
-* `yarn run jsfix`
-* `yarn run stylefix`
+* `yarn jsfix`
+* `yarn stylefix`
 
 ### Building
 
