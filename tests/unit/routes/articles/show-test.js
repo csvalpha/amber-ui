@@ -1,18 +1,12 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-moduleFor('route:articles/show', 'Unit | Route | articles/show', {
-  needs: [
-    'service:ajax',
-    'service:can',
-    'service:layout-manager',
-    'service:session',
-    'service:router-scroll',
-    'service:scheduler'
-  ]
-});
+module('Unit | Route | articles/show', function(hooks) {
+  setupTest(hooks);
 
-test('it has a correct modelName', function(assert) {
-  const route = this.subject();
+  test('it has a correct modelName', function(assert) {
+    const route = this.owner.lookup('route:articles/show');
 
-  assert.equal('article', route.get('modelName'));
+    assert.equal('article', route.get('modelName'));
+  });
 });

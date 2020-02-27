@@ -7,19 +7,20 @@ import destroyApp from '../../helpers/destroy-app';
 
 const { Model } = DS;
 
-module('Unit | Initializer | model save if dirty', {
-  beforeEach() {
+module('Unit | Initializer | model save if dirty', function(hooks) {
+  hooks.beforeEach(function() {
     run(() => {
       this.application = Application.create();
       this.application.deferReadiness();
     });
-  },
-  afterEach() {
-    destroyApp(this.application);
-  }
-});
+  });
 
-test('it adds Model#saveIfDirty', function(assert) {
-  initialize(this.application);
-  assert.ok(Model.proto().saveIfDirty);
+  hooks.afterEach(function() {
+    destroyApp(this.application);
+  });
+
+  test('it adds Model#saveIfDirty', function(assert) {
+    initialize(this.application);
+    assert.ok(Model.proto().saveIfDirty);
+  });
 });

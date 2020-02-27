@@ -1,35 +1,29 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 import startApp from '../../../helpers/start-app';
 import destroyApp from '../../../helpers/destroy-app';
 
 let App;
 
-moduleFor('route:users/edit', 'Unit | Route | users/edit', {
-  needs: [
-    'model:user',
-    'model:membership',
-    'model:permission',
-    'service:can',
-    'service:layout-manager',
-    'service:session',
-    'service:router-scroll',
-    'service:scheduler'
-  ],
-  beforeEach() {
+module('Unit | Route | users/edit', function(hooks) {
+  setupTest(hooks);
+
+  hooks.beforeEach(function() {
     App = startApp();
-  },
-  afterEach() {
+  });
+
+  hooks.afterEach(function() {
     destroyApp(App);
-  }
-});
+  });
 
-test('it exists', function(assert) {
-  const route = this.subject();
-  assert.ok(route);
-});
+  test('it exists', function(assert) {
+    const route = this.owner.lookup('route:users/edit');
+    assert.ok(route);
+  });
 
-test('it has a correct modelName', function(assert) {
-  const route = this.subject();
+  test('it has a correct modelName', function(assert) {
+    const route = this.owner.lookup('route:users/edit');
 
-  assert.equal('user', route.get('modelName'));
+    assert.equal('user', route.get('modelName'));
+  });
 });
