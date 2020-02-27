@@ -15,11 +15,11 @@
         </div>
 
         <div class="row mb-2">
-          {{#each userPropertyOptions as |option|}}
+          {{#each userPropertyOptions as |opt|}}
             <div class="col-md-6">
               <label class="form-check-label">
-                {{input type="checkbox" checked=option.isChecked}}
-                {{option.label}}
+                {{input type="checkbox" checked=opt.isChecked}}
+                {{opt.label}}
                 <div class="custom-checkmark"></div>
               </label>
             </div>

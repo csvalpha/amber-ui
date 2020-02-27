@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
-module('Unit | Controller | groups/edit', function(hooks){
+module('Unit | Controller | groups/edit', function(hooks) {
   setupTest(hooks);
 
   test('test if groupKindOptions contains options with capitalized labels', function(assert) {

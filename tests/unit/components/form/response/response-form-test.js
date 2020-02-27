@@ -62,5 +62,3 @@ module('Unit | Component | form/response/response form', function(hooks) {
     assert.equal(question.get('linkedAnswers')[1].get('response'), response);
   });
 });
-
-
