@@ -21,6 +21,9 @@ export default Controller.extend({
       transactionsGroupedByUser.transactions.pushObject(transaction);
       transactionsGroupedByUser.totalTransactionAmount += transaction.get('amount');
     });
+    transactions.forEach(transaction => {
+      transaction.totalTransactionAmount = Math.round(transaction.totalTransactionAmount*100)/100
+    });
     return transactions;
   })
 });
