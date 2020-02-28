@@ -6,6 +6,7 @@ module.exports = {
     'no-bare-strings': false,
     'block-indentation': 2,
     'no-html-comments': true,
-    'no-triple-curlies': true
+    'no-triple-curlies': true,
+    'no-shadowed-elements': true
   }
 };
