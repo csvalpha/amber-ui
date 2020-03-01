@@ -1,6 +1,6 @@
 import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
-import { warn } from '@ember/debug';
+import { debug } from '@ember/debug';
 import { Promise } from 'rsvp';
 import Session from 'ember-simple-auth/services/session';
 import ENV from 'alpha-amber/config/environment';
@@ -49,7 +49,7 @@ export default Session.extend({
 
   hasPermission(permissionName) {
     const hasPermission = !isNone(this.currentUser) && this.currentUser.hasPermission(permissionName);
-    warn(
+    debug(
       `Current user does not have permission '${permissionName}'`,
       !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,
       { id: 'alpha-amber.session.no-permission' }
