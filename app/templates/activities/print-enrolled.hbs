@@ -46,7 +46,7 @@
               {{/sortable-group}}
 
               <div class="input-group consumptionList-itemfield mt-2">
-                {{input value=newOption class="form-control" placeholder="Optie toevoegen" enter="addOption"}}
+                {{input value=newOption class="form-control" placeholder="Optie toevoegen" enter=(action "addOption")}}
                 <span class="input-group-btn">
                   <button class="btn btn-secondary" type="button" {{action "addOption"}}>{{fa-icon 'plus'}}</button>
                 </span>
