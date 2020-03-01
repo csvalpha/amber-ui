@@ -4,9 +4,9 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property="title" label="Titel" required=true}}
-      {{model-form/date-input model=model property="date" label="Datum van activiteit"}}
-      {{model-form/checkbox-input model=model property="publiclyVisible" label="Zichtbaar voor externen"}}
+      <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" @required={{true}} />
+      <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van activiteit" />
+      <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
@@ -27,12 +27,12 @@
             <li>Bestandsformaat: .jpg, .jpeg of .png</li>
           </ul>
         </div>
-        {{drop-zone url=model.dropzoneEndpoint headers=dropzoneHeaders maxFilesize=model.maxFilesize}}
+        <DropZone @url={{model.dropzoneEndpoint}} @headers={{dropzoneHeaders}} @maxFilesize={{model.maxFilesize}} />
       {{/if}}
 
-      {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "photo-albums.index" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errors={{model.errors}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="photo-albums.index" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

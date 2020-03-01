@@ -1,6 +1,6 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 {{cards/article-card model}}
 
@@ -31,7 +31,7 @@
           </div>
         {{/if}}
         <div class="input-group">
-          {{input value=newArticleComment class="form-control" placeholder=(t 'template.articles.show.commentHint') minlength="1" maxlength="500" enter=(action "submitArticleComment")}}
+          <Input @value={{newArticleComment}} class="form-control" placeholder={{t "template.articles.show.commentHint"}} @minlength="1" @maxlength="500" @enter={{action "submitArticleComment"}} />
           <span class="input-group-btn">
             <button class="btn btn-default" {{action "submitArticleComment"}}>{{t 'tag.button.react'}}</button>
           </span>

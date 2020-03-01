@@ -11,22 +11,22 @@
           {{/if}}
         </div>
         <div class="card-titles">
-          {{#link-to 'articles.show' article}}
+          <LinkTo @route="articles.show" @model={{article}}>
             <h2 class="card-title" itemprop="name headline">{{article.title}}</h2>
-          {{/link-to}}
+          </LinkTo>
           <h3 class="card-subtitle">
             {{#if article.group}}
-              {{#link-to 'groups.show' article.group class="link-to card-subtitle-link"}}
+              <LinkTo @route="groups.show" @model={{article.group}} class="link-to card-subtitle-link">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.group.name}}</span>
                 </span>
-              {{/link-to}}
+              </LinkTo>
             {{else}}
-              {{#link-to 'users.show' article.author class="link-to card-subtitle-link"}}
+              <LinkTo @route="users.show" @model={{article.author}} class="link-to card-subtitle-link">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.author.fullName}}</span>
                 </span>
-              {{/link-to}}
+              </LinkTo>
             {{/if}}
           </h3>
         </div>
@@ -47,9 +47,9 @@
       <span itemprop="datePublished" content={{moment-format article.createdAt}}> {{moment-calendar article.createdAt}} </span>
       <span>{{t 'component.cards.articleCard.reactions' count=article.amountOfComments}}</span>
       {{#if useMaxHeight}}
-        {{#link-to 'articles.show' article itemprop='url'}}
+        <LinkTo @route="articles.show" @model={{article}} @itemprop="url">
           <span class="float-md-right"> {{t 'tag.button.readMore'}} </span>
-        {{/link-to}}
+        </LinkTo>
       {{/if}}
     </div>
   </div>

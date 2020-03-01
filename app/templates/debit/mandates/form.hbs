@@ -4,30 +4,26 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/date-input model=model property="startDate"  label='Start datum'}}
-      {{model-form/date-input model=model property="endDate"    label='Eind datum'}}
-      {{model-form/text-input model=model property='iban'       label='IBAN'}}
-      {{model-form/text-input model=model property='ibanHolder' label='Bankrekeninghouder'}}
+      <ModelForm::DateInput @model={{model}} @property="startDate" @label="Start datum" />
+      <ModelForm::DateInput @model={{model}} @property="endDate" @label="Eind datum" />
+      <ModelForm::TextInput @model={{model}} @property="iban" @label="IBAN" />
+      <ModelForm::TextInput @model={{model}} @property="ibanHolder" @label="Bankrekeninghouder" />
 
       <div class="form-group row">
         <label class="col-md-2 form-control-label">Gebruiker</label>
 
         <div class="col-sm-10">
-          {{#power-select
-            options=users
-            onchange=(action (mut model.user))
-            selected=model.user
-            searchField="fullName" as |user|}}
+          <PowerSelect @options={{users}} @onchange={{action (mut model.user)}} @selected={{model.user}} @searchField="fullName" as |user|>
             {{user.fullName}}
-          {{/power-select}}
+          </PowerSelect>
 
           {{form-control-feedback (get model.errors property)}}
         </div>
       </div>
 
-      {{#model-form/form-actions model=model  errorMessage=errorMessage}}
-        {{#link-to "debit.mandates.index" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @model={{model}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="debit.mandates.index" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

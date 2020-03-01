@@ -32,9 +32,9 @@
     <div class="col-md-12 lustrumactivities-list">
       {{#each model as |activity index|}}
         {{#if (can 'show activities')}}
-          {{#link-to 'activities.show' activity}}
+          <LinkTo @route="activities.show" @model={{activity}}>
             {{lustrum/lustrum-bar activity index}}
-          {{/link-to}}
+          </LinkTo>
         {{else}}
           {{lustrum/lustrum-bar activity index expanded=true}}
         {{/if}}

@@ -1,6 +1,6 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 <div class="row">
   <div class="col">
@@ -25,7 +25,7 @@
                   <td>Moderator</td>
                   <td>
                     {{#if model.moderatorGroup}}
-                      {{#link-to 'groups.show' model.moderatorGroup}}{{model.moderatorGroup.name}}{{/link-to}}
+                      <LinkTo @route="groups.show" @model={{model.moderatorGroup}}>{{model.moderatorGroup.name}}</LinkTo>
                     {{else}}
                       --
                     {{/if}}
@@ -43,7 +43,7 @@
                   <td>Groep</td>
                   <td>
                     {{#if model.group}}
-                      {{#link-to 'groups.show' model.group}}{{model.group.name}}{{/link-to}}
+                      <LinkTo @route="groups.show" @model={{model.group}}>{{model.group.name}}</LinkTo>
                     {{else}}
                       --
                     {{/if}}
@@ -53,7 +53,7 @@
                   <td>Gebruiker</td>
                   <td>
                     {{#if model.user}}
-                      {{#link-to 'users.show' model.user}}{{model.user.fullName}}{{/link-to}}
+                      <LinkTo @route="users.show" @model={{model.user}}>{{model.user.fullName}}</LinkTo>
                     {{else}}
                       --
                     {{/if}}

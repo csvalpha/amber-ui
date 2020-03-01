@@ -1,10 +1,9 @@
-<<<<<<< HEAD
-{{header-nav refreshItems=(action "refreshItems")}}
-{{flash-notice}}
+<HeaderNav @refreshItems={{action "refreshItems"}} />
+<FlashNotice />
 <div id="ember-wormhole-destination"></div>
 
-{{menu-sidebar}}
-{{privacy-modal}}
+<MenuSidebar />
+<PrivacyModal />
 
 <div class="app {{currentRouteName}}">
   <div class="container main {{if session.isAuthenticated 'authenticated '}} {{if layoutManager.leftSideBarExpanded 'left-sidebar-expanded '}} {{if layoutManager.leftSideBarOpen 'left-sidebar-open'}}">
@@ -15,4 +14,4 @@
     </div>
   </div>
 </div>
-{{footer-nav class=(concat "footer-holder " (concat (if layoutManager.leftSideBarExpanded 'left-sidebar-expanded ') (if layoutManager.leftSideBarOpen 'left-sidebar-open')))}}
+<FooterNav @class={{concat "footer-holder " (concat (if layoutManager.leftSideBarExpanded "left-sidebar-expanded ") (if layoutManager.leftSideBarOpen "left-sidebar-open"))}} />

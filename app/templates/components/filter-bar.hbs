@@ -1,7 +1,7 @@
 <div class="filter-bar w-100">
   <div class="form-group mb-0">
 
-    {{#bs-dropdown class="w-100" as |dd|}}
+    <BsDropdown @class="w-100" as |dd|>
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
@@ -9,49 +9,41 @@
           </div>
         </div>
 
-        {{input value=filter class="filter-bar-filter form-control" placeholder="Zoeken" enter=enter}}
+        <Input @value={{filter}} class="filter-bar-filter form-control" placeholder="Zoeken" @enter={{enter}} />
 
         <div class="input-group-append">
-          {{#dd.button type="button"}}
+          <dd.button @type="button">
             {{#if sortedAscending}}
               {{fa-icon 'sort-amount-up'}}
             {{else}}
               {{fa-icon 'sort-amount-down'}}
             {{/if}}
-          {{/dd.button}}
+          </dd.button>
 
-          {{#dd.menu as |ddm|}}
+          <dd.menu as |ddm|>
             <div class="ml-2 text-muted text-bold"> Sorteren </div>
 
-            {{#ddm.item}}
-              {{model-form/radio-group
-                model=this
-                property='sortedAttribute'
-                options=sortableAttributes
-                inputLayout='vertical'
-                label=null
-                inputIdentifier="filter"
-                required=false
-                class="sort-radio-group"}}
-            {{/ddm.item}}
+            <ddm.item>
+              <ModelForm::RadioGroup @model={{this}} @property="sortedAttribute" @options={{sortableAttributes}} @inputLayout="vertical" @label={{null}} @inputIdentifier="filter" @required={{false}} @class="sort-radio-group" />
+            </ddm.item>
 
             {{menu.divider}}
 
-            {{#ddm.item}}
+            <ddm.item>
               <div class="form-check">
                 <label for="sort-order" class="form-check-label">
-                  {{input type="checkbox" id="sort-order" checked=sortedAscending class="filter-bar-sorted-ascending form-check-input"}}
+                  <Input @type="checkbox" @id="sort-order" @checked={{sortedAscending}} class="filter-bar-sorted-ascending form-check-input" />
                   Oplopend
                   <div class="custom-checkmark"></div>
                 </label>
               </div>
-            {{/ddm.item}}
+            </ddm.item>
 
             {{yield}}
-          {{/dd.menu}}
+          </dd.menu>
         </div>
       </div>
-    {{/bs-dropdown}}
+    </BsDropdown>
 
   </div>
 </div>

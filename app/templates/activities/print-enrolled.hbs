@@ -21,7 +21,7 @@
         {{#if (eq currentTab 'form')}}
           <div class="form-check">
             <label class="form-check-label">
-              {{input type="checkbox" checked=showAllergyInfo class="form-check-input"}}
+              <Input @type="checkbox" @checked={{showAllergyInfo}} class="form-check-input" />
               Dieetwensen weergeven
               <div class="custom-checkmark"></div>
             </label>
@@ -31,22 +31,22 @@
           <div class="row">
             <div class="col-12">
               <b>Extra opties</b> <br>
-              {{#sortable-group tagName="ul" class="list-group" onChange="reorderItems" as |group|}}
+              <SortableGroup @tagName="ul" @class="list-group" @onChange="reorderItems" as |group|>
                 {{#each options as |option index|}}
-                  {{#sortable-item tagName="li" class="list-group-item" model=option group=group handle=".handle"}}
+                  <SortableItem @tagName="li" @class="list-group-item" @model={{option}} @group={{group}} @handle=".handle">
                     <div class="row">
                       <span class="col"> {{option}} </span>
                       <a class="pl-2 link-highlight text-danger" {{action "removeOption" index}}> Verwijderen </a>
                       <span class="px-3">{{fa-icon 'sort' class="handle text-muted"}}</span>
                     </div>
-                  {{/sortable-item}}
+                  </SortableItem>
                 {{else}}
                   Geen extra opties ingesteld
                 {{/each}}
-              {{/sortable-group}}
+              </SortableGroup>
 
               <div class="input-group consumptionList-itemfield mt-2">
-                {{input value=newOption class="form-control" placeholder="Optie toevoegen" enter=(action "addOption")}}
+                <Input @value={{newOption}} class="form-control" placeholder="Optie toevoegen" @enter={{action "addOption"}} />
                 <span class="input-group-btn">
                   <button class="btn btn-secondary" type="button" {{action "addOption"}}>{{fa-icon 'plus'}}</button>
                 </span>
@@ -54,12 +54,12 @@
 
               <div class="form-group mt-3">
                 <label> <b> Extra lege rijen </b> </label>
-                {{input type="number" value=additionalEmptyRows class="form-control" placeholder="Extra velden" min="0"}}
+                <Input @type="number" @value={{additionalEmptyRows}} class="form-control" placeholder="Extra velden" @min="0" />
               </div>
 
               <div class="form-check">
                 <label class="form-check-label">
-                  {{input type="checkbox" checked=showRobertHofstra class="form-check-input"}}
+                  <Input @type="checkbox" @checked={{showRobertHofstra}} class="form-check-input" />
                   Robert Hofstra toevoegen
                   <div class="custom-checkmark"></div>
                 </label>
@@ -70,14 +70,14 @@
 
         <div class="form-check">
           <label class="form-check-label">
-            {{input type="checkbox" checked=showCheckbox class="form-check-input"}}
+            <Input @type="checkbox" @checked={{showCheckbox}} class="form-check-input" />
             Aanvinkhokje weergeven
             <div class="custom-checkmark"></div>
           </label>
         </div>
 
         <button type="button" class="btn btn-secondary" {{action 'print'}}>Afdrukken</button>
-        {{#link-to 'activities.show' model class="btn btn-default"}}Annuleren{{/link-to}}
+        <LinkTo @route="activities.show" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
       </form>
     </p>
   </div>
@@ -103,14 +103,7 @@
 
       {{else if (eq currentTab 'consumptionList')}}
         <h5>Streeplijst voor {{model.title}}</h5>
-        {{form/consumption-list
-          responses=model
-          showCheckbox=showCheckbox
-          options=options
-          extraRows=extraRows
-          showRobertHofstra=showRobertHofstra
-          additionalEmptyRows=additionalEmptyRows
-        }}
+        <Form::ConsumptionList @responses={{model}} @showCheckbox={{showCheckbox}} @options={{options}} @extraRows={{extraRows}} @showRobertHofstra={{showRobertHofstra}} @additionalEmptyRows={{additionalEmptyRows}} />
       {{/if}}
     </p>
   </div>

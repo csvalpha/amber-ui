@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
-    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+  </PageActionsButtons>
+</EmberWormhole>
 
 {{#each groupedModel as |group|}}
   <div class="card">
@@ -11,11 +11,11 @@
     </div>
 
     {{#each group.items as |staticPage|}}
-      {{#link-to 'static-pages.show' staticPage}}
+      <LinkTo @route="static-pages.show" @model={{staticPage}}>
         <div class="row rtable-row">
           <span class="col"> {{staticPage.title}} </span>
         </div>
-      {{/link-to}}
+      </LinkTo>
     {{/each}}
   </div>
 {{/each}}

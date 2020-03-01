@@ -9,7 +9,7 @@
       {{/if}}
     {{/each}}
   </div>
-  {{#link-to 'articles'}}
+  <LinkTo @route="articles">
     <button class="btn frontpage-button float-right"> {{t 'component.index.recentNews.more'}} </button>
-  {{/link-to}}
+  </LinkTo>
 </div>

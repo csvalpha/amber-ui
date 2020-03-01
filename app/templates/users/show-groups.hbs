@@ -1,20 +1,18 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
-{{#tabbed-view tabItems=tabItems}}
+<TabbedView @tabItems={{tabItems}}>
   <div class="row flex-row-reverse tabs-with-filterbar-row">
-    {{#filter-bar class="col-12 col-lg-5 mb-2 mb-lg-0" filter=filter
-                  sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes
-                  sortedAscending=sortedAscending enter=(action "selectFirstItem")}}
+    <FilterBar @class="col-12 col-lg-5 mb-2 mb-lg-0" @filter={{filter}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
       <div class="form-check">
         <label class="form-check-label">
-          {{input type="checkbox" checked=showAdministrativeGroups class="form-check-input"}}
+          <Input @type="checkbox" @checked={{showAdministrativeGroups}} class="form-check-input" />
           Toon administratieve groepen
           <div class="custom-checkmark"></div>
         </label>
       </div>
-    {{/filter-bar}}
+    </FilterBar>
 
     <div class="col-12 col-lg-7">
       <ul class="nav nav-tabs">
@@ -30,10 +28,8 @@
 
   <div class="card-body row">
     {{#each filteredModelsWithAdministrative as |membership|}}
-      {{#link-to 'groups.show' membership.group class="col-sm-12 col-md-6 col-lg-4"}}
-        {{#cards/membership-card title=membership.group.name subtitle=membership.function
-                                  imageSource=membership.group.avatarThumbUrlOrDefault
-                                  administrative=membership.group.administrative}}
+      <LinkTo @route="groups.show" @model={{membership.group}} class="col-sm-12 col-md-6 col-lg-4">
+        <Cards::MembershipCard @title={{membership.group.name}} @subtitle={{membership.function}} @imageSource={{membership.group.avatarThumbUrlOrDefault}} @administrative={{membership.group.administrative}}>
           <small>
             {{moment-format membership.startDate 'DD-MM-YYYY'}} -
             {{#if membership.endDate}}
@@ -42,8 +38,8 @@
               heden
             {{/if}}
           </small>
-        {{/cards/membership-card}}
-      {{/link-to}}
+        </Cards::MembershipCard>
+      </LinkTo>
     {{else}}
       <div class="alert alert-warning col-xs">
         Geen groepen gevonden
@@ -51,4 +47,4 @@
     {{/each}}
   </div>
 
-{{/tabbed-view}}
+</TabbedView>

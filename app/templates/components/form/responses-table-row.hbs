@@ -7,15 +7,15 @@
 <td>
   {{#if (can 'destroy form/response')}}
     {{#if response.form.canRespond}}
-      {{#link-to 'form.responses.destroy' response class="no-print"}}
+      <LinkTo @route="form.responses.destroy" @model={{response}} class="no-print">
         {{fa-icon 'trash'}}
-      {{/link-to}}
+      </LinkTo>
     {{/if}}
   {{/if}}
 
-  {{#link-to 'users.show' response.user.id}}
+  <LinkTo @route="users.show" @model={{response.user.id}}>
     {{response.user.fullName}}
-  {{/link-to}}
+  </LinkTo>
 </td>
 
 {{#each form.sortedQuestions as |question|}}

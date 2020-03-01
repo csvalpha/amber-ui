@@ -1,4 +1,4 @@
-{{#link-to 'articles.show' article}}
+<LinkTo @route="articles.show" @model={{article}}>
   <article class="{{if useMaxHeight 'd-flex'}}" itemscope itemtype="http://schema.org/Article">
     <div class="card border-0">
       <div class="card-header card-header--overlay" data-test-frontpage-article-card>
@@ -9,17 +9,17 @@
           <div class="card-titles col pl-0">
             <h5 itemprop="name headline">{{article.title}}</h5>
             {{#if article.group}}
-              {{#link-to 'groups.show' article.group class="link-to card-subtitle-link"}}
+              <LinkTo @route="groups.show" @model={{article.group}} class="link-to card-subtitle-link">
                 <h5 class="card-subtitle d-none d-sm-block" itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.group.name}}</span>
                 </h5>
-              {{/link-to}}
+              </LinkTo>
             {{else}}
-              {{#link-to 'users.show' article.author class="link-to card-subtitle-link"}}
+              <LinkTo @route="users.show" @model={{article.author}} class="link-to card-subtitle-link">
                 <h5 class="card-subtitle d-none d-sm-block" itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.author.fullName}}</span>
                 </h5>
-              {{/link-to}}
+              </LinkTo>
             {{/if}}
           </div>
           <span class="card-subtitle align-self-end">
@@ -29,4 +29,4 @@
       </div>
     </div>
   </article>
-{{/link-to}}
+</LinkTo>
