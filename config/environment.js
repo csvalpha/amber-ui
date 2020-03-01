@@ -141,6 +141,8 @@ module.exports = function(environment) {
       }
     },
 
+    locationType: 'router-scroll',
+    historySupportMiddleware: true,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
