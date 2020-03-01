@@ -10,7 +10,7 @@ export default Controller.extend({
   newContent: '',
   queryParams: ['page', 'perPage'],
 
-  count: computed('model.posts', function(){
+  count: computed('model.posts', function() {
     return this.get('model.posts').length;
   }),
 
