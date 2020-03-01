@@ -26,7 +26,7 @@
 {{#if (can 'show individual users')}}
   <p class="text-right text-muted">
     Foto geüpload door
-    <LinkTo @route="users.show" @model={{model.uploader}}>
+    <LinkTo @route="users.show" @model={{model.uploader.id}}>
       {{model.uploader.fullName}}
     </LinkTo>
 

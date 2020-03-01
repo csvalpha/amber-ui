@@ -39,7 +39,7 @@
     {{#each sortedMessages as |message index|}}
       <hr>
       <div class="row qp-message p-3">
-        <LinkTo @route="users.show" @model={{message.author}}>
+        <LinkTo @route="users.show" @model={{message.author.id}}>
           <img class="profile-picture profile-picture-md ml-3 p-0" alt="{{message.author.fullName}}" src="{{message.author.avatarThumbUrlOrDefault}}">
         </LinkTo>
 

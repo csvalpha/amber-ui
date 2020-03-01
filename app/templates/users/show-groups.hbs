@@ -28,7 +28,7 @@
 
   <div class="card-body row">
     {{#each filteredModelsWithAdministrative as |membership|}}
-      <LinkTo @route="groups.show" @model={{membership.group}} class="col-sm-12 col-md-6 col-lg-4">
+      <LinkTo @route="groups.show" @model={{membership.group.id}} class="col-sm-12 col-md-6 col-lg-4">
         <Cards::MembershipCard @title={{membership.group.name}} @subtitle={{membership.function}} @imageSource={{membership.group.avatarThumbUrlOrDefault}} @administrative={{membership.group.administrative}}>
           <small>
             {{moment-format membership.startDate 'DD-MM-YYYY'}} -

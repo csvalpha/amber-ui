@@ -9,13 +9,13 @@
           <div class="card-titles col pl-0">
             <h5 itemprop="name headline">{{article.title}}</h5>
             {{#if article.group}}
-              <LinkTo @route="groups.show" @model={{article.group}} class="link-to card-subtitle-link">
+              <LinkTo @route="groups.show" @model={{article.group.id}} class="link-to card-subtitle-link">
                 <h5 class="card-subtitle d-none d-sm-block" itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.group.name}}</span>
                 </h5>
               </LinkTo>
             {{else}}
-              <LinkTo @route="users.show" @model={{article.author}} class="link-to card-subtitle-link">
+              <LinkTo @route="users.show" @model={{article.author.id}} class="link-to card-subtitle-link">
                 <h5 class="card-subtitle d-none d-sm-block" itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.author.fullName}}</span>
                 </h5>

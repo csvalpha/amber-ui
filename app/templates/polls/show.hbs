@@ -37,7 +37,7 @@
     <div class="col-12 col-md-3 card-subheader-item align-items-center p-3">
       {{fa-icon 'user'}}
       <span data-test-poll-author>
-        <LinkTo @route="users.show" @model={{model.poll.author}} class="link-to card-subtitle-link">
+        <LinkTo @route="users.show" @model={{model.poll.author.id}} class="link-to card-subtitle-link">
           {{model.poll.author.fullName}}
         </LinkTo>
       </span>

@@ -17,11 +17,11 @@
           <h3 class="card-subtitle">
             <span class="subtitle-author" data-test-activity-author>
               {{#if activity.group}}
-                <LinkTo @route="groups.show" @model={{activity.group}} class="link-to card-subtitle-link">
+                <LinkTo @route="groups.show" @model={{activity.group.id}} class="link-to card-subtitle-link">
                   {{activity.group.name}}
                 </LinkTo>
               {{else}}
-                <LinkTo @route="users.show" @model={{activity.author}} class="link-to card-subtitle-link">
+                <LinkTo @route="users.show" @model={{activity.author.id}} class="link-to card-subtitle-link">
                   {{activity.author.fullName}}
                 </LinkTo>
               {{/if}}

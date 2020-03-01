@@ -43,7 +43,7 @@
                   <td>Groep</td>
                   <td>
                     {{#if model.group}}
-                      <LinkTo @route="groups.show" @model={{model.group}}>{{model.group.name}}</LinkTo>
+                      <LinkTo @route="groups.show" @model={{model.group.id}}>{{model.group.name}}</LinkTo>
                     {{else}}
                       --
                     {{/if}}
@@ -53,7 +53,7 @@
                   <td>Gebruiker</td>
                   <td>
                     {{#if model.user}}
-                      <LinkTo @route="users.show" @model={{model.user}}>{{model.user.fullName}}</LinkTo>
+                      <LinkTo @route="users.show" @model={{model.user.id}}>{{model.user.fullName}}</LinkTo>
                     {{else}}
                       --
                     {{/if}}

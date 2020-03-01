@@ -16,13 +16,13 @@
           </LinkTo>
           <h3 class="card-subtitle">
             {{#if article.group}}
-              <LinkTo @route="groups.show" @model={{article.group}} class="link-to card-subtitle-link">
+              <LinkTo @route="groups.show" @model={{article.group.id}} class="link-to card-subtitle-link">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.group.name}}</span>
                 </span>
               </LinkTo>
             {{else}}
-              <LinkTo @route="users.show" @model={{article.author}} class="link-to card-subtitle-link">
+              <LinkTo @route="users.show" @model={{article.author.id}} class="link-to card-subtitle-link">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
                   <span itemprop="name">{{article.author.fullName}}</span>
                 </span>

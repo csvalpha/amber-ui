@@ -12,7 +12,7 @@
   </div>
 
   {{#each pagedModel as |poll|}}
-    <LinkTo @route="polls.show" @model={{poll}} data-test-poll-item={{true}}>
+    <LinkTo @route="polls.show" @model={{poll.id}} data-test-poll-item={{true}}>
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item"> {{form/status-icon poll.form}} {{poll.question.question}} </span>
         <span class="col-8 col-md-3 text-muted rtable-item"> <span class="d-inline d-md-none"> Sluit  </span> {{moment-calendar poll.form.respondUntil}} </span>

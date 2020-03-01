@@ -19,7 +19,7 @@
         <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Startdatum:  </span>{{moment-format mandate.startDate 'DD-M-YYYY'}} </span>
         <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Einddatum:  </span> {{moment-format mandate.endDate 'DD-M-YYYY'}} </span>
 
-        <LinkTo @route="users.show" @model={{mandate.user}}>
+        <LinkTo @route="users.show" @model={{mandate.user.id}}>
           <span class="col-8 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Gebruiker:  </span> {{mandate.user.fullName}} </span>
         </LinkTo>
       </div>
