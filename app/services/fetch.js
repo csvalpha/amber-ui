@@ -18,6 +18,35 @@ export default Service.extend({
     return basefetch(url, args);
   },
 
+  post(url, args  = {}) {
+    args.method = 'POST';
+    this._parseBody(args);
+    this._setHeaders(args);
+    return this.fetch(url, args);
+  },
+
+  patch(url, args = {}) {
+    args.method = 'PATCH';
+    this._parseBody(args);
+    this._setHeaders(args);
+    return this.fetch(url, args);
+  },
+
+  _parseBody(args) {
+    if (args.body) {
+      args.body = JSON.stringify(args.body);
+    }
+  },
+
+  _setHeaders(args) {
+    if (!args.headers) {
+      args.headers = {};
+    }
+
+    args.headers.Accept = 'application/vnd.api+json';
+    args.headers['Content-Type'] = 'application/vnd.api+json';
+  },
+
   authorizationHeader() {
     const accessToken = this.get('session.data.authenticated.access_token');
     if (accessToken) {

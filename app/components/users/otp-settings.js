@@ -1,19 +1,19 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
-import { isInvalidError } from 'ember-ajax/errors';
+import { isInvalidResponse } from 'ember-fetch/errors';
 
 export default Component.extend({
-  ajax: service(),
+  fetch: service(),
   flashNotice: service(),
   actions: {
-    disableOTP() {
+    async disableOTP() {
       this.set('otpErrorMessage', null);
       this.set('otpVerificationImage', null);
 
       const userId = this.get('model.id');
-      this.ajax.patch(`/users/${userId}`, {
+      const response = await this.fetch.patch(`/users/${userId}`, {
         /* eslint-disable camelcase */
-        data: {
+        body: {
           data: {
             attributes: {
               otp_required: false
@@ -23,44 +23,50 @@ export default Component.extend({
           }
         }
         /* eslint-enable camelcase */
-      }).then(() => {
+      });
+
+      if (response.ok) {
         this.flashNotice.sendWarning('Two-factor authenticatie gedeactiveerd!');
         this.set('model.otpRequired', false);
-      }).catch((error) => {
-        this.set('otpErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
-      });
+      } else if (isInvalidResponse(response)) {
+        const json = await response.json();
+        this.set('otpErrorMessage', json.errors ? json.errors[0].detail : response);
+      }
     },
-    generateOTP() {
+    async generateOTP() {
       this.set('otpErrorMessage', null);
       this.set('otpKey', null);
 
       const userId = this.get('model.id');
-      this.ajax.post(`/users/${userId}/generate_otp_secret`).then((response) => {
-        this.set('otpKey', response.otp_code);
-      }).catch((error) => {
-        this.set('otpErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
-      });
+      const response = await this.fetch.post(`/users/${userId}/generate_otp_secret`);
+      let json = await response.json();
+
+      if (response.ok) {
+        this.set('otpKey', json.otp_code);
+      } else if (isInvalidResponse(response)) {
+        this.set('otpErrorMessage', json.errors ? json.errors[0].detail : response);
+      }
     },
-    confirmOTP() {
+    async confirmOTP() {
       this.set('otpErrorMessage', null);
 
       const userId = this.get('model.id');
-      this.ajax.post(`/users/${userId}/activate_otp`, {
+      const response = await this.fetch.post(`/users/${userId}/activate_otp`, {
         /* eslint-disable camelcase */
-        data: {
+        body: {
           one_time_password: this.verificationCode
         }
         /* eslint-enable camelcase */
-      }).then(() => {
+      });
+
+      if (response.ok) {
         this.set('model.otpRequired', true);
         this.set('verificationCode', null);
         this.set('otpVerificationImage', null);
         this.flashNotice.sendSuccess('Two-factor authenticatie geactiveerd!');
-      }).catch((error) => {
-        if (isInvalidError(error)) {
-          this.set('otpErrorMessage', 'Deze authenticatiecode is niet geldig');
-        }
-      });
+      } else if (isInvalidResponse(response)) {
+        this.set('otpErrorMessage', 'Deze authenticatiecode is niet geldig');
+      }
     }
   }
 });

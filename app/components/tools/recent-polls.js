@@ -4,7 +4,6 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  ajax: service(),
   polls: computed(function() {
     return this.store.query('poll', { sort: '-created_at', page: { number: '1', size: 5 } });
   })

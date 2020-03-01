@@ -6,7 +6,7 @@ import Session from 'ember-simple-auth/services/session';
 import ENV from 'alpha-amber/config/environment';
 
 export default Session.extend({
-  ajax: service(),
+  fetch: service(),
   store: service(),
   intl: service(),
   localStorage: service(),
@@ -18,11 +18,14 @@ export default Session.extend({
       if (this.isAuthenticated) {
         this.intl.set('locale', 'nl');
         this.localStorage.setItem('locale', 'nl');
-        this.ajax.request('/users?filter[me]').then(content => {
-          this.store.pushPayload(content);
-          const user = this.store.peekRecord('user', content.data[0].id);
-          user.get('permissions').then(permissions => { // eslint-disable-line no-unused-vars
-            resolve(user);
+        this.fetch.fetch('/users?filter[me]').then(content => {
+          content.json().then(json => {
+            this.store.pushPayload(json);
+            const user = this.store.peekRecord('user', json.data[0].id);
+
+            user.get('permissions').then(permissions => { // eslint-disable-line no-unused-vars
+              resolve(user);
+            });
           });
         }).catch(() => {
           resolve(null);
