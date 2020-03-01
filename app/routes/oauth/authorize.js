@@ -1,6 +1,6 @@
 import Route from '@ember/routing/route';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   fetch: service(),
@@ -8,7 +8,7 @@ export default Route.extend(AuthenticatedRouteMixin, {
   init() {
     this._super(...arguments);
 
-    this.router.on('routeDidChange', _ => {
+    this.router.on('routeDidChange', () => {
       // Get client id from the API
       const clientId = this.controller.get('client_id');
       const redirectUri = this.controller.get('redirect_uri');

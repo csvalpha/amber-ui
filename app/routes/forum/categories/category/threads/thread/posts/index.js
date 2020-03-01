@@ -1,6 +1,6 @@
-import {inject as service} from '@ember/service';
-import {computed} from '@ember/object';
-import {assign} from '@ember/polyfills';
+import { inject as service } from '@ember/service';
+import { computed } from '@ember/object';
+import { assign } from '@ember/polyfills';
 import IndexRoute from 'alpha-amber/routes/application/index';
 import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
@@ -16,7 +16,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     const thread = this.modelFor('forum.categories.category.threads.thread');
     assign(params, {
       paramMapping: this.paramMapping,
-      filter: {thread: thread.id},
+      filter: { thread: thread.id },
       sort: 'created_at'
     });
     const postsPromise = this.findPaged('forum/post', params);
@@ -28,11 +28,11 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     };
   },
 
-  title: computed('controller.model.thread.title', function () {
+  title: computed('controller.model.thread.title', function() {
     return this.get('controller.model.thread.title');
   }),
 
-  pageActions: computed('controller.model.thread', function () {
+  pageActions: computed('controller.model.thread', function() {
     return [
       {
         link: 'forum.categories.category.threads.thread.edit',
@@ -54,7 +54,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
   init() {
     this._super(...arguments);
 
-    this.router.on('routeDidChange', _ => {
+    this.router.on('routeDidChange', () => {
       // Update forumLastRead
       let currentStore = this.storage.getItem('forumLastRead') || '{}';
       currentStore = JSON.parse(currentStore);
