@@ -1,11 +1,12 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-moduleFor('route:activities/print_enrolled', 'Unit | Route | activities/print_enrolled', {
-  needs: ['service:can', 'service:layout-manager', 'service:session', 'service:router-scroll', 'service:scheduler']
-});
+module('Unit | Route | activities/print_enrolled', function(hooks) {
+  setupTest(hooks);
 
-test('it exists', function(assert) {
-  const route = this.subject();
-  assert.ok(route);
+  test('it exists', function(assert) {
+    const route = this.owner.lookup('route:activities/print_enrolled');
+    assert.ok(route);
+  });
 });
 

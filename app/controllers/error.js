@@ -32,6 +32,8 @@ export default Controller.extend({
         return 'Het lijkt erop dat je probeert teveel data te versturen. Probeer eens iets minder.';
       case '418': // I'm a teapot
         return 'De server weigert koffie te zetten, omdat ze beweert een theepot te zijn.';
+      case '429': // Too many Requests
+        return 'Jij of anderen op hetzelfde ip-adres hebben teveel verzoeken gedaan aan de server in een korte tijd. Daarom zal de server de komende tijd niet op je verzoeken reageren. Probeer het later opnieuw.';
       case '500': // Internal Server Error
         return 'Oh nee, de server is stuk! Geef de ICT-commissie even de tijd om dit op te lossen.';
       case '501': // Not Implemented
