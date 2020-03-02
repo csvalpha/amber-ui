@@ -10,6 +10,10 @@ const AppRouter = EmberRouter.extend(RouterScroll, {
     this._super(...arguments);
 
     this.on('routeDidChange', () => {
+      if (!config.googleAnalytics) {
+        return;
+      }
+
       if (typeof gtag === 'undefined') {
         window.dataLayer = window.dataLayer || [];
         window.gtag = function() {
