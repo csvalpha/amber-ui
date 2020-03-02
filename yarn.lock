@@ -5099,13 +5099,6 @@ ember-cli-get-component-path-option@^1.0.0:
   resolved "https://registry.yarnpkg.com/ember-cli-get-component-path-option/-/ember-cli-get-component-path-option-1.0.0.tgz#0d7b595559e2f9050abed804f1d8eff1b08bc771"
   integrity sha1-DXtZVVni+QUKvtgE8djv8bCLx3E=
 
-ember-cli-google-analytics@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/ember-cli-google-analytics/-/ember-cli-google-analytics-1.5.0.tgz#e5574d15930925d05a238ced9fc4ec6d448e2a3c"
-  integrity sha1-5VdNFZMJJdBaI4ztn8TsbUSOKjw=
-  dependencies:
-    lodash-node "^2.4.1"
-
 ember-cli-htmlbars-inline-precompile@^1.0.0:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars-inline-precompile/-/ember-cli-htmlbars-inline-precompile-1.0.5.tgz#312e050c9e3dd301c55fb399fd706296cd0b1d6a"
@@ -8549,11 +8542,6 @@ lodash-es@^4.17.11:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
   integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
-
-lodash-node@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/lodash-node/-/lodash-node-2.4.1.tgz#ea82f7b100c733d1a42af76801e506105e2a80ec"
-  integrity sha1-6oL3sQDHM9GkKvdoAeUGEF4qgOw=
 
 lodash._baseassign@^3.0.0:
   version "3.2.0"
