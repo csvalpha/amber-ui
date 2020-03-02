@@ -16,7 +16,7 @@ module('Unit | Component | form/response/response form', function(hooks) {
   skip('it updates answers of multiple choice questions', function(assert) {
     const component = this.owner.lookup('component:form/response/response-form');
 
-    const linkedAnswers = new A();
+    const linkedAnswers = A();
     const question = EmberObject.create(this.server.create('formClosedQuestion', { linkedAnswers, _optionCount: 3 }).attrs);
     const response = EmberObject.create(this.server.create('formResponse').attrs);
     const { optionIds } = question;

@@ -7,27 +7,33 @@
         </div>
 
         <div class="card-block p-4">
-          <p>
-            Door op "Inloggen" te klikken log je met je C.S.V. Alpha account in bij de volgende applicatie:
-          </p>
+          {{#if clientName}}
+            <p>
+              Door op "Inloggen" te klikken log je met je C.S.V. Alpha account in bij de volgende applicatie:
+            </p>
 
-          <ul>
-            <li><strong>{{clientName}}</strong></li>
-          </ul>
-          <p>
-            Deze applicatie krijgt daarmee nu en in de toekomst toegang tot een aantal van jouw gegevens, waaronder je volledige naam, e-mail adres en in welke groepen je zit.
-          </p>
+            <ul>
+              <li><strong>{{clientName}}</strong></li>
+            </ul>
+            <p>
+              Deze applicatie krijgt daarmee nu en in de toekomst toegang tot een aantal van jouw gegevens, waaronder je volledige naam, e-mail adres en in welke groepen je zit.
+            </p>
 
-          {{#if errorMessage}}
-            <div class="alert alert-danger mt-3" role="alert" data-test-error>
-              <p>Er ging iets mis met het inloggen. Probeer een keer opnieuw in te loggen. Als dat niet helpt, neem contact op met de ICT-commissie.</p>
-              <pre> {{errorMessage}} </pre>
-            </div>
+            {{#if errorMessage}}
+              <div class="alert alert-danger mt-3" role="alert" data-test-error>
+                <p>Er ging iets mis met het inloggen. Probeer een keer opnieuw in te loggen. Als dat niet helpt, neem contact op met de ICT-commissie.</p>
+                <pre> {{errorMessage}} </pre>
+              </div>
+            {{/if}}
+
+            <button class="btn btn-primary login-button" {{action 'authorize'}} id="button-login">
+              Inloggen
+            </button>
+          {{else}}
+            <p>
+              Applicatie informatie wordt geladen, een momentje geduld.
+            </p>
           {{/if}}
-
-          <button class="btn btn-primary login-button" {{action 'authorize'}} id="button-login">
-            Inloggen
-          </button>
         </div>
       </div>
     </div>
