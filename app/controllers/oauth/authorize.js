@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend({
   fetch: service(),
-  clientName: 'Loading..',
+  clientName: null,
 
   /* eslint-disable camelcase */
   queryParams: ['client_id', 'redirect_uri', 'response_type', 'state', 'scope'],
