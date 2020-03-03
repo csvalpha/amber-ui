@@ -3,10 +3,10 @@ import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { run } from '@ember/runloop';
 import { isNone } from '@ember/utils';
-import { isNotFoundError } from 'ember-ajax/errors';
+import { isNotFoundResponse } from 'ember-fetch/errors';
 
 export default Controller.extend({
-  ajax: service(),
+  fetch: service(),
 
   isSaveButtonDisabled: computed('password', 'passwordConfirmation', function() {
     return isNone(this.password) || this.password.length < 12 || this.password !== this.passwordConfirmation;
@@ -26,24 +26,22 @@ export default Controller.extend({
   queryParams: ['activation_token'],
 
   actions: {
-    resetPassword() {
+    async resetPassword() {
       const userId = this.get('model.id');
-      const activateAccountRequest = this.ajax.post(`/users/${userId}/activate_account`,
-        { data: { password: this.password, passwordConfirmation: this.passwordConfirmation, activationToken: this.activation_token } }
+      const response = await this.fetch.post(`/users/${userId}/activate_account`,
+        { body: { password: this.password, passwordConfirmation: this.passwordConfirmation, activationToken: this.activation_token } }
       );
-      activateAccountRequest.then(() => {
+
+      if (response.ok) {
         this.set('successMessage', 'Wachtwoord is aangepast');
         run.later(() => {
           this.transitionToRoute('login');
         }, 2000);
-      }).catch(error => {
-        let errorMessage = 'Er ging iets mis...';
-        if (isNotFoundError(error)) {
-          errorMessage = 'Token niet geldig, vraag een nieuwe aan';
-        }
-
-        this.set('errorMessage', errorMessage);
-      });
+      } else if (isNotFoundResponse(response)) {
+        this.set('errorMessage', 'Token niet geldig, vraag een nieuwe aan');
+      } else {
+        this.set('errorMessage', 'Er ging iets mis...');
+      }
     }
   }
 });

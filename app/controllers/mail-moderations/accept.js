@@ -1,19 +1,23 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
+import { isInvalidResponse } from 'ember-fetch/errors';
 
 export default Controller.extend({
-  ajax: service('ajax'),
+  fetch: service(),
   errorMessage: null,
   actions: {
-    submit() {
+    async submit() {
       const id = this.get('model.id');
       this.set('errorMessage', null);
-      this.ajax.post(`/stored_mails/${id}/accept`).then(() => {
+      const response = await this.fetch.post(`/stored_mails/${id}/accept`);
+
+      if (response.ok) {
         this.model.unloadRecord();
         this.transitionToRoute('mail-moderations.index');
-      }).catch((error) => {
-        this.set('errorMessage', error.message);
-      });
+      } else if (isInvalidResponse(response)) {
+        const json = await response.json();
+        this.set('errorMessage', json.error);
+      }
     }
   }
 });

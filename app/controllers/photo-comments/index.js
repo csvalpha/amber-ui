@@ -17,7 +17,7 @@ export default Controller.extend(FilterableAndSortableMixin, PagedModelControlle
 
   sortedAscending: false,
   sortedAttribute: 'updated_at',
-  commentContent: new EmberObject(),
+  commentContent: EmberObject.create(),
   flashNotice: service(),
 
   actions: {

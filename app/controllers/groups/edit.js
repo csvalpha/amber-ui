@@ -36,7 +36,7 @@ export default Controller.extend({
       membership.deleteRecord();
     },
     submit() {
-      const membershipErrors = new A();
+      const membershipErrors = A();
 
       if (this.model !== undefined) {
         let failedMembershipSavings = 0;

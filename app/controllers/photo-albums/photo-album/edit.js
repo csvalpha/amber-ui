@@ -3,7 +3,6 @@ import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 
 export default Controller.extend({
-  ajax: service(),
   store: service(),
 
   actions: {
@@ -18,6 +17,6 @@ export default Controller.extend({
     }
   },
   dropzoneHeaders: computed(function() {
-    return this.get('ajax.headers');
+    return { 'Authorization': this.get('fetch.authorizationHeader') };
   })
 });
