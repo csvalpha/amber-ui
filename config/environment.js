@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'script-src': '\'self\' \'unsafe-inline\' \'unsafe-eval\' cdn.ravenjs.com www.google-analytics.com www.googletagmanager.com',
       'font-src': '\'self\' fonts.gstatic.com',
       'connect-src': '\'self\' sentry.io',
-      'img-src': '\'self\' data: camo.csvalpha.nl sentry.io maps.googleapis.com cdn.ravenjs.com www.google-analytics.com youtube.com',
+      'img-src': '\'self\' data: camo.csvalpha.nl sentry.io maps.googleapis.com cdn.ravenjs.com www.google-analytics.com youtube.com img.youtube.com',
       'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com/',
       'media-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
       'object-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
