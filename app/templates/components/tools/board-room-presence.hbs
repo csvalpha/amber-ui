@@ -1,16 +1,16 @@
 <div class="board-room-presence-dropdown page-action">
-  {{#bs-button type="primary"}}
+  <BsButton @type="primary">
     {{fa-icon "coffee"}}
     <span class="d-none d-md-inline"> Bestuurskamer </span>
     <span class="status-dot label-{{overallStatus}}"></span>
 
-    {{#bs-popover triggerEvents="focus" placement="bottom" title='Aanwezig in de BK'}}
+    <BsPopover @triggerEvents="focus" @placement="bottom" @title="Aanwezig in de BK">
       {{#each sortedPresences as |presence|}}
         <div class="py-1">
           <div class="d-block">
-            {{#link-to 'users.show' presence.user.id}}
+            <LinkTo @route="users.show" @model={{presence.user.id}}>
               <small><b> {{presence.user.fullName}} </b></small>
-            {{/link-to}}
+            </LinkTo>
           </div>
           <span class="presence-label label-{{presence.status}}">
             {{presence.label}} van {{moment-format presence.startTime 'HH:mm'}} tot {{moment-format presence.endTime 'HH:mm'}}
@@ -29,13 +29,13 @@
           </button>
         </span>
       {{/if}}
-    {{/bs-popover}}
-  {{/bs-button}}
+    </BsPopover>
+  </BsButton>
 </div>
 
 {{#if presenceModalIsOpen}}
-  {{#ember-wormhole to="ember-wormhole-destination"}}
-    {{#basic-modal title="Bestuurskamer beschikbaarheid opgeven" closeModal=(action "setPresenceModalState" "closed") submit=(action "save") submitText="Beschikbaarheid opslaan" submitDisabled=saveButtonDisabled}}
+  <EmberWormhole @to="ember-wormhole-destination">
+    <BasicModal @title="Bestuurskamer beschikbaarheid opgeven" @closeModal={{action "setPresenceModalState" "closed"}} @submit={{action "save"}} @submitText="Beschikbaarheid opslaan" @submitDisabled={{saveButtonDisabled}}>
       {{#if sortedPresences}}
         <table class="table">
           <tr>
@@ -65,29 +65,14 @@
 
       {{#if currentUserPresence}}
         Status
-        {{input/select-input
-          class='form-control col-xs-12 presence-select'
-          required=true
-          options=statusOptions
-          placeholder=Status
-          value=currentUserPresence.status}}
+        <Input::SelectInput @class="form-control col-xs-12 presence-select" @required={{true}} @options={{statusOptions}} @placeholder={{Status}} @value={{currentUserPresence.status}} />
         Van
-        {{input/time-input
-          dateValue=currentUserPresence.startTime
-          class='col-xs-12 presence-time-input'
-          inputClass="form-control"
-          placeholder=currentUserPresence.startTime
-          required=true}}
+        <Input::TimeInput @dateValue={{currentUserPresence.startTime}} @class="col-xs-12 presence-time-input" @inputClass="form-control" @placeholder={{currentUserPresence.startTime}} @required={{true}} />
         Tot
-        {{input/time-input
-          dateValue=currentUserPresence.endTime
-          class='col-xs-12 presence-time-input'
-          inputClass="form-control"
-          placeholder=currentUserPresence.endTime
-          required=true}}
+        <Input::TimeInput @dateValue={{currentUserPresence.endTime}} @class="col-xs-12 presence-time-input" @inputClass="form-control" @placeholder={{currentUserPresence.endTime}} @required={{true}} />
       {{else}}
         <button class="btn btn-secondary" {{action "newPresence"}}>Nieuw</button>
       {{/if}}
-    {{/basic-modal}}
-  {{/ember-wormhole}}
+    </BasicModal>
+  </EmberWormhole>
 {{/if}}

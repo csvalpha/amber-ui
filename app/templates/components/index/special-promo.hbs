@@ -5,7 +5,7 @@
         <h1> {{title}} </h1>
         <em> {{date}} </em>
         <p> {{text}} </p>
-        {{#link-to "articles.show" 123 class="btn frontpage-button btn-lg float-xs-right"}} {{buttonText}} {{/link-to}}
+        <LinkTo @route="articles.show" @model={{123}} class="btn frontpage-button btn-lg float-xs-right"> {{buttonText}} </LinkTo>
       </div>
     </div>
   </div>

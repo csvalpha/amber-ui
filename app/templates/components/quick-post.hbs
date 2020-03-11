@@ -6,10 +6,10 @@
   <div class="card-block">
     <div class="p-3 pb-5">
       <div class="row pb-2">
-        {{#link-to "users.show" session.currentUser.id}}
+        <LinkTo @route="users.show" @model={{session.currentUser.id}}>
           <img class="profile-picture profile-picture-md ml-3 p-0" alt="{{session.currentUser.fullName}}" src="{{session.currentUser.avatarThumbUrlOrDefault}}">
-        {{/link-to}}
-        {{textarea id="qp-inputfield" value=newQpMessage rows=4 class="col form-control ml-3 mr-3 qp-inputfield " placeholder=welcomeText min="1" max=maxCharacters enter="saveMessage"}}
+        </LinkTo>
+        <Textarea @id="qp-inputfield" @value={{newQpMessage}} @rows={{4}} class="col form-control ml-3 mr-3 qp-inputfield " placeholder={{welcomeText}} @min="1" @max={{maxCharacters}} @enter="saveMessage" />
       </div>
 
       <div class="d-flex float-right">
@@ -17,20 +17,20 @@
           {{currentCharacterCount}} / {{maxCharacters}}
         </span>
 
-        {{quick-post-notification-button}}
+        <QuickPostNotificationButton />
 
-        {{#bs-dropdown class="ml-1" closeOnMenuClick=true as |dd|}}
-          {{#dd.toggle class="open-smiley-pane-button btn btn-default"}}
+        <BsDropdown @class="ml-1" @closeOnMenuClick={{true}} as |dd|>
+          <dd.toggle @class="open-smiley-pane-button btn btn-default">
             {{fa-icon "smile" prefix="far"}}
-          {{/dd.toggle}}
-          {{#dd.menu class="emoticon-holder" as |menu|}}
+          </dd.toggle>
+          <dd.menu @class="emoticon-holder" as |menu|>
             <div class="row">
               {{#each emoticons as |emoticon|}}
                 <div class="emoticon" {{action 'appendSmileyToText' emoticon }}> {{emoticon}} </div>
               {{/each}}
             </div>
-          {{/dd.menu}}
-        {{/bs-dropdown}}
+          </dd.menu>
+        </BsDropdown>
 
         <button class="btn btn-primary ml-1 mb-3 {{if tooMuchText 'disabled'}}" {{action "saveMessage"}}> Versturen </button>
       </div>
@@ -39,15 +39,15 @@
     {{#each sortedMessages as |message index|}}
       <hr>
       <div class="row qp-message p-3">
-        {{#link-to "users.show" message.author}}
+        <LinkTo @route="users.show" @model={{message.author.id}}>
           <img class="profile-picture profile-picture-md ml-3 p-0" alt="{{message.author.fullName}}" src="{{message.author.avatarThumbUrlOrDefault}}">
-        {{/link-to}}
+        </LinkTo>
 
         <div class="pl-3 col">
           <div class="row">
-            {{#link-to "users.show" message.author.id class="col"}}
+            <LinkTo @route="users.show" @model={{message.author.id}} class="col">
               <b class="text-sm text-muted"> {{message.author.fullName}} </b>
-            {{/link-to}}
+            </LinkTo>
 
             <small class="text-muted pr-3">
               {{#if (can 'destroy quickpost-messages')}}

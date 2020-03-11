@@ -1,11 +1,31 @@
 import EmberRouter from '@ember/routing/router';
-import RouterScroll from 'ember-router-scroll';
 import config from './config/environment';
-import googlePageview from './mixins/google-pageview';
+import EmberRouterScroll from 'ember-router-scroll';
 
-const AppRouter = EmberRouter.extend(googlePageview, RouterScroll, {
+const AppRouter = EmberRouter.extend(EmberRouterScroll, {
   location: config.locationType,
-  rootURL: config.rootURL
+  rootURL: config.rootURL,
+
+  init() {
+    this._super(...arguments);
+
+    this.on('routeDidChange', () => {
+      if (!config.googleAnalytics) {
+        return;
+      }
+
+      if (typeof gtag === 'undefined') {
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function() {
+          window.dataLayer.push(arguments);
+        };
+
+        window.gtag('js', new Date());
+      }
+
+      window.gtag('config', config.googleAnalytics.webPropertyId, { 'page_path': this.get('url') });
+    });
+  }
 });
 
 AppRouter.map(function() {

@@ -2,9 +2,9 @@
   <div class="container">
     <ul class="list-inline">
       {{#each staticPages as |static-page|}}
-        {{#link-to 'static-pages.show' static-page}}
+        <LinkTo @route="static-pages.show" @model={{static-page}}>
           <li class="list-inline-item"> <h3> {{static-page.title}} </h3> </li>
-        {{/link-to}}
+        </LinkTo>
       {{/each}}
     </ul>
   </div>

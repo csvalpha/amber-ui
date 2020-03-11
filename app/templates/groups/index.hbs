@@ -1,45 +1,45 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
-    {{#filter-bar class="col-12 col-md mt-1" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md mt-1" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
       <div class="form-check">
         <label class="form-check-label">
-          {{input type="checkbox" checked=showAdministrative class="form-check-input"}}
+          <Input @type="checkbox" @checked={{showAdministrative}} class="form-check-input" />
           Toon administratieve groepen
           <div class="custom-checkmark"></div>
         </label>
       </div>
       <div class="form-check">
         <label class="form-check-label">
-          {{input type="checkbox" checked=showInactive class="form-check-input"}}
+          <Input @type="checkbox" @checked={{showInactive}} class="form-check-input" />
           Toon inactieve groepen
           <div class="custom-checkmark"></div>
         </label>
       </div>
-    {{/filter-bar}}
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+    </FilterBar>
+  </PageActionsButtons>
+</EmberWormhole>
 
 <div class="card p-3 p-md-0">
   <div class="row">
-    {{#bs-dropdown class="col d-block d-md-none" as |dd|}}
-      {{#dd.toggle class="btn btn-default col"}}
+    <BsDropdown @class="col d-block d-md-none" as |dd|>
+      <dd.toggle @class="btn btn-default col">
         {{capitalize selectedGroupKind}}
-      {{/dd.toggle}}
-      {{#dd.menu as |ddm|}}
+      </dd.toggle>
+      <dd.menu as |ddm|>
         {{#each groupKinds as |item index|}}
-          {{#link-to "groups" (query-params kind=item) class="dropdown-item" data-toggle="pill" href=(concat "#v-pills-" item) role="tab" aria-controls=(concat "v-pills-" item) aria-selected="true"}}
+          <LinkTo @route="groups" @query={{hash kind=item}} class="dropdown-item" data-toggle="pill" @href={{concat "#v-pills-" item}} @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
             {{capitalize item}}
-          {{/link-to}}
+          </LinkTo>
         {{/each}}
-      {{/dd.menu}}
-    {{/bs-dropdown}}
+      </dd.menu>
+    </BsDropdown>
     <div class="col-12 col-md-3">
       <div class="nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex" id="v-pills-tab-groups" role="tablist" aria-orientation="vertical">
         <h5 class="ml-3 mb-3"> Groepen</h5>
         {{#each groupKinds as |item index|}}
-          {{#link-to "groups" (query-params kind=item) class=(if (eq item selectedGroupKind) "nav-link active" "nav-link") id=(concat "v-pills-" item) data-toggle="pill" href=(concat "#v-pills-" item) role="tab" aria-controls=(concat "v-pills-" item) aria-selected="true"}}
+          <LinkTo @route="groups" @query={{hash kind=item}} class={{if (eq item selectedGroupKind) "nav-link active" "nav-link"}} @id={{concat "v-pills-" item}} data-toggle="pill" @href={{concat "#v-pills-" item}} @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
             {{capitalize item}}
-          {{/link-to}}
+          </LinkTo>
         {{/each}}
       </div>
     </div>
@@ -48,9 +48,9 @@
         <div class="tab-pane fade show active p-3" id="v-pills-{{selectedGroupKind}}" role="tabpanel" aria-labelledby="v-pills-{{selectedGroupKind}}-tab">
           <div class="row">
             {{#each model as |group|}}
-              {{#link-to 'groups.show' group.id class="col-6 col-md-12 col-lg-4"}}
-                {{cards/membership-card title=group.name imageSource=group.avatarThumbUrlOrDefault administrative=group.administrative}}
-              {{/link-to}}
+              <LinkTo @route="groups.show" @model={{group.id}} class="col-6 col-md-12 col-lg-4">
+                <Cards::MembershipCard @title={{group.name}} @imageSource={{group.avatarThumbUrlOrDefault}} @administrative={{group.administrative}} />
+              </LinkTo>
             {{else}}
               <div class="alert alert-warning col mr-4 mt-3">
                 Er zijn geen resultaten gevonden

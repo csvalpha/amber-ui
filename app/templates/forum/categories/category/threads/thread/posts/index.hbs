@@ -1,6 +1,6 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 <div class="row justify-content-center">
   {{page-numbers content=model.posts}}
@@ -30,13 +30,12 @@
         <h5>Reageren</h5>
       </div>
       <div class="card-body">
-        {{model}}
-        {{forum/forum-post-new thread=model.thread content=newContent onSubmit=(action 'newPostCreated')}}
+        <Forum::ForumPostNew @thread={{model.thread}} @content={{newContent}} @onSave=(action "refreshModelsAndRedirectToLastPage") />
       </div>
     </div>
   {{/if}}
 {{/if}}
 
 <div class="row justify-content-center">
-  {{page-numbers content=model.posts}}
+  <PageNumbers @content={{model.posts}} />
 </div>

@@ -9,20 +9,20 @@
     {{#each styleOptions.groups as |group|}}
       {{#if group.dropdown}}
 
-        {{#bs-dropdown as |dd|}}
-          {{#dd.button type="secondary"}}{{fa-icon group.faIconName}}{{/dd.button}}
+        <BsDropdown as |dd|>
+          <dd.button @type="secondary">{{fa-icon group.faIconName}}</dd.button>
 
-          {{#dd.menu as |menu|}}
+          <dd.menu as |menu|>
             {{#each group.options as |opt|}}
-              {{#menu.item}}
+              <menu.item>
                 <button type="button" class="dropdown-item" {{action applyStyleOptionAction opt}}>
                   {{fa-icon opt.faIconName size=opt.size prefix=opt.faIconPrefix fixedWidth=true}}
                   {{opt.name}}
                 </button>
-              {{/menu.item}}
+              </menu.item>
             {{/each}}
-          {{/dd.menu}}
-        {{/bs-dropdown}}
+          </dd.menu>
+        </BsDropdown>
 
       {{else}}
 

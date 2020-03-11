@@ -1,4 +1,4 @@
-{{#ember-wormhole to="navbar-wormhole"}}
+<EmberWormhole @to="navbar-wormhole">
   {{#page-actions-buttons pageActions}}
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "downloadAlbum"}}>
@@ -7,12 +7,12 @@
       </button>
     </div>
   {{/page-actions-buttons}}
-{{/ember-wormhole}}
+</EmberWormhole>
 
 <div class="row">
   {{#each sortedPhotos as |photo|}}
     <div class="col-md-3 col-xs-6 photo-album-image-card">
-      {{#link-to 'photo-albums.photo-album.photos.show' photo}}
+      <LinkTo @route="photo-albums.photo-album.photos.show" @model={{photo}}>
         {{#if photo.amountOfComments}}
           <span class="comments-counter badge badge-info">
             {{fa-icon 'comments'}}
@@ -20,11 +20,11 @@
           </span>
         {{/if}}
         <img class="image" src="{{photo.imageThumbUrl}}">
-      {{/link-to}}
+      </LinkTo>
     </div>
   {{else}}
     <div class="alert alert-warning">
-      {{#link-to photo-albums.photo-album.edit model}}Geen foto's gevonden, wil je die toevoegen?{{/link-to}}
+      <LinkTo @route={{photo-albums.photo-album.edit}} @model={{model}}>Geen foto's gevonden, wil je die toevoegen?</LinkTo>
     </div>
   {{/each}}
 </div>

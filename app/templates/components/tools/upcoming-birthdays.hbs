@@ -11,23 +11,23 @@
               <img class="profile-picture profile-picture-small" src="{{user.avatarThumbUrlOrDefault}}">
               <h6 class="current-birthday-name">
                 <strong>
-                  {{#link-to 'users.show' user.id}}
+                  <LinkTo @route="users.show" @model={{user.id}}>
                     {{user.fullName}}
                     is vandaag {{user.age}} geworden!
-                  {{/link-to}}
+                  </LinkTo>
                 </strong>
               </h6>
             </div>
           </li>
         {{else}}
           <li class="list-group-item">
-            {{#link-to 'users.show' user.id}}
+            <LinkTo @route="users.show" @model={{user.id}}>
               <div class="upcoming-birthday-holder">
                 <span class="upcoming-birthday-name"> {{user.fullName}} </span>
                 <span class="upcoming-birthday-date"> {{moment-format user.birthday 'DD-MMM'}} </span>
                 <span> {{user.upcomingBirthdayAge}} jaar</span>
               </div>
-            {{/link-to}}
+            </LinkTo>
           </li>
         {{/if}}
       {{else}}

@@ -1,6 +1,6 @@
-{{#ember-wormhole to="navbar-wormhole"}}
+<EmberWormhole @to="navbar-wormhole">
   {{page-actions-buttons pageActions}}
-{{/ember-wormhole}}
+</EmberWormhole>
 
 <div class="row">
   <div class="col">
@@ -39,14 +39,14 @@
                 </li>
               </ul>
             </div>
-            {{filter-bar class="order-1 order-md-12 col-12 col-md-4 pb-1" filter=filter sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending enter=(action "selectFirstItem")}}
+            <FilterBar @class="order-1 order-md-12 col-12 col-md-4 pb-1" @filter={{filter}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
           </div>
         </div>
         <div class="card-body">
           <div class="row userlist">
             {{#each filteredModels as |membership|}}
-              {{#link-to 'users.show' membership.user class="col-6 col-sm-4 col-md-3"}}
-                {{#cards/membership-card title=membership.user.fullName imageSource=membership.user.avatarThumbUrlOrDefault subtitle=membership.function}}
+              <LinkTo @route="users.show" @model={{membership.user.id}} class="col-6 col-sm-4 col-md-3">
+                <Cards::MembershipCard @title={{membership.user.fullName}} @imageSource={{membership.user.avatarThumbUrlOrDefault}} @subtitle={{membership.function}}>
                   <small>
                     {{moment-format membership.startDate 'DD-MM-YYYY'}} -
                     {{#if membership.endDate}}
@@ -55,8 +55,8 @@
                       heden
                     {{/if}}
                   </small>
-                {{/cards/membership-card}}
-              {{/link-to}}
+                </Cards::MembershipCard>
+              </LinkTo>
             {{else}}
               <div class="alert alert-warning col-xs">
                 Geen leden of oud-leden gevonden
@@ -92,13 +92,13 @@
                 <span class="col-12 col-md-5 rtable-item">{{alias.description}}</span>
                 <span class="col-12 col-md-2 rtable-item">{{alias.moderationType}}</span>
                 {{#if (can 'edit mail-aliases')}}
-                  {{#link-to 'mail-aliases.edit' alias}}
+                  <LinkTo @route="mail-aliases.edit" @model={{alias}}>
                     <span class="col-12 col-md-1 rtable-item">
                       <button type="button" class="btn btn-danger">
                         {{fa-icon 'pencil-alt'}}
                       </button>
                     </span>
-                  {{/link-to}}
+                  </LinkTo>
                 {{/if}}
               </div>
             {{/each}}
@@ -117,7 +117,7 @@
         </div>
         <div class="card-body table-responsive">
           <p class="card-text">
-            {{permissions/permissions-table modelPermissions=model.permissions}}
+            <Permissions::PermissionsTable @modelPermissions={{model.permissions}} />
           </p>
         </div>
       </div>

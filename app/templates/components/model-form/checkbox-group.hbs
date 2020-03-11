@@ -3,15 +3,7 @@
   {{#each options as |opt|}}
     <div class="form-check">
       <label class="form-check-label" for="{{inputIdentifier}}-{{opt.value}}">
-        {{model-form/checkbox-button
-          class=(concat 'form-check-input ' inputValidityClass)
-          name=inputIdentifier
-          id=(concat inputIdentifier '-' opt.value)
-          value=opt.value
-          groupValue=(mut (get model property))
-          required=requiredAndNothingSelected
-          disabled=disabled
-        }}
+        <ModelForm::CheckboxButton @class={{concat "form-check-input " inputValidityClass}} @name={{inputIdentifier}} @id={{concat inputIdentifier "-" opt.value}} @value={{opt.value}} @groupValue={{mut (get model property)}} @required={{requiredAndNothingSelected}} @disabled={{disabled}} />
         <div class="custom-checkmark"></div>
         {{opt.label}}
       </label>

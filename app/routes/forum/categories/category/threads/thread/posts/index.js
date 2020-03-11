@@ -51,13 +51,15 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     ];
   }),
 
-  actions: {
-    didTransition() {
+  init() {
+    this._super(...arguments);
+
+    this.router.on('routeDidChange', () => {
       // Update forumLastRead
       let currentStore = this.storage.getItem('forumLastRead') || '{}';
       currentStore = JSON.parse(currentStore);
       currentStore[this.get('controller.model.thread.id')] = new Date();
       this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
-    }
+    });
   }
 });

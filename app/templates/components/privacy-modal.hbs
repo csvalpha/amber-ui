@@ -1,10 +1,10 @@
 {{#if isOpen}}
-  {{#basic-modal title="Privacy check" submit=(action "save") submitText="Opslaan" modalSizeClass="modal-lg"}}
+  <BasicModal @title="Privacy check" @submit={{action "save"}} @submitText="Opslaan" @modalSizeClass="modal-lg">
     <p>
       Sinds 25 mei 2018 is de AVG in werking getreden. Deze Europese wet zorgt er voor dat gebruikers meer inzicht kunnen krijgen in welke data organisaties van hen hebben en waarom ze deze hebben.
     Om er voor te zorgen dat we jouw data alleen gebruiken waarvoor jij wil dat we ze gebruiken moeten we je even lastig vallen. Zou je hieronder willen aangeven welke gegevens we van je mogen gebruiken?
     </p>
 
-    {{users/privacy-settings model=model formActionsVisible=false}}
-  {{/basic-modal}}
+    <Users::PrivacySettings @model={{model}} @formActionsVisible={{false}} />
+  </BasicModal>
 {{/if}}

@@ -4,18 +4,18 @@
       <h5> Details </h5>
     </div>
     <div class="card-body">
-      {{model-form/file-input    model=model property="avatar" label='Groepsafbeeling'     fileLoaded=(action "fileLoaded")}}
-      {{model-form/text-input     model=model property="name"               label='Naam'          required=true disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/textarea-input model=model property="description"        label='Omschrijving'}}
-      {{model-form/select-input   model=model property="kind"               label='Soort'         options=groupKindOptions required=true disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/text-input     model=model property="recognizedAtGma"    label='Erkend sinds' disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/text-input     model=model property="rejectedAtGma"      label='Erkend tot' disabled=(not (can "edit protected fields of groups"))}}
-      {{model-form/checkbox-input model=model property="administrative"     label='Administratieve groep' disabled=(not (can "edit protected fields of groups"))}}
+      <ModelForm::FileInput @model={{model}} @property="avatar" @label="Groepsafbeeling" @fileLoaded={{action "fileLoaded"}} />
+      <ModelForm::TextInput @model={{model}} @property="name" @label="Naam" @required={{true}} @disabled={{not (can "edit protected fields of groups")}} />
+      <ModelForm::TextareaInput @model={{model}} @property="description" @label="Omschrijving" />
+      <ModelForm::SelectInput @model={{model}} @property="kind" @label="Soort" @options={{groupKindOptions}} @required={{true}} @disabled={{not (can "edit protected fields of groups")}} />
+      <ModelForm::TextInput @model={{model}} @property="recognizedAtGma" @label="Erkend sinds" @disabled={{not (can "edit protected fields of groups")}} />
+      <ModelForm::TextInput @model={{model}} @property="rejectedAtGma" @label="Erkend tot" @disabled={{not (can "edit protected fields of groups")}} />
+      <ModelForm::CheckboxInput @model={{model}} @property="administrative" @label="Administratieve groep" @disabled={{not (can "edit protected fields of groups")}} />
     </div>
     <div class="card-footer">
-      {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "groups.index" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errors={{model.errors}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="groups.index" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </div>
   </div>
 
@@ -30,13 +30,9 @@
             <span class="col-md-2 form-control-label">Toevoegen</span>
 
             <div class="col-sm-10">
-              {{#power-select
-                selected=selected
-                options=users
-                onchange=(action "addUser")
-                searchField="fullName" as |user|}}
+              <PowerSelect @selected={{selected}} @options={{users}} @onchange={{action "addUser"}} @searchField="fullName" as |user|>
                 {{user.fullName}}
-              {{/power-select}}
+              </PowerSelect>
             </div>
           </div>
         {{/if}}
@@ -70,13 +66,13 @@
                         {{membership.user.fullName}}
                       </td>
                       <td>
-                        {{input/date-input dateValue=membership.startDate inputClass="form-control" disabled=(not (or (can 'update memberships') membership.isNew))}}
+                        <Input::DateInput @dateValue={{membership.startDate}} @inputClass="form-control" @disabled={{not (or (can "update memberships") membership.isNew)}} />
                       </td>
                       <td>
-                        {{input/date-input dateValue=membership.endDate inputClass="form-control" disabled=(not (or (can 'update memberships') membership.isNew))}}
+                        <Input::DateInput @dateValue={{membership.endDate}} @inputClass="form-control" @disabled={{not (or (can "update memberships") membership.isNew)}} />
                       </td>
                       <td>
-                        {{input value=membership.function class="form-control" disabled=(not (or (can 'update memberships') membership.isNew))}}
+                        <Input @value={{membership.function}} class="form-control" @disabled={{not (or (can "update memberships") membership.isNew)}} />
                       </td>
                       {{#if (can 'destroy membership' membership)}}
                         <td>
@@ -100,7 +96,7 @@
       <h5> Permissies </h5>
     </div>
     {{#if (can 'create groups-permissions')}}
-      {{permissions/permissions-table modelPermissions=model.permissions editable=true}}
+      <Permissions::PermissionsTable @modelPermissions={{model.permissions}} @editable={{true}} />
     {{/if}}
   </div>
 </form>

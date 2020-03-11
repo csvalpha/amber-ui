@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
-{{#tabbed-view tabItems=tabItems}}
+<TabbedView @tabItems={{tabItems}}>
   <h5>Incasso mandaten</h5>
 
   <table class="table">
@@ -18,9 +18,9 @@
       {{#each model.mandates as |mandate|}}
         <tr>
           <td>
-            {{#link-to 'debit.mandates.show' mandate}}
+            <LinkTo @route="debit.mandates.show" @model={{mandate}}>
               {{mandate.id}}
-            {{/link-to}}
+            </LinkTo>
           </td>
           <td>{{mandate.iban}}</td>
           <td>{{moment-format mandate.startDate 'DD-M-YYYY'}}</td>
@@ -37,4 +37,4 @@
       {{/each}}
     </tbody>
   </table>
-{{/tabbed-view}}
+</TabbedView>
