@@ -7,7 +7,7 @@
         </div>
         <div class="card-title-bar gradient-overlay-rounded d-flex">
           <div class="card-titles col pl-0">
-            <h5 itemprop="name headline">{{article.title}}</h5>
+            <h5 itemprop="name headline">{{#if article.pinned}} {{fa-icon "thumbtack"}} {{/if}} {{article.title}}</h5>
             {{#if article.group}}
               {{#link-to 'groups.show' article.group class="link-to card-subtitle-link"}}
                 <h5 class="card-subtitle d-none d-sm-block" itemprop="author" itemscope itemtype="http://schema.org/Person">

@@ -16,6 +16,7 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
   createdAt: attr('date'),
   updatedAt: attr('date'),
   publiclyVisible: attr('boolean', { defaultValue: false }),
+  pinned: attr('boolean', { defaultValue: false }),
 
   // Computed
   excerpt: computed('content', function() {

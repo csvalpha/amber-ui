@@ -12,7 +12,7 @@
         </div>
         <div class="card-titles">
           {{#link-to 'articles.show' article}}
-            <h2 class="card-title" itemprop="name headline">{{article.title}}</h2>
+            <h2 class="card-title" itemprop="name headline">{{#if article.pinned}} {{fa-icon "thumbtack"}} {{/if}} {{article.title}}</h2>
           {{/link-to}}
           <h3 class="card-subtitle">
             {{#if article.group}}
