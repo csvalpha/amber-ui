@@ -9,6 +9,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     return this.can.can('show forum/posts');
   },
   storage: service('local-storage'),
+  router: service(),
   modelName: 'forum/post',
 
   model(params) {
