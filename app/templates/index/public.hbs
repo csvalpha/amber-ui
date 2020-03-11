@@ -1,27 +1,31 @@
-{{index/index-poster}}
+<Index::IndexPoster />
 
 <div class="container-fluid index-header">
   <img src='images/alphalogowhite-large.svg' class="image">
 </div>
 
-{{index/index-activities class="full-width"}}
+<Index::IndexActivities @class="full-width" />
 
-{{tools/static-pages class="full-width"}}
+<Tools::StaticPages @class="full-width" />
 
-{{index/index-promo-video}}
+<div class="row flex-items-xs-center index-promo-video">
+  <div class="col-xs col-md-12">
+    <YoutubeVideo @youtubeId="-GLMBp6OxRY" @title="Promo video C.S.V. Alpha" />
+  </div>
+</div>
 
-{{index/index-action-buttons}}
+<Index::IndexActionButtons />
 
 <div class="row">
   <div class="col-xs col-md-12">
     {{#if (not showStatic)}}
       {{index/index-recent-news pagedModel}}
-      {{index/index-photos}}
+      <Index::IndexPhotos />
     {{/if}}
 
-    {{advertisement-tool row=true}}
+    <AdvertisementTool @row={{true}} />
 
-    {{index/index-stories}}
-    {{index/index-about}}
+    <Index::IndexStories />
+    <Index::IndexAbout />
   </div>
 </div>

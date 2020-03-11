@@ -1,8 +1,8 @@
 <div class="menu-sidebar {{if layoutManager.leftSideBarOpen 'left-sidebar-open'}} {{if layoutManager.leftSideBarExpanded 'expanded'}}">
 
-  {{#ember-wormhole to="ember-wormhole-destination"}}
+  <EmberWormhole @to="ember-wormhole-destination">
     <div class="close-left-sidebar-panel {{if layoutManager.leftSideBarOpen 'open'}}" {{action 'closeLeftSidebar'}}> </div>
-  {{/ember-wormhole}}
+  </EmberWormhole>
 
   <div class="menu-items-holder">
     {{!-- the first sidebar item is a dropdown, otherwise show login item --}}
@@ -14,39 +14,39 @@
         {{fa-icon "angle-down" class="ml-3 profile-menu-arrow"}}
       </div>
     {{else}}
-      {{menu-sidebar-item link="login"     hasPermission=true       icon="sign-in-alt"        title=(t 'tag.button.signin')}}
+      <MenuSidebarItem @link="login" @hasPermission={{true}} @icon="sign-in-alt" @title={{t "tag.button.signin"}} />
     {{/if}}
 
     <div class="profile-menu {{if layoutManager.profileMenuOpen 'open'}}">
-      {{menu-sidebar-item link="users.show"         hasPermission=(can 'show activities')           icon="user"         title=(t 'mixin.menuItems.profile')         minor=true  linkArgument=session.currentUser.id}}
-      {{menu-sidebar-item link="mail-aliases"       hasPermission=(can 'show mail-aliases')         icon="envelope"   title=(t 'mixin.menuItems.mailaliases')     minor=true  }}
-      {{menu-sidebar-item link="mail-moderations"   hasPermission=(can 'show mail-moderations')     icon="envelope"   title=(t 'mixin.menuItems.mailModerations') minor=true  }}
-      {{menu-sidebar-item link="users"              hasPermission=(can 'show users')                icon="users"        title=(t 'mixin.menuItems.users')           minor=true  }}
-      {{menu-sidebar-item link="debit.collections"  hasPermission=(can 'show debit/collections')    icon="credit-card"  title=(t 'mixin.menuItems.collections')     minor=true  }}
-      {{menu-sidebar-item link="debit.mandates"     hasPermission=(can 'show debit/mandates')       icon="money-bill"        title=(t 'mixin.menuItems.mandates')        minor=true  }}
+      <MenuSidebarItem @link="users.show" @hasPermission={{can "show activities"}} @icon="user" @title={{t "mixin.menuItems.profile"}} @minor={{true}} @linkArgument={{session.currentUser.id}} />
+      <MenuSidebarItem @link="mail-aliases" @hasPermission={{can "show mail-aliases"}} @icon="envelope" @title={{t "mixin.menuItems.mailaliases"}} @minor={{true}} />
+      <MenuSidebarItem @link="mail-moderations" @hasPermission={{can "show mail-moderations"}} @icon="envelope" @title={{t "mixin.menuItems.mailModerations"}} @minor={{true}} />
+      <MenuSidebarItem @link="users" @hasPermission={{can "show users"}} @icon="users" @title={{t "mixin.menuItems.users"}} @minor={{true}} />
+      <MenuSidebarItem @link="debit.collections" @hasPermission={{can "show debit/collections"}} @icon="credit-card" @title={{t "mixin.menuItems.collections"}} @minor={{true}} />
+      <MenuSidebarItem @link="debit.mandates" @hasPermission={{can "show debit/mandates"}} @icon="money-bill" @title={{t "mixin.menuItems.mandates"}} @minor={{true}} />
 
       {{!-- Link to alpha-tomato --}}
       <a class="link" href="https://streep.csvalpha.nl" target="_blank">
-        {{menu-sidebar-item link=""     hasPermission=session.isAuthenticated       icon="beer"        title=(t 'mixin.menuItems.tomato')        minor=true  }}
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="beer" @title={{t "mixin.menuItems.tomato"}} @minor={{true}} />
       </a>
 
       {{!-- Logout --}}
       <a class="link" {{action 'invalidateSession'}}>
-        {{menu-sidebar-item link=""     hasPermission=session.isAuthenticated       icon="sign-out-alt"        title=(t 'tag.button.signout')        minor=true  }}
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="sign-out-alt" @title={{t "tag.button.signout"}} @minor={{true}} />
       </a>
     </div>
 
-    {{menu-sidebar-item link="index"              hasPermission=true                              icon="home"         title=(t 'mixin.menuItems.home')         }}
-    {{menu-sidebar-item link="lustrum"            hasPermission=(can 'show lustrum')              icon="map-marker-alt"         title=(t 'mixin.menuItems.lustrum')         }}
-    {{menu-sidebar-item link="articles"           hasPermission=(can 'show articles')             icon="newspaper"  title=(t 'mixin.menuItems.articles')    }}
-    {{menu-sidebar-item link="activities"         hasPermission=(can 'show activities')           icon="calendar-alt"     title=(t 'mixin.menuItems.activities') }}
-    {{menu-sidebar-item link="forum"              hasPermission=(can 'show forum/categories')     icon="comments"     title=(t 'mixin.menuItems.forum')        }}
-    {{menu-sidebar-item link="photo-albums"       hasPermission=(can 'show photo-albums')         icon="image"    title=(t 'mixin.menuItems.photoAlbums')  }}
-    {{menu-sidebar-item link="polls"              hasPermission=(can 'show polls')                icon="check-circle" title=(t 'mixin.menuItems.polls')        }}
-    {{menu-sidebar-item link="groups"             hasPermission=(can 'show groups')               icon="users"        title=(t 'mixin.menuItems.groups')      }}
-    {{menu-sidebar-item link="users.members"      hasPermission=(can 'show users')                icon="user"         title=(t 'mixin.menuItems.members')        }}
-    {{menu-sidebar-item link="static-pages"       hasPermission=(can 'show static-pages')         icon="info-circle"  title=(t 'mixin.menuItems.staticPages')        }}
-    {{menu-sidebar-item link="sog"                hasPermission=(can 'show sog')                  icon="gamepad"      title=(t 'mixin.menuItems.sog')        }}
+    <MenuSidebarItem @link="index" @hasPermission={{true}} @icon="home" @title={{t "mixin.menuItems.home"}} />
+    <MenuSidebarItem @link="lustrum" @hasPermission={{can "show lustrum"}} @icon="map-marker-alt" @title={{t "mixin.menuItems.lustrum"}} />
+    <MenuSidebarItem @link="articles" @hasPermission={{can "show articles"}} @icon="newspaper" @title={{t "mixin.menuItems.articles"}} />
+    <MenuSidebarItem @link="activities" @hasPermission={{can "show activities"}} @icon="calendar-alt" @title={{t "mixin.menuItems.activities"}} />
+    <MenuSidebarItem @link="forum" @hasPermission={{can "show forum/categories"}} @icon="comments" @title={{t "mixin.menuItems.forum"}} />
+    <MenuSidebarItem @link="photo-albums" @hasPermission={{can "show photo-albums"}} @icon="image" @title={{t "mixin.menuItems.photoAlbums"}} />
+    <MenuSidebarItem @link="polls" @hasPermission={{can "show polls"}} @icon="check-circle" @title={{t "mixin.menuItems.polls"}} />
+    <MenuSidebarItem @link="groups" @hasPermission={{can "show groups"}} @icon="users" @title={{t "mixin.menuItems.groups"}} />
+    <MenuSidebarItem @link="users.members" @hasPermission={{can "show users"}} @icon="user" @title={{t "mixin.menuItems.members"}} />
+    <MenuSidebarItem @link="static-pages" @hasPermission={{can "show static-pages"}} @icon="info-circle" @title={{t "mixin.menuItems.staticPages"}} />
+    <MenuSidebarItem @link="sog" @hasPermission={{can "show sog"}} @icon="gamepad" @title={{t "mixin.menuItems.sog"}} />
 
   </div>
 

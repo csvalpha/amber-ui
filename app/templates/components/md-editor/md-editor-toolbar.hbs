@@ -9,32 +9,32 @@
     {{#each styleOptions.groups as |group|}}
       {{#if group.dropdown}}
 
-        {{#bs-dropdown as |dd|}}
-          {{#dd.button type="secondary"}}{{fa-icon group.faIconName}}{{/dd.button}}
+        <BsDropdown as |dd|>
+          <dd.button @type="secondary">{{fa-icon group.faIconName}}</dd.button>
 
-          {{#dd.menu as |menu|}}
-            {{#each group.options as |option|}}
-              {{#menu.item}}
-                <button type="button" class="dropdown-item" {{action applyStyleOptionAction option}}>
-                  {{fa-icon option.faIconName size=option.size prefix=option.faIconPrefix fixedWidth=true}}
-                  {{option.name}}
+          <dd.menu as |menu|>
+            {{#each group.options as |opt|}}
+              <menu.item>
+                <button type="button" class="dropdown-item" {{action applyStyleOptionAction opt}}>
+                  {{fa-icon opt.faIconName size=opt.size prefix=opt.faIconPrefix fixedWidth=true}}
+                  {{opt.name}}
                 </button>
-              {{/menu.item}}
+              </menu.item>
             {{/each}}
-          {{/dd.menu}}
-        {{/bs-dropdown}}
+          </dd.menu>
+        </BsDropdown>
 
       {{else}}
 
         <div class="btn-group" role="group" aria-label="{{group.name}}">
-          {{#each group.options as |option|}}
-            {{#if option.modal}}
-              <button type="button" class="btn btn-secondary" title="{{option.name}}" data-toggle="modal" data-target="#insertModal" {{action openModalAction option}}>
-                {{fa-icon option.faIconName prefix=option.faIconPrefix}}
+          {{#each group.options as |opt|}}
+            {{#if opt.modal}}
+              <button type="button" class="btn btn-secondary" title="{{opt.name}}" data-toggle="modal" data-target="#insertModal" {{action openModalAction opt}}>
+                {{fa-icon opt.faIconName prefix=opt.faIconPrefix}}
               </button>
             {{else}}
-              <button type="button" class="btn btn-secondary" title="{{option.name}}" {{action applyStyleOptionAction option}}>
-                {{fa-icon option.faIconName prefix=option.faIconPrefix}}
+              <button type="button" class="btn btn-secondary" title="{{opt.name}}" {{action applyStyleOptionAction opt}}>
+                {{fa-icon opt.faIconName prefix=opt.faIconPrefix}}
               </button>
             {{/if}}
           {{/each}}

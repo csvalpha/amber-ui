@@ -16,14 +16,17 @@
 
     <!-- chrome for android and PWA-->
     <meta name="mobile-web-app-capable" content="yes">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="{{rootURL}}manifest.json">
 
     <link rel="apple-touch-icon" href="{{rootURL}}images/alphalogo_ios.jpg">
 
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/alpha-amber.css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,400,600,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,400,400i,500,700&display=swap" rel="stylesheet">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-43733562-1"></script>
 
     {{content-for "head-footer"}}
   </head>

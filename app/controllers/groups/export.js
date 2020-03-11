@@ -7,7 +7,7 @@ import { A } from '@ember/array';
 import FileSaverMixin from 'ember-cli-file-saver/mixins/file-saver';
 
 export default Controller.extend(FileSaverMixin, {
-  ajax: service(),
+  fetch: service(),
   questions: [
     { question: 'Wat moet je doen dat je zonder deze data niet kan?', answer: '' },
     { question: 'Wie gaat er bij de data kunnen?', answer: '' },
@@ -108,8 +108,8 @@ export default Controller.extend(FileSaverMixin, {
   exportButtonDisabled: not('valid'),
 
   actions: {
-    exportUsers() {
-      const selectedProperties = new A();
+    async exportUsers() {
+      const selectedProperties = A();
       this.userPropertyOptions.forEach((property) => {
         if (property.isChecked) {
           selectedProperties.push(property.value);
@@ -118,13 +118,13 @@ export default Controller.extend(FileSaverMixin, {
       const description = this.questions.map((question) => {
         return `${question.question}\n ${question.answer}\n\n`;
       }).join('\n');
-      this.ajax.request(
+
+      let response = await this.fetch.fetch(
         `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(description)}`,
-        { dataType: 'text' }
-      ).then(csvResponse => {
-        this.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, csvResponse, 'application/csv');
-        return this.transitionToRoute('groups.show', this.model);
-      }, null);
+        { dataType: 'text' });
+      let blob = await response.blob();
+      this.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, blob, 'application/csv');
+      this.transitionToRoute('groups.show', this.model);
     }
   }
 });

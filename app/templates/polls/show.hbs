@@ -1,6 +1,6 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 <div class="card polls-card">
   <div class="card-header">
@@ -37,9 +37,9 @@
     <div class="col-12 col-md-3 card-subheader-item align-items-center p-3">
       {{fa-icon 'user'}}
       <span data-test-poll-author>
-        {{#link-to 'users.show' model.poll.author class="link-to card-subtitle-link"}}
+        <LinkTo @route="users.show" @model={{model.poll.author.id}} class="link-to card-subtitle-link">
           {{model.poll.author.fullName}}
-        {{/link-to}}
+        </LinkTo>
       </span>
     </div>
   </div>
@@ -48,9 +48,9 @@
     {{#if model.form.currentUserCanRespond}}
       <form {{action "submitResponse" on="submit"}}>
         {{form/response/response-form model.form model.currentUserResponse}}
-        {{#model-form/form-actions errors=form.errors errorMessage=errorMessage submitButtonLabel='Opslaan' inputLayout='vertical'}}
-          {{#link-to "polls.index" class="btn btn-default"}}Annuleren{{/link-to}}
-        {{/model-form/form-actions}}
+        <ModelForm::FormActions @errors={{form.errors}} @errorMessage={{errorMessage}} @submitButtonLabel="Opslaan" @inputLayout="vertical">
+          <LinkTo @route="polls.index" class="btn btn-default">Annuleren</LinkTo>
+        </ModelForm::FormActions>
       </form>
 
     {{else if model.poll.closedWithNoResponses}}

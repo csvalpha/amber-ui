@@ -1,16 +1,16 @@
-{{#ember-wormhole to="navbar-wormhole"}}
+<EmberWormhole @to="navbar-wormhole">
   {{#page-actions-buttons pageActions}}
-    {{#filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
       <div class="form-check">
         <label class="form-check-label">
-          {{input type="checkbox" checked=showPassed class="form-check-input"}}
+          <Input @type="checkbox" @checked={{showPassed}} class="form-check-input" />
           Toon activiteiten in verleden
           <div class="custom-checkmark"></div>
         </label>
       </div>
-    {{/filter-bar}}
+    </FilterBar>
   {{/page-actions-buttons}}
-{{/ember-wormhole}}
+</EmberWormhole>
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
@@ -20,7 +20,7 @@
   </div>
 
   {{#each pagedModel as |activity|}}
-    {{#link-to 'activities.show' activity data-test-activity-item=true}}
+    <LinkTo @route="activities.show" @model={{activity}} data-test-activity-item={{true}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-8 rtable-item">
           {{#if activity.form}}
@@ -37,10 +37,10 @@
           </span>
         </span>
       </div>
-    {{/link-to}}
+    </LinkTo>
   {{/each}}
 </div>
 
 <div class="row justify-content-center">
-  {{page-numbers content=paginator}}
+  <PageNumbers @content={{paginator}} />
 </div>

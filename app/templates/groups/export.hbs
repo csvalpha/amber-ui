@@ -15,11 +15,11 @@
         </div>
 
         <div class="row mb-2">
-          {{#each userPropertyOptions as |option|}}
+          {{#each userPropertyOptions as |opt|}}
             <div class="col-md-6">
               <label class="form-check-label">
-                {{input type="checkbox" checked=option.isChecked}}
-                {{option.label}}
+                <Input @type="checkbox" @checked={{opt.isChecked}} />
+                {{opt.label}}
                 <div class="custom-checkmark"></div>
               </label>
             </div>
@@ -30,7 +30,7 @@
             <div class="col">
               <div class="form-group">
                 <label>{{question.question}}*</label>
-                {{textarea value=question.answer type="text" class="form-control" required=true}}
+                <Textarea @value={{question.answer}} @type="text" class="form-control" required={{true}} />
               </div>
             </div>
           </div>
@@ -39,9 +39,9 @@
         <button type="button" class="btn btn-primary mb-3" {{action "exportUsers"}} disabled={{exportButtonDisabled}}>
           Exporteren
         </button>
-        {{#link-to 'groups.show' model}}
+        <LinkTo @route="groups.show" @model={{model}}>
           <button type="button" class="btn btn-default mb-3" >Annuleren</button>
-        {{/link-to}}
+        </LinkTo>
       </div>
     </div>
   </div>

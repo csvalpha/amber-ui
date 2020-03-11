@@ -2,16 +2,16 @@
   <div class="card-body" >
     <div class="row">
       <div class="col-md-3 forum-post-author-info">
-        {{#link-to 'users.show' post.author.id}}
-          <img src="{{post.author.avatarThumbUrlOrDefault}}" alt="{{ t 'avatar' }}" class="profile-picture profile-picture-large">
-        {{/link-to}}
-        {{#link-to 'users.show' post.author.id}}
+        <LinkTo @route="users.show" @model={{post.author.id}}>
+          <img src="{{post.author.avatarThumbUrlOrDefault}}" alt="avatar" class="profile-picture profile-picture-large">
+        </LinkTo>
+        <LinkTo @route="users.show" @model={{post.author.id}}>
           <p> <strong> {{post.author.fullName}} </strong> </p>
-        {{/link-to}}
+        </LinkTo>
       </div>
       <div class="col-md-9">
         {{#if showMarkdown}}
-          <p>{{textarea value=post.message class="form-control" rows="7" readonly=true}}</p>
+          <p><Textarea @value={{post.message}} class="form-control" @rows="7" @readonly={{true}} /></p>
         {{else}}
           <p>{{markdown-to-html post.messageCamofied extensions='youtubeEmbed bootstrapTable'}}</p>
         {{/if}}
@@ -31,15 +31,15 @@
 
       <span class="text-muted pr-1">
         {{#if (can 'destroy forum/posts')}}
-          {{#link-to 'forum.categories.category.threads.thread.posts.destroy' post.id class="link-highlight px-2"}}
+          <LinkTo @route="forum.categories.category.threads.thread.posts.destroy" @model={{post.id}} class="link-highlight px-2">
             {{fa-icon 'trash'}}
-          {{/link-to}}
+          </LinkTo>
         {{/if}}
 
         {{#if (can 'edit forum/post' post)}}
-          {{#link-to 'forum.categories.category.threads.thread.posts.edit' post.id class="link-highlight px-2"}}
+          <LinkTo @route="forum.categories.category.threads.thread.posts.edit" @model={{post.id}} class="link-highlight px-2">
             {{fa-icon 'pencil-alt'}}
-          {{/link-to}}
+          </LinkTo>
         {{/if}}
 
         {{#if (can 'quote post of forum/thread' post.thread)}}

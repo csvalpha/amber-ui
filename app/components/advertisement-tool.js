@@ -55,6 +55,11 @@ export default Component.extend({
       title: 'Student Wegwijzer',
       link: 'https://www.studentenwegwijzer.nl/',
       image: 'advertisements/studentwegwijzer.png'
+    },
+    {
+      title: 'SKEPP B.V.',
+      link: 'https://skepp.nl/nl/',
+      image: 'advertisements/skepp.png'
     }
   ]
 });

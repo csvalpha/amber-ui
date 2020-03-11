@@ -6,6 +6,7 @@ import { OpenQuestionTypes } from 'alpha-amber/constants';
 const OpenQuestionComponent = Component.extend({
   intl: service(),
   question: null,
+  form: null,
   questionTypes: OpenQuestionTypes,
   questionTypeOptions: computed('questionTypes', function() {
     return this.questionTypes.map(questionType => ({
@@ -15,13 +16,28 @@ const OpenQuestionComponent = Component.extend({
   }),
   actions: {
     moveQuestionUp() {
-      this.sendAction('onMoveQuestionUp', this.question);
+      const index = this.form.get('sortedQuestions').indexOf(this.question);
+      if (index > 0) {
+        const previousQuestion = this.form.get('sortedQuestions').objectAt(index - 1);
+        this.send('switchPositions', this.question, previousQuestion);
+      }
     },
     moveQuestionDown() {
-      this.sendAction('onMoveQuestionDown', this.question);
+      const index = this.form.get('sortedQuestions').indexOf(this.question);
+      if (index < (this.form.get('sortedQuestions.length') - 1)) {
+        const nextQuestion = this.form.get('sortedQuestions').objectAt(index + 1);
+        this.send('switchPositions', this.question, nextQuestion);
+      }
     },
     deleteQuestion() {
-      this.sendAction('onDeleteQuestion', this.question);
+      this.question.deleteRecord();
+    },
+    switchPositions(first, second) {
+      const firstPosition = first.get('position');
+      const secondPosition = second.get('position');
+
+      first.set('position', secondPosition);
+      second.set('position', firstPosition);
     }
   }
 });

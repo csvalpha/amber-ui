@@ -1,9 +1,10 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
+import { isInvalidResponse } from 'ember-fetch/errors';
 
 export default Component.extend({
-  ajax: service(),
+  fetch: service(),
   flashNotice: service(),
   isSaveButtonDisabled: computed('password', 'passwordConfirmation', function() {
     return this.password === undefined
@@ -11,12 +12,12 @@ export default Component.extend({
       || this.password !== this.passwordConfirmation;
   }),
   actions: {
-    changePassword() {
+    async changePassword() {
       this.set('passwordErrorMessage', null);
       const userId = this.get('model.id');
-      this.ajax.patch(`/users/${userId}`, {
+      let response = await this.fetch.fetch(`/users/${userId}`, {
         /* eslint-disable camelcase */
-        data: {
+        body: JSON.stringify({
           data: {
             id: userId,
             type: 'users',
@@ -25,17 +26,25 @@ export default Component.extend({
               old_password: this.oldPassword
             }
           }
-        }
+        }),
+        headers: {
+          'Accept': 'application/vnd.api+json',
+          'Content-Type': 'application/vnd.api+json'
+        },
+        method: 'PATCH'
         /* eslint-enable camelcase */
-      }).then(() => {
+      });
+
+      if (response.ok) {
         this.set('oldPassword', '');
         this.set('password', '');
         this.set('passwordConfirmation', '');
         this.flashNotice.sendSuccess('Wachtwoord succesvol aangepast!');
         this.transitionToRoute('users.show-security', userId);
-      }).catch((error) => {
-        this.set('passwordErrorMessage', error.payload.errors ? error.payload.errors[0].detail : error.payload);
-      });
+      } else if (isInvalidResponse(response)) {
+        let json = await response.json();
+        this.set('passwordErrorMessage', json.errors ? json.errors[0].detail : response);
+      }
     }
   }
 });

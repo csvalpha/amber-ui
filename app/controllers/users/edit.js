@@ -8,7 +8,6 @@ import {
 
 export default EditController.extend({
   session: service(),
-  ajax: service(),
   flashNotice: service(),
   successMessage: 'Gegevens gewijzigd!',
   successTransitionTarget: 'users.show',
