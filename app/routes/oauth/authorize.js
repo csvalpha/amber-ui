@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default Route.extend(AuthenticatedRouteMixin, {
   fetch: service(),
+  router: service(),
 
   init() {
     this._super(...arguments);
@@ -15,10 +16,10 @@ export default Route.extend(AuthenticatedRouteMixin, {
       }
 
       // Get client id from the API
-      const clientId = event.queryParams.client_id;
-      const redirectUri = event.queryParams.redirect_uri;
-      const responseType = event.queryParams.response_type;
-      const { state, scope } = event.queryParams;
+      const clientId = event.to.queryParams.client_id;
+      const redirectUri = event.to.queryParams.redirect_uri;
+      const responseType = event.to.queryParams.response_type;
+      const { state, scope } = event.to.queryParams;
 
       this.fetch.fetch(`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&state=${state}&scope=${scope}`
       ).then(response => {
