@@ -2,19 +2,19 @@
   <div class="card tool">
     <div class="card-header">
       <div class="d-flex justify-content-between">
-        {{#link-to 'activities.index'}}
+        <LinkTo @route="activities.index">
           <h5 class="card-text">Sluitende inschrijflijsten</h5>
-        {{/link-to}}
+        </LinkTo>
         <div class="col-xs-1 tool-actions">
           <a href="#">
             {{fa-icon 'question-circle' class="link-highlight"}}
 
-            {{#bs-popover triggerEvents="focus" placement="bottom"}}
+            <BsPopover @triggerEvents="focus" @placement="bottom">
               <div class="d-block"><div class="status-dot badge-info"></div> Inschrijving open</div>
               <div class="d-block"><div class="status-dot badge-success"></div> Ingeschreven / vrij toegankelijk</div>
               <div class="d-block"><div class="status-dot badge-danger"></div> Niet ingeschreven</div>
               <div class="d-block"><div class="status-dot badge-default"></div> Inschrijving nog niet open</div>
-            {{/bs-popover}}
+            </BsPopover>
           </a>
         </div>
       </div>
@@ -22,12 +22,12 @@
 
     <ul class="list-group list-group-flush">
       {{#each activities as |activity|}}
-        {{#link-to 'activities.show' activity}}
+        <LinkTo @route="activities.show" @model={{activity}}>
           <li class="list-group-item">
             <span class="activity-tool-title "> {{activity.title}} </span> <br>
             <span class="activity-tool-start-time text-muted"> {{form/status-dot activity.form}} {{form-opened-label activity.form}}</span>
           </li>
-        {{/link-to}}
+        </LinkTo>
       {{/each}}
     </ul>
   </div>

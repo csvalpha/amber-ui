@@ -13,11 +13,11 @@
       <tbody>
         {{#each model as |storedMail|}}
           <tr>
-            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.id}}{{/link-to}}</td>
-            <td>{{#link-to 'mail-moderations.show' storedMail}}{{moment-format storedMail.date 'ddd D MMM YYYY hh:mm'}}{{/link-to}}</td>
-            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.subject}}{{/link-to}}</td>
-            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.sender}}{{/link-to}}</td>
-            <td>{{#link-to 'mail-moderations.show' storedMail}}{{storedMail.mailAlias.email}}{{/link-to}}</td>
+            <td><LinkTo @route="mail-moderations.show" @model={{storedMail}}>{{storedMail.id}}</LinkTo></td>
+            <td><LinkTo @route="mail-moderations.show" @model={{storedMail}}>{{moment-format storedMail.date 'ddd D MMM YYYY hh:mm'}}</LinkTo></td>
+            <td><LinkTo @route="mail-moderations.show" @model={{storedMail}}>{{storedMail.subject}}</LinkTo></td>
+            <td><LinkTo @route="mail-moderations.show" @model={{storedMail}}>{{storedMail.sender}}</LinkTo></td>
+            <td><LinkTo @route="mail-moderations.show" @model={{storedMail}}>{{storedMail.mailAlias.email}}</LinkTo></td>
           </tr>
         {{else}}
           <tr>

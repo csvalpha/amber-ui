@@ -6,9 +6,9 @@
           {{#each tabItems as |item|}}
             {{#if item.canAccess}}
               <li class="nav-item">
-                {{#link-to item.link item.linkArgument class="nav-link"}}
+                <LinkTo @route={{item.link}} @model={{item.linkArgument}} class="nav-link">
                   {{item.title}}
-                {{/link-to}}
+                </LinkTo>
               </li>
             {{/if}}
           {{/each}}

@@ -1,5 +1,5 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "goToPreviousPhoto"}}>
         {{fa-icon 'arrow-left'}}
@@ -16,8 +16,8 @@
         <span class="d-none d-md-inline"> Foto downloaden </span>
       </a>
     </div>
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+  </PageActionsButtons>
+</EmberWormhole>
 
 <div class="d-flex justify-content-center align-items-center">
   <img src={{model.imageUrl}} class="photo-large">
@@ -26,9 +26,9 @@
 {{#if (can 'show individual users')}}
   <p class="text-right text-muted">
     Foto geüpload door
-    {{#link-to 'users.show' model.uploader}}
+    <LinkTo @route="users.show" @model={{model.uploader.id}}>
       {{model.uploader.fullName}}
-    {{/link-to}}
+    </LinkTo>
 
     {{#if model.hasExif}}
       <button class="ml-1 btn btn-sm btn-outline-info" {{action 'toggleShowExif'}}>
@@ -103,8 +103,7 @@
           </div>
         {{/if}}
         <div class="input-group new-photo-comment">
-          {{input value=content class="form-control" placeholder="Typ hier je reactie" minlength="1" maxlength="500"
-                  enter=(action "submitPhotoComment" photo) id="new-photo-comment-input"}}
+          <Input @value={{content}} class="form-control" placeholder="Typ hier je reactie" @minlength="1" @maxlength="500" @enter={{action "submitPhotoComment" photo}} @id="new-photo-comment-input" />
           <span class="input-group-btn">
             <button class="btn btn-default" {{action "submitPhotoComment"}}>Reageren</button>
           </span>

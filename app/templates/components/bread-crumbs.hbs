@@ -1,11 +1,11 @@
 <ol class="breadcrumb">
-  <li class="breadcrumb-item">{{#link-to 'index'}}C.S.V. Alpha{{/link-to}}</li>
+  <li class="breadcrumb-item"><LinkTo @route="index">C.S.V. Alpha</LinkTo></li>
 
   {{#each routeHierarchy as |route|}}
     {{#if hasBlock}}
       {{yield this route}}
     {{else}}
-      {{bread-crumb route=route breadCrumbs=this}}
+      <BreadCrumb @route={{route}} @breadCrumbs={{this}} />
     {{/if}}
   {{/each}}
 </ol>
