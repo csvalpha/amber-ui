@@ -1,16 +1,2 @@
-{{input/date-input
-  inputId=inputId
-  dateValue=dateValue
-  class='col-6'
-  inputClass=inputClass
-  placeholder=placeholder
-  required=required
-  disabled=disabled}}
-{{input/time-input
-  inputId=(concat inputId '-time')
-  dateValue=dateValue
-  class='col-6'
-  inputClass=inputClass
-  placeholder=placeholder
-  required=required
-  disabled=disabled}}
+<Input::DateInput @inputId={{inputId}} @dateValue={{dateValue}} @class="col-6" @inputClass={{inputClass}} @placeholder={{placeholder}} @required={{required}} @disabled={{disabled}} />
+<Input::TimeInput @inputId={{concat inputId "-time"}} @dateValue={{dateValue}} @class="col-6" @inputClass={{inputClass}} @placeholder={{placeholder}} @required={{required}} @disabled={{disabled}} />

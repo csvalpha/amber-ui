@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
-    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending enter=(action "selectFirstItem")}}
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+  </PageActionsButtons>
+</EmberWormhole>
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
@@ -12,16 +12,16 @@
   </div>
 
   {{#each pagedModel as |poll|}}
-    {{#link-to 'polls.show' poll data-test-poll-item=true}}
+    <LinkTo @route="polls.show" @model={{poll.id}} data-test-poll-item={{true}}>
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item"> {{form/status-icon poll.form}} {{poll.question.question}} </span>
         <span class="col-8 col-md-3 text-muted rtable-item"> <span class="d-inline d-md-none"> Sluit  </span> {{moment-calendar poll.form.respondUntil}} </span>
         <span class="col-4 col-md-1 text-muted rtable-item rtable-ta-right"> {{poll.form.amountOfResponses}} <span class="d-inline d-md-none"> reacties </span> </span>
       </div>
-    {{/link-to}}
+    </LinkTo>
   {{/each}}
 </div>
 
 <div class="row justify-content-center">
-  {{page-numbers content=paginator}}
+  <PageNumbers @content={{paginator}} />
 </div>

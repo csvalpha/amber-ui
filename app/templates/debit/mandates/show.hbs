@@ -1,6 +1,6 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 <div class="row">
   <div class="col">
@@ -32,7 +32,7 @@
                 <tr>
                   <td>Gebruiker</td>
                   <td>
-                    {{#link-to 'users.show' model.user}}{{model.user.fullName}}{{/link-to}}
+                    <LinkTo @route="users.show" @model={{model.user.id}}>{{model.user.fullName}}</LinkTo>
                   </td>
                 </tr>
               </table>

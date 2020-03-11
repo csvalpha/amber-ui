@@ -2,10 +2,10 @@
   <h5 class="m-0">Privacyinstellingen</h5>
 
   {{#if (can "edit user" model)}}
-    {{#link-to "users.edit-privacy" model class="btn btn-outline-info"}}
+    <LinkTo @route="users.edit-privacy" @model={{model}} class="btn btn-outline-info">
       Voorkeuren wijzigen
       {{fa-icon 'edit' class="pl-1"}}
-    {{/link-to}}
+    </LinkTo>
   {{/if}}
 </div>
 

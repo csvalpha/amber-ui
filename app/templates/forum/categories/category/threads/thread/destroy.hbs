@@ -12,6 +12,6 @@
   </div>
   <div class="card-footer">
     <button {{action 'destroy'}} class="btn btn-danger">Ja</button>
-    {{#link-to "forum.categories.category.threads.thread.show" model class="btn btn-default" tagName="button"}}Nee{{/link-to}}
+    <LinkTo @route="forum.categories.category.threads.thread.show" @model={{model}} class="btn btn-default" @tagName="button">Nee</LinkTo>
   </div>
 </div>

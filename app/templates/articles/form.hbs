@@ -4,9 +4,9 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input       model=model property='title'            label='Titel' maxlength=50}}
-      {{model-form/file-input      model=model property="coverPhoto"       label="Coverfoto" fileLoaded=(action "coverPhotoLoaded")}}
-      {{model-form/checkbox-input   model=model property='publiclyVisible'  label='Zichtbaar voor externen'}}
+      <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" @maxlength={{50}} />
+      <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @fileLoaded={{action "coverPhotoLoaded"}} />
+      <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
@@ -21,25 +21,21 @@
         <label class="col-md-2 form-control-label">Namens groep of commissie</label>
 
         <div class="col-sm-10">
-          {{#power-select
-            options=groups
-            onchange=(action (mut model.group))
-            selected=model.group
-            searchField="name" as |group|}}
+          <PowerSelect @options={{groups}} @onchange={{action (mut model.group)}} @selected={{model.group}} @searchField="name" as |group|>
             {{group.name}}
-          {{/power-select}}
+          </PowerSelect>
 
           {{form-control-feedback (get model.errors property)}}
         </div>
       </div>
 
-      {{model-form/md-input       model=model property="content" label='Inhoud' required=true inputIdentifier='article-form-content'}}
+      <ModelForm::MdInput @model={{model}} @property="content" @label="Inhoud" @required={{true}} @inputIdentifier="article-form-content" />
 
 
 
-      {{#model-form/form-actions errors=model.errors  errorMessage=errorMessage}}
-        {{#link-to "index" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errors={{model.errors}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="index" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
 
     </form>
   </div>

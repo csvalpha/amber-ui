@@ -4,26 +4,22 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property="description" label='Beschrijving' required=true}}
-      {{model-form/text-input model=model property="amount"      label='Bedrag'       required=true type="number" step="0.01"}}
+      <ModelForm::TextInput @model={{model}} @property="description" @label="Beschrijving" @required={{true}} />
+      <ModelForm::TextInput @model={{model}} @property="amount" @label="Bedrag" @required={{true}} @type="number" @step="0.01" />
 
       <div class="form-group row">
         <span class="col-md-2 form-control-label">Gebruiker</span>
 
         <div class="col-md-10">
-          {{#power-select
-            selected=model.user
-            options=users
-            onchange=(action "setUser")
-            searchField="fullName" as |user|}}
+          <PowerSelect @selected={{model.user}} @options={{users}} @onchange={{action "setUser"}} @searchField="fullName" as |user|>
             {{user.fullName}}
-          {{/power-select}}
+          </PowerSelect>
         </div>
       </div>
 
-      {{#model-form/form-actions model=model  errorMessage=errorMessage}}
-        {{#link-to "debit.collections" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @model={{model}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="debit.collections" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

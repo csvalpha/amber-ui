@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
-{{#tabbed-view tabItems=tabItems}}
+<TabbedView @tabItems={{tabItems}}>
   <div class="col">
     <div class="card-body table-responsive">
       <p class="card-text">
@@ -63,4 +63,4 @@
   <div class="col-md-5 col-xs-12">
     <img class="card-img-rounded" src="{{model.avatarUrlOrDefault}}">
   </div>
-{{/tabbed-view}}
+</TabbedView>
