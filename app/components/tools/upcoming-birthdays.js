@@ -1,42 +1,19 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { isArray, A } from '@ember/array';
+import { computed } from '@ember/object';
 
 export default Component.extend({
-  ajax: service(),
   store: service(),
+  sortProperties: ['hasBirthdayToday:desc', 'upcomingBirthdayDate:asc', 'age:asc'],
 
-  usersWithBirthdayToday: new A(),
-  usersWithUpcomingBirthday: new A(),
+  users: computed(function() {
+    const params = {
+      // eslint-disable-next-line camelcase
+      filter: { upcoming_birthdays: true, group: 'Leden' }
+    };
 
-  loadUpcomingBirthdays() {
-    // eslint-disable-next-line camelcase
-    return this.ajax.request('/users', { data: { filter: { upcoming_birthdays: true, group: 'Leden' } } }).then(contents => {
-      // Push in store
-      this.store.pushPayload(contents);
+    return this.store.query('user', params);
+  }),
 
-      const usersWithBirthdayToday = new A();
-      const usersWithUpcomingBirthday = new A();
-
-      // Peek from store and add to arrays
-      if (contents.data && isArray(contents.data)) {
-        contents.data.forEach(jsonUser => {
-          const user = this.store.peekRecord('user', jsonUser.id);
-          if (user.get('hasBirthdayToday')) {
-            usersWithBirthdayToday.push(user);
-          } else {
-            usersWithUpcomingBirthday.push(user);
-          }
-        });
-      }
-
-      // Set on component
-      this.set('usersWithBirthdayToday', usersWithBirthdayToday.sortBy('birthday'));
-      this.set('usersWithUpcomingBirthday', usersWithUpcomingBirthday.sortBy('upcomingBirthdayDate'));
-    });
-  },
-  init() {
-    this._super(...arguments);
-    this.loadUpcomingBirthdays().catch(() => {});
-  }
+  sortedUsers: computed.sort('users', 'sortProperties')
 });

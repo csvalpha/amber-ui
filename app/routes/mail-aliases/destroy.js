@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy mail-aliases');
+    return this.can.can('destroy mail-aliases');
   },
   modelName: 'mail-alias',
   title: 'Mail-alias verwijderen',

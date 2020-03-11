@@ -10,15 +10,15 @@
           Je kunt niet alles meer aanpassen, omdat er al reacties zijn.
         </div>
       {{/if}}
-      {{model-form/text-input     model=model property="title"       label='Titel'      required=true}}
-      {{model-form/md-input       model=model property="description" label='Omschrijving' required=true inputIdentifier="activity-form-content"}}
-      {{model-form/select-input   model=model property="category"    label='Categorie'  required=true options=activityCategoryOptions}}
-      {{model-form/file-input     model=model property="coverPhoto"  label='Coverfoto' fileLoaded=(action "coverPhotoLoaded")}}
-      {{model-form/text-input     model=model property="location"    label='Locatie'   required=true}}
-      {{model-form/text-input     model=model property="price"       label='Prijs'     required=true type="number" step="0.01" disabled=model.form.hasResponses}}
-      {{model-form/datetime-input model=model property="startTime"   label='Begintijd' required=true}}
-      {{model-form/datetime-input model=model property="endTime"     label='Eindtijd'  required=true}}
-      {{model-form/checkbox-input model=model property='publiclyVisible'  label='Zichtbaar voor externen'}}
+      <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" @required={{true}} />
+      <ModelForm::MdInput @model={{model}} @property="description" @label="Omschrijving" @required={{true}} @inputIdentifier="activity-form-content" />
+      <ModelForm::SelectInput @model={{model}} @property="category" @label="Categorie" @required={{true}} @options={{activityCategoryOptions}} />
+      <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @fileLoaded={{action "coverPhotoLoaded"}} />
+      <ModelForm::TextInput @model={{model}} @property="location" @label="Locatie" @required={{true}} />
+      <ModelForm::TextInput @model={{model}} @property="price" @label="Prijs" @required={{true}} @type="number" @step="0.01" @disabled={{model.form.hasResponses}} />
+      <ModelForm::DatetimeInput @model={{model}} @property="startTime" @label="Begintijd" @required={{true}} />
+      <ModelForm::DatetimeInput @model={{model}} @property="endTime" @label="Eindtijd" @required={{true}} />
+      <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if model.publiclyVisible}}
         <div class="alert alert-warning">
@@ -32,13 +32,9 @@
             <label class="col-md-2 form-control-label">Namens groep of commissie</label>
 
             <div class="col-sm-10">
-              {{#power-select
-                options=groups
-                onchange=(action (mut model.group))
-                selected=model.group
-                searchField="name" as |group|}}
+              <PowerSelect @options={{groups}} @onchange={{action (mut model.group)}} @selected={{model.group}} @searchField="name" as |group|>
                 {{group.name}}
-              {{/power-select}}
+              </PowerSelect>
 
               {{form-control-feedback (get model.errors property)}}
             </div>
@@ -46,7 +42,7 @@
         </div>
       </div>
 
-      {{model-form/checkbox-input model=this property="activityHasForm" label='Deze activiteit heeft een inschrijflijst' disabled=model.form.hasResponses}}
+      <ModelForm::CheckboxInput @model={{this}} @property="activityHasForm" @label="Deze activiteit heeft een inschrijflijst" @disabled={{model.form.hasResponses}} />
 
       {{#if (and model.publiclyVisible activityHasForm)}}
         <div class="alert alert-warning">
@@ -62,9 +58,9 @@
         </div>
       </div>
 
-      {{#model-form/form-actions errors=combinedErrors errorMessage=errorMessage}}
-        {{#link-to "activities.show" model class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errors={{combinedErrors}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="activities.show" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

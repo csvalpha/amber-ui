@@ -2,12 +2,12 @@ import Ember from 'ember';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { CanMixin } from 'ember-can';
 import { task, timeout } from 'ember-concurrency';
 
-const BoardRoomPresence = Component.extend(CanMixin, {
+const BoardRoomPresence = Component.extend({
   session: service(),
   store: service(),
+  can: service(),
   presenceModalIsOpen: false,
   model: [],
 
@@ -84,7 +84,7 @@ const BoardRoomPresence = Component.extend(CanMixin, {
     },
 
     newPresence() {
-      if (this.can('create board-room-presences')) {
+      if (this.can.can('create board-room-presences')) {
         const user = this.get('session.currentUser');
 
         const newPresenceObject = this.store.createRecord('board-room-presence', {

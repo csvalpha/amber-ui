@@ -38,7 +38,7 @@ export default Model.extend({
       return groupedAnswers;
     });
   }),
-  _groupedAnswers: new A(),
+  _groupedAnswers: A(),
   groupedAnswers: computed('groupedAnswersPromise', {
     get() {
       // Lazy loading: only load answers when requested
@@ -53,13 +53,13 @@ export default Model.extend({
 
   // Groups answers on question id
   groupAnswers(answers) {
-    const result = new A();
+    const result = A();
 
     answers.forEach(answer => {
       const questionId = answer.get('question.id');
       if (questionId) {
         if (!result.get(questionId)) {
-          result.set(questionId, new A());
+          result.set(questionId, A());
         }
 
         result.get(questionId).push(answer);

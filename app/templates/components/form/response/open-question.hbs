@@ -1,20 +1,5 @@
 {{#if (eq question.fieldType 'textarea')}}
-  {{model-form/textarea-input
-    model=answer
-    property='answer'
-    inputLayout='vertical'
-    label=question.question
-    inputIdentifier=inputIdentifier
-    required=question.required
-  }}
+  <ModelForm::TextareaInput @model={{answer}} @property="answer" @inputLayout="vertical" @label={{question.question}} @inputIdentifier={{inputIdentifier}} @required={{question.required}} />
 {{else}}
-  {{model-form/text-input
-    type=question.fieldType
-    model=answer
-    property='answer'
-    inputLayout='vertical'
-    label=question.question
-    inputIdentifier=inputIdentifier
-    required=question.required
-  }}
+  <ModelForm::TextInput @type={{question.fieldType}} @model={{answer}} @property="answer" @inputLayout="vertical" @label={{question.question}} @inputIdentifier={{inputIdentifier}} @required={{question.required}} />
 {{/if}}

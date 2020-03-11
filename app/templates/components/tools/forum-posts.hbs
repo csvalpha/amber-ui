@@ -1,13 +1,13 @@
 <div class="card tool">
   <div class="card-header">
-    {{#link-to 'forum.index'}}
+    <LinkTo @route="forum.index">
       <h5 class="card-text">Forum</h5>
-    {{/link-to}}
+    </LinkTo>
   </div>
 
   <ul class="list-group list-group-flush">
     {{#each threads as |thread|}}
-      {{#link-to 'forum.categories.category.threads.thread.show' thread.category.id thread.id}}
+      <LinkTo @route="forum.categories.category.threads.thread.show" @models={{array thread.category.id thread.id}}>
         <li class="list-group-item">
           <span>
             {{#if (thread-has-new-posts thread)}}
@@ -19,7 +19,7 @@
             {{thread.title}}
           </span>
         </li>
-      {{/link-to}}
+      </LinkTo>
     {{else}}
       <li class="list-group-item">
         Er zijn helaas geen forum topics!

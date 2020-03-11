@@ -1,13 +1,13 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 {{cards/activity-card model.activity moreInfo=true}}
 
 {{#if model.form}}
   {{#if (can 'create form/responses')}}
     {{#if canSubmitResponse}}
-      {{form/response/response-card model.form model.currentUserResponse errorMessage=errorMessage submitResponse=(action 'submitResponse') data-test-form-response-card=model.form.id}}
+      {{form/response/response-card model.form model.currentUserResponse data-test-form-response-card=model.form.id}}
     {{else if model.currentUserResponse.completed}}
       {{form/response/response-completed-alert model.form}}
     {{else}}

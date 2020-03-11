@@ -1,9 +1,8 @@
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import Component from '@ember/component';
-import { CanMixin } from 'ember-can';
 
-export default Component.extend(CanMixin, {
+export default Component.extend({
   tagName: 'nav',
   classNames: 'header-nav',
   session: service(),
@@ -12,31 +11,32 @@ export default Component.extend(CanMixin, {
   intl: service(),
   localStorage: service(),
   router: service(),
+  can: service(),
   unAuthenticatedMenuOptions: computed('intl.locale', function() {
     return [
       {
         link: 'lustrum',
         title: this.intl.t('mixin.menuItems.lustrum'),
         icon: '',
-        canAccess: this.can('show lustrum')
+        canAccess: this.can.can('show lustrum')
       },
       {
         link: 'articles',
         title: this.intl.t('mixin.menuItems.articles'),
         icon: '',
-        canAccess: this.can('show articles')
+        canAccess: this.can.can('show articles')
       },
       {
         link: 'photo-albums',
         title: this.intl.t('mixin.menuItems.photoAlbums'),
         icon: '',
-        canAccess: this.can('show photo-albums')
+        canAccess: this.can.can('show photo-albums')
       },
       {
         link: 'static-pages',
         title: this.intl.t('mixin.menuItems.staticPages'),
         icon: '',
-        canAccess: this.can('show static-pages')
+        canAccess: this.can.can('show static-pages')
       }
     ];
   }),

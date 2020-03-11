@@ -21,6 +21,9 @@ export default Controller.extend({
       transactionsGroupedByUser.transactions.pushObject(transaction);
       transactionsGroupedByUser.totalTransactionAmount += transaction.get('amount');
     });
+    transactions.forEach(transactionsGroupedByUser => {
+      transactionsGroupedByUser.totalTransactionAmount = transactionsGroupedByUser.totalTransactionAmount.toFixed(2);
+    });
     return transactions;
   })
 });

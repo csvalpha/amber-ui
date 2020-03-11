@@ -46,7 +46,7 @@ export default Mixin.create({
             if (answerExist) {
               question.set('linkedAnswers', existingAnswers);
             } else {
-              question.set('linkedAnswers', new A());
+              question.set('linkedAnswers', A());
             }
           } else {
             // eslint-disable-next-line no-lonely-if

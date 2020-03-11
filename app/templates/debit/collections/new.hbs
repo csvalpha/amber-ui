@@ -15,13 +15,13 @@
     2. Controleer je mailbox, hier ontvang je een berichtje of het importeren gelukt is<br>
     3. Controleer het totaal bedrag in de mail<br><br>
     <form {{action "submit" on="submit"}}>
-      {{model-form/file-input  model=model property="importFile" label='Import file' fileLoaded=(action "fileLoaded") validExtensions=validExtensions validMimetypes=validMimetypes}}
-      {{model-form/text-input   model=model property="name" label='Titel  '           required=true}}
-      {{model-form/date-input   model=model property="date" label='Datum van incasso' required=true}}
+      <ModelForm::FileInput @model={{model}} @property="importFile" @label="Import file" @fileLoaded={{action "fileLoaded"}} @validExtensions={{validExtensions}} @validMimetypes={{validMimetypes}} />
+      <ModelForm::TextInput @model={{model}} @property="name" @label="Titel  " @required={{true}} />
+      <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van incasso" @required={{true}} />
 
-      {{#model-form/form-actions model=model  errorMessage=errorMessage}}
-        {{#link-to "debit.collections" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @model={{model}} @errorMessage={{errorMessage}}>
+        <LinkTo @route="debit.collections" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
-{{#tabbed-view tabItems=tabItems}}
+<TabbedView @tabItems={{tabItems}}>
   <p>
     Deze informatie is alleen voor jou, het bestuur en de ICT-commissie beschikbaar
   </p>
@@ -63,4 +63,4 @@
       <td data-test-otpRequired>{{boolean-tag model.otpRequired}}</td>
     </tr>
   </table>
-{{/tabbed-view}}
+</TabbedView>

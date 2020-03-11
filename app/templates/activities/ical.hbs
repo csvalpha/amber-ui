@@ -11,11 +11,11 @@
         </div>
         <form class="row" id="activityCategoryForm" {{action "updateICalURL" on="change"}}>
 
-          {{#each activityCategoryOptions as |option|}}
+          {{#each activityCategoryOptions as |opt|}}
             <div class="col-sm-12 col-md-3">
               <label class="form-check-label">
-                {{input type="checkbox" name=option.value checked="checked" class="form-check-input"}}
-                {{option.label}}
+                <Input @type="checkbox" @name={{opt.value}} @checked="checked" class="form-check-input" />
+                {{opt.label}}
                 <div class="custom-checkmark"></div>
               </label>
             </div>

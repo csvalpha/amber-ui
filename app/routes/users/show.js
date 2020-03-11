@@ -4,7 +4,7 @@ import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
 
 const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('show individual users');
+    return this.can.can('show individual users');
   },
   modelName: 'user',
   title: computed('controller.model.fullName', function() {
@@ -19,21 +19,21 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: user,
-        canAccess: this.can('edit user', user)
+        canAccess: this.can.can('edit user', user)
       },
       {
         link: 'users.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: user,
-        canAccess: this.can('destroy users')
+        canAccess: this.can.can('destroy users')
       },
       {
         link: 'users.resend_activation',
         title: 'Verstuur activatie code',
         icon: 'paper-plane',
         linkArgument: user,
-        canAccess: this.can('resend activation code of user', user)
+        canAccess: this.can.can('resend activation code of user', user)
       }
     ];
   }),
@@ -44,25 +44,25 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         link: 'users.show',
         title: 'Algemeen',
         linkArgument: user,
-        canAccess: this.can('show users')
+        canAccess: this.can.can('show users')
       },
       {
         link: 'users.show-groups',
         title: 'Groepen',
         linkArgument: user,
-        canAccess: this.can('show memberships')
+        canAccess: this.can.can('show memberships')
       },
       {
         link: 'users.show-settings',
         title: 'Instellingen',
         linkArgument: user,
-        canAccess: this.can('edit user', user)
+        canAccess: this.can.can('edit user', user)
       },
       {
         link: 'users.show-mail',
         title: 'Mail aliassen',
         linkArgument: user,
-        canAccess: this.can('show mail-aliases')
+        canAccess: this.can.can('show mail-aliases')
       },
       {
         link: 'users.show-mandates',
@@ -74,7 +74,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         link: 'users.show-permissions',
         title: 'Rechten',
         linkArgument: user,
-        canAccess: this.can('show permissions-users')
+        canAccess: this.can.can('show permissions-users')
       }
     ];
   })

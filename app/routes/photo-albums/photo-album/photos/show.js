@@ -8,7 +8,7 @@ import {
 
 export default ShowRouteUnauthenticated.extend({
   canAccess() {
-    return this.can('show photo-albums');
+    return this.can.can('show photo-albums');
   },
 
   activate() {
@@ -38,7 +38,7 @@ export default ShowRouteUnauthenticated.extend({
         linkArgument: this.get('controller.model'),
         title: 'Foto verwijderen',
         icon: 'trash',
-        canAccess: this.can('destroy photos')
+        canAccess: this.can.can('destroy photos')
       }
     ];
   }),

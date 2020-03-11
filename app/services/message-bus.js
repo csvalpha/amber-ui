@@ -2,10 +2,10 @@ import Service, { inject as service } from '@ember/service';
 import messageBus from 'message-bus';
 
 export default Service.extend({
-  ajax: service(),
+  fetch: service(),
 
   init() {
-    messageBus.headers = this.get('ajax.headers');
+    messageBus.headers = { 'Authorization': this.get('fetch.authorizationHeader') };
     messageBus.baseUrl = '/api/';
     messageBus.start();
     this.set('message-bus', messageBus);

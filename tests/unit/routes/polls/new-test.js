@@ -1,22 +1,17 @@
-import { moduleFor, test } from 'ember-qunit';
+import { module, test } from 'qunit';
+import { setupTest } from 'ember-qunit';
 
-moduleFor('route:polls/new', 'Unit | Route | polls/new', {
-  needs: [
-    'service:can',
-    'service:layout-manager',
-    'service:session',
-    'service:router-scroll',
-    'service:scheduler'
-  ]
-});
+module('Unit | Route | polls/new', function(hooks) {
+  setupTest(hooks);
 
-test('it exists', function(assert) {
-  const route = this.subject();
-  assert.ok(route);
-});
+  test('it exists', function(assert) {
+    const route = this.owner.lookup('route:polls/new');
+    assert.ok(route);
+  });
 
-test('it has a correct modelName', function(assert) {
-  const route = this.subject();
+  test('it has a correct modelName', function(assert) {
+    const route = this.owner.lookup('route:polls/new');
 
-  assert.equal('poll', route.get('modelName'));
+    assert.equal('poll', route.get('modelName'));
+  });
 });

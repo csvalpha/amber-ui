@@ -3,7 +3,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   canAccess() {
-    return this.can('destroy photo-albums');
+    return this.can.can('destroy photo-albums');
   },
   model() {
     return this.modelFor('photo-albums.photo-album');

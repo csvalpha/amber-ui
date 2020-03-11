@@ -20,10 +20,10 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': '\'none\'',
       'manifest-src': '\'self\'',
-      'script-src': '\'self\' \'unsafe-inline\' \'unsafe-eval\' cdn.ravenjs.com www.google-analytics.com',
+      'script-src': '\'self\' \'unsafe-inline\' \'unsafe-eval\' cdn.ravenjs.com www.google-analytics.com www.googletagmanager.com',
       'font-src': '\'self\' fonts.gstatic.com',
       'connect-src': '\'self\' sentry.io',
-      'img-src': '\'self\' data: camo.csvalpha.nl sentry.io cdn.jsdelivr.net maps.googleapis.com cdn.ravenjs.com www.google-analytics.com youtube.com',
+      'img-src': '\'self\' data: camo.csvalpha.nl sentry.io maps.googleapis.com cdn.ravenjs.com www.google-analytics.com youtube.com img.youtube.com',
       'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com/',
       'media-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
       'object-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
@@ -68,6 +68,7 @@ module.exports = function(environment) {
           'square'
         ],
         'free-solid-svg-icons': [
+          'address-book',
           'angle-down',
           'arrow-down',
           'arrow-left',
@@ -104,11 +105,14 @@ module.exports = function(environment) {
           'lock',
           'magic',
           'map-marker-alt',
+          'minus-circle',
           'money-bill',
           'newspaper',
+          'paper-plane',
           'pencil-alt',
           'phone',
           'plus',
+          'print',
           'question-circle',
           'quote-left',
           'search',
@@ -120,6 +124,7 @@ module.exports = function(environment) {
           'strikethrough',
           'times',
           'trash',
+          'upload',
           'user',
           'users',
           'volume-up',
@@ -141,7 +146,7 @@ module.exports = function(environment) {
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
