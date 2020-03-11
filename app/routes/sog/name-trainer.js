@@ -5,27 +5,10 @@ import AuthorizationRouteMixin from 'alpha-amber/mixins/authorization-route-mixi
 export default Route.extend(AuthenticatedRouteMixin, AuthorizationRouteMixin, {
   title: 'Namen leren',
   breadCrumb: { title: 'Namen leren' },
-  queryParams: {
-    group: {
-      refreshModel: true
-    },
-    difficulty: {
-      refreshModel: false
-    }
-  },
   canAccess() {
     return this.can.can('show sog/name-trainer');
   },
-  model(params) {
-    if (params.group == null) {
-      return this.store.findAll('group');
-    } else {
-      return this.store.query('membership', {
-        filter: {
-          group: params.group,
-          active: true
-        }
-      });
-    }
+  model() {
+    return this.store.findAll('group');
   }
 });

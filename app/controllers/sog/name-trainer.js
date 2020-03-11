@@ -1,13 +1,11 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
-import GroupMembershipsMixin from 'alpha-amber/mixins/group-memberships-mixin';
 import { run } from '@ember/runloop';
 
-export default Controller.extend(GroupMembershipsMixin, {
-  queryParams: ['group', 'difficulty'],
-  group: null,
+export default Controller.extend({
+  queryParams: ['groupId', 'difficulty'],
+  groupId: null,
   difficulty: 1,
-  selectedGroup: null,
   difficultyOptions: [
     {
       value: 1,
@@ -27,9 +25,14 @@ export default Controller.extend(GroupMembershipsMixin, {
   started: false,
   finished: false,
   answered: false,
-  groupSelected: computed('group', 'model', function() {
-    this.generateQuestions(this.get('model'));
-    return this.get('group') != null;
+  users: computed('group', function() {
+    return this.store.query('user', { filter: { group: this.get('group.name') }});
+  }),
+  group: computed('group', function() {
+    if(!this.groupId) {
+      return;
+    }
+    return this.store.find('group', this.groupId);
   }),
   humanizedDifficulty: computed('difficulty', function() {
     return this.difficultyOptions.find(option => option.value === this.get('difficulty')).label;
@@ -38,7 +41,7 @@ export default Controller.extend(GroupMembershipsMixin, {
     return this.get('questions').objectAt(this.get('currentQuestionIndex') - 1);
   }),
   progress: computed('currentQuestionIndex', 'questions.length', function() {
-    return (100 / this.get('questions.length')) * this.get('currentQuestionIndex');
+    return this.get('currentQuestionIndex') / this.get('questions.length') * 100;
   }),
   inputClass: computed('currentQuestion', 'answered', function() {
     if (this.get('answered')) {
@@ -55,26 +58,21 @@ export default Controller.extend(GroupMembershipsMixin, {
     return 1 + Math.round((90 / this.get('questions.length')) * this.get('success')) / 10;
   }),
   actions: {
-    startTrainer() {
-      if (this.get('group') == null) {
-        this.set('group', this.get('selectedGroup.id'));
-      }
-
-      this.set('started', true);
-      this.set('finished', false);
-      this.set('currentQuestionIndex', 1);
-      this.set('success', 0);
+    setGroupId(model) {
+      this.set('groupId', model.id);
     },
-    restartTrainer() {
-      this.generateQuestions(this.get('model'));
-      this.set('started', true);
-      this.set('finished', false);
-      this.set('currentQuestionIndex', 1);
-      this.set('success', 0);
+    startTrainer() {
+      this.users.then(user => {
+        this.generateQuestions(user);
+        this.set('started', true);
+        this.set('finished', false);
+        this.set('currentQuestionIndex', 1);
+        this.set('success', 0);
+      });
     },
     stopTrainer() {
-      this.set('group', null);
       this.set('started', false);
+      this.set('finished', false);
     },
     chooseOption(option) {
       if (!this.get('answered')) {
@@ -117,7 +115,7 @@ export default Controller.extend(GroupMembershipsMixin, {
     return options;
   },
   shuffleArray(array) {
-    return array.map((a) => ({ sort: Math.random(), value: a.get('user') }))
+    return array.map((a) => ({ sort: Math.random(), value: a }))
       .sort((a, b) => a.sort - b.sort)
       .map((a) => a.value);
   },
