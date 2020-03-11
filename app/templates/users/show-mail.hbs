@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
-{{#tabbed-view tabItems=tabItems}}
+<TabbedView @tabItems={{tabItems}}>
   <h5>Mail aliassen</h5>
   <div class="table-responsive">
     <table class="table">
@@ -18,9 +18,9 @@
         {{#each model.mailAliases as |alias|}}
           <tr>
             <td>
-              {{#link-to 'mail-aliases.show' alias}}
+              <LinkTo @route="mail-aliases.show" @model={{alias}}>
                 {{alias.email}}
-              {{/link-to}}
+              </LinkTo>
             </td>
             <td>{{alias.description}}</td>
             <td>{{alias.moderationType}}</td>
@@ -30,20 +30,20 @@
         {{#each model.groupMailAliases as |alias|}}
           <tr>
             <td>
-              {{#link-to 'mail-aliases.show' alias}}
+              <LinkTo @route="mail-aliases.show" @model={{alias}}>
                 {{alias.email}}
-              {{/link-to}}
+              </LinkTo>
             </td>
             <td>{{alias.description}}</td>
             <td>{{alias.moderationType}}</td>
             <td>
-              {{#link-to 'groups.show' alias.group}}
+              <LinkTo @route="groups.show" @model={{alias.group.id}}>
                 {{alias.group.name}}
-              {{/link-to}}
+              </LinkTo>
             </td>
           </tr>
         {{/each}}
       </tbody>
     </table>
   </div>
-{{/tabbed-view}}
+</TabbedView>

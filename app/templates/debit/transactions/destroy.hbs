@@ -14,6 +14,6 @@
   </div>
   <div class="card-footer">
     <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
-    {{#link-to "debit.collections.show" model.collection class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
+    <LinkTo @route="debit.collections.show" @model={{model.collection}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
   </div>
 </div>

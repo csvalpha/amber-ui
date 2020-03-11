@@ -4,24 +4,24 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model.thread property="title" label='Titel' required=true}}
+      <ModelForm::TextInput @model={{model.thread}} @property="title" @label="Titel" @required={{true}} />
 
       {{#if model.post}}
         <label for="forumpost-message"> Bericht * </label>
-        {{md-editor content=model.post.message textareaIdentifier='forumpost-message'}}
+        <MdEditor @content={{model.post.message}} @textareaIdentifier="forumpost-message" />
       {{else}}
         {{#if (can "edit forum/threads")}}
-          {{model-form/checkbox-input model=model.thread property="isOpen" label='Open voor reacties'}}
+          <ModelForm::CheckboxInput @model={{model.thread}} @property="isOpen" @label="Open voor reacties" />
         {{/if}}
       {{/if}}
 
-      {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
+      <ModelForm::FormActions @errors={{model.errors}} @errorMessage={{errorMessage}}>
         {{#if model.thread.isNew}}
-          {{#link-to "forum.categories.category.threads" class="btn btn-default"}}Annuleren{{/link-to}}
+          <LinkTo @route="forum.categories.category.threads" class="btn btn-default">Annuleren</LinkTo>
         {{else}}
-          {{#link-to "forum.categories.category.threads.thread" model.thread class="btn btn-default"}}Annuleren{{/link-to}}
+          <LinkTo @route="forum.categories.category.threads.thread" @model={{model.thread}} class="btn btn-default">Annuleren</LinkTo>
         {{/if}}
-      {{/model-form/form-actions}}
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

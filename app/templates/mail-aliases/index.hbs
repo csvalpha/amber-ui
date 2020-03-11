@@ -1,8 +1,8 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
-    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+  </PageActionsButtons>
+</EmberWormhole>
 
 <div class="card">
   <div class="row rtable-row header d-none d-md-flex">
@@ -15,7 +15,7 @@
   </div>
 
   {{#each model as |mailAlias|}}
-    {{#link-to 'mail-aliases.show' mailAlias}}
+    <LinkTo @route="mail-aliases.show" @model={{mailAlias}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-3 rtable-item"> {{mailAlias.email}} </span>
         <span class="col-12 col-md-1 rtable-item">
@@ -42,15 +42,15 @@
         <span class="col-12 col-md-2 rtable-item">
           <span class="d-inline d-md-none text-muted"> Groep/Gebruiker:  </span>
           {{#if mailAlias.group}}
-            {{#link-to 'groups.show' mailAlias.group}}
+            <LinkTo @route="groups.show" @model={{mailAlias.group.id}}>
               <span class="text-muted"> {{fa-icon 'users'}} </span>
               {{mailAlias.group.name}}
-            {{/link-to}}
+            </LinkTo>
           {{else}}
-            {{#link-to 'users.show' mailAlias.user}}
+            <LinkTo @route="users.show" @model={{mailAlias.user.id}}>
               <span class="text-muted"> {{fa-icon 'user'}} </span>
               {{mailAlias.user.fullName}}
-            {{/link-to}}
+            </LinkTo>
           {{/if}}
         </span>
 
@@ -61,6 +61,6 @@
           {{moment-format mailAlias.lastReceivedAt 'DD-M-YYYY'}}
         </span>
       </div>
-    {{/link-to}}
+    </LinkTo>
   {{/each}}
 </div>

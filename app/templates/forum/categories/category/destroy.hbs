@@ -12,6 +12,6 @@
   </div>
   <div class="card-footer">
     <button {{action 'destroy'}} class="btn btn-danger">Verwijderen</button>
-    {{#link-to 'forum.categories.category' model class='btn btn-default'}}Annuleren{{/link-to}}
+    <LinkTo @route="forum.categories.category" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
   </div>
 </div>

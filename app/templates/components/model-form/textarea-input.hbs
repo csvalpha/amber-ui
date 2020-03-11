@@ -1,13 +1,7 @@
 {{#if (eq inputLayout 'vertical')}}
   <div class="form-group">
     <label class="vertical-label" for={{inputIdentifier}}>{{label}}{{if required " *"}}</label>
-    {{textarea
-      value=(mut (get model property))
-      id=inputIdentifier
-      class="form-control"
-      class=(concat 'form-control ' inputValidityClass)
-      required=required
-      disabled=disabled}}
+    <Textarea @value={{mut (get model property)}} @id={{inputIdentifier}} class="form-control" class={{concat "form-control " inputValidityClass}} required={{required}} @disabled={{disabled}} />
     {{form-control-feedback (get model.errors property)}}
   </div>
 {{else}}
@@ -15,13 +9,7 @@
     {{label}}{{if required " *"}}
   </label>
   <div class="col-sm-10">
-    {{textarea
-      value=(mut (get model property))
-      id=inputIdentifier
-      class=(concat 'form-control ' inputValidityClass)
-      placeholder=placeholder
-      required=required
-      disabled=disabled}}
+    <Textarea @value={{mut (get model property)}} @id={{inputIdentifier}} class={{concat "form-control " inputValidityClass}} placeholder={{placeholder}} required={{required}} @disabled={{disabled}} />
     {{form-control-feedback (get model.errors property)}}
   </div>
 {{/if}}
