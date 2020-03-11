@@ -3,7 +3,7 @@
 </EmberWormhole>
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{model.posts}} />
+  {{page-numbers content=model.posts}}
 </div>
 
 {{#each model.posts.content as |post index| }}
@@ -30,7 +30,7 @@
         <h5>Reageren</h5>
       </div>
       <div class="card-body">
-        <Forum::ForumPostNew @thread={{model.thread}} @content={{newContent}} @onSave="refreshModelsAndRedirectToLastPage" />
+        <Forum::ForumPostNew @thread={{model.thread}} @content={{newContent}} @onSubmit={{action "newPostCreated"}} />
       </div>
     </div>
   {{/if}}

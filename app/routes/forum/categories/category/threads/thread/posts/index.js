@@ -9,6 +9,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     return this.can.can('show forum/posts');
   },
   storage: service('local-storage'),
+  router: service(),
   modelName: 'forum/post',
 
   model(params) {
@@ -61,16 +62,5 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
       currentStore[this.get('controller.model.thread.id')] = new Date();
       this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
     });
-  },
-  actions: {
-    refreshModelsAndRedirectToLastPage() {
-      // Refresh thread too to update thread.amountOfPosts
-      this.get('controller.model.thread').reload();
-      this.refresh().then(() => {
-        if (this.get('controller.page') < this.get('controller.totalPages')) {
-          this.set('controller.page', this.get('controller.totalPages'));
-        }
-      });
-    }
   }
 });
