@@ -13,7 +13,9 @@
         {{yield}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary {{if submitDisabled "disabled"}}" {{action submit}} disabled={{submitDisabled}}> {{submitText}} </button>
+        {{#if submit}}
+          <button type="button" class="btn btn-secondary {{if submitDisabled "disabled"}}" {{action submit}} disabled={{submitDisabled}}> {{submitText}} </button>
+        {{/if}}
         {{#if closeModal}}
           <button type="button" class="btn btn-default" {{action closeModal}}>Annuleren</button>
         {{/if}}
