@@ -1,7 +1,7 @@
 <p>Weet je zeker dat je deze mail ({{model.subject}})  wil afkeuren?</p>
 <p>Er wordt een bericht naar de afzender gestuurd dat dit bericht is afgekeurd.</p>
 
-<button {{action "submit"}} class="btn btn-danger">Ja</button>
+<button {{action "submit"}} class="btn btn-danger" type="button">Ja</button>
 <LinkTo @route="mail-moderations.show" @model={{model}} class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}

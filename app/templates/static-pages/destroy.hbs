@@ -1,6 +1,6 @@
 <p>Weet je zeker dat je deze informatie pagina wilt verwijderen?</p>
 
-<button {{action "destroy"}} class="btn btn-danger">Ja</button>
+<button {{action "destroy"}} class="btn btn-danger" type="button">Ja</button>
 <LinkTo @route="static-pages.show" @model={{model}} class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}

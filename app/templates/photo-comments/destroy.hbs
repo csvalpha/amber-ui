@@ -1,6 +1,6 @@
 <p>Weet je zeker dat je deze comment ({{model.content}}) wilt verwijderen?</p>
 
-<button {{action "destroy"}} class="btn btn-danger">Ja</button>
+<button {{action "destroy"}} class="btn btn-danger" type="button">Ja</button>
 <LinkTo @route="photo-albums.photo-album" @model={{model.photo}} class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}

@@ -8,5 +8,6 @@ module.exports = {
     'no-html-comments': true,
     'no-triple-curlies': true,
     'no-shadowed-elements': true
-  }
+  },
+  extends: 'octane'
 };

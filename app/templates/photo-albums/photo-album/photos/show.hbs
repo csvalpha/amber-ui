@@ -1,12 +1,12 @@
 <EmberWormhole @to="navbar-wormhole">
   <PageActionsButtons @pageActions={{pageActions}}>
     <div class="col col-md-auto page-action">
-      <button class="btn btn-primary" {{action "goToPreviousPhoto"}}>
+      <button class="btn btn-primary" {{action "goToPreviousPhoto"}} type="button">
         {{fa-icon 'arrow-left'}}
       </button>
     </div>
     <div class="col col-md-auto page-action">
-      <button class="btn btn-primary" {{action "goToNextPhoto"}}>
+      <button class="btn btn-primary" {{action "goToNextPhoto"}} type="button">
         {{fa-icon 'arrow-right'}}
       </button>
     </div>
@@ -31,7 +31,7 @@
     </LinkTo>
 
     {{#if model.hasExif}}
-      <button class="ml-1 btn btn-sm btn-outline-info" {{action 'toggleShowExif'}}>
+      <button class="ml-1 btn btn-sm btn-outline-info" {{action 'toggleShowExif'}} type="button">
         Toon Exif data
       </button>
     {{else}}
@@ -105,7 +105,7 @@
         <div class="input-group new-photo-comment">
           <Input @value={{content}} class="form-control" placeholder="Typ hier je reactie" @minlength="1" @maxlength="500" @enter={{action "submitPhotoComment" photo}} @id="new-photo-comment-input" />
           <span class="input-group-btn">
-            <button class="btn btn-default" {{action "submitPhotoComment"}}>Reageren</button>
+            <button class="btn btn-default" {{action "submitPhotoComment"}} type="button">Reageren</button>
           </span>
         </div>
       </div>

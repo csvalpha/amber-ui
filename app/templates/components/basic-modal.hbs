@@ -4,7 +4,7 @@
       <div class="modal-header p-3">
         <h5 class="modal-title">{{title}}</h5>
         {{#if closeModal}}
-          <button type="button mr-3" class="close" data-dismiss="modal" aria-label="Close" {{action closeModal}}>
+          <button class="close" data-dismiss="modal" aria-label="Close" {{action closeModal}} type="button">
             <span aria-hidden="true">{{fa-icon 'times'}}</span>
           </button>
         {{/if}}

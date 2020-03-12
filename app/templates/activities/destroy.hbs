@@ -11,7 +11,7 @@
     {{else}}
       <p>Weet je zeker dat je deze activiteit ({{model.title}}) wilt verwijderen?</p>
 
-      <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+      <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
       <LinkTo @route="activities.show" @model={{model}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
       {{#if errorMessage}}
         <div class="text-danger">{{errorMessage}}</div>

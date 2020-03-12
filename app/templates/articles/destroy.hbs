@@ -11,7 +11,7 @@
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">Artikel verwijderen</button>
+    <button {{action "destroy"}} class="btn btn-danger" type="button">Artikel verwijderen</button>
     <LinkTo @route="articles.show" @model={{model}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
   </div>
 </div>

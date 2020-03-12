@@ -33,11 +33,11 @@ module.exports = {
       'always'
     ],
     'ember-suave/lines-between-object-properties': 0,
-    'ember-suave/require-access-in-comments': 0
+    'ember-suave/require-access-in-comments': 0,
+    'ember/no-jquery': 1
   },
   globals: {
-    'moment': true,
-    'ember/no-jquery': 'warning'
+    'moment': true
   },
   overrides: [
     // node files
