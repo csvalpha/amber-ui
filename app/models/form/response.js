@@ -1,10 +1,8 @@
+import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 import { alias, union } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import { all } from 'rsvp';
-import DS from 'ember-data';
-
-const { Model, attr, belongsTo, hasMany } = DS;
 
 export default Model.extend({
   createdAt: attr('date'),

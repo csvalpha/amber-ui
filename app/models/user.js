@@ -1,11 +1,9 @@
+import Model, { hasMany, attr } from '@ember-data/model';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { isEmpty } from '@ember/utils';
-import DS from 'ember-data';
 import moment from 'moment';
 import AvatarModelMixin from 'alpha-amber/mixins/avatar-model-mixin';
-
-const { attr, hasMany, Model } = DS;
 
 export default Model.extend(AvatarModelMixin, {
   session: service(),

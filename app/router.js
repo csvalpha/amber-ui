@@ -23,7 +23,7 @@ const AppRouter = EmberRouter.extend(EmberRouterScroll, {
         window.gtag('js', new Date());
       }
 
-      window.gtag('config', config.googleAnalytics.webPropertyId, { 'page_path': this.get('url') });
+      window.gtag('config', config.googleAnalytics.webPropertyId, { 'page_path': this.url });
     });
   }
 });

@@ -35,10 +35,10 @@ export default Component.extend({
     },
     nextPage() {
       this.set('errorMessage', null);
-      if (this.get('step') >= this.get('maxSteps')) {
+      if (this.step >= this.maxSteps) {
         this.set('isOpen', false);
       } else {
-        this.set('step', this.get('step') + 1);
+        this.set('step', this.step + 1);
       }
     },
     allowWebdav() {

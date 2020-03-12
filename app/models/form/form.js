@@ -1,9 +1,7 @@
+import Model, { hasMany, attr } from '@ember-data/model';
 import { gt, union, sort } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { all } from 'rsvp';
-import DS from 'ember-data';
-
-const { Model, attr, hasMany } = DS;
 
 export default Model.extend({
   respondFrom: attr('date'),

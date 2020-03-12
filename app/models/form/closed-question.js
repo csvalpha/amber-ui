@@ -1,8 +1,6 @@
+import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 import { equal, sort } from '@ember/object/computed';
 import { all } from 'rsvp';
-import DS from 'ember-data';
-
-const { Model, attr, hasMany, belongsTo } = DS;
 
 export default Model.extend({
   question: attr('string'),

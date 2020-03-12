@@ -1,11 +1,10 @@
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { get, computed } from '@ember/object';
 import { underscore } from '@ember/string';
 import $ from 'jquery';
-import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import ENV from '../config/environment';
 
-const { JSONAPIAdapter } = DS;
 import { pluralize } from 'ember-inflector';
 
 export default JSONAPIAdapter.extend(DataAdapterMixin, {

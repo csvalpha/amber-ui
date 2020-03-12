@@ -1,10 +1,8 @@
+import Model, { belongsTo, attr } from '@ember-data/model';
 import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import DS from 'ember-data';
 import checkIfUserIsOwnerMixin from 'alpha-amber/mixins/check-if-user-is-owner-mixin';
-
-const { Model, attr, belongsTo } = DS;
 
 export default Model.extend(checkIfUserIsOwnerMixin, {
   // Attributes

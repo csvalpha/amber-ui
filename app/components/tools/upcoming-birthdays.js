@@ -1,3 +1,4 @@
+import { sort } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
@@ -15,5 +16,5 @@ export default Component.extend({
     return this.store.query('user', params);
   }),
 
-  sortedUsers: computed.sort('users', 'sortProperties')
+  sortedUsers: sort('users', 'sortProperties')
 });

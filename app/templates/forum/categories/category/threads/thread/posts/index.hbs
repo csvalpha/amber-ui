@@ -3,7 +3,7 @@
 </EmberWormhole>
 
 <div class="row justify-content-center">
-  {{page-numbers content=model.posts}}
+  <PageNumbers @content={{model.posts}} />
 </div>
 
 {{#each model.posts.content as |post index| }}

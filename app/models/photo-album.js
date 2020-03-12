@@ -1,8 +1,6 @@
+import Model, { hasMany, attr } from '@ember-data/model';
 import { computed } from '@ember/object';
-import DS from 'ember-data';
 import ENV from '../config/environment';
-
-const { Model, attr, hasMany } = DS;
 
 export default Model.extend({
   // Properties

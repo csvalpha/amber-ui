@@ -1,7 +1,5 @@
+import Model from '@ember-data/model';
 import { resolve } from 'rsvp';
-import DS from 'ember-data';
-
-const { Model } = DS;
 
 export function initialize(/* application */) {
   Model.reopen({
