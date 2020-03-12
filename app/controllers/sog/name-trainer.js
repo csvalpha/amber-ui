@@ -26,12 +26,13 @@ export default Controller.extend({
   finished: false,
   answered: false,
   users: computed('group', function() {
-    return this.store.query('user', { filter: { group: this.get('group.name') }});
+    return this.store.query('user', { filter: { group: this.get('group.name') } });
   }),
   group: computed('group', function() {
-    if(!this.groupId) {
+    if (!this.groupId) {
       return;
     }
+
     return this.store.find('group', this.groupId);
   }),
   humanizedDifficulty: computed('difficulty', function() {

@@ -61,7 +61,7 @@
                 id="answer"
                 class=inputClass
                 placeholder='Type hier de volledige naam'
-                enter='checkAnswer'}}
+                enter=(action 'checkAnswer')}}
               <div class="input-group-append">
                 <button type="button" class="btn btn-primary" {{action 'checkAnswer'}}>Antwoord</button>
               </div>
@@ -152,16 +152,15 @@
           </PowerSelect>
         </div>
 
-      <div class="form-group">
-        <label>Moeilijkheidsgraad</label>
-        {{input/select-input
-                class='form-control'
-                options=difficultyOptions
-                placeholder=Moeilijkheidsgraad
-                value=difficulty
-        }}
-      </div>
-
+        <div class="form-group">
+          <label>Moeilijkheidsgraad</label>
+          {{input/select-input
+                  class='form-control'
+                  options=difficultyOptions
+                  placeholder=Moeilijkheidsgraad
+                  value=difficulty
+          }}
+        </div>
       </div>
       <div class="card-footer text-right">
         <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
