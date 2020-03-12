@@ -2,9 +2,9 @@ import EmberRouter from '@ember/routing/router';
 import config from './config/environment';
 import EmberRouterScroll from 'ember-router-scroll';
 
-const AppRouter = EmberRouter.extend(EmberRouterScroll, {
-  location: config.locationType,
-  rootURL: config.rootURL,
+export default class Router extends EmberRouterScroll {
+  location = config.locationType;
+  rootURL = config.rootURL;
 
   init() {
     this._super(...arguments);
@@ -26,9 +26,9 @@ const AppRouter = EmberRouter.extend(EmberRouterScroll, {
       window.gtag('config', config.googleAnalytics.webPropertyId, { 'page_path': this.url });
     });
   }
-});
+}
 
-AppRouter.map(function() {
+Router.map(function() {
   this.route('oauth', function() {
     this.route('authorize');
   });
@@ -206,5 +206,3 @@ AppRouter.map(function() {
 
   return true;
 });
-
-export default AppRouter;
