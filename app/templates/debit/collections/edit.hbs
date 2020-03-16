@@ -7,7 +7,7 @@
       <ModelForm::TextInput @model={{model}} @property="name" @label="Titel" @required={{true}} />
       <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van incasso" @required={{true}} />
 
-      <ModelForm::FormActions @model={{model}} @errorMessage={{errorMessage}}>
+      <ModelForm::FormActions @model={{model}} @errorMessage={{this.errorMessage}}>
         <LinkTo @route="debit.collections" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
@@ -18,7 +18,7 @@
       <span class="col-md-2 form-control-label">Toevoegen</span>
 
       <div class="col-sm-10">
-        <PowerSelect @selected={{selected}} @options={{users}} @onchange={{action "addUser"}} @selected={{transaction.user}} @searchField="fullName" as |user|>
+        <PowerSelect @options={{users}} @onchange={{action "addUser"}} @selected={{transaction.user}} @searchField="fullName" as |user|>
           {{user.fullName}}
         </PowerSelect>
       </div>
@@ -44,7 +44,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each model.transactions as |transaction|}}
+            {{#each @model.transactions as |transaction|}}
               {{#unless transaction.isDeleted}}
                 <tr>
                   <td>

@@ -4,13 +4,13 @@
     <thead>
       <tr>
         <th> Naam </th>
-        {{#each model.form.sortedQuestions as |question|}}
+        {{#each @model.form.sortedQuestions as |question|}}
           <th> {{question.question}} </th>
         {{/each}}
       </tr>
     </thead>
     <tbody>
-      {{form/responses-table-row model.form model}}
+      {{form/responses-table-row @model.form model}}
     </tbody>
   </table>
 </div>
@@ -19,5 +19,5 @@
 <LinkTo @route="activities.index" class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}
-  <div class="text-danger">{{errorMessage}}</div>
+  <div class="text-danger">{{this.errorMessage}}</div>
 {{/if}}

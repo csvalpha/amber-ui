@@ -6,10 +6,10 @@
     <p class="card-text">
       Weet je zeker dat deze foto wilt verwijderen?
     </p>
-    <img src={{model.imageUrl}} width=300>
+    <img src={{@model.imageUrl}} width="300">
 
     {{#if errorMessage}}
-      <div class="text-danger">{{errorMessage}}</div>
+      <div class="text-danger">{{this.errorMessage}}</div>
     {{/if}}
   </div>
   <div class="card-footer">

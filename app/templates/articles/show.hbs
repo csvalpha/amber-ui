@@ -7,7 +7,7 @@
 {{#if (can 'show article comments of article' model)}}
   <div class="card">
     <div class="card-header">
-      <h5> {{capitalize (t 'model.articleComment.name.other')}} </h5>
+      <h5> {{capitalize (t '@model.articleComment.name.other')}} </h5>
     </div>
 
     <div class="card-body">
@@ -25,7 +25,7 @@
     </div>
     {{#if (can 'create article-comments')}}
       <div class="card-footer">
-        {{#if model.publiclyVisible}}
+        {{#if @model.publiclyVisible}}
           <div class="alert alert-info" role="alert">
             {{t 'template.articles.show.publicAlert'}} <br>
           </div>

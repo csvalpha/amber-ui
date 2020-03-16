@@ -19,7 +19,7 @@
       <ModelForm::TextInput @model={{model}} @property="name" @label="Titel  " @required={{true}} />
       <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van incasso" @required={{true}} />
 
-      <ModelForm::FormActions @model={{model}} @errorMessage={{errorMessage}}>
+      <ModelForm::FormActions @model={{model}} @errorMessage={{this.errorMessage}}>
         <LinkTo @route="debit.collections" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>

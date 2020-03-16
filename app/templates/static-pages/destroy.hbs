@@ -4,5 +4,5 @@
 <LinkTo @route="static-pages.show" @model={{model}} class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}
-  <div class="text-danger">{{errorMessage}}</div>
+  <div class="text-danger">{{this.errorMessage}}</div>
 {{/if}}

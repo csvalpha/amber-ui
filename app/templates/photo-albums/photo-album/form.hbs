@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h5>{{if model.isNew "Foto-album aanmaken" "Foto-album wijzigen"}}</h5>
+    <h5>{{if @model.isNew "Foto-album aanmaken" "Foto-album wijzigen"}}</h5>
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
@@ -8,13 +8,13 @@
       <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van activiteit" />
       <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
-      {{#if model.publiclyVisible}}
+      {{#if @model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
           Een publiek foto-album verschijnt op de voorpagina, en is ook voor externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg dat je toestemming hebt. Zie het mediabeleid voor meer informatie.
         </div>
       {{/if}}
 
-      {{#if model.isNew}}
+      {{#if @model.isNew}}
         <div class="alert alert-info">
           In de volgende stap kun je de foto's uploaden
         </div>
@@ -27,10 +27,10 @@
             <li>Bestandsformaat: .jpg, .jpeg of .png</li>
           </ul>
         </div>
-        <DropZone @url={{model.dropzoneEndpoint}} @headers={{dropzoneHeaders}} @maxFilesize={{model.maxFilesize}} />
+        <DropZone @url={{@model.dropzoneEndpoint}} @headers={{dropzoneHeaders}} @maxFilesize={{@model.maxFilesize}} />
       {{/if}}
 
-      <ModelForm::FormActions @errors={{model.errors}} @errorMessage={{errorMessage}}>
+      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}}>
         <LinkTo @route="photo-albums.index" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>

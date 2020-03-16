@@ -6,24 +6,24 @@
   <div class="col">
     <div class="card">
       <div class="card-header">
-        <h5> {{model.name}} {{#if model.administrative}} <span class="badge administrative-group"> Administratieve groep </span> {{/if}} </h5>
+        <h5> {{@model.name}} {{#if @model.administrative}} <span class="badge administrative-group"> Administratieve groep </span> {{/if}} </h5>
       </div>
       <div class="row">
         <div class="col-md order-12 order-md-1">
           <div class="card-body">
-            <i class="card-subtitle">{{model.recognitionPeriod}}</i>
-            <p class="card-text">{{markdown-to-html model.descriptionCamofied extensions='youtubeEmbed bootstrapTable'}}</p>
+            <i class="card-subtitle">{{@model.recognitionPeriod}}</i>
+            <p class="card-text">{{markdown-to-html @model.descriptionCamofied extensions='youtubeEmbed bootstrapTable'}}</p>
           </div>
         </div>
         <div class="col-md-5 col-xs-12 order-1 order-md-12">
-          <img class="card-img-rounded" src="{{model.avatarUrlOrDefault}}" >
+          <img class="card-img-rounded" src="{{@model.avatarUrlOrDefault}}" >
         </div>
       </div>
     </div>
   </div>
 </div>
 
-{{#if (and (can 'show memberships') model.memberships)}}
+{{#if (and (can 'show memberships') @model.memberships)}}
   <div class="row">
     <div class="col-12">
       <div class="card">
@@ -68,7 +68,7 @@
     </div>
   </div>
 {{/if}}
-{{#if (and (can 'show mail-aliases') model.mailAliases)}}
+{{#if (and (can 'show mail-aliases') @model.mailAliases)}}
   <div class="row">
     <div class="col-sm-12">
       <div class="card">
@@ -86,7 +86,7 @@
               {{/if}}
             </div>
 
-            {{#each model.mailAliases as |alias|}}
+            {{#each @model.mailAliases as |alias|}}
               <div class="row rtable-row">
                 <span class="col-12 col-md-4 rtable-item">{{alias.email}}</span>
                 <span class="col-12 col-md-5 rtable-item">{{alias.description}}</span>
@@ -117,7 +117,7 @@
         </div>
         <div class="card-body table-responsive">
           <p class="card-text">
-            <Permissions::PermissionsTable @modelPermissions={{model.permissions}} />
+            <Permissions::PermissionsTable @modelPermissions={{@model.permissions}} />
           </p>
         </div>
       </div>

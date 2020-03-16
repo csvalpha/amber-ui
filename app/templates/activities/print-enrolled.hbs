@@ -92,9 +92,9 @@
   <div class="card-body">
     <p id="printarea" class="printarea">
       {{#if (eq currentTab 'form')}}
-        <h5>Inschrijvingen voor {{model.title}}</h5>
+        <h5>Inschrijvingen voor {{@model.title}}</h5>
         {{form/responses-table
-          model.form
+          @model.form
           sortedResponses
           showAllergyInfo=showAllergyInfo
           showCheckbox=showCheckbox
@@ -102,7 +102,7 @@
         }}
 
       {{else if (eq currentTab 'consumptionList')}}
-        <h5>Streeplijst voor {{model.title}}</h5>
+        <h5>Streeplijst voor {{@model.title}}</h5>
         <Form::ConsumptionList @responses={{model}} @showCheckbox={{showCheckbox}} @options={{options}} @extraRows={{extraRows}} @showRobertHofstra={{showRobertHofstra}} @additionalEmptyRows={{additionalEmptyRows}} />
       {{/if}}
     </p>
