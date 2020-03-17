@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h5> {{if @model.isNew 'Artikel aanmaken' 'Artikel wijzigen'}} </h5>
+    <h5> {{if model.isNew 'Artikel aanmaken' 'Artikel wijzigen'}} </h5>
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
@@ -8,7 +8,7 @@
       <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @fileLoaded={{action "coverPhotoLoaded"}} />
       <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
-      {{#if @model.publiclyVisible}}
+      {{#if model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
           Een publiek artikel is ook zichtbaar voor niet-leden.
           Fijn dat je ook helpt om te laten zien dat Alpha een levendige boel is!
@@ -29,11 +29,10 @@
         </div>
       </div>
 
-      <ModelForm::MdInput @model={{model}} @property="content" @label="Inhoud" @required={{true}} @inputIdentifier="article-form-content" />
+      <ModelForm::MdInput @model={{@model}} @property="content" @label="Inhoud" @required={{true}} @inputIdentifier="article-form-content" />
 
 
-
-      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}}>
+      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{errorMessage}}>
         <LinkTo @route="index" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
 
