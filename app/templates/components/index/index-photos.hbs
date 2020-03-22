@@ -1,7 +1,7 @@
 {{#if photoAlbums}}
   <div class="index-photo-albums">
     <LinkTo @route="photo-albums">
-      <h1> {{capitalize (t '@model.photoAlbum.name.other')}} </h1>
+      <h1> {{capitalize (t 'model.photoAlbum.name.other')}} </h1>
     </LinkTo>
     <div class="row">
       {{#each photoAlbums as |album index|}}
