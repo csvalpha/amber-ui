@@ -20,15 +20,19 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': '\'none\'',
       'manifest-src': '\'self\'',
-      'script-src': '\'self\' \'unsafe-inline\' \'unsafe-eval\' cdn.ravenjs.com www.google-analytics.com www.googletagmanager.com',
+      'script-src': '\'self\' www.google-analytics.com www.googletagmanager.com',
       'font-src': '\'self\' fonts.gstatic.com',
-      'connect-src': '\'self\' sentry.io',
-      'img-src': '\'self\' data: camo.csvalpha.nl sentry.io maps.googleapis.com cdn.ravenjs.com www.google-analytics.com youtube.com img.youtube.com',
+      'connect-src': '\'self\'',
+      'img-src': '\'self\' camo.csvalpha.nl www.google-analytics.com img.youtube.com',
       'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com/',
-      'media-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
-      'object-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
-      'frame-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
-      'worker-src': '\'self\''
+      'media-src': '\'self\'',
+      'object-src': '\'self\'',
+      'frame-src': '\'self\' www.youtube.com',
+      'worker-src': '\'self\'',
+      'base-uri': '\'none\'',
+      'form-action': '\'self\'',
+      'frame-ancestors': '\'self\'',
+      'block-all-mixed-content': ''
     },
 
     moment: {
@@ -183,7 +187,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.contentSecurityPolicy['img-src'] += ' http://cdn.jsdelivr.net';
+    ENV.contentSecurityPolicy['script-src'] += ' \'unsafe-inline\' \'unsafe-eval\'';
   }
 
   if (environment === 'test') {
@@ -202,10 +206,12 @@ module.exports = function(environment) {
 
   if (deployTarget === 'staging') {
     ENV.sentry.dsn = 'https://5931cc6f635a4e6c96c8dcab4885485f@sentry.io/186023';
+    ENV.contentSecurityPolicy['report-uri'] = 'https://sentry.io/api/186023/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f';
   }
 
   if (deployTarget === 'production') {
     ENV.sentry.dsn = 'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
+    ENV.contentSecurityPolicy['report-uri'] = 'https://sentry.io/api/186017/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f';
     ENV.googleAnalytics = { webPropertyId: 'UA-8136462-4' };
   }
 
