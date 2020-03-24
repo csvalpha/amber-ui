@@ -9,6 +9,7 @@ export default function(server) {
     'article_comment',
     'board_room_presence',
     'group',
+    'membership',
     'photo_album',
     'photo',
     'photo_comment',
@@ -42,7 +43,7 @@ export default function(server) {
   server.createList('activity', 5);
   server.createList('activity', 5, 'withForm');
   server.createList('article', 5);
-  server.createList('group', 5);
+  server.createList('group', 5, 'withMembers');
   server.createList('forum-category', 5, 'withThreads');
   server.createList('quickpost-message', 10);
 }

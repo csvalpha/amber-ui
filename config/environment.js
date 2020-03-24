@@ -128,7 +128,8 @@ module.exports = function(environment) {
           'user',
           'users',
           'volume-up',
-          'wrench'
+          'wrench',
+          'gamepad'
         ],
         'free-brands-svg-icons': [
           'android',
