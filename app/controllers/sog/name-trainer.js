@@ -28,7 +28,7 @@ export default Controller.extend({
   users: computed('group', function() {
     return this.store.query('user', { filter: { group: this.get('group.name') } });
   }),
-  group: computed('group', function() {
+  group: computed('groupId', function() {
     if (!this.groupId) {
       return;
     }
