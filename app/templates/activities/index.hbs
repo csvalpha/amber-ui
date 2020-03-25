@@ -20,7 +20,7 @@
   </div>
 
   {{#each pagedModel as |activity|}}
-    <LinkTo @route="activities.show" @model={{activity}} data-test-activity-item={{true}}>
+    <LinkTo @route="activities.show" @model={{activity.id}} data-test-activity-item={{true}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-8 rtable-item">
           {{#if activity.form}}
