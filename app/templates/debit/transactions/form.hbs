@@ -11,13 +11,13 @@
         <span class="col-md-2 form-control-label">Gebruiker</span>
 
         <div class="col-md-10">
-          <PowerSelect @selected={{model.user}} @options={{users}} @onchange={{action "setUser"}} @searchField="fullName" as |user|>
+          <PowerSelect @selected={{@model.user}} @options={{users}} @onchange={{action "setUser"}} @searchField="fullName" as |user|>
             {{user.fullName}}
           </PowerSelect>
         </div>
       </div>
 
-      <ModelForm::FormActions @model={{model}} @errorMessage={{errorMessage}}>
+      <ModelForm::FormActions @model={{model}} @errorMessage={{this.errorMessage}}>
         <LinkTo @route="debit.collections" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>

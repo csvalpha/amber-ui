@@ -5,6 +5,6 @@
 <TabbedView @tabItems={{tabItems}}>
   <h5>Persoonlijke rechten</h5>
   <div class="table-responsive">
-    <Permissions::PermissionsTable @modelPermissions={{model.userPermissions}} @inheritedPermissions={{model.permissions}} />
+    <Permissions::PermissionsTable @modelPermissions={{@model.userPermissions}} @inheritedPermissions={{@model.permissions}} />
   </div>
 </TabbedView>

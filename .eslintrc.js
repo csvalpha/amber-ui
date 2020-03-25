@@ -1,8 +1,14 @@
+'use strict';
+
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
   plugins: [
     'ember',
@@ -29,10 +35,11 @@ module.exports = {
       'always'
     ],
     'ember-suave/lines-between-object-properties': 0,
-    'ember-suave/require-access-in-comments': 0
+    'ember-suave/require-access-in-comments': 0,
+    'ember/no-jquery': 1
   },
   globals: {
-    'moment': true,
+    'moment': true
   },
   overrides: [
     // node files

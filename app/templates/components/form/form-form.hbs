@@ -6,13 +6,13 @@
     <span>Vragen</span>
   </div>
   <div class="col-12 col-sm-10">
-    {{#if model.hasResponses}}
+    {{#if @model.hasResponses}}
       <div class="alert alert-danger">
         Je kunt geen vragen meer toevoegen of aanpassen, omdat er al reacties zijn.
       </div>
     {{/if}}
 
-    {{#each model.sortedQuestions as |question|}}
+    {{#each @model.sortedQuestions as |question|}}
       {{#unless question.isDeleted}}
         <div class="card">
           <div class="card-body create-new-question">
@@ -26,7 +26,7 @@
       {{/unless}}
     {{/each}}
 
-    {{#unless model.hasResponses }}
+    {{#unless @model.hasResponses }}
       <button type="button" class="btn btn-default" {{action "addOpenQuestion"}}>Open vraag toevoegen</button>
       <button type="button" class="btn btn-default" {{action "addClosedQuestion"}}>Gesloten vraag toevoegen</button>
     {{/unless}}

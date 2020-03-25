@@ -33,7 +33,7 @@
   <h5>Technische gegevens</h5>
   <ModelForm::CheckboxInput @model={{model}} @property="loginEnabled" @labelClass="col-sm-5" @inputWrapperClass="col-sm-7" @label="Gebruiker kan inloggen" @disabled={{canEditOnlyOwnProperties}} @labelColspan={{5}} />
 
-  <ModelForm::FormActions @errors={{model.errors}} @errorMessage={{errorMessage}} @inputLayout="vertical">
+  <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}} @inputLayout="vertical">
     <LinkTo @route="users.show" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
   </ModelForm::FormActions>
 </form>

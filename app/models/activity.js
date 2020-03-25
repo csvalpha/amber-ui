@@ -1,11 +1,9 @@
+import Model, { belongsTo, attr } from '@ember-data/model';
 import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import DS from 'ember-data';
 import CoverPhotoModelMixin from 'alpha-amber/mixins/coverphoto-model-mixin';
 import checkIfUserIsOwnerMixin from 'alpha-amber/mixins/check-if-user-is-owner-mixin';
-
-const { Model, attr, belongsTo } = DS;
 
 export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
   modelName: alias('_internalModel.modelName'),

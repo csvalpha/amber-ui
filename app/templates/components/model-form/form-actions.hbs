@@ -6,7 +6,7 @@
         <ul>
           {{#each errors as |error|}}<li>{{error.message}}</li>{{/each}}
         </ul>
-        {{errorMessage}}
+        {{this.errorMessage}}
       </div>
     {{/if}}
     <input type="submit" class="btn btn-primary" value={{if submitButtonLabel submitButtonLabel "Opslaan"}}>

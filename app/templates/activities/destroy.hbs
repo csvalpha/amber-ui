@@ -3,18 +3,18 @@
     <h5> Activiteit verwijderen </h5>
   </div>
   <div class="card-block p-3">
-    {{#if model.hasResponses}}
+    {{#if @model.hasResponses}}
       <div class="alert alert-danger">
         Je kunt deze activiteit niet verwijderen, omdat er al reacties zijn!
       </div>
       <LinkTo @route="activities.show" @model={{model}} class="btn btn-default">Terug</LinkTo>
     {{else}}
-      <p>Weet je zeker dat je deze activiteit ({{model.title}}) wilt verwijderen?</p>
+      <p>Weet je zeker dat je deze activiteit ({{@model.title}}) wilt verwijderen?</p>
 
-      <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+      <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
       <LinkTo @route="activities.show" @model={{model}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
       {{#if errorMessage}}
-        <div class="text-danger">{{errorMessage}}</div>
+        <div class="text-danger">{{this.errorMessage}}</div>
       {{/if}}
     {{/if}}
   </div>

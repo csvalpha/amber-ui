@@ -6,7 +6,7 @@
   <div class="card-header">
     <div class="row">
       <div class="col-12 col-md">
-        <h5 data-test-poll-title>{{model.poll.question.question}}</h5>
+        <h5 data-test-poll-title>{{@model.poll.question.question}}</h5>
       </div>
     </div>
   </div>
@@ -15,52 +15,52 @@
     <div class="col-12 col-md-7 card-subheader-item align-items-center p-3">
       {{fa-icon 'clock'}}
 
-      {{#if model.form.currentUserCanRespond}}
-        <span> Deze poll sluit  {{moment-calendar model.form.respondUntil}} </span>
+      {{#if @model.form.currentUserCanRespond}}
+        <span> Deze poll sluit  {{moment-calendar @model.form.respondUntil}} </span>
 
-      {{else if model.poll.closedWithNoResponses}}
-        <span> Deze poll is  {{moment-calendar model.form.respondUntil}} gesloten zonder reacties. </span>
+      {{else if @model.poll.closedWithNoResponses}}
+        <span> Deze poll is  {{moment-calendar @model.form.respondUntil}} gesloten zonder reacties. </span>
 
-      {{else if model.poll.opensLater}}
-        <span> Deze poll opent  {{moment-calendar model.form.respondFrom}} </span>
+      {{else if @model.poll.opensLater}}
+        <span> Deze poll opent  {{moment-calendar @model.form.respondFrom}} </span>
 
       {{else}}
-        <span> Deze poll  {{if model.poll.closesLater 'sluit' 'sloot'}} {{moment-calendar model.form.respondUntil}} </span>
+        <span> Deze poll  {{if @model.poll.closesLater 'sluit' 'sloot'}} {{moment-calendar @model.form.respondUntil}} </span>
       {{/if}}
     </div>
 
     <div class="col-12 col-md-2 card-subheader-item align-items-center p-3">
       {{fa-icon 'users'}}
-      {{model.form.amountOfResponses}}  reacties
+      {{@model.form.amountOfResponses}}  reacties
     </div>
 
     <div class="col-12 col-md-3 card-subheader-item align-items-center p-3">
       {{fa-icon 'user'}}
       <span data-test-poll-author>
-        <LinkTo @route="users.show" @model={{model.poll.author.id}} class="link-to card-subtitle-link">
-          {{model.poll.author.fullName}}
+        <LinkTo @route="users.show" @model={{@model.poll.author.id}} class="link-to card-subtitle-link">
+          {{@model.poll.author.fullName}}
         </LinkTo>
       </span>
     </div>
   </div>
 
   <div class="card-body p-3">
-    {{#if model.form.currentUserCanRespond}}
+    {{#if @model.form.currentUserCanRespond}}
       <form {{action "submitResponse" on="submit"}}>
-        {{form/response/response-form model.form model.currentUserResponse}}
-        <ModelForm::FormActions @errors={{form.errors}} @errorMessage={{errorMessage}} @submitButtonLabel="Opslaan" @inputLayout="vertical">
+        {{form/response/response-form @model.form @model.currentUserResponse}}
+        <ModelForm::FormActions @errors={{form.errors}} @errorMessage={{this.errorMessage}} @submitButtonLabel="Opslaan" @inputLayout="vertical">
           <LinkTo @route="polls.index" class="btn btn-default">Annuleren</LinkTo>
         </ModelForm::FormActions>
       </form>
 
-    {{else if model.poll.closedWithNoResponses}}
+    {{else if @model.poll.closedWithNoResponses}}
       <div class="alert alert-danger">
-        Deze poll is  {{moment-calendar model.form.respondUntil}} gesloten zonder reacties.
+        Deze poll is  {{moment-calendar @model.form.respondUntil}} gesloten zonder reacties.
       </div>
 
-    {{else if model.poll.opensLater}}
+    {{else if @model.poll.opensLater}}
       <div class="alert alert-info">
-        Deze poll opent  {{moment-calendar model.form.respondFrom}}
+        Deze poll opent  {{moment-calendar @model.form.respondFrom}}
       </div>
 
     {{else}}

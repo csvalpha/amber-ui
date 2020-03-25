@@ -12,7 +12,7 @@
     <span class="col-1 rtable-header-item rtable-ta-right"> # </span>
   </div>
 
-  {{#each model.threads as |thread|}}
+  {{#each @model.threads as |thread|}}
     <LinkTo @route="forum.categories.category.threads.thread.show" @model={{thread}}>
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item">  {{forum/status-icon thread}} {{thread.title}} </span>

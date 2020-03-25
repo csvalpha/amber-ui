@@ -1,8 +1,6 @@
+import { attr } from '@ember-data/model';
 import { computed } from '@ember/object';
 import Mixin from '@ember/object/mixin';
-import DS from 'ember-data';
-
-const { attr } = DS;
 
 export default Mixin.create({
   defaultAvatarUrl: '/images/fallback/avatar_default.png',

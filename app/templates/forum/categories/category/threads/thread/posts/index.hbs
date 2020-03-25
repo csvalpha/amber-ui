@@ -3,20 +3,20 @@
 </EmberWormhole>
 
 <div class="row justify-content-center">
-  {{page-numbers content=model.posts}}
+  <PageNumbers @content={{@model.posts}} />
 </div>
 
-{{#each model.posts.content as |post index| }}
+{{#each @model.posts.content as |post| }}
   {{#unless post.isDeleted}}
     {{forum/forum-post post newContent=newContent quoteAction=(action 'goToLastPageAndScrollDown') data-test-forum-post=post.id}}
   {{/unless}}
 {{/each}}
 
 {{#if currentPageIsLastPage}}
-  {{#unless model.thread.isOpen}}
+  {{#unless @model.thread.isOpen}}
     <div class="alert alert-danger" role="alert">
       <strong>Dit topic is gesloten!</strong>
-      {{#if (can 'create post for forum/thread' model.thread)}}
+      {{#if (can 'create post for forum/thread' @model.thread)}}
         Jij kunt echter nog wel reageren omdat je moderatierechten hebt.
       {{else}}
         Je kunt niet meer reageren.
@@ -24,18 +24,18 @@
     </div>
   {{/unless}}
 
-  {{#if (can 'create post for forum/thread' model.thread)}}
+  {{#if (can 'create post for forum/thread' @model.thread)}}
     <div class="card">
       <div class="card-header">
         <h5>Reageren</h5>
       </div>
       <div class="card-body">
-        <Forum::ForumPostNew @thread={{model.thread}} @content={{newContent}} @onSubmit={{action "newPostCreated"}} />
+        <Forum::ForumPostNew @thread={{@model.thread}} @content={{newContent}} @onSubmit={{action "newPostCreated"}} />
       </div>
     </div>
   {{/if}}
 {{/if}}
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{model.posts}} />
+  <PageNumbers @content={{@model.posts}} />
 </div>

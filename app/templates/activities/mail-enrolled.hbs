@@ -11,7 +11,7 @@
         </div>
       </div>
 
-      <ModelForm::FormActions @errorMessage={{errorMessage}} @submitButtonLabel="Versturen">
+      <ModelForm::FormActions @errorMessage={{this.errorMessage}} @submitButtonLabel="Versturen">
         <LinkTo @route="activities.index" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>

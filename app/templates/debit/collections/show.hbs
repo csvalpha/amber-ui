@@ -4,8 +4,8 @@
 
 <div class="card">
   <div class="card-header d-flex justify-content-between">
-    <h5>{{model.collection.name}} - {{moment-format model.collection.date 'DD-MM-YYYY'}}</h5>
-    <span class="text-muted">Gemaakt door {{model.collection.author.fullName}}</span>
+    <h5>{{@model.collection.name}} - {{moment-format @model.collection.date 'DD-MM-YYYY'}}</h5>
+    <span class="text-muted">Gemaakt door {{@model.collection.author.fullName}}</span>
   </div>
 
   <div class="card-body">

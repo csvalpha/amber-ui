@@ -6,14 +6,14 @@
     <p class="card-text">
       Weet je zeker dat deze foto wilt verwijderen?
     </p>
-    <img src={{model.imageUrl}} width=300>
+    <img src={{@model.imageUrl}} width="300">
 
     {{#if errorMessage}}
-      <div class="text-danger">{{errorMessage}}</div>
+      <div class="text-danger">{{this.errorMessage}}</div>
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
+    <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
     <LinkTo @route="photo-albums.photo-album.photos.show" @model={{model}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
   </div>
 </div>

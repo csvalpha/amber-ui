@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        {{#each model.mailAliases as |alias|}}
+        {{#each @model.mailAliases as |alias|}}
           <tr>
             <td>
               <LinkTo @route="mail-aliases.show" @model={{alias}}>
@@ -27,7 +27,7 @@
             <td>--</td>
           </tr>
         {{/each}}
-        {{#each model.groupMailAliases as |alias|}}
+        {{#each @model.groupMailAliases as |alias|}}
           <tr>
             <td>
               <LinkTo @route="mail-aliases.show" @model={{alias}}>

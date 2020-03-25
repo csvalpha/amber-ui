@@ -38,6 +38,9 @@ export default Controller.extend({
   humanizedDifficulty: computed('difficulty', function() {
     return this.difficultyOptions.find(option => option.value === this.get('difficulty')).label;
   }),
+  progressBarStyle: computed('progress', function() {
+    return `width: ${  this.progress}`;
+  }),
   currentQuestion: computed('currentQuestionIndex', 'questions', function() {
     return this.get('questions').objectAt(this.get('currentQuestionIndex') - 1);
   }),

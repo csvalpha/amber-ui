@@ -9,7 +9,7 @@
     <span class="col-1 rtable-ta-right"> # </span>
   </div>
 
-  {{#each model.recentThreads as |thread|}}
+  {{#each @model.recentThreads as |thread|}}
     <LinkTo @route="forum.categories.category.threads.thread.show" @models={{array thread.category thread}}>
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item"> {{forum/status-icon thread}} {{thread.title}} </span>
@@ -25,7 +25,7 @@
     <span class="col"> Categorie </span>
     <span class="col-1 rtable-ta-right"> # </span>
   </div>
-  {{#each model.categories as |category|}}
+  {{#each @model.categories as |category|}}
     <LinkTo @route="forum.categories.category" @model={{category}}>
       <div class="row rtable-row">
         <span class="col"> {{category.name}} </span>

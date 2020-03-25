@@ -1,7 +1,7 @@
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 import { inject as service } from '@ember/service';
 import { underscore } from '@ember/string';
 import Ember from 'ember';
-import DS from 'ember-data';
 
 const {
   Logger, String
@@ -13,7 +13,6 @@ const verbReplacements = {
   index: 'read',
   edit: 'update'
 };
-const { JSONAPISerializer } = DS;
 
 export default JSONAPISerializer.extend({
   session: service('session'),
