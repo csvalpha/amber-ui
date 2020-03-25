@@ -1,7 +1,6 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { get, computed } from '@ember/object';
 import { underscore } from '@ember/string';
-import $ from 'jquery';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import ENV from '../config/environment';
 
@@ -31,7 +30,8 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
     let url = this._super(...arguments);
     const query = get(snapshot, 'adapterOptions.query');
     if (query) {
-      url += `?${$.param(query)}`;
+      debugger;
+      // url += `?${$.param(query)}`;
     }
 
     return url;
