@@ -26,17 +26,6 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
     return pluralize(underscored);
   },
 
-  urlForFindRecord(id, modelName, snapshot) {
-    let url = this._super(...arguments);
-    const query = get(snapshot, 'adapterOptions.query');
-    if (query) {
-      debugger;
-      // url += `?${$.param(query)}`;
-    }
-
-    return url;
-  },
-
   // Some internal query params should be mapped to other params for API requests
   paramMapping: {
     search: 'filter[search]'
