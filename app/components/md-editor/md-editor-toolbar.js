@@ -122,17 +122,3 @@ export default class MdEditorToolbarComponent extends Component {
     ]
   };
 }
-
-// export default Component.extend({
-//   openModalAction: () => {},
-//   applyStyleOptionAction: () => {},
-//   editMode: false,
-//   modalOpen: false,
-//
-
-//   actions: {
-//     toggleEditMode() {
-//       this.toggleProperty('editMode');
-//     }
-//   }
-// });
