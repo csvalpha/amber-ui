@@ -3,6 +3,7 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   session: service(),
+  router: service(),
   layoutManager: service('layout-manager'),
   actions: {
     invalidateSession() {
