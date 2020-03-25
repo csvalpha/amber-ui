@@ -6,7 +6,7 @@ export default Factory.extend({
   activatedAt: () => faker.date.past(10),
   address: () => faker.address.streetAddress(),
   foodPreferences: () => faker.random.arrayElement([null, 'pinda\'s', 'noten', 'lactose']),
-  avatarThumbUrl: null,
+  avatarThumbUrl: '/images/fallback/avatar_thumb_default.png',
   birthday: () => faker.date.past(20, moment().subtract(18, 'years').format('YYYY-MM-DD')),
   city: () => faker.address.city(),
   email: () => faker.internet.email(),
