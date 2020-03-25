@@ -198,6 +198,10 @@ Router.map(function() {
     this.route('edit', { path: '/:id/edit' });
   });
 
+  this.route('sog', function() {
+    this.route('name-trainer');
+  });
+
   this.route('404-page-not-found', { path: '/*path' });
 
   this.route('418-im-a-teapot', { path: '/coffee' });

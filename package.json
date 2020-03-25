@@ -80,7 +80,7 @@
     "ember-resolver": "^7.0",
     "ember-responsive": "3.0.5",
     "ember-router-scroll": "^3.3",
-    "ember-simple-auth": "^2.1.1",
+    "ember-simple-auth": "^3.0",
     "ember-sortable": "^1.10.0",
     "ember-source": "~3.16.0",
     "ember-test-selectors": "^3.0",
