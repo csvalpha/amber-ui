@@ -1,74 +1,23 @@
-import { alias } from '@ember/object/computed';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
-import $ from 'jquery';
+import { set, action } from '@ember/object';
 
-export default Component.extend({
-  name: null,
-  classNames: ['md-editor-and-toolbar'],
-  editMode: true,
-  modalOpen: false,
-  modalInput: null,
-  modalOption: null,
+export default class MdEditorComponent extends Component {
+  classNames = ['md-editor-and-toolbar'];
+  content = '';
+  editMode = true;
 
-  modalIdentifier: computed(function() {
-    return `${this.elementId}-modal`;
-  }),
+  @action
+  applyStyle(option, modalInput = null) {
 
-  textareaIdentifier: alias('textareaId'),
-  textareaClass: computed('name', function() {
-    return `form-control md-editor ${this.name}`;
-  }),
-  selectionStart: null,
-  selectionEnd: null,
-
-  textareaId: computed('elementId', function() {
-    return `${this.elementId}-textarea`;
-  }),
-
-  actions: {
-    toggleEditMode() {
-      this.toggleProperty('editMode');
-    },
-
-    openModal(option) {
-      this.set('modalOption', option);
-      this.set('modalOpen', true);
-
-      const textarea = $(`#${this.textareaIdentifier}`);
-      const selectionStart = textarea.prop('selectionStart');
-      const selectionEnd = textarea.prop('selectionEnd');
-
-      this.set('selectionStart', selectionStart);
-      this.set('selectionEnd', selectionEnd);
-    },
-
-    applyStyle(option) {
-      const textarea = $(`#${this.textareaIdentifier}`);
-      const selectionStart = this.selectionStart || textarea.prop('selectionStart');
-      const selectionEnd = this.selectionEnd || textarea.prop('selectionEnd');
-
-      const selection = textarea.val().substring(selectionStart, selectionEnd);
-      let styledSelection;
-
-      if (option.modal) {
-        styledSelection = option.format.replace('$1', selection);
-        styledSelection = styledSelection.replace('$2', this.modalInput);
-        this.set('modalInput', null);
-        this.set('modalOption', null);
-        this.set('modalOpen', false);
-        this.set('selectionStart', null);
-        this.set('selectionEnd', null);
-      } else {
-        styledSelection = option.format.replace('$1', selection);
-      }
-
-      const styledContent
-        = this.content.substring(0, selectionStart)
-        + styledSelection
-        + this.content.substring(selectionStart + selection.length);
-
-      this.set('content', styledContent);
+    // TODO make this work on selected text
+    // It is hard to track what the selected text is without jquery
+    // For now we just append the style
+    let style = option.format.replace('$1', '');
+    if (option.modal) {
+      style = style.replace('$2', modalInput);
     }
+
+    set(this, 'content', this.content + style);
   }
-});
+
+}
