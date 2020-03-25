@@ -11,7 +11,7 @@
 
       {{#if started}}
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: {{progress}}%;" aria-valuenow="{{currentQuestionIndex}}"
+          <div class="progress-bar" role="progressbar" style={{progressBarStyle}} aria-valuenow="{{currentQuestionIndex}}"
                aria-valuemin="0" aria-valuemax="{{questions.length}}">
             {{currentQuestionIndex}}/{{questions.length}}
           </div>
