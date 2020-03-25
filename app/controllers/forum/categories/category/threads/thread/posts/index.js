@@ -3,7 +3,6 @@ import { alias } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import $ from 'jquery';
 
 export default Controller.extend({
   session: service(),
@@ -42,7 +41,6 @@ export default Controller.extend({
     },
     goToLastPageAndScrollDown() {
       this.set('page', this.totalPages);
-      $('#newForumPost')[0].scrollIntoView(true);
     }
   }
 });
