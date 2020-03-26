@@ -85,7 +85,6 @@
     "ember-source": "~3.16.0",
     "ember-test-selectors": "^4.0",
     "ember-tether": "^1.0.0",
-    "ember-tooltips": "2.11",
     "ember-truth-helpers": "^2.1",
     "ember-wormhole": "^0.5",
     "eslint": "6.8",

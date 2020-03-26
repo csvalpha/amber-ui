@@ -6004,14 +6004,6 @@ ember-group-by@^0.0.6:
   dependencies:
     ember-cli-babel "^6.6.0"
 
-ember-hash-helper-polyfill@^0.2.0:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/ember-hash-helper-polyfill/-/ember-hash-helper-polyfill-0.2.1.tgz#73b074d8e2f7183d2e68c3df77e951097afa907c"
-  integrity sha512-bEiKQeWGjswH1ykVY1zXabambolEPDwQCPuYOgUoRyEV4JFR9h91s3c8PNNy2pjoYBLkIYuCk4F4POJJLmDPjw==
-  dependencies:
-    ember-cli-babel "^6.8.2"
-    ember-cli-version-checker "^2.1.0"
-
 "ember-inflector@^2.0.0 || ^3.0.0", ember-inflector@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/ember-inflector/-/ember-inflector-3.0.1.tgz#04be6df4d7e4000f6d6bd70787cdc995f77be4ab"
@@ -6421,16 +6413,6 @@ ember-text-measurer@^0.5.0:
   integrity sha512-YhcOcce8kaHp4K0frKW7xlPJxz82RegGQCVNTcFftEL/jpEflZyFJx17FWVINfDFRL4K8wXtlzDXFgMOg8vmtQ==
   dependencies:
     ember-cli-babel "^7.1.0"
-
-ember-tooltips@2.11:
-  version "2.11.1"
-  resolved "https://registry.yarnpkg.com/ember-tooltips/-/ember-tooltips-2.11.1.tgz#b56c202ed332ad275beb386b47dfeec7192042bb"
-  integrity sha512-ySXjN7pd5Oluit11NY3oe1JokAWlbY4G1rWYR9PWRno8disVY8Q1S/dvn8MfXzcZF59jRzNtTeUZ/BPysYi+JA==
-  dependencies:
-    ember-cli-babel "^6.6.0"
-    ember-cli-htmlbars "^2.0.1"
-    ember-hash-helper-polyfill "^0.2.0"
-    ember-tether "^1.0.0"
 
 ember-truth-helpers@2.1.0, ember-truth-helpers@^2.1, ember-truth-helpers@^2.1.0:
   version "2.1.0"
