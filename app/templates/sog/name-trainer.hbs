@@ -147,7 +147,7 @@
       <div class="card-body">
         <div class="form-group">
           <label>Groep</label>
-          <PowerSelect @options={{model}} @selected={{group}} @onchange={{action "setGroupId"}} as |group|>
+          <PowerSelect @options={{model}} @selected={{group.name}} @onChange={{action "setGroupId"}} @searchEnabled={{true}} @searchField="name" as |group|>
             {{group.name}}
           </PowerSelect>
         </div>
