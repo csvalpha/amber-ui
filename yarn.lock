@@ -6297,13 +6297,15 @@ ember-simple-auth@^3.0:
     ember-cookies "^0.5.0"
     silent-error "^1.0.0"
 
-ember-sortable@^1.10.0:
-  version "1.12.10"
-  resolved "https://registry.yarnpkg.com/ember-sortable/-/ember-sortable-1.12.10.tgz#3d28ae7cae4cc5fe0e067ff08ee0f5d4d0e8353e"
-  integrity sha512-QYgm5IQtXvbsk9/MOTb/ECGuX57wEsVBuYxdc4OZ+ZXzgx4HnujBDn4zz+0eLFkopVnuqRy7TRMQsZEeMzvTAA==
+ember-sortable@^2.1:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/ember-sortable/-/ember-sortable-2.1.3.tgz#af7834b68d70021af171f7cb97a9449054d2fd84"
+  integrity sha512-6aczdWbtTbloHW/kZr8Rr3AlywMy1GDs8q5A+1ka3RapqSuPDPBNCvXlzBLcPJGbnyR/OxV7w1yZO9gR+fCAhQ==
   dependencies:
     ember-cli-babel "^7.1.2"
     ember-cli-htmlbars "^3.0.0"
+    ember-test-selectors "^2.1.0"
+    ember-test-waiters "^1.1.1"
 
 ember-source-channel-url@^2.0.1:
   version "2.0.1"
@@ -6370,14 +6372,22 @@ ember-template-recast@^4.1.1:
     tmp "^0.1.0"
     workerpool "^5.0.4"
 
-ember-test-selectors@^3.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-3.0.0.tgz#5be818cd4c10a3154e72ac5abc982e712c3514bf"
-  integrity sha512-yKCURzLx+mQfqL4ts4oIYobXZVhOAXDwsObdVVTY9+UuzH0xdZEpIx37nCXV7UugP/vCoaUN3YruYZKgqxWQpg==
+ember-test-selectors@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-2.1.0.tgz#faebdf06702aaa0bc510d55eb721ce54d2e85793"
+  integrity sha512-c5HmvefmeABH8hg380TSNZiE9VAK1CBeXWrgyXy+IXHtsew4lZHHw7GnqCAqsakxwvmaMARbAKY9KfSAE91s1g==
+  dependencies:
+    ember-cli-babel "^6.8.2"
+    ember-cli-version-checker "^3.1.2"
+
+ember-test-selectors@^4.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-4.0.0.tgz#84604b499ddbff290957c3fa0b1e7a9844f5174d"
+  integrity sha512-ABZ7+Xs8kcnVd9mp1AhGPuGPtaalz10cVpQIw1biA6TEscEnFhcJObtqyaxvF6C9AqfZ6p/MsgJZrXMPpgnpmw==
   dependencies:
     calculate-cache-key-for-tree "^2.0.0"
-    ember-cli-babel "^7.12.0"
-    ember-cli-version-checker "^3.1.3"
+    ember-cli-babel "^7.18.0"
+    ember-cli-version-checker "^5.0.1"
 
 ember-test-waiters@^1.1.1:
   version "1.2.0"
@@ -12568,31 +12578,22 @@ stylelint-config-recommended@^3.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
   integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
 
-stylelint-config-sass-guidelines@^6.2:
-  version "6.2.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-6.2.0.tgz#f71f2b4341b7dc64c6404bd12ef9c2b91512046c"
-  integrity sha512-weTmQt+D/qp9t3gPMgvdtu02W07m5pEKXFXnz7Jb0I85W02IxPSBVpaAu2mibvU0wk5e3McasEnHut5UuwXE/Q==
+stylelint-config-sass-guidelines@^7.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-7.0.0.tgz#ad94d9ed78731aba3b67c3cf31d5fc644523a4be"
+  integrity sha512-nWO8gtxv8T+UbAw7iM0RQp6VC3iJgOvqEIeqFBgHW+KgpZu65lYoe9Bf0fqvqxKJ/ngBD+/65BT3ql2u+7Qasg==
   dependencies:
-    stylelint-order "^3.0.0"
+    stylelint-order "^4.0.0"
     stylelint-scss "^3.4.0"
 
-stylelint-config-standard@^19.0:
-  version "19.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-19.0.0.tgz#66f0cf13f33b8a9e34965881493b38fc1313693a"
-  integrity sha512-VvcODsL1PryzpYteWZo2YaA5vU/pWfjqBpOvmeA8iB2MteZ/ZhI1O4hnrWMidsS4vmEJpKtjdhLdfGJmmZm6Cg==
+stylelint-config-standard@^20.0:
+  version "20.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-20.0.0.tgz#06135090c9e064befee3d594289f50e295b5e20d"
+  integrity sha512-IB2iFdzOTA/zS4jSVav6z+wGtin08qfj+YyExHB3LF9lnouQht//YyB0KZq9gGz5HNPkddHOzcY8HsUey6ZUlA==
   dependencies:
     stylelint-config-recommended "^3.0.0"
 
-stylelint-order@^3.0.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-3.1.1.tgz#ba9ea6844d1482f97f31204e7c9605c7b792c294"
-  integrity sha512-4gP/r8j/6JGZ/LL41b2sYtQqfwZl4VSqTp7WeIwI67v/OXNQ08dnn64BGXNwAUSgb2+YIvIOxQaMzqMyQMzoyQ==
-  dependencies:
-    lodash "^4.17.15"
-    postcss "^7.0.17"
-    postcss-sorting "^5.0.1"
-
-stylelint-order@^4.0:
+stylelint-order@^4.0, stylelint-order@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-4.0.0.tgz#2a945c2198caac3ff44687d7c8582c81d044b556"
   integrity sha512-bXV0v+jfB0+JKsqIn3mLglg1Dj2QCYkFHNfL1c+rVMEmruZmW5LUqT/ARBERfBm8SFtCuXpEdatidw/3IkcoiA==
