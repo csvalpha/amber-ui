@@ -5,6 +5,7 @@ import { computed } from '@ember/object';
 export default Model.extend({
   // Properties
   title: attr('string'),
+  read: attr('boolean'),
   closedAt: attr('date'),
   createdAt: attr('date'),
   updatedAt: attr('date'),
