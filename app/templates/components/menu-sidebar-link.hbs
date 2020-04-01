@@ -1,8 +1,5 @@
 <div class="menu-sidebar-item {{if minor 'sidebar-item-minor'}}">
   <span class="menu-sidebar-item-icon ">
-    <TooltipOnElement @enableLazyRendering={{true}} @delay={{tooltipDelay}} @side="right" @class={{if layoutManager.leftSideBarExpanded "d-none"}} @spacing={{tooltipSpacing}}>
-      {{title}}
-    </TooltipOnElement>
     {{fa-icon icon fixedWidth=true}}
   </span>
   <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{title}} </span>
