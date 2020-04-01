@@ -1,5 +1,5 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import { get, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { underscore } from '@ember/string';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import ENV from '../config/environment';
