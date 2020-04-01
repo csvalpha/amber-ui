@@ -39,7 +39,7 @@ export default Controller.extend({
     return this.difficultyOptions.find(option => option.value === this.get('difficulty')).label;
   }),
   progressBarStyle: computed('progress', function() {
-    return `width: ${  this.progress}`;
+    return `width: ${this.progress}%`;
   }),
   currentQuestion: computed('currentQuestionIndex', 'questions', function() {
     return this.get('questions').objectAt(this.get('currentQuestionIndex') - 1);
