@@ -4,8 +4,6 @@ import { inject as service } from '@ember/service';
 export default Component.extend({
   layoutManager: service('layout-manager'),
   session: service(),
-  tooltipDelay: 200,
-  tooltipSpacing: 25,
   actions: {
     toggleLeftSidebarExpansion() {
       this.layoutManager.toggleLeftSidebarExpansion();
