@@ -36,7 +36,7 @@ module.exports = {
     ],
     'ember-suave/lines-between-object-properties': 0,
     'ember-suave/require-access-in-comments': 0,
-    'ember/no-jquery': 2,
+    'ember/no-jquery': 1,
     'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
   },
   globals: {
