@@ -37,9 +37,6 @@ export default Controller.extend({
   actions: {
     async newPostCreated() {
       await this.model.posts.reload();
-      this.send('goToLastPageAndScrollDown');
-    },
-    goToLastPageAndScrollDown() {
       this.set('page', this.totalPages);
     }
   }
