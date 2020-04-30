@@ -186,6 +186,7 @@ component:
   socialMediaButtons:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
+    youtube: Bekijk ons op YouTube
 mixin:
   menuItems:
     recent: Actueel
