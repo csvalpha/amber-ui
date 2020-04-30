@@ -184,6 +184,7 @@ component:
   socialMediaButtons:
     facebook: Like us on Facebook
     instagram: Follow us on Instagram
+    youtube: Watch us on YouTube
 mixin:
   menuItems:
     recent: Recent
