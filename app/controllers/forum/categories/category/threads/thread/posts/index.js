@@ -38,6 +38,10 @@ export default Controller.extend({
     async newPostCreated() {
       await this.model.posts.reload();
       this.set('page', this.totalPages);
+    },
+    goToLastPageAndScrollDown() {
+      this.set('page', this.totalPages);
+      document.getElementById('newForumPost').scrollIntoView(true);
     }
   }
 });
