@@ -1,14 +1,13 @@
 import Component from '@glimmer/component';
-import {action} from '@ember/object';
-import { set } from '@ember/object';
-import {inject as service} from "@ember/service";
+import { action, set } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class SponsorkliksAlertComponent extends Component {
   localStorage = service()
 
   extensionInstalled = document.documentElement.dataset.sponsorkliksExtension === '1';
 
-  popupClosed = localStorage.getItem('sponsorkliksExtensionPopupClosed') === "true";
+  popupClosed = localStorage.getItem('sponsorkliksExtensionPopupClosed') === 'true';
 
   isFirefox = typeof InstallTrigger !== 'undefined';
 
