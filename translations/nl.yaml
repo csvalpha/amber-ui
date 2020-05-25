@@ -202,6 +202,7 @@ mixin:
     mailModerations: Mail moderaties
     mandates: Mandaten
     tomato: Streepsysteem
+    nextcloud: Nextcloud
     home: Home
     articles: Artikelen
     activities: Activiteiten
