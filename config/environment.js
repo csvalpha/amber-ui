@@ -99,6 +99,7 @@ module.exports = function(environment) {
           'envelope',
           'globe',
           'heading',
+          'hdd',
           'home',
           'image',
           'info-circle',

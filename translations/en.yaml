@@ -200,6 +200,7 @@ mixin:
     mailModerations: Mail Moderations
     mandates: Mandates
     tomato: S.O.F.I.A
+    nextcloud: Nextcloud
     home: Home
     articles: Articles
     activities: Activities
