@@ -1,0 +1,7 @@
+<div class="about-alpha__container">
+  {{#each videos as |video|}}
+    <a class="about-alpha__video" href="https://youtu.be/{{video.videoId}}" target="_blank" title="{{video.title}}">
+      <img src="{{video.thumbnailUrl}}" class="about-alpha__thumbnail" alt="{{video.title}}" />
+    </a>
+  {{/each}}
+</div>
