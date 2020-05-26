@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'script-src': '\'self\' www.google-analytics.com www.googletagmanager.com',
       'font-src': '\'self\' fonts.gstatic.com',
       'connect-src': '\'self\' sentry.io',
-      'img-src': '\'self\' camo.csvalpha.nl www.google-analytics.com img.youtube.com',
+      'img-src': '\'self\' camo.csvalpha.nl www.google-analytics.com img.youtube.com i.ytimg.com',
       'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com/',
       'media-src': '\'self\'',
       'object-src': '\'self\'',
