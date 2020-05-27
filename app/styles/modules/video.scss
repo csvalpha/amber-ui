@@ -25,6 +25,7 @@
 .about-alpha {
   position: relative;
   height: 100%;
+
   &__container {
     position: absolute;
     top: 0;
@@ -32,11 +33,13 @@
     bottom: 0;
     overflow-y: auto;
   }
+
   &__video {
     display: block;
     margin-bottom: 10px;
     cursor: pointer;
   }
+
   &__video:last-child {
     margin-bottom: 0;
   }
@@ -45,17 +48,18 @@
 @media (max-width: #{map-get($grid-breakpoints, lg)}) {
   .about-alpha {
     &__container {
-      position: static;
-      margin-top: 15px;
-      margin-left: -8px;
-      margin-right: -8px;
       display: flex;
+      position: static;
       flex-wrap: wrap;
+      margin-top: 15px;
+      margin-right: -8px;
+      margin-left: -8px;
     }
+
     &__video {
-      padding: 0 8px;
-      margin-bottom: 16px;
       flex-basis: 33.3%;
+      margin-bottom: 16px;
+      padding: 0 8px;
       max-width: 33.3%;
     }
   }
