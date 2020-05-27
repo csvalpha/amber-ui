@@ -9,12 +9,11 @@
           <p>Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst in je agenda-programma je oude Alpha-agenda te verwijderen voordat je de nieuwe agenda-url toevoegt.</p>
           <p>Hoe je de agenda in Google Calendar importeert staat <a href="https://support.google.com/calendar/answer/37100">hier</a> uitgelegd.</p>
         </div>
-        <form class="row" id="activityCategoryForm" {{action "updateICalURL" on="change"}}>
-
+        <form class="row" id="activityCategoryForm">
           {{#each activityCategoryOptions as |opt|}}
             <div class="col-sm-12 col-md-3">
               <label class="form-check-label">
-                <Input @type="checkbox" @name={{opt.value}} @checked="checked" class="form-check-input" />
+                <Input @type="checkbox" @name={{opt.value}} @checked={{opt.checked}} class="form-check-input" />
                 {{opt.label}}
                 <div class="custom-checkmark"></div>
               </label>

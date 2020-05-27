@@ -8,7 +8,7 @@
 
       {{#if @model.post}}
         <label for="forumpost-message"> Bericht * </label>
-        <MdEditor @content={{@model.post.message}} @textareaIdentifier="forumpost-message" />
+        <MdEditor @content={{@model.post.message}} @textareaId="forumpost-message" />
       {{else}}
         {{#if (can "edit forum/threads")}}
           <ModelForm::CheckboxInput @model={{@model.thread}} @property="isOpen" @label="Open voor reacties" />

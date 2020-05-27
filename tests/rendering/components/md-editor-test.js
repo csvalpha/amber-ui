@@ -10,7 +10,7 @@ module('Integration | Component | markdown editor', function(hooks) {
     assert.expect(1);
 
     this.set('markdownContent', 'This is some text');
-    await render(hbs`{{md-editor content=markdownContent textareaIdentifier='newForumPost'}}`);
+    await render(hbs`{{md-editor content=markdownContent textareaId='newForumPost'}}`);
 
     assert.equal(this.element.querySelector('textarea').value, 'This is some text');
   });

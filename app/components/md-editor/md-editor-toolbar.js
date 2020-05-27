@@ -1,12 +1,30 @@
 import Component from '@ember/component';
+import { action, set } from '@ember/object';
 
-export default Component.extend({
-  openModalAction: () => {},
-  applyStyleOptionAction: () => {},
-  editMode: false,
-  modalOpen: false,
+export default class MdEditorToolbarComponent extends Component {
+  modalOpen = false;
+  modalOption = null;
+  modalInput = null;
 
-  styleOptions: {
+  @action
+  toggleEditMode() {
+    this.toggleProperty('editMode');
+  }
+
+  @action
+  openModal(option) {
+    set(this, 'modalOpen', true);
+    set(this, 'modalOption', option);
+  }
+
+  @action
+  submitModal() {
+    this.applyStyleOption(this.modalOption, this.modalInput);
+    set(this, 'modalOpen', false);
+    set(this, 'modalInput', null);
+  }
+
+  styleOptions = {
     groups: [
       {
         name: 'Stijl',
@@ -102,10 +120,5 @@ export default Component.extend({
         ]
       }
     ]
-  },
-  actions: {
-    toggleEditMode() {
-      this.toggleProperty('editMode');
-    }
-  }
-});
+  };
+}

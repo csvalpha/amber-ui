@@ -30,6 +30,11 @@
         <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="beer" @title={{t "mixin.menuItems.tomato"}} @minor={{true}} />
       </a>
 
+      {{!-- Link to alpha nextcloud --}}
+      <a class="link" href="https://nextcloud.csvalpha.nl" target="_blank">
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="hdd" @title={{t "mixin.menuItems.nextcloud"}} @minor={{true}} />
+      </a>
+
       {{!-- Logout --}}
       <a class="link" {{action 'invalidateSession'}}>
         <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="sign-out-alt" @title={{t "tag.button.signout"}} @minor={{true}} />

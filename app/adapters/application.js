@@ -1,7 +1,6 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import { get, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { underscore } from '@ember/string';
-import $ from 'jquery';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import ENV from '../config/environment';
 
@@ -25,16 +24,6 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
   pathForType(type) {
     const underscored = underscore(type);
     return pluralize(underscored);
-  },
-
-  urlForFindRecord(id, modelName, snapshot) {
-    let url = this._super(...arguments);
-    const query = get(snapshot, 'adapterOptions.query');
-    if (query) {
-      url += `?${$.param(query)}`;
-    }
-
-    return url;
   },
 
   // Some internal query params should be mapped to other params for API requests
