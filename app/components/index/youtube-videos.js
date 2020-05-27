@@ -19,13 +19,13 @@ let videos = [
     videoId: 'Z0IIwxAKt6A',
     title: 'Over C.S.V. Alpha #3 Christine vertelt over commissies'
   }
-]
+];
 
 export default Component.extend({
   store: service(),
   mainVideo: videos[0],
   sideVideos: computed('videos', 'mainVideo', function() {
-    return videos.filter(video => video.videoId !== this.mainVideo.videoId)
+    return videos.filter(video => video.videoId !== this.mainVideo.videoId);
   }),
   actions: {
     changeVideo(video) {
