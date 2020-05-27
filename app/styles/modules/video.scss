@@ -1,15 +1,13 @@
 // source: https://jonsuh.com/blog/responsive-youtube-vimeo-embed-and-html5-video-with-css/
 .js-video {
   position: relative;
-  margin-top: 40px;
-  margin-bottom: 10px;
   padding-top: 25px;
   padding-bottom: 67.5%;
   height: 0;
   overflow: hidden;
 
   &.widescreen {
-    padding-bottom: 56.34%;
+    padding-bottom: 52%;
   }
 
   embed,
@@ -21,5 +19,57 @@
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+.about-alpha {
+  position: relative;
+  height: 100%;
+
+  &__container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+  }
+
+  &__video {
+    display: block;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  &__video:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: #{map-get($grid-breakpoints, lg)}) {
+  .about-alpha {
+    &__container {
+      display: flex;
+      position: static;
+      flex-wrap: wrap;
+      margin-top: 15px;
+      margin-right: -8px;
+      margin-left: -8px;
+    }
+
+    &__video {
+      flex-basis: 33.3%;
+      margin-bottom: 16px;
+      padding: 0 8px;
+      max-width: 33.3%;
+    }
+  }
+}
+
+@media (max-width: #{map-get($grid-breakpoints, sm)}) {
+  .about-alpha {
+    &__video {
+      flex-basis: 50%;
+      max-width: 50%;
+    }
   }
 }
