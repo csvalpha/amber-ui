@@ -147,7 +147,7 @@ module.exports = function(environment) {
       }
     },
 
-    locationType: 'router-scroll',
+    locationType: 'auto',
     historySupportMiddleware: true,
     EmberENV: {
       FEATURES: {
