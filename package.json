@@ -84,7 +84,6 @@
     "ember-sortable": "^2.1",
     "ember-source": "~3.16.8",
     "ember-test-selectors": "^4.0",
-    "ember-tether": "^1.0.0",
     "ember-truth-helpers": "^2.1",
     "ember-wormhole": "^0.5",
     "eslint": "^7.1",
