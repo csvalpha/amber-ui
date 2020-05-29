@@ -40,10 +40,7 @@ module.exports = {
     'ember/no-mixins': 1,
     'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }],
     // Temp disable new
-    'ember/no-get': 0,
-
-    // Should be removed when ESlint is fixed
-    indent: 'off'
+    'ember/no-get': 0
   },
   globals: {
     'moment': true
