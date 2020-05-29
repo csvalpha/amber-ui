@@ -7,7 +7,7 @@ export default Ability.extend({
   canDestroy: computed('session.currentUser', function() {
     return this.session.hasPermission('photo.destroy');
   }),
-  canShowPhotoComments: computed('session.currentUser', 'model', function() {
+  canShowPhotoComments: computed('model.photoAlbum.publiclyVisible', 'session.currentUser', function() {
     return this.session.hasPermission('photo-comment.read') || this.get('model.photoAlbum.publiclyVisible');
   })
 });

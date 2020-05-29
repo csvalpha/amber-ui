@@ -23,7 +23,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
     }
   },
 
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'activities.new',

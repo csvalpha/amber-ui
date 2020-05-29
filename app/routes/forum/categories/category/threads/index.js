@@ -13,7 +13,7 @@ export default IndexRoute.extend({
     return this.get('controller.model.name');
   }),
   parents: ['forum.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model.id', function() {
     return [
       {
         link: 'forum.categories.category.edit',

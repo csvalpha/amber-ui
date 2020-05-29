@@ -11,7 +11,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.get('controller.model.email');
   }),
   parents: ['mail-aliases.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     const mailAlias = this.get('controller.model');
     return [
       {

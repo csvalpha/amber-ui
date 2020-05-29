@@ -13,7 +13,7 @@ export default Ability.extend({
   canUpdate: computed('session.currentUser', function() {
     return this.session.hasPermission('membership.update');
   }),
-  canDestroy: computed('session.currentUser', 'model', function() {
+  canDestroy: computed('model.isNew', 'session.currentUser', function() {
     return this.session.hasPermission('membership.destroy') || this.model.isNew;
   })
 });

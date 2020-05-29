@@ -11,7 +11,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.get('controller.model.subject');
   }),
   parents: ['mail-moderation.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'mail-moderations.accept',

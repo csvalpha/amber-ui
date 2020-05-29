@@ -14,7 +14,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
     return this.get('controller.model.poll.question.question');
   }),
   parents: ['poll.index'],
-  pageActions: computed('controller.model.poll', function() {
+  pageActions: computed('can', 'controller.model.poll', function() {
     const poll = this.get('controller.model.poll');
     return [
       {

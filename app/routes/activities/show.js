@@ -14,7 +14,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
   }),
   parents: ['activities.index'],
 
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model.activity', function() {
     const activity = this.get('controller.model.activity');
     return [
       {

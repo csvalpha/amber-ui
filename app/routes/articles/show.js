@@ -10,7 +10,7 @@ export default ShowRouteUnauthenticated.extend({
     return this.get('controller.model.title');
   }),
   parents: ['articles.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     const article = this.get('controller.model');
     return [
       {

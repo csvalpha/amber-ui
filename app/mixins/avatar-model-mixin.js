@@ -8,10 +8,10 @@ export default Mixin.create({
   avatar: attr('raw'),
   avatarUrl: attr('string'),
   avatarThumbUrl: attr('string'),
-  avatarThumbUrlOrDefault: computed('avatarThumbUrl', function() {
+  avatarThumbUrlOrDefault: computed('avatarThumbUrl', 'defaultAvatarThumbUrl', function() {
     return this.avatarThumbUrl || this.defaultAvatarThumbUrl;
   }),
-  avatarUrlOrDefault: computed('avatarUrl', function() {
+  avatarUrlOrDefault: computed('avatarUrl', 'defaultAvatarUrl', function() {
     return this.avatarUrl || this.defaultAvatarUrl;
   })
 });

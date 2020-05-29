@@ -15,7 +15,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
     return this.intl.t('model.article.name.other').toString().capitalize();
   }),
 
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'articles.new',

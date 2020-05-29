@@ -9,7 +9,7 @@ export default EditRoute.extend({
   modelName: 'user',
   title: 'Lid aanpassen',
   parents: ['users.index'],
-  tabItems: computed('controller.model', function() {
+  tabItems: computed('can', 'controller.model', 'session.currentUser', function() {
     const user = this.get('controller.model');
     return [
       {

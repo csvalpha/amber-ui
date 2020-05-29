@@ -6,7 +6,7 @@ import { isInvalidResponse } from 'ember-fetch/errors';
 export default Component.extend({
   fetch: service(),
   flashNotice: service(),
-  isSaveButtonDisabled: computed('password', 'passwordConfirmation', function() {
+  isSaveButtonDisabled: computed('password.length', 'passwordConfirmation', function() {
     return this.password === undefined
       || this.password.length < 12
       || this.password !== this.passwordConfirmation;

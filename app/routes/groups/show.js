@@ -20,7 +20,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.get('controller.model.name');
   }),
   parents: ['groups.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     const group = this.get('controller.model');
     return [
       {

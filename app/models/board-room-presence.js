@@ -27,7 +27,7 @@ export default Model.extend({
     }
   }),
 
-  label: computed('status', function() {
+  label: computed('status', 'statusOptions', function() {
     return this.statusOptions[this.status];
   })
 });

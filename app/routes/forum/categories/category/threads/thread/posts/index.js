@@ -33,7 +33,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     return this.get('controller.model.thread.title');
   }),
 
-  pageActions: computed('controller.model.thread', function() {
+  pageActions: computed('can', 'controller.model.thread', function() {
     return [
       {
         link: 'forum.categories.category.threads.thread.edit',

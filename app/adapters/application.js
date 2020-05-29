@@ -9,7 +9,7 @@ import { pluralize } from 'ember-inflector';
 export default JSONAPIAdapter.extend(DataAdapterMixin, {
   host: ENV.api.hostname,
 
-  headers: computed('session.data.authenticated.access_token', function() {
+  headers: computed('session.data.authenticated.access_token', 'session.isAuthenticated', function() {
     const headers = {};
     if (this.session.isAuthenticated) {
       headers.Authorization = `Bearer ${this.session.data.authenticated.access_token}`;

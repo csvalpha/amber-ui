@@ -24,7 +24,7 @@ let videos = [
 export default Component.extend({
   store: service(),
   mainVideo: videos[0],
-  sideVideos: computed('videos', 'mainVideo', function() {
+  sideVideos: computed('mainVideo.videoId', 'videos', function() {
     return videos.filter(video => video.videoId !== this.mainVideo.videoId);
   }),
   actions: {

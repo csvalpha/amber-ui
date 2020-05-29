@@ -10,7 +10,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   modelName: 'debit/mandate',
   title: alias('controller.model.uid'),
   parents: ['debit.mandate.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'debit.mandates.edit',

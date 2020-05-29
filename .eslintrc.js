@@ -41,7 +41,6 @@ module.exports = {
     // Temp disable new
     'ember/no-get': 0,
     'ember/no-mixins': 0,
-    'ember/require-computed-property-dependencies': 0,
     'ember/require-computed-macros': 0,
 
     // Should be removed when ESlint is fixed

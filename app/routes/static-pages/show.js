@@ -10,7 +10,7 @@ export default ShowRouteUnauthenticated.extend({
     return this.get('controller.model.title');
   }),
   parents: ['static-pages.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'static-pages.edit',

@@ -15,7 +15,7 @@ export default Ability.extend({
   canSelectAllGroups: computed('session.currentUser', function() {
     return this.session.hasPermission('article.update');
   }),
-  canShowArticleComments: computed('session.currentUser', 'model', function() {
+  canShowArticleComments: computed('model.publiclyVisible', 'session.currentUser', function() {
     return this.session.hasPermission('article-comment.read') || this.get('model.publiclyVisible');
   }),
   canEdit: computed('session.currentUser', 'model', function() {
