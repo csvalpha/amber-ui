@@ -5423,7 +5423,7 @@ ember-cli-babel@^7.1.0, ember-cli-babel@^7.1.2, ember-cli-babel@^7.1.3, ember-cl
     rimraf "^3.0.1"
     semver "^5.5.0"
 
-ember-cli-babel@^7.17.2, ember-cli-babel@^7.20:
+ember-cli-babel@^7.17.2, ember-cli-babel@^7.19.0, ember-cli-babel@^7.20:
   version "7.20.1"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-7.20.1.tgz#e214d4d1db6d602d6bb79ae1b962d429607acd67"
   integrity sha512-EA3ZbSM62HImghZ3TQl7pvB2+AdWHmjXBj+NEgdlhrcoArqiLHSInYRZKUY2yDr0W/W4JgMZrYgkbbhvFvdMyw==
@@ -5682,6 +5682,23 @@ ember-cli-moment-shim@^3.7.1:
     moment "^2.19.3"
     moment-timezone "^0.5.13"
 
+ember-cli-moment-shim@^3.8:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-moment-shim/-/ember-cli-moment-shim-3.8.0.tgz#dc61bbac9dce4963394e60dd42726d4ba38e2bc1"
+  integrity sha512-dN5ImjrjZevEqB7xhwFXaPWwxdKGSFiR1kqy9gDVB+A5EGnhCL1uveKugcyJE/MICVhXUAHBUu6G2LFWEPF2YA==
+  dependencies:
+    broccoli-funnel "^2.0.0"
+    broccoli-merge-trees "^2.0.0"
+    broccoli-source "^1.1.0"
+    broccoli-stew "^1.5.0"
+    chalk "^1.1.3"
+    ember-cli-babel "^7.1.2"
+    ember-cli-import-polyfill "^0.2.0"
+    ember-get-config ""
+    lodash.defaults "^4.2.0"
+    moment "^2.19.3"
+    moment-timezone "^0.5.13"
+
 ember-cli-node-assets@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/ember-cli-node-assets/-/ember-cli-node-assets-0.2.2.tgz#d2d55626e7cc6619f882d7fe55751f9266022708"
@@ -5769,10 +5786,10 @@ ember-cli-sentry@^4.0:
     raven-js "^3.27.0"
     resolve "^1.5.0"
 
-ember-cli-showdown@4.4.4:
-  version "4.4.4"
-  resolved "https://registry.yarnpkg.com/ember-cli-showdown/-/ember-cli-showdown-4.4.4.tgz#daf666369b1f35843dc5dc55a94da058e63f59c4"
-  integrity sha1-2vZmNpsfNYQ9xdxVqU2gWOY/WcQ=
+ember-cli-showdown@^4.5:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-showdown/-/ember-cli-showdown-4.5.0.tgz#6ea0d28ced62fd5feb92799bc90d6a4857ceb5a7"
+  integrity sha512-i1XXua2oOqJHGozLw+cXI2zjrfSaamH+qAKt8kLnKTjxDXO175bDUnBtrTR1uMH75S56iIkCBdCSyOMq5haB+g==
   dependencies:
     broccoli-funnel "^2.0.0"
     broccoli-source "^1.1.0"
@@ -5784,7 +5801,7 @@ ember-cli-showdown@4.4.4:
     ember-getowner-polyfill "^2.0.1"
     resolve "^1.8.1"
     semver "^5.5.0"
-    showdown "^1.7.4"
+    showdown "^1.8.6"
 
 ember-cli-sri@^2.1.1:
   version "2.1.1"
@@ -6170,7 +6187,7 @@ ember-focus-trap@^0.3.2:
     ember-modifier-manager-polyfill "^1.1.0"
     focus-trap "^5.0.1"
 
-ember-get-config@^0.2.2, ember-get-config@^0.2.4:
+ember-get-config@, ember-get-config@^0.2.2, ember-get-config@^0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/ember-get-config/-/ember-get-config-0.2.4.tgz#118492a2a03d73e46004ed777928942021fe1ecd"
   integrity sha1-EYSSoqA9c+RgBO13eSiUICH+Hs0=
@@ -6561,14 +6578,14 @@ ember-test-selectors@^2.1.0:
     ember-cli-babel "^6.8.2"
     ember-cli-version-checker "^3.1.2"
 
-ember-test-selectors@^4.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-4.0.0.tgz#84604b499ddbff290957c3fa0b1e7a9844f5174d"
-  integrity sha512-ABZ7+Xs8kcnVd9mp1AhGPuGPtaalz10cVpQIw1biA6TEscEnFhcJObtqyaxvF6C9AqfZ6p/MsgJZrXMPpgnpmw==
+ember-test-selectors@^4.1:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/ember-test-selectors/-/ember-test-selectors-4.1.0.tgz#0416c9ebdbd5ded4585643ba121115e45932dfc2"
+  integrity sha512-njyopeK018CP4PUWvkRdNFcP+56B7yfVYGt6k+71+4t8WscUzWPqgJvDYaJ64avn5EvrI+QBSWb80NC7Q++WDA==
   dependencies:
     calculate-cache-key-for-tree "^2.0.0"
-    ember-cli-babel "^7.18.0"
-    ember-cli-version-checker "^5.0.1"
+    ember-cli-babel "^7.19.0"
+    ember-cli-version-checker "^5.0.2"
 
 ember-test-waiters@^1.1.1:
   version "1.2.0"
@@ -12281,7 +12298,7 @@ shellwords@^0.1.1:
   resolved "https://registry.yarnpkg.com/shellwords/-/shellwords-0.1.1.tgz#d6b9181c1a48d397324c84871efbcfc73fc0654b"
   integrity sha512-vFwSUfQvqybiICwZY5+DAWIPLKsWO31Q91JSKl3UYv+K5c2QRPzn0qzec6QPu1Qc9eHYItiP3NdJqNVqetYAww==
 
-showdown@^1.7.4:
+showdown@^1.8.6:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/showdown/-/showdown-1.9.1.tgz#134e148e75cd4623e09c21b0511977d79b5ad0ef"
   integrity sha512-9cGuS382HcvExtf5AHk7Cb4pAeQQ+h0eTr33V1mu+crYWV4KvWAw6el92bDrqGEk5d46Ai/fhbEUwqJ/mTCNEA==
