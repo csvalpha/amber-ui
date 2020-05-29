@@ -31,9 +31,7 @@ export default Component.extend({
   sortedMessages: sort('messages', 'messagesSort'),
 
   maxCharacters: 400,
-  currentCharacterCount: computed('newQpMessage.length', function() {
-    return this.newQpMessage.length;
-  }),
+  currentCharacterCount: computed.reads('newQpMessage.length'),
   characterCountPercentage: computed('currentCharacterCount', 'maxCharacters', function() {
     return Math.round(this.currentCharacterCount / this.maxCharacters * 100);
   }),

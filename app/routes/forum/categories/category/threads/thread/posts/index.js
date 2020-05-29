@@ -29,9 +29,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     };
   },
 
-  title: computed('controller.model.thread.title', function() {
-    return this.get('controller.model.thread.title');
-  }),
+  title: computed.reads('controller.model.thread.title'),
 
   pageActions: computed('can', 'controller.model.thread', function() {
     return [

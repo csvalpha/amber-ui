@@ -6,9 +6,7 @@ export default ShowRouteUnauthenticated.extend({
     return this.can.can('show static-pages');
   },
   modelName: 'static-page',
-  title: computed('controller.model.title', function() {
-    return this.get('controller.model.title');
-  }),
+  title: computed.reads('controller.model.title'),
   parents: ['static-pages.index'],
   pageActions: computed('can', 'controller.model', function() {
     return [

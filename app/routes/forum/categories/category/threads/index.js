@@ -9,9 +9,7 @@ export default IndexRoute.extend({
   model() {
     return this.modelFor('forum.categories.category');
   },
-  title: computed('controller.model.name', function() {
-    return this.get('controller.model.name');
-  }),
+  title: computed.reads('controller.model.name'),
   parents: ['forum.index'],
   pageActions: computed('can', 'controller.model.id', function() {
     return [

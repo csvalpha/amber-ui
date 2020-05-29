@@ -6,9 +6,7 @@ export default ShowRouteUnauthenticated.extend({
     return this.can.can('show articles');
   },
   modelName: 'article',
-  title: computed('controller.model.title', function() {
-    return this.get('controller.model.title');
-  }),
+  title: computed.reads('controller.model.title'),
   parents: ['articles.index'],
   pageActions: computed('can', 'controller.model', function() {
     const article = this.get('controller.model');

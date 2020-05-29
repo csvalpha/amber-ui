@@ -14,9 +14,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
   form: belongsTo('form/form'),
 
   // Computed properties
-  question: computed('form.closedQuestions.firstObject', function() {
-    return this.get('form.closedQuestions.firstObject');
-  }),
+  question: computed.reads('form.closedQuestions.firstObject'),
 
   currentUserCanRespond: alias('form.currentUserCanRespond'),
   currentUserResponseCompleted: alias('form.currentUserResponseCompleted'),

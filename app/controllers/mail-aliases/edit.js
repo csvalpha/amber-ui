@@ -5,9 +5,7 @@ import { MailAliasModerationTypes } from 'alpha-amber/constants';
 export default EditController.extend({
   successTransitionTarget: 'mail-aliases.show',
 
-  moderationTypeOpen: computed('model.moderationType', function() {
-    return this.get('model.moderationType') === 'open';
-  }),
+  moderationTypeOpen: computed.equal('model.moderationType', 'open'),
 
   groups: computed('store', function() {
     return this.store.findAll('group');
@@ -16,13 +14,9 @@ export default EditController.extend({
     return this.store.findAll('user');
   }),
 
-  anyUser: computed('model.user.id', function() {
-    return this.get('model.user.id');
-  }),
+  anyUser: computed.reads('model.user.id'),
 
-  anyGroup: computed('model.group.id', function() {
-    return this.get('model.group.id');
-  }),
+  anyGroup: computed.reads('model.group.id'),
 
   _mailAliasModerationTypes: moderationType => {
     return {
