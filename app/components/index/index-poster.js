@@ -14,7 +14,7 @@ export default Component.extend({
     '/images/frontpage/dance.jpg',
     '/images/frontpage/fire.jpg'
   ],
-  headerImageUrl: computed(function() {
+  headerImageUrl: computed('images.length', function() {
     return this.images[Math.floor(Math.random() * this.images.length)];
   })
 });

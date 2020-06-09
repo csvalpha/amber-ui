@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 export default Component.extend({
   classNames: ['advertisement-tool'],
   media: service(),
-  advertisements: computed('media.isMobile', 'media.isTablet', 'media.isDesktop', function() {
+  advertisements: computed('advertisementItems', 'media.{isDesktop,isMobile,isTablet}', function() {
     // Double up the advertisement array to make an 'infinite loop' transition possible
     return this.advertisementItems.concat(this.advertisementItems);
   }),

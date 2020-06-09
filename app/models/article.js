@@ -18,7 +18,7 @@ export default Model.extend(CoverPhotoModelMixin, CheckIfUserIsOwnerMixin, Avata
   publiclyVisible: attr('boolean', { defaultValue: false }),
 
   // Computed
-  excerpt: computed('content', function() {
+  excerpt: computed('content.length', function() {
     const maxExcerptLength = 218;
     if (this.content && this.content.length > maxExcerptLength) {
       return `${this.content.substr(0, this.content.lastIndexOf(' ', maxExcerptLength))}...`;

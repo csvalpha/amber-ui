@@ -72,7 +72,7 @@ export default Model.extend(AvatarModelMixin, {
     return this.age + 1;
   }),
 
-  upcomingBirthdayDate: computed('birthday', function() {
+  upcomingBirthdayDate: computed('birthday', 'upcomingBirthdayAge', function() {
     return moment(this.birthday).add(this.upcomingBirthdayAge, 'years').toDate();
   }),
 

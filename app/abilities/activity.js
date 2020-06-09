@@ -24,7 +24,7 @@ export default Ability.extend({
   canEdit: computed('session.currentUser', 'model', function() {
     return this.session.hasPermission('activity.update') || this.isActivityOwner(this.model);
   }),
-  canMailEnrolledMembers: computed('session.currentUser', 'model', function() {
+  canMailEnrolledMembers: computed('model.form', 'session.currentUser', function() {
     const form = this.get('model.form');
     return !isNone(form) && form.get('hasResponses') && this.isActivityOwner(this.model);
   }),

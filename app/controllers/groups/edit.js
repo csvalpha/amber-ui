@@ -15,11 +15,11 @@ export default Controller.extend({
     };
   },
 
-  groupKindOptions: computed(function() {
+  groupKindOptions: computed('_groupKindToOption', function() {
     return GroupKinds.map(this._groupKindToOption);
   }),
 
-  users: computed(function() {
+  users: computed('store', function() {
     return this.store.findAll('user');
   }),
 
