@@ -23,7 +23,7 @@ export default class Activity extends Model {
   @belongsTo('group') group;
   @belongsTo('form/form') form;
 
-  // Computed properties
+  // Getters
   get endsOnSameDate() {
     return moment(this.startTime).isSame(this.endTime, 'day');
   }

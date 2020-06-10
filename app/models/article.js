@@ -1,35 +1,57 @@
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
-import { alias } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import CoverPhotoModelMixin from 'alpha-amber/mixins/coverphoto-model-mixin';
-import CheckIfUserIsOwnerMixin from 'alpha-amber/mixins/check-if-user-is-owner-mixin';
-import AvatarModelMixin from 'alpha-amber/mixins/avatar-model-mixin';
+import { CoverPhotoFallback, AvatarFallback, AvatarThumbFallback } from 'alpha-amber/constants';
 
-export default Model.extend(CoverPhotoModelMixin, CheckIfUserIsOwnerMixin, AvatarModelMixin, {
-  modelName: alias('_internalModel.modelName'),
-
+export default class Article extends Model {
   // Attributes
-  title: attr('string'),
-  content: attr('string'),
-  contentCamofied: attr('string'),
-  authorName: attr('string'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
-  publiclyVisible: attr('boolean', { defaultValue: false }),
+  @attr('string') title;
+  @attr('string') content;
+  @attr('string') contentCamofied;
+  @attr('string') authorName;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
+  @attr('boolean', { defaultValue: false }) publiclyVisible;
+  @attr('number') amountOfComments;
+  @attr coverPhoto;
+  @attr coverPhotoUrl;
+  @attr avatar;
+  @attr avatarUrl;
+  @attr avatarThumbUrl;
 
-  // Computed
-  excerpt: computed('content.length', function() {
+  // Relations
+  @belongsTo('user') author;
+  @belongsTo('group') group;
+  @hasMany('articleComment') comments;
+
+  // Getters
+  get excerpt() {
     const maxExcerptLength = 218;
     if (this.content && this.content.length > maxExcerptLength) {
       return `${this.content.substr(0, this.content.lastIndexOf(' ', maxExcerptLength))}...`;
     }
 
     return this.content;
-  }),
+  }
 
-  // Relations
-  author: belongsTo('user'),
-  group: belongsTo('group'),
-  comments: hasMany('articleComment'),
-  amountOfComments: attr('number')
-});
+  get coverPhotoUrlOrDefault() {
+    return this.coverPhotoUrl || CoverPhotoFallback;
+  }
+
+  get avatarUrlOrDefault() {
+    return this.avatarUrl || AvatarFallback;
+  }
+
+  get avatarThumbUrlOrDefault() {
+    return this.avatarThumbUrl || AvatarThumbFallback;
+  }
+
+  // Methods
+  isOwner(user) {
+    if (user.id === this.get('author.id')) {
+      return true;
+    }
+
+    return user.get('memberships').then(() => {
+      return user.get('currentMemberships').some(membership => membership.get('group.id') === this.get('group.id'));
+    });
+  }
+}
