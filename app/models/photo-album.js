@@ -18,9 +18,9 @@ export default Model.extend({
     return adapter.dropzoneEndpoint(this);
   }),
   albumThumbUrl: computed('photos.@each.imageThumbUrl', 'photos.firstObject.imageThumbUrl', function() {
-    return this.get('photos.firstObject.imageThumbUrl') || '/images/fallback/photo_album_thumb_default.png';
+    return this.photos.firstObject.imageThumbUrl || '/images/fallback/photo_album_thumb_default.png';
   }),
   albumMediumUrl: computed('photos.@each.imageMediumUrl', 'photos.firstObject.imageMediumUrl', function() {
-    return this.get('photos.firstObject.imageMediumUrl') || '/images/fallback/photo_album_thumb_default.png';
+    return this.photos.firstObject.imageMediumUrl || '/images/fallback/photo_album_thumb_default.png';
   })
 });

@@ -19,13 +19,13 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
   currentUserCanRespond: alias('form.currentUserCanRespond'),
   currentUserResponseCompleted: alias('form.currentUserResponseCompleted'),
   closesLater: computed('form.respondUntil', function() {
-    return moment().isBefore(this.get('form.respondUntil'));
+    return moment().isBefore(this.form.respondUntil);
   }),
   opensLater: computed('form.respondFrom', function() {
-    return moment().isBefore(this.get('form.respondFrom'));
+    return moment().isBefore(this.form.respondFrom);
   }),
   closedWithNoResponses: computed('form.respondUntil', 'form.amountOfResponses', function() {
-    return moment().isAfter(this.get('form.respondUntil')) && this.get('form.amountOfResponses') === 0;
+    return moment().isAfter(this.form.respondUntil) && this.form.amountOfResponses === 0;
   }),
 
   saveWithForm() {
