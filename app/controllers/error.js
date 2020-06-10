@@ -6,14 +6,14 @@ import { run } from '@ember/runloop';
 export default Controller.extend({
   flashNotice: service('flash-notice'),
   showNotFound: computed('model.{isAdapterError,isAuthorizationMixinError}', 'status', function() {
-    return this.get('model.isAuthorizationMixinError')
-      || (this.get('model.isAdapterError') && ['403', '404'].includes(this.status));
+    return this.model.isAuthorizationMixinError
+      || (this.model.isAdapterError && ['403', '404'].includes(this.status));
   }),
   showStatic: computed('status', function() {
     return ['502', '503'].includes(this.status);
   }),
   status: computed('model.errors.firstObject.status', function() {
-    const status = this.get('model.errors.firstObject.status');
+    const { status } = this.model.errors.firstObject;
     return status ? String(status) : status;
   }),
   message: computed('status', function() {

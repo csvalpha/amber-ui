@@ -26,7 +26,7 @@ export default Controller.extend({
   finished: false,
   answered: false,
   users: computed('group.name', 'store', function() {
-    return this.store.query('user', { filter: { group: this.get('group.name') } });
+    return this.store.query('user', { filter: { group: this.group.name } });
   }),
   group: computed('groupId', 'store', function() {
     if (!this.groupId) {
@@ -45,7 +45,7 @@ export default Controller.extend({
     return this.questions.objectAt(this.currentQuestionIndex - 1);
   }),
   progress: computed('currentQuestionIndex', 'questions.length', function() {
-    return this.currentQuestionIndex / this.get('questions.length') * 100;
+    return this.currentQuestionIndex / this.questions.length * 100;
   }),
   inputClass: computed('answered', 'currentQuestion.success', function() {
     if (this.answered) {
@@ -59,7 +59,7 @@ export default Controller.extend({
     return 'form-control';
   }),
   grade: computed('questions.length', 'success', function() {
-    return 1 + Math.round((90 / this.get('questions.length')) * this.success) / 10;
+    return 1 + Math.round((90 / this.questions.length) * this.success) / 10;
   }),
   actions: {
     setGroupId(model) {

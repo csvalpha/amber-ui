@@ -13,7 +13,7 @@ export default Controller.extend({
   combinedErrors: union('model.errors', 'model.form.errors'),
   activityHasForm: computed('model.form.content', {
     get() {
-      return !isNone(this.get('model.form.content'));
+      return !isNone(this.model.form.content);
     },
     set(_, value) {
       if (value) {
@@ -33,7 +33,7 @@ export default Controller.extend({
       return this.store.findAll('group');
     }
 
-    return this.get('session.currentUser').get('groups');
+    return this.session.currentUser.get('groups');
   }),
 
   _activityCategoryToOption: activityCategory => {
