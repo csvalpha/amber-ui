@@ -1,6 +1,6 @@
-import {sort, equal} from '@ember/object/computed';
-import Model, {belongsTo, hasMany, attr} from '@ember-data/model';
-import {all} from 'rsvp';
+import { sort, equal } from '@ember/object/computed';
+import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
+import { all } from 'rsvp';
 
 export default class ClosedQuestion extends Model {
   @attr question;

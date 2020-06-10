@@ -2,7 +2,7 @@ import { inject as service } from '@ember/service';
 import Model, { hasMany, attr } from '@ember-data/model';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
-import { AvatarThumbFallback, AvatarFallback } from "../constants";
+import { AvatarThumbFallback, AvatarFallback } from 'alpha-amber/constants';
 
 export default class User extends Model {
   @service session;

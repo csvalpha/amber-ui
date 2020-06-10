@@ -1,5 +1,4 @@
 import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
 import { sort } from '@ember/object/computed';
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 

@@ -1,4 +1,3 @@
-import classic from 'ember-classic-decorator';
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 
 export default class ClosedQuestionOption extends Model {

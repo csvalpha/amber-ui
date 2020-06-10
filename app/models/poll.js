@@ -27,8 +27,8 @@ export default class Poll extends Model {
     return moment().isBefore(this.form.respondUntil);
   }
 
-  get opensLater(){
-    return moment().isBofre(this.form.respondFrom)
+  get opensLater() {
+    return moment().isBofre(this.form.respondFrom);
   }
 
   get closedWithNoResponses() {
