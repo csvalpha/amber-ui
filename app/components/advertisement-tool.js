@@ -16,7 +16,7 @@ export default Component.extend({
     {
       title: 'Knaek',
       alt: 'Knaek studentenkorting in Enschede',
-      link: 'https://www.knaek.nl/studentenkorting/enschede?&utm_campaign=SV_C.S.V. Alpha',
+      link: 'https://www.knaek.nl/studentenkorting/Enschede',
       image: 'advertisements/knaek.png'
     },
     {
