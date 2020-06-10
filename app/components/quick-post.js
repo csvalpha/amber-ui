@@ -76,7 +76,7 @@ export default Component.extend({
       if (message === 'KOE AAN!!') {
         const notificationSound = new Audio('/sounds/cow.ogg');
         this.notification.set('notificationSound', notificationSound);
-        if (this.get('notification.isSoundEnabled')) {
+        if (this.notification.isSoundEnabled) {
           notificationSound.play();
         }
       }
@@ -152,8 +152,8 @@ export default Component.extend({
     },
 
     notify(quickpost) {
-      if (this.get('notification.isEnabled')
-        && quickpost.get('author.id') !== this.get('session.currentUser.id')) {
+      if (this.notification.isEnabled
+        && quickpost.get('author.id') !== this.session.currentUser.id) {
         this.notification.new(
           quickpost.get('author.fullName'),
           quickpost.get('message'),

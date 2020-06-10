@@ -9,10 +9,10 @@ export default Component.extend({
   flashNoticeContent: null,
   flashNoticeIsPermanent: null,
   flashNoticeVisibilityObserver: observer('flashNotice.visibility', function() {
-    this.set('flashNoticeVisibility', this.get('flashNotice.visibility'));
-    this.set('flashNoticeStatus', this.get('flashNotice.status'));
-    this.set('flashNoticeContent', this.get('flashNotice.content'));
-    this.set('flashNoticeIsPermanent', this.get('flashNotice.isPermanent'));
+    this.set('flashNoticeVisibility', this.flashNotice.visibility);
+    this.set('flashNoticeStatus', this.flashNotice.status);
+    this.set('flashNoticeContent', this.flashNotice.content);
+    this.set('flashNoticeIsPermanent', this.flashNotice.isPermanent);
   }),
   actions: {
     dismissFlashNotice() {
@@ -23,6 +23,6 @@ export default Component.extend({
     this._super();
 
     // Initialize observers
-    this.get('flashNotice.visibility');
+    this.flashNotice.visibility;
   }
 });

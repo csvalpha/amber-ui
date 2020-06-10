@@ -42,9 +42,9 @@ export default Component.extend({
   }),
   actions: {
     handleLogoAction() {
-      if (this.get('media.isMobile')) {
+      if (this.media.isMobile) {
         this.send('toggleLeftSidebar');
-      } else if (this.get('routing.currentRouteName') === 'index') {
+      } else if (this.router.currentRouteName === 'index') {
         this.send('refreshItems');
       } else {
         this.router.transitionTo('index');
@@ -63,7 +63,7 @@ export default Component.extend({
       this.layoutManager.closeSidebars();
     },
     toggleLocale() {
-      const locale = this.get('intl.locale');
+      const { locale } = this.intl;
       if (locale[0] === 'nl') {
         this.set('intl.locale', 'en');
         localStorage.setItem('locale', 'en-');

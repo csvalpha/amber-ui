@@ -14,7 +14,7 @@ export default Component.extend({
   actions: {
     async changePassword() {
       this.set('passwordErrorMessage', null);
-      const userId = this.get('model.id');
+      const userId = this.model.id;
       let response = await this.fetch.fetch(`/users/${userId}`, {
         /* eslint-disable camelcase */
         body: JSON.stringify({
