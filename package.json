@@ -56,7 +56,6 @@
     "ember-cli-uglify": "^3.0",
     "ember-concurrency": "^1.1",
     "ember-crumbly": "^3.0",
-    "ember-classic-decorator": "^1.0.8",
     "ember-data": "~3.18.0",
     "ember-fetch": "^8.0",
     "ember-group-by": "^0.0",

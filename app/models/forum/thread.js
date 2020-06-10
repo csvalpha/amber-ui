@@ -1,8 +1,6 @@
-import classic from 'ember-classic-decorator';
 import { sort } from '@ember/object/computed';
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 
-@classic
 export default class Thread extends Model {
   // Properties
   @attr title;
