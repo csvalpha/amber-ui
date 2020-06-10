@@ -1,28 +1,17 @@
-import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-@classic
 export default class Post extends Model {
   // Properties
-  @attr('string')
-  message;
-
-  @attr('string')
-  messageCamofied;
-
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
+  // @attr message;
+  @attr messageCamofied;
+  @attr createdAt;
+  @attr updatedAt;
 
   // Relations
-  @belongsTo('user')
-  author;
+  @belongsTo('user') author;
 
-  @belongsTo('forum/thread')
-  thread;
+  @belongsTo('forum/thread') thread;
 
   // Computed properties
   @computed('createdAt', 'updatedAt')

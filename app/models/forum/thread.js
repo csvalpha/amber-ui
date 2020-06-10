@@ -6,38 +6,21 @@ import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 @classic
 export default class Thread extends Model {
   // Properties
-  @attr('string')
-  title;
-
-  @attr('date')
-  closedAt;
-
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
+  @attr title;
+  @attr closedAt;
+  @attr createdAt;
+  @attr updatedAt;
+  @attr amountOfPosts;
 
   // Relations
-  @hasMany('forum/post')
-  posts;
-
-  @attr('number')
-  amountOfPosts;
-
-  @belongsTo('user')
-  author;
-
-  @belongsTo('forum/category')
-  category;
+  @belongsTo('user') author;
+  @belongsTo('forum/category') category;
+  @hasMany('forum/post') posts;
 
   // Computed properties
-  @sort('posts', 'sortDefinition')
-  sortedPosts;
-
   sortDefinition = ['createdAt:asc'];
+  @sort('posts', 'sortDefinition') sortedPosts;
 
-  @computed('closedAt')
   get isOpen() {
     return this.closedAt === null;
   }
@@ -48,7 +31,5 @@ export default class Thread extends Model {
     } else {
       this.set('closedAt', new Date());
     }
-
-    // return value;
   }
 }

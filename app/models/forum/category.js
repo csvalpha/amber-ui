@@ -1,16 +1,10 @@
-import classic from 'ember-classic-decorator';
 import Model, { hasMany, attr } from '@ember-data/model';
 
-@classic
 export default class Category extends Model {
   // Properties
-  @attr('string')
-  name;
+  @attr('string') name;
+  @attr('number') amountOfThreads;
 
   // Relations
-  @hasMany('forum/thread')
-  threads;
-
-  @attr('number')
-  amountOfThreads;
+  @hasMany('forum/thread') threads;
 }
