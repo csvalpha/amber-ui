@@ -1,29 +1,29 @@
+import classic from 'ember-classic-decorator';
 import Model, { hasMany, attr } from '@ember-data/model';
-import { computed } from '@ember/object';
-import AvatarModelMixin from 'alpha-amber/mixins/avatar-model-mixin';
 
-export default Model.extend(AvatarModelMixin, {
-  defaultAvatarUrl: '/images/fallback/group_avatar_default.png',
-  defaultAvatarThumbUrl: '/images/fallback/group_avatar_thumb_default.png',
-
+@classic
+export default class Group extends Model {
   // Properties
-  name: attr('string'),
-  createdAt: attr('date'),
-  kind: attr('string'),
-  description: attr('string'),
-  descriptionCamofied: attr('string'),
-  recognizedAtGma: attr('string'),
-  rejectedAtGma: attr('string'),
-  administrative: attr('boolean', { defaultValue: false }),
+  @attr name;
+  @attr kind;
+  @attr description;
+  @attr descriptionCamofied;
+  @attr recognizedAtGma;
+  @attr rejectedAtGma;
+  @attr createdAt;
+  @attr({ defaultValue: false }) administrative;
+  @attr avatar;
+  @attr avatarUrl;
+  @attr avatarThumbUrl;
 
   // Relations
-  memberships: hasMany('membership'),
-  permissions: hasMany('permission'),
-  mailAliases: hasMany('mail-alias', { inverse: 'group' }),
-  moderatorForMailAliases: hasMany('mail-alias', { inverse: 'moderatorGroup' }),
+  @hasMany memberships;
+  @hasMany permissions;
+  @hasMany({ inverse: 'group' }) mailAliases;
+  @hasMany({ inverse: 'moderatorGroup' }) moderatorForMailAliases;
 
-  // Computed properties
-  recognitionPeriod: computed('recognizedAtGma', 'rejectedAtGma', function() {
+  // Setters
+  get recognitionPeriod() {
     if (this.rejectedAtGma !== null) {
       return `${this.recognizedAtGma} - ${this.rejectedAtGma}`;
     }
@@ -33,16 +33,21 @@ export default Model.extend(AvatarModelMixin, {
     }
 
     return null;
-  }),
-  alternativeGroupLogoText: computed('name', function() {
-    return `Het logo van ${this.name}`;
-  }),
+  }
+
+  get avatarUrlOrDefault() {
+    return this.avatarUrl || '/images/fallback/group_avatar_default.png';
+  }
+
+  get avatarThumbUrlOrDefault() {
+    return this.avatarThumbUrl || '/images/fallback/group_avatar_thumb_default.png';
+  }
+
+  // Methods
   rollbackAttributesAndMemberships() {
     this.memberships.forEach(membership => {
-      if (membership !== undefined) {
-        membership.rollbackAttributes();
-      }
+      membership?.rollbackAttributes();
     });
     this.rollbackAttributes();
   }
-});
+}
