@@ -1,23 +1,12 @@
-import classic from 'ember-classic-decorator';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-@classic
 export default class Transaction extends Model {
-  @attr('string')
-  description;
+  @attr description;
+  @attr amount;
+  @attr createdAt;
+  @attr updatedAt;
 
-  @attr('number')
-  amount;
-
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
-
-  @belongsTo('user')
-  user;
-
-  @belongsTo('debit/collection')
-  collection;
+  // Relationships
+  @belongsTo user;
+  @belongsTo('debit/collection')  collection;
 }
