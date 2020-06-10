@@ -35,13 +35,6 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
         icon: 'print',
         linkArgument: activity,
         canAccess: this.can.can('print enrolled members of activity', activity)
-      },
-      {
-        link: 'activities.mail-enrolled',
-        title: 'Mail ingeschrevenen',
-        icon: 'paper-plane',
-        linkArgument: activity,
-        canAccess: this.can.can('mail enrolled members of activity', activity)
       }
     ];
   }),
