@@ -1,7 +1,5 @@
-import classic from 'ember-classic-decorator';
 import Model, { hasMany, attr } from '@ember-data/model';
 
-@classic
 export default class Group extends Model {
   // Properties
   @attr name;
@@ -22,7 +20,7 @@ export default class Group extends Model {
   @hasMany({ inverse: 'group' }) mailAliases;
   @hasMany({ inverse: 'moderatorGroup' }) moderatorForMailAliases;
 
-  // Setters
+  // Getters
   get recognitionPeriod() {
     if (this.rejectedAtGma !== null) {
       return `${this.recognizedAtGma} - ${this.rejectedAtGma}`;

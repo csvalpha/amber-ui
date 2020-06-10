@@ -1,15 +1,15 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
+export default class MailAlias extends Model {
   // Properties
-  email: attr('string'),
-  moderationType: attr('string'),
-  description: attr('string'),
-  smtpEnabled: attr('boolean', { defaultValue: false }),
-  lastReceivedAt: attr('date'),
+  @attr email;
+  @attr moderationType;
+  @attr description;
+  @attr({ defaultValue: false }) smtpEnabled;
+  @attr lastReceivedAt;
 
   // Relations
-  user: belongsTo('user', { inverse: 'mailAliases' }),
-  group: belongsTo('group'),
-  moderatorGroup: belongsTo('group', { inverse: 'moderatorForMailAliases' })
-});
+  @belongsTo({ inverse: 'mailAliases' }) user;
+  @belongsTo group
+  @belongsTo({ inverse: 'moderatorForMailAliases' }) moderatorGroup;
+}
