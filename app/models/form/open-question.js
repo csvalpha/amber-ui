@@ -1,38 +1,20 @@
-import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 
-@classic
 export default class OpenQuestion extends Model {
-  @attr('string')
-  question;
-
-  @attr('string')
-  fieldType;
-
-  @attr('number')
-  position;
-
-  @attr('boolean')
-  required;
-
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
-
-  isOpenQuestion = true;
+  @attr question;
+  @attr fieldType;
+  @attr position;
+  @attr required;
+  @attr createdAt;
+  @attr updatedAt;
 
   // Relations
-  @belongsTo('form/form')
-  form;
+  @belongsTo('form/form') form;
+  @hasMany('form/open-question-answer') answers;
 
-  @hasMany('form/open-question-answer')
-  answers;
+  // Getters
+  isOpenQuestion = true;
 
-  // Computed properties
-  @computed('answers.@each.{answer,completed}', 'fieldType')
   get sumOfAnswers() {
     if (this.fieldType === 'number') {
       const answers = this.answers.filterBy('completed', true);

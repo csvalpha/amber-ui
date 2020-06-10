@@ -1,26 +1,16 @@
-import classic from 'ember-classic-decorator';
 import { alias } from '@ember/object/computed';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-@classic
 export default class ClosedQuestionAnswer extends Model {
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
+  @attr createdAt;
+  @attr updatedAt;
 
   // Relations
-  @belongsTo('form/closed-question-option')
-  option;
-
-  @belongsTo('form/response')
-  response;
+  @belongsTo('form/closed-question-option') option;
+  @belongsTo('form/response') response;
 
   // Computed properties
-  @alias('option.question')
-  question;
+  @alias('option.question') question;
 
-  @alias('response.completed')
-  completed;
+  @alias('response.completed') completed;
 }

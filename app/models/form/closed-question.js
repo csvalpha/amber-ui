@@ -1,50 +1,30 @@
-import classic from 'ember-classic-decorator';
-import { sort, equal } from '@ember/object/computed';
-import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
-import { all } from 'rsvp';
+import {sort, equal} from '@ember/object/computed';
+import Model, {belongsTo, hasMany, attr} from '@ember-data/model';
+import {all} from 'rsvp';
 
-@classic
 export default class ClosedQuestion extends Model {
-  @attr('string')
-  question;
-
-  @attr('string')
-  fieldType;
-
-  @attr('number')
-  position;
-
-  @attr('boolean')
-  required;
-
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
-
-  // Computed properties
-  isOpenQuestion = false;
-
-  @equal('fieldType', 'checkbox')
-  isMultipleChoice;
-
-  optionsSorting = ['position'];
-
-  @sort('options', 'optionsSorting')
-  sortedOptions;
+  @attr question;
+  @attr fieldType;
+  @attr position;
+  @attr required;
+  @attr createdAt;
+  @attr updatedAt;
 
   // Relations
-  @belongsTo('form/form')
-  form;
+  @belongsTo('form/form') form;
 
-  @hasMany('form/closed-question-option')
-  options;
+  @hasMany('form/closed-question-option') options;
+
+  // Getters
+  isOpenQuestion = false;
+  optionsSorting = ['position'];
+  @equal('fieldType', 'checkbox') isMultipleChoice;
+  @sort('options', 'optionsSorting') sortedOptions;
 
   // Methods
   saveWithOptions() {
     return this.save().then(closedQuestion => {
-      const optionSavePromises = closedQuestion.get('options').map(option => option.save());
+      const optionSavePromises = closedQuestion.options.map(option => option.save());
       return all(optionSavePromises).then(() => {
         return closedQuestion;
       });

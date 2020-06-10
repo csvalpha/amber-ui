@@ -1,60 +1,32 @@
-import classic from 'ember-classic-decorator';
-import { computed } from '@ember/object';
 import { sort, union, gt } from '@ember/object/computed';
 import Model, { hasMany, attr } from '@ember-data/model';
 import { all } from 'rsvp';
 
-@classic
 export default class Form extends Model {
-  @attr('date')
-  respondFrom;
-
-  @attr('date')
-  respondUntil;
-
-  @attr('number')
-  amountOfResponses;
-
-  @attr('boolean')
-  currentUserResponseCompleted;
-
-  @attr('string')
-  currentUserResponseId;
-
-  @attr('date')
-  createdAt;
-
-  @attr('date')
-  updatedAt;
+  @attr respondFrom;
+  @attr respondUntil;
+  @attr amountOfResponses;
+  @attr currentUserResponseCompleted;
+  @attr currentUserResponseId;
+  @attr createdAt;
+  @attr updatedAt;
 
   // Relations
-  @hasMany('form/open-question')
-  openQuestions;
-
-  @hasMany('form/closed-question')
-  closedQuestions;
-
-  @hasMany('form/response')
-  responses;
+  @hasMany('form/open-question') openQuestions;
+  @hasMany('form/closed-question') closedQuestions;
+  @hasMany('form/response') responses;
 
   // Computed properties
-  @gt('amountOfResponses', 0)
-  hasResponses;
 
-  @union('openQuestions', 'closedQuestions')
-  questions;
-
+  @gt('amountOfResponses', 0) hasResponses;
+  @union('openQuestions', 'closedQuestions') questions;
   questionsSorting = ['position'];
+  @sort('questions', 'questionsSorting') sortedQuestions;
 
-  @sort('questions', 'questionsSorting')
-  sortedQuestions;
-
-  @computed('canRespond', 'currentUserResponseCompleted')
   get currentUserCanRespond() {
     return !this.currentUserResponseCompleted && this.canRespond;
   }
 
-  @computed('respondFrom', 'respondTo', 'respondUntil')
   get canRespond() {
     const now = moment();
     const respondFrom = moment(this.respondFrom);
@@ -63,7 +35,6 @@ export default class Form extends Model {
     return now.isAfter(respondFrom) && now.isBefore(respondUntil);
   }
 
-  @computed('respondFrom', 'respondTo')
   get opensLater() {
     const now = moment();
     const respondFrom = moment(this.respondFrom);

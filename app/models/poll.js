@@ -12,11 +12,11 @@ export default class Poll extends Model {
 
   // getters
   get question() {
-    return this.form.closedQuestions.firstObject;
+    return this.form.get('closedQuestions').firstObject;
   }
 
   get currentUserCanRespond() {
-    return this.form.currentUserCanRespond;
+    return this.form.get('currentUserCanRespond');
   }
 
   get currentUserResponseCompleted() {
