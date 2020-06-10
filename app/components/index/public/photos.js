@@ -1,5 +1,4 @@
-import {computed} from '@ember/object';
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 
 export default class Photos extends Component {
@@ -12,8 +11,8 @@ export default class Photos extends Component {
 
     const albums = this.store.query('photo-album', {
       sort: '-updated_at',
-      page: {number: '1', size: this.amountOfAlbumsToShow}
-    })
-    this.set('photoAlbums', albums)
+      page: { number: '1', size: this.amountOfAlbumsToShow }
+    });
+    this.set('photoAlbums', albums);
   }
 }
