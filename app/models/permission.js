@@ -1,15 +1,15 @@
-import Model, { attr } from '@ember-data/model';
-import { computed } from '@ember/object';
+import Model, {attr} from '@ember-data/model';
 
-export default Model.extend({
+export default class Permission extends Model {
   // Properties
-  name: attr('string'),
+  @attr('string') name;
 
-  // Computed properties
-  model: computed('name', function() {
+  // Getters
+  get model() {
     return this.name.split('.')[0];
-  }),
-  action: computed('name', function() {
+  }
+
+  get action() {
     return this.name.split('.')[1];
-  })
-});
+  }
+}
