@@ -1,6 +1,6 @@
+import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 
 let videos = [
   {
@@ -21,15 +21,16 @@ let videos = [
   }
 ];
 
-export default Component.extend({
-  store: service(),
-  mainVideo: videos[0],
-  sideVideos: computed('mainVideo.videoId', 'videos', function() {
+export default class YoutubeVideos extends Component {
+  @service store;
+  mainVideo = videos[0];
+
+  get sideVideos() {
     return videos.filter(video => video.videoId !== this.mainVideo.videoId);
-  }),
-  actions: {
-    changeVideo(video) {
-      this.set('mainVideo', video);
-    }
   }
-});
+
+  @action
+  changeVideo(video) {
+    this.set('mainVideo', video);
+  }
+}
