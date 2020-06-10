@@ -13,7 +13,7 @@ export default Controller.extend({
 
   page: computed('model.posts.page', {
     get() {
-      return this.model.posts.page;
+      return this.model?.posts.page;
     },
     set(key, value) {
       // The first time this is called, content is null resulting in an error

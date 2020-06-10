@@ -24,7 +24,7 @@ export default ShowRouteUnauthenticated.extend({
 
   title: computed('controller.model.id', 'controller.model.photoAlbum.photos', 'controller.model.photos.[]', function() {
     const photo = this.controller.model;
-    const allAlbumPhotos = this.controller.model.photoAlbum.photos;
+    const allAlbumPhotos = this.controller.model.photoAlbum.get('photos');
     const photoAlbumPhotosLength = allAlbumPhotos.get('length');
     const currentPhotoIndex = allAlbumPhotos.indexOf(photo) + 1;
 
