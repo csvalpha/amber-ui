@@ -48,7 +48,7 @@ export default Service.extend({
   },
 
   authorizationHeader() {
-    const accessToken = this.get('session.data.authenticated.access_token');
+    const accessToken = this.session.data.authenticated.access_token;
     if (accessToken) {
       return `Bearer ${accessToken}`;
     }
