@@ -47,7 +47,7 @@ export default Controller.extend({
   progress: computed('currentQuestionIndex', 'questions.length', function() {
     return this.currentQuestionIndex / this.get('questions.length') * 100;
   }),
-  inputClass: computed('currentQuestion', 'answered', function() {
+  inputClass: computed('answered', 'currentQuestion.success', function() {
     if (this.answered) {
       if (this.currentQuestion.success) {
         return 'form-control is-valid';
@@ -80,7 +80,7 @@ export default Controller.extend({
     },
     chooseOption(option) {
       if (!this.answered) {
-        let currentQuestion = this.currentQuestion;
+        let { currentQuestion } = this;
         currentQuestion.answer = option;
         currentQuestion.success = (option === currentQuestion.question);
         if (currentQuestion.success) {
@@ -91,7 +91,7 @@ export default Controller.extend({
       }
     },
     checkAnswer() {
-      let currentQuestion = this.currentQuestion;
+      let { currentQuestion } = this;
       currentQuestion.answer = this.textInput;
       currentQuestion.success = (currentQuestion.answer === currentQuestion.question.get('fullName'));
       if (currentQuestion.success) {

@@ -15,6 +15,6 @@ export default Ability.extend({
     return this.session.hasPermission('form/response.destroy') || this.isResponseOwner(this.model);
   }),
   isResponseOwner(response) {
-    return !isNone(response) && response.get('user.id') === this.get('session.currentUser.id');
+    return !isNone(response) && response.get('user.id') === this.session.currentUser.id;
   }
 });
