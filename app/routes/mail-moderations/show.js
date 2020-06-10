@@ -15,21 +15,21 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         link: 'mail-moderations.accept',
         title: 'Goedkeuren',
         icon: 'check',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('accept mail-moderations')
       },
       {
         link: 'mail-moderations.reject',
         title: 'Afkeuren',
         icon: 'minus-circle',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('reject mail-moderations')
       },
       {
         link: 'mail-moderations.destroy',
         title: 'Negeren',
         icon: 'trash',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('destroy mail-moderations')
       }
     ];

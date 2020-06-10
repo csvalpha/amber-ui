@@ -11,9 +11,6 @@ export default EditRoute.extend({
   modelName: 'forum/thread',
   title: 'Topic aanpassen',
   deactivate() {
-    const thread = this.get('controller.model.thread');
-    if (thread) {
-      thread.rollbackAttributes();
-    }
+    this.controller.model.thread?.rollbackAttributes();
   }
 });

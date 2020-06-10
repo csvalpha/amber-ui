@@ -23,8 +23,8 @@ export default ShowRouteUnauthenticated.extend({
   modelRouteParam: 'photo_id',
 
   title: computed('controller.model.id', 'controller.model.photoAlbum.photos', 'controller.model.photos.[]', function() {
-    const photo = this.get('controller.model');
-    const allAlbumPhotos = this.get('controller.model.photoAlbum.photos');
+    const photo = this.controller.model;
+    const allAlbumPhotos = this.controller.model.photoAlbum.photos;
     const photoAlbumPhotosLength = allAlbumPhotos.get('length');
     const currentPhotoIndex = allAlbumPhotos.indexOf(photo) + 1;
 
@@ -35,7 +35,7 @@ export default ShowRouteUnauthenticated.extend({
     return [
       {
         link: 'photo-albums.photo-album.photos.destroy',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         title: 'Foto verwijderen',
         icon: 'trash',
         canAccess: this.can.can('destroy photos')

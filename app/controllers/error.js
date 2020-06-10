@@ -13,7 +13,7 @@ export default Controller.extend({
     return ['502', '503'].includes(this.status);
   }),
   status: computed('model.errors.firstObject.status', function() {
-    const { status } = this.model.errors.firstObject;
+    const status = this.model.errors?.firstObject.status;
     return status ? String(status) : status;
   }),
   message: computed('status', function() {
