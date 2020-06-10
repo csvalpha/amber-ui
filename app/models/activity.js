@@ -1,39 +1,34 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
-import { alias } from '@ember/object/computed';
-import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import CoverPhotoModelMixin from 'alpha-amber/mixins/coverphoto-model-mixin';
-import checkIfUserIsOwnerMixin from 'alpha-amber/mixins/check-if-user-is-owner-mixin';
+import { CoverPhotoFallback } from 'alpha-amber/constants';
 
-export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
-  modelName: alias('_internalModel.modelName'),
-
+export default class Activity extends Model {
   // Attributes
-  title: attr('string'),
-  description: attr('string'),
-  descriptionCamofied: attr('string'),
-  price: attr('number'),
-  location: attr('string'),
-  startTime: attr('date'),
-  endTime: attr('date'),
-  category: attr('string'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
-  author: belongsTo('user'),
-  group: belongsTo('group'),
-  publiclyVisible: attr('boolean', { defaultValue: false }),
+  @attr('string') title;
+  @attr('string') description;
+  @attr('string') descriptionCamofied;
+  @attr('number') price;
+  @attr('string') location;
+  @attr('date') startTime;
+  @attr('date') endTime;
+  @attr('capitalized-string') category;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
+  @attr('boolean', { defaultValue: false }) publiclyVisible;
+  @attr coverPhoto;
+  @attr coverPhotoUrl;
+
+  // Relations
+  @belongsTo('user') author;
+  @belongsTo('group') group;
+  @belongsTo('form/form') form;
 
   // Computed properties
-  formattedPrice: computed('price', function() {
-    return parseFloat(this.price).toFixed(2);
-  }),
-  formattedCategory: computed('category', function() {
-    return this.category.capitalize();
-  }),
-  endsOnSameDate: computed('startTime', 'endTime', function() {
+  get endsOnSameDate() {
     return moment(this.startTime).isSame(this.endTime, 'day');
-  }),
-  formattedStartDate: computed('startTime', 'endTime', function() {
+  }
+
+  get formattedStartDate() {
     const startTime = moment(this.startTime);
     const endTime = moment(this.endTime);
     const prettyStartDateTime = startTime.format('ddd DD MMMM HH:mm');
@@ -47,13 +42,14 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
     }
 
     return prettyStartDateTime;
-  }),
+  }
 
-  // Relations
-  form: belongsTo('form/form'),
+  get coverPhotoUrlOrDefault() {
+    return this.coverPhotoUrl || CoverPhotoFallback;
+  }
 
+  // Methods
   saveWithForm() {
-    // Every day fun with triple nested promises
     return this.form.then(form => {
       if (!isNone(form)) {
         return form.saveWithQuestions().then(() => {
@@ -63,7 +59,18 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
 
       return this.save();
     });
-  },
+  }
+
+  isOwner(user) {
+    if (user.id === this.get('author.id')) {
+      return true;
+    }
+
+    return user.get('memberships').then(() => {
+      return user.get('currentMemberships').some(membership => membership.get('group.id') === this.get('group.id'));
+    });
+  }
+
   rollbackAttributesAndForm() {
     this.rollbackAttributes();
     this.form.then(form => {
@@ -72,4 +79,4 @@ export default Model.extend(CoverPhotoModelMixin, checkIfUserIsOwnerMixin, {
       }
     });
   }
-});
+}

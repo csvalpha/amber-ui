@@ -1,3 +1,5 @@
+const CoverPhotoFallback = '/images/fallback/coverphoto_default.jpg';
+
 const GroupKinds = [
   'bestuur',
   'commissie',
@@ -193,6 +195,7 @@ const SuggestedEmojis = [
 ];
 
 export {
+  CoverPhotoFallback,
   GroupKinds,
   StaticPageCategories,
   ActivityCategories,
