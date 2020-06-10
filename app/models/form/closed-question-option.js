@@ -1,18 +1,31 @@
-import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
+import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  option: attr('string'),
-  position: attr('number'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+@classic
+export default class ClosedQuestionOption extends Model {
+  @attr('string')
+  option;
+
+  @attr('number')
+  position;
+
+  @attr('date')
+  createdAt;
+
+  @attr('date')
+  updatedAt;
 
   // Relations
-  question: belongsTo('form/closed-question'),
-  answers: hasMany('form/closed-question-answer'),
+  @belongsTo('form/closed-question')
+  question;
+
+  @hasMany('form/closed-question-answer')
+  answers;
 
   // Computed properties
-  sumOfAnswers: computed('answers', 'answers.@each.completed', function() {
+  @computed('answers', 'answers.@each.completed')
+  get sumOfAnswers() {
     return this.answers.filterBy('completed', true).length;
-  })
-});
+  }
+}

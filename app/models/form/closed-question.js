@@ -1,24 +1,45 @@
+import classic from 'ember-classic-decorator';
+import { sort, equal } from '@ember/object/computed';
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
-import { equal, sort } from '@ember/object/computed';
 import { all } from 'rsvp';
 
-export default Model.extend({
-  question: attr('string'),
-  fieldType: attr('string'),
-  position: attr('number'),
-  required: attr('boolean'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+@classic
+export default class ClosedQuestion extends Model {
+  @attr('string')
+  question;
+
+  @attr('string')
+  fieldType;
+
+  @attr('number')
+  position;
+
+  @attr('boolean')
+  required;
+
+  @attr('date')
+  createdAt;
+
+  @attr('date')
+  updatedAt;
 
   // Computed properties
-  isOpenQuestion: false,
-  isMultipleChoice: equal('fieldType', 'checkbox'),
-  optionsSorting: ['position'],
-  sortedOptions: sort('options', 'optionsSorting'),
+  isOpenQuestion = false;
+
+  @equal('fieldType', 'checkbox')
+  isMultipleChoice;
+
+  optionsSorting = ['position'];
+
+  @sort('options', 'optionsSorting')
+  sortedOptions;
 
   // Relations
-  form: belongsTo('form/form'),
-  options: hasMany('form/closed-question-option'),
+  @belongsTo('form/form')
+  form;
+
+  @hasMany('form/closed-question-option')
+  options;
 
   // Methods
   saveWithOptions() {
@@ -28,11 +49,12 @@ export default Model.extend({
         return closedQuestion;
       });
     });
-  },
+  }
+
   rollbackAttributesAndOptions() {
     this.options.forEach(option => {
       option.rollbackAttributes();
     });
     this.rollbackAttributes();
   }
-});
+}

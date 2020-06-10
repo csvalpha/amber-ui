@@ -1,19 +1,32 @@
-import Model, { belongsTo, attr } from '@ember-data/model';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
+import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
+@classic
+export default class Post extends Model {
   // Properties
-  message: attr('string'),
-  messageCamofied: attr('string'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+  @attr('string')
+  message;
+
+  @attr('string')
+  messageCamofied;
+
+  @attr('date')
+  createdAt;
+
+  @attr('date')
+  updatedAt;
 
   // Relations
-  author: belongsTo('user'),
-  thread: belongsTo('forum/thread'),
+  @belongsTo('user')
+  author;
+
+  @belongsTo('forum/thread')
+  thread;
 
   // Computed properties
-  isUpdated: computed('createdAt', 'updatedAt', function() {
+  @computed('createdAt', 'updatedAt')
+  get isUpdated() {
     return moment(this.updatedAt).isAfter(this.createdAt);
-  })
-});
+  }
+}

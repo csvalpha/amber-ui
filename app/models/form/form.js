@@ -1,43 +1,75 @@
-import Model, { hasMany, attr } from '@ember-data/model';
-import { gt, union, sort } from '@ember/object/computed';
+import classic from 'ember-classic-decorator';
 import { computed } from '@ember/object';
+import { sort, union, gt } from '@ember/object/computed';
+import Model, { hasMany, attr } from '@ember-data/model';
 import { all } from 'rsvp';
 
-export default Model.extend({
-  respondFrom: attr('date'),
-  respondUntil: attr('date'),
-  amountOfResponses: attr('number'),
-  currentUserResponseCompleted: attr('boolean'),
-  currentUserResponseId: attr('string'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+@classic
+export default class Form extends Model {
+  @attr('date')
+  respondFrom;
+
+  @attr('date')
+  respondUntil;
+
+  @attr('number')
+  amountOfResponses;
+
+  @attr('boolean')
+  currentUserResponseCompleted;
+
+  @attr('string')
+  currentUserResponseId;
+
+  @attr('date')
+  createdAt;
+
+  @attr('date')
+  updatedAt;
 
   // Relations
-  openQuestions: hasMany('form/open-question'),
-  closedQuestions: hasMany('form/closed-question'),
-  responses: hasMany('form/response'),
+  @hasMany('form/open-question')
+  openQuestions;
+
+  @hasMany('form/closed-question')
+  closedQuestions;
+
+  @hasMany('form/response')
+  responses;
 
   // Computed properties
-  hasResponses: gt('amountOfResponses', 0),
-  questions: union('openQuestions', 'closedQuestions'),
-  questionsSorting: ['position'],
-  sortedQuestions: sort('questions', 'questionsSorting'),
-  currentUserCanRespond: computed('canRespond', 'currentUserResponseCompleted', function() {
+  @gt('amountOfResponses', 0)
+  hasResponses;
+
+  @union('openQuestions', 'closedQuestions')
+  questions;
+
+  questionsSorting = ['position'];
+
+  @sort('questions', 'questionsSorting')
+  sortedQuestions;
+
+  @computed('canRespond', 'currentUserResponseCompleted')
+  get currentUserCanRespond() {
     return !this.currentUserResponseCompleted && this.canRespond;
-  }),
-  canRespond: computed('respondFrom', 'respondTo', 'respondUntil', function() {
+  }
+
+  @computed('respondFrom', 'respondTo', 'respondUntil')
+  get canRespond() {
     const now = moment();
     const respondFrom = moment(this.respondFrom);
     const respondUntil = moment(this.respondUntil);
 
     return now.isAfter(respondFrom) && now.isBefore(respondUntil);
-  }),
-  opensLater: computed('respondFrom', 'respondTo', function() {
+  }
+
+  @computed('respondFrom', 'respondTo')
+  get opensLater() {
     const now = moment();
     const respondFrom = moment(this.respondFrom);
 
     return now.isBefore(respondFrom);
-  }),
+  }
 
   // Methods
   saveWithQuestions() {
@@ -49,7 +81,8 @@ export default Model.extend({
         return form;
       });
     });
-  },
+  }
+
   rollbackAttributesAndQuestions() {
     this.openQuestions.forEach(openQuestion => {
       openQuestion.rollbackAttributes();
@@ -59,4 +92,4 @@ export default Model.extend({
     });
     this.rollbackAttributes();
   }
-});
+}

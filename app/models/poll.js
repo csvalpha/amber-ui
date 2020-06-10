@@ -7,8 +7,8 @@ export default class Poll extends Model {
   @attr updatedAt;
 
   // Relations
-  @belongsTo author;
-  @belongsTo form;
+  @belongsTo('user') author;
+  @belongsTo('form/form') form;
 
   // getters
   get question() {

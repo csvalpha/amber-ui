@@ -1,12 +1,26 @@
+import classic from 'ember-classic-decorator';
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 
-export default Model.extend({
-  name: attr('string'),
-  date: attr('date'),
-  importFile: attr('raw'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+@classic
+export default class Collection extends Model {
+  @attr('string')
+  name;
 
-  transactions: hasMany('debit/transaction'),
-  author: belongsTo('user')
-});
+  @attr('date')
+  date;
+
+  @attr('raw')
+  importFile;
+
+  @attr('date')
+  createdAt;
+
+  @attr('date')
+  updatedAt;
+
+  @hasMany('debit/transaction')
+  transactions;
+
+  @belongsTo('user')
+  author;
+}

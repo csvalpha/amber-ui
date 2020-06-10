@@ -7,6 +7,6 @@ export default class PhotoComment extends Model {
   @attr createdAt;
 
   // Relations
-  @belongsTo author;
+  @belongsTo('user') author;
   @belongsTo photo;
 }

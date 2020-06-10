@@ -1,10 +1,20 @@
+import classic from 'ember-classic-decorator';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  startDate: attr('date'),
-  endDate: attr('date'),
-  iban: attr('string'),
-  ibanHolder: attr('string'),
+@classic
+export default class Mandate extends Model {
+  @attr('date')
+  startDate;
 
-  user: belongsTo('user')
-});
+  @attr('date')
+  endDate;
+
+  @attr('string')
+  iban;
+
+  @attr('string')
+  ibanHolder;
+
+  @belongsTo('user')
+  user;
+}
