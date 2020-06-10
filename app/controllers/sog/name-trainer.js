@@ -36,20 +36,20 @@ export default Controller.extend({
     return this.store.find('group', this.groupId);
   }),
   humanizedDifficulty: computed('difficulty', 'difficultyOptions', function() {
-    return this.difficultyOptions.find(option => option.value === this.get('difficulty')).label;
+    return this.difficultyOptions.find(option => option.value === this.difficulty).label;
   }),
   progressBarStyle: computed('progress', function() {
     return `width: ${this.progress}%`;
   }),
   currentQuestion: computed('currentQuestionIndex', 'questions', function() {
-    return this.get('questions').objectAt(this.get('currentQuestionIndex') - 1);
+    return this.questions.objectAt(this.currentQuestionIndex - 1);
   }),
   progress: computed('currentQuestionIndex', 'questions.length', function() {
-    return this.get('currentQuestionIndex') / this.get('questions.length') * 100;
+    return this.currentQuestionIndex / this.get('questions.length') * 100;
   }),
   inputClass: computed('currentQuestion', 'answered', function() {
-    if (this.get('answered')) {
-      if (this.get('currentQuestion').success) {
+    if (this.answered) {
+      if (this.currentQuestion.success) {
         return 'form-control is-valid';
       } else {
         return 'form-control is-invalid';
@@ -59,7 +59,7 @@ export default Controller.extend({
     return 'form-control';
   }),
   grade: computed('questions.length', 'success', function() {
-    return 1 + Math.round((90 / this.get('questions.length')) * this.get('success')) / 10;
+    return 1 + Math.round((90 / this.get('questions.length')) * this.success) / 10;
   }),
   actions: {
     setGroupId(model) {
@@ -79,8 +79,8 @@ export default Controller.extend({
       this.set('finished', false);
     },
     chooseOption(option) {
-      if (!this.get('answered')) {
-        let currentQuestion = this.get('currentQuestion');
+      if (!this.answered) {
+        let currentQuestion = this.currentQuestion;
         currentQuestion.answer = option;
         currentQuestion.success = (option === currentQuestion.question);
         if (currentQuestion.success) {
@@ -91,8 +91,8 @@ export default Controller.extend({
       }
     },
     checkAnswer() {
-      let currentQuestion = this.get('currentQuestion');
-      currentQuestion.answer = this.get('textInput');
+      let currentQuestion = this.currentQuestion;
+      currentQuestion.answer = this.textInput;
       currentQuestion.success = (currentQuestion.answer === currentQuestion.question.get('fullName'));
       if (currentQuestion.success) {
         this.incrementProperty('success');
