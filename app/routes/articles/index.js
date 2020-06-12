@@ -28,7 +28,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
 
   model(params) {
     params.paramMapping = this.paramMapping;
-    params.sort = '-pinned,-created_at';
+    params.sort = `-pinned,${params.sort}`;
     return this.findPaged(this.modelName, params);
   }
 });
