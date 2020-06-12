@@ -12,25 +12,25 @@
       <div class="navbar-nav col d-flex">
 
         {{#if (or session.isAuthenticated media.isMobile)}}
-          {{bread-crumbs crumbClass="breadcrumb-item"}}
+          <BreadCrumbs @crumbClass="breadcrumb-item" />
         {{else}}
-          {{page-actions-buttons pageActions=unAuthenticatedMenuOptions}}
+          <PageActionsButtons @pageActions={{unAuthenticatedMenuOptions}} />
         {{/if}}
       </div>
     </div>
 
     {{#unless session.isAuthenticated}}
-      {{#link-to 'login' class="nav-item d-none d-md-flex mr-2"}}
-        <button class="btn btn-primary d-inline nav-link pl-2 pr-2">
+      <LinkTo @route="login" class="nav-item d-none d-md-flex mr-2">
+        <button class="btn btn-primary d-inline nav-link pl-2 pr-2" type="button">
           {{t 'tag.button.signin'}}
         </button>
-      {{/link-to}}
+      </LinkTo>
     {{/unless}}
     <div id="navbar-wormhole"></div>
   </div>
 
   {{#unless session.isAuthenticated}}
-    <button class="btn btn-locale btn-inverse-locale-{{intl.locale}}" title="{{t 'component.headerNav.changeLocale'}}" {{action 'toggleLocale'}}>
+    <button class="btn btn-locale btn-inverse-locale-{{intl.locale}}" title="{{t 'component.headerNav.changeLocale'}}" {{action 'toggleLocale'}} type="button">
     </button>
   {{/unless}}
 </nav>

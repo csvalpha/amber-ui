@@ -1,17 +1,17 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
-    {{filter-bar class="col-12 col-md mt-auto" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending  enter=(action "selectFirstItem")}}
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md mt-auto" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+  </PageActionsButtons>
+</EmberWormhole>
 
 <div class="row">
   <div class="col-12">
     {{#each pagedModel as |photo|}}
       <div class="card photo-and-comments-card mb-2 mb-md-5" data-test-photo-with-comments-card>
         <div class="d-flex">
-          {{#link-to 'photo-albums.photo-album.photos.show' photo.photoAlbum photo class="col-12 col-md-8 p-0"}}
+          <LinkTo @route="photo-albums.photo-album.photos.show" @models={{array photo.photoAlbum photo}} class="col-12 col-md-8 p-0">
             <img class="image" src={{photo.imageUrl}} style="height: 400px; width: 100%;">
-          {{/link-to}}
+          </LinkTo>
           <div class="col-12 col-md-4 photo-comments-and-input-holder p-0 d-none d-md-flex">
             <div class="photo-comment-scroll-container">
               <div class="photo-comments">
@@ -21,9 +21,9 @@
               </div>
             </div>
             <div class="input-group new-photo-comment bg-light p-3">
-              {{input value=(mut (get commentContent (get photo 'id'))) class="form-control photo-comment-input" placeholder="Typ hier je reactie" minlength="1" maxlength="500" enter=(action "submitPhotoComment" photo)}}
+              <Input @value={{mut (get commentContent (get photo "id"))}} class="form-control photo-comment-input" placeholder="Typ hier je reactie" @minlength="1" @maxlength="500" @enter={{action "submitPhotoComment" photo}} />
               <span class="input-group-btn">
-                <button class="btn btn-default submit-photo-comment-button" {{action "submitPhotoComment" photo}}>Reageren</button>
+                <button class="btn btn-default submit-photo-comment-button" {{action "submitPhotoComment" photo}} type="button">Reageren</button>
               </span>
             </div>
           </div>
@@ -34,5 +34,5 @@
 </div>
 
 <div class="row justify-content-center">
-  {{page-numbers content=paginator}}
+  <PageNumbers @content={{paginator}} />
 </div>

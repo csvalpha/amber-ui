@@ -1,6 +1,6 @@
 <div class="btn-toolbar" role="toolbar" aria-label="Editor toolbar">
   <div class="btn-group" role="group">
-    <button type="button" class="btn btn-secondary" {{action "toggleEditMode"}}>
+    <button type="button" class="btn btn-secondary" {{on "click" this.toggleEditMode}}>
       {{if editMode "Voorbeeld" "Bewerk"}}
     </button>
   </div>
@@ -9,31 +9,31 @@
     {{#each styleOptions.groups as |group|}}
       {{#if group.dropdown}}
 
-        {{#bs-dropdown as |dd|}}
-          {{#dd.button type="secondary"}}{{fa-icon group.faIconName}}{{/dd.button}}
+        <BsDropdown as |dd|>
+          <dd.button @type="secondary">{{fa-icon group.faIconName}}</dd.button>
 
-          {{#dd.menu as |menu|}}
+          <dd.menu as |menu|>
             {{#each group.options as |opt|}}
-              {{#menu.item}}
-                <button type="button" class="dropdown-item" {{action applyStyleOptionAction opt}}>
+              <menu.item>
+                <button type="button" class="dropdown-item" {{on "click" (fn this.applyStyleOption opt)}}>
                   {{fa-icon opt.faIconName size=opt.size prefix=opt.faIconPrefix fixedWidth=true}}
                   {{opt.name}}
                 </button>
-              {{/menu.item}}
+              </menu.item>
             {{/each}}
-          {{/dd.menu}}
-        {{/bs-dropdown}}
+          </dd.menu>
+        </BsDropdown>
 
       {{else}}
 
         <div class="btn-group" role="group" aria-label="{{group.name}}">
           {{#each group.options as |opt|}}
             {{#if opt.modal}}
-              <button type="button" class="btn btn-secondary" title="{{opt.name}}" data-toggle="modal" data-target="#insertModal" {{action openModalAction opt}}>
+              <button type="button" class="btn btn-secondary" title="{{opt.name}}" data-toggle="modal" data-target="#insertModal" {{on "click" (fn this.openModal opt)}}>
                 {{fa-icon opt.faIconName prefix=opt.faIconPrefix}}
               </button>
             {{else}}
-              <button type="button" class="btn btn-secondary" title="{{opt.name}}" {{action applyStyleOptionAction opt}}>
+              <button type="button" class="btn btn-secondary" title="{{opt.name}}" {{on "click" (fn this.applyStyleOption opt)}}>
                 {{fa-icon opt.faIconName prefix=opt.faIconPrefix}}
               </button>
             {{/if}}
@@ -49,3 +49,11 @@
     </a>
   </div>
 </div>
+
+<BsModalSimple @open={{modalOpen}} @fade={{true}} @title={{modalOption.name}}
+               @submitTitle="Invoegen" @closeTitle="Sluiten"
+               @onSubmit={{fn this.submitModal}}
+               @onHidden={{action (mut modalOpen) false}}>
+  {{modalOption.modal.question}}<br>
+  <Input @type="text" class="form-control" @id="md-editor-modal-input" @value={{modalInput}} />
+</BsModalSimple>

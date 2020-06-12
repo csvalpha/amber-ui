@@ -1,15 +1,15 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{#page-actions-buttons pageActions=pageActions}}
-    {{filter-bar class="col-12 col-md" filter=search sortedAttribute=sortedAttribute sortableAttributes=sortableAttributes sortedAscending=sortedAscending }}
-  {{/page-actions-buttons}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} />
+  </PageActionsButtons>
+</EmberWormhole>
 
 <div class="row">
   {{#each pagedModel as |album|}}
     <div class="col-md-6">
-      {{#link-to 'photo-albums.photo-album' album}}
+      <LinkTo @route="photo-albums.photo-album" @model={{album}}>
         {{cards/photo-album-card album}}
-      {{/link-to}}
+      </LinkTo>
     </div>
   {{else}}
     <div class="col-md-12">
@@ -21,5 +21,5 @@
 </div>
 
 <div class="row justify-content-center">
-  {{page-numbers content=paginator}}
+  <PageNumbers @content={{paginator}} />
 </div>

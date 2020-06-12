@@ -8,12 +8,12 @@
     </p>
 
     {{#if errorMessage}}
-      <div class="text-danger">{{errorMessage}}</div>
+      <div class="text-danger">{{this.errorMessage}}</div>
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
-    {{#link-to "users.show" model class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
+    <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
+    <LinkTo @route="users.show" @model={{model}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
   </div>
 </div>
 <div class="card">
@@ -24,84 +24,84 @@
     <table class="table table-striped">
       <tr>
         <td>Id</td>
-        <td>{{model.id}}</td>
+        <td>{{@model.id}}</td>
       </tr>
       <tr>
         <td>Gebruikersnaam</td>
-        <td>{{model.username}}</td>
+        <td>{{@model.username}}</td>
       </tr>
       <tr>
         <td>Email</td>
-        <td>{{model.email}}</td>
+        <td>{{@model.email}}</td>
       </tr>
       <tr>
         <td>Voornaam</td>
-        <td>{{model.firstName}}</td>
+        <td>{{@model.firstName}}</td>
       </tr>
       <tr>
         <td>Tussenvoegsel</td>
-        <td>{{model.lastNamePrefix}}</td>
+        <td>{{@model.lastNamePrefix}}</td>
       </tr>
       <tr>
         <td>Achternaam</td>
-        <td>{{model.lastName}}</td>
+        <td>{{@model.lastName}}</td>
       </tr>
       <tr>
         <td>Geboortedatum</td>
-        <td>{{model.birthday}}</td>
+        <td>{{@model.birthday}}</td>
       </tr>
       <tr>
         <td>Adres</td>
-        <td>{{model.address}}</td>
+        <td>{{@model.address}}</td>
       </tr>
       <tr>
         <td>Postcode</td>
-        <td>{{model.postcode}}</td>
+        <td>{{@model.postcode}}</td>
       </tr>
       <tr>
         <td>Stad</td>
-        <td>{{model.city}}</td>
+        <td>{{@model.city}}</td>
       </tr>
       <tr>
         <td>Telefoon</td>
-        <td>{{model.phoneNumber}}</td>
+        <td>{{@model.phoneNumber}}</td>
       </tr>
       <tr>
         <td>Allergiën</td>
-        <td>{{model.foodPreferences}}</td>
+        <td>{{@model.foodPreferences}}</td>
       </tr>
       <tr>
         <td>IBAN</td>
-        <td>{{model.iban}}</td>
+        <td>{{@model.iban}}</td>
       </tr>
       <tr>
         <td>IBAN houder</td>
-        <td>{{model.ibanHolder}}</td>
+        <td>{{@model.ibanHolder}}</td>
       </tr>
       <tr>
         <td>Studie</td>
-        <td>{{model.study}}</td>
+        <td>{{@model.study}}</td>
       </tr>
       <tr>
         <td>Start studie</td>
-        <td>{{model.startStudy}}</td>
+        <td>{{@model.startStudy}}</td>
       </tr>
       <tr>
         <td>Ingeschakeld</td>
-        <td>{{model.enabled}}</td>
+        <td>{{@model.enabled}}</td>
       </tr>
       <tr>
         <td>Activatiedatum</td>
-        <td>{{model.activatedAt}}</td>
+        <td>{{@model.activatedAt}}</td>
       </tr>
 
       <tr>
         <td>Aangemaakt</td>
-        <td>{{model.createdAt}}</td>
+        <td>{{@model.createdAt}}</td>
       </tr>
       <tr>
         <td>Laatst gewijzigd</td>
-        <td>{{model.updatedAt}}</td>
+        <td>{{@model.updatedAt}}</td>
       </tr>
     </table>
   </div>

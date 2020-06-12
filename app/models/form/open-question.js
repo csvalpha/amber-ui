@@ -1,7 +1,5 @@
+import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 import { computed } from '@ember/object';
-import DS from 'ember-data';
-
-const { Model, attr, belongsTo, hasMany } = DS;
 
 export default Model.extend({
   question: attr('string'),
@@ -18,7 +16,7 @@ export default Model.extend({
   answers: hasMany('form/open-question-answer'),
 
   // Computed properties
-  sumOfAnswers: computed('answers.@each.answer', 'answers.@each.completed', function() {
+  sumOfAnswers: computed('answers.@each.{answer,completed}', 'fieldType', function() {
     if (this.fieldType === 'number') {
       const answers = this.answers.filterBy('completed', true);
       return answers.mapBy('answer').reduce((a, b) => {

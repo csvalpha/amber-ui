@@ -1,13 +1,15 @@
 import Mixin from '@ember/object/mixin';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 import { isNone } from '@ember/utils';
 
 export default Mixin.create({
   flashNotice: service('flash-notice'),
+  intl: service(),
   successMessage: 'Wijzigen gelukt!',
   successTransitionTarget: null,
   successTransitionModel: null,
-  errorMessage: null,
+  @tracked errorMessage: null,
   actions: {
     onSuccess(model) {
       // Show notice
@@ -28,7 +30,7 @@ export default Mixin.create({
     },
     onError(error) {
       this.set('errorMessage', error.errors.map((e) => {
-        return this.intl.t(e.detail);
+        return e.detail;
       }).join(', '));
     },
     submit() {

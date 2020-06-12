@@ -17,7 +17,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
 
   perPage: 10,
 
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'photo-comments.index',

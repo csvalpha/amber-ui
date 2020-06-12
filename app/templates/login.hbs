@@ -9,25 +9,25 @@
           <div class="card-body p-4">
             {{#if errorMessage}}
               <div class="alert alert-danger" role="alert" data-test-error>
-                {{errorMessage}}
+                {{this.errorMessage}}
               </div>
             {{/if}}
 
             {{#if twoFactorRequired}}
               <div class="form-group">
-                {{input type="text" value=verificationCode placeholder=(t 'template.login.authcode') autocorrect="off" autocapitalize="none" class="form-control" id="field-otp"}}
+                <Input @type="text" @value={{verificationCode}} placeholder={{t "template.login.authcode"}} @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-otp" />
                 <p>{{t 'template.login.authcodeHint'}}</p>
               </div>
             {{else}}
               <div class="form-group">
-                {{input type="text" value=username placeholder=(t 'template.login.username') autofocus="autofocus" autocorrect="off" autocapitalize="none" class="form-control" id="field-username"}}
+                <Input @type="text" @value={{username}} placeholder={{t "template.login.username"}} @autofocus="autofocus" @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-username" />
               </div>
               <div class="form-group password-textfield">
-                {{input type="password" value=password placeholder=(t 'template.login.password') class="form-control" id="field-password"}}
+                <Input @type="password" @value={{password}} placeholder={{t "template.login.password"}} class="form-control" @id="field-password" />
               </div>
 
               <div class="row password-forgot-holder">
-                {{#link-to 'users.forgot_password' class="forgot-password-label"}}{{t 'template.login.forgotPassword'}}{{/link-to}}
+                <LinkTo @route="users.forgot_password" class="forgot-password-label">{{t 'template.login.forgotPassword'}}</LinkTo>
               </div>
             {{/if}}
 

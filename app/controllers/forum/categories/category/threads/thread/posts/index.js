@@ -3,12 +3,15 @@ import { alias } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import $ from 'jquery';
 
 export default Controller.extend({
   session: service(),
   newContent: '',
   queryParams: ['page', 'perPage'],
+
+  count: computed('model.posts', function() {
+    return this.get('model.posts').length;
+  }),
 
   page: computed('model.posts.page', {
     get() {
@@ -32,9 +35,13 @@ export default Controller.extend({
   }),
 
   actions: {
+    async newPostCreated() {
+      await this.model.posts.reload();
+      this.set('page', this.totalPages);
+    },
     goToLastPageAndScrollDown() {
       this.set('page', this.totalPages);
-      $('#newForumPost')[0].scrollIntoView(true);
+      document.getElementById('newForumPost').scrollIntoView(true);
     }
   }
 });

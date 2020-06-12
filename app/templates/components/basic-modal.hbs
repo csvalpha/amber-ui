@@ -1,10 +1,10 @@
 <div class="basic-modal">
-  <div class="modal-dialog {{if modalSizeClass modalSizeClass}}" role="document">
+  <div class="modal-dialog {{if @modalSizeClass @modalSizeClass}}" role="document">
     <div class="modal-content">
       <div class="modal-header p-3">
-        <h5 class="modal-title">{{title}}</h5>
-        {{#if closeModal}}
-          <button type="button mr-3" class="close" data-dismiss="modal" aria-label="Close" {{action closeModal}}>
+        <h5 class="modal-title">{{@title}}</h5>
+        {{#if @closeModal}}
+          <button class="close" data-dismiss="modal" aria-label="Close" {{action @closeModal}} type="button">
             <span aria-hidden="true">{{fa-icon 'times'}}</span>
           </button>
         {{/if}}
@@ -13,9 +13,11 @@
         {{yield}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary {{if submitDisabled "disabled"}}" {{action submit}} disabled={{submitDisabled}}> {{submitText}} </button>
-        {{#if closeModal}}
-          <button type="button" class="btn btn-default" {{action closeModal}}>Annuleren</button>
+        {{#if @submit}}
+          <button type="button" class="btn btn-secondary {{if @submitDisabled "disabled"}}" {{action @submit}} disabled={{@submitDisabled}}> {{@submitText}} </button>
+        {{/if}}
+        {{#if @closeModal}}
+          <button type="button" class="btn btn-default" {{action @closeModal}}>Annuleren</button>
         {{/if}}
       </div>
     </div>

@@ -1,18 +1,18 @@
-{{#ember-wormhole to="navbar-wormhole"}}
-  {{page-actions-buttons pageActions=pageActions}}
-{{/ember-wormhole}}
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
 
 <div class="card">
   <div class="card-header d-flex justify-content-between">
-    <h5>{{model.collection.name}} - {{moment-format model.collection.date 'DD-MM-YYYY'}}</h5>
-    <span class="text-muted">Gemaakt door {{model.collection.author.fullName}}</span>
+    <h5>{{@model.collection.name}} - {{moment-format @model.collection.date 'DD-MM-YYYY'}}</h5>
+    <span class="text-muted">Gemaakt door {{@model.collection.author.fullName}}</span>
   </div>
 
   <div class="card-body">
     {{#each groupedTransactions as |transactionGroup|}}
-      {{#link-to 'users.show' transactionGroup.user}}
+      <LinkTo @route="users.show" @model={{transactionGroup.user.id}}>
         <h5>{{transactionGroup.user.fullName}}</h5>
-      {{/link-to}}
+      </LinkTo>
 
       <div class="row">
         <div class="col-7">
@@ -35,15 +35,15 @@
 
           <div class="col-2">
             {{#if (can 'destroy debit/transactions')}}
-              {{#link-to 'debit.transactions.destroy' transaction}}
+              <LinkTo @route="debit.transactions.destroy" @model={{transaction}}>
                 {{fa-icon 'trash'}}
-              {{/link-to}}
+              </LinkTo>
             {{/if}}
 
             {{#if (can 'edit debit/transactions')}}
-              {{#link-to 'debit.transactions.edit' transaction}}
+              <LinkTo @route="debit.transactions.edit" @model={{transaction}}>
                 {{fa-icon 'pencil-alt'}}
-              {{/link-to}}
+              </LinkTo>
             {{/if}}
           </div>
         </div>

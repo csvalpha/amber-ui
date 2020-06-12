@@ -59,7 +59,7 @@ export default Mixin.create({
     });
   }),
 
-  oldMembershipsTabActive: computed('filteredModels', function() {
+  oldMembershipsTabActive: computed('currentMemberships.length', 'filteredModels', 'oldMemberships.length', 'oldMembershipsAreVisible', function() {
     if (this.oldMembershipsAreVisible) {
       if (this.oldMemberships.length === 0 && this.currentMemberships.length > 0) {
         return false;

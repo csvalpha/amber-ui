@@ -20,15 +20,19 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': '\'none\'',
       'manifest-src': '\'self\'',
-      'script-src': '\'self\' \'unsafe-inline\' \'unsafe-eval\' cdn.ravenjs.com www.google-analytics.com www.googletagmanager.com',
+      'script-src': '\'self\' www.google-analytics.com www.googletagmanager.com',
       'font-src': '\'self\' fonts.gstatic.com',
       'connect-src': '\'self\' sentry.io',
-      'img-src': '\'self\' data: camo.csvalpha.nl sentry.io maps.googleapis.com cdn.ravenjs.com www.google-analytics.com youtube.com',
+      'img-src': '\'self\' camo.csvalpha.nl www.google-analytics.com img.youtube.com',
       'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com/',
-      'media-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
-      'object-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
-      'frame-src': '\'self\' *.youtube.com *.youtube-nocookie.com',
-      'worker-src': '\'self\''
+      'media-src': '\'self\'',
+      'object-src': '\'self\'',
+      'frame-src': '\'self\' www.youtube.com',
+      'worker-src': '\'self\'',
+      'base-uri': '\'none\'',
+      'form-action': '\'self\'',
+      'frame-ancestors': '\'self\'',
+      'block-all-mixed-content': ''
     },
 
     moment: {
@@ -95,6 +99,7 @@ module.exports = function(environment) {
           'envelope',
           'globe',
           'heading',
+          'hdd',
           'home',
           'image',
           'info-circle',
@@ -129,7 +134,8 @@ module.exports = function(environment) {
           'user',
           'users',
           'volume-up',
-          'wrench'
+          'wrench',
+          'gamepad'
         ],
         'free-brands-svg-icons': [
           'android',
@@ -142,12 +148,12 @@ module.exports = function(environment) {
       }
     },
 
-    locationType: 'router-scroll',
+    locationType: 'auto',
     historySupportMiddleware: true,
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
-        // e.g. 'with-controller': true
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
@@ -184,7 +190,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
-    ENV.contentSecurityPolicy['img-src'] += ' http://cdn.jsdelivr.net';
+    ENV.contentSecurityPolicy['script-src'] += ' \'unsafe-inline\' \'unsafe-eval\'';
   }
 
   if (environment === 'test') {
@@ -199,6 +205,10 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.flashNoticeDefaultDuration = 1;
+  }
+
+  if (environment === 'production') {
+    ENV.contentSecurityPolicy['report-uri'] = 'https://sentry.io/api/186017/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f';
   }
 
   if (deployTarget === 'staging') {

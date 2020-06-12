@@ -4,6 +4,7 @@ import { computed } from '@ember/object';
 
 export default Controller.extend({
   store: service(),
+  fetch: service(),
 
   actions: {
     submit() {
@@ -17,6 +18,6 @@ export default Controller.extend({
     }
   },
   dropzoneHeaders: computed(function() {
-    return { 'Authorization': this.get('fetch.authorizationHeader') };
+    return { 'Authorization': this.fetch.authorizationHeader() };
   })
 });

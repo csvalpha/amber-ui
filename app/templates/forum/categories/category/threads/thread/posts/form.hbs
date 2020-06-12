@@ -8,13 +8,13 @@
       <div class="row">
         <label class="col-sm-2" for="forum-post-form-message col-form-label form-control-label">Bericht</label>
         <div class="col-sm-10">
-          {{md-editor content=model.message}}
+          <MdEditor @content={{@model.message}} />
         </div>
       </div>
 
-      {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "forum.categories.category.threads.thread.show" model.thread class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}}>
+        <LinkTo @route="forum.categories.category.threads.thread.show" @model={{@model.thread}} class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

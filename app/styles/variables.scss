@@ -8,6 +8,7 @@ $brand-success:             #00af43; //green
 $brand-danger:              #ba211c; //red
 $brand-hidden:              #6c0894; //purple
 $facebook-blue:             #3b5998;
+$youtube-red:               #c00;
 
 // grayscales (white to black)
 $white:                     #fff;
@@ -99,10 +100,10 @@ $grid-columns:               12 !default;
 $grid-gutter-width:          1.875rem; // 30px
 
 // fonts
-$font-family-sans-serif:    'nunito sans', Arial, sans-serif;
-$font-family-serif:         Georgia, 'Times New Roman', Times, serif;
-$font-family-headers:       'nunito sans', Arial, sans-serif;
+$font-family-sans-serif:    'nunito sans', 'Arial', sans-serif;
+$font-family-serif:         'Georgia', 'Times New Roman', 'Times', serif;
+$font-family-headers:       'nunito sans', 'Arial', sans-serif;
 $font-weight-headers:       700;
 $font-weight-nav-items:     700;
-$font-family-monospace:     Menlo, Monaco, Consolas, 'Courier New', monospace;
+$font-family-monospace:     'Menlo', 'Monaco', 'Consolas', 'Courier New', monospace;
 $font-family-base:          $font-family-sans-serif;

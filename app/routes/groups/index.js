@@ -25,7 +25,7 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   },
   modelName: 'group',
   title: 'Groepen',
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'groups.new',

@@ -1,7 +1,7 @@
 Alpha AMBER UI
 ===============
 
-[![Build status](https://badge.buildkite.com/ebf07e2b912c124f3b87d635585cad7b9e4182f8d3e49ea25e.svg)](https://buildkite.com/csv-alpha/amber-ui)
+[![Build status](https://badge.buildkite.com/42748a5ed2c1c77c1dd974c497f0f39eaf39d782a289d19a8e.svg)](https://buildkite.com/csv-alpha/amber-ui)
 
 ## Prerequisites
 

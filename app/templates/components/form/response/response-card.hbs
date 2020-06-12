@@ -8,11 +8,11 @@
   <form {{action "submitResponse" on="submit"}}>
     {{form/response/response-form form response}}
 
-    {{#model-form/form-actions errors=form.errors errorMessage=errorMessage submitButtonLabel='Inschrijven' inputLayout='vertical'}}
+    <ModelForm::FormActions @errors={{form.errors}} @errorMessage={{this.errorMessage}} @submitButtonLabel="Inschrijven" @inputLayout="vertical">
       {{#if form.questions}}
-        {{#link-to "activities.index" class="btn btn-default"}}Annuleren{{/link-to}}
+        <LinkTo @route="activities.index" class="btn btn-default">Annuleren</LinkTo>
          Vragen met een * zijn verplicht
       {{/if}}
-    {{/model-form/form-actions}}
+    </ModelForm::FormActions>
   </form>
 </div>

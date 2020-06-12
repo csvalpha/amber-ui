@@ -7,13 +7,13 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label form-control-label" for="message">Bericht *</label>
         <div class="col-sm-10">
-          {{textarea value=message class="form-control" required=true}}
+          <Textarea @value={{message}} class="form-control" required={{true}} />
         </div>
       </div>
 
-      {{#model-form/form-actions errorMessage=errorMessage submitButtonLabel='Versturen'}}
-        {{#link-to "activities.index" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errorMessage={{this.errorMessage}} @submitButtonLabel="Versturen">
+        <LinkTo @route="activities.index" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </article>

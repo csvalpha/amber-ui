@@ -13,7 +13,7 @@ export default IndexRoute.extend({
   },
   modelName: 'forum/category',
   title: 'Forum',
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'forum.categories.new',

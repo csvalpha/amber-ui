@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 export default Component.extend({
   amountOfAlbumsToShow: 4,
   store: service(),
-  photoAlbums: computed(function() {
+  photoAlbums: computed('amountOfAlbumsToShow', function() {
     return this.store.query('photo-album', { sort: '-updated_at', page: { number: '1', size: this.amountOfAlbumsToShow } });
   })
 });

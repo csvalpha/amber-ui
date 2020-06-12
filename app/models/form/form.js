@@ -1,9 +1,7 @@
+import Model, { hasMany, attr } from '@ember-data/model';
 import { gt, union, sort } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { all } from 'rsvp';
-import DS from 'ember-data';
-
-const { Model, attr, hasMany } = DS;
 
 export default Model.extend({
   respondFrom: attr('date'),
@@ -27,7 +25,7 @@ export default Model.extend({
   currentUserCanRespond: computed('canRespond', 'currentUserResponseCompleted', function() {
     return !this.currentUserResponseCompleted && this.canRespond;
   }),
-  canRespond: computed('respondFrom', 'respondTo', function() {
+  canRespond: computed('respondFrom', 'respondTo', 'respondUntil', function() {
     const now = moment();
     const respondFrom = moment(this.respondFrom);
     const respondUntil = moment(this.respondUntil);

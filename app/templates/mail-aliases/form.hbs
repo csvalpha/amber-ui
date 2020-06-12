@@ -4,44 +4,34 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      {{model-form/text-input model=model property='email' label='E-mail' required=true type="email" placeholder="voorbeeld@csvalpha.nl"}}
-      {{model-form/select-input model=model property='moderationType' options=mailAliasModerationTypes label='Moderatietype'}}
+      <ModelForm::TextInput @model={{model}} @property="email" @label="E-mail" @required={{true}} @type="email" @placeholder="voorbeeld@csvalpha.nl" />
+      <ModelForm::SelectInput @model={{model}} @property="moderationType" @options={{mailAliasModerationTypes}} @label="Moderatietype" />
 
       <div class="form-group row">
         <label class="col-md-2 form-control-label">Moderator</label>
 
         <div class="col-sm-10">
-          {{#power-select
-            options=groups
-            onchange=(action (mut model.moderatorGroup))
-            selected=model.moderatorGroup
-            disabled=moderationTypeOpen
-            placeholder=Moderator
-            searchField="name" as |group|}}
+          <PowerSelect @options={{groups}} @onChange={{action (mut @model.moderatorGroup)}}
+                       @selected={{@model.moderatorGroup}} @disabled={{moderationTypeOpen}}
+                       @placeholder={{Moderator}} @searchEnabled={{true}} @searchField="name" as |group|>
             {{group.name}}
-          {{/power-select}}
+          </PowerSelect>
 
-          {{form-control-feedback (get model.errors property)}}
+          {{form-control-feedback (get @model.errors property)}}
         </div>
       </div>
 
-      {{model-form/text-input model=model property='description' label='Omschrijving'}}
+      <ModelForm::TextInput @model={{model}} @property="description" @label="Omschrijving" />
 
       <div class="form-group row">
         <label class="col-md-2 form-control-label">Groep</label>
 
         <div class="col-sm-10">
-          {{#power-select
-            options=groups
-            onchange=(action (mut model.group))
-            selected=model.group
-            disabled=anyUser
-            placeholder=Groep
-            searchField="name" as |group|}}
+          <PowerSelect @options={{groups}} @onChange={{action (mut @model.group)}} @selected={{@model.group}} @disabled={{anyUser}} @placeholder={{Groep}} @searchEnabled={{true}} @searchField="name" as |group|>
             {{group.name}}
-          {{/power-select}}
+          </PowerSelect>
 
-          {{form-control-feedback (get model.errors property)}}
+          {{form-control-feedback (get @model.errors property)}}
         </div>
       </div>
 
@@ -49,25 +39,19 @@
         <label class="col-md-2 form-control-label">Groep</label>
 
         <div class="col-sm-10">
-          {{#power-select
-            options=users
-            onchange=(action (mut model.user))
-            selected=model.user
-            disabled=anyGroup
-            placeholder=Gebruiker
-            searchField="fullName" as |user|}}
+          <PowerSelect @options={{users}} @onChange={{action (mut @model.user)}} @selected={{@model.user}} @disabled={{anyGroup}} @placeholder={{Gebruiker}} @searchEnabled={{true}} @searchField="fullName" as |user|>
             {{user.fullName}}
-          {{/power-select}}
+          </PowerSelect>
 
-          {{form-control-feedback (get model.errors property)}}
+          {{form-control-feedback (get @model.errors property)}}
         </div>
       </div>
 
-      {{model-form/checkbox-input model=model property="smtpEnabled" label='SMTP inschakelen'}}
+      <ModelForm::CheckboxInput @model={{model}} @property="smtpEnabled" @label="SMTP inschakelen" />
 
-      {{#model-form/form-actions errors=model.errors errorMessage=errorMessage}}
-        {{#link-to "mail-aliases.index" class="btn btn-default"}}Annuleren{{/link-to}}
-      {{/model-form/form-actions}}
+      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}}>
+        <LinkTo @route="mail-aliases.index" class="btn btn-default">Annuleren</LinkTo>
+      </ModelForm::FormActions>
     </form>
   </div>
 </div>

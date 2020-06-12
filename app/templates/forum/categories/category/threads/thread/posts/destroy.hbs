@@ -4,18 +4,18 @@
   </div>
   <div class="card-body">
     <p class="card-text">
-      Weet je zeker dat je dit forumbericht van  <b> {{model.author.fullName}} </b>  wilt verwijderen?
+      Weet je zeker dat je dit forumbericht van  <b> {{@model.author.fullName}} </b>  wilt verwijderen?
     </p>
     <p class="card-text">
       <b> Inhoud:  </b> <br>
-      {{model.message}}
+      {{@model.message}}
     </p>
     {{#if errorMessage}}
-      <div class="text-danger">{{errorMessage}}</div>
+      <div class="text-danger">{{this.errorMessage}}</div>
     {{/if}}
   </div>
   <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger">Verwijderen</button>
-    {{#link-to "forum.categories.category.threads.thread" model.thread class="btn btn-default" tagName="button"}}Annuleren{{/link-to}}
+    <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
+    <LinkTo @route="forum.categories.category.threads.thread" @model={{@model.thread}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
   </div>
 </div>

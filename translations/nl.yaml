@@ -119,6 +119,8 @@ component:
         in de Pakkerij aan de Oude Markt houden we van goede gesprekken onder het
         genot van een biertje. Je bent ook van harte uitgenodigd om een keertje langs
         te komen.
+      button: Lees meer over de vereniging
+      studiegids: Bekijken op Studiegids
       title: Activiteiten
     photos:
       more: Bekijk meer foto's »
@@ -128,7 +130,7 @@ component:
     stories:
       title: Verhalen van leden
       of: Verhaal van {name}
-      laurens1: Hehe! Ik ben Laurens. In mijn eerste jaar als student ben ik bij Alpha
+      laurens1: Héhé! Ik ben Laurens. In mijn eerste jaar als student ben ik bij Alpha
         gegaan. Tijdens de Kick-In ben ik in aanraking gekomen met de vereniging.
         Ik twijfelde in het begin nog of ik wel bij een studentenvereniging wilde,
         maar ik wilde graag nieuwe (christelijke) vrienden maken in een nieuwe omgeving.
@@ -184,6 +186,7 @@ component:
   socialMediaButtons:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
+    youtube: Bekijk ons op YouTube
 mixin:
   menuItems:
     recent: Actueel
@@ -199,6 +202,7 @@ mixin:
     mailModerations: Mail moderaties
     mandates: Mandaten
     tomato: Streepsysteem
+    nextcloud: Nextcloud
     home: Home
     articles: Artikelen
     activities: Activiteiten
@@ -208,6 +212,7 @@ mixin:
     groups: Groepen
     users: Gebruikers
     staticPages: Informatie
+    sog: SOG
 tag:
   button:
     close: Sluiten

@@ -5,7 +5,7 @@ export default Service.extend({
   fetch: service(),
 
   init() {
-    messageBus.headers = { 'Authorization': this.get('fetch.authorizationHeader') };
+    messageBus.headers = { 'Authorization': this.fetch.authorizationHeader() };
     messageBus.baseUrl = '/api/';
     messageBus.start();
     this.set('message-bus', messageBus);

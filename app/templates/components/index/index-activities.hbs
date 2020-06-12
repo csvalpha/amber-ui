@@ -7,10 +7,13 @@
           {{t 'component.index.activities.info'}}
         </p>
 
-        {{#link-to 'static-pages.show' 'c-s-v-alpha' class="btn btn-lg frontpage-button--light"}}Lees meer over de vereniging{{/link-to}}
+        <LinkTo @route="static-pages.show" @model="c-s-v-alpha" class="btn btn-lg frontpage-button--light mr-3">{{t 'component.index.activities.button'}}</LinkTo>
+        <a target="_blank" href="https://studiegids.nl/studentenverenigingen/christelijke-studenten-vereniging-alpha-in-enschede/" class="btn btn-lg frontpage-button--light">
+          {{t 'component.index.activities.studiegids'}}
+        </a>
       </div>
 
-      {{social-media-buttons class="col-xs col-md-4 col-lg-3 social-buttons"}}
+      <SocialMediaButtons @class="col-xs col-md-4 col-lg-3 social-buttons" />
     </div>
 
     {{#if activities}}
@@ -28,7 +31,7 @@
 </div>
 
 {{#if modalIsOpen}}
-  {{#ember-wormhole to="ember-wormhole-destination"}}
+  <EmberWormhole @to="ember-wormhole-destination">
     <div class="modal d-block">
       <div class="activity-modal-backdrop" {{action "closeModal"}}> </div>
       <div class="modal-dialog" role="document">
@@ -45,5 +48,5 @@
         </div>
       </div>
     </div>
-  {{/ember-wormhole}}
+  </EmberWormhole>
 {{/if}}

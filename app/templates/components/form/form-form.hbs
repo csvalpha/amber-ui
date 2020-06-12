@@ -1,42 +1,32 @@
-{{model-form/datetime-input   model=model property="respondFrom"  label='Inschrijven vanaf'}}
-{{model-form/datetime-input   model=model property="respondUntil" label='Inschrijven tot'}}
+<ModelForm::DatetimeInput @model={{model}} @property="respondFrom" @label="Inschrijven vanaf" />
+<ModelForm::DatetimeInput @model={{model}} @property="respondUntil" @label="Inschrijven tot" />
 
 <div class="row">
   <div class="col-12 col-sm-2">
     <span>Vragen</span>
   </div>
   <div class="col-12 col-sm-10">
-    {{#if model.hasResponses}}
+    {{#if @model.hasResponses}}
       <div class="alert alert-danger">
         Je kunt geen vragen meer toevoegen of aanpassen, omdat er al reacties zijn.
       </div>
     {{/if}}
 
-    {{#each model.sortedQuestions as |question|}}
+    {{#each @model.sortedQuestions as |question|}}
       {{#unless question.isDeleted}}
         <div class="card">
           <div class="card-body create-new-question">
             {{#if question.isOpenQuestion}}
-              {{form/open-question question
-                                   onMoveQuestionUp=(action 'moveQuestionUp')
-                                   onMoveQuestionDown=(action 'moveQuestionDown')
-                                   onDeleteQuestion=(action 'deleteQuestion')}}
+              {{form/open-question question form=model}}
             {{else}}
-              {{form/closed-question question
-                                     onMoveQuestionUp=(action 'moveQuestionUp')
-                                     onMoveQuestionDown=(action 'moveQuestionDown')
-                                     onMoveOptionUp=(action 'moveOptionUp')
-                                     onMoveOptionDown=(action 'moveOptionDown')
-                                     onDeleteQuestion=(action 'deleteQuestion')
-                                     onAddOption=(action 'addOption')
-                                     onDeleteOption=(action 'deleteOption')}}
+              {{form/closed-question question form=model}}
             {{/if}}
           </div>
         </div>
       {{/unless}}
     {{/each}}
 
-    {{#unless model.hasResponses }}
+    {{#unless @model.hasResponses }}
       <button type="button" class="btn btn-default" {{action "addOpenQuestion"}}>Open vraag toevoegen</button>
       <button type="button" class="btn btn-default" {{action "addClosedQuestion"}}>Gesloten vraag toevoegen</button>
     {{/unless}}

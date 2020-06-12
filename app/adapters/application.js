@@ -1,17 +1,15 @@
-import { get, computed } from '@ember/object';
+import JSONAPIAdapter from '@ember-data/adapter/json-api';
+import { computed } from '@ember/object';
 import { underscore } from '@ember/string';
-import $ from 'jquery';
-import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import ENV from '../config/environment';
 
-const { JSONAPIAdapter } = DS;
 import { pluralize } from 'ember-inflector';
 
 export default JSONAPIAdapter.extend(DataAdapterMixin, {
   host: ENV.api.hostname,
 
-  headers: computed('session.data.authenticated.access_token', function() {
+  headers: computed('session.data.authenticated.access_token', 'session.isAuthenticated', function() {
     const headers = {};
     if (this.session.isAuthenticated) {
       headers.Authorization = `Bearer ${this.session.data.authenticated.access_token}`;
@@ -26,16 +24,6 @@ export default JSONAPIAdapter.extend(DataAdapterMixin, {
   pathForType(type) {
     const underscored = underscore(type);
     return pluralize(underscored);
-  },
-
-  urlForFindRecord(id, modelName, snapshot) {
-    let url = this._super(...arguments);
-    const query = get(snapshot, 'adapterOptions.query');
-    if (query) {
-      url += `?${$.param(query)}`;
-    }
-
-    return url;
   },
 
   // Some internal query params should be mapped to other params for API requests

@@ -1,10 +1,8 @@
+import Model, { belongsTo, attr } from '@ember-data/model';
 import { alias } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
-import DS from 'ember-data';
 import checkIfUserIsOwnerMixin from 'alpha-amber/mixins/check-if-user-is-owner-mixin';
-
-const { Model, attr, belongsTo } = DS;
 
 export default Model.extend(checkIfUserIsOwnerMixin, {
   // Attributes
@@ -16,9 +14,7 @@ export default Model.extend(checkIfUserIsOwnerMixin, {
   form: belongsTo('form/form'),
 
   // Computed properties
-  question: computed('form.closedQuestions.firstObject', function() {
-    return this.get('form.closedQuestions.firstObject');
-  }),
+  question: computed.reads('form.closedQuestions.firstObject'),
 
   currentUserCanRespond: alias('form.currentUserCanRespond'),
   currentUserResponseCompleted: alias('form.currentUserResponseCompleted'),

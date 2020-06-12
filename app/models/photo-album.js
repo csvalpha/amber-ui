@@ -1,8 +1,6 @@
+import Model, { hasMany, attr } from '@ember-data/model';
 import { computed } from '@ember/object';
-import DS from 'ember-data';
 import ENV from '../config/environment';
-
-const { Model, attr, hasMany } = DS;
 
 export default Model.extend({
   // Properties
@@ -15,14 +13,14 @@ export default Model.extend({
   photos: hasMany('photos'),
 
   // Computed properties
-  dropzoneEndpoint: computed('id', function() {
+  dropzoneEndpoint: computed('constructor.modelName', 'id', 'store', function() {
     const adapter = this.store.adapterFor(this.constructor.modelName);
     return adapter.dropzoneEndpoint(this);
   }),
-  albumThumbUrl: computed('photos.@each.imageThumbUrl', function() {
+  albumThumbUrl: computed('photos.@each.imageThumbUrl', 'photos.firstObject.imageThumbUrl', function() {
     return this.get('photos.firstObject.imageThumbUrl') || '/images/fallback/photo_album_thumb_default.png';
   }),
-  albumMediumUrl: computed('photos.@each.imageMediumUrl', function() {
+  albumMediumUrl: computed('photos.@each.imageMediumUrl', 'photos.firstObject.imageMediumUrl', function() {
     return this.get('photos.firstObject.imageMediumUrl') || '/images/fallback/photo_album_thumb_default.png';
   })
 });

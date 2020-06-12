@@ -1,6 +1,6 @@
 <label class="col-form-label form-control-label {{labelClass}}">{{label}}{{if required " *"}}</label>
 <div class="{{inputWrapperClass}}">
-  {{#file-picker accept=validMimetypes fileLoaded=(action "fileLoaded") readAs="readAsDataURL" class="clickable"}}
+  <FilePicker @accept={{validMimetypes}} @fileLoaded={{action "fileLoaded"}} @readAs="readAsDataURL" @class="clickable">
     {{#if (get model property)}}
       <img id={{inputIdentifier}} src={{mut (get model property)}} alt={{label}}>
       <br>
@@ -9,7 +9,7 @@
         Sleep hier een nieuwe bestand naartoe of klik om een bestand te kiezen
       </span>
     {{/if}}
-  {{/file-picker}}
+  </FilePicker>
   {{#if fileToBig}}
     <br>
     <div class="alert alert-danger">
@@ -24,5 +24,5 @@
     </div>
   {{/if}}
 
-  {{form-control-feedback (get model.errors property)}}
+  {{form-control-feedback (get @model.errors property)}}
 </div>

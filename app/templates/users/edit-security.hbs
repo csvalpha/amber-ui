@@ -1,5 +1,5 @@
-{{#tabbed-view tabItems=tabItems}}
-  {{users/password-settings model=model}}
+<TabbedView @tabItems={{tabItems}}>
+  <Users::PasswordSettings @model={{model}} />
   <br><hr>
-  {{users/otp-settings model=model}}
-{{/tabbed-view}}
+  <Users::OtpSettings @model={{model}} />
+</TabbedView>

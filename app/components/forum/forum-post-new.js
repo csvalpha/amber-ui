@@ -16,7 +16,7 @@ export default Component.extend({
       }).save().then(() => {
         this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
         this.set('content', '');
-        this.sendAction('onSave');
+        this.onSubmit();
       });
     },
     cancel() {

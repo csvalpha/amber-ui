@@ -3,19 +3,11 @@
   {{#each options as |opt|}}
     <div class="form-check">
       <label class="form-check-label" for="{{inputIdentifier}}-{{opt.value}}">
-        {{model-form/radio-button
-          class=(concat 'form-control ' inputValidityClass)
-          name=inputIdentifier
-          id=(concat inputIdentifier '-' opt.value)
-          value=opt.value
-          groupValue=(mut (get model property))
-          required=required
-          disabled=disabled
-        }}
+        <ModelForm::RadioButton @class={{concat "form-control " inputValidityClass}} @name={{inputIdentifier}} @id={{concat inputIdentifier "-" opt.value}} @value={{opt.value}} @groupValue={{mut (get model property)}} @required={{required}} @disabled={{disabled}} />
         <div class="custom-radiobutton"></div>
         {{opt.label}}
       </label>
     </div>
   {{/each}}
-  {{form-control-feedback (get model.errors property)}}
+  {{form-control-feedback (get @model.errors property)}}
 </div>

@@ -1,0 +1,171 @@
+<div class="row justify-content-sm-center name-trainer">
+  <div class="card col-xl-6 col-lg-8 col-md-10">
+
+    {{#if started}}
+      <div class="card-header">
+        <h1 class="card-title">{{group.name}}</h1>
+        <p class="card-subtitle text-muted">
+          Moeilijkheidsgraad: {{humanizedDifficulty}}
+        </p>
+      </div>
+
+      {{#if started}}
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" style={{progressBarStyle}} aria-valuenow="{{currentQuestionIndex}}"
+               aria-valuemin="0" aria-valuemax="{{questions.length}}">
+            {{currentQuestionIndex}}/{{questions.length}}
+          </div>
+        </div>
+
+        {{#if (eq difficulty 1)}}
+          <div class="card-body text-center trainer-question">
+            <h2 class="card-title">Wie is {{currentQuestion.question.fullName}}?</h2>
+          </div>
+          <ul class="list-group list-group-flush trainer-options">
+            {{#each currentQuestion.options as |opt|}}
+              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion.question opt))
+                                                             "bg-success"}}" {{action 'chooseOption' opt}}>
+                <img class="card-img-rounded trainer-thumb-small" src="{{opt.avatarThumbUrlOrDefault}}">
+              </li>
+            {{/each}}
+          </ul>
+
+        {{else if (eq difficulty 2)}}
+          <div class="card-body text-center trainer-question">
+            <h2 class="card-title">Wie is dit?</h2>
+            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.question.avatarThumbUrlOrDefault}}">
+          </div>
+          <ul class="list-group list-group-flush trainer-options">
+            {{#each currentQuestion.options as |opt|}}
+              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion.question opt))
+                                                             "bg-success"}}" {{action 'chooseOption' opt}}>
+                {{opt.fullName}}
+              </li>
+            {{/each}}
+          </ul>
+
+        {{else if (eq difficulty 3)}}
+          <div class="card-body text-center trainer-question">
+            {{#if answered}}
+              <h2 class="card-title">Dit is {{currentQuestion.question.fullName}}</h2>
+            {{else}}
+              <h2 class="card-title">Wie is dit?</h2>
+            {{/if}}
+            <img class="card-img-rounded trainer-thumb-large" src="{{currentQuestion.question.avatarThumbUrlOrDefault}}">
+          </div>
+          <div class="card-body">
+            <div class="input-group">
+              {{input
+                type="text"
+                value=textInput
+                id="answer"
+                class=inputClass
+                placeholder='Type hier de volledige naam'
+                enter=(action 'checkAnswer')}}
+              <div class="input-group-append">
+                <button type="button" class="btn btn-primary" {{action 'checkAnswer'}}>Antwoord</button>
+              </div>
+            </div>
+          </div>
+        {{/if}}
+
+        <div class="card-footer text-right">
+          <a class="btn btn-default" {{action 'stopTrainer'}}>Stoppen</a>
+        </div>
+      {{/if}}
+
+    {{else if finished}}
+      <div class="card-body text-center trainer-question">
+        <h2 class="card-title">Je hebt {{success}} van de {{questions.length}} vragen goed</h2>
+        <p class="card-subtitle text-muted">
+          Dat is toch wel een {{grade}} waard
+        </p>
+      </div>
+
+      <div class="card-body">
+        <h3>Antwoorden</h3>
+        <table class="table table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Vraag</th>
+              <th scope="col">Correcte antwoord</th>
+              <th scope="col">Jouw antwoord</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each questions as |item|}}
+              <tr class="{{unless item.success "table-danger"}}">
+                {{#if (eq difficulty 1)}}
+                  <td>Wie is {{item.question.fullName}}?</td>
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                  </td>
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
+                    {{item.answer.fullName}}
+                  </td>
+
+                {{else if (eq difficulty 2)}}
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                    Wie is dit?
+                  </td>
+                  <td>
+                    {{item.question.fullName}}
+                  </td>
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.answer.avatarThumbUrlOrDefault}}">
+                    {{item.answer.fullName}}
+                  </td>
+
+                {{else if (eq difficulty 3)}}
+                  <td>
+                    <img class="card-img-rounded trainer-thumb-tiny" src="{{item.question.avatarThumbUrlOrDefault}}">
+                    Wie is dit?
+                  </td>
+                  <td>
+                    {{item.question.fullName}}
+                  </td>
+                  <td>
+                    {{item.answer}}
+                  </td>
+
+                {{/if}}
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-footer text-right">
+        <a class="btn btn-default" {{action 'stopTrainer'}}>Terug naar instellingen</a>
+      </div>
+    {{else}}
+      <div class="card-header">
+        <h1 class="card-title">Namen leren</h1>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label>Groep</label>
+          <PowerSelect @options={{model}} @selected={{group.name}} @onChange={{action "setGroupId"}} @searchEnabled={{true}} @searchField="name" as |group|>
+            {{group.name}}
+          </PowerSelect>
+        </div>
+
+        <div class="form-group">
+          <label>Moeilijkheidsgraad</label>
+          {{input/select-input
+                  class='form-control'
+                  options=difficultyOptions
+                  placeholder=Moeilijkheidsgraad
+                  value=difficulty
+          }}
+        </div>
+      </div>
+      <div class="card-footer text-right">
+        <a class="btn btn-primary" {{action 'startTrainer'}}>Starten</a>
+      </div>
+
+    {{/if}}
+  </div>
+</div>

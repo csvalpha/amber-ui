@@ -1,7 +1,5 @@
+import Model, { belongsTo, attr } from '@ember-data/model';
 import { computed } from '@ember/object';
-import DS from 'ember-data';
-
-const { Model, attr, belongsTo } = DS;
 
 export default Model.extend({
 
@@ -29,7 +27,7 @@ export default Model.extend({
     }
   }),
 
-  label: computed('status', function() {
+  label: computed('status', 'statusOptions', function() {
     return this.statusOptions[this.status];
   })
 });

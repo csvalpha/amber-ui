@@ -4,5 +4,5 @@ import faker from 'faker';
 
 export default Factory.extend({
   function: faker.name.jobTitle,
-  startDate: faker.date.past
+  startDate: faker.date.past,
 });

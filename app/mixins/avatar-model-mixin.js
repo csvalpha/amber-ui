@@ -1,8 +1,6 @@
+import { attr } from '@ember-data/model';
 import { computed } from '@ember/object';
 import Mixin from '@ember/object/mixin';
-import DS from 'ember-data';
-
-const { attr } = DS;
 
 export default Mixin.create({
   defaultAvatarUrl: '/images/fallback/avatar_default.png',
@@ -10,10 +8,6 @@ export default Mixin.create({
   avatar: attr('raw'),
   avatarUrl: attr('string'),
   avatarThumbUrl: attr('string'),
-  avatarThumbUrlOrDefault: computed('avatarThumbUrl', function() {
-    return this.avatarThumbUrl || this.defaultAvatarThumbUrl;
-  }),
-  avatarUrlOrDefault: computed('avatarUrl', function() {
-    return this.avatarUrl || this.defaultAvatarUrl;
-  })
+  avatarThumbUrlOrDefault: computed.or('avatarThumbUrl', 'defaultAvatarThumbUrl'),
+  avatarUrlOrDefault: computed.or('avatarUrl', 'defaultAvatarUrl')
 });
