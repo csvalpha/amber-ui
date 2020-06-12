@@ -17,7 +17,9 @@
         </div>
       {{/if}}
 
-      <ModelForm::CheckboxInput @model={{model}} @property="pinned" @label="Artikel vastzetten" />
+      {{#if canPin}}
+        <ModelForm::CheckboxInput @model={{model}} @property="pinned" @label="Artikel vastzetten" />
+      {{/if}}
 
       <div class="form-group row">
         <label class="col-md-2 form-control-label">Namens groep of commissie</label>
