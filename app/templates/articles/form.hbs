@@ -35,6 +35,8 @@
 
       {{model-form/md-input       model=model property="content" label='Inhoud' required=true inputIdentifier='article-form-content'}}
 
+      {{model-form/checkbox-input   model=model property='pinned'  label='Artikel vastzetten'}}
+
 
 
       {{#model-form/form-actions errors=model.errors  errorMessage=errorMessage}}
