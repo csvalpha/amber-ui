@@ -31,7 +31,7 @@
 
       <ModelForm::MdInput @model={{@model}} @property="content" @label="Inhoud" @required={{true}} @inputIdentifier="article-form-content" />
 
-      {{model-form/checkbox-input   model=model property='pinned'  label='Artikel vastzetten'}}
+      <ModelForm::CheckboxInput @model={{model}} @property="pinned" @label="Artikel vastzetten" />
 
 
       <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{errorMessage}}>
