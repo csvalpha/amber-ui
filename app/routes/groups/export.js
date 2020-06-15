@@ -8,8 +8,6 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.checkAccessWithPromise(this.can.can('export group', group), transition);
   },
   modelName: 'group',
-  title: computed('controller.model.name', function() {
-    return this.get('controller.model.name');
-  }),
+  title: computed.reads('controller.model.name'),
   parents: ['groups.index']
 });

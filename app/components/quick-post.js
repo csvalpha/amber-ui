@@ -31,14 +31,12 @@ export default Component.extend({
   sortedMessages: sort('messages', 'messagesSort'),
 
   maxCharacters: 400,
-  currentCharacterCount: computed('newQpMessage', function() {
-    return this.newQpMessage.length;
-  }),
-  characterCountPercentage: computed('currentCharacterCount', function() {
+  currentCharacterCount: computed.reads('newQpMessage.length'),
+  characterCountPercentage: computed('currentCharacterCount', 'maxCharacters', function() {
     return Math.round(this.currentCharacterCount / this.maxCharacters * 100);
   }),
 
-  progressBarClass: computed('currentCharacterCount', function() {
+  progressBarClass: computed('currentCharacterCount', 'maxCharacters', function() {
     const count = this.currentCharacterCount;
     const max = this.maxCharacters;
 
@@ -54,7 +52,7 @@ export default Component.extend({
     return htmlSafe(`width: ${this.characterCountPercentage}%`);
   }),
 
-  tooMuchText: computed('currentCharacterCount', function() {
+  tooMuchText: computed('currentCharacterCount', 'maxCharacters', function() {
     return this.currentCharacterCount > this.maxCharacters;
   }),
 

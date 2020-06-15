@@ -9,7 +9,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'article',
   perPage: 3,
 
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'articles.new',
@@ -18,5 +18,11 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create articles')
       }
     ];
-  })
+  }),
+
+  model(params) {
+    params.paramMapping = this.paramMapping;
+    params.sort = '-pinned,-created_at';
+    return this.findPaged(this.modelName, params);
+  }
 });

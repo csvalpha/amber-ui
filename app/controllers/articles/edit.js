@@ -6,7 +6,10 @@ export default EditController.extend({
   session: service('session'),
   can: service(),
   successTransitionTarget: 'articles.show',
-  groupOptions: computed(function() {
+  canPin: computed('session.currentUser', function() {
+    return this.session.hasPermission('article.update');
+  }),
+  groupOptions: computed('session.currentUser.groups', function() {
     const optionArray = [
       {
         label: '',
@@ -22,7 +25,7 @@ export default EditController.extend({
     });
     return optionArray;
   }),
-  groups: computed(function() {
+  groups: computed('session.currentUser', 'store', function() {
     if (this.can.can('select all groups for articles')) {
       return this.store.findAll('group');
     }

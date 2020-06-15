@@ -18,7 +18,7 @@ export default Model.extend({
   // Computed properties
   userFullName: alias('user.fullName'),
   answers: union('openQuestionAnswers', 'closedQuestionAnswers'),
-  groupedAnswersPromise: computed('openQuestionAnswers.[]', 'closedQuestionAnswers.[]', function() {
+  groupedAnswersPromise: computed('answers', 'closedQuestionAnswers.[]', 'openQuestionAnswers.[]', function() {
     // For the id of the question, we have to wait until the answers are actually loaded
     // Furthermore, for the closed question answers we have to wait until the linked options are loaded
     // (the question is linked to the answer through the option)
@@ -37,7 +37,7 @@ export default Model.extend({
     });
   }),
   _groupedAnswers: A(),
-  groupedAnswers: computed('groupedAnswersPromise', {
+  groupedAnswers: computed('_groupedAnswers', 'groupedAnswersPromise', {
     get() {
       // Lazy loading: only load answers when requested
       this.groupedAnswersPromise;

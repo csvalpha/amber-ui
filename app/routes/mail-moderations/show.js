@@ -7,11 +7,9 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.can.can('show mail-moderations');
   },
   modelName: 'stored-mail',
-  title: computed('controller.model.subject', function() {
-    return this.get('controller.model.subject');
-  }),
+  title: computed.reads('controller.model.subject'),
   parents: ['mail-moderation.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'mail-moderations.accept',

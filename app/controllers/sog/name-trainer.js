@@ -25,17 +25,17 @@ export default Controller.extend({
   started: false,
   finished: false,
   answered: false,
-  users: computed('group', function() {
+  users: computed('group.name', 'store', function() {
     return this.store.query('user', { filter: { group: this.get('group.name') } });
   }),
-  group: computed('groupId', function() {
+  group: computed('groupId', 'store', function() {
     if (!this.groupId) {
       return;
     }
 
     return this.store.find('group', this.groupId);
   }),
-  humanizedDifficulty: computed('difficulty', function() {
+  humanizedDifficulty: computed('difficulty', 'difficultyOptions', function() {
     return this.difficultyOptions.find(option => option.value === this.get('difficulty')).label;
   }),
   progressBarStyle: computed('progress', function() {

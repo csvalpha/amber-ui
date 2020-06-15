@@ -7,11 +7,9 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
     return this.can.can('show individual users');
   },
   modelName: 'user',
-  title: computed('controller.model.fullName', function() {
-    return this.get('controller.model.fullName');
-  }),
+  title: computed.reads('controller.model.fullName'),
   parents: ['users.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     const user = this.get('controller.model');
     return [
       {
@@ -37,7 +35,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
       }
     ];
   }),
-  tabItems: computed('controller.model', function() {
+  tabItems: computed('can', 'controller.model', function() {
     const user = this.get('controller.model');
     return [
       {

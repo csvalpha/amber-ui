@@ -16,7 +16,7 @@ export default Model.extend({
   answers: hasMany('form/open-question-answer'),
 
   // Computed properties
-  sumOfAnswers: computed('answers.@each.answer', 'answers.@each.completed', function() {
+  sumOfAnswers: computed('answers.@each.{answer,completed}', 'fieldType', function() {
     if (this.fieldType === 'number') {
       const answers = this.answers.filterBy('completed', true);
       return answers.mapBy('answer').reduce((a, b) => {
