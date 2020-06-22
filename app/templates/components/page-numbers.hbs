@@ -1,9 +1,17 @@
 <nav aria-label="Page navigation">
   <ul class="pagination">
+    {{#if (gt totalPages numPagesToShow)}}
+      <li class={{if canStepBackward "page-item" "page-item disabled"}}>
+        <a class="page-link first" href="#" aria-label="Eerste" {{action "pageClicked" 1}}>
+          {{fa-icon 'chevron-left'}}{{fa-icon 'chevron-left'}}
+          <span class="sr-only">Eerste</span>
+        </a>
+      </li>
+    {{/if}}
     <li class={{if canStepBackward "page-item" "page-item disabled"}}>
-      <a class="page-link previous" href="#" aria-label="Previous" {{action "incrementPage" -1}}>
+      <a class="page-link previous" href="#" aria-label="Vorige" {{action "incrementPage" -1}}>
         {{fa-icon 'chevron-left'}}
-        <span class="sr-only">Previous</span>
+        <span class="sr-only">Vorige</span>
       </a>
     </li>
     {{#each pageItems as |item|}}
@@ -15,16 +23,24 @@
           <a class="page-link">{{item.page}} <span class="sr-only">(current)</span></a>
         </li>
       {{else}}
-        <li class="page-item">
+        <li class="{{if (lte (difference item.page currentPage) 2) "page-item" "page-item hidden-mobile"}}">
           <a class="page-link" href="#" {{action "pageClicked" item.page}}>{{item.page}}</a>
         </li>
       {{/if}}
     {{/each}}
     <li class={{if canStepForward "page-item" "page-item disabled"}}>
-      <a class="page-link next" href="#" aria-label="Next" {{action "incrementPage" 1}}>
+      <a class="page-link next" href="#" aria-label="Volgende" {{action "incrementPage" 1}}>
         {{fa-icon 'chevron-right'}}
-        <span class="sr-only">Next</span>
+        <span class="sr-only">Volgende</span>
       </a>
     </li>
+    {{#if (gt totalPages numPagesToShow)}}
+      <li class={{if canStepForward "page-item" "page-item disabled"}}>
+        <a class="page-link last" href="#" aria-label="Laatste" {{action "pageClicked" totalPages}}>
+          {{fa-icon 'chevron-right'}}{{fa-icon 'chevron-right'}}
+          <span class="sr-only">Laatste</span>
+        </a>
+      </li>
+    {{/if}}
   </ul>
 </nav>
