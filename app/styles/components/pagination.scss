@@ -12,9 +12,7 @@
     color: $opaque-black-two-thirds;
 
     &.previous,
-    &.next,
-    &.first,
-    &.last {
+    &.next {
       color: $gray-600;
     }
   }
@@ -33,12 +31,6 @@
       border: 0;
       background: 0;
       color: $opaque-black-halfly;
-    }
-  }
-
-  &.hidden-mobile {
-    @include media-breakpoint-down(sm) {
-      display: none;
     }
   }
 }
