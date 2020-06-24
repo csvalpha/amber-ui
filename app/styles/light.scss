@@ -1,0 +1,9 @@
+// Set variables
+@import 'variables';
+
+// Import bootstrap functions and variables
+@import 'ember-bootstrap/functions';
+@import 'ember-bootstrap/variables';
+
+// Import components
+@import 'themes/light/modules/base';

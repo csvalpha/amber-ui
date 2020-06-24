@@ -12,6 +12,15 @@ module.exports = function(defaults) {
       extensions: ['js']
     },
 
+    outputPaths: {
+      app: {
+        css: {
+          'light': '/assets/light.css',
+          'dark': '/assets/dark.css'
+        }
+      }
+    },
+
     emberCliDropzonejs: {
       includeDropzoneCss: false
     },
