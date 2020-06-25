@@ -77,7 +77,7 @@
     "ember-promise-helpers": "^1.0",
     "ember-qunit": "^4.6",
     "ember-resolver": "^8.0",
-    "ember-responsive": "^3.0",
+    "ember-responsive": "^4.0.0",
     "ember-router-scroll": "^3.3",
     "ember-simple-auth": "^3.0",
     "ember-sortable": "^2.1",
