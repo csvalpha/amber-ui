@@ -11,10 +11,7 @@
     background: 0;
     color: $opaque-black-two-thirds;
 
-    &.previous {
-      color: $gray-600;
-    }
-
+    &.previous,
     &.next {
       color: $gray-600;
     }
