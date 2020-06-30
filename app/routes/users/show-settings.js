@@ -6,7 +6,7 @@ export default UserShowRouteUnauthenticated.extend({
   afterModel(user, transition) {
     return this.checkAccessWithPromise(this.can.can('edit user', user), transition);
   },
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     const user = this.get('controller.model');
     return [
       {

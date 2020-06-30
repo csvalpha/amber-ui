@@ -9,7 +9,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'poll',
   title: 'Polls',
 
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'polls.new',

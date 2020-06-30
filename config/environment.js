@@ -99,6 +99,7 @@ module.exports = function(environment) {
           'envelope',
           'globe',
           'heading',
+          'hdd',
           'home',
           'image',
           'info-circle',
@@ -126,6 +127,7 @@ module.exports = function(environment) {
           'sort-amount-down',
           'sort-amount-up',
           'strikethrough',
+          'thumbtack',
           'times',
           'trash',
           'upload',
@@ -146,7 +148,7 @@ module.exports = function(environment) {
       }
     },
 
-    locationType: 'router-scroll',
+    locationType: 'auto',
     historySupportMiddleware: true,
     EmberENV: {
       FEATURES: {

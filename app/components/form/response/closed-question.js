@@ -12,7 +12,7 @@ export const ClosedQuestionBaseComponent = Component.extend({
       };
     });
   }),
-  inputIdentifier: computed('question', function() {
+  inputIdentifier: computed('question.id', function() {
     return `question-${this.get('question.id')}`;
   })
 });

@@ -1,7 +1,7 @@
-<MdEditor::MdEditorToolbar @editMode={{mut editMode}} @applyStyleOptionAction={{action "applyStyle"}} @openModalAction={{action "openModal"}} />
+<MdEditor::MdEditorToolbar @editMode={{mut editMode}} @applyStyleOption={{action "applyStyle"}}/>
 
 {{#if editMode}}
-  <Textarea @id={{textareaIdentifier}} @value={{content}} class={{textareaClass}} @rows="15" />
+  <Textarea @id={{textareaId}} @value={{content}} class="form-control md-editor" @rows="15"  />
 {{else}}
   <div class="alert alert-info" role="alert">
     Heb je een foto ingevoegd in dit artikel? Deze worden pas getoond als je het artikel hebt opgeslagen.
@@ -9,9 +9,3 @@
   {{markdown-to-html content extensions='youtubeEmbed bootstrapTable'}}
 {{/if}}
 
-
-<BsModalSimple @open={{modalOpen}} @fade={{true}} @title={{modalOption.name}} @submitTitle="Invoegen" @closeTitle="Sluiten" @onSubmit={{action "applyStyle" modalOption modalInput}} @onHidden={{action (mut modalOpen) false}}>
-
-  {{modalOption.modal.question}}<br>
-  <Input @type="text" class="form-control" @id="md-editor-modal-input" @value={{modalInput}} />
-</BsModalSimple>

@@ -19,6 +19,10 @@ export default Session.extend({
         this.intl.set('locale', 'nl');
         this.localStorage.setItem('locale', 'nl');
         this.fetch.fetch('/users?filter[me]').then(content => {
+          if (content.status !== 200) {
+            return resolve(null);
+          }
+
           content.json().then(json => {
             this.store.pushPayload(json);
             const user = this.store.peekRecord('user', json.data[0].id);

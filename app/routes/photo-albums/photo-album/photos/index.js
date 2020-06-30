@@ -11,11 +11,9 @@ export default IndexRouteUnauthenticated.extend({
     return this.modelFor('photo-albums.photo-album');
   },
 
-  title: computed('controller.model.title', function() {
-    return this.get('controller.model.title');
-  }),
+  title: computed.reads('controller.model.title'),
 
-  pageActions: computed('controller.model.title', function() {
+  pageActions: computed('can', 'controller.model.{photoAlbum,title}', function() {
     return [
       {
         link: 'photo-albums.photo-album.edit',

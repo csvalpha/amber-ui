@@ -6,7 +6,7 @@ export default Component.extend({
   amountOfActivities: 5,
   store: service(),
   session: service(),
-  activities: computed('session.currentUser', function() {
+  activities: computed('amountOfActivities', 'session.currentUser', function() {
     const params = {
       filter: { upcoming: true },
       sort: 'start_time'

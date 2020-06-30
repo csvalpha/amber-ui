@@ -68,9 +68,7 @@ const BoardRoomPresence = Component.extend({
     return 'absent';
   }),
 
-  saveButtonDisabled: computed('currentUserPresence', function() {
-    return this.currentUserPresence === null;
-  }),
+  saveButtonDisabled: computed.equal('currentUserPresence', null),
 
   actions: {
     setPresenceModalState(state) {

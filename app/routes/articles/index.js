@@ -15,7 +15,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
     return this.intl.t('model.article.name.other').toString().capitalize();
   }),
 
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'articles.new',
@@ -24,5 +24,11 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create articles')
       }
     ];
-  })
+  }),
+
+  model(params) {
+    params.paramMapping = this.paramMapping;
+    params.sort = `-pinned,${params.sort}`;
+    return this.findPaged(this.modelName, params);
+  }
 });

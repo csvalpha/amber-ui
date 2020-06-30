@@ -4,27 +4,23 @@
       <img itemprop="image" class="card-img-top" src={{article.coverPhotoUrlOrDefault}}>
       <div class="card-title-bar gradient-overlay">
         <div class="hidden-xs-down">
-          {{#if article.group}}
-            <img src="{{article.group.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{article.group.fullName}}" height="60px" style="display: inline;">
-          {{else}}
-            <img src="{{article.author.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{article.author.fullName}}" height="60px" style="display: inline;">
-          {{/if}}
+          <img src="{{article.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{article.authorName}}" height="60px" style="display: inline;">
         </div>
         <div class="card-titles">
           <LinkTo @route="articles.show" @model={{article}}>
-            <h2 class="card-title" itemprop="name headline">{{article.title}}</h2>
+            <h2 class="card-title" itemprop="name headline">{{#if article.pinned}} {{fa-icon "thumbtack"}} {{/if}} {{article.title}}</h2>
           </LinkTo>
           <h3 class="card-subtitle">
             {{#if article.group}}
               <LinkTo @route="groups.show" @model={{article.group.id}} class="link-to card-subtitle-link">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                  <span itemprop="name">{{article.group.name}}</span>
+                  <span itemprop="name">{{article.authorName}}</span>
                 </span>
               </LinkTo>
             {{else}}
               <LinkTo @route="users.show" @model={{article.author.id}} class="link-to card-subtitle-link">
                 <span itemprop="author" itemscope itemtype="http://schema.org/Person">
-                  <span itemprop="name">{{article.author.fullName}}</span>
+                  <span itemprop="name">{{article.authorName}}</span>
                 </span>
               </LinkTo>
             {{/if}}

@@ -9,7 +9,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
   perPage: 15,
   modelName: 'debit/mandate',
   title: 'Mandaten',
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'debit.mandates.new',

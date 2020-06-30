@@ -22,7 +22,7 @@ export default ShowRouteUnauthenticated.extend({
   modelName: 'photo',
   modelRouteParam: 'photo_id',
 
-  title: computed('controller.model.id', 'controller.model.photos.[]', function() {
+  title: computed('controller.model.id', 'controller.model.photoAlbum.photos', 'controller.model.photos.[]', function() {
     const photo = this.get('controller.model');
     const allAlbumPhotos = this.get('controller.model.photoAlbum.photos');
     const photoAlbumPhotosLength = allAlbumPhotos.get('length');
@@ -31,7 +31,7 @@ export default ShowRouteUnauthenticated.extend({
     return `Foto ${currentPhotoIndex} van ${photoAlbumPhotosLength}`;
   }),
 
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'photo-albums.photo-album.photos.destroy',

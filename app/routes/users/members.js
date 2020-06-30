@@ -7,7 +7,7 @@ export default IndexRoute.extend({
   },
   modelName: 'user',
   title: 'Leden',
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'users.new',

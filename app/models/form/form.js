@@ -25,7 +25,7 @@ export default Model.extend({
   currentUserCanRespond: computed('canRespond', 'currentUserResponseCompleted', function() {
     return !this.currentUserResponseCompleted && this.canRespond;
   }),
-  canRespond: computed('respondFrom', 'respondTo', function() {
+  canRespond: computed('respondFrom', 'respondTo', 'respondUntil', function() {
     const now = moment();
     const respondFrom = moment(this.respondFrom);
     const respondUntil = moment(this.respondUntil);
