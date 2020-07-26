@@ -18,6 +18,14 @@ let videos = [
   {
     videoId: 'Z0IIwxAKt6A',
     title: 'Over C.S.V. Alpha #3 Christine vertelt over commissies'
+  },
+  {
+    videoId: 't6CLJOz5ouQ',
+    title: 'Over C.S.V. Alpha #4 Laurens vertelt over vorming'
+  },
+  {
+    videoId: 'swBhINBV_RM',
+    title: 'Over C.S.V. Alpha #5 David vertelt over onze Sociëteit Flux'
   }
 ];
 
