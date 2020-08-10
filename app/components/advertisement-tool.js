@@ -15,7 +15,7 @@ export default Component.extend({
   advertisementItems: [
     {
       title: 'Knaek',
-      alt: 'Knaek studentenkorting in Enschede',
+      alt: 'Onbeperkt geld besparen met de studentenkortingsapp op meer dan 1.000 locaties en online',
       link: 'https://www.knaek.nl/studentenkorting/Enschede',
       image: 'advertisements/knaek.png'
     },

@@ -1,6 +1,6 @@
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
-import { computed } from '@ember/object';
 
 let videos = [
   {
@@ -18,18 +18,27 @@ let videos = [
   {
     videoId: 'Z0IIwxAKt6A',
     title: 'Over C.S.V. Alpha #3 Christine vertelt over commissies'
+  },
+  {
+    videoId: 't6CLJOz5ouQ',
+    title: 'Over C.S.V. Alpha #4 Laurens vertelt over vorming'
+  },
+  {
+    videoId: 'swBhINBV_RM',
+    title: 'Over C.S.V. Alpha #5 David vertelt over onze Sociëteit Flux'
   }
 ];
 
-export default Component.extend({
-  store: service(),
-  mainVideo: videos[0],
-  sideVideos: computed('mainVideo.videoId', 'videos', function() {
+export default class YoutubeVideos extends Component {
+  @service store;
+  mainVideo = videos[0];
+
+  get sideVideos() {
     return videos.filter(video => video.videoId !== this.mainVideo.videoId);
-  }),
-  actions: {
-    changeVideo(video) {
-      this.set('mainVideo', video);
-    }
   }
-});
+
+  @action
+  changeVideo(video) {
+    this.set('mainVideo', video);
+  }
+}
