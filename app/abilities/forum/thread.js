@@ -18,7 +18,7 @@ export default Ability.extend({
     return this.session.hasPermission('forum/thread.destroy');
   }),
   canCreatePost: computed('session.currentUser', 'model.isOpen', function() {
-    return (this.model.isOpen || this.session.hasPermission('forum/thread.update'))
+    return (this.model.get('isOpen') || this.session.hasPermission('forum/thread.update'))
       && this.session.hasPermission('forum/post.create');
   }),
   canQuotePost: alias('canCreatePost')
