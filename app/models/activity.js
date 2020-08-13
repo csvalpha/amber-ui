@@ -4,17 +4,17 @@ import { CoverPhotoFallback } from 'alpha-amber/constants';
 
 export default class Activity extends Model {
   // Attributes
-  @attr('string') title;
-  @attr('string') description;
-  @attr('string') descriptionCamofied;
-  @attr('number') price;
-  @attr('string') location;
-  @attr('date') startTime;
-  @attr('date') endTime;
+  @attr title;
+  @attr description;
+  @attr descriptionCamofied;
+  @attr('double') price;
+  @attr location;
+  @attr startTime;
+  @attr endTime;
   @attr('capitalized-string') category;
-  @attr('date') createdAt;
-  @attr('date') updatedAt;
-  @attr('boolean', { defaultValue: false }) publiclyVisible;
+  @attr createdAt;
+  @attr updatedAt;
+  @attr({ defaultValue: false }) publiclyVisible;
   @attr coverPhoto;
   @attr coverPhotoUrl;
 
@@ -24,6 +24,10 @@ export default class Activity extends Model {
   @belongsTo('form/form') form;
 
   // Getters
+  get formattedPrice() {
+    return parseFloat(this.price).toFixed(2);
+  }
+
   get endsOnSameDate() {
     return moment(this.startTime).isSame(this.endTime, 'day');
   }
