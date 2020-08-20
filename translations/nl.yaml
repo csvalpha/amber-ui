@@ -187,6 +187,8 @@ component:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
     youtube: Bekijk ons op YouTube
+  userComment:
+    anonymous: Anonieme gebruiker
 mixin:
   menuItems:
     recent: Actueel

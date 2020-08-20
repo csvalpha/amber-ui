@@ -4,9 +4,13 @@
   </LinkTo>
   <div class="comment-content">
     <div class="d-flex">
-      <LinkTo @route="users.show" @model={{comment.author.id}}>
-        <strong>{{comment.author.fullName}}</strong>
-      </LinkTo>
+      {{#if (can 'show users')}}
+        <LinkTo @route="users.show" @model={{comment.author.id}}>
+          <strong>{{comment.author.fullName}}</strong>
+        </LinkTo>
+      {{else}}
+        <strong>{{t 'component.userComment.anonymous'}}</strong>
+      {{/if}}
 
       {{#if (can 'destroy article-comments')}}
         <LinkTo @route="article-comments.destroy" @model={{comment.id}}>
