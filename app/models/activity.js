@@ -7,7 +7,7 @@ export default class Activity extends Model {
   @attr title;
   @attr description;
   @attr descriptionCamofied;
-  @attr('double') price;
+  @attr('number') price;
   @attr location;
   @attr startTime;
   @attr endTime;
