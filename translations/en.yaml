@@ -95,11 +95,11 @@ component:
     public:
       aboutFlux:
         title: Our Pub
-        info: Alpha is a Christian student association. Our great ambiance will make
-          you feel at home in no time. With over a hundred members we are often named
-          THE Christian student association of Enschede.  We love to have good conversation
-          while enjoying a few beers in our own pub 'Flux' in the Pakkerij on the Oude
-          Markt. Feel welcome to come by anytime!
+        info: The Pakkerij is located on the Oude Markt. This impressive white building
+          houses four student associations. Located on the top floor is 'Flux', the
+          pub of C.S.V. Alpha.  Every Thursday-night drinks will take place here, but
+          Flux is also used for Sing-Ins, theme-nights and sometimes will be hired by
+          others.
         more: Go to the Flux website »
       actionButtons:
         room: Are you looking for a room in Enschede? Or are you looking for a place
@@ -111,11 +111,11 @@ component:
         memberButton: I am interested!
       aboutAlpha:
         slogan: For those who believe in a student time!
-        info: The Pakkerij is located on the Oude Markt. This impressive white building
-          houses four student associations. Located on the top floor is 'Flux', the
-          pub of C.S.V. Alpha.  Every Thursday-night drinks will take place here, but
-          Flux is also used for Sing-Ins, theme-nights and sometimes will be hired by
-          others.
+        info: Alpha is a Christian student association. Our great ambiance will make
+          you feel at home in no time. With over a hundred members we are often named
+          THE Christian student association of Enschede.  We love to have good conversation
+          while enjoying a few beers in our own pub 'Flux' in the Pakkerij on the Oude
+          Markt. Feel welcome to come by anytime!
         button: Read more about the association
         studiegids: View on Studiegids
       activities:
