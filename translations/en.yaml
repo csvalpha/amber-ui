@@ -185,6 +185,8 @@ component:
       present: Present
       busy: Busy
       absent: Absent
+  userComment:
+    anonymous: Anonymous user
 mixin:
   menuItems:
     recent: Recent
