@@ -187,6 +187,8 @@ component:
       present: Aanwezig
       busy: Bezig
       absent: Afwezig
+  userComment:
+    anonymous: Anonieme gebruiker
 mixin:
   menuItems:
     recent: Actueel
