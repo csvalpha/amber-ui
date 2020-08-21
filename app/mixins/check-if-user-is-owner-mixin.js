@@ -6,8 +6,6 @@ export default Mixin.create({
       return true;
     }
 
-    return user.get('memberships').then(() => {
-      return user.get('currentMemberships').some(membership => membership.get('group.id') === this.get('group.id'));
-    });
+    return user.get('currentMemberships').some(membership => membership.get('group.id') === this.get('group.id'));
   }
 });
