@@ -68,8 +68,6 @@ template:
         of course very nice to show how active Alpha is, but keep this in mind when
         posting a comment.
       commentHint: Type your comment here
-  index:
-    public: {}
   login:
     authcode: Authentication code
     authcodeHint: Open the authentication app on your phone and enter the six-figure
@@ -96,88 +94,90 @@ component:
   footerNav:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
   index:
-    about:
-      title: Our Pub
-      info: Alpha is a Christian student association. Our great ambiance will make
-        you feel at home in no time. With over a hundred members we are often named
-        THE Christian student association of Enschede.  We love to have good conversation
-        while enjoying a few beers in our own pub 'Flux' in the Pakkerij on the Oude
-        Markt. Feel welcome to come by anytime!
-      more: Go to the Flux website »
-    actionButtons:
-      room: Are you looking for a room in Enschede? Or are you looking for a place
-        to stay during the Kick-In? Leave your contact info and we will try to help
-        you find a place to stay!
-      roomButton: I am looking for a room!
-      member: Do you want to become a member of Alpha? Leave your email address with
-        us at one of our activities and we will contact you.
-      memberButton: I am interested!
-    activities:
-      slogan: For those who believe in a student time!
-      info: The Pakkerij is located on the Oude Markt. This impressive white building
-        houses four student associations. Located on the top floor is 'Flux', the
-        pub of C.S.V. Alpha.  Every Thursday-night drinks will take place here, but
-        Flux is also used for Sing-Ins, theme-nights and sometimes will be hired by
-        others.
-      button: Read more about the association
-      studiegids: View on Studiegids
-      title: Upcoming activities
-    photos:
-      more: View more photos »
-    recentNews:
-      title: Recent news
-      more: More recent news »
-    stories:
-      title: Stories of members
-      of: Story of {name}
-      laurens1: 'Heyhey! I am Laurens. In my first year as student, I joined Alpha.
-        During the Kick-In I came in touch with the association. In the beginning,
-        I doubted whether I wanted to join a student association, but I wanted to
-        make new (Christian) friends in my new surroundings. I never regretted this
-        decision. In my first year, I made many new contacts and enjoyed the activities.
-        From studying, doing sports and drinking some beers with each other, to epic
-        weekends in and out of the country. '
-      laurens2: Results after the first year? New friendships, deep and good conversations
-        about religion and I have gained many new experiences in committees. After
-        half a year I started living in an Alpha house. Living together with Christian
-        students is really cool and fulfilling. As a house we also organise epic activities
-        and everyone is always welcome! In short, are you looking for a fun time,
-        friendship and a challenge in your religious life, then Alpha is something
-        for you!
-      luuk1: 'Hey, I am Luuk. When I came to Enschede I did not join a student association
-        immediately, because I didn’t think it would be something for me. After studying
-        for a year a friend of me brought me along to a drink of Alpha. I had such
-        a great evening there, that I seriously started thinking about joining an
-        association. After a few introduction activities, I knew it for sure, I was
-        joining Alpha. '
-      luuk2: Up until this day I definitely have not regretted my decision. At Alpha
-        I made friends, participated in committees and started thinking about religion
-        more in-depth. From serious conversations to fun drinks and every now and
-        then a nice party, that is exactly the combination that I like about Alpha.
-        Are you interested? Drop by sometime!
-      susan: 'Hi hi, my name is Susan. When I came to Enschede two years ago I never
-        planned on joining a student association. Nevertheless, some of my housemates
-        dragged me to Alpha and I was sold immediately. Due to the large diversity
-        of the association, there is always something new to experience. Sometimes
-        that is an awesome committee and another time that is a good long conversation
-        in the pub. Also regarding religion there is something for everyone, with
-        very diverse bible study groups, which you can choose, you can decide what
-        you want to study for that year. This way, I believe, that Alpha gives you
-        a lot of space to grow and discover in your religion. I have to thank Alpha
-        regarding a lot of my personal development, and I would make the decision
-        to join again in a split second. Does it seem like fun? Drop by sometime and
-        taste the atmosphere for yourself! '
-      afke1: Heyhey! Even before moving to Enschede, I had already heard great stories
-        about Alpha. During the introduction period, I joined a lot of activities
-        and got to know Alpha even better and I decided to become a member. Meanwhile,
-        a year has past and I still enjoy it a lot!
-      afke2: What really speaks to me is that everyone is always welcome in the association.
-        There are members from different churches and also those without religion,
-        but everyone hangs out with everyone and everyone has fun with each other.
-        I, myself, am not religious, but I definitely feel me at home within Alpha.
-        The good conversations, the friendships and epic drinks and parties in our
-        pub make sure that Alpha is a great completion of my time as a student in
-        Enschede!
+    public:
+      aboutFlux:
+        title: Our Pub
+        info: The Pakkerij is located on the Oude Markt. This impressive white building
+          houses four student associations. Located on the top floor is 'Flux', the
+          pub of C.S.V. Alpha.  Every Thursday-night drinks will take place here, but
+          Flux is also used for Sing-Ins, theme-nights and sometimes will be hired by
+          others.
+        more: Go to the Flux website »
+      actionButtons:
+        room: Are you looking for a room in Enschede? Or are you looking for a place
+          to stay during the Kick-In? Leave your contact info and we will try to help
+          you find a place to stay!
+        roomButton: I am looking for a room!
+        member: Do you want to become a member of Alpha? Leave your email address with
+          us at one of our activities and we will contact you.
+        memberButton: I am interested!
+      aboutAlpha:
+        slogan: For those who believe in a student time!
+        info: Alpha is a Christian student association. Our great ambiance will make
+          you feel at home in no time. With over a hundred members we are often named
+          THE Christian student association of Enschede.  We love to have good conversation
+          while enjoying a few beers in our own pub 'Flux' in the Pakkerij on the Oude
+          Markt. Feel welcome to come by anytime!
+        button: Read more about the association
+        studiegids: View on Studiegids
+      activities:
+        title: Upcoming activities
+      photos:
+        more: View more photos »
+      articles:
+        title: Recent news
+        more: More recent news »
+      memberStories:
+        title: Stories of members
+        of: Story of {name}
+        laurens1: 'Heyhey! I am Laurens. In my first year as student, I joined Alpha.
+          During the Kick-In I came in touch with the association. In the beginning,
+          I doubted whether I wanted to join a student association, but I wanted to
+          make new (Christian) friends in my new surroundings. I never regretted this
+          decision. In my first year, I made many new contacts and enjoyed the activities.
+          From studying, doing sports and drinking some beers with each other, to epic
+          weekends in and out of the country. '
+        laurens2: Results after the first year? New friendships, deep and good conversations
+          about religion and I have gained many new experiences in committees. After
+          half a year I started living in an Alpha house. Living together with Christian
+          students is really cool and fulfilling. As a house we also organise epic activities
+          and everyone is always welcome! In short, are you looking for a fun time,
+          friendship and a challenge in your religious life, then Alpha is something
+          for you!
+        luuk1: 'Hey, I am Luuk. When I came to Enschede I did not join a student association
+          immediately, because I didn’t think it would be something for me. After studying
+          for a year a friend of me brought me along to a drink of Alpha. I had such
+          a great evening there, that I seriously started thinking about joining an
+          association. After a few introduction activities, I knew it for sure, I was
+          joining Alpha. '
+        luuk2: Up until this day I definitely have not regretted my decision. At Alpha
+          I made friends, participated in committees and started thinking about religion
+          more in-depth. From serious conversations to fun drinks and every now and
+          then a nice party, that is exactly the combination that I like about Alpha.
+          Are you interested? Drop by sometime!
+        susan: 'Hi hi, my name is Susan. When I came to Enschede two years ago I never
+          planned on joining a student association. Nevertheless, some of my housemates
+          dragged me to Alpha and I was sold immediately. Due to the large diversity
+          of the association, there is always something new to experience. Sometimes
+          that is an awesome committee and another time that is a good long conversation
+          in the pub. Also regarding religion there is something for everyone, with
+          very diverse bible study groups, which you can choose, you can decide what
+          you want to study for that year. This way, I believe, that Alpha gives you
+          a lot of space to grow and discover in your religion. I have to thank Alpha
+          regarding a lot of my personal development, and I would make the decision
+          to join again in a split second. Does it seem like fun? Drop by sometime and
+          taste the atmosphere for yourself! '
+        afke1: Heyhey! Even before moving to Enschede, I had already heard great stories
+          about Alpha. During the introduction period, I joined a lot of activities
+          and got to know Alpha even better and I decided to become a member. Meanwhile,
+          a year has past and I still enjoy it a lot!
+        afke2: What really speaks to me is that everyone is always welcome in the association.
+          There are members from different churches and also those without religion,
+          but everyone hangs out with everyone and everyone has fun with each other.
+          I, myself, am not religious, but I definitely feel me at home within Alpha.
+          The good conversations, the friendships and epic drinks and parties in our
+          pub make sure that Alpha is a great completion of my time as a student in
+          Enschede!
   lustrum:
     lustrumBar:
       signUp: Sign up!

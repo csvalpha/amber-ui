@@ -14,7 +14,7 @@
 
 <div class="article-cards-wrapper full-width-small-screens pl-3 pl-md-0">
   <div class="row pb-3 horizontal-scroll-container">
-    {{#each pagedModel as |article|}}
+    {{#each @articles as |article|}}
       {{cards/frontpage-article-card article class="col-10 col-sm-8 col-lg-4"}}
     {{/each}}
   </div>

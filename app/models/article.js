@@ -10,6 +10,7 @@ export default class Article extends Model {
   @attr('date') createdAt;
   @attr('date') updatedAt;
   @attr('boolean', { defaultValue: false }) publiclyVisible;
+  @attr('boolean', { defaultValue: false }) pinned;
   @attr('number') amountOfComments;
   @attr coverPhoto;
   @attr coverPhotoUrl;

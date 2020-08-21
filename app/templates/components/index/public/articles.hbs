@@ -1,7 +1,7 @@
 <div class="index-recent-news">
-  <h1> {{t 'component.index.recentNews.title'}} </h1>
+  <h1> {{t 'component.index.public.articles.title'}} </h1>
   <div class="row">
-    {{#each articles as |article index|}}
+    {{#each @articles as |article index|}}
       {{#if (lt index 3)}}
         <div class="article-col col-lg-4 col-md-6 {{if (eq index 2) 'hidden-md-down'}}">
           {{cards/article-card article showExcerpt=true useMaxHeight=true}}
@@ -10,6 +10,6 @@
     {{/each}}
   </div>
   <LinkTo @route="articles">
-    <button class="btn frontpage-button float-right" type="button"> {{t 'component.index.recentNews.more'}} </button>
+    <button class="btn frontpage-button float-right" type="button"> {{t 'component.index.public.articles.more'}} </button>
   </LinkTo>
 </div>

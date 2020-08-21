@@ -6,6 +6,9 @@ export default EditController.extend({
   session: service('session'),
   can: service(),
   successTransitionTarget: 'articles.show',
+  canPin: computed('session.currentUser', function() {
+    return this.session.hasPermission('article.update');
+  }),
   groupOptions: computed('session.currentUser.groups', function() {
     const optionArray = [
       {
