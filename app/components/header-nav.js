@@ -15,12 +15,6 @@ export default Component.extend({
   unAuthenticatedMenuOptions: computed('intl.locale', function() {
     return [
       {
-        link: 'lustrum',
-        title: this.intl.t('mixin.menuItems.lustrum'),
-        icon: '',
-        canAccess: this.can.can('show lustrum')
-      },
-      {
         link: 'articles',
         title: this.intl.t('mixin.menuItems.articles'),
         icon: '',

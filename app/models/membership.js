@@ -1,19 +1,23 @@
-import Model, { belongsTo, attr } from '@ember-data/model';
 import { alias } from '@ember/object/computed';
-import { computed } from '@ember/object';
+import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  startDate: attr('date'),
-  endDate: attr('date'),
-  function: attr('string'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+export default class Membership extends Model {
+  // Attributes
+  @attr startDate;
+  @attr endDate;
+  @attr  function;
+  @attr  createdAt;
+  @attr  updatedAt;
 
-  user: belongsTo('user'),
-  group: belongsTo('group'),
+  // Relationships
+  @belongsTo user;
 
-  administrative: alias('group.administrative'),
-  userIsCurrentlyMember: computed('startDate', 'endDate', function() {
+  @belongsTo group;
+
+  // Getters
+  @alias('group.administrative') administrative;
+
+  get userIsCurrentlyMember() {
     return (this.startDate < moment.now() && (!this.endDate || this.endDate > moment.now()));
-  })
-});
+  }
+}
