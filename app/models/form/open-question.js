@@ -1,22 +1,21 @@
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
-import { computed } from '@ember/object';
 
-export default Model.extend({
-  question: attr('string'),
-  fieldType: attr('string'),
-  position: attr('number'),
-  required: attr('boolean'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
-
-  isOpenQuestion: true,
+export default class OpenQuestion extends Model {
+  @attr question;
+  @attr fieldType;
+  @attr position;
+  @attr required;
+  @attr createdAt;
+  @attr updatedAt;
 
   // Relations
-  form: belongsTo('form/form'),
-  answers: hasMany('form/open-question-answer'),
+  @belongsTo('form/form') form;
+  @hasMany('form/open-question-answer') answers;
 
-  // Computed properties
-  sumOfAnswers: computed('answers.@each.{answer,completed}', 'fieldType', function() {
+  // Getters
+  isOpenQuestion = true;
+
+  get sumOfAnswers() {
     if (this.fieldType === 'number') {
       const answers = this.answers.filterBy('completed', true);
       return answers.mapBy('answer').reduce((a, b) => {
@@ -25,5 +24,5 @@ export default Model.extend({
     }
 
     return null;
-  })
-});
+  }
+}
