@@ -1,7 +1,7 @@
 import Model, { attr } from '@ember-data/model';
 
-export default Model.extend({
-  reference: attr('string'),
-  content: attr('string'),
-  copyright: attr('string')
-});
+export default class DailyVerse extends Model {
+  @attr reference;
+  @attr content;
+  @attr copyright;
+}

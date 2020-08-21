@@ -1,112 +1,128 @@
-import Model, { hasMany, attr } from '@ember-data/model';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
+import Model, { hasMany, attr } from '@ember-data/model';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
-import AvatarModelMixin from 'alpha-amber/mixins/avatar-model-mixin';
+import { AvatarThumbFallback, AvatarFallback } from 'alpha-amber/constants';
 
-export default Model.extend(AvatarModelMixin, {
-  session: service(),
+export default class User extends Model {
+  @service session;
 
-  // Properties
-  username: attr('string'),
-  email: attr('string'),
-  loginEnabled: attr('boolean'),
-  firstName: attr('string'),
-  lastNamePrefix: attr('string'),
-  lastName: attr('string'),
-  birthday: attr('date'),
-  address: attr('string'),
-  postcode: attr('string'),
-  city: attr('string'),
-  phoneNumber: attr('string'),
-  foodPreferences: attr('string'),
-  vegetarian: attr('boolean'),
-  study: attr('string'),
-  startStudy: attr('date'),
-  emergencyContact: attr('string'),
-  emergencyNumber: attr('string'),
-  almanakSubscriptionPreference: attr('string'),
-  digtusSubscriptionPreference: attr('string'),
+  // General properties
+  @attr firstName;
+  @attr lastNamePrefix;
+  @attr lastName;
+  @attr birthday;
+  @attr address;
+  @attr postcode;
+  @attr city;
+  @attr phoneNumber;
+  @attr email;
+  @attr username;
+  @attr study;
+
+  // Preferences / settings
+  @attr foodPreferences;
+  @attr vegetarian;
+  @attr startStudy;
+  @attr emergencyContact;
+  @attr emergencyNumber;
+  @attr almanakSubscriptionPreference;
+  @attr digtusSubscriptionPreference;
 
   // Privacy settings
-  picturePublicationPreference: attr('string'),
-  ifesDataSharingPreference: attr('boolean'),
-  allowTomatoSharing: attr('boolean', { allowNull: true }),
-  infoInAlmanak: attr('boolean'),
-  userDetailsSharingPreference: attr('string'),
+  @attr picturePublicationPreference;
 
+  @attr ifesDataSharingPreference;
+  @attr({ allowNull: true }) allowTomatoSharing;
+  @attr infoInAlmanak;
+  @attr userDetailsSharingPreference;
   // Security properties
-  otpRequired: attr('boolean'),
-  icalSecretKey: attr('string'),
-  webdavSecretKey: attr('string'),
-  password: attr('string'),
+  @attr otpRequired;
+  @attr icalSecretKey;
+  @attr webdavSecretKey;
+  @attr password;
 
-  activatedAt: attr('date'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+  // Technical properties
+  @attr loginEnabled;
+  @attr activatedAt;
+  @attr createdAt;
+  @attr updatedAt;
+
+  // Avatar
+  @attr avatar;
+  @attr avatarUrl;
+  @attr avatarThumbUrl;
 
   // Relations
-  permissions: hasMany('permission'),
-  userPermissions: hasMany('permission'),
-  memberships: hasMany('membership'),
-  groups: hasMany('group'),
-  mandates: hasMany('debit/mandate'),
-  mailAliases: hasMany('mail-alias'),
-  groupMailAliases: hasMany('mail-alias'),
+  @hasMany permissions;
+  @hasMany('permissions') userPermissions;
+  @hasMany memberships;
+  @hasMany groups;
+  @hasMany('debit/mandate') mandates;
+  @hasMany mailAliases;
+  @hasMany('mail-alias') groupMailAliases;
 
   // Computed properties
-  fullName: computed('firstName', 'lastNamePrefix', 'lastName', function() {
+  get fullName() {
     if (this.lastNamePrefix === null) {
       return `${this.firstName} ${this.lastName}`;
     }
 
     return `${this.firstName} ${this.lastNamePrefix} ${this.lastName}`;
-  }),
+  }
 
-  age: computed('birthday', function() {
+  get age() {
     return moment().diff(this.birthday, 'years');
-  }),
+  }
 
-  upcomingBirthdayAge: computed('age', function() {
+  get upcomingBirthdayAge() {
     return this.age + 1;
-  }),
+  }
 
-  upcomingBirthdayDate: computed('birthday', 'upcomingBirthdayAge', function() {
+  get upcomingBirthdayDate() {
     return moment(this.birthday).add(this.upcomingBirthdayAge, 'years').toDate();
-  }),
+  }
 
-  hasBirthdayToday: computed('birthday', function() {
+  get hasBirthdayToday() {
     const birthdayDate = moment(this.birthday);
 
     const monthIsTheSame = moment().month() === birthdayDate.month();
     const dayOfMonthIsTheSame = moment().date() === birthdayDate.date();
 
     return monthIsTheSame && dayOfMonthIsTheSame;
-  }),
+  }
 
   hasPermission(name) {
     return this.permissions.findBy('name', name) !== undefined;
-  },
+  }
 
-  isCurrentUser: computed('session.currentUser.id', 'id', function() {
+  get isCurrentUser() {
     return this.session.currentUser.id === this.id;
-  }),
+  }
 
-  currentMemberships: computed('memberships', 'memberships.@each.endDate', 'memberships.@each.startDate', function() {
+  get currentMemberships() {
     return this.memberships.filter(membership => membership.get('userIsCurrentlyMember'));
-  }),
+  }
 
+  get avatarUrlOrDefault() {
+    return this.avatarUrl || AvatarFallback;
+  }
+
+  get avatarThumbUrlOrDefault() {
+    return this.avatarThumbUrl || AvatarThumbFallback;
+  }
+
+  // Methods
   setNullIfEmptyString(property) {
     const value = this.get(property);
     if (value !== undefined && value !== null && isEmpty(value.trim())) {
       this.set(property, null);
     }
-  },
+  }
 
   save(...args) {
     this.setNullIfEmptyString('lastNamePrefix');
     this.setNullIfEmptyString('foodPreferences');
-    return this._super(...args);
+    return super.save(...args);
   }
-});
+}
