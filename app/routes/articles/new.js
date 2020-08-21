@@ -9,7 +9,7 @@ export default NewRoute.extend({
   title: 'Artikel aanmaken',
   model() {
     const newArticle = this.store.createRecord(this.modelName);
-    newArticle.set('author', this.get('session.currentUser'));
+    newArticle.set('author', this.session.currentUser);
     return newArticle;
   }
 });

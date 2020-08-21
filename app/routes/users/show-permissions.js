@@ -6,7 +6,7 @@ export default UserShowRouteUnauthenticated.extend({
     return this.can.can('show permissions-users');
   },
   pageActions: computed('can', 'controller.model', function() {
-    const user = this.get('controller.model');
+    const user = this.controller.model;
     return [
       {
         link: 'users.edit-permissions',

@@ -9,7 +9,7 @@ export default Controller.extend({
   content: null,
   showExif: false,
   advanceToPhoto(delta) {
-    const photos = this.get('model.photoAlbum.photos');
+    const photos = this.model.photoAlbum.get('photos');
     const length = photos.get('length');
     const index = (photos.indexOf(this.model) + delta + length) % length;
     return this.transitionToRoute('photo-albums.photo-album.photos.show', photos.objectAt(index));

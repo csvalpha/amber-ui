@@ -5,7 +5,7 @@ export default Controller.extend({
   groupedTransactions: computed('model.transactions.length', 'model.transactions.@each.user', function() {
     const transactions = [];
 
-    this.get('model.transactions').forEach(transaction => {
+    this.model.transactions.forEach(transaction => {
       let transactionsGroupedByUser = transactions.findBy('userId', transaction.get('user.id'));
 
       if (!transactionsGroupedByUser) {

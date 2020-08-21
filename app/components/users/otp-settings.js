@@ -10,7 +10,7 @@ export default Component.extend({
       this.set('otpErrorMessage', null);
       this.set('otpVerificationImage', null);
 
-      const userId = this.get('model.id');
+      const userId = this.model.id;
       const response = await this.fetch.patch(`/users/${userId}`, {
         /* eslint-disable camelcase */
         body: {
@@ -37,8 +37,7 @@ export default Component.extend({
       this.set('otpErrorMessage', null);
       this.set('otpKey', null);
 
-      const userId = this.get('model.id');
-      const response = await this.fetch.post(`/users/${userId}/generate_otp_secret`);
+      const response = await this.fetch.post(`/users/${this.model.id}/generate_otp_secret`);
       let json = await response.json();
 
       if (response.ok) {
@@ -50,8 +49,7 @@ export default Component.extend({
     async confirmOTP() {
       this.set('otpErrorMessage', null);
 
-      const userId = this.get('model.id');
-      const response = await this.fetch.post(`/users/${userId}/activate_otp`, {
+      const response = await this.fetch.post(`/users/${this.model.id}/activate_otp`, {
         /* eslint-disable camelcase */
         body: {
           one_time_password: this.verificationCode

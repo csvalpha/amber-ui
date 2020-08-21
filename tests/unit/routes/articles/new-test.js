@@ -7,6 +7,6 @@ module('Unit | Route | articles/new', function(hooks) {
   test('it has a correct modelName', function(assert) {
     const route = this.owner.lookup('route:articles/new');
 
-    assert.equal('article', route.get('modelName'));
+    assert.equal('article', route.modelName);
   });
 });

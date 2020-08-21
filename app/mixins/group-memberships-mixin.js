@@ -78,7 +78,7 @@ export default Mixin.create({
   actions: {
     selectFirstItem() {
       if (this.filteredModels.length > 0) {
-        this.transitionToRoute('users.show', this.get('filteredModels.firstObject.user.id'));
+        this.transitionToRoute('users.show', this.filteredModels.firstObject.user.id);
       }
     },
     showOldMemberships() {

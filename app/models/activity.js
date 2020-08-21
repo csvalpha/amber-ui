@@ -66,10 +66,10 @@ export default class Activity extends Model {
   }
 
   isOwner(user) {
-    if (user.id === this.get('author.id')) {
+    if (user.id === this.author.id) {
       return true;
     }
-
+    
     return user.get('currentMemberships').some(membership => membership.get('group.id') === this.get('group.id'));
   }
 
