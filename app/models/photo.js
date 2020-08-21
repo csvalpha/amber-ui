@@ -1,37 +1,36 @@
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
-import { computed } from '@ember/object';
 
 const exif = [
   'Make', 'Model', 'DateTimeOriginal', 'ExposureTime', 'ApertureValue',
   'IsoSpeedRatings', 'Copyright', 'LensModel', 'FocalLength'
 ];
 
-export default Model.extend({
+export default class Photo extends Model {
   // Properties
-  imageUrl: attr('string'),
-  imageThumbUrl: attr('string'),
-  imageMediumUrl: attr('string'),
-  amountOfComments: attr('number'),
-  updatedAt: attr('date'),
-  createdAt: attr('date'),
+  @attr imageUrl;
+  @attr imageThumbUrl;
+  @attr imageMediumUrl;
+  @attr amountOfComments;
+  @attr updatedAt;
+  @attr  createdAt;
 
-  exifMake: attr('string'),
-  exifModel: attr('string'),
-  exifDateTimeOriginal: attr('date'),
-  exifExposureTime: attr('string'),
-  exifApertureValue: attr('string'),
-  exifIsoSpeedRatings: attr('string'),
-  exifCopyright: attr('string'),
-  exifLensModel: attr('string'),
-  exifFocalLength: attr('string'),
+  @attr exifMake;
+  @attr exifModel;
+  @attr exifDateTimeOriginal;
+  @attr exifExposureTime;
+  @attr exifApertureValue;
+  @attr exifIsoSpeedRatings;
+  @attr exifCopyright;
+  @attr exifLensModel;
+  @attr exifFocalLength;
 
   // Relations
-  photoAlbum: belongsTo('photoAlbum'),
-  comments: hasMany('photoComment'),
-  uploader: belongsTo('user'),
+  @belongsTo photoAlbum;
+  @belongsTo uploader;
+  @hasMany comments;
 
-  // Computed
-  hasExif: computed('exifMake', 'exifModel', function() {
+  // Getters
+  get hasExif() {
     return exif.filter((field) => this.get(`exif${field}`) !== null).length > 0;
-  })
-});
+  }
+}
