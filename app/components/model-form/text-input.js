@@ -24,7 +24,7 @@ export default Component.extend({
   inputIdentifier: computed('model.constructor.modelName', 'property', function() {
     // See http://stackoverflow.com/questions/34864580/ember-data-model-getmodelname-is-undefined-but-model-internalmodel-works
     // On why model.constructor.modelName is used instead of model.modelName
-    return `${this.get('model.constructor.modelName')}-form-${this.property}`;
+    return `${this.model.constructor.modelName}-form-${this.property}`;
   }),
   placeholder: alias('label')
 });

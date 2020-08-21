@@ -25,12 +25,12 @@ export default Ability.extend({
     return this.session.hasPermission('activity.update') || this.isActivityOwner(this.model);
   }),
   canMailEnrolledMembers: computed('model.form', 'session.currentUser', function() {
-    const form = this.get('model.form');
+    const { form } = this.model;
     return !isNone(form) && form.get('hasResponses') && this.isActivityOwner(this.model);
   }),
   canPrintEnrolledMembers: alias('canMailEnrolledMembers'),
   isActivityOwner(activity) {
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && activity.isOwner(currentUser);
   }
 });

@@ -19,7 +19,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   title: computed.reads('controller.model.name'),
   parents: ['groups.index'],
   pageActions: computed('can', 'controller.model', function() {
-    const group = this.get('controller.model');
+    const group = this.controller.model;
     return [
       {
         link: 'groups.edit',

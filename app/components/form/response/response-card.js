@@ -16,7 +16,7 @@ const FormResponseCardComponent = Component.extend({
         this.flashNotice.sendSuccess('Inschrijving opgeslagen');
       }).catch(error => {
         this.set('errorMessage', error.message);
-        if (error.payload.errors && error.payload.errors.isAny('source.pointer', '/data/attributes/user')) {
+        if (error.payload?.errors && error.payload.errors.isAny('source.pointer', '/data/attributes/user')) {
           this.set('errorMessage', 'Er is al een response gevonden, probeer eerst te refreshen, zie je dit formulier dan nog? Neem dan contact op met de ict-commissie.');
         }
       });

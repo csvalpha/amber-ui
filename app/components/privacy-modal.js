@@ -50,7 +50,7 @@ export default Component.extend({
   },
   init() {
     this._super(...arguments);
-    if (this.get('model.userDetailsSharingPreference') === null || this.get('model.allowTomatoSharing') === null) {
+    if (this.model?.userDetailsSharingPreference === null || this.model?.allowTomatoSharing === null) {
       this.set('isOpen', true);
     } else {
       this.set('isOpen', false);

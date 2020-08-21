@@ -16,10 +16,10 @@ export default class PhotoAlbum extends Model {
   }
 
   get albumThumbUrl() {
-    return this.get('photos.firstObject.imageThumbUrl') || '/images/fallback/photo_album_thumb_default.png';
+    return this.photos.firstObject.imageThumbUrl || '/images/fallback/photo_album_thumb_default.png';
   }
 
   get albumMediumUrl() {
-    return this.get('photos.firstObject.imageMediumUrl') || '/images/fallback/photo_album_thumb_default.png';
+    return this.photos.firstObject.imageMediumUrl || '/images/fallback/photo_album_thumb_default.png';
   }
 }

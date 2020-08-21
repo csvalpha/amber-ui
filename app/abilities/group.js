@@ -22,7 +22,7 @@ export default Ability.extend({
     return this.session.hasPermission('group.update');
   }),
   isGroupMember(group) {
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && group.get('memberships').filterBy('userIsCurrentlyMember').mapBy('user.id').includes(currentUser.get('id'));
   }
 });

@@ -6,7 +6,7 @@ import { isNone } from '@ember/utils';
 export default Mixin.create({
   page: computed('model.page', {
     get() {
-      return this.get('model.page');
+      return this.model?.page;
     },
     set(key, value) {
       // The first time this is called, content is null resulting in an error

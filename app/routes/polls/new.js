@@ -9,7 +9,7 @@ export default NewRoute.extend({
   title: 'Poll aanmaken',
   model() {
     const newPoll = this.store.createRecord(this.modelName);
-    newPoll.set('author', this.get('session.currentUser'));
+    newPoll.set('author', this.session.currentUser);
     const newForm = this.store.createRecord('form/form');
     const newQuestion = this.store.createRecord('form/closed-question');
     newQuestion.set('form', newForm);
@@ -20,7 +20,7 @@ export default NewRoute.extend({
     return newPoll;
   },
   deactivate() {
-    const currentPoll = this.get('controller.model');
+    const currentPoll = this.controller.model;
     currentPoll.rollbackAttributesAndForm();
   }
 });

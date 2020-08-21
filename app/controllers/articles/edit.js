@@ -9,14 +9,14 @@ export default EditController.extend({
   canPin: computed('session.currentUser', function() {
     return this.session.hasPermission('article.update');
   }),
-  groupOptions: computed('session.currentUser.groups', function() {
+  groupOptions: computed('session.currentUser.{group,groups}', function() {
     const optionArray = [
       {
         label: '',
         value: null
       }
     ];
-    const groups = this.get('session.currentUser.groups');
+    const groups = this.session.currentUser.group;
     groups.forEach((group) => {
       optionArray.push({
         label: group,
@@ -30,7 +30,7 @@ export default EditController.extend({
       return this.store.findAll('group');
     }
 
-    return this.get('session.currentUser').get('groups');
+    return this.session.currentUser.get('groups');
   }),
   actions: {
     coverPhotoLoaded(file) {

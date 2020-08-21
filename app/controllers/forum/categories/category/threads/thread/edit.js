@@ -5,7 +5,7 @@ export default EditController.extend({
   successTransitionTarget: 'forum.categories.category.threads.thread',
   actions: {
     submit() {
-      this.send('saveModel', this.get('model.thread'));
+      this.send('saveModel', this.model.thread);
     }
   }
 });

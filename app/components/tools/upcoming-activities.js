@@ -12,7 +12,7 @@ export default Component.extend({
       sort: 'start_time'
     };
 
-    if (this.get('session.currentUser')) {
+    if (this.session.currentUser) {
       params.page = { size: this.amountOfActivities };
     }
 
