@@ -180,6 +180,11 @@ component:
     facebook: Like us on Facebook
     instagram: Follow us on Instagram
     youtube: Watch us on YouTube
+  tools:
+    boardRoomPresence:
+      present: Present
+      busy: Busy
+      absent: Absent
 mixin:
   menuItems:
     recent: Recent

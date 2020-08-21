@@ -182,6 +182,11 @@ component:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
     youtube: Bekijk ons op YouTube
+  tools:
+    boardRoomPresence:
+      present: Aanwezig
+      busy: Bezig
+      absent: Afwezig
 mixin:
   menuItems:
     recent: Actueel
