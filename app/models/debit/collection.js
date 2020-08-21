@@ -1,12 +1,13 @@
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 
-export default Model.extend({
-  name: attr('string'),
-  date: attr('date'),
-  importFile: attr('raw'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+export default class Collection extends Model {
+  @attr name;
+  @attr date;
+  @attr importFile;
+  @attr createdAt;
+  @attr updatedAt;
 
-  transactions: hasMany('debit/transaction'),
-  author: belongsTo('user')
-});
+  // Relationships
+  @hasMany('debit/transaction') transactions;
+  @belongsTo('user') author;
+}

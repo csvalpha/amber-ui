@@ -1,8 +1,10 @@
 {
   "name": "alpha-amber",
   "version": "1.0.0",
-  "description": "Website for C.S.V. Alpha",
   "private": true,
+  "description": "Website for C.S.V. Alpha",
+  "repository": "",
+  "license": "MIT",
   "author": "",
   "directories": {
     "doc": "doc",
@@ -10,31 +12,23 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
+    "jsfix": "eslint 'app/**/*.js' --fix",
+    "lint": "eslint 'app/**/*.js' && stylelint 'app/**/*.scss'",
     "lint:hbs": "ember-template-lint .",
     "start": "ember serve",
     "stylefix": "stylelint 'app/**/*.scss' --fix",
-    "jsfix": "eslint 'app/**/*.js' --fix",
-    "lint": "eslint 'app/**/*.js' && stylelint 'app/**/*.scss'",
     "test": "ember test"
   },
-  "repository": "",
-  "engines": {
-    "node": "10.* || >= 12"
-  },
-  "ember": {
-    "edition": "octane"
-  },
-  "license": "MIT",
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.10.1",
-    "@ember/optional-features": "^1.3",
+    "@ember/optional-features": "^1.3.0",
     "@fortawesome/ember-fontawesome": "^0.2",
     "@fortawesome/fontawesome-free": "^5.12",
     "@fortawesome/free-brands-svg-icons": "^5.12",
     "@fortawesome/free-regular-svg-icons": "^5.12",
     "@fortawesome/free-solid-svg-icons": "^5.12",
-    "@glimmer/component": "^1.0",
-    "@glimmer/tracking": "^1.0",
+    "@glimmer/component": "^1.0.0",
+    "@glimmer/tracking": "^1.0.0",
     "babel-eslint": "^10.0",
     "bootstrap": "^4.4",
     "broccoli-asset-rev": "^3.0",
@@ -104,5 +98,11 @@
     "stylelint-config-standard": "^20.0",
     "stylelint-order": "^4.0",
     "stylelint-scss": "^3.13"
+  },
+  "engines": {
+    "node": "10.* || >= 12"
+  },
+  "ember": {
+    "edition": "octane"
   }
 }
