@@ -7,7 +7,7 @@ export default Service.extend({
   localStorage: inject(),
   leftSideBarOpen: computed('media.isMobile', 'session.isAuthenticated', {
     get() {
-      return (!this.get('media.isMobile') && this.get('session.isAuthenticated'));
+      return (!this.media.isMobile && this.session.isAuthenticated);
     },
     set(key, value) {
       return value;
@@ -15,7 +15,7 @@ export default Service.extend({
   }),
   leftSideBarExpanded: computed('media.isMobile', 'localStorage', {
     get() {
-      if (this.get('media.isMobile')) {
+      if (this.media.isMobile) {
         return true;
       }
 
@@ -59,7 +59,7 @@ export default Service.extend({
     this.set('leftSideBarExpanded', false);
   },
   closeLeftSidebarIfOnMobile() {
-    if (this.get('media.isMobile')) {
+    if (this.media.isMobile) {
       this.closeLeftSidebar();
     }
   }

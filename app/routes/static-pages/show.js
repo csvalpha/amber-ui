@@ -14,14 +14,14 @@ export default ShowRouteUnauthenticated.extend({
         link: 'static-pages.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('edit static-pages')
       },
       {
         link: 'static-pages.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('destroy static-pages')
       }
     ];

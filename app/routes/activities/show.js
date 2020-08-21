@@ -13,7 +13,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
   parents: ['activities.index'],
 
   pageActions: computed('can', 'controller.model.activity', function() {
-    const activity = this.get('controller.model.activity');
+    const { activity } = this.controller.model;
     return [
       {
         link: 'activities.edit',
@@ -68,9 +68,6 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
   },
 
   deactivate() {
-    const response = this.get('controller.model.currentUserResponse');
-    if (response) {
-      response.rollbackAttributesAndAnswers();
-    }
+    this.controller.model.currentUserResponse?.rollbackAttributesAndAnswers();
   }
 });

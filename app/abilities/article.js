@@ -16,7 +16,7 @@ export default Ability.extend({
     return this.session.hasPermission('article.update');
   }),
   canShowArticleComments: computed('model.publiclyVisible', 'session.currentUser', function() {
-    return this.session.hasPermission('article-comment.read') || this.get('model.publiclyVisible');
+    return this.session.hasPermission('article-comment.read') || this.model.publiclyVisible;
   }),
   canEdit: computed('session.currentUser', 'model', function() {
     return this.session.hasPermission('article.update') || this.isArticleOwner(this.model);
@@ -24,7 +24,7 @@ export default Ability.extend({
   isArticleOwner(article) {
     // This can be reached while not logged in: when a user visits a public article, this method is called to
     // determine whether to show the edit button
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && article.isOwner(currentUser);
   }
 });

@@ -8,7 +8,7 @@ export default NewRoute.extend({
   title: 'Groep aanmaken',
   parents: ['groups.index'],
   deactivate() {
-    const group = this.get('controller.model');
+    const group = this.controller.model;
     group.rollbackAttributesAndMemberships();
   }
 });

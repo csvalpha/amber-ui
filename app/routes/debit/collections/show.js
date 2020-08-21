@@ -13,7 +13,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   title: alias('controller.model.collection.name'),
   parents: ['debit.collection.index'],
   pageActions: computed('can', 'controller.model.collection', function() {
-    const collection = this.get('controller.model.collection');
+    const { collection } = this.controller.model;
     return [
       {
         link: 'debit.collections.edit',

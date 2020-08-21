@@ -7,8 +7,7 @@ export default Controller.extend({
   actions: {
     async resendActivation() {
       this.set('errorMessage', null);
-      const userId = this.get('model.id');
-      const response = await this.fetch.post(`/users/${userId}/resend_activation_mail`);
+      const response = await this.fetch.post(`/users/${this.model.id}/resend_activation_mail`);
 
       if (response.ok) {
         this.transitionToRoute('users.show', this.model);
