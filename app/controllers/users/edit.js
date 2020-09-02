@@ -21,7 +21,7 @@ export default EditController.extend({
     return Object.entries(AlmanakSubscriptionPreferenceTypes).map(([value, label]) => ({ value, label }));
   }),
   isOwnUser: computed('session.currentUser', 'model', function() {
-    return this.model === this.get('session.currentUser');
+    return this.model === this.session.currentUser;
   }),
   actions: {
     fileLoaded(file) {

@@ -74,12 +74,12 @@ export default class Activity extends Model {
   }
 
   isOwner(user) {
-    if (user.id === this.get('author.id')) {
+    if (user.id === this.author.get('id')) {
       return true;
     }
 
     return user.get('memberships').then(() => {
-      return user.get('currentMemberships').some(membership => membership.get('group.id') === this.get('group.id'));
+      return user.get('currentMemberships').some(membership => membership.group.id === this.group.id);
     });
   }
 

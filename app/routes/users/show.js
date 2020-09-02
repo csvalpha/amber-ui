@@ -10,7 +10,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
   title: computed.reads('controller.model.fullName'),
   parents: ['users.index'],
   pageActions: computed('can', 'controller.model', function() {
-    const user = this.get('controller.model');
+    const user = this.controller.model;
     return [
       {
         link: 'users.edit',
@@ -24,7 +24,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: user,
-        canAccess: this.can.can('destroy users')
+        canAccess: this.can.can('destroy user', user)
       },
       {
         link: 'users.resend_activation',
@@ -36,7 +36,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
     ];
   }),
   tabItems: computed('can', 'controller.model', function() {
-    const user = this.get('controller.model');
+    const user = this.controller.model;
     return [
       {
         link: 'users.show',

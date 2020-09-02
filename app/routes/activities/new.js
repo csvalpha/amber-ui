@@ -8,7 +8,6 @@ export default NewRoute.extend({
   title: 'Activiteit aanmaken',
   parents: ['activities.index'],
   deactivate() {
-    const currentActivity = this.get('controller.model');
-    currentActivity.rollbackAttributesAndForm();
+    this.controller.model.rollbackAttributesAndForm();
   }
 });

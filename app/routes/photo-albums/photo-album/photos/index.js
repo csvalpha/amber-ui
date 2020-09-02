@@ -19,14 +19,14 @@ export default IndexRouteUnauthenticated.extend({
         link: 'photo-albums.photo-album.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.get('controller.model.photoAlbum'),
+        linkArgument: this.controller.model.photoAlbum,
         canAccess: this.can.can('edit photo-albums')
       },
       {
         link: 'photo-albums.photo-album.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.get('controller.model.photoAlbum'),
+        linkArgument: this.controller.model.photoAlbum,
         canAccess: this.can.can('destroy photo-albums')
       }
     ];

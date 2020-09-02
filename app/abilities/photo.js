@@ -8,6 +8,6 @@ export default Ability.extend({
     return this.session.hasPermission('photo.destroy');
   }),
   canShowPhotoComments: computed('model.photoAlbum.publiclyVisible', 'session.currentUser', function() {
-    return this.session.hasPermission('photo-comment.read') || this.get('model.photoAlbum.publiclyVisible');
+    return this.session.hasPermission('photo-comment.read') || this.model.photoAlbum.publiclyVisible;
   })
 });

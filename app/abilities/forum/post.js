@@ -12,7 +12,7 @@ export default Ability.extend({
     return this.session.hasPermission('forum/post.destroy');
   }),
   canEdit: computed('session.currentUser', 'model.author.id', 'model.thread.closedAt', function() {
-    if (this.isThreadClosed(this.get('model.thread'))) {
+    if (this.isThreadClosed(this.model.thread)) {
       // Permission to both update post and thread
       return this.session.hasPermission('forum/post.update') && this.session.hasPermission('forum/thread.update');
     }
@@ -24,7 +24,7 @@ export default Ability.extend({
     return moment().isAfter(thread.get('closedAt'));
   },
   isPostOwner(post) {
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && (post.get('author.id') === currentUser.get('id'));
   }
 });

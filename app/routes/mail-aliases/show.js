@@ -10,7 +10,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   title: computed.reads('controller.model.email'),
   parents: ['mail-aliases.index'],
   pageActions: computed('can', 'controller.model', function() {
-    const mailAlias = this.get('controller.model');
+    const mailAlias = this.controller.model;
     return [
       {
         link: 'mail-aliases.edit',

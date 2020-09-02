@@ -38,9 +38,7 @@ module.exports = {
     'ember-suave/require-access-in-comments': 0,
     'ember/no-jquery': 1,
     'ember/no-mixins': 1,
-    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }],
-    // Temp disable new
-    'ember/no-get': 0
+    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
   },
   globals: {
     'moment': true

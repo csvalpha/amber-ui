@@ -9,13 +9,11 @@ export default Controller.extend({
   newContent: '',
   queryParams: ['page', 'perPage'],
 
-  count: computed('model.posts', function() {
-    return this.get('model.posts').length;
-  }),
+  count: computed.reads('model.posts.length'),
 
   page: computed('model.posts.page', {
     get() {
-      return this.get('model.posts.page');
+      return this.model?.posts.page;
     },
     set(key, value) {
       // The first time this is called, content is null resulting in an error
