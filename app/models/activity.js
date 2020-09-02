@@ -48,6 +48,14 @@ export default class Activity extends Model {
     return prettyStartDateTime;
   }
 
+  get isFullDayButNotMidnight() {
+    const startTime = moment(this.startTime);
+    const endTime = moment(this.endTime);
+    const days = endTime.diff(startTime, 'days');
+    const midnight = startTime.hour() === 0 || startTime.minute() === 0 || endTime.hour() === 0 || endTime.minute() === 0;
+    return days >= 1 && !midnight;
+  }
+
   get coverPhotoUrlOrDefault() {
     return this.coverPhotoUrl || CoverPhotoFallback;
   }
