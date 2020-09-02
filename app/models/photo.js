@@ -26,8 +26,8 @@ export default class Photo extends Model {
 
   // Relations
   @belongsTo photoAlbum;
-  @belongsTo uploader;
-  @hasMany comments;
+  @belongsTo('user') uploader;
+  @hasMany('photoComment') comments;
 
   // Getters
   get hasExif() {

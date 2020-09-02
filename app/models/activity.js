@@ -66,7 +66,7 @@ export default class Activity extends Model {
   }
 
   isOwner(user) {
-    if (user.id === this.author.id) {
+    if (user.id === this.author.get('id')) {
       return true;
     }
 
