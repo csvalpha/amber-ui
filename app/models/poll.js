@@ -24,15 +24,15 @@ export default class Poll extends Model {
   }
 
   get closesLater() {
-    return moment().isBefore(this.form.respondUntil);
+    return moment().isBefore(this.form.get('respondUntil'));
   }
 
   get opensLater() {
-    return moment().isBofre(this.form.respondFrom);
+    return moment().isBefore(this.form.get('respondFrom'));
   }
 
   get closedWithNoResponses() {
-    return moment().isAfter(this.form.respondUntil) && this.form.amountOfResponses === 0;
+    return moment().isAfter(this.form.get('respondUntil')) && this.form.get('amountOfResponses') === 0;
 
   }
 

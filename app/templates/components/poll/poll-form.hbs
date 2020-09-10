@@ -13,11 +13,7 @@
 
     {{#each @model.sortedQuestions as |question|}}
       {{#unless question.isDeleted}}
-        {{poll/closed-question question
-                               onAddOption=(action 'addOption')
-                               onDeleteOption=(action 'deleteOption')
-                               onMoveOptionUp=(action 'moveOptionUp')
-                               onMoveOptionDown=(action 'moveOptionDown')}}
+        {{poll/closed-question question}}
       {{/unless}}
     {{/each}}
   </div>
