@@ -107,8 +107,10 @@ component:
           you find a place to stay!
         roomButton: I am looking for a room!
         member: Do you want to become a member of Alpha? Leave your email address with
-          us at one of our activities and we will contact you.
+          us at one of our activities and we will contact you. Or become a member immediately
+          by signing up online!
         memberButton: I am interested!
+        memberNowButton: I want to be a member!
       aboutAlpha:
         slogan: For those who believe in a student time!
         info: Alpha is a Christian student association. Our great ambiance will make

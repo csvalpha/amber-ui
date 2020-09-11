@@ -106,8 +106,10 @@ component:
           Laat hier je gegevens achter en wij proberen jou te helpen in jouw zoektocht!
         roomButton: Ik zoek een kamer!
         member: Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier
-          je mail achter en we nemen contact met je op!
+          je mail achter en we nemen contact met je op! Of wordt nu lid door je online
+          in te schrijven!
         memberButton: Ik heb interesse!
+        memberNowButton: Ik wordt lid!
       aboutAlpha:
         slogan: Voor wie gelooft in een studententijd!
         info: Alpha is een christelijke studentenvereniging. Onze open sfeer zorgt ervoor

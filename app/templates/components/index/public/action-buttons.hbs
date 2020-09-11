@@ -4,6 +4,9 @@
     <a class="btn btn-lg frontpage-button" href="https://forms.gle/R4WYzbWameD6wN817" target="_blank">
       {{t 'component.index.public.actionButtons.memberButton'}}
     </a>
+    <LinkTo @route="static-pages.show" @model="word-lid" class="btn btn-lg frontpage-button mt-3">
+      {{t 'component.index.public.actionButtons.memberNowButton'}}
+    </LinkTo>
   </div>
   <div class="info-holder col-lg-4 col-md-6 col-sm">
     <p class="text-left"> {{t 'component.index.public.actionButtons.room'}} </p>
