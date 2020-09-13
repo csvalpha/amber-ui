@@ -7,9 +7,8 @@ export default Controller.extend({
   errorMessage: null,
   actions: {
     async submit() {
-      const id = this.get('model.id');
       this.set('errorMessage', null);
-      const response = await this.fetch.post(`/stored_mails/${id}/accept`);
+      const response = await this.fetch.post(`/stored_mails/${this.model.id}/accept`);
 
       if (response.ok) {
         this.model.unloadRecord();

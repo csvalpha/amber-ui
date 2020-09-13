@@ -7,10 +7,9 @@ export default Controller.extend({
   errorMessage: null,
   actions: {
     async submit() {
-      const id = this.get('model.id');
       this.set('errorMessage', null);
       if (this.message && this.message.trim().length > 0) {
-        const response = await this.fetch.post(`/activities/${id}/mail_enrolled`, {
+        const response = await this.fetch.post(`/activities/${this.model.id}/mail_enrolled`, {
           body: {
             data: {
               attributes: {
@@ -22,7 +21,7 @@ export default Controller.extend({
 
         if (response.ok) {
           this.set('message', null);
-          this.transitionToRoute('activities.show', this.get('model.id'));
+          this.transitionToRoute('activities.show', this.model.id);
         } else if (isInvalidResponse(response)) {
           const json = await response.json();
           this.set('errorMessage', json.errors ? json.errors[0].detail : response);

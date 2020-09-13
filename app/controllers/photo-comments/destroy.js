@@ -4,7 +4,7 @@ export default DestroyController.extend({
   successMessage: 'Fotoreactie verwijderd!',
   actions: {
     destroy() {
-      this.set('photoAlbum', this.get('model.photo.photoAlbum'));
+      this.set('photoAlbum', this.model.photo.photoAlbum);
       this._super(...arguments);
     },
     onSuccess() {

@@ -9,6 +9,6 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   },
   modelName: 'user',
   title: computed('controller.model.fullName', function() {
-    return `Activatiecode hersturen van ${this.get('controller.model.fullName')}`;
+    return `Activatiecode hersturen van ${this.controller.model.fullName}`;
   })
 });

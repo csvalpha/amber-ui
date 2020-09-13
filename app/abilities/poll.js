@@ -18,7 +18,7 @@ export default Ability.extend({
     return this.session.hasPermission('poll.update') || this.isPollOwner(this.model);
   }),
   isPollOwner(poll) {
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && poll.isOwner(currentUser);
   }
 });

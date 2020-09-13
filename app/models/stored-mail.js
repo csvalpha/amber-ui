@@ -1,14 +1,14 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
+export default class StoredMail extends Model {
   // Properties
-  messageUrl: attr('string'),
-  receivedAt: attr('date'),
-  subject: attr('string'),
-  plainBody: attr('string'),
-  sender: attr('string'),
-  attachments: attr('raw'),
+  @attr messageUrl;
+  @attr receivedAt;
+  @attr subject;
+  @attr plainBody;
+  @attr  sender;
+  @attr  attachments;
 
   // Relations
-  mailAlias: belongsTo('mail-alias')
-});
+  @belongsTo mailAlias;
+}
