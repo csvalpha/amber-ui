@@ -3,8 +3,8 @@ import { isNone } from '@ember/utils';
 
 export default class Poll extends Model {
   // Properties
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relations
   @belongsTo('user') author;

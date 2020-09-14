@@ -3,8 +3,8 @@ import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 export default class ClosedQuestionOption extends Model {
   @attr option;
   @attr position;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relations
   @belongsTo('form/closed-question') question;

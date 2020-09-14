@@ -3,7 +3,7 @@ import Model, { belongsTo, attr } from '@ember-data/model';
 export default class StoredMail extends Model {
   // Properties
   @attr messageUrl;
-  @attr receivedAt;
+  @attr('date') receivedAt;
   @attr subject;
   @attr plainBody;
   @attr  sender;

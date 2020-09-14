@@ -44,9 +44,9 @@ export default class User extends Model {
 
   // Technical properties
   @attr loginEnabled;
-  @attr activatedAt;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') activatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Avatar
   @attr avatar;
