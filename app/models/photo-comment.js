@@ -3,8 +3,8 @@ import Model, { belongsTo, attr } from '@ember-data/model';
 export default class PhotoComment extends Model {
   // Properties
   @attr content;
-  @attr updatedAt;
-  @attr createdAt;
+  @attr('date') updatedAt;
+  @attr('date') createdAt;
 
   // Relations
   @belongsTo('user') author;

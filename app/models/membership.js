@@ -3,11 +3,11 @@ import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class Membership extends Model {
   // Attributes
-  @attr startDate;
-  @attr endDate;
-  @attr  function;
-  @attr  createdAt;
-  @attr  updatedAt;
+  @attr('date') startDate;
+  @attr('date') endDate;
+  @attr function;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relationships
   @belongsTo user;

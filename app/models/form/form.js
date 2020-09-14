@@ -8,8 +8,8 @@ export default class Form extends Model {
   @attr amountOfResponses;
   @attr currentUserResponseCompleted;
   @attr currentUserResponseId;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relations
   @hasMany('form/open-question') openQuestions;

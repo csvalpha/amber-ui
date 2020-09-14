@@ -6,7 +6,7 @@ export default class MailAlias extends Model {
   @attr moderationType;
   @attr description;
   @attr({ defaultValue: false }) smtpEnabled;
-  @attr lastReceivedAt;
+  @attr('date') lastReceivedAt;
 
   // Relations
   @belongsTo({ inverse: 'mailAliases' }) user;

@@ -4,8 +4,8 @@ export default class Post extends Model {
   // Properties
   @attr message;
   @attr messageCamofied;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relations
   @belongsTo('user') author;
