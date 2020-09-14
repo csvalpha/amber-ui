@@ -5,8 +5,8 @@ export default class OpenQuestion extends Model {
   @attr fieldType;
   @attr position;
   @attr required;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relations
   @belongsTo('form/form') form;

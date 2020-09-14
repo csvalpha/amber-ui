@@ -6,9 +6,9 @@ export default class Group extends Model {
   @attr kind;
   @attr description;
   @attr descriptionCamofied;
-  @attr recognizedAtGma;
-  @attr rejectedAtGma;
-  @attr createdAt;
+  @attr('date') recognizedAtGma;
+  @attr('date') rejectedAtGma;
+  @attr('date') createdAt;
   @attr({ defaultValue: false }) administrative;
   @attr avatar;
   @attr avatarUrl;
@@ -18,7 +18,7 @@ export default class Group extends Model {
   @hasMany memberships;
   @hasMany permissions;
   @hasMany({ inverse: 'group' }) mailAliases;
-  @hasMany({ inverse: 'moderatorGroup' }) moderatorForMailAliases;
+  @hasMany('mail-alias', { inverse: 'moderatorGroup' }) moderatorForMailAliases;
 
   // Getters
   get recognitionPeriod() {

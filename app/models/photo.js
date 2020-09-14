@@ -11,12 +11,12 @@ export default class Photo extends Model {
   @attr imageThumbUrl;
   @attr imageMediumUrl;
   @attr amountOfComments;
-  @attr updatedAt;
-  @attr  createdAt;
+  @attr('date') updatedAt;
+  @attr('date') createdAt;
 
   @attr exifMake;
   @attr exifModel;
-  @attr exifDateTimeOriginal;
+  @attr('date') exifDateTimeOriginal;
   @attr exifExposureTime;
   @attr exifApertureValue;
   @attr exifIsoSpeedRatings;

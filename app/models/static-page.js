@@ -6,7 +6,7 @@ export default class StaticPage extends Model {
   @attr content;
   @attr contentCamofied;
   @attr slug;
-  @attr createdAt;
+  @attr('date') createdAt;
   @attr({ defaultValue: false })  publiclyVisible;
   @attr category;
 }

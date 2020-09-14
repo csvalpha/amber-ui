@@ -12,8 +12,8 @@ export default class Activity extends Model {
   @attr startTime;
   @attr endTime;
   @attr('capitalized-string') category;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
   @attr({ defaultValue: false }) publiclyVisible;
   @attr coverPhoto;
   @attr coverPhotoUrl;

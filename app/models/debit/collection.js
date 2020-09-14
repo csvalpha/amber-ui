@@ -4,8 +4,8 @@ export default class Collection extends Model {
   @attr name;
   @attr date;
   @attr importFile;
-  @attr createdAt;
-  @attr updatedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relationships
   @hasMany('debit/transaction') transactions;
