@@ -11,6 +11,4 @@ export default class ClosedQuestionAnswer extends Model {
 
   // Computed properties
   @alias('option.question') question;
-
-  @alias('response.completed') completed;
 }
