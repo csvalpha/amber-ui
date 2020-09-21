@@ -2,7 +2,7 @@ import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class Transaction extends Model {
   @attr description;
-  @attr amount;
+  @attr('number') amount;
   @attr('date') createdAt;
   @attr('date') updatedAt;
 
