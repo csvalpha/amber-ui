@@ -12,6 +12,6 @@ module('Unit | Route | polls/show', function(hooks) {
   test('it has a correct modelName', function(assert) {
     const route = this.owner.lookup('route:polls/show');
 
-    assert.equal('poll', route.get('modelName'));
+    assert.equal('poll', route.modelName);
   });
 });

@@ -38,14 +38,14 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         link: 'forum.categories.category.threads.thread.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.get('controller.model.thread'),
+        linkArgument: this.controller.model.thread,
         canAccess: this.can.can('edit forum/threads')
       },
       {
         link: 'forum.categories.category.threads.thread.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.get('controller.model.thread'),
+        linkArgument: this.controller.model.thread,
         canAccess: this.can.can('destroy forum/threads')
       }
     ];

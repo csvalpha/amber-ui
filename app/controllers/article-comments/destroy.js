@@ -4,7 +4,7 @@ export default DestroyController.extend({
   successMessage: 'Artikelreactie verwijderd!',
   actions: {
     destroy() {
-      this.set('article', this.get('model.article'));
+      this.set('article', this.model.article);
       this._super(...arguments);
     },
     onSuccess() {

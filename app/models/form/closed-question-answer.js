@@ -1,15 +1,16 @@
-import Model, { belongsTo, attr } from '@ember-data/model';
 import { alias } from '@ember/object/computed';
+import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+export default class ClosedQuestionAnswer extends Model {
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
   // Relations
-  option: belongsTo('form/closed-question-option'),
-  response: belongsTo('form/response'),
+  @belongsTo('form/closed-question-option') option;
+  @belongsTo('form/response') response;
 
   // Computed properties
-  question: alias('option.question'),
-  completed: alias('response.completed')
-});
+  @alias('option.question') question;
+
+  @alias('response.completed') completed;
+}

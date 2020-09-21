@@ -18,6 +18,14 @@
       <ModelForm::TextInput @model={{model}} @property="price" @label="Prijs" @required={{true}} @type="number" @step="0.01" @disabled={{@model.form.hasResponses}} />
       <ModelForm::DatetimeInput @model={{model}} @property="startTime" @label="Begintijd" @required={{true}} />
       <ModelForm::DatetimeInput @model={{model}} @property="endTime" @label="Eindtijd" @required={{true}} />
+
+      {{#if @model.isFullDayButNotMidnight}}
+        <div class="alert alert-warning">
+          De activiteit is langer dan 24 uur. In Apple Calendar worden alle dagen afgeblokt waarop de activiteit plaatsvind, in tegenstelling tot Google Calendar, waar de activiteit een balk bovenin wordt.
+          Om in Apple Calendar ook een balk bovenin te krijgen moet je de activiteit laten beginnen en eindigen om middernacht (00:00).
+        </div>
+      {{/if}}
+
       <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if @model.publiclyVisible}}

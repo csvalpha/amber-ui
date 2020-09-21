@@ -14,14 +14,7 @@ export default NewRoute.extend({
     return { category, thread, post };
   },
   deactivate() {
-    const thread = this.get('controller.model.thread');
-    const post = this.get('controller.model.post');
-    if (thread) {
-      thread.rollbackAttributes();
-    }
-
-    if (post) {
-      post.rollbackAttributes();
-    }
+    this.controller.model.thread?.rollbackAttributes();
+    this.controller.model.post?.rollbackAttributes();
   }
 });

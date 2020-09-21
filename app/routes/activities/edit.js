@@ -13,7 +13,6 @@ export default EditRoute.extend({
     return this._super(params).then(activity => activity.get('form').then(() => activity));
   },
   deactivate() {
-    const currentActivity = this.get('controller.model');
-    currentActivity.rollbackAttributesAndForm();
+    this.controller.model.rollbackAttributesAndForm();
   }
 });

@@ -1,36 +1,33 @@
-import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 import { sort } from '@ember/object/computed';
-import { computed } from '@ember/object';
+import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 
-export default Model.extend({
+export default class Thread extends Model {
   // Properties
-  title: attr('string'),
-  read: attr('boolean'),
-  closedAt: attr('date'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+  @attr title;
+  @attr read;
+  @attr('date') closedAt;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
+  @attr amountOfPosts;
 
   // Relations
-  posts: hasMany('forum/post'),
-  amountOfPosts: attr('number'),
-  author: belongsTo('user'),
-  category: belongsTo('forum/category'),
+  @belongsTo('user') author;
+  @belongsTo('forum/category') category;
+  @hasMany('forum/post') posts;
 
   // Computed properties
-  sortedPosts: sort('posts', 'sortDefinition'),
-  sortDefinition: ['createdAt:asc'],
-  isOpen: computed('closedAt', {
-    get() {
-      return this.closedAt === null;
-    },
-    set(_key, value) {
-      if (value) {
-        this.set('closedAt', null);
-      } else {
-        this.set('closedAt', new Date());
-      }
+  sortDefinition = ['createdAt:asc'];
+  @sort('posts', 'sortDefinition') sortedPosts;
 
-      return value;
+  get isOpen() {
+    return this.closedAt === null;
+  }
+
+  set isOpen(value) {
+    if (value) {
+      this.set('closedAt', null);
+    } else {
+      this.set('closedAt', new Date());
     }
-  })
-});
+  }
+}

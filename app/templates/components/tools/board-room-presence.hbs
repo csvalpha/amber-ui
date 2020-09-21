@@ -13,7 +13,7 @@
             </LinkTo>
           </div>
           <span class="presence-label label-{{presence.status}}">
-            {{presence.label}} van {{moment-format presence.startTime 'HH:mm'}} tot {{moment-format presence.endTime 'HH:mm'}}
+            {{t (concat 'component.tools.boardRoomPresence.' presence.status) }} van {{moment-format presence.startTime 'HH:mm'}} tot {{moment-format presence.endTime 'HH:mm'}}
           </span>
         </div>
       {{else}}
@@ -47,7 +47,7 @@
           {{#each sortedPresences as |presence|}}
             <tr>
               <td> {{presence.user.fullName}} </td>
-              <td> {{presence.label }} </td>
+              <td> {{t (concat 'component.tools.boardRoomPresence.' presence.status) }} </td>
               <td> {{moment-format presence.endTime "HH:mm"}} </td>
               <td>
                 {{#if (can 'destroy board-room-presences')}}

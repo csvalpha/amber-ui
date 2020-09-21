@@ -31,7 +31,7 @@ export default Controller.extend(FilterableAndSortableMixin, {
         return 'zoekresultaten';
       }
 
-      return this.get('groupKinds.firstObject');
+      return this.groupKinds.firstObject;
     },
     set(key, value) {
       return value;

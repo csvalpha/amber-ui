@@ -1,12 +1,12 @@
 import Model, { attr } from '@ember-data/model';
 
-export default Model.extend({
+export default class StaticPage extends Model {
   // Properties
-  title: attr('string'),
-  content: attr('string'),
-  contentCamofied: attr('string'),
-  slug: attr('string'),
-  createdAt: attr('date'),
-  publiclyVisible: attr('boolean', { defaultValue: false }),
-  category: attr('string')
-});
+  @attr title;
+  @attr content;
+  @attr contentCamofied;
+  @attr slug;
+  @attr('date') createdAt;
+  @attr({ defaultValue: false })  publiclyVisible;
+  @attr category;
+}

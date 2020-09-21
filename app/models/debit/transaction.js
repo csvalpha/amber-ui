@@ -1,11 +1,12 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  description: attr('string'),
-  amount: attr('number'),
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
+export default class Transaction extends Model {
+  @attr description;
+  @attr amount;
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
 
-  user: belongsTo('user'),
-  collection: belongsTo('debit/collection')
-});
+  // Relationships
+  @belongsTo user;
+  @belongsTo('debit/collection')  collection;
+}
