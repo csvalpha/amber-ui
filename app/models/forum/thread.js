@@ -4,6 +4,7 @@ import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 export default class Thread extends Model {
   // Properties
   @attr title;
+  @attr read;
   @attr('date') closedAt;
   @attr('date') createdAt;
   @attr('date') updatedAt;
