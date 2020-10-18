@@ -2,16 +2,16 @@
   {{#if notification.isEnabled}}
     {{#if notification.isSoundEnabled}}
       <button {{action "disable"}} class="btn btn-default" type="button">
-        {{fa-icon 'volume-up'}}
+        <FaIcon @icon='volume-up'/>
       </button>
     {{else}}
       <button {{action "soundOn"}} class="btn btn-default" type="button">
-        {{fa-icon 'bell'}}
+        <FaIcon @icon='bell'/>
       </button>
     {{/if}}
   {{else}}
     <button {{action "activate"}} class="btn btn-default" type="button">
-      {{fa-icon 'bell-slash'}}
+      <FaIcon @icon='bell-slash'/>
     </button>
   {{/if}}
 {{/if}}

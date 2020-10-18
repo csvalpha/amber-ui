@@ -2,7 +2,7 @@
 
 {{#unless question.form.hasResponses }}
   <div class="float-md-right mb-3">
-    {{fa-icon 'times' click=(action "deleteQuestion")}}
+    <FaIcon @icon='times' @click={{action "deleteQuestion"}}/>
   </div>
 {{/unless}}
 
@@ -29,11 +29,11 @@
     <div class="col-md-7 col-sm-12">
       <div class="float-md-right">
         <button type="button" class="btn btn-default" {{action "moveQuestionUp"}}>
-          {{fa-icon 'arrow-up'}} Omhoog
+          <FaIcon @icon='arrow-up'/> Omhoog
         </button>
 
         <button type="button" class="btn btn-default" {{action "moveQuestionDown"}}>
-          {{fa-icon 'arrow-down'}} Omlaag
+          <FaIcon @icon='arrow-down'/> Omlaag
         </button>
       </div>
     </div>
@@ -60,13 +60,13 @@
         {{#unless question.form.hasResponses }}
           <div class="input-group-append">
             <button type="button" class="btn btn-default" {{action "moveOptionUp" opt}}>
-              {{fa-icon 'arrow-up'}}
+              <FaIcon @icon='arrow-up'/>
             </button>
             <button type="button" class="btn btn-default" {{action "moveOptionDown" opt}}>
-              {{fa-icon 'arrow-down'}}
+              <FaIcon @icon='arrow-down'/>
             </button>
             <button type="button" class="btn btn-default" {{action "deleteOption" opt}}>
-              {{fa-icon 'trash'}}
+              <FaIcon @icon='trash'/>
             </button>
           </div>
         {{/unless}}

@@ -1,6 +1,6 @@
 {{#if showCheckbox}}
   <td>
-    {{fa-icon 'square' prefix="far"}}
+    <FaIcon @icon='square' prefix="far"/>
   </td>
 {{/if}}
 
@@ -8,7 +8,7 @@
   {{#if (can 'destroy form/response')}}
     {{#if response.form.canRespond}}
       <LinkTo @route="form.responses.destroy" @model={{response}} class="no-print">
-        {{fa-icon 'trash'}}
+        <FaIcon @icon='trash'/>
       </LinkTo>
     {{/if}}
   {{/if}}
