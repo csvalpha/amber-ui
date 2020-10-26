@@ -4,7 +4,7 @@
   {{#if (can "edit user" model)}}
     <LinkTo @route="users.edit-privacy" @model={{model}} class="btn btn-outline-info">
       Voorkeuren wijzigen
-      {{fa-icon 'edit' class="pl-1"}}
+      <FaIcon @icon='edit' class="pl-1"/>
     </LinkTo>
   {{/if}}
 </div>

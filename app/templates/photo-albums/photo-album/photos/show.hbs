@@ -2,17 +2,17 @@
   <PageActionsButtons @pageActions={{pageActions}}>
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "goToPreviousPhoto"}} type="button">
-        {{fa-icon 'arrow-left'}}
+        <FaIcon @icon='arrow-left'/>
       </button>
     </div>
     <div class="col col-md-auto page-action">
       <button class="btn btn-primary" {{action "goToNextPhoto"}} type="button">
-        {{fa-icon 'arrow-right'}}
+        <FaIcon @icon='arrow-right'/>
       </button>
     </div>
     <div class="col col-md-auto page-action">
       <a class="btn btn-primary col" href="{{@model.imageUrl}}" download="{{@model.id}}">
-        {{fa-icon 'download'}}
+        <FaIcon @icon='download'/>
         <span class="d-none d-md-inline"> Foto downloaden </span>
       </a>
     </div>

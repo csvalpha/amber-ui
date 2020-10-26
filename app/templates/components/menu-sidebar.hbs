@@ -11,7 +11,7 @@
         <img class="menu-sidebar-item-icon profile-picture profile-picture-xs" src={{session.currentUser.avatarThumbUrlOrDefault}}>
         <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{session.currentUser.firstName}}</span>
 
-        {{fa-icon "angle-down" class="ml-3 profile-menu-arrow"}}
+        <FaIcon @icon="angle-down" class="ml-3 profile-menu-arrow"/>
       </div>
     {{else}}
       <MenuSidebarItem @link="login" @hasPermission={{true}} @icon="sign-in-alt" @title={{t "tag.button.signin"}} />
@@ -56,7 +56,7 @@
 
   <div class="menu-sidebar-item d-none d-md-flex">
     <span class="menu-sidebar-item-icon expand-menu-sidebar-btn link" {{action 'toggleLeftSidebarExpansion'}}>
-      {{fa-icon "chevron-right"}}
+      <FaIcon @icon="chevron-right"/>
     </span>
   </div>
 </div>

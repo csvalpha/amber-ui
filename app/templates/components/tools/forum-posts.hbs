@@ -14,7 +14,7 @@
               <div class="new-forum-posts status-dot"></div>
             {{/unless}}
             {{#unless thread.isOpen}}
-              {{fa-icon 'lock'}}
+              <FaIcon @icon='lock'/>
             {{/unless}}
             {{thread.title}}
           </span>
