@@ -27,7 +27,7 @@
       </dd.toggle>
       <dd.menu as |ddm|>
         {{#each groupKinds as |item index|}}
-          <LinkTo @route="groups" @query={{hash kind=item}} class="dropdown-item" data-toggle="pill" @href={{concat "#v-pills-" item}} @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
+          <LinkTo @route="groups" @query={{hash kind=item}} class="dropdown-item" data-toggle="pill" @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
             {{capitalize item}}
           </LinkTo>
         {{/each}}
@@ -37,7 +37,7 @@
       <div class="nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex" id="v-pills-tab-groups" role="tablist" aria-orientation="vertical">
         <h5 class="ml-3 mb-3"> Groepen</h5>
         {{#each groupKinds as |item index|}}
-          <LinkTo @route="groups" @query={{hash kind=item}} class={{if (eq item selectedGroupKind) "nav-link active" "nav-link"}} @id={{concat "v-pills-" item}} data-toggle="pill" @href={{concat "#v-pills-" item}} @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
+          <LinkTo @route="groups" @query={{hash kind=item}} class={{if (eq item selectedGroupKind) "nav-link active" "nav-link"}} @id={{concat "v-pills-" item}} data-toggle="pill" @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
             {{capitalize item}}
           </LinkTo>
         {{/each}}
