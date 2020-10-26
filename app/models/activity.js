@@ -53,7 +53,7 @@ export default class Activity extends Model {
     const endTime = moment(this.endTime);
     const days = endTime.diff(startTime, 'days');
     const midnight = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 0 && endTime.minute() === 0;
-    const oneDay = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 23 && endTime.minute() === 59
+    const oneDay = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 23 && endTime.minute() === 59;
     return oneDay || (days >= 1 && !midnight);
   }
 
