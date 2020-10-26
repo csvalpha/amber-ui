@@ -10,13 +10,13 @@
       {{#if group.dropdown}}
 
         <BsDropdown as |dd|>
-          <dd.button @type="secondary">{{fa-icon group.faIconName}}</dd.button>
+          <dd.button @type="secondary"><FaIcon @icon={{group.faIconName}}/></dd.button>
 
           <dd.menu as |menu|>
             {{#each group.options as |opt|}}
               <menu.item>
                 <button type="button" class="dropdown-item" {{on "click" (fn this.applyStyleOption opt)}}>
-                  {{fa-icon opt.faIconName size=opt.size prefix=opt.faIconPrefix fixedWidth=true}}
+                  <FaIcon @icon={{opt.faIconName}} @size={{opt.size}} @prefix={{opt.faIconPrefix}} @fixedWidth={{true}}/>
                   {{opt.name}}
                 </button>
               </menu.item>
@@ -30,11 +30,11 @@
           {{#each group.options as |opt|}}
             {{#if opt.modal}}
               <button type="button" class="btn btn-secondary" title="{{opt.name}}" data-toggle="modal" data-target="#insertModal" {{on "click" (fn this.openModal opt)}}>
-                {{fa-icon opt.faIconName prefix=opt.faIconPrefix}}
+                <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}}/>
               </button>
             {{else}}
               <button type="button" class="btn btn-secondary" title="{{opt.name}}" {{on "click" (fn this.applyStyleOption opt)}}>
-                {{fa-icon opt.faIconName prefix=opt.faIconPrefix}}
+                <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}}/>
               </button>
             {{/if}}
           {{/each}}
@@ -45,7 +45,7 @@
 
   <div class="btn-group">
     <a href="http://commonmark.org/help/" target="_blank">
-      <button type="button" class="btn btn-secondary" title="Help">{{fa-icon "question-circle"}}</button>
+      <button type="button" class="btn btn-secondary" title="Help"><FaIcon @icon="question-circle"/></button>
     </a>
   </div>
 </div>

@@ -43,12 +43,12 @@
           <span class="d-inline d-md-none text-muted"> Groep/Gebruiker:  </span>
           {{#if mailAlias.group}}
             <LinkTo @route="groups.show" @model={{mailAlias.group.id}}>
-              <span class="text-muted"> {{fa-icon 'users'}} </span>
+              <span class="text-muted"> <FaIcon @icon='users'/> </span>
               {{mailAlias.group.name}}
             </LinkTo>
           {{else}}
             <LinkTo @route="users.show" @model={{mailAlias.user.id}}>
-              <span class="text-muted"> {{fa-icon 'user'}} </span>
+              <span class="text-muted"> <FaIcon @icon='user'/> </span>
               {{mailAlias.user.fullName}}
             </LinkTo>
           {{/if}}

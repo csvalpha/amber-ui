@@ -8,7 +8,7 @@
         </div>
         <div class="card-titles">
           <LinkTo @route="articles.show" @model={{article}}>
-            <h2 class="card-title" itemprop="name headline">{{#if article.pinned}} {{fa-icon "thumbtack"}} {{/if}} {{article.title}}</h2>
+            <h2 class="card-title" itemprop="name headline">{{#if article.pinned}} <FaIcon @icon="thumbtack"/> {{/if}} {{article.title}}</h2>
           </LinkTo>
           <h3 class="card-subtitle">
             {{#if article.group}}

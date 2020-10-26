@@ -1,6 +1,6 @@
 <div class="board-room-presence-dropdown page-action">
   <BsButton @type="primary">
-    {{fa-icon "coffee"}}
+    <FaIcon @icon="coffee"/>
     <span class="d-none d-md-inline"> Bestuurskamer </span>
     <span class="status-dot label-{{overallStatus}}"></span>
 
@@ -51,7 +51,7 @@
               <td> {{moment-format presence.endTime "HH:mm"}} </td>
               <td>
                 {{#if (can 'destroy board-room-presences')}}
-                  <button class="btn btn-danger" aria-hidden="true" {{action "deletePresence"}} type="button"> {{fa-icon "trash"}} </button>
+                  <button class="btn btn-danger" aria-hidden="true" {{action "deletePresence"}} type="button"> <FaIcon @icon="trash"/> </button>
                 {{/if}}
               </td>
             </tr>

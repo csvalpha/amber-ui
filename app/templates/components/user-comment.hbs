@@ -14,7 +14,7 @@
 
       {{#if (can 'destroy article-comments')}}
         <LinkTo @route="article-comments.destroy" @model={{comment.id}}>
-          {{fa-icon 'trash' class="text-muted destroy-icon ml-2"}}
+          <FaIcon @icon='trash' class="text-muted destroy-icon ml-2"/>
         </LinkTo>
       {{/if}}
     </div>
