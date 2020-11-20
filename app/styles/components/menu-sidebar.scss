@@ -106,21 +106,21 @@ $profile-menu-height: 360px;
   position: fixed;
   left: 90px;
   z-index: 999;
-  line-height: 40px;
-  background: #111;
-  color: #fff;
-  padding: 0 15px;
   border-radius: 5px;
+  background: #111;
+  padding: 0 15px;
+  line-height: 40px;
+  color: #fff;
 
-  &:after {
-    content: '';
+  &::after {
     position: absolute;
-    width: 20px;
-    height: 20px;
     top: 10px;
     left: -20px;
     border: 10px solid transparent;
     border-right: 10px solid #111;
+    width: 20px;
+    height: 20px;
+    content: '';
   }
 }
 
