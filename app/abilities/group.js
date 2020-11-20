@@ -6,7 +6,7 @@ import { Ability } from 'ember-can';
 
 export default Ability.extend({
   session: service(),
-  canEdit: computed('session.currentUser', 'model.name', function() {
+  canEdit: computed('session.currentUser', 'model.name', 'model.memberships', function() {
     const group = this.model;
     return this.session.hasPermission('group.update') || (group.get('name') !== 'Leden' && this.isGroupMember(group));
   }),
