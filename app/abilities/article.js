@@ -18,7 +18,7 @@ export default Ability.extend({
   canShowArticleComments: computed('model.publiclyVisible', 'session.currentUser', function() {
     return this.session.hasPermission('article-comment.read') || this.model.publiclyVisible;
   }),
-  canEdit: computed('session.currentUser', 'model', function() {
+  canEdit: computed('session.currentUser', 'session.currentUser.memberships', 'model', function() {
     return this.session.hasPermission('article.update') || this.isArticleOwner(this.model);
   }),
   isArticleOwner(article) {
