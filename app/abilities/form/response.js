@@ -11,7 +11,7 @@ export default Ability.extend({
   canCreate: computed('session.currentUser', function() {
     return this.session.hasPermission('form/response.create');
   }),
-  canDestroy: computed('session.currentUser', 'model', function() {
+  canDestroy: computed('session.currentUser', 'model.user.id', function() {
     return this.session.hasPermission('form/response.destroy') || this.isResponseOwner(this.model);
   }),
   isResponseOwner(response) {
