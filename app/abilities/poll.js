@@ -14,7 +14,7 @@ export default Ability.extend({
   canDestroy: computed('session.currentUser', function() {
     return this.session.hasPermission('poll.destroy');
   }),
-  canEdit: computed('session.currentUser', 'model', function() {
+  canEdit: computed('session.currentUser', 'session.currentUser.memberships', 'model', function() {
     return this.session.hasPermission('poll.update') || this.isPollOwner(this.model);
   }),
   isPollOwner(poll) {

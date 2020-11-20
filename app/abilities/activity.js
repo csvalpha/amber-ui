@@ -21,10 +21,10 @@ export default Ability.extend({
   canShowIcal: computed('session.currentUser', function() {
     return this.session.hasPermission('activity.read');
   }),
-  canEdit: computed('session.currentUser', 'model', function() {
+  canEdit: computed('session.currentUser', 'session.currentUser.memberships', 'model', function() {
     return this.session.hasPermission('activity.update') || this.isActivityOwner(this.model);
   }),
-  canMailEnrolledMembers: computed('model.form', 'session.currentUser', function() {
+  canMailEnrolledMembers: computed('model.form', 'session.currentUser', 'session.currentUser.memberships', function() {
     const { form } = this.model;
     return !isNone(form) && form.get('hasResponses') && this.isActivityOwner(this.model);
   }),

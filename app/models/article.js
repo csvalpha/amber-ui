@@ -47,7 +47,7 @@ export default class Article extends Model {
 
   // Methods
   isOwner(user) {
-    if (user.id === this.author.get('id')) {
+    if (user.get('id') === this.author.get('id')) {
       return true;
     }
 
