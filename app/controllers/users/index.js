@@ -1,4 +1,4 @@
-import Controller from '@ember/controller';
+  import Controller from '@ember/controller';
 import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
 import PagedModelControllerMixin from 'alpha-amber/mixins/paged-model-controller-mixin';
 
