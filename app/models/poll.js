@@ -61,8 +61,6 @@ export default class Poll extends Model {
       return true;
     }
 
-    return user.get('memberships').then(() => {
-      return user.get('currentMemberships').some(membership => membership.group.id === this.group.id);
-    });
+    return user.currentMemberships.some(membership => membership.group.id === this.group.id);
   }
 }
