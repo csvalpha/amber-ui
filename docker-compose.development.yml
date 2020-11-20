@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.development
+    ports:
+      - 4200:4200
+    environment:
+      - API_HOST=http://api:3000
+    networks:
+      - amber_development_default
+
+networks:
+  amber_development_default:
+    external: true

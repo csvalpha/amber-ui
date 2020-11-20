@@ -14,11 +14,11 @@ module.exports = function(app) {
   });
 
   app.use(proxyPath, (req, res) => {
-    proxy.web(req, res, { target: 'http://localhost:3000' });
+    proxy.web(req, res, { target: process.env.API_HOST || 'http://localhost:3000' });
   });
 
   app.use(passthroughPaths, (req, res) => {
     req.url = req.originalUrl;
-    proxy.web(req, res, { target: 'http://localhost:3000' });
+    proxy.web(req, res, { target: process.env.API_HOST || 'http://localhost:3000' });
   });
 };
