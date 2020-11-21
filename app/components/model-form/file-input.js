@@ -31,7 +31,7 @@ export default ModelFormTextInputComponent.extend({
         file.readAsDataURL().then((data) => {
           file.data = data;
           this.sendAction('fileLoaded', file);
-        })
+        });
       }
     }
   }
