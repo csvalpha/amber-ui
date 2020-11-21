@@ -21,11 +21,11 @@ Otherwise, you need the following prerequisites installed:
 
 Tip: to run commands in the container, you can run the following:
 ```
-$ docker-compose run -f docker-compose.development.yml ui <COMMAND>
+$ docker-compose -f docker-compose.development.yml run ui <COMMAND>
 ```
 For example:
 ```
-$ docker-compose run -f docker-compose.development.yml ui yarn lint
+$ docker-compose -f docker-compose.development.yml run ui yarn lint
 ```
 
 ### Without Docker
