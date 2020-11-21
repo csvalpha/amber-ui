@@ -1,4 +1,3 @@
-import { get } from '@ember/object';
 import { isNone } from '@ember/utils';
 import RavenService from 'ember-cli-deploy-sentry/services/raven';
 
@@ -6,7 +5,7 @@ export default RavenService.extend({
   ignoreError(error) {
     if (!isNone(error)) {
       if (error.isAdapterError) {
-        const status = get(error, 'errors.firstObject.status');
+        const { status } = error.errors.firstObject;
         return ['401', '404'].includes(String(status));
       }
 

@@ -81,7 +81,7 @@
     "ember-truth-helpers": "^3.0",
     "ember-wormhole": "^0.6",
     "eslint": "^7.1",
-    "eslint-plugin-ember": "^8.5",
+    "eslint-plugin-ember": "^9.6",
     "eslint-plugin-ember-suave": "^2.0",
     "eslint-plugin-node": "^11.1",
     "faker": "^5.1",
