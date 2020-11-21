@@ -35,11 +35,6 @@
         <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="hdd" @title={{t "mixin.menuItems.nextcloud"}} @minor={{true}} />
       </a>
 
-      {{!-- Dark theme toggle --}}
-      <a class="link">
-        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon={{if darkModeEnabled "toggle-on" "toggle-off"}} @title={{t "mixin.menuItems.darkTheme"}} @minor={{true}} {{action 'switchTheme'}} />
-      </a>
-
       {{!-- Logout --}}
       <a class="link" {{action 'invalidateSession'}}>
         <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="sign-out-alt" @title={{t "tag.button.signout"}} @minor={{true}} />

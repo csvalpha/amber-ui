@@ -129,8 +129,6 @@ module.exports = function(environment) {
           'strikethrough',
           'thumbtack',
           'times',
-          'toggle-off',
-          'toggle-on',
           'trash',
           'upload',
           'user',
@@ -194,11 +192,6 @@ module.exports = function(environment) {
 
     ENV.contentSecurityPolicy['script-src'] += ' \'unsafe-inline\' \'unsafe-eval\'';
   }
-
-  ENV.theme = {
-    themes: ['light', 'dark'],
-    defaultTheme: 'light'
-  };
 
   if (environment === 'test') {
     // Testem prefers this...

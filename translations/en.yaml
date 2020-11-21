@@ -214,7 +214,6 @@ mixin:
     users: Users
     staticPages: Information
     sog: SOG
-    darkTheme: Dark theme
 tag:
   button:
     close: Close
