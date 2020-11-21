@@ -19,21 +19,20 @@ Otherwise, you need the following prerequisites installed:
 ### With Docker
 * Build the project using `docker-compose -f docker-compose.development.yml build ui`. This will install the dependencies and set up the image. If dependencies are updated/added, you need to run this command again.
 
-Tip: to run commands in a container, you need to find the container's ID using the `docker ps` command first. Copy the ID of the container with image "amber_development_api".
-Now to run a command in that container, you can run:
+Tip: to run commands in the container, you can run the following:
 ```
-$ docker exec <CONTAINER_ID> <COMMAND>
+$ docker-compose run -f docker-compose.development.yml ui <COMMAND>
 ```
 For example:
 ```
-$ docker exec 4bde3ea072a2 yarn lint
+$ docker-compose run -f docker-compose.development.yml ui yarn lint
 ```
 
 ### Without Docker
 * Run `yarn add` (or `npm install`).
 
 ## Running / Development
-* If you're using Docker run `docker-compose -f docker-compose.development.yml up ui`, otherwise run `ember server` or `npm start`.
+* If you're using Docker you can run the project by using `docker-compose -f docker-compose.development.yml up ui`, otherwise run `ember server` or `npm start`.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
