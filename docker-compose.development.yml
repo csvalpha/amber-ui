@@ -11,6 +11,8 @@ services:
       - API_HOST=http://api:3000
     networks:
       - amber_development_default
+    volumes:
+      - ./app:/app/app
 
 networks:
   amber_development_default:
