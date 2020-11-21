@@ -8,7 +8,5 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   },
   modelName: 'forum/thread',
   modelRouteParam: 'thread_id',
-  title: computed('controller.model.title', function() {
-    return this.get('controller.model.title');
-  })
+  title: computed.reads('controller.model.title')
 });

@@ -7,7 +7,7 @@ export default IndexRoute.extend({
   },
   modelName: 'mail-alias',
   title: 'Mail-aliassen',
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'mail-aliases.new',

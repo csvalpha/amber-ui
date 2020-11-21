@@ -8,10 +8,10 @@ import { isNotFoundResponse } from 'ember-fetch/errors';
 export default Controller.extend({
   fetch: service(),
 
-  isSaveButtonDisabled: computed('password', 'passwordConfirmation', function() {
+  isSaveButtonDisabled: computed('password.length', 'passwordConfirmation', function() {
     return isNone(this.password) || this.password.length < 12 || this.password !== this.passwordConfirmation;
   }),
-  infoMessage: computed('password', 'passwordConfirmation', function() {
+  infoMessage: computed('password.length', 'passwordConfirmation', function() {
     if (isNone(this.password)) {
       return 'Voer een wachtwoord in van minimaal 12 tekens.';
     } else if (this.password.length < 12) {
@@ -27,8 +27,7 @@ export default Controller.extend({
 
   actions: {
     async resetPassword() {
-      const userId = this.get('model.id');
-      const response = await this.fetch.post(`/users/${userId}/activate_account`,
+      const response = await this.fetch.post(`/users/${this.model.id}/activate_account`,
         { body: { password: this.password, passwordConfirmation: this.passwordConfirmation, activationToken: this.activation_token } }
       );
 

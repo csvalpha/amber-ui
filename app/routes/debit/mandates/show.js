@@ -10,13 +10,13 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
   modelName: 'debit/mandate',
   title: alias('controller.model.uid'),
   parents: ['debit.mandate.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'debit.mandates.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('edit debit/mandates')
       }
     ];

@@ -34,6 +34,10 @@ module.exports = function(defaults) {
 
     sassOptions: {
       implementation: nodeSass
+    },
+
+    babel: {
+      plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')]
     }
   });
 

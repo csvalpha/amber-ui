@@ -9,24 +9,22 @@ export default IndexRoute.extend({
   model() {
     return this.modelFor('forum.categories.category');
   },
-  title: computed('controller.model.name', function() {
-    return this.get('controller.model.name');
-  }),
+  title: computed.reads('controller.model.name'),
   parents: ['forum.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model.id', function() {
     return [
       {
         link: 'forum.categories.category.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('edit forum/categories')
       },
       {
         link: 'forum.categories.category.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('destroy forum/categories')
       },
       {
@@ -36,7 +34,7 @@ export default IndexRoute.extend({
         // Only pass id when force reload is required, see http://emberigniter.com/force-store-reload-data-api-backend/
         // pass id to force Ember to call model() on forum.categories.threads.new
         // and not use the supplied category model as model for that route (as per Ember's default)
-        linkArgument: this.get('controller.model.id'),
+        linkArgument: this.controller.model.id,
         canAccess: this.can.can('create forum/threads')
       }
     ];

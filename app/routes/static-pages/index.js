@@ -11,7 +11,7 @@ export default IndexRouteUnauthenticated.extend({
   title: computed(function() {
     return this.intl.t('model.staticPage.name.other').toString().capitalize();
   }),
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'static-pages.new',

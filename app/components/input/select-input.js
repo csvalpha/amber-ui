@@ -8,6 +8,6 @@ export default Component.extend({
   value: null,
   placeholder: null,
   change() {
-    this.set('value', this.$().val());
+    this.set('value', this.element.value);
   }
 });

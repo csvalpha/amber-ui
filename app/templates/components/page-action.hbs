@@ -3,7 +3,7 @@
     <LinkTo @route={{pageAction.link}} @model={{pageAction.linkArgument}} data-test-link={{pageAction.link}}>
       {{#if pageAction.icon}}
         <button type="button" class="btn btn-primary" title="{{pageAction.title}}">
-          {{fa-icon pageAction.icon}}
+          <FaIcon @icon={{pageAction.icon}}/>
           <span class="d-none d-md-inline"> {{pageAction.title}} </span>
         </button>
 
@@ -20,7 +20,7 @@
     <LinkTo @route={{pageAction.link}} data-test-link={{pageAction.link}}>
       {{#if pageAction.icon}}
         <button type="button" class="btn btn-primary" title="{{pageAction.title}}">
-          {{fa-icon pageAction.icon}}
+          <FaIcon @icon={{pageAction.icon}}/>
           <span class="d-none d-md-inline"> {{pageAction.title}} </span>
         </button>
 

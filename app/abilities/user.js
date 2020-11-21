@@ -25,16 +25,16 @@ export default Ability.extend({
     return this.session.hasPermission('user.update');
   }),
   canShowWebdav: alias('session.isAuthenticated'),
-  canDestroy: computed('session.currentUser', function() {
+  canDestroy: computed('isCurrentUser', 'session.currentUser', function() {
     return !this.isCurrentUser && this.session.hasPermission('user.destroy');
   }),
-  canEdit: computed('session.currentUser', function() {
+  canEdit: computed('isCurrentUser', 'session.currentUser', function() {
     return this.isCurrentUser || this.session.hasPermission('user.update');
   }),
-  canResendActivationCode: computed('session.currentUser', function() {
-    return this.session.hasPermission('user.create') && this.get('model.activatedAt') === null;
+  canResendActivationCode: computed('model.activatedAt', 'session.currentUser', function() {
+    return this.session.hasPermission('user.create') && this.model.activatedAt === null;
   }),
   isCurrentUser: computed('session.currentUser.id', 'model.id', function() {
-    return this.get('model.id') === this.get('session.currentUser.id');
+    return this.model.id === this.session.currentUser.id;
   })
 });

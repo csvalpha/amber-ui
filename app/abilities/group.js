@@ -6,7 +6,7 @@ import { Ability } from 'ember-can';
 
 export default Ability.extend({
   session: service(),
-  canEdit: computed('session.currentUser', 'model.name', function() {
+  canEdit: computed('session.currentUser', 'model.name', 'model.memberships', function() {
     const group = this.model;
     return this.session.hasPermission('group.update') || (group.get('name') !== 'Leden' && this.isGroupMember(group));
   }),
@@ -22,7 +22,7 @@ export default Ability.extend({
     return this.session.hasPermission('group.update');
   }),
   isGroupMember(group) {
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && group.get('memberships').filterBy('userIsCurrentlyMember').mapBy('user.id').includes(currentUser.get('id'));
   }
 });

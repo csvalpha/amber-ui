@@ -24,6 +24,6 @@ module('Unit | Route | users/edit', function(hooks) {
   test('it has a correct modelName', function(assert) {
     const route = this.owner.lookup('route:users/edit');
 
-    assert.equal('user', route.get('modelName'));
+    assert.equal('user', route.modelName);
   });
 });

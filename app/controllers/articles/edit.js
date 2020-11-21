@@ -6,14 +6,17 @@ export default EditController.extend({
   session: service('session'),
   can: service(),
   successTransitionTarget: 'articles.show',
-  groupOptions: computed(function() {
+  canPin: computed('session.currentUser', function() {
+    return this.session.hasPermission('article.update');
+  }),
+  groupOptions: computed('session.currentUser.{group,groups}', function() {
     const optionArray = [
       {
         label: '',
         value: null
       }
     ];
-    const groups = this.get('session.currentUser.groups');
+    const groups = this.session.currentUser.group;
     groups.forEach((group) => {
       optionArray.push({
         label: group,
@@ -22,12 +25,12 @@ export default EditController.extend({
     });
     return optionArray;
   }),
-  groups: computed(function() {
+  groups: computed('session.currentUser', 'store', function() {
     if (this.can.can('select all groups for articles')) {
       return this.store.findAll('group');
     }
 
-    return this.get('session.currentUser').get('groups');
+    return this.session.currentUser.get('groups');
   }),
   actions: {
     coverPhotoLoaded(file) {

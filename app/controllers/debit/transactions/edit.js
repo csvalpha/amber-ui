@@ -6,7 +6,7 @@ export default EditController.extend({
   successMessage: 'Transactie aangepast!',
   successTransitionTarget: 'debit.collections.show',
   successTransitionModel: alias('model.collection.id'),
-  users: computed(function() {
+  users: computed('store', function() {
     return this.store.findAll('user');
   }),
 

@@ -9,7 +9,7 @@ export default TextField.extend({
   // format as defined in RFC 3339
   inputValueFormat: 'HH:mm',
   // Transforms the Date object to string and vice versa
-  inputValue: computed('dateValue', {
+  inputValue: computed('dateValue', 'inputValueFormat', {
     get() {
       const format = this.inputValueFormat;
       return moment(this.dateValue).format(format);

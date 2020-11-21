@@ -10,12 +10,10 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
   },
   modelName: 'poll',
 
-  title: computed('controller.model.poll.question.question', function() {
-    return this.get('controller.model.poll.question.question');
-  }),
+  title: computed.reads('controller.model.poll.question.question'),
   parents: ['poll.index'],
-  pageActions: computed('controller.model.poll', function() {
-    const poll = this.get('controller.model.poll');
+  pageActions: computed('can', 'controller.model.poll', function() {
+    const { poll } = this.controller.model;
     return [
       {
         link: 'polls.edit',

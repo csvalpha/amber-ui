@@ -11,9 +11,9 @@ export default Controller.extend({
   can: service(),
   flashNotice: service('flash-notice'),
   combinedErrors: union('model.errors', 'model.form.errors'),
-  activityHasForm: computed('model.form', {
+  activityHasForm: computed('model.form.content', {
     get() {
-      return !isNone(this.get('model.form.content'));
+      return !isNone(this.model.form.content);
     },
     set(_, value) {
       if (value) {
@@ -28,12 +28,12 @@ export default Controller.extend({
     }
   }),
 
-  groups: computed(function() {
+  groups: computed('session.currentUser', function() {
     if (this.can.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
 
-    return this.get('session.currentUser').get('groups');
+    return this.session.currentUser.get('groups');
   }),
 
   _activityCategoryToOption: activityCategory => {
@@ -43,7 +43,7 @@ export default Controller.extend({
     };
   },
 
-  activityCategoryOptions: computed(function() {
+  activityCategoryOptions: computed('_activityCategoryToOption', function() {
     return ActivityCategories.map(this._activityCategoryToOption);
   }),
 

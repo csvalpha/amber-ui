@@ -12,7 +12,7 @@ export const FormStatusTagComponent = Component.extend({
     'isTag:badge',
     'colorIndicatorClass'
   ],
-  content: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
+  content: computed('form.{canRespond,currentUserResponseCompleted,respondFrom}', 'isNoneValue', 'responseCompletedValue', function() {
     if (isNone(this.form)) {
       return this.isNoneValue;
     }

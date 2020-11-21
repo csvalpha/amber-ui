@@ -59,7 +59,7 @@ export default Mixin.create({
     });
   }),
 
-  oldMembershipsTabActive: computed('filteredModels', function() {
+  oldMembershipsTabActive: computed('currentMemberships.length', 'filteredModels', 'oldMemberships.length', 'oldMembershipsAreVisible', function() {
     if (this.oldMembershipsAreVisible) {
       if (this.oldMemberships.length === 0 && this.currentMemberships.length > 0) {
         return false;
@@ -78,7 +78,7 @@ export default Mixin.create({
   actions: {
     selectFirstItem() {
       if (this.filteredModels.length > 0) {
-        this.transitionToRoute('users.show', this.get('filteredModels.firstObject.user.id'));
+        this.transitionToRoute('users.show', this.filteredModels.firstObject.user.id);
       }
     },
     showOldMemberships() {

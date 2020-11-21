@@ -127,6 +127,7 @@ module.exports = function(environment) {
           'sort-amount-down',
           'sort-amount-up',
           'strikethrough',
+          'thumbtack',
           'times',
           'toggle-off',
           'toggle-on',

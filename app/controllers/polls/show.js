@@ -8,12 +8,12 @@ import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin'
 export default Controller.extend(formLoadOrCreateMixin, {
   flashNotice: service('flash-notice'),
   canSubmitResponse: computed('model.form', 'model.form.currentUserCanRespond', function() {
-    const form = this.get('model.form');
+    const { form } = this.model;
     return !isNone(form) && form.get('currentUserCanRespond');
   }),
   optionsWithResults: computed('model.poll.question.options.@each.option', 'model.poll.question.options.@each.sumOfAnswers', 'model.poll.form.amountOfResponses', function() {
-    const options = this.get('model.poll.question.options');
-    const amountOfResponses = this.get('model.poll.form.amountOfResponses');
+    const { options } = this.model.poll.question;
+    const amountOfResponses = this.model.poll.form.get('amountOfResponses');
 
     return options.map(option => {
       // When multiple answers per user are allowed we need to devide by the total amount of users
@@ -33,8 +33,8 @@ export default Controller.extend(formLoadOrCreateMixin, {
   }),
   actions: {
     submitResponse() {
-      const currentUserResponse = this.get('model.currentUserResponse');
-      const form = this.get('model.form');
+      const { currentUserResponse } = this.model;
+      const { form } = this.model;
       currentUserResponse.saveWithAnswers().then(() => {
         // The response is the first thing that is saved (in order to save answers), so currently the response is
         // always 'incomplete'. Furthermore, the form has a field 'amountOfResponses' which should be updated.

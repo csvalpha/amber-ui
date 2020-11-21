@@ -7,7 +7,5 @@ export default ShowRouteUnauthenticated.extend({
   },
   modelName: 'photo-album',
   modelRouteParam: 'photo_album_id',
-  title: computed('controller.model.title', function() {
-    return this.get('controller.model.title');
-  })
+  title: computed.reads('controller.model.title')
 });

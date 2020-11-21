@@ -35,8 +35,6 @@ Router.map(function() {
 
   this.route('login');
 
-  this.route('lustrum');
-
   this.route('profile');
 
   this.route('static-pages', function() {

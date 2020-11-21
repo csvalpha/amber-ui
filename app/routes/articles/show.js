@@ -6,12 +6,10 @@ export default ShowRouteUnauthenticated.extend({
     return this.can.can('show articles');
   },
   modelName: 'article',
-  title: computed('controller.model.title', function() {
-    return this.get('controller.model.title');
-  }),
+  title: computed.reads('controller.model.title'),
   parents: ['articles.index'],
-  pageActions: computed('controller.model', function() {
-    const article = this.get('controller.model');
+  pageActions: computed('can', 'controller.model', function() {
+    const article = this.controller.model;
     return [
       {
         link: 'articles.edit',
@@ -24,7 +22,7 @@ export default ShowRouteUnauthenticated.extend({
         link: 'articles.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('destroy articles')
       }
     ];

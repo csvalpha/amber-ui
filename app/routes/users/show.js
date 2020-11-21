@@ -7,12 +7,10 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
     return this.can.can('show individual users');
   },
   modelName: 'user',
-  title: computed('controller.model.fullName', function() {
-    return this.get('controller.model.fullName');
-  }),
+  title: computed.reads('controller.model.fullName'),
   parents: ['users.index'],
-  pageActions: computed('controller.model', function() {
-    const user = this.get('controller.model');
+  pageActions: computed('can', 'controller.model', function() {
+    const user = this.controller.model;
     return [
       {
         link: 'users.edit',
@@ -26,7 +24,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: user,
-        canAccess: this.can.can('destroy users')
+        canAccess: this.can.can('destroy user', user)
       },
       {
         link: 'users.resend_activation',
@@ -37,8 +35,8 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
       }
     ];
   }),
-  tabItems: computed('controller.model', function() {
-    const user = this.get('controller.model');
+  tabItems: computed('can', 'controller.model', function() {
+    const user = this.controller.model;
     return [
       {
         link: 'users.show',
