@@ -15,19 +15,24 @@ const MenuSidebarItemComponent = Component.extend({
   },
   didRender() {
     let { layoutManager, element, title } = this;
-    let popup = document.createElement('div');
-    popup.appendChild(document.createTextNode(title));
-    popup.className = 'menu-sidebar-item-popup';
 
-    element.addEventListener('mouseover', () => {
-      if (!layoutManager.leftSideBarExpanded) {
-        document.body.appendChild(popup);
-        popup.style.top = `${element.getBoundingClientRect().top}px`;
-      }
-    });
-    element.addEventListener('mouseout', () => {
-      document.body.removeChild(popup);
-    });
+    if (!this.popup) {
+      this.popup = document.createElement('div');
+      this.popup.appendChild(document.createTextNode(title));
+      this.popup.className = 'menu-sidebar-item-popup';
+
+      element.addEventListener('mouseover', () => {
+        if (!layoutManager.leftSideBarExpanded) {
+          document.body.appendChild(this.popup);
+          this.popup.style.top = `${element.getBoundingClientRect().top}px`;
+        }
+      });
+      element.addEventListener('mouseout', () => {
+        if (this.popup.parentNode) {
+          document.body.removeChild(this.popup);
+        }
+      });
+    }
   }
 });
 export default MenuSidebarItemComponent;
