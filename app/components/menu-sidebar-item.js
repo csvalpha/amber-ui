@@ -17,7 +17,7 @@ const MenuSidebarItemComponent = Component.extend({
     let { layoutManager, element, title } = this;
     let popup;
     element.addEventListener('mouseover', () => {
-      if (!layoutManager.leftSideBarExpanded) {
+      if (!layoutManager.leftSideBarExpanded && !popup) {
         popup = document.createElement('div');
         popup.appendChild(document.createTextNode(title));
         document.body.appendChild(popup);
