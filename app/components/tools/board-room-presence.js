@@ -1,3 +1,4 @@
+import { equal } from '@ember/object/computed';
 import Ember from 'ember';
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
@@ -68,7 +69,7 @@ const BoardRoomPresence = Component.extend({
     return 'absent';
   }),
 
-  saveButtonDisabled: computed.equal('currentUserPresence', null),
+  saveButtonDisabled: equal('currentUserPresence', null),
 
   actions: {
     setPresenceModalState(state) {

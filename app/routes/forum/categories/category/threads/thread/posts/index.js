@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 import { assign } from '@ember/polyfills';
@@ -30,7 +31,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     };
   },
 
-  title: computed.reads('controller.model.thread.title'),
+  title: reads('controller.model.thread.title'),
 
   pageActions: computed('can', 'controller.model.thread', function() {
     return [

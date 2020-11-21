@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
 
@@ -6,7 +7,7 @@ export default ShowRouteUnauthenticated.extend({
     return this.can.can('show articles');
   },
   modelName: 'article',
-  title: computed.reads('controller.model.title'),
+  title: reads('controller.model.title'),
   parents: ['articles.index'],
   pageActions: computed('can', 'controller.model', function() {
     const article = this.controller.model;
