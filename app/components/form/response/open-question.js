@@ -2,8 +2,8 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 
 const OpenQuestionComponent = Component.extend({
-  inputIdentifier: computed('question', function() {
-    return `question-${this.get('question.id')}`;
+  inputIdentifier: computed('question.id', function() {
+    return `question-${this.question.id}`;
   })
 });
 

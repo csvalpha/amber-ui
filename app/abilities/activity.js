@@ -21,16 +21,16 @@ export default Ability.extend({
   canShowIcal: computed('session.currentUser', function() {
     return this.session.hasPermission('activity.read');
   }),
-  canEdit: computed('session.currentUser', 'model', function() {
+  canEdit: computed('session.currentUser', 'session.currentUser.memberships', 'model', function() {
     return this.session.hasPermission('activity.update') || this.isActivityOwner(this.model);
   }),
-  canMailEnrolledMembers: computed('session.currentUser', 'model', function() {
-    const form = this.get('model.form');
+  canMailEnrolledMembers: computed('model.form', 'session.currentUser', 'session.currentUser.memberships', function() {
+    const { form } = this.model;
     return !isNone(form) && form.get('hasResponses') && this.isActivityOwner(this.model);
   }),
   canPrintEnrolledMembers: alias('canMailEnrolledMembers'),
   isActivityOwner(activity) {
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && activity.isOwner(currentUser);
   }
 });

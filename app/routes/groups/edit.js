@@ -9,7 +9,7 @@ export default EditRoute.extend({
   title: 'Groep aanpassen',
   parents: ['groups.index'],
   deactivate() {
-    const group = this.get('controller.model');
+    const group = this.controller.model;
     group.rollbackAttributesAndMemberships();
   }
 });

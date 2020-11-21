@@ -5,7 +5,7 @@ import EditController from 'alpha-amber/controllers/application/edit';
 
 export default EditController.extend({
   successMessage: 'Incasso aangepast!',
-  users: computed(function() {
+  users: computed('store', function() {
     return this.store.findAll('user');
   }),
   actions: {

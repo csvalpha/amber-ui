@@ -1,10 +1,11 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
-  startDate: attr('date'),
-  endDate: attr('date'),
-  iban: attr('string'),
-  ibanHolder: attr('string'),
+export default class Mandate extends Model {
+  @attr('date') startDate;
+  @attr('date') endDate;
+  @attr iban;
+  @attr ibanHolder;
 
-  user: belongsTo('user')
-});
+  // Relationships
+  @belongsTo user;
+}

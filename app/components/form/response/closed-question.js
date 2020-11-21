@@ -5,15 +5,15 @@ import { computed } from '@ember/object';
 export const ClosedQuestionBaseComponent = Component.extend({
   question: null,
   options: computed('question.sortedOptions.@each.option', function() {
-    return this.get('question.sortedOptions').map(option => {
+    return this.question.sortedOptions.map(option => {
       return {
         label: option.get('option'),
         value: option.id
       };
     });
   }),
-  inputIdentifier: computed('question', function() {
-    return `question-${this.get('question.id')}`;
+  inputIdentifier: computed('question.id', function() {
+    return `question-${this.question.id}`;
   })
 });
 
@@ -22,10 +22,10 @@ const ClosedQuestionComponent = ClosedQuestionBaseComponent.extend({
   errors: alias('answer.errors'),
   selectedOptionId: computed('answer.option.id', {
     get() {
-      return this.get('answer.option.id');
+      return this.answer.option.id;
     },
     set(key, value) {
-      const option = this.get('question.options').findBy('id', value);
+      const option = this.question.options.findBy('id', value);
       this.answer.set('option', option);
       return value;
     }

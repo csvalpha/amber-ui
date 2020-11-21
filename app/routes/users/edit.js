@@ -9,8 +9,8 @@ export default EditRoute.extend({
   modelName: 'user',
   title: 'Lid aanpassen',
   parents: ['users.index'],
-  tabItems: computed('controller.model', function() {
-    const user = this.get('controller.model');
+  tabItems: computed('can', 'controller.model', 'session.currentUser', function() {
+    const user = this.controller.model;
     return [
       {
         link: 'users.edit',
@@ -28,13 +28,13 @@ export default EditRoute.extend({
         link: 'users.edit-privacy',
         title: 'Privacy',
         linkArgument: user,
-        canAccess: this.get('session.currentUser') === user
+        canAccess: this.session.currentUser === user
       },
       {
         link: 'users.edit-security',
         title: 'Beveiliging',
         linkArgument: user,
-        canAccess: this.get('session.currentUser') === user
+        canAccess: this.session.currentUser === user
       }
     ];
   })

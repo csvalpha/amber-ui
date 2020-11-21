@@ -9,13 +9,11 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
     return this.can.can('show activities');
   },
   modelName: 'activity',
-  title: computed('controller.model.activity.title', function() {
-    return this.get('controller.model.activity.title');
-  }),
+  title: computed.reads('controller.model.activity.title'),
   parents: ['activities.index'],
 
-  pageActions: computed('controller.model', function() {
-    const activity = this.get('controller.model.activity');
+  pageActions: computed('can', 'controller.model.activity', function() {
+    const { activity } = this.controller.model;
     return [
       {
         link: 'activities.edit',
@@ -70,9 +68,6 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
   },
 
   deactivate() {
-    const response = this.get('controller.model.currentUserResponse');
-    if (response) {
-      response.rollbackAttributesAndAnswers();
-    }
+    this.controller.model.currentUserResponse?.rollbackAttributesAndAnswers();
   }
 });

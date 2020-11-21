@@ -10,6 +10,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
   },
   storage: service('local-storage'),
   router: service(),
+  fetch: service(),
   modelName: 'forum/post',
 
   model(params) {
@@ -29,24 +30,22 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     };
   },
 
-  title: computed('controller.model.thread.title', function() {
-    return this.get('controller.model.thread.title');
-  }),
+  title: computed.reads('controller.model.thread.title'),
 
-  pageActions: computed('controller.model.thread', function() {
+  pageActions: computed('can', 'controller.model.thread', function() {
     return [
       {
         link: 'forum.categories.category.threads.thread.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.get('controller.model.thread'),
+        linkArgument: this.controller.model.thread,
         canAccess: this.can.can('edit forum/threads')
       },
       {
         link: 'forum.categories.category.threads.thread.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.get('controller.model.thread'),
+        linkArgument: this.controller.model.thread,
         canAccess: this.can.can('destroy forum/threads')
       }
     ];
@@ -56,11 +55,8 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     this._super(...arguments);
 
     this.router.on('routeDidChange', () => {
-      // Update forumLastRead
-      let currentStore = this.storage.getItem('forumLastRead') || '{}';
-      currentStore = JSON.parse(currentStore);
-      currentStore[this.get('controller.model.thread.id')] = new Date();
-      this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
+      const thread = this.modelFor('forum.categories.category.threads.thread');
+      this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, { method: 'POST' });
     });
   }
 });

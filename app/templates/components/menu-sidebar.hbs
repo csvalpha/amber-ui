@@ -11,7 +11,7 @@
         <img class="menu-sidebar-item-icon profile-picture profile-picture-xs" src={{session.currentUser.avatarThumbUrlOrDefault}}>
         <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{session.currentUser.firstName}}</span>
 
-        {{fa-icon "angle-down" class="ml-3 profile-menu-arrow"}}
+        <FaIcon @icon="angle-down" class="ml-3 profile-menu-arrow"/>
       </div>
     {{else}}
       <MenuSidebarItem @link="login" @hasPermission={{true}} @icon="sign-in-alt" @title={{t "tag.button.signin"}} />
@@ -47,7 +47,6 @@
     </div>
 
     <MenuSidebarItem @link="index" @hasPermission={{true}} @icon="home" @title={{t "mixin.menuItems.home"}} />
-    <MenuSidebarItem @link="lustrum" @hasPermission={{can "show lustrum"}} @icon="map-marker-alt" @title={{t "mixin.menuItems.lustrum"}} />
     <MenuSidebarItem @link="articles" @hasPermission={{can "show articles"}} @icon="newspaper" @title={{t "mixin.menuItems.articles"}} />
     <MenuSidebarItem @link="activities" @hasPermission={{can "show activities"}} @icon="calendar-alt" @title={{t "mixin.menuItems.activities"}} />
     <MenuSidebarItem @link="forum" @hasPermission={{can "show forum/categories"}} @icon="comments" @title={{t "mixin.menuItems.forum"}} />
@@ -62,7 +61,7 @@
 
   <div class="menu-sidebar-item d-none d-md-flex">
     <span class="menu-sidebar-item-icon expand-menu-sidebar-btn link" {{action 'toggleLeftSidebarExpansion'}}>
-      {{fa-icon "chevron-right"}}
+      <FaIcon @icon="chevron-right"/>
     </span>
   </div>
 </div>

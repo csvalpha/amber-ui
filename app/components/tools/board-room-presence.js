@@ -68,9 +68,7 @@ const BoardRoomPresence = Component.extend({
     return 'absent';
   }),
 
-  saveButtonDisabled: computed('currentUserPresence', function() {
-    return this.currentUserPresence === null;
-  }),
+  saveButtonDisabled: computed.equal('currentUserPresence', null),
 
   actions: {
     setPresenceModalState(state) {
@@ -85,13 +83,11 @@ const BoardRoomPresence = Component.extend({
 
     newPresence() {
       if (this.can.can('create board-room-presences')) {
-        const user = this.get('session.currentUser');
-
         const newPresenceObject = this.store.createRecord('board-room-presence', {
           startTime: moment().startOf('minute').toDate(),
           endTime: moment().startOf('minute').add(1, 'hours').toDate(),
           status: 'present',
-          user
+          user: this.session.currentUser
         });
         this.set('currentUserPresence', newPresenceObject);
       }

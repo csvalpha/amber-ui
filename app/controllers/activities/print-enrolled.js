@@ -15,7 +15,7 @@ export default Controller.extend({
 
   actions: {
     print() {
-      const title = this.get('model.title');
+      const { title } = this.model;
       const popup = window.open('', 'PRINT', 'height=400,width=600');
 
       popup.document.write(`<html><head><title>Inschrijflijst ${title}</title>`);

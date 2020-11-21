@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 export default Component.extend({
   classNames: ['advertisement-tool'],
   media: service(),
-  advertisements: computed('media.isMobile', 'media.isTablet', 'media.isDesktop', function() {
+  advertisements: computed('advertisementItems', 'media.{isDesktop,isMobile,isTablet}', function() {
     // Double up the advertisement array to make an 'infinite loop' transition possible
     return this.advertisementItems.concat(this.advertisementItems);
   }),
@@ -15,8 +15,8 @@ export default Component.extend({
   advertisementItems: [
     {
       title: 'Knaek',
-      alt: 'Knaek studentenkorting in Enschede',
-      link: 'https://www.knaek.nl/studentenkorting/enschede?&utm_campaign=SV_C.S.V. Alpha',
+      alt: 'Onbeperkt geld besparen met de studentenkortingsapp op meer dan 1.000 locaties en online',
+      link: 'https://www.knaek.nl/studentenkorting/Enschede',
       image: 'advertisements/knaek.png'
     },
     {

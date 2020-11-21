@@ -21,7 +21,7 @@
 
         <BsDropdown @class="ml-1" @closeOnMenuClick={{true}} as |dd|>
           <dd.toggle @class="open-smiley-pane-button btn btn-default">
-            {{fa-icon "smile" prefix="far"}}
+            <FaIcon @icon="smile" @prefix="far"/>
           </dd.toggle>
           <dd.menu @class="emoticon-holder" as |menu|>
             <div class="row">
@@ -51,7 +51,7 @@
 
             <small class="text-muted pr-3">
               {{#if (can 'destroy quickpost-messages')}}
-                {{fa-icon 'trash' class="qp-destroy-icon link-highlight" click=(action 'destroyMessage' message)}}
+                <FaIcon @icon='trash' class="qp-destroy-icon link-highlight" @click={{action 'destroyMessage' message}}/>
               {{/if}}
               {{moment-format message.createdAt 'dddd D MMMM HH:mm'}}
             </small>

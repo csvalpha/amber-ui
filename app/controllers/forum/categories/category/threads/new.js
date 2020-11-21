@@ -11,14 +11,14 @@ export default NewController.extend({
     onSuccess() {
       this._super(...arguments);
       // Reload thread to update thread.amountOfPosts
-      this.get('model.thread').reload();
+      this.model.thread.reload();
       // Reload category to update category.amountOfThreads
-      this.get('model.category').reload();
+      this.model.category.reload();
     },
     submit() {
       this.set('errorMessage', null);
-      const thread = this.get('model.thread');
-      const post = this.get('model.post');
+      const { thread } = this.model;
+      const { post } = this.model;
 
       if (isNone(post.get('message'))) {
         this.set('errorMessage', 'Je moet eerst een bericht aanmaken');

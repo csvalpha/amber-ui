@@ -15,16 +15,16 @@ export default Ability.extend({
   canSelectAllGroups: computed('session.currentUser', function() {
     return this.session.hasPermission('article.update');
   }),
-  canShowArticleComments: computed('session.currentUser', 'model', function() {
-    return this.session.hasPermission('article-comment.read') || this.get('model.publiclyVisible');
+  canShowArticleComments: computed('model.publiclyVisible', 'session.currentUser', function() {
+    return this.session.hasPermission('article-comment.read') || this.model.publiclyVisible;
   }),
-  canEdit: computed('session.currentUser', 'model', function() {
+  canEdit: computed('session.currentUser', 'session.currentUser.memberships', 'model', function() {
     return this.session.hasPermission('article.update') || this.isArticleOwner(this.model);
   }),
   isArticleOwner(article) {
     // This can be reached while not logged in: when a user visits a public article, this method is called to
     // determine whether to show the edit button
-    const currentUser = this.get('session.currentUser');
+    const { currentUser } = this.session;
     return !isNone(currentUser) && article.isOwner(currentUser);
   }
 });

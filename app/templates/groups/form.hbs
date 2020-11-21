@@ -77,7 +77,7 @@
                       {{#if (can 'destroy membership' membership)}}
                         <td>
                           <button type="button" class="btn btn-danger" {{action "removeMembership" membership}} >
-                            {{fa-icon 'trash'}}
+                            <FaIcon @icon='trash'/>
                           </button>
                         </td>
                       {{/if}}

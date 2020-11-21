@@ -7,31 +7,29 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.can.can('show mail-moderations');
   },
   modelName: 'stored-mail',
-  title: computed('controller.model.subject', function() {
-    return this.get('controller.model.subject');
-  }),
+  title: computed.reads('controller.model.subject'),
   parents: ['mail-moderation.index'],
-  pageActions: computed('controller.model', function() {
+  pageActions: computed('can', 'controller.model', function() {
     return [
       {
         link: 'mail-moderations.accept',
         title: 'Goedkeuren',
         icon: 'check',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('accept mail-moderations')
       },
       {
         link: 'mail-moderations.reject',
         title: 'Afkeuren',
         icon: 'minus-circle',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('reject mail-moderations')
       },
       {
         link: 'mail-moderations.destroy',
         title: 'Negeren',
         icon: 'trash',
-        linkArgument: this.get('controller.model'),
+        linkArgument: this.controller.model,
         canAccess: this.can.can('destroy mail-moderations')
       }
     ];

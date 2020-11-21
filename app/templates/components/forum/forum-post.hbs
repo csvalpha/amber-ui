@@ -32,24 +32,24 @@
       <span class="text-muted pr-1">
         {{#if (can 'destroy forum/posts')}}
           <LinkTo @route="forum.categories.category.threads.thread.posts.destroy" @model={{post.id}} class="link-highlight px-2">
-            {{fa-icon 'trash'}}
+            <FaIcon @icon='trash'/>
           </LinkTo>
         {{/if}}
 
         {{#if (can 'edit forum/post' post)}}
           <LinkTo @route="forum.categories.category.threads.thread.posts.edit" @model={{post.id}} class="link-highlight px-2">
-            {{fa-icon 'pencil-alt'}}
+            <FaIcon @icon='pencil-alt'/>
           </LinkTo>
         {{/if}}
 
         {{#if (can 'quote post of forum/thread' post.thread)}}
           <span class=" px-2">
-            {{fa-icon 'quote-left' class="link-highlight" click=(action "quote")}}
+            <FaIcon @icon='quote-left' class="link-highlight" @click={{action "quote"}} />
           </span>
         {{/if}}
 
         <span class=" px-2">
-          {{fa-icon 'code' class="link-highlight" click=(action "toggleShowMarkdown")}}
+          <FaIcon @icon='code' class="link-highlight" @click={{action "toggleShowMarkdown"}}/>
         </span>
       </span>
     </div>

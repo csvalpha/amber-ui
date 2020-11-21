@@ -16,7 +16,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
     params.paramMapping = this.paramMapping;
     return this.findPaged('user', params);
   },
-  pageActions: computed(function() {
+  pageActions: computed('can', function() {
     return [
       {
         link: 'users.new',

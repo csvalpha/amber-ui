@@ -7,9 +7,9 @@ const ForumPostComponent = Component.extend({
       this.toggleProperty('showMarkdown');
     },
     quote() {
-      let header = `${this.get('post.author.fullName')} schreef op ${moment(this.get('post.createdAt')).format('dddd D MMMM gggg @ H:mm')}:`;
+      let header = `${this.post.author.get('fullName')} schreef op ${moment(this.post.createdAt).format('dddd D MMMM gggg @ H:mm')}:`;
       header = `> ___${header}___  \n`;
-      let message = this.get('post.message');
+      let { message } = this.post;
       message = `> ${message}`;
       message = message.split('\n').join('\n> ');
       this.set('newContent', `${this.newContent}${header}${message} \n\n`);

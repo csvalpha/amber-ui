@@ -5,15 +5,15 @@ import { run } from '@ember/runloop';
 
 export default Controller.extend({
   flashNotice: service('flash-notice'),
-  showNotFound: computed('status', function() {
-    return this.get('model.isAuthorizationMixinError')
-      || (this.get('model.isAdapterError') && ['403', '404'].includes(this.status));
+  showNotFound: computed('model.{isAdapterError,isAuthorizationMixinError}', 'status', function() {
+    return this.model.isAuthorizationMixinError
+      || (this.model.isAdapterError && ['403', '404'].includes(this.status));
   }),
   showStatic: computed('status', function() {
     return ['502', '503'].includes(this.status);
   }),
-  status: computed('model', function() {
-    const status = this.get('model.errors.firstObject.status');
+  status: computed('model.errors.firstObject.status', function() {
+    const status = this.model.errors?.firstObject.status;
     return status ? String(status) : status;
   }),
   message: computed('status', function() {

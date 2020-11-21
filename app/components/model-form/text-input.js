@@ -18,13 +18,13 @@ export default Component.extend({
   property: null,
   disabled: false,
   required: false,
-  isInvalid: computed('model.errors.[]', function() {
+  isInvalid: computed('model.errors.[]', 'property', function() {
     return this.get(`model.errors.${this.property}.length`) > 0;
   }),
-  inputIdentifier: computed('property', function() {
+  inputIdentifier: computed('model.constructor.modelName', 'property', function() {
     // See http://stackoverflow.com/questions/34864580/ember-data-model-getmodelname-is-undefined-but-model-internalmodel-works
     // On why model.constructor.modelName is used instead of model.modelName
-    return `${this.get('model.constructor.modelName')}-form-${this.property}`;
+    return `${this.model.constructor.modelName}-form-${this.property}`;
   }),
   placeholder: alias('label')
 });

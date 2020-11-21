@@ -1,12 +1,12 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
-export default Model.extend({
+export default class PhotoComment extends Model {
   // Properties
-  updatedAt: attr('date'),
-  createdAt: attr('date'),
-  content: attr('string'),
+  @attr content;
+  @attr('date') updatedAt;
+  @attr('date') createdAt;
 
   // Relations
-  author: belongsTo('user'),
-  photo: belongsTo('photo')
-});
+  @belongsTo('user') author;
+  @belongsTo photo;
+}

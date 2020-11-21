@@ -39,7 +39,7 @@
 }
 
 // Monkeypatch responsive tables from v4.0
-// stylelint-disable max-nesting-depth
+/* stylelint-disable max-nesting-depth */
 .table-responsive {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
@@ -61,5 +61,4 @@
     }
   }
 }
-
-// stylelint-enable max-nesting-depth
+/* stylelint-enable max-nesting-depth */
