@@ -216,6 +216,7 @@ mixin:
     users: Gebruikers
     staticPages: Informatie
     sog: SOG
+    darkTheme: Donker thema
 tag:
   button:
     close: Sluiten

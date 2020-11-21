@@ -1,0 +1,13 @@
+body {
+  background-color: $white;
+}
+
+a {
+  color: inherit;
+}
+
+p {
+  a {
+    color: $brand-primary-dark;
+  }
+}
