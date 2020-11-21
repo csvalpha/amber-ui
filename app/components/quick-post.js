@@ -125,9 +125,7 @@ export default Component.extend({
 
     subscribeToQuickpostMessagesMessageBus() {
       const channel = '/quickpost_messages';
-      console.log("Subscribing to ", channel);
       this.messageBus.subscribe(channel, data => {
-        console.log("Received message bus data: ", channel, data);
         const json = JSON.parse(data);
         const quickpostMessageData = {
           data: {
