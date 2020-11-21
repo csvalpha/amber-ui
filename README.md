@@ -4,35 +4,45 @@ Alpha AMBER UI
 [![Build status](https://badge.buildkite.com/42748a5ed2c1c77c1dd974c497f0f39eaf39d782a289d19a8e.svg)](https://buildkite.com/csv-alpha/amber-ui)
 
 ## Prerequisites
+If you're going to run the project with Docker, you only need to install the following prerequisites:
+* [Docker Engine](https://docs.docker.com/get-docker/) 
+* [Docker Compose](https://docs.docker.com/compose/install/)
 
-You will need the following things properly installed on your computer.
-
-* [Git](https://git-scm.com/)
+Otherwise, you need the following prerequisites installed:
 * [Node.js](https://nodejs.org/) (with NPM, see `.node-version`, install preferably with [nvm](https://github.com/creationix/nvm#install-script))
 * [Yarn](https://yarnpkg.com/) (Alternative to NPM. Not strictly required, but uses version locking and is much faster)
-* [Ember CLI](https://www.ember-cli.com/): `yarn global add ember-cli` (or `npm install -g ember-cli`)
+* [Ember CLI](https://www.ember-cli.com/)*: `yarn global add ember-cli` (or `npm install -g ember-cli`)
+
+*: Installing the Ember CLI is required if you're not using Docker, but it's also useful with Docker if you want to make use of its features like Code Generators.
 
 ## Installation
+### With Docker
+* Build the project using `docker-compose -f docker-compose.development.yml build ui`. This will install the dependencies and set up the image. If dependencies are updated/added, you need to run this command again.
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `yarn add` (or `npm install`)
+Tip: to run commands in a container, you need to find the container's ID using the `docker ps` command first. Copy the ID of the container with image "amber_development_api".
+Now to run a command in that container, you can run:
+```
+$ docker exec <CONTAINER_ID> <COMMAND>
+```
+For example:
+```
+$ docker exec 4bde3ea072a2 yarn lint
+```
+
+### Without Docker
+* Run `yarn add` (or `npm install`).
 
 ## Running / Development
-
-* `ember server` or `npm start`
+* If you're using Docker run `docker-compose -f docker-compose.development.yml up ui`, otherwise run `ember server` or `npm start`.
 * Visit your app at [http://localhost:4200](http://localhost:4200).
 
 ### Code Generators
-
 Make use of the many generators for code, try `ember help generate` for more details.
 
 ## Tests
-
 The UI is tested using multiple types of test: unit, integration and acceptance.
 
 ### Running
-
 When executing tests, the code style is checked using [XO](https://github.com/sindresorhus/xo), while the tests are
 executed using ember. These two commands are combined in the `npm test` command.
 
@@ -46,12 +56,10 @@ debugging:
    ember exam --server
 
 ### Test data
-
 For the generation of test data, we use [ember-cli-mirage](http://www.ember-cli-mirage.com/). Data is created in factories
 and randomized using Faker.
 
 ### Preview generated data
-
 To preview generated data in the browser, set `ENV['ember-cli-mirage'].enabled` to `true` for
 development in `config/environment.js`. The content generated for development is described in `mirage/scenarios/default.js`.
 
@@ -71,16 +79,13 @@ For auto fix run
 * `yarn stylefix`
 
 ### Building
-
 * `ember build` (development)
 * `ember build --environment production` (production)
 
 ### Deploying
-
 Deploying is done via buildkite. To do a deploy push to GitHub and click on the 'Deploy this step' button in buildkite to finish the deploy.
 
 ## Further Reading / Useful Links
-
 * [ember.js](https://emberjs.com/)
 * [ember-cli](https://www.ember-cli.com/)
 * Development Browser Extensions
