@@ -66,8 +66,8 @@ export default Controller.extend({
       this.set('groupId', model.id);
     },
     startTrainer() {
-      this.users.then(user => {
-        this.generateQuestions(user);
+      this.users.then(users => {
+        this.generateQuestions(users.filter(user => user.avatarThumbUrl));
         this.set('started', true);
         this.set('finished', false);
         this.set('currentQuestionIndex', 1);
