@@ -6,7 +6,7 @@ import groupBy from 'ember-group-by';
 
 export default Controller.extend(FilterableAndSortableMixin, PagedModelControllerMixin, {
   session: service('session'),
-  queryParams: ['search', 'sort', 'page'],
+  queryParams: ['search', 'sort'],
   errorMessage: null,
   routeOnEnter: 'static-pages.show',
   sortableAttributes: [
