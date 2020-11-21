@@ -36,8 +36,8 @@
       </a>
 
       {{!-- Dark theme toggle --}}
-      <a class="link">
-        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon={{if darkModeEnabled "toggle-on" "toggle-off"}} @title={{t "mixin.menuItems.darkTheme"}} @minor={{true}} {{action 'switchTheme'}} />
+      <a class="link" {{action 'switchTheme'}}>
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon={{if darkModeEnabled "toggle-on" "toggle-off"}} @title={{t "mixin.menuItems.darkTheme"}} @minor={{true}} />
       </a>
 
       {{!-- Logout --}}
