@@ -27,7 +27,7 @@ export default Component.extend({
   totalPages: 1,
   messages: null,
 
-  messagesSort: Object.freeze(['id:desc']),
+  messagesSort: Object.freeze(['created_at:desc']),
   sortedMessages: sort('messages', 'messagesSort'),
 
   maxCharacters: 400,
@@ -125,7 +125,9 @@ export default Component.extend({
 
     subscribeToQuickpostMessagesMessageBus() {
       const channel = '/quickpost_messages';
+      console.log("Subscribing to ", channel);
       this.messageBus.subscribe(channel, data => {
+        console.log("Received message bus data: ", channel, data);
         const json = JSON.parse(data);
         const quickpostMessageData = {
           data: {
