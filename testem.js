@@ -4,10 +4,10 @@ module.exports = {
   disable_watching: true,
   reporter: 'dot',
   launch_in_ci: [
-    'Chrome'
+    'Firefox'
   ],
   launch_in_dev: [
-    'Chrome'
+    'Firefox'
   ],
   browser_start_timeout: 120,
   browser_args: {
