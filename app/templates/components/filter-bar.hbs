@@ -5,7 +5,7 @@
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            {{fa-icon 'search'}}
+            <FaIcon @icon='search'/>
           </div>
         </div>
 
@@ -14,9 +14,9 @@
         <div class="input-group-append">
           <dd.button @type="button">
             {{#if sortedAscending}}
-              {{fa-icon 'sort-amount-up'}}
+              <FaIcon @icon='sort-amount-up'/>
             {{else}}
-              {{fa-icon 'sort-amount-down'}}
+              <FaIcon @icon='sort-amount-down'/>
             {{/if}}
           </dd.button>
 

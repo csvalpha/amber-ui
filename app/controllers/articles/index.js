@@ -4,7 +4,7 @@ import PagedModelControllerMixin from 'alpha-amber/mixins/paged-model-controller
 
 export default Controller.extend(FilterableAndSortableMixin, PagedModelControllerMixin, {
   routeOnEnter: 'articles.show',
-  queryParams: ['search', 'sort', 'page'],
+  queryParams: ['search', 'sort'],
   sortableAttributes: [
     {
       value: 'title',
