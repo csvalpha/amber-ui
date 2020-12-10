@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend(FilterableAndSortableMixin, PagedModelControllerMixin, {
   routeOnEnter: 'photo-albums.photo-album.photos.show',
-  queryParams: ['search', 'sort', 'page'],
+  queryParams: ['search', 'sort'],
 
   sortableAttributes: [
     {

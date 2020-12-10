@@ -27,7 +27,7 @@ export default Component.extend({
   totalPages: 1,
   messages: null,
 
-  messagesSort: Object.freeze(['id:desc']),
+  messagesSort: Object.freeze(['created_at:desc']),
   sortedMessages: sort('messages', 'messagesSort'),
 
   maxCharacters: 400,

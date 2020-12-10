@@ -10,6 +10,7 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
   },
   storage: service('local-storage'),
   router: service(),
+  fetch: service(),
   modelName: 'forum/post',
 
   model(params) {
@@ -54,11 +55,8 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
     this._super(...arguments);
 
     this.router.on('routeDidChange', () => {
-      // Update forumLastRead
-      let currentStore = this.storage.getItem('forumLastRead') || '{}';
-      currentStore = JSON.parse(currentStore);
-      currentStore[this.controller.model.thread.id] = new Date();
-      this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
+      const thread = this.modelFor('forum.categories.category.threads.thread');
+      this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, { method: 'POST' });
     });
   }
 });

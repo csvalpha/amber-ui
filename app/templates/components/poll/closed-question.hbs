@@ -33,13 +33,13 @@
         {{#unless question.form.hasResponses }}
           <div class="input-group-append">
             <button type="button" class="btn btn-default" {{action "moveOptionUp" opt}}>
-              {{fa-icon 'arrow-up'}}
+              <FaIcon @icon='arrow-up'/>
             </button>
             <button type="button" class="btn btn-default" {{action "moveOptionDown" opt}}>
-              {{fa-icon 'arrow-down'}}
+              <FaIcon @icon='arrow-down'/>
             </button>
             <button type="button" class="btn btn-default" {{action "deleteOption" opt}}>
-              {{fa-icon 'trash'}}
+              <FaIcon @icon='trash'/>
             </button>
           </div>
         {{/unless}}

@@ -37,7 +37,7 @@
                     <div class="row">
                       <span class="col"> {{option}} </span>
                       <a class="pl-2 link-highlight text-danger" {{action "removeOption" index}}> Verwijderen </a>
-                      <span class="px-3">{{fa-icon 'sort' class="handle text-muted"}}</span>
+                      <span class="px-3"><FaIcon @icon='sort' class="handle text-muted"/></span>
                     </div>
                   </SortableItem>
                 {{else}}
@@ -48,7 +48,7 @@
               <div class="input-group consumptionList-itemfield mt-2">
                 <Input @value={{newOption}} class="form-control" placeholder="Optie toevoegen" @enter={{action "addOption"}} />
                 <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button" {{action "addOption"}}>{{fa-icon 'plus'}}</button>
+                  <button class="btn btn-secondary" type="button" {{action "addOption"}}><FaIcon @icon='plus'/></button>
                 </span>
               </div>
 
