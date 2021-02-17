@@ -21,11 +21,11 @@
           <div class="card-body text-center trainer-question">
             <h2 class="card-title">Wie is {{currentQuestion.question.fullName}}?</h2>
           </div>
-          <ul class="list-group list-group-flush trainer-options">
+          <ul class="list-group list-group-flush trainer-options trainer-images">
             {{#each currentQuestion.options as |opt|}}
-              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion.question opt))
+              <li class="list-group-item trainer-image {{if (and answered (eq currentQuestion.question opt))
                                                              "bg-success"}}" {{action 'chooseOption' opt}}>
-                <img class="card-img-rounded trainer-thumb-small" src="{{opt.avatarThumbUrlOrDefault}}">
+                <img class="card-img-rounded" src="{{opt.avatarThumbUrlOrDefault}}">
               </li>
             {{/each}}
           </ul>
