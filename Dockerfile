@@ -2,7 +2,7 @@ FROM madnificent/ember:3.17.0 as ember
 MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 
 ARG DEPLOY_TARGET='production'
-ARG BUILD_HASH='unkown'
+ARG BUILD_HASH='unknown'
 
 COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
