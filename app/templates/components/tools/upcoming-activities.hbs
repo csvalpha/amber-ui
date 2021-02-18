@@ -24,7 +24,7 @@
       <LinkTo @route="activities.show" @model={{activity.id}}>
         <li class="list-group-item">
           <span class="activity-tool-title "> {{activity.title}} </span> <br>
-          <span class="activity-tool-start-time text-muted"> {{form/status-dot activity.form}} {{activity.formattedStartDate}} </span>
+          <span class="activity-tool-start-time text-muted">{{#if (can "show form/form")}}{{form/status-dot activity.form}}{{/if}} {{activity.formattedStartDate}} </span>
         </li>
       </LinkTo>
     {{else}}
