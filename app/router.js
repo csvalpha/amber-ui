@@ -1,4 +1,4 @@
-import config from './config/environment';
+import config from 'alpha-amber/config/environment';
 import EmberRouterScroll from 'ember-router-scroll';
 
 export default class Router extends EmberRouterScroll {

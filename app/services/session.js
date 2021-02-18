@@ -4,13 +4,13 @@ import { debug } from '@ember/debug';
 import { Promise } from 'rsvp';
 import Session from 'ember-simple-auth/services/session';
 import ENV from 'alpha-amber/config/environment';
+import * as Sentry from '@sentry/browser';
 
 export default Session.extend({
   fetch: service(),
   store: service(),
   intl: service(),
   localStorage: service(),
-  raven: service(),
 
   currentUser: null,
   loadCurrentUser() {
@@ -48,9 +48,7 @@ export default Session.extend({
         return;
       }
 
-      this.raven.callRaven('setUserContext', {
-        id: user.get('id')
-      });
+      Sentry.setUser({ id: user.id });
     });
   },
 

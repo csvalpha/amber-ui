@@ -55,13 +55,7 @@
           </div>
           <div class="card-body">
             <div class="input-group">
-              {{input
-                type="text"
-                value=textInput
-                id="answer"
-                class=inputClass
-                placeholder='Type hier de volledige naam'
-                enter=(action 'checkAnswer')}}
+              <Input @type="text" @value={{textInput}} @id="answer" class={{inputClass}} placeholder="Type hier de volledige naam" @enter={{action "checkAnswer"}} />
               <div class="input-group-append">
                 <button type="button" class="btn btn-primary" {{action 'checkAnswer'}}>Antwoord</button>
               </div>
@@ -154,12 +148,7 @@
 
         <div class="form-group">
           <label>Moeilijkheidsgraad</label>
-          {{input/select-input
-                  class='form-control'
-                  options=difficultyOptions
-                  placeholder=Moeilijkheidsgraad
-                  value=difficulty
-          }}
+          <Input::SelectInput @class="form-control" @options={{difficultyOptions}} @placeholder={{Moeilijkheidsgraad}} @value={{difficulty}} />
         </div>
       </div>
       <div class="card-footer text-right">

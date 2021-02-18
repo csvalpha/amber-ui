@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import IndexRoute from 'alpha-amber/routes/application/index';
 
@@ -9,7 +10,7 @@ export default IndexRoute.extend({
   model() {
     return this.modelFor('forum.categories.category');
   },
-  title: computed.reads('controller.model.name'),
+  title: reads('controller.model.name'),
   parents: ['forum.index'],
   pageActions: computed('can', 'controller.model.id', function() {
     return [

@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { hash } from 'rsvp';
 import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
@@ -10,7 +11,7 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
   },
   modelName: 'poll',
 
-  title: computed.reads('controller.model.poll.question.question'),
+  title: reads('controller.model.poll.question.question'),
   parents: ['poll.index'],
   pageActions: computed('can', 'controller.model.poll', function() {
     const { poll } = this.controller.model;
