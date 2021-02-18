@@ -1,4 +1,4 @@
-import { computed } from '@ember/object';
+import { reads } from '@ember/object/computed';
 import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
 
 export default ShowRouteUnauthenticated.extend({
@@ -7,5 +7,5 @@ export default ShowRouteUnauthenticated.extend({
   },
   modelName: 'photo-album',
   modelRouteParam: 'photo_album_id',
-  title: computed.reads('controller.model.title')
+  title: reads('controller.model.title')
 });

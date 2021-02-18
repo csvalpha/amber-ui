@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
@@ -7,7 +8,7 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
     return this.can.can('show individual users');
   },
   modelName: 'user',
-  title: computed.reads('controller.model.fullName'),
+  title: reads('controller.model.fullName'),
   parents: ['users.index'],
   pageActions: computed('can', 'controller.model', function() {
     const user = this.controller.model;
