@@ -72,7 +72,7 @@
     "ember-qunit": "^4.6",
     "ember-resolver": "^8.0",
     "ember-responsive": "^3.0",
-    "ember-router-scroll": "^3.3",
+    "ember-router-scroll": "^4.0",
     "ember-simple-auth": "^3.0",
     "ember-sortable": "^2.1",
     "ember-source": "~3.20.2",
