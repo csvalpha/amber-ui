@@ -6,8 +6,8 @@ export default class Router extends EmberRouterScroll {
 
   rootURL = config.rootURL;
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.on('routeDidChange', () => {
       if (!config.googleAnalytics) {

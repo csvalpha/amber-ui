@@ -1,5 +1,6 @@
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { capitalize } from '@ember/string';
 import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
 
 export default IndexRouteUnauthenticated.extend({
@@ -9,7 +10,7 @@ export default IndexRouteUnauthenticated.extend({
   },
   modelName: 'static-page',
   title: computed(function() {
-    return this.intl.t('model.staticPage.name.other').toString().capitalize();
+    return capitalize(this.intl.t('model.staticPage.name.other').toString());
   }),
   pageActions: computed('can', function() {
     return [

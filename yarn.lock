@@ -7076,6 +7076,18 @@ eslint-plugin-ember-suave@^2.0:
     eslint-plugin-import "^2.17.2"
     requireindex "~1.2.0"
 
+eslint-plugin-ember@^10.2:
+  version "10.2.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-10.2.0.tgz#449c3ce8e5421c61ab47e0cb6954e2f6f1cfbdc8"
+  integrity sha512-W5cPJa+bBcKJ5kmmu7o8r1hbbT45ZCy8eE5EyRjqJ02B7Jlg74mX+Hdz4RYNSvV1+G7YAOwEZLUkIdJ+44ySGA==
+  dependencies:
+    "@ember-data/rfc395-data" "^0.0.4"
+    css-tree "^1.0.0-alpha.39"
+    ember-rfc176-data "^0.3.15"
+    eslint-utils "^2.1.0"
+    lodash.kebabcase "^4.1.1"
+    snake-case "^3.0.3"
+
 eslint-plugin-ember@^6.4.1:
   version "6.10.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-6.10.1.tgz#ca7a5cc28b91a247c31b1686421a66281467f238"
@@ -7084,17 +7096,6 @@ eslint-plugin-ember@^6.4.1:
     "@ember-data/rfc395-data" "^0.0.4"
     ember-rfc176-data "^0.3.11"
     snake-case "^2.1.0"
-
-eslint-plugin-ember@^9.6:
-  version "9.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-ember/-/eslint-plugin-ember-9.6.0.tgz#607669732094081922660c3be5fc29f3caa3ee51"
-  integrity sha512-MNSXffxPhIiYaVc4eisRPeNoRb19W/2pHWiXwETlhQI9w/2VCyXLKY7c/8gtOCcjuEw4Xd5NiCMqxcNmyq5UzQ==
-  dependencies:
-    "@ember-data/rfc395-data" "^0.0.4"
-    css-tree "^1.0.0-alpha.39"
-    ember-rfc176-data "^0.3.15"
-    lodash.kebabcase "^4.1.1"
-    snake-case "^3.0.3"
 
 eslint-plugin-es@^3.0.0:
   version "3.0.1"
@@ -13125,10 +13126,10 @@ stylelint-config-recommended@^3.0.0:
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
   integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
 
-stylelint-config-sass-guidelines@^7.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-7.1.0.tgz#7838fe04eee649a2444b568a32c904a26b5d6c1e"
-  integrity sha512-WvC9nRdlYknftPcUaJCajrPYKg6d2CKffrr7BPPkN/i/Mt8Qsm1hNQ9lqC1sKoCIKdH051SCEZi10qwFLgDbbg==
+stylelint-config-sass-guidelines@^8.0:
+  version "8.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-sass-guidelines/-/stylelint-config-sass-guidelines-8.0.0.tgz#e92279aa052a04e822dd096d7c46c8e37d4b3406"
+  integrity sha512-v21iDWtzpfhuKJlYKpoE1vjp+GT8Cr6ZBWwMx/jf+eCEblZgAIDVVjgAELoDLhVj17DcEFwlIKJBMfrdAmXg0Q==
   dependencies:
     stylelint-order "^4.0.0"
     stylelint-scss "^3.18.0"
@@ -14184,9 +14185,9 @@ whatwg-encoding@^1.0.5:
     iconv-lite "0.4.24"
 
 whatwg-fetch@^3.4.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.5.0.tgz#605a2cd0a7146e5db141e29d1c62ab84c0c4c868"
-  integrity sha512-jXkLtsR42xhXg7akoDKvKWE40eJeI+2KZqcp2h3NsOrRnDvtWX36KcKl30dy+hxECivdk2BVUHVNrPtoMBUx6A==
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.6.0.tgz#3d3cd5396d986936991f79674ff811a67dc5dcc0"
+  integrity sha512-ZgtzIak+vJhRBRdz/64QikloqIyeOufspzwd7ch/TSNdK4e/kC5PqL7W4uwj0l/SyagqRkRJii5JEsufbniLgw==
 
 whatwg-mimetype@^2.3.0:
   version "2.3.0"

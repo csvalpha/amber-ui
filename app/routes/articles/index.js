@@ -2,6 +2,7 @@ import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
 import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { capitalize } from '@ember/string';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   intl: service(),
@@ -12,7 +13,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'article',
 
   title: computed(function() {
-    return this.intl.t('model.article.name.other').toString().capitalize();
+    return capitalize(this.intl.t('model.article.name.other').toString());
   }),
 
   pageActions: computed('can', function() {
