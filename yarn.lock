@@ -2192,7 +2192,7 @@
     resolve "^1.8.1"
     semver "^7.3.2"
 
-"@embroider/macros@0.36.0", "@embroider/macros@^0.36.0":
+"@embroider/macros@0.36.0", "@embroider/macros@>=0.25.0", "@embroider/macros@^0.36.0":
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/@embroider/macros/-/macros-0.36.0.tgz#5330f1e6f12112f0f68e34b3e4855dc7dd3c69a5"
   integrity sha512-w37G4uXG+Wi3K3EHSFBSr/n6kGFXYG8nzZ9ptzDOC7LP3Oh5/MskBnVZW3+JkHXUPEqKsDGlxPxCVpPl1kQyjQ==
@@ -4617,20 +4617,6 @@ blob@0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/blob/-/blob-0.0.5.tgz#d680eeef25f8cd91ad533f5b01eed48e64caf683"
   integrity sha512-gaqbzQPqOoamawKg0LGVd7SzLgXS+JH61oWprSLH+P+abTczqJbhTR8CmJ2u9/bUYNmHTGJx/UEmn6doAvvuig==
-
-<<<<<<< HEAD
-bluebird@^2.3:
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-2.11.0.tgz#534b9033c022c9579c56ba3b3e5a5caafbb650e1"
-  integrity sha1-U0uQM8AiyVecVro7Plpcqvu2UOE=
-=======
-block-stream@*:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/block-stream/-/block-stream-0.0.9.tgz#13ebfe778a03205cfe03751481ebb4b3300c126a"
-  integrity sha1-E+v+d4oDIFz+A3UUgeu0szAMEmo=
-  dependencies:
-    inherits "~2.0.0"
->>>>>>> staging
 
 bluebird@^3.1.1, bluebird@^3.4.6, bluebird@^3.5.5:
   version "3.7.2"
@@ -7219,11 +7205,7 @@ ember-cli-htmlbars@^4.2.0, ember-cli-htmlbars@^4.2.1, ember-cli-htmlbars@^4.2.2,
     strip-bom "^4.0.0"
     walk-sync "^2.0.2"
 
-<<<<<<< HEAD
-ember-cli-htmlbars@^5.1, ember-cli-htmlbars@^5.1.0:
-=======
-ember-cli-htmlbars@^5.1, ember-cli-htmlbars@^5.1.2:
->>>>>>> staging
+ember-cli-htmlbars@^5.1, ember-cli-htmlbars@^5.1.0, ember-cli-htmlbars@^5.1.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/ember-cli-htmlbars/-/ember-cli-htmlbars-5.3.2.tgz#d0e1a4ccd2e7c6f91be51ea0cc1ef7650a9b67e7"
   integrity sha512-S/spDVzBxkdMhnjiT6gG9xqpM9sT0Z7HskWSvSIAAW1sQsKPOCfRYp/1CqJ3+V5aX8ct0j5aHsdRanQYyHya2w==
@@ -13627,21 +13609,7 @@ request-promise-native@^1.0.8:
     stealthy-require "^1.1.1"
     tough-cookie "^2.3.3"
 
-<<<<<<< HEAD
-request-promise@^0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/request-promise/-/request-promise-0.4.3.tgz#3c8ddc82f06f8908d720aede1d6794258e22121c"
-  integrity sha1-PI3cgvBviQjXIK7eHWeUJY4iEhw=
-  dependencies:
-    bluebird "^2.3"
-    chalk "^1.1.0"
-    lodash "^3.10.0"
-    request "^2.34"
-
-request@^2.34, request@^2.88.0, request@^2.88.2:
-=======
-request@^2.87.0, request@^2.88.0, request@^2.88.2:
->>>>>>> staging
+request@^2.88.0, request@^2.88.2:
   version "2.88.2"
   resolved "https://registry.yarnpkg.com/request/-/request-2.88.2.tgz#d73c918731cb5a87da047e207234146f664d12b3"
   integrity sha512-MsvtOrfG9ZcrOwAW+Qi+F6HbD0CWXEh9ou77uOb7FM2WPhwT7smM833PzanhJLsgXjN89Ir6V2PczXNnMpwKhw==
