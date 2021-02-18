@@ -1,5 +1,9 @@
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
-import { CoverPhotoFallback, AvatarFallback, AvatarThumbFallback } from 'alpha-amber/constants';
+import {
+  CoverPhotoFallback,
+  AvatarFallback,
+  AvatarThumbFallback
+} from 'alpha-amber/constants';
 
 export default class Article extends Model {
   // Attributes

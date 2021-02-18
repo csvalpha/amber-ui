@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
@@ -7,7 +8,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     return this.can.can('show mail-aliases');
   },
   modelName: 'mail-alias',
-  title: computed.reads('controller.model.email'),
+  title: reads('controller.model.email'),
   parents: ['mail-aliases.index'],
   pageActions: computed('can', 'controller.model', function() {
     const mailAlias = this.controller.model;

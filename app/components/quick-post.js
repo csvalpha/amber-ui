@@ -2,7 +2,7 @@ import { inject as service } from '@ember/service';
 import { htmlSafe } from '@ember/string';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { sort } from '@ember/object/computed';
+import { sort, reads } from '@ember/object/computed';
 import { WelcomeTextLines, SuggestedEmojis } from 'alpha-amber/constants';
 import { convertToUnicode } from 'alpha-amber/helpers/convert-to-unicode';
 
@@ -31,7 +31,7 @@ export default Component.extend({
   sortedMessages: sort('messages', 'messagesSort'),
 
   maxCharacters: 400,
-  currentCharacterCount: computed.reads('newQpMessage.length'),
+  currentCharacterCount: reads('newQpMessage.length'),
   characterCountPercentage: computed('currentCharacterCount', 'maxCharacters', function() {
     return Math.round(this.currentCharacterCount / this.maxCharacters * 100);
   }),

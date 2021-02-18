@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import { all } from 'rsvp';
@@ -16,7 +17,7 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     }
   },
   modelName: 'group',
-  title: computed.reads('controller.model.name'),
+  title: reads('controller.model.name'),
   parents: ['groups.index'],
   pageActions: computed('can', 'controller.model', function() {
     const group = this.controller.model;

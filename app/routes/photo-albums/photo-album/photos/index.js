@@ -1,3 +1,4 @@
+import { reads } from '@ember/object/computed';
 import { computed } from '@ember/object';
 import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
 
@@ -11,7 +12,7 @@ export default IndexRouteUnauthenticated.extend({
     return this.modelFor('photo-albums.photo-album');
   },
 
-  title: computed.reads('controller.model.title'),
+  title: reads('controller.model.title'),
 
   pageActions: computed('can', 'controller.model.{photoAlbum,title}', function() {
     return [
