@@ -1,7 +1,6 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class ModerationIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class ModerationIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Mailmoderatie' }
 
   canAccess() {
