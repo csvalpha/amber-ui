@@ -1,10 +1,20 @@
-import NewRoute from 'alpha-amber/routes/application/new';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default NewRoute.extend({
+export default class NewMailAliasRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Mail-alias aanmaken' }
+
   canAccess() {
     return this.can.can('create mail-aliases');
-  },
-  modelName: 'mail-alias',
-  title: 'Mail-alias aanmaken',
-  parents: ['mail-aliases.index']
-});
+  }
+
+  model() {
+    return this.store.createRecord('mail-alias');
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+
+}
+
