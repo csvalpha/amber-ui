@@ -14,6 +14,14 @@ export class ApplicationRoute extends Route {
     }
   }
 
+  perPage = 10
+  /* eslint camelcase: "off" */
+  paramMapping = {
+    page: 'page[number]',
+    perPage: 'page[size]',
+    total_pages: 'page_count'
+  }
+
   get pageActions() {
     return [];
   }
@@ -22,10 +30,6 @@ export class ApplicationRoute extends Route {
     super.setupController(...arguments);
     controller.pageActions = this.pageActions;
     controller.tabItems = this.tabItems;
-  }
-
-  model(params) {
-    return this.store.query(this.modelName, params);
   }
 }
 

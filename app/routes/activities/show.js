@@ -1,18 +1,13 @@
-import { computed } from '@ember/object';
 import { hash } from 'rsvp';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
 
-export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show activities');
-  },
-  modelName: 'activity',
-  title: computed.reads('controller.model.activity.title'),
-  parents: ['activities.index'],
+export default class ShowActivityRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+  get breadCrumb() {
+    return { title: this.controller.model.activity.title };
+  }
 
-  pageActions: computed('can', 'controller.model.activity', function() {
+  get pageActions() {
     const { activity } = this.controller.model;
     return [
       {
@@ -44,17 +39,21 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
         canAccess: this.can.can('mail enrolled members of activity', activity)
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show activities');
+  }
 
   model(params) {
-    const activityPromise = this._super(params);
+    const activityPromise = this.store.findRecord('activity', params.id, params);
     let formPromise,
       responsePromise;
 
     if (this.can.can('show form/forms') && this.can.can('show form/responses')) {
       formPromise = activityPromise.then(activity => activity.get('form'));
       responsePromise = formPromise
-      // Load or create the response
+        // Load or create the response
         .then(form => form === null ? null : this.loadOrCreateCurrentUserResponse(form))
         // Make sure there are answers for each question in the response
         .then(response => response === null ? null : this.loadOrCreateAnswers(response));
@@ -65,9 +64,9 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       form: formPromise,
       currentUserResponse: responsePromise
     });
-  },
+  }
 
   deactivate() {
     this.controller.model.currentUserResponse?.rollbackAttributesAndAnswers();
   }
-});
+}
