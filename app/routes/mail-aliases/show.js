@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default class ShowArticleRoute extends AuthenticatedRoute {
+export default class ShowMailAliasRoute extends AuthenticatedRoute {
   get breadCrumb() {
     return { title: this.controller.model.email };
   }

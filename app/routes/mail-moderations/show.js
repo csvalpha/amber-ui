@@ -1,16 +1,11 @@
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show mail-moderations');
-  },
-  modelName: 'stored-mail',
-  title: reads('controller.model.subject'),
-  parents: ['mail-moderation.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowModerationRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.subject };
+  }
+
+  get pageActions() {
     return [
       {
         link: 'mail-moderations.accept',
@@ -34,5 +29,13 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         canAccess: this.can.can('destroy mail-moderations')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show mail-moderations');
+  }
+
+  model(params) {
+    return this.store.findRecord('stored-mail', params.id, params);
+  }
+}

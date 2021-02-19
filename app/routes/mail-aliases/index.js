@@ -2,7 +2,7 @@ import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import { inject as service } from '@ember/service';
 
-export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class MailAliasIndexRoute extends ApplicationRoute.extend(RouteMixin) {
   @service intl
   breadCrumb = { title: 'Mail-aliassen' }
 
