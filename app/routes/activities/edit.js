@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default class NewGroupRoute extends AuthenticatedRoute {
+export default class EdityActivityRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activiteit aanpassen' }
 
   canAccess(model) {

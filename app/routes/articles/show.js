@@ -1,15 +1,12 @@
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
 
-export default ShowRouteUnauthenticated.extend({
-  canAccess() {
-    return this.can.can('show articles');
-  },
-  modelName: 'article',
-  title: reads('controller.model.title'),
-  parents: ['articles.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowArticleRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+  get breadCrumb() {
+    return { title: this.controller.model.title };
+  }
+
+  get pageActions() {
     const article = this.controller.model;
     return [
       {
@@ -27,5 +24,13 @@ export default ShowRouteUnauthenticated.extend({
         canAccess: this.can.can('destroy articles')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show articles');
+  }
+
+  model(params) {
+    return this.store.findRecord('article', params.id, params);
+  }
+}

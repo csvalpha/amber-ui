@@ -1,20 +1,18 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
-  skipBeforeModelAccessCheck: true,
-  afterModel(article, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit article', article), transition);
-  },
-  modelName: 'article',
-  title: 'Artikel aanpassen',
-  parents: ['articles.index'],
-  actions: {
-    submit(article) {
-      article.save().then(() => {
-        this.transitionTo('articles.show', article);
-      }).catch(error => {
-        this.set('errorMessage', error.message);
-      });
-    }
+export default class EditArticleRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Activiteit aanpassen' }
+
+  canAccess(model) {
+    return this.can.can('edit article', model);
   }
-});
+
+  model(params) {
+    return this.store.findRecord('article', params.id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}
