@@ -5,8 +5,8 @@ import { run } from '@ember/runloop';
 
 export default Controller.extend({
   flashNotice: service('flash-notice'),
-  showNotFound: computed('model.{isAdapterError,isAuthorizationMixinError}', 'status', function() {
-    return this.model.isAuthorizationMixinError
+  showNotFound: computed('model.{isAdapterError,isAuthorizationError}', 'status', function() {
+    return this.model.isAuthorizationError
       || (this.model.isAdapterError && ['403', '404'].includes(this.status));
   }),
   showStatic: computed('status', function() {

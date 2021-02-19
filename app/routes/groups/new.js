@@ -1,15 +1,20 @@
-import NewRoute from 'alpha-amber/routes/application/new';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default NewRoute.extend({
+export default class NewGroupRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Groep aanmaken' }
+
   canAccess() {
     return this.can.can('create groups');
-  },
-  modelName: 'group',
-  title: 'Groep aanmaken',
-  parents: ['groups.index'],
-  deactivate() {
-    const group = this.controller.model;
-    group.rollbackAttributesAndMemberships();
   }
-});
+
+  model() {
+    return this.store.createRecord('group');
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributesAndMemberships();
+  }
+
+}
 
