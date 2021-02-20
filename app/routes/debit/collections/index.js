@@ -1,15 +1,10 @@
-import { computed } from '@ember/object';
-import IndexRoute from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default IndexRoute.extend(PagedModelRouteMixin, {
-  canAccess() {
-    return this.can.can('show debit/collections');
-  },
-  perPage: 15,
-  modelName: 'debit/collection',
-  title: 'Incasso\'s',
-  pageActions: computed('can', function() {
+export default class CollectionsIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+  breadCrumb = { title: 'Incasso\'s' }
+
+  get pageActions() {
     return [
       {
         link: 'debit.collections.new',
@@ -18,6 +13,15 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create debit/collections')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show debit/collections');
+  }
+
+  model(params) {
+    params.paramMapping = this.paramMapping;
+    return this.findPaged('debit/collection', params);
+  }
+}
 

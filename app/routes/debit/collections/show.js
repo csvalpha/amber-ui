@@ -1,18 +1,13 @@
-import { alias } from '@ember/object/computed';
-import { computed } from '@ember/object';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { assign } from '@ember/polyfills';
 import { hash } from 'rsvp';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show debit/collections');
-  },
-  modelName: 'debit/collection',
-  title: alias('controller.model.collection.name'),
-  parents: ['debit.collection.index'],
-  pageActions: computed('can', 'controller.model.collection', function() {
+export default class CollectionsIndexRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.collection.name };
+  }
+
+  get pageActions() {
     const { collection } = this.controller.model;
     return [
       {
@@ -37,9 +32,14 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         canAccess: this.can.can('download sepa debit/collections')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show debit/collections');
+  }
+
   model(params) {
-    const collectionPromise = this.store.findRecord(this.modelName, params.id);
+    const collectionPromise = this.store.findRecord('debit/collection', params.id);
     assign(params, {
       paramMapping: this.paramMapping,
       filter: { collection: params.id },
@@ -53,4 +53,4 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
       transactions: transactionsPromise
     });
   }
-});
+}
