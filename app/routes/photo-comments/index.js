@@ -1,19 +1,19 @@
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import IndexRouteUnauthenticated from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
+export default class PhotoCommentsIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+  breadCrumb = { title: 'Fotoreacties' }
+  perPage = 4
+
   canAccess() {
     return this.can.can('show photo-comments');
-  },
-  modelName: 'photo',
-  title: 'Fotoreacties',
-  perPage: 4,
+  }
+
   model(params) {
     params.paramMapping = this.paramMapping;
     params.sort = '-updated_at';
     // eslint-disable-next-line camelcase
     params.filter = { with_comments: true };
-    return this.findPaged(this.modelName, params);
+    return this.findPaged('photo', params);
   }
-});
+}
