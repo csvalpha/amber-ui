@@ -1,13 +1,9 @@
-import { computed } from '@ember/object';
-import IndexRoute from 'alpha-amber/routes/application/index';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default IndexRoute.extend({
-  canAccess() {
-    return this.can.can('show members');
-  },
-  modelName: 'user',
-  title: 'Leden',
-  pageActions: computed('can', function() {
+export default class MembersRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Leden' }
+
+  get pageActions() {
     return [
       {
         link: 'users.new',
@@ -22,9 +18,14 @@ export default IndexRoute.extend({
         canAccess: this.can.can('show webdav users')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show members');
+  }
+
   model(params) {
     params.filter = { group: 'Leden' };
-    return this.store.query(this.modelName, params);
+    return this.store.query('user', params);
   }
-});
+}
