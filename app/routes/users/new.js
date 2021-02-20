@@ -13,7 +13,7 @@ export default class NewUserRoute extends AuthenticatedRoute {
 
   deactivate() {
     super.deactivate();
-    this.controller.model?.rollbackAttributesAndForm();
+    this.controller.model?.rollbackAttributes();
   }
 
 }
