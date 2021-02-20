@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import { setBreakpoint } from 'ember-responsive/test-support';
 
 module('Unit | Service | layoutManager', function(hooks) {
   setupTest(hooks);
@@ -8,27 +9,27 @@ module('Unit | Service | layoutManager', function(hooks) {
     const service = this.owner.lookup('service:layout-manager');
     service.set('session.isAuthenticated', true);
 
-    service.set('media.isMobile', false);
+    setBreakpoint('desktop');
     assert.ok(service.get('leftSideBarOpen'));
 
-    service.set('media.isMobile', true);
+    setBreakpoint('mobile');
     assert.notOk(service.get('leftSideBarOpen'));
     assert.ok(service.get('leftSideBarExpanded'));
 
-    service.set('media.isMobile', false);
+    setBreakpoint('desktop');
     service.set('leftSideBarOpen', true);
     service.closeLeftSidebarIfOnMobile();
     assert.ok(service.get('leftSideBarOpen'));
 
-    service.set('media.isMobile', true);
+    setBreakpoint('mobile');
     service.closeLeftSidebarIfOnMobile();
     assert.notOk(service.get('leftSideBarOpen'));
     assert.ok(service.get('leftSideBarExpanded'));
 
     service.set('session.isAuthenticated', false);
-    service.set('media.isMobile', true);
+    setBreakpoint('mobile');
     assert.notOk(service.get('leftSideBarOpen'));
-    service.set('media.isMobile', false);
+    setBreakpoint('desktop');
     assert.notOk(service.get('leftSideBarOpen'));
   });
 
@@ -38,7 +39,7 @@ module('Unit | Service | layoutManager', function(hooks) {
     service.set('session.isAuthenticated', true);
 
     // The value in localStorage is only used on non-mobile devices.
-    service.set('media.isMobile', false);
+    setBreakpoint('desktop');
     assert.ok(service.get('leftSideBarOpen'));
 
     // Simulate localstorage and return true
@@ -82,7 +83,7 @@ module('Unit | Service | layoutManager', function(hooks) {
     const service = this.owner.lookup('service:layout-manager');
 
     // Expansion is only relevent on non-mobile devices
-    service.set('media.isMobile', false);
+    setBreakpoint('desktop');
 
     // Toggle
     service.set('leftSideBarExpanded', false);
