@@ -1,11 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  skipBeforeModelAccessCheck: true,
-  afterModel(response, transition) {
-    return this.checkAccessWithPromise(this.can.can('destroy form/response', response), transition);
-  },
-  modelName: 'form/response',
-  title: 'Formulierantwoord verwijderen'
-});
+export default class DestroyFormResponseRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Formulierantwoord verwijderen' }
+
+  canAccess(model) {
+    return this.can.can('destroy form/response', model);
+  }
+
+  model(params) {
+    return this.store.findRecord('form/response', params.id, params);
+  }
+}
