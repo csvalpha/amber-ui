@@ -1,39 +1,17 @@
-import { reads } from '@ember/object/computed';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { assign } from '@ember/polyfills';
-import IndexRoute from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default IndexRoute.extend(PagedModelRouteMixin, {
-  canAccess() {
-    return this.can.can('show forum/posts');
-  },
-  storage: service('local-storage'),
-  router: service(),
-  fetch: service(),
-  modelName: 'forum/post',
+export default class PostIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+  @service router
+  @service fetch
 
-  model(params) {
-    const category = this.modelFor('forum.categories.category');
-    const thread = this.modelFor('forum.categories.category.threads.thread');
-    assign(params, {
-      paramMapping: this.paramMapping,
-      filter: { thread: thread.id },
-      sort: 'created_at'
-    });
-    const postsPromise = this.findPaged('forum/post', params);
+  get breadCrumb() {
+    return { title: this.controller.model.thread.title };
+  }
 
-    return {
-      category,
-      thread,
-      posts: postsPromise
-    };
-  },
-
-  title: reads('controller.model.thread.title'),
-
-  pageActions: computed('can', 'controller.model.thread', function() {
+  get pageActions() {
     return [
       {
         link: 'forum.categories.category.threads.thread.edit',
@@ -50,14 +28,35 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('destroy forum/threads')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show forum/posts');
+  }
+
+  model(params) {
+    const category = this.modelFor('forum.categories.category');
+    const thread = this.modelFor('forum.categories.category.threads.thread');
+    assign(params, {
+      paramMapping: this.paramMapping,
+      filter: { thread: thread.id },
+      sort: 'created_at'
+    });
+    const postsPromise = this.findPaged('forum/post', params);
+
+    return {
+      category,
+      thread,
+      posts: postsPromise
+    };
+  }
 
   init() {
-    this._super(...arguments);
+    super.init(...arguments);
 
     this.router.on('routeDidChange', () => {
       const thread = this.modelFor('forum.categories.category.threads.thread');
       this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, { method: 'POST' });
     });
   }
-});
+}
