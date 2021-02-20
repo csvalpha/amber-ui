@@ -7,5 +7,6 @@ export default registerHelper('validationErrors', (app, values) => {
       errors.push(validationError(`/data/attributes/${attribute}`));
     }
   }
+
   return errors;
 });
