@@ -3,7 +3,6 @@ import { assign } from '@ember/polyfills';
 
 export default class UserIndexRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Gebruikers' }
-  perPage = 12
 
   get pageActions() {
     return [
