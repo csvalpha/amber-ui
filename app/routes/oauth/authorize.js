@@ -5,8 +5,8 @@ export default class OauthAuthorizeRoute extends ApplicationRoute {
   @service fetch
   @service router
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.router.on('routeDidChange', event => {
       // When routeDidChange is not oauth.authorize, skip

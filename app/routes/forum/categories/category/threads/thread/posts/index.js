@@ -51,8 +51,8 @@ export default class PostIndexRoute extends AuthenticatedRoute.extend(RouteMixin
     };
   }
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
 
     this.router.on('routeDidChange', () => {
       const thread = this.modelFor('forum.categories.category.threads.thread');
