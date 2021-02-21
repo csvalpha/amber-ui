@@ -6,8 +6,8 @@ export default class Photos extends Component {
   @service store;
   photoAlbums = [];
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
 
     const albums = this.store.query('photo-album', {
       sort: '-updated_at',

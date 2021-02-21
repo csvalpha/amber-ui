@@ -1,6 +1,7 @@
 import EditController from 'alpha-amber/controllers/application/edit';
 import { computed } from '@ember/object';
 import { StaticPageCategories } from 'alpha-amber/constants';
+import { capitalize } from '@ember/string';
 
 export default EditController.extend({
   successMessage: 'Infopagina aangepast!',
@@ -10,7 +11,7 @@ export default EditController.extend({
     return StaticPageCategories.map(pageCategory => {
       return {
         value: pageCategory,
-        label: pageCategory.capitalize()
+        label: capitalize(pageCategory)
       };
     });
   })

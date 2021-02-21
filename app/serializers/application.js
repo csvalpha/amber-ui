@@ -3,9 +3,7 @@ import { inject as service } from '@ember/service';
 import { underscore } from '@ember/string';
 import Ember from 'ember';
 
-const {
-  Logger, String
-} = Ember;
+const {  Logger } = Ember;
 
 const verbReplacements = {
   new: 'create',
@@ -54,7 +52,7 @@ export default JSONAPISerializer.extend({
   keyForAttribute(attr) {
     // Keys for attributes are underscored in the API (created_at)
     // while Ember uses kebab case (created-at)
-    return String.underscore(attr);
+    return underscore(attr);
   },
 
   keyForRelationship(key, relationship, method) {

@@ -14,6 +14,7 @@ const MenuSidebarItemComponent = Component.extend({
     }
   },
   didRender() {
+    this._super(...arguments);
     let { layoutManager, element, title } = this;
 
     if (!this.popup) {

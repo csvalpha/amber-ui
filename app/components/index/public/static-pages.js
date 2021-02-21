@@ -5,8 +5,8 @@ export default class StaticPages extends Component {
   @service store;
   staticPages = [];
 
-  init() {
-    super.init(...arguments);
+  constructor() {
+    super(...arguments);
     this.set('staticPages', this.store.findAll('static-page'));
   }
 }
