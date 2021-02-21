@@ -4,7 +4,7 @@ module.exports = {
   disable_watching: true,
   reporter: 'dot',
   launch_in_ci: [
-    'Firefox'
+    'Chrome'
   ],
   launch_in_dev: [
     'Chrome'
