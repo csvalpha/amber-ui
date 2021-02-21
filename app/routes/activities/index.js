@@ -13,6 +13,9 @@ export default class ActivityIndexRoute extends AuthenticatedRoute.extend(RouteM
     },
     showPassed: {
       refreshModel: true
+    },
+    page: {
+      refreshModel: true
     }
   }
 
@@ -43,7 +46,7 @@ export default class ActivityIndexRoute extends AuthenticatedRoute.extend(RouteM
       params.filter = { upcoming: true };
     }
 
-    return this.findPaged('activity', params);
+    return this.store.queryPaged('activity', params);
   }
 }
 
