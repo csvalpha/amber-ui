@@ -1,13 +1,19 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyCategoryRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Categorie verwijderen' }
+
   canAccess() {
     return this.can.can('destroy forum/categories');
-  },
+  }
+
   model() {
     return this.modelFor('forum.categories.category');
-  },
-  modelName: 'forum/category',
-  title: 'Categorie verwijderen'
-});
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+
+}

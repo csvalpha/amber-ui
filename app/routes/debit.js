@@ -1,5 +1,5 @@
 import Route from '@ember/routing/route';
 
-export default Route.extend({
-  breadCrumb: null
-});
+export default class DebitRoute extends Route {
+  breadCrumb = null
+}

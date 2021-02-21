@@ -1,14 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  skipBeforeModelAccessCheck: true,
+export default class PrintEnrolledRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Print inschrijvingen/streeplijst' };
 
-  afterModel(activity, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit activity', activity), transition);
-  },
+  canAccess(model) {
+    return this.can.can('edit activity', model);
+  }
 
-  modelName: 'activity',
-  title: 'Print inschrijvingen/streeplijst',
-  parents: ['activities.show']
-});
+  model(params) {
+    return this.store.findRecord('activity', params.id, params);
+  }
+}

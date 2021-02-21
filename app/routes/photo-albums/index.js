@@ -1,24 +1,16 @@
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
-import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import { capitalize } from '@ember/string';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { inject as service } from '@ember/service';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
-  intl: service(),
-  canAccess() {
-    return this.can.can('show photo-albums');
-  },
+export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+  @service intl
 
-  modelName: 'photo-album',
+  get breadCrumb() {
+    return { title: capitalize(this.intl.t('model.photoAlbum.name.other').toString()) };
+  }
 
-  title: computed(function() {
-    return capitalize(this.intl.t('model.photoAlbum.name.other').toString());
-  }),
-
-  perPage: 10,
-
-  pageActions: computed('can', function() {
+  get pageActions() {
     return [
       {
         link: 'photo-comments.index',
@@ -33,5 +25,14 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create photo-albums')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show photo-albums');
+  }
+
+  model(params) {
+    params.paramMapping = this.paramMapping;
+    return this.findPaged('photo-album', params);
+  }
+}

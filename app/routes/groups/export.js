@@ -1,13 +1,15 @@
-import { reads } from '@ember/object/computed';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  skipBeforeModelAccessCheck: true,
-  afterModel(group, transition) {
-    return this.checkAccessWithPromise(this.can.can('export group', group), transition);
-  },
-  modelName: 'group',
-  title: reads('controller.model.name'),
-  parents: ['groups.index']
-});
+export default class ExportGroupRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: `${this.controller.model.name} exporteren` };
+  }
+
+  canAccess(model) {
+    return this.can.can('export group', model);
+  }
+
+  model(params) {
+    return this.store.findRecord('group', params.id, params);
+  }
+}

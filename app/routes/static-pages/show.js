@@ -1,15 +1,11 @@
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend({
-  canAccess() {
-    return this.can.can('show static-pages');
-  },
-  modelName: 'static-page',
-  title: reads('controller.model.title'),
-  parents: ['static-pages.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowMailAliasRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.title };
+  }
+
+  get pageActions() {
     return [
       {
         link: 'static-pages.edit',
@@ -26,5 +22,13 @@ export default ShowRouteUnauthenticated.extend({
         canAccess: this.can.can('destroy static-pages')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show static-pages');
+  }
+
+  model(params) {
+    return this.store.findRecord('static-page', params.id, params);
+  }
+}

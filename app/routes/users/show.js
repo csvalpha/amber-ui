@@ -1,16 +1,11 @@
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show individual users');
-  },
-  modelName: 'user',
-  title: reads('controller.model.fullName'),
-  parents: ['users.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowUserRouter extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.fullName };
+  }
+
+  get pageActions() {
     const user = this.controller.model;
     return [
       {
@@ -35,8 +30,9 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         canAccess: this.can.can('resend activation code of user', user)
       }
     ];
-  }),
-  tabItems: computed('can', 'controller.model', function() {
+  }
+
+  get tabItems() {
     const user = this.controller.model;
     return [
       {
@@ -76,7 +72,13 @@ const UserShowRouteUnauthenticated = ShowRouteUnauthenticated.extend(Authenticat
         canAccess: this.can.can('show permissions-users')
       }
     ];
-  })
-});
+  }
 
-export default UserShowRouteUnauthenticated;
+  canAccess() {
+    return this.can.can('show individual users');
+  }
+
+  model(params) {
+    return this.store.findRecord('user', params.id, params);
+  }
+}

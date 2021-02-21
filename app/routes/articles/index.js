@@ -1,22 +1,16 @@
-import { computed } from '@ember/object';
-import { inject as service } from '@ember/service';
-import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import { capitalize } from '@ember/string';
+import { inject as service } from '@ember/service';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
-  intl: service(),
-  canAccess() {
-    return this.can.can('show articles');
-  },
+export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+  @service intl
 
-  modelName: 'article',
+  get breadCrumb() {
+    return { title: capitalize(this.intl.t('model.article.name.other').toString()) };
+  }
 
-  title: computed(function() {
-    return capitalize(this.intl.t('model.article.name.other').toString());
-  }),
-
-  pageActions: computed('can', function() {
+  get pageActions() {
     return [
       {
         link: 'articles.new',
@@ -25,11 +19,15 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create articles')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show articles');
+  }
 
   model(params) {
     params.paramMapping = this.paramMapping;
     params.sort = `-pinned,${params.sort}`;
-    return this.findPaged(this.modelName, params);
+    return this.findPaged('article', params);
   }
-});
+}
