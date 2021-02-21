@@ -1,13 +1,13 @@
 <div class="menu-sidebar {{if layoutManager.leftSideBarOpen 'left-sidebar-open'}} {{if layoutManager.leftSideBarExpanded 'expanded'}}">
 
   <EmberWormhole @to="ember-wormhole-destination">
-    <div class="close-left-sidebar-panel {{if layoutManager.leftSideBarOpen 'open'}}" {{action 'closeLeftSidebar'}}> </div>
+    <div class="close-left-sidebar-panel {{if layoutManager.leftSideBarOpen 'open'}}" {{on "click" layoutManager.toggleLeftSidebar}}> </div>
   </EmberWormhole>
 
   <div class="menu-items-holder">
     {{!-- the first sidebar item is a dropdown, otherwise show login item --}}
     {{#if session.isAuthenticated}}
-      <div class="menu-sidebar-item link {{if layoutManager.profileMenuOpen "profile-menu-open"}}" {{action 'toggleProfileMenu'}}>
+      <div class="menu-sidebar-item link {{if layoutManager.profileMenuOpen "profile-menu-open"}}" {{on "click" layoutManager.toggleProfileMenu}}>
         <img class="menu-sidebar-item-icon profile-picture profile-picture-xs" src={{session.currentUser.avatarThumbUrlOrDefault}}>
         <span class="menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded 'visible'}}"> {{session.currentUser.firstName}}</span>
 
@@ -55,7 +55,7 @@
   </div>
 
   <div class="menu-sidebar-item d-none d-md-flex">
-    <span class="menu-sidebar-item-icon expand-menu-sidebar-btn link" {{action 'toggleLeftSidebarExpansion'}}>
+    <span class="menu-sidebar-item-icon expand-menu-sidebar-btn link" {{on "click" layoutManager.toggleLeftSidebarExpansion}}>
       <FaIcon @icon="chevron-right"/>
     </span>
   </div>

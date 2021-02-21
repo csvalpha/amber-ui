@@ -1,6 +1,7 @@
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
+import { capitalize } from '@ember/string';
 import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
 export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
@@ -12,7 +13,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
   modelName: 'photo-album',
 
   title: computed(function() {
-    return this.intl.t('model.photoAlbum.name.other').toString().capitalize();
+    return capitalize(this.intl.t('model.photoAlbum.name.other').toString());
   }),
 
   perPage: 10,
