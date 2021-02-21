@@ -1,15 +1,13 @@
 <nav aria-label="Page navigation">
   <ul class="pagination">
-    {{#if canStepBackward}}
-      <li class="page-item">
-        <LinkTo @route="activities.index" @query={{hash page=previousPage}} @disabled={{true}}>
-          <span class="page-link previous" href="#" aria-label="Vorige">
-            <FaIcon @icon='chevron-left'/>
-            <span class="sr-only">Vorige</span>
-          </span>
-        </LinkTo>
-      </li>
-    {{/if}}
+    <li class="page-item">
+      <LinkTo @query={{hash page=previousPage}} @disabled={{not canStepBackward}}>
+        <span class="page-link previous" href="#" aria-label="Vorige">
+          <FaIcon @icon='chevron-left'/>
+          <span class="sr-only">Vorige</span>
+        </span>
+      </LinkTo>
+    </li>
 
     {{#each pageItems as |item|}}
       {{#if item.dots}}
@@ -20,7 +18,7 @@
           <a class="page-link">{{item.page}} <span class="sr-only">(current)</span></a>
         </li>
       {{else}}
-        <LinkTo @route="activities.index" @query={{hash page=item.page}}>
+        <LinkTo @query={{hash page=item.page}}>
           <li class="page-item">
             <span class="page-link" href="#">{{item.page}}</span>
           </li>
@@ -28,13 +26,13 @@
       {{/if}}
     {{/each}}
 
-    {{#if canStepForward}}
-      <li class="page-item">
-        <a class="page-link next" href="#" aria-label="Volgende" {{action "incrementPage" 1}}>
+    <li class="page-item">
+      <LinkTo @query={{hash page=nextPage}} @disabled={{not canStepForward}}>
+        <span class="page-link next" href="#" aria-label="Volgende">
           <FaIcon @icon='chevron-right'/>
           <span class="sr-only">Volgende</span>
-        </a>
-      </li>
-    {{/if}}
+        </span>
+      </LinkTo>
+    </li>
   </ul>
 </nav>

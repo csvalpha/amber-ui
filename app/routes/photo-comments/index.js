@@ -1,9 +1,7 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class PhotoCommentsIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class PhotoCommentsIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Fotoreacties' }
-  perPage = 4
 
   canAccess() {
     return this.can.can('show photo-comments');
@@ -14,6 +12,7 @@ export default class PhotoCommentsIndexRoute extends ApplicationRoute.extend(Rou
     params.sort = '-updated_at';
     // eslint-disable-next-line camelcase
     params.filter = { with_comments: true };
-    return this.findPaged('photo', params);
+    params.perPage = 4;
+    return this.store.queryPaged('photo', params);
   }
 }

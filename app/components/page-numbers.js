@@ -63,8 +63,6 @@ export default class PageNumbers extends Component {
       result.push({ page: this.totalPages, dots });
     }
 
-    console.log(result);
-
     return result;
   }
 

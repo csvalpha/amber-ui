@@ -1,7 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class ActivityIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+export default class ActivityIndexRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activiteiten' }
 
   queryParams = {
@@ -41,7 +40,6 @@ export default class ActivityIndexRoute extends AuthenticatedRoute.extend(RouteM
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
     if (!params.showPassed) {
       params.filter = { upcoming: true };
     }

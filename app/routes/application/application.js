@@ -17,14 +17,6 @@ export class ApplicationRoute extends Route {
     }
   }
 
-  perPage = 10
-  /* eslint camelcase: "off" */
-  // paramMapping = {
-  //   page: 'page[number]',
-  //   perPage: 'page[size]',
-  //   total_pages: 'page_count'
-  // }
-
   get pageActions() {
     return [];
   }
