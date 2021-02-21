@@ -35,6 +35,10 @@ export default class PageNumbers extends Component {
       before = this.pagesToShow - after - 1;
     }
 
+    if ((this.currentPage - before) < 1) {
+      before = this.currentPage - 1;
+    }
+
     // If we need to show first
     if (this.currentPage - before > 1) {
       result.push({ page: 1 });
