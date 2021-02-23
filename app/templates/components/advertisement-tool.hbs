@@ -3,7 +3,7 @@
     <div class="d-flex adv-row align-items-center">
       {{#each advertisements as |advertisement index|}}
         {{#if advertisement.links}}
-          <div class="advertisement-item advertisement-item--links col-auto" href={{advertisement.link}} title={{advertisement.title}} target="_blank">
+          <div class="advertisement-item advertisement-item--links col-auto">
             {{#each advertisement.links as |link|}}
               <a class="d-block text-primary" href="{{link.link}}" target="_blank">{{link.title}}</a>
             {{/each}}
