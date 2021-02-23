@@ -1,17 +1,11 @@
-import { computed } from '@ember/object';
-import IndexRoute from 'alpha-amber/routes/application/index';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default IndexRoute.extend({
-  canAccess() {
-    return this.can.can('show forum/threads');
-  },
-  modelName: 'forum/thread',
-  model() {
-    return this.modelFor('forum.categories.category');
-  },
-  title: computed.reads('controller.model.name'),
-  parents: ['forum.index'],
-  pageActions: computed('can', 'controller.model.id', function() {
+export default class ThreadIndexRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.name };
+  }
+
+  get pageActions() {
     return [
       {
         link: 'forum.categories.category.edit',
@@ -38,5 +32,13 @@ export default IndexRoute.extend({
         canAccess: this.can.can('create forum/threads')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show forum/threads');
+  }
+
+  model() {
+    return this.modelFor('forum.categories.category');
+  }
+}

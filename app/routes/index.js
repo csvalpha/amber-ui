@@ -1,15 +1,8 @@
-import { computed } from '@ember/object';
-import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
-  canAccess() {
-    return true;
-  },
-  modelName: 'article',
-  perPage: 3,
-
-  pageActions: computed('can', function() {
+export default class IndexRoute extends ApplicationRoute.extend(RouteMixin) {
+  get pageActions() {
     return [
       {
         link: 'articles.new',
@@ -18,11 +11,15 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create articles')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return true;
+  }
 
   model(params) {
     params.paramMapping = this.paramMapping;
     params.sort = '-pinned,-created_at';
-    return this.findPaged(this.modelName, params);
+    return this.findPaged('article', params);
   }
-});
+}

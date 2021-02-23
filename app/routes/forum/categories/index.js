@@ -1,19 +1,9 @@
-import { computed } from '@ember/object';
-import IndexRoute from 'alpha-amber/routes/application/index';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default IndexRoute.extend({
-  canAccess() {
-    return this.can.can('show forum/categories');
-  },
-  model() {
-    return {
-      categories: this.store.query('forum/category', { sort: '-updated_at' }),
-      recentThreads: this.store.query('forum/thread', { sort: '-updated_at', page: { number: '1', size: 7 } })
-    };
-  },
-  modelName: 'forum/category',
-  title: 'Forum',
-  pageActions: computed('can', function() {
+export default class ForumIndexRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Forum' }
+
+  get pageActions() {
     return [
       {
         link: 'forum.categories.new',
@@ -22,5 +12,17 @@ export default IndexRoute.extend({
         canAccess: this.can.can('create forum/categories')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show forum/categories');
+  }
+
+  model() {
+    return {
+      categories: this.store.query('forum/category', { sort: '-updated_at' }),
+      recentThreads: this.store.query('forum/thread', { sort: '-updated_at', page: { number: '1', size: 7 } })
+    };
+  }
+}
+

@@ -1,11 +1,19 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
-  skipBeforeModelAccessCheck: true,
-  afterModel(post, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit forum/post', post), transition);
-  },
-  modelName: 'forum/post',
-  modelRouteParam: 'post_id',
-  title: 'Forumbericht bewerken'
-});
+export default class EditPostRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Forumbericht aanpassen' }
+
+  canAccess(model) {
+    return this.can.can('edit forum/post', model);
+  }
+
+  model(params) {
+    return this.store.findRecord('forum/post', params.post_id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model.thread?.rollbackAttributes();
+  }
+
+}

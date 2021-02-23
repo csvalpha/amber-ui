@@ -3,14 +3,5 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   session: service(),
-  router: service(),
-  layoutManager: service('layout-manager'),
-  actions: {
-    invalidateSession() {
-      this.session.invalidate();
-    },
-    refreshItems() {
-      this.send('refresh');
-    }
-  }
+  layoutManager: service('layout-manager')
 });

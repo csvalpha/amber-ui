@@ -1,18 +1,16 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import ShowActivityRoute from './show';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  skipBeforeModelAccessCheck: true,
-  afterModel(activity, transition) {
-    return this.checkAccessWithPromise(this.can.can('mail enrolled members of activity', activity), transition);
-  },
+export default class PrintEnrolledRoute extends ShowActivityRoute {
+  breadCrumb = { title: 'Print inschrijvingen/streeplijst' };
+
+  canAccess(model) {
+    return this.can.can('mail enrolled members of activity', model);
+  }
+
   model() {
     // For the permission check, the form needs to be loaded
-    const activityPromise = this._super(...arguments);
+    const activityPromise = super.model(...arguments);
     // Wait for activity, then for form and return the activity
     return activityPromise.then(activity => activity.get('form').then(() => activity));
-  },
-  modelName: 'activity',
-  title: 'Mail ingeschrevenen',
-  parents: ['activities.show']
-});
+  }
+}

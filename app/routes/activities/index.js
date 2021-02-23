@@ -1,17 +1,10 @@
-import { computed } from '@ember/object';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import IndexRouteUnauthenticated from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show activities');
-  },
-  perPage: 15,
-  modelName: 'activity',
-  title: 'Activiteiten',
+export default class ActivityIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+  breadCrumb = { title: 'Activiteiten' }
 
-  queryParams: {
+  queryParams = {
     search: {
       refreshModel: true
     },
@@ -21,9 +14,9 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
     showPassed: {
       refreshModel: true
     }
-  },
+  }
 
-  pageActions: computed('can', function() {
+  get pageActions() {
     return [
       {
         link: 'activities.new',
@@ -38,7 +31,11 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
         canAccess: this.can.can('show ical activities')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show activities');
+  }
 
   model(params) {
     params.paramMapping = this.paramMapping;
@@ -46,6 +43,7 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
       params.filter = { upcoming: true };
     }
 
-    return this.findPaged(this.modelName, params);
+    return this.findPaged('activity', params);
   }
-});
+}
+

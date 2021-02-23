@@ -1,15 +1,9 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
-import { computed } from '@ember/object';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
-  skipBeforeModelAccessCheck: true,
-  afterModel(user, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit user', user), transition);
-  },
-  modelName: 'user',
-  title: 'Lid aanpassen',
-  parents: ['users.index'],
-  tabItems: computed('can', 'controller.model', 'session.currentUser', function() {
+export default class EditUserRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Lid aanpassen' }
+
+  get tabItems() {
     const user = this.controller.model;
     return [
       {
@@ -37,6 +31,18 @@ export default EditRoute.extend({
         canAccess: this.session.currentUser === user
       }
     ];
-  })
-});
+  }
 
+  canAccess(model) {
+    return this.can.can('edit user', model);
+  }
+
+  model(params) {
+    return this.store.findRecord('user', params.id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}

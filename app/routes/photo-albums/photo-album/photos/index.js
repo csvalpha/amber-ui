@@ -1,19 +1,12 @@
-import { computed } from '@ember/object';
-import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default IndexRouteUnauthenticated.extend({
-  canAccess() {
-    return this.can.can('show photo-albums');
-  },
-  modelName: 'photo',
+export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+  get breadCrumb() {
+    return { title: this.controller.model.title };
+  }
 
-  model() {
-    return this.modelFor('photo-albums.photo-album');
-  },
-
-  title: computed.reads('controller.model.title'),
-
-  pageActions: computed('can', 'controller.model.{photoAlbum,title}', function() {
+  get pageActions() {
     return [
       {
         link: 'photo-albums.photo-album.edit',
@@ -30,5 +23,13 @@ export default IndexRouteUnauthenticated.extend({
         canAccess: this.can.can('destroy photo-albums')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show photo-albums');
+  }
+
+  model() {
+    return this.modelFor('photo-albums.photo-album');
+  }
+}

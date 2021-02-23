@@ -1,4 +1,3 @@
-import UserEditRoute from 'alpha-amber/routes/users/edit';
+import EditUserRoute from 'alpha-amber/routes/users/edit';
 
-export default UserEditRoute.extend({});
-
+export default EditUserRoute;
