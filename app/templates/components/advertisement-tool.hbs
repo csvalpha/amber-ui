@@ -2,9 +2,17 @@
   <div class="tool adv-container">
     <div class="d-flex adv-row align-items-center">
       {{#each advertisements as |advertisement index|}}
-        <a class="advertisement-item col-auto" href={{advertisement.link}} title={{advertisement.title}} target="_blank">
-          <img src={{advertisement.image}} alt={{if advertisement.alt advertisement.alt advertisement.title}}>
-        </a>
+        {{#if advertisement.links}}
+          <div class="advertisement-item advertisement-item--links col-auto" href={{advertisement.link}} title={{advertisement.title}} target="_blank">
+            {{#each advertisement.links as |link|}}
+              <a class="d-block text-primary" href="{{link.link}}" target="_blank">{{link.title}}</a>
+            {{/each}}
+          </div>
+        {{else}}
+          <a class="advertisement-item col-auto" href={{advertisement.link}} title={{advertisement.title}} target="_blank">
+            <img src={{advertisement.image}} alt={{if advertisement.alt advertisement.alt advertisement.title}}>
+          </a>
+        {{/if}}
       {{/each}}
     </div>
   </div>
