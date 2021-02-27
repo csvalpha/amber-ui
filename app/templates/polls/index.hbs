@@ -11,7 +11,7 @@
     <span class="col-1 rtable-ta-right"> # </span>
   </div>
 
-  {{#each pagedModel as |poll|}}
+  {{#each model as |poll|}}
     <LinkTo @route="polls.show" @model={{poll.id}} data-test-poll-item={{true}}>
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item"> {{form/status-icon poll.form}} {{poll.question.question}} </span>
@@ -23,5 +23,5 @@
 </div>
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{paginator}} />
+  <PageNumbers @info={{model.meta}} />
 </div>

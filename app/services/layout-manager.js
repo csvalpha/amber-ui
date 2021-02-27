@@ -46,6 +46,11 @@ export default class LayoutManager extends Service {
   }
 
   @action
+  closeProfileMenu() {
+    this.profileMenuOpen = false;
+  }
+
+  @action
   toggleLeftSidebar() {
     this.leftSideBarOpen = !this.leftSideBarOpen;
   }

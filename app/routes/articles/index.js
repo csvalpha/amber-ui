@@ -1,9 +1,8 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
 
-export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class ArticlesIndexRoute extends ApplicationRoute {
   @service intl
 
   get breadCrumb() {
@@ -26,8 +25,7 @@ export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMix
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
     params.sort = `-pinned,${params.sort}`;
-    return this.findPaged('article', params);
+    return this.store.queryPaged('article', params);
   }
 }

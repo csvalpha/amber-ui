@@ -1,10 +1,8 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 import { assign } from '@ember/polyfills';
 
-export default class UserIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+export default class UserIndexRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Gebruikers' }
-  perPage = 12
 
   get pageActions() {
     return [
@@ -28,8 +26,8 @@ export default class UserIndexRoute extends AuthenticatedRoute.extend(RouteMixin
 
   model(params) {
     params = assign({ 'filter': { 'archived': false } }, params);
-    params.paramMapping = this.paramMapping;
-    return this.findPaged('user', params);
+    params.perPage = 12;
+    return this.store.queryPaged('user', params);
   }
 }
 
