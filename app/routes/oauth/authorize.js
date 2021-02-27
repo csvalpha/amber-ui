@@ -1,9 +1,13 @@
-import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { alias } from '@ember/object/computed';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
 
-export default class OauthAuthorizeRoute extends ApplicationRoute {
-  @service fetch
-  @service router
+export default class OauthAuthorizeRoute extends AuthenticatedRoute {
+  @service fetch;
+  @service router;
+  @service session;
+
+  @alias('session.isAuthenticated') canAccess;
 
   constructor() {
     super(...arguments);
