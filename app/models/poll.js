@@ -55,12 +55,4 @@ export default class Poll extends Model {
       form?.rollbackAttributesAndQuestions();
     });
   }
-
-  isOwner(user) {
-    if (user.get('id') === this.author.get('id')) {
-      return true;
-    }
-
-    return user.currentMemberships.some(membership => membership.group.id === this.group.id);
-  }
 }
