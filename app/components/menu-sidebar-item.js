@@ -6,8 +6,8 @@ const MenuSidebarItemComponent = Component.extend({
   minor: false,
   actions: {
     closeAfterNavigation() {
-      if (this.minor) {
-        this.layoutManager.closeProfileMenu();
+      if (this.minor && this.layoutManager.profileMenuOpen) {
+        this.layoutManager.toggleProfileMenu();
       }
 
       this.layoutManager.closeLeftSidebarIfOnMobile();
