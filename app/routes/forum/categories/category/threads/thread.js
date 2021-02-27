@@ -8,7 +8,7 @@ export default class ThreadRoute extends AuthenticatedRoute {
   }
 
   canAccess() {
-    return this.can.can('edit forum/threads');
+    return this.can.can('show forum/threads');
   }
 
   model(params) {

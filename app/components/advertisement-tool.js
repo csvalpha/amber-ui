@@ -60,6 +60,22 @@ export default Component.extend({
       title: 'SKEPP B.V.',
       link: 'https://skepp.nl/nl/',
       image: 'advertisements/skepp.png'
+    },
+    {
+      links: [
+        {
+          link: 'https://www.simonlydiscount.nl',
+          title: 'sim only vergelijken'
+        },
+        {
+          link: 'https://www.huurzone.nl/aanbod/nederland.html',
+          title: 'huurwoningen'
+        },
+        {
+          link: 'https://www.opzeggen24.nl/abonnement-opzeggen/telegraaf-opzeggen.html',
+          title: 'telegraaf opzeggen'
+        }
+      ]
     }
   ]
 });
