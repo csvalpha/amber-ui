@@ -1,7 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class CollectionsIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+export default class CollectionsIndexRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Incasso\'s' }
 
   get pageActions() {
@@ -20,8 +19,7 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute.extend(Rou
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
-    return this.findPaged('debit/collection', params);
+    return this.store.queryPaged('debit/collection', params);
   }
 }
 

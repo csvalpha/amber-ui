@@ -1,7 +1,6 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class ArticlesIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class PhotosIndexRoute extends ApplicationRoute {
   get breadCrumb() {
     return { title: this.controller.model.title };
   }
