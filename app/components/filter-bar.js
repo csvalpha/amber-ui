@@ -1,13 +1,10 @@
 import Component from '@ember/component';
 
-export default Component.extend({
-  filter: null,
-  classNames: ['d-none d-md-flex'],
-  sortedAttribute: null,
-  sortableAttributes: null,
-  sortedAscending: null,
-  didInsertElement() {
-    this._super(...arguments);
-    this.set('filter', '');
-  }
-});
+export default class FilterBarComponent extends Component {
+  filter = null;
+  classNames = ['d-none d-md-flex']
+  sortedAttribute = null;
+  sortableAttributes = null;
+  sortedAscending = null;
+}
+

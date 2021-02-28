@@ -42,7 +42,6 @@ module.exports = {
     'ember/classic-decorator-no-classic-methods': 1,
     'ember/require-tagless-components': 1,
     'ember/no-classic-components': 1,
-    'ember/no-component-lifecycle-hooks': 1,
     'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
   },
   globals: {

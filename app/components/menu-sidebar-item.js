@@ -1,39 +1,42 @@
 import Component from '@ember/component';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-const MenuSidebarItemComponent = Component.extend({
-  layoutManager: service('layout-manager'),
-  minor: false,
-  actions: {
-    closeAfterNavigation() {
-      if (this.minor) {
-        this.layoutManager.closeProfileMenu();
-      }
+export default class MenuSidebarItemComponent extends Component {
+  @service layoutManager;
 
-      this.layoutManager.closeLeftSidebarIfOnMobile();
+  @tracked minor = false;
+
+  @action
+  closeAfterNavigation() {
+    if (this.minor) {
+      this.layoutManager.closeProfileMenu();
     }
-  },
-  didRender() {
-    this._super(...arguments);
-    let { layoutManager, element, title } = this;
 
+    this.layoutManager.closeLeftSidebarIfOnMobile();
+  }
+
+  @action
+  showPopup() {
+    let { layoutManager, element, title } = this;
     if (!this.popup) {
       this.popup = document.createElement('div');
       this.popup.appendChild(document.createTextNode(title));
       this.popup.className = 'menu-sidebar-item-popup';
+    }
 
-      element.addEventListener('mouseover', () => {
-        if (!layoutManager.leftSideBarExpanded) {
-          document.body.appendChild(this.popup);
-          this.popup.style.top = `${element.getBoundingClientRect().top}px`;
-        }
-      });
-      element.addEventListener('mouseout', () => {
-        if (this.popup.parentNode) {
-          document.body.removeChild(this.popup);
-        }
-      });
+    if (!layoutManager.leftSideBarExpanded) {
+      document.body.appendChild(this.popup);
+      this.popup.style.top = `${element.getBoundingClientRect().top}px`;
     }
   }
-});
-export default MenuSidebarItemComponent;
+
+  @action
+  hidePopup() {
+    if (this.popup.parentNode) {
+      document.body.removeChild(this.popup);
+    }
+  }
+}
+
