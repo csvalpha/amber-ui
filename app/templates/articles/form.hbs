@@ -25,7 +25,7 @@
         <label class="col-md-2 form-control-label">Namens groep of commissie</label>
 
         <div class="col-sm-10">
-          <PowerSelect @options={{groups}} @onChange={{action (mut @model.group)}} @selected={{@model.group}} @searchEnabled={{true}} @searchField="name" as |group|>
+          <PowerSelect @options={{groups}} @onChange={{action (mut @model.group)}} @selected={{@model.group}} @searchEnabled={{true}} @searchField="name" @allowClear={{true}} as |group|>
             {{group.name}}
           </PowerSelect>
 

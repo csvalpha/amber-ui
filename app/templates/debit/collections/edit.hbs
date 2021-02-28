@@ -18,7 +18,7 @@
       <span class="col-md-2 form-control-label">Toevoegen</span>
 
       <div class="col-sm-10">
-        <PowerSelect @options={{users}} @onChange={{action "addUser"}} @selected={{transaction.user}} @searchEnabled={{true}} @searchField="fullName" as |user|>
+        <PowerSelect @options={{users}} @onChange={{action "addUser"}} @selected={{transaction.user}} @searchEnabled={{true}} @searchField="fullName" @allowClear={{true}} as |user|>
           {{user.fullName}}
         </PowerSelect>
       </div>
