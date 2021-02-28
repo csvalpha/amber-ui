@@ -5,7 +5,7 @@
     {{/if}}
     <th> Naam </th>
     {{#each form.sortedQuestions as |question|}}
-      <th> {{question.question}} </th>
+      <th> {{question.question}} - {{question.position}} </th>
     {{/each}}
     {{#if showAllergyInfo}}
       <th>dieetwensen</th>

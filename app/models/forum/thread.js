@@ -1,4 +1,3 @@
-import { sort } from '@ember/object/computed';
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 
 export default class Thread extends Model {
@@ -14,10 +13,6 @@ export default class Thread extends Model {
   @belongsTo('user') author;
   @belongsTo('forum/category') category;
   @hasMany('forum/post') posts;
-
-  // Computed properties
-  sortDefinition = ['createdAt:asc'];
-  @sort('posts', 'sortDefinition') sortedPosts;
 
   get isOpen() {
     return this.closedAt === null;

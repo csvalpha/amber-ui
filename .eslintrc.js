@@ -40,7 +40,6 @@ module.exports = {
     'ember/no-classic-classes': 1,
     'ember/no-actions-hash': 1,
     'ember/classic-decorator-no-classic-methods': 1,
-    'ember/no-computed-properties-in-native-classes': 1,
     'ember/require-tagless-components': 1,
     'ember/no-classic-components': 1,
     'ember/no-component-lifecycle-hooks': 1,
