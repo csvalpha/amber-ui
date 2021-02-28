@@ -19,9 +19,6 @@ export default Controller.extend({
   actions: {
     async newPostCreated() {
       await this.model.posts.reload();
-    },
-    goToLastPageAndScrollDown() {
-      document.getElementById('newForumPost').scrollIntoView(true);
     }
   }
 });

@@ -27,7 +27,6 @@ module.exports = {
     'ember-suave/no-const-outside-module-scope': 0,
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
-    'ember/closure-actions': 1,
     'ember/no-observers': 1,
     'ember/no-new-mixins': 1,
     'object-curly-spacing': [
