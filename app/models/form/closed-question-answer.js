@@ -10,6 +10,6 @@ export default class ClosedQuestionAnswer extends Model {
 
   // Getters
   get question() {
-    return this.option.question;
+    return this.option.get('question');
   }
 }
