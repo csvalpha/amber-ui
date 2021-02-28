@@ -1,7 +1,6 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class MailAliasIndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class MailAliasIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Polls' }
 
   get pageActions() {
@@ -20,8 +19,7 @@ export default class MailAliasIndexRoute extends ApplicationRoute.extend(RouteMi
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
-    return this.findPaged('poll', params);
+    return this.store.queryPaged('poll', params);
   }
 }
 

@@ -19,7 +19,7 @@
     <span class="col-1 rtable-ta-right"> # </span>
   </div>
 
-  {{#each pagedModel as |activity|}}
+  {{#each model as |activity|}}
     <LinkTo @route="activities.show" @model={{activity.id}} data-test-activity-item={{true}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-8 rtable-item">
@@ -42,5 +42,5 @@
 </div>
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{paginator}} />
+  <PageNumbers @info={{model.meta}} />
 </div>

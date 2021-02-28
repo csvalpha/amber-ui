@@ -1,7 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class MandatesRoute extends AuthenticatedRoute.extend(RouteMixin) {
+export default class MandatesRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Incasso mandaten' }
 
   get pageActions() {
@@ -20,8 +19,7 @@ export default class MandatesRoute extends AuthenticatedRoute.extend(RouteMixin)
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
-    return this.findPaged('debit/mandate', params);
+    return this.store.queryPaged('debit/mandate', params);
   }
 }
 

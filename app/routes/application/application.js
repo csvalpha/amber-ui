@@ -11,15 +11,10 @@ export class ApplicationRoute extends Route {
     },
     sort: {
       refreshModel: true
+    },
+    page: {
+      refreshModel: true
     }
-  }
-
-  perPage = 10
-  /* eslint camelcase: "off" */
-  paramMapping = {
-    page: 'page[number]',
-    perPage: 'page[size]',
-    total_pages: 'page_count'
   }
 
   get pageActions() {

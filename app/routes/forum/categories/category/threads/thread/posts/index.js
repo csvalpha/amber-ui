@@ -1,9 +1,8 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
 import { assign } from '@ember/polyfills';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class PostIndexRoute extends AuthenticatedRoute.extend(RouteMixin) {
+export default class PostIndexRoute extends AuthenticatedRoute {
   @service router
   @service fetch
 
@@ -34,15 +33,14 @@ export default class PostIndexRoute extends AuthenticatedRoute.extend(RouteMixin
     return this.can.can('show forum/posts');
   }
 
-  model(params) {
+  async model(params) {
     const category = this.modelFor('forum.categories.category');
     const thread = this.modelFor('forum.categories.category.threads.thread');
     assign(params, {
-      paramMapping: this.paramMapping,
       filter: { thread: thread.id },
       sort: 'created_at'
     });
-    const postsPromise = this.findPaged('forum/post', params);
+    const postsPromise = await this.store.queryPaged('forum/post', params);
 
     return {
       category,

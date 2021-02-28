@@ -1,7 +1,6 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import RouteMixin from 'ember-cli-pagination/remote/route-mixin';
 
-export default class IndexRoute extends ApplicationRoute.extend(RouteMixin) {
+export default class IndexRoute extends ApplicationRoute {
   get pageActions() {
     return [
       {
@@ -18,8 +17,7 @@ export default class IndexRoute extends ApplicationRoute.extend(RouteMixin) {
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
     params.sort = '-pinned,-created_at';
-    return this.findPaged('article', params);
+    return this.store.queryPaged('article', params);
   }
 }
