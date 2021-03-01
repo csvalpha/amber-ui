@@ -15,5 +15,4 @@ export default class NewActivityRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributesAndForm();
   }
-
 }

@@ -7,4 +7,3 @@ export default class WebdavRoute extends AuthenticatedRoute {
     return this.can.can('show webdav users');
   }
 }
-

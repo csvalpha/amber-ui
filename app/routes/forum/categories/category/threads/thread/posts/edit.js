@@ -15,5 +15,4 @@ export default class EditPostRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model.thread?.rollbackAttributes();
   }
-
 }

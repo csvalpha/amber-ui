@@ -24,4 +24,3 @@ export default class MailAliasIndexRoute extends ApplicationRoute {
     return this.store.query('mail-alias', params);
   }
 }
-

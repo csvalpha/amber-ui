@@ -10,5 +10,4 @@ export default class DestroyTopicRoute extends AuthenticatedRoute {
   model() {
     return this.modelFor('forum.categories.category.threads.thread');
   }
-
 }

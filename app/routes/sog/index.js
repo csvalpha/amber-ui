@@ -11,4 +11,3 @@ export default class SogIndexRoute extends ApplicationRoute {
     return [];
   }
 }
-
