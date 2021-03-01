@@ -1,36 +1,38 @@
 import Service from '@ember/service';
-import { computed } from '@ember/object';
 
-export default Service.extend({
-  isSupported: null,
-  isEnabled: null,
-  isSupportedAndEnabled: computed('isSupported', 'isEnabled', function() {
+export default class LocalStorageService extends Service {
+  isSupported = null;
+  isEnabled = null;
+
+  get isSupportedAndEnabled() {
     return this.isSupported & this.isEnabled;
-  }),
+  }
 
-  init() {
+  constructor() {
+    super(...arguments);
+
     // Source: http://stackoverflow.com/a/16427725
     if (typeof localStorage === 'undefined') {
-      this.set('isSupported', false);
+      this.isSupported = false;
     } else {
       try {
         localStorage.setItem('feature_test', 'yes');
         if (localStorage.getItem('feature_test') === 'yes') {
           localStorage.removeItem('feature_test');
-          this.set('isSupported', true);
-          this.set('isEnabled', true);
+          this.isSupported = true;
+          this.isEnabled = true;
         } else {
-          this.set('isSupported', true);
-          this.set('isEnabled', false);
+          this.isSupported = true;
+          this.isEnabled = false;
         }
       } catch(error) {
-        this.set('isSupported', true);
-        this.set('isEnabled', false);
+        this.isSupported = true;
+        this.isEnabled = false;
       }
     }
 
-    this._super(...arguments);
-  },
+    super.init(...arguments);
+  }
 
   getItem(key) {
     if (this.isSupportedAndEnabled) {
@@ -38,7 +40,7 @@ export default Service.extend({
     }
 
     return null;
-  },
+  }
 
   setItem(key, value) {
     if (this.isSupportedAndEnabled) {
@@ -48,5 +50,4 @@ export default Service.extend({
 
     return false;
   }
-
-});
+}
