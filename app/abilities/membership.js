@@ -1,19 +1,19 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canCreate: computed('session.currentUser', function() {
+export default class Membership extends Ability {
+  get canCreate() {
     return this.session.hasPermission('membership.create');
-  }),
-  canShow: computed('session.currentUser', function() {
+  }
+
+  get canShow() {
     return this.session.hasPermission('membership.read');
-  }),
-  canUpdate: computed('session.currentUser', function() {
+  }
+
+  get canUpdate() {
     return this.session.hasPermission('membership.update');
-  }),
-  canDestroy: computed('model.isNew', 'session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('membership.destroy') || this.model.isNew;
-  })
-});
+  }
+}

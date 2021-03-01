@@ -1,16 +1,15 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canShow: computed('session.currentUser', function() {
+export default class BoardRoomPresence extends Ability {
+  get canShow() {
     return this.session.hasPermission('board-room-presence.read');
-  }),
-  canCreate: computed('session.currentUser', function() {
+  }
+
+  get canCreate() {
     return this.session.hasPermission('board-room-presence.create');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('board-room-presence.destroy');
-  })
-});
+  }
+}

@@ -1,13 +1,11 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canCreate: computed('session.currentUser', function() {
+export default class ArticleComment extends Ability {
+  get canCreate() {
     return this.session.hasPermission('article-comment.create');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('article-comment.destroy');
-  })
-});
+  }
+}

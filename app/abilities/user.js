@@ -1,40 +1,55 @@
-import { alias } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canShow: computed('session.currentUser', function() {
+export default class User extends Ability {
+  get canShow() {
     return this.session.hasPermission('user.read');
-  }),
+  }
+
   /**
    * You can view all users if you have sufficient permissions, but each individual user can be viewed when the user can
    * view members (member of group 'Leden').
    */
-  canShowIndividual: alias('session.isAuthenticated'),
-  canShowOwn: alias('session.isAuthenticated'),
-  canCreate: computed('session.currentUser', function() {
+  get canShowIndividual() {
+    return this.session.isAuthenticated;
+  }
+
+  get canShowOwn() {
+    return this.session.isAuthenticated;
+  }
+
+  get canCreate() {
     return this.session.hasPermission('user.create');
-  }),
-  canEditAllProperties: computed('session.currentUser', function() {
+  }
+
+  get canEditAllProperties() {
     return this.session.hasPermission('user.update') || this.session.hasPermission('user.create');
-  }),
-  canBatchUpload: alias('canCreate'),
-  canExport: computed('session.currentUser', function() {
+  }
+
+  get canBatchUpload() {
+    return this.canCreate;
+  }
+
+  get canExport() {
     return this.session.hasPermission('user.update');
-  }),
-  canShowWebdav: alias('session.isAuthenticated'),
-  canDestroy: computed('isCurrentUser', 'session.currentUser', function() {
+  }
+
+  get canShowWebdav() {
+    return this.session.isAuthenticated;
+  }
+
+  get canDestroy() {
     return !this.isCurrentUser && this.session.hasPermission('user.destroy');
-  }),
-  canEdit: computed('isCurrentUser', 'session.currentUser', function() {
+  }
+
+  get canEdit() {
     return this.isCurrentUser || this.session.hasPermission('user.update');
-  }),
-  canResendActivationCode: computed('model.activatedAt', 'session.currentUser', function() {
+  }
+
+  get canResendActivationCode() {
     return this.session.hasPermission('user.create') && this.model.activatedAt === null;
-  }),
-  isCurrentUser: computed('session.currentUser.id', 'model.id', function() {
+  }
+
+  get isCurrentUser() {
     return this.model.id === this.session.currentUser.id;
-  })
-});
+  }
+}
