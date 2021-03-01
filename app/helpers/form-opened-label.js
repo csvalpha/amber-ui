@@ -1,8 +1,10 @@
+import classic from 'ember-classic-decorator';
 import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
 
-export default Helper.extend({
-  intl: service(),
+export default class FormOpenedLabel extends Helper {
+  @service intl;
+
   compute([form]) {
     const currentDateTime = new Date();
 
@@ -18,4 +20,4 @@ export default Helper.extend({
 
     return `${prefix} ${dateFromNow}`;
   }
-});
+}
