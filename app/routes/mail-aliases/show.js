@@ -1,15 +1,11 @@
-import { computed } from '@ember/object';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show mail-aliases');
-  },
-  modelName: 'mail-alias',
-  title: computed.reads('controller.model.email'),
-  parents: ['mail-aliases.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowMailAliasRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.email };
+  }
+
+  get pageActions() {
     const mailAlias = this.controller.model;
     return [
       {
@@ -27,5 +23,13 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         canAccess: this.can.can('destroy mail-aliases')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show mail-aliases');
+  }
+
+  model(params) {
+    return this.store.findRecord('mail-alias', params.id, params);
+  }
+}

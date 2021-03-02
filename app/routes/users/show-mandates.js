@@ -1,5 +1,5 @@
-import UserShowRouteUnauthenticated from 'alpha-amber/routes/users/show';
+import ShowUserRouter from 'alpha-amber/routes/users/show';
 
-export default UserShowRouteUnauthenticated.extend({
-  pageActions: null
-});
+export default class ShowUserMandatesRoute extends ShowUserRouter {
+  pageActions = null;
+}

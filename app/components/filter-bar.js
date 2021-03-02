@@ -7,6 +7,7 @@ export default Component.extend({
   sortableAttributes: null,
   sortedAscending: null,
   didInsertElement() {
+    this._super(...arguments);
     this.set('filter', '');
   }
 });

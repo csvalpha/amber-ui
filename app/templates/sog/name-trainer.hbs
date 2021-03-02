@@ -21,11 +21,11 @@
           <div class="card-body text-center trainer-question">
             <h2 class="card-title">Wie is {{currentQuestion.question.fullName}}?</h2>
           </div>
-          <ul class="list-group list-group-flush trainer-options">
+          <ul class="list-group list-group-flush trainer-options trainer-images">
             {{#each currentQuestion.options as |opt|}}
-              <li class="list-group-item trainer-option {{if (and answered (eq currentQuestion.question opt))
+              <li class="list-group-item trainer-image {{if (and answered (eq currentQuestion.question opt))
                                                              "bg-success"}}" {{action 'chooseOption' opt}}>
-                <img class="card-img-rounded trainer-thumb-small" src="{{opt.avatarThumbUrlOrDefault}}">
+                <img class="card-img-rounded" src="{{opt.avatarThumbUrlOrDefault}}">
               </li>
             {{/each}}
           </ul>
@@ -55,13 +55,7 @@
           </div>
           <div class="card-body">
             <div class="input-group">
-              {{input
-                type="text"
-                value=textInput
-                id="answer"
-                class=inputClass
-                placeholder='Type hier de volledige naam'
-                enter=(action 'checkAnswer')}}
+              <Input @type="text" @value={{textInput}} @id="answer" class={{inputClass}} placeholder="Type hier de volledige naam" @enter={{action "checkAnswer"}} />
               <div class="input-group-append">
                 <button type="button" class="btn btn-primary" {{action 'checkAnswer'}}>Antwoord</button>
               </div>
@@ -147,19 +141,14 @@
       <div class="card-body">
         <div class="form-group">
           <label>Groep</label>
-          <PowerSelect @options={{model}} @selected={{group.name}} @onChange={{action "setGroupId"}} @searchEnabled={{true}} @searchField="name" as |group|>
+          <PowerSelect @options={{model}} @selected={{group}} @onChange={{action "setGroupId"}} @searchEnabled={{true}} @searchField="name" as |group|>
             {{group.name}}
           </PowerSelect>
         </div>
 
         <div class="form-group">
           <label>Moeilijkheidsgraad</label>
-          {{input/select-input
-                  class='form-control'
-                  options=difficultyOptions
-                  placeholder=Moeilijkheidsgraad
-                  value=difficulty
-          }}
+          <Input::SelectInput @class="form-control" @options={{difficultyOptions}} @placeholder={{Moeilijkheidsgraad}} @value={{difficulty}} />
         </div>
       </div>
       <div class="card-footer text-right">

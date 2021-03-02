@@ -36,6 +36,14 @@ export default EditController.extend({
     coverPhotoLoaded(file) {
       const article = this.model;
       article.set('coverPhoto', file.data);
+    },
+
+    submit() {
+      this.model.save().then(() => {
+        this.transitionToRoute('articles.show', this.model);
+      }).catch(error => {
+        this.set('errorMessage', error.message);
+      });
     }
   }
 });

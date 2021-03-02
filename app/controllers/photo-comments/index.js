@@ -1,10 +1,9 @@
 import Controller from '@ember/controller';
 import EmberObject from '@ember/object';
-import PagedModelControllerMixin from 'alpha-amber/mixins/paged-model-controller-mixin';
 import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
 import { inject as service } from '@ember/service';
 
-export default Controller.extend(FilterableAndSortableMixin, PagedModelControllerMixin, {
+export default Controller.extend(FilterableAndSortableMixin, {
   routeOnEnter: 'photo-albums.photo-album.photos.show',
   queryParams: ['search', 'sort', 'page'],
 

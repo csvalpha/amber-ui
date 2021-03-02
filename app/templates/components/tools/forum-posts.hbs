@@ -10,11 +10,11 @@
       <LinkTo @route="forum.categories.category.threads.thread.show" @models={{array thread.category.id thread.id}}>
         <li class="list-group-item">
           <span>
-            {{#if (thread-has-new-posts thread)}}
+            {{#unless thread.read}}
               <div class="new-forum-posts status-dot"></div>
-            {{/if}}
+            {{/unless}}
             {{#unless thread.isOpen}}
-              {{fa-icon 'lock'}}
+              <FaIcon @icon='lock'/>
             {{/unless}}
             {{thread.title}}
           </span>

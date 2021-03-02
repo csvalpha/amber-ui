@@ -1,22 +1,10 @@
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { assign } from '@ember/polyfills';
-import { computed } from '@ember/object';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import IndexRouteUnauthenticated from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show users');
-  },
-  title: 'Gebruikers',
-  perPage: 12,
-  model(params) {
+export default class UserIndexRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Gebruikers' }
 
-    params = assign({ 'filter': { 'archived': false } }, params);
-    params.paramMapping = this.paramMapping;
-    return this.findPaged('user', params);
-  },
-  pageActions: computed('can', function() {
+  get pageActions() {
     return [
       {
         link: 'users.new',
@@ -30,5 +18,16 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, Authentica
         canAccess: this.can.can('batch upload users')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show users');
+  }
+
+  model(params) {
+    params = assign({ 'filter': { 'archived': false } }, params);
+    params.perPage = 12;
+    return this.store.queryPaged('user', params);
+  }
+}
+

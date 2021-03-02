@@ -53,7 +53,8 @@ export default class Activity extends Model {
     const endTime = moment(this.endTime);
     const days = endTime.diff(startTime, 'days');
     const midnight = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 0 && endTime.minute() === 0;
-    return days >= 1 && !midnight;
+    const oneDay = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 23 && endTime.minute() === 59;
+    return oneDay || (days >= 1 && !midnight);
   }
 
   get coverPhotoUrlOrDefault() {
@@ -74,13 +75,11 @@ export default class Activity extends Model {
   }
 
   isOwner(user) {
-    if (user.id === this.author.get('id')) {
+    if (user.get('id') === this.author.get('id')) {
       return true;
     }
 
-    return user.get('memberships').then(() => {
-      return user.get('currentMemberships').some(membership => membership.group.id === this.group.id);
-    });
+    return user.currentMemberships.some(membership => membership.group.id === this.group.id);
   }
 
   rollbackAttributesAndForm() {

@@ -36,8 +36,15 @@ module.exports = {
     ],
     'ember-suave/lines-between-object-properties': 0,
     'ember-suave/require-access-in-comments': 0,
-    'ember/no-jquery': 1,
     'ember/no-mixins': 1,
+    'ember/no-controller-access-in-routes': 1,
+    'ember/no-classic-classes': 1,
+    'ember/no-actions-hash': 1,
+    'ember/classic-decorator-no-classic-methods': 1,
+    'ember/no-computed-properties-in-native-classes': 1,
+    'ember/require-tagless-components': 1,
+    'ember/no-classic-components': 1,
+    'ember/no-component-lifecycle-hooks': 1,
     'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
   },
   globals: {
@@ -65,13 +72,12 @@ module.exports = {
         node: true
       },
       plugins: ['node'],
-      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
-        // add your custom rules and overrides for node files here
-
+      extends: ['plugin:node/recommended'],
+      rules: {
         // this can be removed once the following is fixed
         // https://github.com/mysticatea/eslint-plugin-node/issues/77
         'node/no-unpublished-require': 'off'
-      })
+      }
     }
   ]
 };

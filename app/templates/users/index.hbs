@@ -5,7 +5,7 @@
 </EmberWormhole>
 
 <div class="row">
-  {{#each pagedModel as |user|}}
+  {{#each model as |user|}}
     {{!-- only pass id when force reload is required, see http://emberigniter.com/force-store-reload-data-api-backend/ --}}
     <LinkTo @route="users.show" @model={{user.id}} class="col-6 col-sm-4 col-md-3">
       <Cards::MembershipCard @title={{user.fullName}} @subtitle={{user.study}} @imageSource={{user.avatarThumbUrlOrDefault}} />
@@ -14,5 +14,5 @@
 </div>
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{paginator}} />
+  <PageNumbers @info={{model.meta}} />
 </div>

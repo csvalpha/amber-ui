@@ -1,9 +1,8 @@
 import Controller from '@ember/controller';
 import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
-import PagedModelControllerMixin from 'alpha-amber/mixins/paged-model-controller-mixin';
 
-export default Controller.extend(FilterableAndSortableMixin, PagedModelControllerMixin, {
-  queryParams: ['search', 'sort'],
+export default Controller.extend(FilterableAndSortableMixin, {
+  queryParams: ['search', 'sort', 'page'],
   sortedAttribute: 'first_name',
   routeOnEnter: 'users.show',
   sortableAttributes: [

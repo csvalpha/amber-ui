@@ -1,10 +1,13 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
+export default class RejectModerationRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Moderatieverzoek afwijzen' }
+
   canAccess() {
     return this.can.can('reject mail-moderations');
-  },
-  modelName: 'stored-mail',
-  title: 'Moderatieverzoek afwijzen',
-  parents: ['mail-moderations.index']
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('stored-mail', params.id, params);
+  }
+}

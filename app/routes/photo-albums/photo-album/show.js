@@ -1,11 +1,11 @@
-import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend({
+export default class ShowPhotoAlbumRoute extends ApplicationRoute {
   canAccess() {
     return this.can.can('show photo-albums');
-  },
-  modelName: 'photo-album',
+  }
+
   beforeModel() {
     this.transitionTo('photo-albums.photo-album.photos');
   }
-});
+}

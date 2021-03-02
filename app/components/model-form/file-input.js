@@ -14,7 +14,7 @@ export default ModelFormTextInputComponent.extend({
   }),
 
   extensionInvalid(context, file) {
-    const fileExtension = file.filename.split('.').slice(-1)[0].toLowerCase();
+    const fileExtension = file.name.split('.').slice(-1)[0].toLowerCase();
     return !context.get('validExtensions').includes(fileExtension);
   },
   actions: {
@@ -28,7 +28,10 @@ export default ModelFormTextInputComponent.extend({
       } else if (this.extensionInvalid(this, file)) {
         this.set('extensionNotPermitted', true);
       } else {
-        this.sendAction('fileLoaded', file);
+        file.readAsDataURL().then((data) => {
+          file.data = data;
+          this.sendAction('fileLoaded', file);
+        });
       }
     }
   }

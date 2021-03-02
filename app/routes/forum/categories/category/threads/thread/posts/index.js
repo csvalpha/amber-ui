@@ -1,37 +1,16 @@
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { assign } from '@ember/polyfills';
-import IndexRoute from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
 
-export default IndexRoute.extend(PagedModelRouteMixin, {
-  canAccess() {
-    return this.can.can('show forum/posts');
-  },
-  storage: service('local-storage'),
-  router: service(),
-  modelName: 'forum/post',
+export default class PostIndexRoute extends AuthenticatedRoute {
+  @service router
+  @service fetch
 
-  model(params) {
-    const category = this.modelFor('forum.categories.category');
-    const thread = this.modelFor('forum.categories.category.threads.thread');
-    assign(params, {
-      paramMapping: this.paramMapping,
-      filter: { thread: thread.id },
-      sort: 'created_at'
-    });
-    const postsPromise = this.findPaged('forum/post', params);
+  get breadCrumb() {
+    return { title: this.controller.model.thread.title };
+  }
 
-    return {
-      category,
-      thread,
-      posts: postsPromise
-    };
-  },
-
-  title: computed.reads('controller.model.thread.title'),
-
-  pageActions: computed('can', 'controller.model.thread', function() {
+  get pageActions() {
     return [
       {
         link: 'forum.categories.category.threads.thread.edit',
@@ -48,17 +27,34 @@ export default IndexRoute.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('destroy forum/threads')
       }
     ];
-  }),
+  }
 
-  init() {
-    this._super(...arguments);
+  canAccess() {
+    return this.can.can('show forum/posts');
+  }
+
+  async model(params) {
+    const category = this.modelFor('forum.categories.category');
+    const thread = this.modelFor('forum.categories.category.threads.thread');
+    assign(params, {
+      filter: { thread: thread.id },
+      sort: 'created_at'
+    });
+    const postsPromise = await this.store.queryPaged('forum/post', params);
+
+    return {
+      category,
+      thread,
+      posts: postsPromise
+    };
+  }
+
+  constructor() {
+    super(...arguments);
 
     this.router.on('routeDidChange', () => {
-      // Update forumLastRead
-      let currentStore = this.storage.getItem('forumLastRead') || '{}';
-      currentStore = JSON.parse(currentStore);
-      currentStore[this.controller.model.thread.id] = new Date();
-      this.storage.setItem('forumLastRead', JSON.stringify(currentStore));
+      const thread = this.modelFor('forum.categories.category.threads.thread');
+      this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, { method: 'POST' });
     });
   }
-});
+}

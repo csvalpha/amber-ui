@@ -1,15 +1,9 @@
-import { computed } from '@ember/object';
-import { IndexRouteUnauthenticated } from 'alpha-amber/routes/application/index';
-import PagedModelRouteMixin from 'alpha-amber/mixins/paged-model-route-mixin';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 
-export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
-  canAccess() {
-    return this.can.can('show polls');
-  },
-  modelName: 'poll',
-  title: 'Polls',
+export default class MailAliasIndexRoute extends ApplicationRoute {
+  breadCrumb = { title: 'Polls' }
 
-  pageActions: computed('can', function() {
+  get pageActions() {
     return [
       {
         link: 'polls.new',
@@ -18,5 +12,14 @@ export default IndexRouteUnauthenticated.extend(PagedModelRouteMixin, {
         canAccess: this.can.can('create polls')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show polls');
+  }
+
+  model(params) {
+    return this.store.queryPaged('poll', params);
+  }
+}
+

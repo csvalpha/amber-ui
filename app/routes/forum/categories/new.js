@@ -1,9 +1,20 @@
-import NewRoute from 'alpha-amber/routes/application/new';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default NewRoute.extend({
+export default class NewCategoryRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Categorie aanmaken' }
+
   canAccess() {
     return this.can.can('create forum/categories');
-  },
-  modelName: 'forum/category',
-  title: 'Categorie aanmaken'
-});
+  }
+
+  model() {
+    return this.store.createRecord('forum/category');
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+
+}
+

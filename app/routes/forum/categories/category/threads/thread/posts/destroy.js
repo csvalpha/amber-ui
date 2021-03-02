@@ -1,11 +1,14 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyPostRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Forumbericht verwijderen' }
+
   canAccess() {
     return this.can.can('destroy forum/posts');
-  },
-  modelName: 'forum/post',
-  modelRouteParam: 'post_id',
-  title: 'Forumbericht verwijderen'
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('forum/post', params.post_id, params);
+  }
+
+}

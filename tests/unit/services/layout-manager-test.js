@@ -1,45 +1,42 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
+import { setBreakpoint } from 'ember-responsive/test-support';
 
 module('Unit | Service | layoutManager', function(hooks) {
   setupTest(hooks);
 
   test('it sets the left sidebar visibility according to media device', function(assert) {
-    const service = this.owner.lookup('service:layout-manager');
+    let service = this.owner.lookup('service:layout-manager');
     service.set('session.isAuthenticated', true);
 
-    service.set('media.isMobile', false);
-    assert.ok(service.get('leftSideBarOpen'));
-
-    service.set('media.isMobile', true);
-    assert.notOk(service.get('leftSideBarOpen'));
-    assert.ok(service.get('leftSideBarExpanded'));
-
-    service.set('media.isMobile', false);
-    service.set('leftSideBarOpen', true);
+    setBreakpoint('desktop');
+    assert.ok(service.leftSideBarOpen);
     service.closeLeftSidebarIfOnMobile();
-    assert.ok(service.get('leftSideBarOpen'));
+    assert.ok(service.leftSideBarOpen);
 
-    service.set('media.isMobile', true);
+    setBreakpoint('mobile');
+    assert.notOk(service.leftSideBarOpen);
+    assert.ok(service.leftSideBarExpanded);
+
     service.closeLeftSidebarIfOnMobile();
-    assert.notOk(service.get('leftSideBarOpen'));
-    assert.ok(service.get('leftSideBarExpanded'));
+    assert.notOk(service.leftSideBarOpen);
+    assert.ok(service.leftSideBarExpanded);
 
     service.set('session.isAuthenticated', false);
-    service.set('media.isMobile', true);
-    assert.notOk(service.get('leftSideBarOpen'));
-    service.set('media.isMobile', false);
-    assert.notOk(service.get('leftSideBarOpen'));
+    setBreakpoint('mobile');
+    assert.notOk(service.leftSideBarOpen);
+    setBreakpoint('desktop');
+    assert.notOk(service.leftSideBarOpen);
   });
 
-  test('it sets the left sidebar visibility according to localStorage', function(assert) {
+  test('it sets the left sidebar visibility according to localStorage - true', function(assert) {
     const service = this.owner.lookup('service:layout-manager');
-
     service.set('session.isAuthenticated', true);
 
     // The value in localStorage is only used on non-mobile devices.
-    service.set('media.isMobile', false);
-    assert.ok(service.get('leftSideBarOpen'));
+    setBreakpoint('desktop');
+    service.init();
+    assert.ok(service.leftSideBarOpen);
 
     // Simulate localstorage and return true
     service.set('localStorage', {
@@ -49,52 +46,20 @@ module('Unit | Service | layoutManager', function(hooks) {
       }
     });
 
-    assert.ok(service.get('leftSideBarExpanded'));
+    assert.ok(service.leftSideBarExpanded);
+  });
+  test('it sets the left sidebar visibility according to localStorage - false', function(assert) {
+    const service = this.owner.lookup('service:layout-manager');
+    service.set('session.isAuthenticated', true);
 
-    // Simulate localstorage and return false
+    setBreakpoint('desktop');
     service.set('localStorage', {
       getItem(identifier) {
+        // Return string because localstorage does return string
         return identifier === 'leftSideBarExpanded' ? 'false' : 'true';
       }
     });
 
-    assert.ok(service.get('leftSideBarOpen'));
-    assert.notOk(service.get('leftSideBarExpanded'));
-
-    service.set('session.isAuthenticated', false);
-    assert.notOk(service.get('leftSideBarOpen'));
-  });
-
-  test('it toggles the left sidebar visibility with manual functions', function(assert) {
-    const service = this.owner.lookup('service:layout-manager');
-    service.set('leftSideBarOpen', false);
-    service.toggleLeftSidebar();
-    assert.ok(service.get('leftSideBarOpen'));
-    service.toggleLeftSidebar();
-    assert.notOk(service.get('leftSideBarOpen'));
-    service.openLeftSidebar();
-    assert.ok(service.get('leftSideBarOpen'));
-    service.closeLeftSidebar();
-    assert.notOk(service.get('leftSideBarOpen'));
-  });
-
-  test('it toggles the left sidebar expansion', function(assert) {
-    const service = this.owner.lookup('service:layout-manager');
-
-    // Expansion is only relevent on non-mobile devices
-    service.set('media.isMobile', false);
-
-    // Toggle
-    service.set('leftSideBarExpanded', false);
-    service.toggleLeftSidebarExpansion();
-    assert.ok(service.get('leftSideBarExpanded'));
-    service.toggleLeftSidebarExpansion();
-    assert.notOk(service.get('leftSideBarExpanded'));
-
-    service.expandLeftSidebar();
-    assert.ok(service.get('leftSideBarExpanded'));
-    service.contractLeftSidebar();
-    assert.notOk(service.get('leftSideBarExpanded'));
-    service.set('leftSideBarExpanded', false);
+    assert.notOk(service.leftSideBarExpanded);
   });
 });

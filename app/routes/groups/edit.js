@@ -1,16 +1,19 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
-  skipBeforeModelAccessCheck: true,
-  afterModel(group, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit group', group), transition);
-  },
-  modelName: 'group',
-  title: 'Groep aanpassen',
-  parents: ['groups.index'],
-  deactivate() {
-    const group = this.controller.model;
-    group.rollbackAttributesAndMemberships();
+export default class NewGroupRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Groep aanpassen' }
+
+  canAccess(model) {
+    return this.can.can('edit group', model);
   }
-});
+
+  model(params) {
+    return this.store.findRecord('group', params.id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributesAndMemberships();
+  }
+}
 

@@ -1,12 +1,7 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show forum/threads');
-  },
-  modelName: 'forum/thread',
+export default class ShowThreadRoute extends AuthenticatedRoute {
   beforeModel() {
     this.transitionTo('forum.categories.category.threads.thread.posts');
   }
-});
+}

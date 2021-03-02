@@ -8,6 +8,11 @@ services:
 
   app-production: &production
     build: .
+    environment:
+      - BUILD_HASH=${BUILDKITE_COMMIT}
 
   app-staging:
     <<: *production
+    environment:
+      - DEPLOY_TARGET=staging
+      - BUILD_HASH=${BUILDKITE_COMMIT}
