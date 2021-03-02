@@ -16,5 +16,4 @@ export default class EditTopicRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model.thread?.rollbackAttributes();
   }
-
 }

@@ -22,4 +22,3 @@ export default class MandatesRoute extends AuthenticatedRoute {
     return this.store.queryPaged('debit/mandate', params);
   }
 }
-

@@ -25,4 +25,3 @@ export default class ForumIndexRoute extends AuthenticatedRoute {
     };
   }
 }
-

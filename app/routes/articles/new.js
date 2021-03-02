@@ -17,5 +17,4 @@ export default class NewArticleRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributes();
   }
-
 }
