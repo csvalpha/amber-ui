@@ -45,7 +45,9 @@ module.exports = {
     'ember/require-tagless-components': 1,
     'ember/no-classic-components': 1,
     'ember/no-component-lifecycle-hooks': 1,
-    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
+    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }],
+    'no-multiple-empty-lines': [2, { 'max': 1, 'maxBOF': 0, 'maxEOF': 0 }],
+    'padded-blocks': [2, 'never', { 'allowSingleLineBlocks': true }]
   },
   globals: {
     'moment': true

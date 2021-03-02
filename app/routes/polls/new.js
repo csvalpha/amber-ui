@@ -24,5 +24,4 @@ export default class NewPollRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributesAndForm();
   }
-
 }

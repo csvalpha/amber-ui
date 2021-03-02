@@ -10,4 +10,3 @@ export default class StaticPages extends Component {
     this.set('staticPages', this.store.findAll('static-page'));
   }
 }
-

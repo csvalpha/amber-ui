@@ -33,7 +33,6 @@ export default class Poll extends Model {
 
   get closedWithNoResponses() {
     return moment().isAfter(this.form.get('respondUntil')) && this.form.get('amountOfResponses') === 0;
-
   }
 
   // Methods
