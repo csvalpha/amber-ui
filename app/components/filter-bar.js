@@ -11,10 +11,11 @@ export default Component.extend({
   filterDebounce: computed('', {
     set(key, value) {
       debounce(this, this.setFilter, value, 250);
+      return null;
     }
   }),
   setFilter(filter) {
-    this.set('filter', filter)
+    this.set('filter', filter);
   },
   didInsertElement() {
     this._super(...arguments);
