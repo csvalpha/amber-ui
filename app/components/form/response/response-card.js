@@ -1,6 +1,8 @@
 import Component from '@ember/component';
+import { inject as service } from '@ember/service';
 
 const FormResponseCardComponent = Component.extend({
+  flashNotice: service('flash-notice'),
   classNames: ['card'],
   form: null,
   response: null,
