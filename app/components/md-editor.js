@@ -30,5 +30,4 @@ export default class MdEditorComponent extends Component {
 
     set(this, 'content', styledContent);
   }
-
 }

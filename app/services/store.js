@@ -1,4 +1,3 @@
-
 import EmberDataStore from '@ember-data/store';
 
 export default class StoreService extends EmberDataStore {
@@ -10,7 +9,6 @@ export default class StoreService extends EmberDataStore {
     result.meta.page = parseInt(params.page.number, 10);
 
     return result;
-
   }
 
   processParams(params) {
@@ -22,5 +20,4 @@ export default class StoreService extends EmberDataStore {
 
     return params;
   }
-
 }
