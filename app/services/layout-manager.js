@@ -71,5 +71,4 @@ export default class LayoutManager extends Service {
       this.leftSideBarOpen = false;
     }
   }
-
 }

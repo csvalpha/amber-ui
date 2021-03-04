@@ -15,6 +15,4 @@ export default class NewGroupRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributesAndMemberships();
   }
-
 }
-

@@ -22,4 +22,3 @@ export default class MailAliasIndexRoute extends ApplicationRoute {
     return this.store.queryPaged('poll', params);
   }
 }
-

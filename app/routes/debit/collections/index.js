@@ -22,4 +22,3 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
     return this.store.queryPaged('debit/collection', params);
   }
 }
-

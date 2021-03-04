@@ -20,5 +20,4 @@ export default class NewTopicRoute extends AuthenticatedRoute {
     this.controller.model.thread?.rollbackAttributes();
     this.controller.model.post?.rollbackAttributes();
   }
-
 }
