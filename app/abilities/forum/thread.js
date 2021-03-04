@@ -1,25 +1,28 @@
-import { alias } from '@ember/object/computed';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canCreate: computed('session.currentUser', function() {
+export default class Thread extends Ability {
+  get canCreate() {
     return this.session.hasPermission('forum/thread.create');
-  }),
-  canShow: computed('session.currentUser', function() {
+  }
+
+  get canShow() {
     return this.session.hasPermission('forum/thread.read');
-  }),
-  canEdit: computed('session.currentUser', function() {
+  }
+
+  get canEdit() {
     return this.session.hasPermission('forum/thread.update');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('forum/thread.destroy');
-  }),
-  canCreatePost: computed('session.currentUser', 'model.isOpen', function() {
+  }
+
+  get canCreatePost() {
     return (this.model.get('isOpen') || this.session.hasPermission('forum/thread.update'))
       && this.session.hasPermission('forum/post.create');
-  }),
-  canQuotePost: alias('canCreatePost')
-});
+  }
+
+  get canQuotePost() {
+    return this.canCreatePost;
+  }
+}
