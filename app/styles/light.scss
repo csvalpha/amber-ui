@@ -5,5 +5,10 @@
 @import 'ember-bootstrap/functions';
 @import 'ember-bootstrap/variables';
 
-// Import components
+// Import modules
 @import 'themes/light/modules/base';
+@import 'themes/light/modules/button';
+@import 'themes/light/modules/card';
+
+// Import pages
+@import 'themes/light/routes/index';

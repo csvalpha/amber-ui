@@ -1,0 +1,58 @@
+.card {
+  &:hover {
+    color: $black;
+  }
+}
+
+.card-header {
+  background-color: $white;
+
+  &.card-header--no-overlay {
+    .card-title {
+      color: $black;
+    }
+
+    .card-subtitle {
+      color: $opaque-black-two-thirds;
+    }
+
+    .card-subtitle-link {
+      color: $opaque-black-halfly;
+    }
+  }
+
+  &.card-header--overlay {
+    color: $white;
+
+    .card-title {
+      color: $white;
+    }
+
+    .card-subtitle {
+      color: $opaque-white-halfly;
+    }
+
+    .card-subtitle-link {
+      color: $opaque-white-halfly;
+    }
+  }
+
+  &.card-header--no-overlay, &.card-header--overlay {
+    .card-subtitle-link:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+.card-subheader-row {
+  .card-subheader-item {
+    border-right: 1px solid $gray-200;
+    border-bottom: 1px solid $gray-200;
+    color: $gray-600;
+  }
+}
+
+.card-footer {
+  background-color: $white;
+  color: $gray-900;
+}

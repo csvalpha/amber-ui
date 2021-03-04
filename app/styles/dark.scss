@@ -5,5 +5,10 @@
 @import 'ember-bootstrap/functions';
 @import 'ember-bootstrap/variables';
 
-// Import components
+// Import modules
 @import 'themes/dark/modules/base';
+@import 'themes/dark/modules/button';
+@import 'themes/dark/modules/card';
+
+// Import pages
+@import 'themes/dark/routes/index';

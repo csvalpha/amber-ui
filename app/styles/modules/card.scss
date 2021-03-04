@@ -23,7 +23,6 @@ $card-border: 0 solid $gray-300;
 
   &:hover {
     text-decoration: none;
-    color: $black;
   }
 }
 
@@ -57,15 +56,10 @@ $card-border: 0 solid $gray-300;
   .card-subtitle {
     font-size: 1rem;
   }
-
-  .card-subtitle-link:hover {
-    color: $brand-primary;
-  }
 }
 
 .card-header {
   border: 0;
-  background-color: $white;
   padding-right: .8rem;
   padding-left: .8rem;
 
@@ -96,16 +90,10 @@ $card-border: 0 solid $gray-300;
       padding: 0;
       overflow: hidden;
       vertical-align: middle;
-      color: $black;
     }
 
     .card-subtitle {
       margin-top: 1px;
-      color: $opaque-black-two-thirds;
-    }
-
-    .card-subtitle-link {
-      color: $opaque-black-halfly;
     }
 
     .gradient-overlay {
@@ -121,7 +109,6 @@ $card-border: 0 solid $gray-300;
     padding: 0;
     width: 100%;
     height: auto;
-    color: $white;
 
     .card-title-bar {
       position: absolute;
@@ -132,33 +119,19 @@ $card-border: 0 solid $gray-300;
 
     .card-title {
       margin-bottom: 0;
-      color: $white;
     }
 
     .card-subtitle {
       margin-top: 2px;
-      color: $opaque-white-halfly;
       font-size: 1rem;
     }
-
-    .card-subtitle-link {
-      color: $opaque-white-halfly;
-    }
   }
-}
-
-.card-subheader {
-  color: $gray-900;
 }
 
 .card-subheader-row {
   width: 100%;
 
   .card-subheader-item {
-    border-right: 1px solid $gray-200;
-    border-bottom: 1px solid $gray-200;
-    color: $gray-600;
-
     &:last-child {
       border-right: 0;
     }
@@ -188,9 +161,7 @@ $card-border: 0 solid $gray-300;
 
 .card-footer {
   border-top: 0;
-  background-color: $white;
   padding: .75rem .8rem;
-  color: $gray-900;
 }
 
 .card-img {

@@ -1,0 +1,44 @@
+$header-height: 75vh;
+
+.text-xl {
+  color: $black;
+}
+
+.index-yellow-bar {
+  background-color: $brand-primary;
+}
+
+.index-action-buttons {
+  background-color: $gray-100;
+  color: $gray-900;
+}
+
+.frontpage-button {
+  border-color: $brand-primary;
+  background-color: $brand-primary;
+  color: $black;
+
+  &:hover {
+    background-color: $brand-primary-dark;
+    color: $black;
+  }
+
+  &--light {
+    border-color: $gray-300;
+    background-color: $gray-300;
+  }
+}
+
+.static-page-list {
+  background-color: $gray-300;
+  color: $gray-900;
+}
+
+.index-special-promo {
+  background-color: $black;
+  color: $white;
+}
+
+.activity-modal-backdrop {
+  background-color: $opaque-black-halfly;
+}

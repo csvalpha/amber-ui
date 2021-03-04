@@ -1,35 +1,17 @@
-.card {
-  &:hover {
-    color: $black;
-  }
+.card-body {
+  background-color: $gray-900;
 }
 
-.card-title-bar {
-  .card-subtitle-link:hover {
-    color: $brand-primary;
+.card {
+  &:hover {
+    color: $white;
   }
 }
 
 .card-header {
-  background-color: $white;
+  background-color: $gray-900;
 
-  &.card-header--no-overlay {
-    .card-title {
-      color: $black;
-    }
-
-    .card-subtitle {
-      color: $opaque-black-two-thirds;
-    }
-
-    .card-subtitle-link {
-      color: $opaque-black-halfly;
-    }
-  }
-
-  &.card-header--overlay {
-    color: $white;
-
+  &.card-header--no-overlay, &.card-header--overlay {
     .card-title {
       color: $white;
     }
@@ -40,23 +22,25 @@
 
     .card-subtitle-link {
       color: $opaque-white-halfly;
+
+      &:hover {
+        color: $brand-primary-dark;
+      }
     }
   }
 }
 
-.card-subheader {
-  color: $gray-900;
-}
-
 .card-subheader-row {
+  background-color: $gray-900;
+
   .card-subheader-item {
-    border-right: 1px solid $gray-200;
-    border-bottom: 1px solid $gray-200;
-    color: $gray-600;
+    border-right: 1px solid $gray-800;
+    border-bottom: 1px solid $gray-800;
+    color: $gray-400;
   }
 }
 
 .card-footer {
-  background-color: $white;
-  color: $gray-900;
+  background-color: $gray-900;
+  color: $gray-100;
 }
