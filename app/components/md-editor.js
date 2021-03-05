@@ -6,12 +6,13 @@ export default class MdEditorComponent extends Component {
   classNames = ['md-editor-and-toolbar'];
   editMode = true;
 
-  content = '';
+  @tracked content = '';
   @tracked textareaId;
 
   @action
   applyStyle(option, modalInput = null) {
     const textarea = document.getElementById(`${this.textareaId}`);
+    debugger;
 
     const { selectionStart, selectionEnd } = textarea;
     const selection = textarea.value.substring(selectionStart, selectionEnd);
