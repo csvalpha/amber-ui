@@ -2,7 +2,7 @@ import { hash } from 'rsvp';
 import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default class ShowMailAliasRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+export default class ShowPollsRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
   get breadCrumb() {
     return { title: this.controller.model.poll.question.question };
   }

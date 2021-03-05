@@ -11,4 +11,3 @@ export default class DestroyGroupRoute extends AuthenticatedRoute {
     return this.store.findRecord('group', params.id, params);
   }
 }
-

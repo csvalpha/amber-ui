@@ -1,7 +1,7 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
 
-export default class ShowArticleRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+export default class ShowArticleRoute extends ApplicationRoute.extend(formLoadOrCreateMixin) {
   get breadCrumb() {
     return { title: this.controller.model.title };
   }

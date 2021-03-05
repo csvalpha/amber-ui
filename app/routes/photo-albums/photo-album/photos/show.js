@@ -63,4 +63,3 @@ export default class ShowPhotosRoute extends ApplicationRoute {
     this.controller.send('goToNextPhoto');
   }
 }
-

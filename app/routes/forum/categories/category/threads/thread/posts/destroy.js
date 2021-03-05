@@ -10,5 +10,4 @@ export default class DestroyPostRoute extends AuthenticatedRoute {
   model(params) {
     return this.store.findRecord('forum/post', params.post_id, params);
   }
-
 }

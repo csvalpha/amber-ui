@@ -77,7 +77,6 @@ export default Controller.extend({
         this.flashNotice.sendError('Gebruikers niet opgeslagen');
         this.transitionToRoute('users.batch.new');
       }
-
     }
   }
 });

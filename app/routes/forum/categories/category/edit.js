@@ -15,5 +15,4 @@ export default class EditCategoryRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributes();
   }
-
 }

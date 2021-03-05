@@ -47,4 +47,3 @@ export default class ActivityIndexRoute extends AuthenticatedRoute {
     return this.store.queryPaged('activity', params);
   }
 }
-

@@ -7,4 +7,3 @@ export default class ShowUserMailRoute extends ShowUserRouter {
     return this.can.can('show mail-aliases');
   }
 }
-

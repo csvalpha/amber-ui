@@ -11,4 +11,3 @@ export default class DestroyMailAliasRoute extends AuthenticatedRoute {
     return this.store.findRecord('mail-aliases', params.id, params);
   }
 }
-

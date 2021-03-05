@@ -9,7 +9,5 @@ export default class ResendActivationRoute extends AuthenticatedRoute {
 
   model(params) {
     return this.store.findRecord('user', params.id, params);
-
   }
 }
-
