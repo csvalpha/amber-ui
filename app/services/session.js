@@ -19,7 +19,9 @@ export default class SessionService extends BaseSessionService {
     try {
       await this.loadUser();
     } catch(err) {
-      await this.invalidate();
+      if (err.name !== 'AbortError') {
+        await this.invalidate();
+      }
     }
   }
 

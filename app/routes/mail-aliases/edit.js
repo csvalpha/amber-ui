@@ -16,4 +16,3 @@ export default class EditMailAliasRoute extends AuthenticatedRoute {
     this.controller.model?.rollbackAttributes();
   }
 }
-

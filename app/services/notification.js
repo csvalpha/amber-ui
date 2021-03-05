@@ -1,58 +1,60 @@
 import Service from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default Service.extend({
-  isSupported: null,
-  permissionIsGranted: null,
-  permissionIsDenied: null,
-  isEnabled: null,
-  isSoundEnabled: null,
-  notificationSound: new Audio('/sounds/notification.mp3'),
+export default class NotificationService extends Service {
+  isSupported = null;
+  @tracked permissionIsGranted = null;
+  @tracked permissionIsDenied = null;
+  @tracked isEnabled = null;
+  @tracked isSoundEnabled = null;
+  notificationSound = new Audio('/sounds/notification.mp3');
 
-  init() {
+  constructor() {
+    super(...arguments);
+
     if ('Notification' in window) {
-      this.set('isSupported', true);
-      this.set('permissionIsGranted', (Notification.permission === 'granted'));
-      this.set('permissionIsDenied', (Notification.permission === 'denied'));
-      this.set('isEnabled', (localStorage.getItem('notificationEnabled') === 'true'));
-      this.set('isSoundEnabled', (localStorage.getItem('notificationSoundEnabled') === 'true'));
+      this.isSupported = true;
+      this.permissionIsGranted = (Notification.permission === 'granted');
+      this.permissionIsDenied = (Notification.permission === 'denied');
+      this.isEnabled = (localStorage.getItem('notificationEnabled') === 'true');
+      this.isSoundEnabled = (localStorage.getItem('notificationSoundEnabled') === 'true');
     } else {
-      this.set('isSupported', false);
-      this.set('permissionIsGranted', false);
-      this.set('isEnabled', false);
-      this.set('isSoundEnabled', false);
+      this.isSupported = false;
+      this.permissionIsGranted = false;
+      this.permissionIsDenied = false;
+      this.isEnabled = false;
+      this.isSoundEnabled =  false;
     }
-
-    this._super(...arguments);
-  },
+  }
 
   getPermission() {
     if (!this.isEnabled) {
       Notification.requestPermission(permission => {
         if (permission === 'granted') {
-          this.set('permissionIsGranted', true);
+          this.permissionIsGranted = true;
           this.new(
             'Notificaties zijn nu ingeschakeld',
             'Je zult ze ontvangen bij elk Quickpost bericht',
             '/images/alphalogonotext.png'
           );
         } else if (permission === 'denied') {
-          this.set('permissionIsGranted', false);
-          this.set('permissionIsDenied', true);
+          this.permissionIsGranted = false;
+          this.permissionIsDenied = true;
           return false;
         }
       });
     }
 
-    this.set('isEnabled', this.permissionIsGranted);
+    this.isEnabled = this.permissionIsGranted;
     localStorage.setItem('notificationEnabled', this.permissionIsGranted);
-    this.set('isSoundEnabled', false);
+    this.isSoundEnabled = false;
     localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
-  },
+  }
 
   turnOff() {
-    this.set('isEnabled', false);
+    this.isEnabled = false;
     localStorage.setItem('notificationEnabled', false);
-  },
+  }
 
   new(title, body, icon) {
     const options = {
@@ -74,15 +76,15 @@ export default Service.extend({
         }
       }
     }
-  },
+  }
 
   toggleSound() {
-    this.toggleProperty('isSoundEnabled');
-    localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
-  },
-
-  soundOn() {
-    this.set('isSoundEnabled', true);
+    this.isSoundEnabled = !this.isSoundEnabled;
     localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
   }
-});
+
+  soundOn() {
+    this.isSoundEnabled = true;
+    localStorage.setItem('notificationSoundEnabled', this.isSoundEnabled);
+  }
+}

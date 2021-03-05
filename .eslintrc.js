@@ -41,7 +41,9 @@ module.exports = {
     'ember/classic-decorator-no-classic-methods': 1,
     'ember/require-tagless-components': 1,
     'ember/no-classic-components': 1,
-    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
+    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }],
+    'no-multiple-empty-lines': [2, { 'max': 1, 'maxBOF': 0, 'maxEOF': 0 }],
+    'padded-blocks': [2, 'never', { 'allowSingleLineBlocks': true }]
   },
   globals: {
     'moment': true

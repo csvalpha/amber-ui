@@ -23,7 +23,6 @@ export default Mixin.create({
           this.set('sortedAscending', true);
           this.set('sortedAttribute', value);
         }
-
       }
 
       return value;

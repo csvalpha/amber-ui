@@ -15,5 +15,4 @@ export default class NewStaticPageRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributes();
   }
-
 }

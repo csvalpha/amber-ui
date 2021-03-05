@@ -30,4 +30,3 @@ export default class UserIndexRoute extends AuthenticatedRoute {
     return this.store.queryPaged('user', params);
   }
 }
-

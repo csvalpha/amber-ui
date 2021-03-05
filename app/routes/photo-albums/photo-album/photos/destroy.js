@@ -11,4 +11,3 @@ export default class DestroyArticleRoute extends AuthenticatedRoute {
     return this.store.findRecord('photo', params.photo_id, params);
   }
 }
-

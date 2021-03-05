@@ -15,5 +15,4 @@ export default class DestroyCategoryRoute extends AuthenticatedRoute {
     super.deactivate();
     this.controller.model?.rollbackAttributes();
   }
-
 }
