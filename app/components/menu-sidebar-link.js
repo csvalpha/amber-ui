@@ -6,4 +6,3 @@ export default class MenuSidebarLinkComponent extends Component {
   @service layoutManager;
   @tracked minor = false;
 }
-

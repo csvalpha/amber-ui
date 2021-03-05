@@ -12,7 +12,6 @@ export default class MdEditorComponent extends Component {
   @action
   applyStyle(option, modalInput = null) {
     const textarea = document.getElementById(`${this.textareaId}`);
-    debugger;
 
     const { selectionStart, selectionEnd } = textarea;
     const selection = textarea.value.substring(selectionStart, selectionEnd);
