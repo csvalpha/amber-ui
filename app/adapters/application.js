@@ -1,5 +1,4 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
-import { computed } from '@ember/object';
 import { underscore } from '@ember/string';
 import { inject as service } from '@ember/service';
 import ENV from '../config/environment';
@@ -12,7 +11,6 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
   host = ENV.api.hostname
   coalesceFindRequests = true
 
-  @computed('session.data.authenticated.access_token', 'session.isAuthenticated')
   get headers() {
     let headers = {};
     if (this.session.isAuthenticated) {

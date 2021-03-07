@@ -5,7 +5,7 @@
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
       <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" @maxlength={{50}} />
-      <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @fileLoaded={{action "coverPhotoLoaded"}} />
+      <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @loadedCallback={{action "coverPhotoLoaded"}} />
       <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if model.publiclyVisible}}

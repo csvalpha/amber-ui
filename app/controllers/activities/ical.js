@@ -1,16 +1,18 @@
 import Controller from '@ember/controller';
-import { computed, set } from '@ember/object';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { ActivityCategories } from 'alpha-amber/constants';
+import { tracked } from '@glimmer/tracking';
 
 export default class IcalController extends Controller {
   @service session;
 
-  activityCategoryOptions;
+  @tracked activityCategoryOptions;
 
   constructor() {
     super(...arguments);
-    set(this, 'activityCategoryOptions', ActivityCategories.map(this._activityCategoryToOption));
+    this.activityCategoryOptions = ActivityCategories.map(this._activityCategoryToOption);
   }
 
   @computed('activityCategoryOptions.@each.checked')
@@ -21,17 +23,14 @@ export default class IcalController extends Controller {
     return `categories=${selected.join(',')}`;
   }
 
-  @computed('session.currentUser', 'session.currentUser.icalSecretKey').readOnly()
   get iCalBase() {
     return `/ical/activities?key=${this.session.currentUser.icalSecretKey}&user_id=${this.session.currentUser.id}`;
   }
 
-  @computed('iCalBase', 'categoriesParams').readOnly()
   get iCalURL() {
     return `${window.location.origin}${this.iCalBase}&${this.categoriesParams}`;
   }
 
-  @computed('iCalURL').readOnly()
   get webcalURL() {
     return `webcal://${window.location.host}${this.iCalBase}&${this.categoriesParams}`;
   }

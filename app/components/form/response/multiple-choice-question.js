@@ -1,13 +1,10 @@
 import { mapBy } from '@ember/object/computed';
-import { observer, computed } from '@ember/object';
+import { computed } from '@ember/object';
 import { ClosedQuestionBaseComponent } from './closed-question';
 
 const MultipleChoiceQuestionComponent = ClosedQuestionBaseComponent.extend({
   answers: null,
   selectedOptionIds: mapBy('answers', 'option.id'),
-  selectedOptionIdsObserver: observer('selectedOptionIds.[]', function() {
-    this.sendAction('updateAnswers', this.question, this.selectedOptionIds);
-  }),
   requiredAndNothingSelected: computed('question.required', 'selectedOptionIds.length', function() {
     return this.question.required && this.selectedOptionIds.length === 0;
   })
