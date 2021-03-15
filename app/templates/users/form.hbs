@@ -1,7 +1,7 @@
 <form class="form" {{action "submit" on="submit"}}>
   <h5>Publieke gegevens</h5>
   <p>Deze gegevens zijn zichtbaar voor alle leden en oud-leden.</p>
-  <ModelForm::FileInput @model={{model}} @property="avatar" @label="Profielfoto" @fileLoaded={{action "fileLoaded"}} @labelClass="col-sm-5" @inputWrapperClass="col-sm-7" />
+  <ModelForm::FileInput @model={{model}} @property="avatar" @label="Profielfoto" @loadedCallback={{action "fileLoaded"}} @labelClass="col-sm-5" @inputWrapperClass="col-sm-7" />
   <ModelForm::TextInput @model={{model}} @property="firstName" @label="Voornaam" @required={{true}} @disabled={{canEditOnlyOwnProperties}} @labelClass="col-sm-5" @inputWrapperClass="col-sm-7" />
   <ModelForm::TextInput @model={{model}} @property="lastNamePrefix" @label="Tussenvoegsel" @disabled={{canEditOnlyOwnProperties}} @labelClass="col-sm-5" @inputWrapperClass="col-sm-7" />
   <ModelForm::TextInput @model={{model}} @property="lastName" @label="Achternaam" @required={{true}} @disabled={{canEditOnlyOwnProperties}} @labelClass="col-sm-5" @inputWrapperClass="col-sm-7" />

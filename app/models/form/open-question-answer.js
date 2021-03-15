@@ -1,4 +1,3 @@
-import { alias } from '@ember/object/computed';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class OpenQuestionAnswer extends Model {
@@ -11,5 +10,7 @@ export default class OpenQuestionAnswer extends Model {
   @belongsTo('form/response') response;
 
   // Getters
-  @alias('response.completed') completed;
+  get completed() {
+    return this.response.completed;
+  }
 }

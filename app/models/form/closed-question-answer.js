@@ -1,4 +1,3 @@
-import { alias } from '@ember/object/computed';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class ClosedQuestionAnswer extends Model {
@@ -9,6 +8,8 @@ export default class ClosedQuestionAnswer extends Model {
   @belongsTo('form/closed-question-option') option;
   @belongsTo('form/response') response;
 
-  // Computed properties
-  @alias('option.question') question;
+  // Getters
+  get question() {
+    return this.option.get('question');
+  }
 }
