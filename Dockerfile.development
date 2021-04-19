@@ -1,4 +1,4 @@
-FROM madnificent/ember:3.16.0 as ember
+FROM madnificent/ember:3.17.0 as ember
 MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 
 COPY package.json /app/package.json
