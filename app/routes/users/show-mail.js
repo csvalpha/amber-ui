@@ -1,8 +1,9 @@
-import UserShowRouteUnauthenticated from 'alpha-amber/routes/users/show';
+import ShowUserRouter from 'alpha-amber/routes/users/show';
 
-export default UserShowRouteUnauthenticated.extend({
+export default class ShowUserMailRoute extends ShowUserRouter {
+  pageActions = null
+
   canAccess() {
     return this.can.can('show mail-aliases');
-  },
-  pageActions: null
-});
+  }
+}

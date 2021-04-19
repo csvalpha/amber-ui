@@ -1,14 +1,14 @@
-import NewRoute from 'alpha-amber/routes/application/new';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default NewRoute.extend({
+export default class NewPollRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Poll aanmaken' }
+
   canAccess() {
     return this.can.can('create polls');
-  },
-  modelName: 'poll',
-  parents: ['polls.index'],
-  title: 'Poll aanmaken',
+  }
+
   model() {
-    const newPoll = this.store.createRecord(this.modelName);
+    const newPoll = this.store.createRecord('poll');
     newPoll.set('author', this.session.currentUser);
     const newForm = this.store.createRecord('form/form');
     const newQuestion = this.store.createRecord('form/closed-question');
@@ -18,9 +18,10 @@ export default NewRoute.extend({
     newQuestion.set('fieldType', 'radio');
     newPoll.set('form', newForm);
     return newPoll;
-  },
-  deactivate() {
-    const currentPoll = this.controller.model;
-    currentPoll.rollbackAttributesAndForm();
   }
-});
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributesAndForm();
+  }
+}

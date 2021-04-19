@@ -1,20 +1,18 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
-  skipBeforeModelAccessCheck: true,
-  afterModel(poll, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit poll', poll), transition);
-  },
-  modelName: 'poll',
-  title: 'Poll aanpassen',
-  parents: ['polls.index'],
-  actions: {
-    submit(poll) {
-      poll.save().then(() => {
-        this.transitionTo('poll.show', poll);
-      }).catch(error => {
-        this.set('errorMessage', error.message);
-      });
-    }
+export default class EditMailAliasRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Poll aanpassen' }
+
+  canAccess(model) {
+    return this.can.can('edit poll', model);
   }
-});
+
+  model(params) {
+    return this.store.findRecord('poll', params.id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}

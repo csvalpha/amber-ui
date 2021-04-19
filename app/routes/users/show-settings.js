@@ -1,12 +1,7 @@
-import { computed } from '@ember/object';
-import UserShowRouteUnauthenticated from 'alpha-amber/routes/users/show';
+import ShowUserRouter from 'alpha-amber/routes/users/show';
 
-export default UserShowRouteUnauthenticated.extend({
-  skipBeforeModelAccessCheck: true,
-  afterModel(user, transition) {
-    return this.checkAccessWithPromise(this.can.can('edit user', user), transition);
-  },
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowUserSettings extends ShowUserRouter {
+  get pageActions() {
     const user = this.controller.model;
     return [
       {
@@ -17,5 +12,9 @@ export default UserShowRouteUnauthenticated.extend({
         canAccess: this.can.can('edit user', user)
       }
     ];
-  })
-});
+  }
+
+  canAccess(model) {
+    return this.can.can('edit users', model);
+  }
+}

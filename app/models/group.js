@@ -6,8 +6,8 @@ export default class Group extends Model {
   @attr kind;
   @attr description;
   @attr descriptionCamofied;
-  @attr('date') recognizedAtGma;
-  @attr('date') rejectedAtGma;
+  @attr('string') recognizedAtGma;
+  @attr('string') rejectedAtGma;
   @attr('date') createdAt;
   @attr({ defaultValue: false }) administrative;
   @attr avatar;

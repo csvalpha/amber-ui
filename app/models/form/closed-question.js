@@ -1,4 +1,3 @@
-import { sort, equal } from '@ember/object/computed';
 import Model, { belongsTo, hasMany, attr } from '@ember-data/model';
 import { all } from 'rsvp';
 
@@ -17,9 +16,14 @@ export default class ClosedQuestion extends Model {
 
   // Getters
   isOpenQuestion = false;
-  optionsSorting = ['position'];
-  @equal('fieldType', 'checkbox') isMultipleChoice;
-  @sort('options', 'optionsSorting') sortedOptions;
+
+  get isMultipleChoice() {
+    return this.fieldType === 'checkbox';
+  }
+
+  get sortedOptions() {
+    return this.options.toArray().sort((a) => a.position);
+  }
 
   // Methods
   saveWithOptions() {

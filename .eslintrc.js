@@ -27,8 +27,6 @@ module.exports = {
     'ember-suave/no-const-outside-module-scope': 0,
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
-    'ember/closure-actions': 1,
-    'ember/no-observers': 1,
     'ember/no-new-mixins': 1,
     'object-curly-spacing': [
       'error',
@@ -38,7 +36,14 @@ module.exports = {
     'ember-suave/require-access-in-comments': 0,
     'ember/no-mixins': 1,
     'ember/no-controller-access-in-routes': 1,
-    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }]
+    'ember/no-classic-classes': 1,
+    'ember/no-actions-hash': 1,
+    'ember/classic-decorator-no-classic-methods': 1,
+    'ember/require-tagless-components': 1,
+    'ember/no-classic-components': 1,
+    'lines-between-class-members': ['error', 'always', { 'exceptAfterSingleLine': true }],
+    'no-multiple-empty-lines': [2, { 'max': 1, 'maxBOF': 0, 'maxEOF': 0 }],
+    'padded-blocks': [2, 'never', { 'allowSingleLineBlocks': true }]
   },
   globals: {
     'moment': true

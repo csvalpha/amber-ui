@@ -1,45 +1,24 @@
 import { inject as service } from '@ember/service';
-import { alias } from '@ember/object/computed';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
-import { isNone } from '@ember/utils';
 
 export default Controller.extend({
   session: service(),
   newContent: '',
-  queryParams: ['page', 'perPage'],
+  queryParams: ['page'],
 
   count: computed.reads('model.posts.length'),
 
-  page: computed('model.posts.page', {
-    get() {
-      return this.model?.posts.page;
-    },
-    set(key, value) {
-      // The first time this is called, content is null resulting in an error
-      if (!isNone(this.model)) {
-        this.set('model.posts.page', value);
-      }
+  currentPageIsLastPage: computed('model.posts.meta.{page,totalPages}', function() {
+    const page = parseInt(this.model.posts.meta.page, 10);
+    const totalPages = parseInt(this.model.posts.meta.totalPages, 10);
 
-      return value;
-    }
-  }),
-
-  totalPages: alias('model.posts.totalPages'),
-
-  currentPageIsLastPage: computed('page', 'totalPages', function() {
-    const totalPages = parseInt(this.totalPages, 10);
-    return totalPages === 0 || parseInt(this.page, 10) === totalPages;
+    return totalPages === 0 || page === totalPages;
   }),
 
   actions: {
     async newPostCreated() {
       await this.model.posts.reload();
-      this.set('page', this.totalPages);
-    },
-    goToLastPageAndScrollDown() {
-      this.set('page', this.totalPages);
-      document.getElementById('newForumPost').scrollIntoView(true);
     }
   }
 });

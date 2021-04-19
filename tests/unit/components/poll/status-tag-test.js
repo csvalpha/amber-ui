@@ -36,4 +36,3 @@ module('Unit | Component | poll/status tag', function(hooks) {
 
 });
 
-

@@ -1,11 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyGroupRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Activiteit verwijderen' }
+
   canAccess() {
     return this.can.can('destroy activities');
-  },
-  modelName: 'activity',
-  title: 'Activiteit verwijderen',
-  parents: ['activities.index']
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('group', params.id, params);
+  }
+}

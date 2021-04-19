@@ -1,9 +1,9 @@
-<div class="alert flash-notice {{flashNoticeStatus}} {{if flashNoticeVisibility 'visible' 'hidden'}}">
+<div class="alert flash-notice {{flashNotice.status}} {{if flashNotice.visibility 'visible' 'hidden'}}">
   <div class="container-fluid">
     <div class="row justify-content-between align-items-center">
-      <h5 class="flash-notice-content col-xs"> {{flashNoticeContent}} </h5>
-      {{#if flashNoticeIsPermanent}}
-        <FaIcon @icon='times' @click={{action "dismissFlashNotice"}}/>
+      <h5 class="flash-notice-content col-xs"> {{flashNotice.content}} </h5>
+      {{#if flashNotice.isPermanent}}
+        <FaIcon @icon='times' {{on 'click' flashNotice.dismiss}}/>
       {{/if}}
     </div>
   </div>

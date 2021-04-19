@@ -5,7 +5,7 @@
 </EmberWormhole>
 
 <div class="row">
-  {{#each pagedModel as |article|}}
+  {{#each model as |article|}}
     <div class="article-col col-md-6">
       <LinkTo @route="articles.show" @model={{article}}>
         {{cards/article-card article showExcerpt=true useMaxHeight=true}}
@@ -15,5 +15,5 @@
 </div>
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{paginator}} />
+  <PageNumbers @info={{model.meta}} />
 </div>

@@ -1,9 +1,18 @@
-import NewRoute from 'alpha-amber/routes/application/new';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default NewRoute.extend({
+export default class NewMandateRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Mandaat aanmaken' }
+
   canAccess() {
     return this.can.can('create debit/mandates');
-  },
-  modelName: 'debit/mandate',
-  title: 'Mandaat aanmaken'
-});
+  }
+
+  model() {
+    return this.store.createRecord('debit/mandate');
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}

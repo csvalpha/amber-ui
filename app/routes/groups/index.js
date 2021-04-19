@@ -1,12 +1,9 @@
-import { computed } from '@ember/object';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
-import IndexRouteUnauthenticated from 'alpha-amber/routes/application/index';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show groups');
-  },
-  queryParams: {
+export default class GroupIndexRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Groepen' }
+
+  queryParams = {
     search: {
       refreshModel: true
     },
@@ -22,10 +19,9 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     showInactive: {
       refreshModel: true
     }
-  },
-  modelName: 'group',
-  title: 'Groepen',
-  pageActions: computed('can', function() {
+  }
+
+  get pageActions() {
     return [
       {
         link: 'groups.new',
@@ -34,7 +30,12 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         canAccess: this.can.can('create groups')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show groups');
+  }
+
   model(params) {
     if (!params.filter) {
       params.filter = {};
@@ -58,6 +59,6 @@ export default IndexRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
     delete params.showAdministrative;
     delete params.showInactive;
     delete params.search;
-    return this.store.query(this.modelName, params);
+    return this.store.query('group', params);
   }
-});
+}

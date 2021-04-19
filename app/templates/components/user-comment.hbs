@@ -12,10 +12,18 @@
         <strong>{{t 'component.userComment.anonymous'}}</strong>
       {{/if}}
 
-      {{#if (can 'destroy article-comments')}}
-        <LinkTo @route="article-comments.destroy" @model={{comment.id}}>
-          <FaIcon @icon='trash' class="text-muted destroy-icon ml-2"/>
-        </LinkTo>
+      {{#if comment.article}}
+        {{#if (can 'destroy article-comments')}}
+          <LinkTo @route="article-comments.destroy" @model={{comment.id}}>
+            <FaIcon @icon='trash' class="text-muted destroy-icon ml-2"/>
+          </LinkTo>
+        {{/if}}
+      {{else if comment.photo}}
+        {{#if (can 'destroy photo-comments')}}
+          <LinkTo @route="photo-comments.destroy" @model={{comment.id}}>
+            <FaIcon @icon='trash' class="text-muted destroy-icon ml-2"/>
+          </LinkTo>
+        {{/if}}
       {{/if}}
     </div>
 

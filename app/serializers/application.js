@@ -1,11 +1,9 @@
-import JSONAPISerializer from '@ember-data/serializer/json-api';
 import { inject as service } from '@ember/service';
+import JSONAPISerializer from '@ember-data/serializer/json-api';
 import { underscore } from '@ember/string';
 import Ember from 'ember';
 
-const {
-  Logger, String
-} = Ember;
+const {  Logger } = Ember;
 
 const verbReplacements = {
   new: 'create',
@@ -14,8 +12,8 @@ const verbReplacements = {
   edit: 'update'
 };
 
-export default JSONAPISerializer.extend({
-  session: service('session'),
+export default class Application extends JSONAPISerializer {
+  @service session;
 
   // Remove all Links data, since AMBER API's JsonAPI::Resources
   // provides wrong links data for namespaced models
@@ -28,8 +26,9 @@ export default JSONAPISerializer.extend({
       });
     }
 
-    return this._super(...arguments);
-  },
+    return super.normalize(...arguments);
+  }
+
   permissionNameForRoute(routeName, owner) {
     const parts = routeName.split('.');
 
@@ -50,24 +49,25 @@ export default JSONAPISerializer.extend({
     }
 
     return `${modelName}.${action}`;
-  },
+  }
+
   keyForAttribute(attr) {
     // Keys for attributes are underscored in the API (created_at)
     // while Ember uses kebab case (created-at)
-    return String.underscore(attr);
-  },
+    return underscore(attr);
+  }
 
   keyForRelationship(key, relationship, method) {
     // Keys for attributes are underscored in the API (open_questions)
     // while Ember uses kebab case (open-questions)
-    const result = this._super(key, relationship, method);
+    const result = super.keyForRelationship(key, relationship, method);
     return underscore(result);
-  },
+  }
 
   modelNameFromPayloadKey(key) {
     // Add the namespace to the PayloadKey
     // The api gives type forms while Ember expects form/forms
-    key = this._super(key);
+    key = super.modelNameFromPayloadKey(key);
     if (['form', 'closed-question',
       'closed-question-answer', 'closed-question-option',
       'open-question', 'open-question-answer', 'response'].includes(key)) {
@@ -83,12 +83,12 @@ export default JSONAPISerializer.extend({
     }
 
     return key;
-  },
+  }
 
   payloadKeyFromModelName(modelName) {
     // Remove the namespace from the modelName
     // The API expects forms while the Ember ModelName is form/forms
-    const result = this._super(modelName);
+    const result = super.payloadKeyFromModelName(modelName);
     return underscore(result.split('/').pop());
   }
-});
+}

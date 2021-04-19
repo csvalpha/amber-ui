@@ -1,24 +1,25 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { isNone } from '@ember/utils';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canShow: computed('session.currentUser', function() {
+export default class Poll extends Ability {
+  get canShow() {
     return this.session.hasPermission('poll.read');
-  }),
-  canCreate: computed('session.currentUser', function() {
+  }
+
+  get canCreate() {
     return this.session.hasPermission('poll.create');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('poll.destroy');
-  }),
-  canEdit: computed('session.currentUser', 'session.currentUser.memberships', 'model', function() {
+  }
+
+  get canEdit() {
     return this.session.hasPermission('poll.update') || this.isPollOwner(this.model);
-  }),
+  }
+
   isPollOwner(poll) {
     const { currentUser } = this.session;
-    return !isNone(currentUser) && poll.isOwner(currentUser);
+    return !isNone(currentUser) && (poll.get('author.id') === currentUser.get('id'));
   }
-});
+}

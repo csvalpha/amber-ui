@@ -1,12 +1,17 @@
-import { reads } from '@ember/object/computed';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class ThreadRoute extends AuthenticatedRoute {
+  queryParams = {}
+
+  get breadCrumb() {
+    return { title: this.controller.model.title };
+  }
+
   canAccess() {
     return this.can.can('show forum/threads');
-  },
-  modelName: 'forum/thread',
-  modelRouteParam: 'thread_id',
-  title: reads('controller.model.title')
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('forum/thread', params.thread_id, params);
+  }
+}

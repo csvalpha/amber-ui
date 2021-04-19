@@ -33,7 +33,6 @@ export default class Poll extends Model {
 
   get closedWithNoResponses() {
     return moment().isAfter(this.form.get('respondUntil')) && this.form.get('amountOfResponses') === 0;
-
   }
 
   // Methods
@@ -54,13 +53,5 @@ export default class Poll extends Model {
     this.form.then(form => {
       form?.rollbackAttributesAndQuestions();
     });
-  }
-
-  isOwner(user) {
-    if (user.get('id') === this.author.get('id')) {
-      return true;
-    }
-
-    return user.currentMemberships.some(membership => membership.group.id === this.group.id);
   }
 }

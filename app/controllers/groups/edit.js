@@ -4,6 +4,7 @@ import { computed } from '@ember/object';
 import { A } from '@ember/array';
 import { GroupKinds } from 'alpha-amber/constants';
 import { all } from 'rsvp';
+import { capitalize } from '@ember/string';
 
 export default Controller.extend({
   flashNotice: service('flash-notice'),
@@ -11,7 +12,7 @@ export default Controller.extend({
   _groupKindToOption: groupKind => {
     return {
       value: groupKind,
-      label: groupKind.capitalize()
+      label: capitalize(groupKind)
     };
   },
 

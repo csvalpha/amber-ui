@@ -1,16 +1,11 @@
-import { alias } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show debit/mandates');
-  },
-  modelName: 'debit/mandate',
-  title: alias('controller.model.uid'),
-  parents: ['debit.mandate.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class CollectionsIndexRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.id };
+  }
+
+  get pageActions() {
     return [
       {
         link: 'debit.mandates.edit',
@@ -20,5 +15,13 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         canAccess: this.can.can('edit debit/mandates')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show debit/mandates');
+  }
+
+  model(params) {
+    return this.store.findRecord('debit/mandate', params.id, params);
+  }
+}

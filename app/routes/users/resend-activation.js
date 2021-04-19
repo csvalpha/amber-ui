@@ -1,14 +1,13 @@
-import { computed } from '@ember/object';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  skipBeforeModelAccessCheck: true,
-  afterModel(user, transition) {
-    return this.checkAccessWithPromise(this.can.can('resend activation code of user', user), transition);
-  },
-  modelName: 'user',
-  title: computed('controller.model.fullName', function() {
-    return `Activatiecode hersturen van ${this.controller.model.fullName}`;
-  })
-});
+export default class ResendActivationRoute extends AuthenticatedRoute {
+  breadCrumb = { title: `Activatiecode hersturen van ${this.controller.model.fullName}` }
+
+  canAccess(model) {
+    return this.can.can('resend activation code of user', model);
+  }
+
+  model(params) {
+    return this.store.findRecord('user', params.id, params);
+  }
+}

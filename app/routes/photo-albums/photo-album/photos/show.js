@@ -1,37 +1,24 @@
-import { computed } from '@ember/object';
-import { ShowRouteUnauthenticated } from 'alpha-amber/routes/application/show';
-
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 import {
   bindKeyboardShortcuts,
   unbindKeyboardShortcuts
 } from 'ember-keyboard-shortcuts';
 
-export default ShowRouteUnauthenticated.extend({
-  canAccess() {
-    return this.can.can('show photo-albums');
-  },
+export default class ShowPhotosRoute extends ApplicationRoute {
+  @service intl
 
-  activate() {
-    bindKeyboardShortcuts(this);
-  },
-
-  deactivate() {
-    unbindKeyboardShortcuts(this);
-  },
-
-  modelName: 'photo',
-  modelRouteParam: 'photo_id',
-
-  title: computed('controller.model.id', 'controller.model.photoAlbum.photos', 'controller.model.photos.[]', function() {
+  get breadCrumb() {
     const photo = this.controller.model;
     const allAlbumPhotos = this.controller.model.photoAlbum.get('photos');
     const photoAlbumPhotosLength = allAlbumPhotos.get('length');
     const currentPhotoIndex = allAlbumPhotos.indexOf(photo) + 1;
 
-    return `Foto ${currentPhotoIndex} van ${photoAlbumPhotosLength}`;
-  }),
+    return { title: `Foto ${currentPhotoIndex} van ${photoAlbumPhotosLength}` };
+  }
 
-  pageActions: computed('can', 'controller.model', function() {
+  get pageActions() {
     return [
       {
         link: 'photo-albums.photo-album.photos.destroy',
@@ -41,21 +28,38 @@ export default ShowRouteUnauthenticated.extend({
         canAccess: this.can.can('destroy photos')
       }
     ];
-  }),
+  }
 
-  keyboardShortcuts: {
+  canAccess() {
+    return this.can.can('show photo-albums');
+  }
+
+  model(params) {
+    return this.store.findRecord('photo', params.photo_id, params);
+  }
+
+  activate() {
+    bindKeyboardShortcuts(this);
+  }
+
+  deactivate() {
+    unbindKeyboardShortcuts(this);
+  }
+
+  keyboardShortcuts = {
     left: 'goToPreviousPhoto',
     up: 'goToPreviousPhoto',
     right: 'goToNextPhoto',
     down: 'goToNextPhoto'
-  },
-
-  actions: {
-    goToPreviousPhoto() {
-      this.controller.send('goToPreviousPhoto');
-    },
-    goToNextPhoto() {
-      this.controller.send('goToNextPhoto');
-    }
   }
-});
+
+  @action
+  goToPreviousPhoto() {
+    this.controller.send('goToPreviousPhoto');
+  }
+
+  @action
+  goToNextPhoto() {
+    this.controller.send('goToNextPhoto');
+  }
+}

@@ -1,10 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyTransactionRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Transactie verwijderen' }
+
   canAccess() {
     return this.can.can('destroy debit/transactions');
-  },
-  modelName: 'debit/transaction',
-  title: 'Transactie verwijderen'
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('debit/transaction', params.id, params);
+  }
+}

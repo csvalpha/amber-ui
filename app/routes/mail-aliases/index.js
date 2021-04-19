@@ -1,13 +1,11 @@
-import { computed } from '@ember/object';
-import IndexRoute from 'alpha-amber/routes/application/index';
+import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { inject as service } from '@ember/service';
 
-export default IndexRoute.extend({
-  canAccess() {
-    return this.can.can('show mail-aliases');
-  },
-  modelName: 'mail-alias',
-  title: 'Mail-aliassen',
-  pageActions: computed('can', function() {
+export default class MailAliasIndexRoute extends ApplicationRoute {
+  @service intl
+  breadCrumb = { title: 'Mail-aliassen' }
+
+  get pageActions() {
     return [
       {
         link: 'mail-aliases.new',
@@ -16,5 +14,13 @@ export default IndexRoute.extend({
         canAccess: this.can.can('create mail-aliases')
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show mail-aliases');
+  }
+
+  model(params) {
+    return this.store.query('mail-alias', params);
+  }
+}
