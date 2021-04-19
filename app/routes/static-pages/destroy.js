@@ -1,11 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyStaticPageRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Informatie pagina verwijderen' }
+
   canAccess() {
     return this.can.can('destroy static-pages');
-  },
-  modelName: 'static-page',
-  title: 'Informatie pagina verwijderen',
-  parents: ['static-pages.index']
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('static-page', params.id, params);
+  }
+}

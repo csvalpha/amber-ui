@@ -1,25 +1,12 @@
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 import { all } from 'rsvp';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show groups');
-  },
-  afterModel(group) {
-    // This ensures all memberships and users are loaded
-    if (this.can.can('show memberships')) {
-      return group.get('memberships').then(memberships => {
-        return all(memberships.mapBy('user'));
-      });
-    }
-  },
-  modelName: 'group',
-  title: reads('controller.model.name'),
-  parents: ['groups.index'],
-  pageActions: computed('can', 'controller.model', function() {
+export default class ShowGroupRoute extends AuthenticatedRoute {
+  get breadCrumb() {
+    return { title: this.controller.model.name };
+  }
+
+  get pageActions() {
     const group = this.controller.model;
     return [
       {
@@ -37,5 +24,22 @@ export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
         canAccess: this.can.can('export group', group)
       }
     ];
-  })
-});
+  }
+
+  canAccess() {
+    return this.can.can('show groups');
+  }
+
+  model(params) {
+    return this.store.findRecord('group', params.id, params);
+  }
+
+  afterModel(group) {
+    // This ensures all memberships and users are loaded
+    if (this.can.can('show memberships')) {
+      return group.get('memberships').then(memberships => {
+        return all(memberships.mapBy('user'));
+      });
+    }
+  }
+}

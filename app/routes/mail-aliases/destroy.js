@@ -1,11 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyMailAliasRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Mail-alias verwijderen' }
+
   canAccess() {
     return this.can.can('destroy mail-aliases');
-  },
-  modelName: 'mail-alias',
-  title: 'Mail-alias verwijderen',
-  parents: ['mail-aliases.index']
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('mail-aliases', params.id, params);
+  }
+}

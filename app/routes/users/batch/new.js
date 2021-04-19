@@ -1,9 +1,18 @@
-import NewRoute from 'alpha-amber/routes/application/new';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default NewRoute.extend({
+export default class EditStaticPageRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Batch gebruikers uploaden' }
+
   canAccess() {
     return this.can.can('batch upload users');
-  },
-  modelName: 'user',
-  title: 'Batch gebruikers uploaden'
-});
+  }
+
+  model() {
+    return this.store.createRecord('user');
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}

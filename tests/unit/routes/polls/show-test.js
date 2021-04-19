@@ -9,9 +9,8 @@ module('Unit | Route | polls/show', function(hooks) {
     assert.ok(route);
   });
 
-  test('it has a correct modelName', function(assert) {
+  test('it exists', function(assert) {
     const route = this.owner.lookup('route:polls/show');
-
-    assert.equal('poll', route.modelName);
+    assert.ok(route);
   });
 });

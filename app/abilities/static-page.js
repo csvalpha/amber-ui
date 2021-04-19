@@ -1,17 +1,17 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canCreate: computed('session.currentUser', function() {
+export default class StaticPage extends Ability {
+  get canCreate() {
     return this.session.hasPermission('static-page.create');
-  }),
-  canShow: true,
-  canEdit: computed('session.currentUser', function() {
+  }
+
+  canShow = true;
+
+  get canEdit() {
     return this.session.hasPermission('static-page.update');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('static-page.destroy');
-  })
-});
+  }
+}

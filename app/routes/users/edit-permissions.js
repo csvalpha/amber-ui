@@ -1,8 +1,7 @@
-import UserEditRoute from 'alpha-amber/routes/users/edit';
+import EditUserRoute from 'alpha-amber/routes/users/edit';
 
-export default UserEditRoute.extend({
+export default class EditUserPermissionsRoute extends EditUserRoute {
   canAccess() {
     return this.can.can('create permissions-users');
   }
-});
-
+}

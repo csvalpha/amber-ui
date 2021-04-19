@@ -1,11 +1,13 @@
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(AuthenticatedRouteMixin, {
+export default class DestroyArticleRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Fotoreactie verwijderen' }
+
   canAccess() {
     return this.can.can('destroy photo-comments');
-  },
-  modelName: 'photo-comment',
-  title: 'Fotoreactie verwijderen',
-  parents: ['photo-albums.index']
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('photo-comment', params.id, params);
+  }
+}

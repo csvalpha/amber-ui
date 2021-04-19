@@ -1,19 +1,19 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canShow: computed('session.currentUser', function() {
+export default class Category extends Ability {
+  get canShow() {
     return this.session.hasPermission('forum/category.read');
-  }),
-  canCreate: computed('session.currentUser', function() {
+  }
+
+  get canCreate() {
     return this.session.hasPermission('forum/category.create');
-  }),
-  canEdit: computed('session.currentUser', function() {
+  }
+
+  get canEdit() {
     return this.session.hasPermission('forum/category.update');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('forum/category.destroy');
-  })
-});
+  }
+}

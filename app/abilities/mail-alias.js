@@ -1,19 +1,19 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import { Ability } from 'ember-can';
 
-export default Ability.extend({
-  session: service(),
-  canShow: computed('session.currentUser', function() {
+export default class MailAlias extends Ability {
+  get canShow() {
     return this.session.hasPermission('mail-alias.read');
-  }),
-  canEdit: computed('session.currentUser', function() {
+  }
+
+  get canEdit() {
     return this.session.hasPermission('mail-alias.update');
-  }),
-  canCreate: computed('session.currentUser', function() {
+  }
+
+  get canCreate() {
     return this.session.hasPermission('mail-alias.create');
-  }),
-  canDestroy: computed('session.currentUser', function() {
+  }
+
+  get canDestroy() {
     return this.session.hasPermission('mail-alias.destroy');
-  })
-});
+  }
+}

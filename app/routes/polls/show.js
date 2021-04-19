@@ -1,19 +1,13 @@
-import { reads } from '@ember/object/computed';
-import { computed } from '@ember/object';
 import { hash } from 'rsvp';
-import ShowRouteUnauthenticated from 'alpha-amber/routes/application/show';
 import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, AuthenticatedRouteMixin, {
-  canAccess() {
-    return this.can.can('show polls');
-  },
-  modelName: 'poll',
+export default class ShowPollsRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+  get breadCrumb() {
+    return { title: this.controller.model.poll.question.question };
+  }
 
-  title: reads('controller.model.poll.question.question'),
-  parents: ['poll.index'],
-  pageActions: computed('can', 'controller.model.poll', function() {
+  get pageActions() {
     const { poll } = this.controller.model;
     return [
       {
@@ -31,9 +25,14 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
         canAccess: this.can.can('destroy polls')
       }
     ];
-  }),
+  }
+
+  canAccess() {
+    return this.can.can('show polls');
+  }
+
   model(params) {
-    const pollPromise = this._super(params);
+    const pollPromise = this.store.findRecord('poll', params.id, params);
     const formPromise = pollPromise.then(poll => poll.get('form'));
     const responsePromise = formPromise
       // Load or create the response
@@ -47,4 +46,4 @@ export default ShowRouteUnauthenticated.extend(formLoadOrCreateMixin, Authentica
       currentUserResponse: responsePromise
     });
   }
-});
+}

@@ -1,12 +1,18 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
+export default class EditPhotoAlbumRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Foto album aanpassen' }
+
   canAccess() {
     return this.can.can('edit photo-albums');
-  },
+  }
+
   model() {
     return this.modelFor('photo-albums.photo-album');
-  },
-  modelName: 'photo-album',
-  title: 'Foto-album aanpassen'
-});
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}

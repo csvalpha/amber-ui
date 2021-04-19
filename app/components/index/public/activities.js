@@ -1,4 +1,4 @@
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { htmlSafe } from '@ember/string';
 import UpcomingActivitiesToolComponent from 'alpha-amber/components/tools/upcoming-activities';
 
@@ -23,7 +23,6 @@ export default class Activities extends UpcomingActivitiesToolComponent {
     this.set('modalIsOpen', false);
   }
 
-  @computed('modalImage')
   get modalImageStyle() {
     return htmlSafe(`background: url('${this.modalImage}'); background-size: cover; background-position: center;"`);
   }

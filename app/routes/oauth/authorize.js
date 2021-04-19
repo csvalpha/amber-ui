@@ -1,16 +1,20 @@
-import Route from '@ember/routing/route';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
 
-export default Route.extend(AuthenticatedRouteMixin, {
-  fetch: service(),
-  router: service(),
+export default class OauthAuthorizeRoute extends AuthenticatedRoute {
+  @service fetch;
+  @service router;
+  @service session;
 
-  init() {
-    this._super(...arguments);
+  canAccess() {
+    return this.session.isAuthenticated;
+  }
+
+  constructor() {
+    super(...arguments);
 
     this.router.on('routeDidChange', event => {
-      // When routeDidChange is not oauth.authorize, skipp
+      // When routeDidChange is not oauth.authorize, skip
       if (event.targetName !==  'oauth.authorize') {
         return;
       }
@@ -34,4 +38,4 @@ export default Route.extend(AuthenticatedRouteMixin, {
       });
     });
   }
-});
+}

@@ -1,12 +1,11 @@
-import IndexRoute from 'alpha-amber/routes/application/index';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default IndexRoute.extend({
+export default class ForumIndexRoute extends AuthenticatedRoute {
   canAccess() {
     return this.can.can('show forum/categories');
-  },
-  modelName: 'forum/category',
-  title: 'Forum',
+  }
+
   beforeModel() {
     this.transitionTo('forum.categories');
   }
-});
+}

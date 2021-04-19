@@ -1,10 +1,18 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
-  canAccess() {
-    return this.can.can('edit mail-aliases');
-  },
-  modelName: 'mail-alias',
-  title: 'Mail-alias aanpassen',
-  parents: ['mail-aliases.index']
-});
+export default class EditMailAliasRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Mail-alias aanpassen' }
+
+  canAccess(model) {
+    return this.can.can('edit mail-alias', model);
+  }
+
+  model(params) {
+    return this.store.findRecord('mail-alias', params.id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}

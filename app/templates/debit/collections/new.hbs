@@ -15,7 +15,7 @@
     2. Controleer je mailbox, hier ontvang je een berichtje of het importeren gelukt is<br>
     3. Controleer het totaal bedrag in de mail<br><br>
     <form {{action "submit" on="submit"}}>
-      <ModelForm::FileInput @model={{model}} @property="importFile" @label="Import file" @fileLoaded={{action "fileLoaded"}} @validExtensions={{validExtensions}} @validMimetypes={{validMimetypes}} />
+      <ModelForm::FileInput @model={{model}} @property="importFile" @label="Import file" @loadedCallback={{action "fileLoaded"}} @validExtensions={{validExtensions}} @validMimetypes={{validMimetypes}} />
       <ModelForm::TextInput @model={{model}} @property="name" @label="Titel  " @required={{true}} />
       <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van incasso" @required={{true}} />
 

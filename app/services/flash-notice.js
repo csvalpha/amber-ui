@@ -1,40 +1,47 @@
 import Service, { inject as service } from '@ember/service';
 import { run } from '@ember/runloop';
 import ENV from '../config/environment';
+import { tracked } from '@glimmer/tracking';
 
-export default Service.extend({
-  session: service(),
-  status: null,
-  content: null,
-  visibility: false,
-  isPermanent: false,
+export default class FlashNoticeService extends Service {
+  @service session;
+
+  @tracked status;
+  @tracked content;
+  @tracked visibility = false;
+  @tracked isPermanent = false;
+
   sendSuccess(content, isPermanent) {
     this.sendFlashNotice('success', content, isPermanent);
-  },
+  }
+
   sendError(content, isPermanent) {
     this.sendFlashNotice('danger', content, isPermanent);
-  },
+  }
+
   sendInfo(content, isPermanent) {
     this.sendFlashNotice('info', content, isPermanent);
-  },
+  }
+
   sendWarning(content, isPermanent) {
     this.sendFlashNotice('warning', content, isPermanent);
-  },
-  sendFlashNotice(status, content, isPermanent) {
-    this.set('status', status);
-    this.set('content', content);
-    this.set('isPermanent', isPermanent);
+  }
 
-    // Setting visibility must be done last since this variable is observed.
-    this.set('visibility', true);
+  sendFlashNotice(status, content, isPermanent) {
+    this.status = status;
+    this.content = content;
+    this.isPermanent = isPermanent;
+    this.visibility = true;
 
     if (!isPermanent) {
+      let _this = this;
       run.later(this, function() {
-        this.set('visibility', false);
+        _this.visibility = false;
       }, ENV.APP.flashNoticeDefaultDuration);
     }
-  },
-  dismiss() {
-    this.set('visibility', false);
   }
-});
+
+  dismiss() {
+    this.visibility = false;
+  }
+}

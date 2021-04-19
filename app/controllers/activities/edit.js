@@ -50,7 +50,7 @@ export default Controller.extend({
   actions: {
     submit() {
       this.model.saveWithForm().then(savedActivity => {
-        this.transitionToRoute('activities.show', savedActivity.get('id'));
+        this.transitionToRoute('activities.show', savedActivity.id);
         this.flashNotice.sendSuccess('Activiteit opgeslagen!');
       }).catch(error => {
         this.set('errorMessage', error.message);

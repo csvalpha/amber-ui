@@ -38,14 +38,9 @@ export default Component.extend({
     handleLogoAction() {
       if (this.media.isMobile) {
         this.send('toggleLeftSidebar');
-      } else if (this.router.currentRouteName === 'index') {
-        this.send('refreshItems');
       } else {
         this.router.transitionTo('index');
       }
-    },
-    invalidateSession() {
-      this.session.invalidate();
     },
     toggleLeftSidebar() {
       this.layoutManager.toggleLeftSidebar();

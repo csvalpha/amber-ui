@@ -1,18 +1,19 @@
 import Service, { inject as service } from '@ember/service';
 import messageBus from 'message-bus';
 
-export default Service.extend({
-  fetch: service(),
+export default class MessageBusService extends Service {
+  @service fetch;
 
-  init() {
+  constructor() {
+    super(...arguments);
+
     messageBus.headers = { 'Authorization': this.fetch.authorizationHeader() };
     messageBus.baseUrl = '/api/';
     messageBus.start();
-    this.set('message-bus', messageBus);
-    this._super(...arguments);
-  },
+    this.messageBus = messageBus;
+  }
 
   subscribe(channel, func, lastId) {
-    this['message-bus'].subscribe(channel, func, lastId);
+    this.messageBus.subscribe(channel, func, lastId);
   }
-});
+}

@@ -1,4 +1,6 @@
 import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { debounce } from '@ember/runloop';
 
 export default Component.extend({
   filter: null,
@@ -6,7 +8,13 @@ export default Component.extend({
   sortedAttribute: null,
   sortableAttributes: null,
   sortedAscending: null,
-  didInsertElement() {
-    this.set('filter', '');
+  filterDebounce: computed('', {
+    set(key, value) {
+      debounce(this, this.setFilter, value, 250);
+      return null;
+    }
+  }),
+  setFilter(filter) {
+    this.set('filter', filter);
   }
 });

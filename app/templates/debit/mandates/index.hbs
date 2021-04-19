@@ -12,7 +12,7 @@
     <span class="col-3"> Gebruiker </span>
   </div>
 
-  {{#each pagedModel as |mandate|}}
+  {{#each model as |mandate|}}
     <LinkTo @route="debit.mandates.show" @model={{mandate}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> ID:  </span> <b> {{mandate.id}} </b> </span>
@@ -28,5 +28,5 @@
 </div>
 
 <div class="row justify-content-center">
-  <PageNumbers @content={{paginator}} />
+  <PageNumbers @info={{model.meta}} />
 </div>

@@ -1,4 +1,3 @@
-import { sort, union, gt } from '@ember/object/computed';
 import Model, { hasMany, attr } from '@ember-data/model';
 import { all } from 'rsvp';
 
@@ -17,11 +16,17 @@ export default class Form extends Model {
   @hasMany('form/response') responses;
 
   // Computed properties
+  get hasResponses() {
+    return this.amountOfResponses > 0;
+  }
 
-  @gt('amountOfResponses', 0) hasResponses;
-  @union('openQuestions', 'closedQuestions') questions;
-  questionsSorting = ['position'];
-  @sort('questions', 'questionsSorting') sortedQuestions;
+  get questions() {
+    return this.openQuestions.toArray().addObjects(this.closedQuestions.toArray());
+  }
+
+  get sortedQuestions() {
+    return this.questions.sort((a) => a.position);
+  }
 
   get currentUserCanRespond() {
     return !this.currentUserResponseCompleted && this.canRespond;

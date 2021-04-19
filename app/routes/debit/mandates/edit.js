@@ -1,9 +1,18 @@
-import EditRoute from 'alpha-amber/routes/application/edit';
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default EditRoute.extend({
+export default class EditMandateRoute extends AuthenticatedRoute {
+  breadCrumb = { title: 'Mandaat aanpassen' }
+
   canAccess() {
     return this.can.can('edit debit/mandates');
-  },
-  modelName: 'debit/mandate',
-  title: 'Mandaat aanpassen'
-});
+  }
+
+  model(params) {
+    return this.store.findRecord('debit/mandate', params.id, params);
+  }
+
+  deactivate() {
+    super.deactivate();
+    this.controller.model?.rollbackAttributes();
+  }
+}
