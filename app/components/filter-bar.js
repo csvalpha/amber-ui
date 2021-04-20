@@ -16,9 +16,5 @@ export default Component.extend({
   }),
   setFilter(filter) {
     this.set('filter', filter);
-  },
-  didInsertElement() {
-    this._super(...arguments);
-    this.set('filter', '');
   }
 });

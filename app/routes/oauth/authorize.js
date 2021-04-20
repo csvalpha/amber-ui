@@ -1,4 +1,3 @@
-import { alias } from '@ember/object/computed';
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
 
@@ -7,7 +6,9 @@ export default class OauthAuthorizeRoute extends AuthenticatedRoute {
   @service router;
   @service session;
 
-  @alias('session.isAuthenticated') canAccess;
+  canAccess() {
+    return this.session.isAuthenticated;
+  }
 
   constructor() {
     super(...arguments);
