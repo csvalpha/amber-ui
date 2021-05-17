@@ -15,6 +15,7 @@
 
 .navbar-nav {
   overflow-x: scroll;
+  overflow-y: hidden;
   height: calc(100% + 20px);
   min-height: calc(100% + 20px);
 }
