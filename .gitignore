@@ -17,6 +17,7 @@
 ########
 =======
 /.env*
+!/.env.example
 /.pnp*
 /.sass-cache
 /connect.lock

@@ -18,6 +18,17 @@ You will need the following things properly installed on your computer.
 * change into the new directory
 * `yarn add` (or `npm install`)
 
+### OAuth Configuration
+
+In [Amber API](https://github.com/csvalpha/amber-api), execute the following command (in `rails console`):
+
+```ruby
+app = Doorkeeper::Application.create(name: 'A.M.B.E.R. - Webstek der C.S.V. Alpha', redirect_uri: 'https://example.com', scopes: 'public', confidential: false)
+app.uid
+```
+
+Next, copy `.env.example` to `.env` and enter the uid after `OAUTH_CLIENT_ID`.
+
 ## Running / Development
 
 * `ember server` or `npm start`

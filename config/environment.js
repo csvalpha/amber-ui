@@ -89,6 +89,8 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.clientId = process.env.OAUTH_CLIENT_ID;
+
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
       enabled: false,
@@ -128,11 +130,16 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.contentSecurityPolicy['report-uri'] = 'https://sentry.io/api/186017/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f';
-    ENV['@sentry/ember'].sentry.dsn = 'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017'
+    ENV['@sentry/ember'].sentry.dsn = 'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
   }
 
   if (deployTarget === 'production') {
+    ENV.clientId = ''; // TODO: set
     ENV.googleAnalytics = { webPropertyId: 'UA-8136462-4' };
+  }
+
+  if (deployTarget === 'staging') {
+    ENV.clientId = ''; // TODO: set
   }
 
   return ENV;
