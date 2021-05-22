@@ -1,9 +1,9 @@
-import {AuthenticatedRoute} from 'alpha-amber/routes/application/application';
-import {assign} from "@ember/polyfills";
+import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { assign } from '@ember/polyfills';
 
 export default class ThreadIndexRoute extends AuthenticatedRoute {
   get breadCrumb() {
-    return {title: this.controller.model.name};
+    return { title: this.controller.model.name };
   }
 
   get pageActions() {
@@ -40,10 +40,10 @@ export default class ThreadIndexRoute extends AuthenticatedRoute {
   }
 
   async model(params) {
-    const category = this.modelFor('forum.categories.category')
+    const category = this.modelFor('forum.categories.category');
     assign(params, {
-      filter: {category: category.id}
-    })
+      filter: { category: category.id }
+    });
     const threadsPromise = await this.store.queryPaged('forum/thread', params);
     return {
       category,
