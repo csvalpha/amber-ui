@@ -14,9 +14,6 @@ export const FormFormComponent = Component.extend({
         position,
         required: true
       });
-      if (!question.get('isOpenQuestion')) {
-        this.send('addClosedQuestionOption', question);
-      }
     },
     addOpenQuestion() {
       this.send('createQuestion', 'form/open-question', 'text');
