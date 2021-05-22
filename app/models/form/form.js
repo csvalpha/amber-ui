@@ -1,6 +1,6 @@
 import Model, { hasMany, attr } from '@ember-data/model';
 import { all } from 'rsvp';
-import { A } from '@ember/array'
+import { A } from '@ember/array';
 
 export default class Form extends Model {
   @attr respondFrom;

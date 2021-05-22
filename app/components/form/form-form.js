@@ -15,7 +15,7 @@ export const FormFormComponent = Component.extend({
         required: true
       });
       if (!question.get('isOpenQuestion')) {
-        this.send('addClosedQuestionOption', question)
+        this.send('addClosedQuestionOption', question);
       }
     },
     addOpenQuestion() {
@@ -27,10 +27,10 @@ export const FormFormComponent = Component.extend({
     addClosedQuestionOption(question) {
       const position = question.get('sortedOptions.lastObject.position') + 1 || 0;
       this.store.createRecord('form/closed-question-option', {
-        question: question,
+        question,
         position
       });
-    },
+    }
   }
 });
 
