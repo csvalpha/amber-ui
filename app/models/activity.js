@@ -79,7 +79,7 @@ export default class Activity extends Model {
       return true;
     }
 
-    return user.currentMemberships.some(membership => membership.group.id === this.group.id);
+    return user.currentMemberships.some(membership => membership.group.get('id') === this.group.get('id'));
   }
 
   rollbackAttributesAndForm() {

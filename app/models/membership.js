@@ -1,4 +1,3 @@
-import { alias } from '@ember/object/computed';
 import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class Membership extends Model {
@@ -14,8 +13,9 @@ export default class Membership extends Model {
 
   @belongsTo group;
 
-  // Getters
-  @alias('group.administrative') administrative;
+  get administrative() {
+    return this.group.get('administrative');
+  }
 
   get userIsCurrentlyMember() {
     return (this.startDate < moment.now() && (!this.endDate || this.endDate > moment.now()));
