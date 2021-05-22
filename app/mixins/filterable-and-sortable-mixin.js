@@ -24,7 +24,6 @@ export default Mixin.create({
           this.set('sortedAttribute', value);
         }
       }
-
       return value;
     }
   }),
