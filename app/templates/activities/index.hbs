@@ -1,15 +1,15 @@
 <EmberWormhole @to="navbar-wormhole">
   <PageActionsButtons @pageActions={{pageActions}}>
-      <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
-        <div class="form-check">
-          <label class="form-check-label">
-            <Input @type="checkbox" @checked={{showPassed}} class="form-check-input" />
-            Toon activiteiten in verleden
-            <div class="custom-checkmark"></div>
-          </label>
-        </div>
-      </FilterBar>
-    </PageActionsButtons>
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
+      <div class="form-check">
+        <label class="form-check-label">
+          <Input @type="checkbox" @checked={{showPassed}} class="form-check-input" />
+          Toon activiteiten in verleden
+          <div class="custom-checkmark"></div>
+        </label>
+      </div>
+    </FilterBar>
+  </PageActionsButtons>
 </EmberWormhole>
 
 <div class="card">
