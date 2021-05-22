@@ -8,7 +8,7 @@ export const FormFormComponent = Component.extend({
     createQuestion(modelClass, fieldType) {
       const form = this.model;
       const position = form.get('sortedQuestions.lastObject.position') + 1 || 0;
-      const question = this.store.createRecord(modelClass, {
+      this.store.createRecord(modelClass, {
         form,
         fieldType,
         position,
@@ -20,13 +20,6 @@ export const FormFormComponent = Component.extend({
     },
     addClosedQuestion() {
       this.send('createQuestion', 'form/closed-question', 'radio');
-    },
-    addClosedQuestionOption(question) {
-      const position = question.get('sortedOptions.lastObject.position') + 1 || 0;
-      this.store.createRecord('form/closed-question-option', {
-        question,
-        position
-      });
     }
   }
 });
