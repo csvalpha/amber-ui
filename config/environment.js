@@ -89,7 +89,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
-    ENV.clientId = process.env.OAUTH_CLIENT_ID;
+    ENV.clientId = '123456789';
 
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
