@@ -134,12 +134,12 @@ module.exports = function(environment) {
   }
 
   if (deployTarget === 'production') {
-    ENV.clientId = ''; // TODO: set
+    ENV.clientId = 'IIeYVVbdNhiSiSCxKP5eUgS5Vs1-9ccZEvISdCVqe5g';
     ENV.googleAnalytics = { webPropertyId: 'UA-8136462-4' };
   }
 
   if (deployTarget === 'staging') {
-    ENV.clientId = ''; // TODO: set
+    ENV.clientId = 'rY_z6I7WAhNjzcIi3B4SB4KelwogD2BUK25D7vn9g1g';
   }
 
   return ENV;
