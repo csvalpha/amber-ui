@@ -1,5 +1,5 @@
 <EmberWormhole @to="navbar-wormhole">
-  {{#page-actions-buttons pageActions}}
+  <PageActionsButtons @pageActions={{pageActions}}>
     <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
       <div class="form-check">
         <label class="form-check-label">
@@ -9,7 +9,7 @@
         </label>
       </div>
     </FilterBar>
-  {{/page-actions-buttons}}
+  </PageActionsButtons>
 </EmberWormhole>
 
 <div class="card">
