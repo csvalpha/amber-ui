@@ -22,7 +22,7 @@ export default class ClosedQuestion extends Model {
   }
 
   get sortedOptions() {
-    return this.options.toArray().sort((a) => a.position);
+    return this.options.sortBy('position');
   }
 
   // Methods

@@ -8,15 +8,12 @@ export const FormFormComponent = Component.extend({
     createQuestion(modelClass, fieldType) {
       const form = this.model;
       const position = form.get('sortedQuestions.lastObject.position') + 1 || 0;
-      const question = this.store.createRecord(modelClass, {
+      this.store.createRecord(modelClass, {
         form,
         fieldType,
         position,
         required: true
       });
-      if (!question.get('isOpenQuestion')) {
-        this.send('addOption', question);
-      }
     },
     addOpenQuestion() {
       this.send('createQuestion', 'form/open-question', 'text');
