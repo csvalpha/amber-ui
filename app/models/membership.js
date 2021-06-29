@@ -14,7 +14,7 @@ export default class Membership extends Model {
   @belongsTo group;
 
   get administrative() {
-    return this.group.administrative;
+    return this.group.get('administrative');
   }
 
   get userIsCurrentlyMember() {
