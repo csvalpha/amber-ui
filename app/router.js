@@ -158,7 +158,7 @@ Router.map(function() {
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
     this.route('destroy', { path: '/:id/destroy' });
-    this.route('mail-enrolled', { path: '/:id/mail-enrolled' });
+    this.route('generate-alias', { path: '/:id/generate-alias' });
     this.route('print-enrolled', { path: '/:id/print-enrolled' });
   });
 
