@@ -1,18 +1,20 @@
 <article class="card">
   <div class="card-body">
-    <p class="card-text">
+    <div class="card-text">
       {{#if alias}}
         <h3>Je mailalias is aangemaakt!</h3>
-        Je kunt alle ingeschrevenen mailen via <b>{{alias}}</b>.<br/> Dit alias werkt tot {{expires_at}}
+        <p>Je kunt alle ingeschrevenen mailen via <b>{{alias}}</b>.<br/> Dit alias werkt tot {{expires_at}}.</p>
       {{else}}
-        Als je een mail wil sturen naar alle aanwezigen van deze activiteit kan je hier een tijdelijk mailalias aanmaken.
-        Deze zal vervolgens 24 uur beschikbaar zijn, waarna hij automatisch weer gedeactiveerd wordt.
-        Let op: Je krijgt het alias maar 1x te zien, het is wel mogelijk later weer een nieuw mailalias aan te maken.
+        <p>
+          Als je een mail wil sturen naar alle aanwezigen van deze activiteit kan je hier een tijdelijk mailalias aanmaken.
+          Deze zal vervolgens 24 uur beschikbaar zijn, waarna hij automatisch weer gedeactiveerd wordt.<br>
+          Let op: je krijgt het alias maar 1x te zien. Het is wel mogelijk later weer een nieuw mailalias aan te maken.
+        </p>
       {{/if}}
-    </p>
+    </div>
 
     {{#unless alias}}
-      <button type="button" class="btn btn-danger" {{action "generateAlias"}}>
+      <button type="button" class="btn btn-danger mb-2" {{action "generateAlias"}}>
         Mailalias aanmaken
       </button>
     {{/unless}}
