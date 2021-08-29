@@ -6,13 +6,16 @@ services:
       context: .
       dockerfile: Dockerfile.buildkite
 
-  app-production: &production
-    build: .
-    environment:
-      - BUILD_HASH=${BUILDKITE_COMMIT}
+  app-production:
+    build: &production-build
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - BUILD_HASH=${BUILDKITE_COMMIT}
 
   app-staging:
-    <<: *production
-    environment:
-      - DEPLOY_TARGET=staging
-      - BUILD_HASH=${BUILDKITE_COMMIT}
+    build:
+      <<: *production-build
+      args:
+        - DEPLOY_TARGET=staging
+        - BUILD_HASH=${BUILDKITE_COMMIT}
