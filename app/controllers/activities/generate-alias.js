@@ -6,16 +6,17 @@ export default Controller.extend({
   fetch: service(),
   errorMessage: null,
   actions: {
-    async submit() {
+    async generateAlias() {
       this.set('errorMessage', null);
-      const response = await this.fetch.post(`/stored_mails/${this.model.id}/accept`);
+      const response = await this.fetch.post(`/activities/${this.model.id}/generate_alias`);
 
       if (response.ok) {
-        this.model.unloadRecord();
-        this.transitionToRoute('mail-moderations.index');
+        const json = await response.json();
+        this.set('alias', json.data.alias);
+        this.set('expires_at', json.data.expires_at);
       } else if (isInvalidResponse(response)) {
         const json = await response.json();
-        this.set('errorMessage', json.errors[0].detail);
+        this.set('errorMessage', json.errors ? json.errors[0].detail : response);
       }
     }
   }
