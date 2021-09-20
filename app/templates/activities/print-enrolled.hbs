@@ -31,15 +31,15 @@
           <div class="row">
             <div class="col-12">
               <b>Extra opties</b> <br>
-              <SortableGroup @tagName="ul" @class="list-group" @onChange="reorderItems" as |group|>
-                {{#each options as |option index|}}
-                  <SortableItem @tagName="li" @class="list-group-item" @model={{option}} @group={{group}} @handle=".handle">
+              <SortableGroup @model={{options}} @tagName="ul" @class="list-group" @onChange={{action "reorderItems"}} as |group|>
+                {{#each group.model as |option index|}}
+                  <group.item @tagName="li" @class="list-group-item" @model={{option}} as |item|>
                     <div class="row">
                       <span class="col"> {{option}} </span>
                       <a class="pl-2 link-highlight text-danger" {{action "removeOption" index}}> Verwijderen </a>
-                      <span class="px-3"><FaIcon @icon='sort' class="handle text-muted"/></span>
+                      <item.handle class="px-3"><FaIcon @icon='sort' class="handle text-muted"/></item.handle>
                     </div>
-                  </SortableItem>
+                  </group.item>
                 {{else}}
                   Geen extra opties ingesteld
                 {{/each}}
@@ -90,7 +90,7 @@
   </div>
 
   <div class="card-body">
-    <p id="printarea" class="printarea">
+    <div id="printarea" class="printarea">
       {{#if (eq currentTab 'form')}}
         <h5>Inschrijvingen voor {{@model.title}}</h5>
         {{form/responses-table
@@ -103,8 +103,8 @@
 
       {{else if (eq currentTab 'consumptionList')}}
         <h5>Streeplijst voor {{@model.title}}</h5>
-        <Form::ConsumptionList @responses={{model}} @showCheckbox={{showCheckbox}} @options={{options}} @extraRows={{extraRows}} @showRobertHofstra={{showRobertHofstra}} @additionalEmptyRows={{additionalEmptyRows}} />
+        <Form::ConsumptionList @responses={{sortedResponses}} @showCheckbox={{showCheckbox}} @options={{options}} @showRobertHofstra={{showRobertHofstra}} @additionalEmptyRows={{additionalEmptyRows}} />
       {{/if}}
-    </p>
+    </div>
   </div>
 </div>
