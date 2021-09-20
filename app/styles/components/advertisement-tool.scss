@@ -1,5 +1,5 @@
 // CSS3 code for animation of advertisements
-$amount-of-advertisements: 10;
+$amount-of-advertisements: 18;
 $single-advertisement-width: 175px;
 $advertisement-animation-duration: 15s;
 $advertisement-animation-holder-width: - $amount-of-advertisements * $single-advertisement-width;
@@ -43,7 +43,7 @@ $advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-adv
 
 .adv-row {
   width: $advertisement-row-width;
-  max-height: 140px;
+  height: 120px;
 
   &:hover {
     .firstAdv {
@@ -58,6 +58,13 @@ $advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-adv
 }
 
 .advertisement-item {
-  margin: 0;
+  margin: 5px 0;
   width: $single-advertisement-width;
+
+  &--full {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 120px;
+  }
 }
