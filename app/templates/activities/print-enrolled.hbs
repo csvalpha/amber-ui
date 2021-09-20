@@ -103,7 +103,7 @@
 
       {{else if (eq currentTab 'consumptionList')}}
         <h5>Streeplijst voor {{@model.title}}</h5>
-        <Form::ConsumptionList @responses={{model}} @showCheckbox={{showCheckbox}} @options={{options}} @showRobertHofstra={{showRobertHofstra}} @additionalEmptyRows={{additionalEmptyRows}} />
+        <Form::ConsumptionList @responses={{sortedResponses}} @showCheckbox={{showCheckbox}} @options={{options}} @showRobertHofstra={{showRobertHofstra}} @additionalEmptyRows={{additionalEmptyRows}} />
       {{/if}}
     </div>
   </div>
