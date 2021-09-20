@@ -5,7 +5,7 @@ const ResponsesTableTotalsComponent = Component.extend({
   tagName: 'tr',
   form: null,
   amountOfVegetarians: computed('form.responses', function() {
-    return this.form.responses.filterBy('user.vegetarian', true)
+    return this.form.get('responses').filterBy('user.vegetarian', true)
       .filterBy('completed', true).length;
   })
 });
