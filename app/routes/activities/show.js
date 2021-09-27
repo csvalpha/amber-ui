@@ -32,11 +32,12 @@ export default class ShowActivityRoute extends AuthenticatedRoute.extend(formLoa
         canAccess: this.can.can('print enrolled members of activity', activity)
       },
       {
-        link: 'activities.mail-enrolled',
+        link: 'activities.generate-alias',
         title: 'Mail ingeschrevenen',
         icon: 'paper-plane',
         linkArgument: activity,
-        canAccess: this.can.can('mail enrolled members of activity', activity)
+        canAccess: this.can.can('generate alias for activity', activity)
+        // canAccess: true
       }
     ];
   }
