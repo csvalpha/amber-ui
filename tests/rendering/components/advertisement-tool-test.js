@@ -11,7 +11,6 @@ module('Integration | Component | advertisement tool', function(hooks) {
 
     await render(hbs`{{advertisement-tool}}`);
 
-    assert.equal(this.element.querySelectorAll('.advertisement-item').length, 20);
+    assert.equal(this.element.querySelectorAll('.advertisement-item').length, 50);
   });
 });
-

@@ -1,5 +1,6 @@
 import Model, { hasMany, attr } from '@ember-data/model';
 import { all } from 'rsvp';
+import { A } from '@ember/array';
 
 export default class Form extends Model {
   @attr respondFrom;
@@ -21,11 +22,12 @@ export default class Form extends Model {
   }
 
   get questions() {
-    return this.openQuestions.toArray().addObjects(this.closedQuestions.toArray());
+    // A() is necessary because we should not modify the openQuestions array
+    return A(this.openQuestions.toArray()).addObjects(this.closedQuestions);
   }
 
   get sortedQuestions() {
-    return this.questions.sort((a) => a.position);
+    return this.questions.sortBy('position');
   }
 
   get currentUserCanRespond() {

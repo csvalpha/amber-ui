@@ -5,5 +5,7 @@
 <LinkTo @route="mail-moderations.show" @model={{model}} class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}
-  <div class="text-danger">{{this.errorMessage}}</div>
+  <div class="alert alert-danger mt-3" role="alert">
+    <strong>{{this.errorMessage}}</strong>
+  </div>
 {{/if}}
