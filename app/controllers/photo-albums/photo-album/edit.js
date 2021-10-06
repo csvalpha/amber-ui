@@ -5,6 +5,32 @@ import { computed } from '@ember/object';
 export default Controller.extend({
   store: service(),
   fetch: service(),
+  session: service(),
+  can: service(),
+
+  groupOptions: computed('session.currentUser.{group,groups}', function() {
+    const optionArray = [
+      {
+        label: '',
+        value: null
+      }
+    ];
+    const groups = this.session.currentUser.group;
+    groups.forEach((group) => {
+      optionArray.push({
+        label: group,
+        value: group
+      });
+    });
+    return optionArray;
+  }),
+  groups: computed('session.currentUser', 'store', function() {
+    if (this.can.can('select all groups for photo-albums')) {
+      return this.store.findAll('group');
+    }
+
+    return this.session.currentUser.get('groups');
+  }),
 
   actions: {
     submit() {
