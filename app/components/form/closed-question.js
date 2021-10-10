@@ -7,7 +7,6 @@ export default OpenQuestionComponent.extend({
   questionTypes: ClosedQuestionTypes,
   init() {
     this._super();
-    this.send('addOption');
   },
   actions: {
     addOption() {
