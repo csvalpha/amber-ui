@@ -1,4 +1,4 @@
-import Model, { hasMany, attr } from '@ember-data/model';
+import Model, { hasMany, attr, belongsTo } from '@ember-data/model';
 
 export default class PhotoAlbum extends Model {
   // Properties
@@ -8,6 +8,8 @@ export default class PhotoAlbum extends Model {
 
   // Relations
   @hasMany photos;
+  @belongsTo('user') author;
+  @belongsTo('group') group;
 
   // Getters
   get dropzoneEndpoint() {
@@ -21,5 +23,14 @@ export default class PhotoAlbum extends Model {
 
   get albumMediumUrl() {
     return this.photos?.firstObject?.imageMediumUrl || '/images/fallback/photo_album_thumb_default.png';
+  }
+
+  // Methods
+  isOwner(user) {
+    if (user.get('id') === this.author.get('id')) {
+      return true;
+    }
+
+    return user.currentMemberships.some(membership => membership.group.get('id') === this.group.get('id'));
   }
 }
