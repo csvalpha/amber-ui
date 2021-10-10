@@ -5,6 +5,10 @@ import OpenQuestionComponent from './open-question';
 export default OpenQuestionComponent.extend({
   store: service(),
   questionTypes: ClosedQuestionTypes,
+  init() {
+    this._super();
+    this.send('addOption');
+  },
   actions: {
     addOption() {
       const position = this.question.get('sortedOptions.lastObject.position') + 1 || 0;
