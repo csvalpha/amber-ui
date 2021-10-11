@@ -14,6 +14,18 @@
         </div>
       {{/if}}
 
+      <div class="form-group row">
+        <label class="col-md-2 form-control-label">Namens groep of commissie</label>
+
+        <div class="col-sm-10">
+          <PowerSelect @options={{groups}} @onChange={{action (mut @model.group)}} @selected={{@model.group}} @searchEnabled={{true}} @searchField="name" @allowClear={{true}} as |group|>
+            {{group.name}}
+          </PowerSelect>
+
+          {{form-control-feedback (get @model.errors property)}}
+        </div>
+      </div>
+
       {{#if @model.isNew}}
         <div class="alert alert-info">
           In de volgende stap kun je de foto's uploaden
@@ -22,8 +34,8 @@
         <div class="alert alert-info" role="alert">
           <p> Geplaatste afbeeldingen moeten aan de volgende eisen voldoen: </p>
           <ul>
-            <li>Resolutie: Maximaal 4096 pixels breed en hoog</li>
-            <li>Bestandsgrootte: Maximaal 8 mb</li>
+            <li>Resolutie: Maximaal 8192 pixels breed en hoog</li>
+            <li>Bestandsgrootte: Maximaal 8 MB</li>
             <li>Bestandsformaat: .jpg, .jpeg of .png</li>
           </ul>
         </div>

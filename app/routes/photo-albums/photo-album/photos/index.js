@@ -6,13 +6,14 @@ export default class PhotosIndexRoute extends ApplicationRoute {
   }
 
   get pageActions() {
+    const photoAlbum = this.controller.model;
     return [
       {
         link: 'photo-albums.photo-album.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.controller.model.photoAlbum,
-        canAccess: this.can.can('edit photo-albums')
+        canAccess: this.can.can('edit photo-albums', photoAlbum)
       },
       {
         link: 'photo-albums.photo-album.destroy',
