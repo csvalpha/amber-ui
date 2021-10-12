@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default Controller.extend(FileSaverMixin, {
   fetch: service(),
-  photoSorting: ['-createdAt'],
+  photoSorting: ['exifDateTimeOriginal', 'createdAt'],
   sortedPhotos: sort('model.photos', 'photoSorting'),
   actions: {
     downloadAlbum() {
