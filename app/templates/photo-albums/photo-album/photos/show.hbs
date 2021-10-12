@@ -43,7 +43,7 @@
 
   {{#if showExif}}
     <div class="card card-body">
-      <table class="table table-sm table-responsive">
+      <table class="table table-sm table-responsive text-nowrap">
         <tr>
           <th>Make</th>
           <th>Model</th>
@@ -58,7 +58,7 @@
         <tr>
           <td>{{@model.exifMake}}</td>
           <td>{{@model.exifModel}}</td>
-          <td>{{moment-format @model.exifDateTimeOriginal 'DD-MM-YYYY HH:MM'}}</td>
+          <td>{{moment-format @model.exifDateTimeOriginal 'DD-MM-YYYY HH:mm'}}</td>
           <td>{{@model.exifExposureTime}}</td>
           <td>
             {{#if @model.exifApertureValue}}
