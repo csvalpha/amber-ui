@@ -4,9 +4,9 @@ MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 ARG DEPLOY_TARGET='production'
 ARG BUILD_HASH='unknown'
 
-COPY package.json /app/package.json
-COPY yarn.lock /app/yarn.lock
-RUN yarn install --ignore-engines
+COPY package.json yarn.lock .yarnrc.yml ./
+COPY .yarn .yarn
+RUN yarn install --immutable
 
 COPY . /app
 RUN DEPLOY_TARGET=$DEPLOY_TARGET BUILD_HASH=$BUILD_HASH ember build --environment=production
