@@ -24,7 +24,7 @@
   </div>
   <ul class="list-group list-group-flush">
     {{#each albums as |album|}}
-      <LinkTo @route="photo-albums.photo-album" @model={{album}}>
+      <LinkTo @route="photo-albums.photo-album" @model={{album.id}}>
         <li class="list-group-item"> {{album.title}} </li>
       </LinkTo>
     {{else}}
