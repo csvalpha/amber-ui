@@ -11,8 +11,9 @@ RUN apt-get update
 RUN apt-get install -y google-chrome-stable
 
 # Install Dependencies
+WORKDIR /opt/app
 COPY package.json yarn.lock .yarnrc.yml ./
 COPY .yarn .yarn
 RUN yarn install --immutable
 
-COPY . /app
+COPY . .
