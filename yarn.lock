@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 4
+  version: 5
   cacheKey: 8
 
 "@babel/code-frame@npm:7.12.11":
@@ -53,29 +53,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:7.15.5, @babel/core@npm:^7.2.2":
-  version: 7.15.5
-  resolution: "@babel/core@npm:7.15.5"
-  dependencies:
-    "@babel/code-frame": ^7.14.5
-    "@babel/generator": ^7.15.4
-    "@babel/helper-compilation-targets": ^7.15.4
-    "@babel/helper-module-transforms": ^7.15.4
-    "@babel/helpers": ^7.15.4
-    "@babel/parser": ^7.15.5
-    "@babel/template": ^7.15.4
-    "@babel/traverse": ^7.15.4
-    "@babel/types": ^7.15.4
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.1.2
-    semver: ^6.3.0
-    source-map: ^0.5.0
-  checksum: 8121bf74040d98562b773c1e92a174cd53c99a5158ae5a9ef25645ed35d6f821c64155e394cdb04e7dc77a0871ba42a638f6703b2c44a75bc04564b21cad9e1b
-  languageName: node
-  linkType: hard
-
 "@babel/core@npm:>=7.9.0, @babel/core@npm:^7.1.6, @babel/core@npm:^7.10.2, @babel/core@npm:^7.12.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.3.4, @babel/core@npm:^7.4.4":
   version: 7.12.16
   resolution: "@babel/core@npm:7.12.16"
@@ -96,6 +73,29 @@ __metadata:
     semver: ^5.4.1
     source-map: ^0.5.0
   checksum: 7a1bac28ba46ae0294912ecbd0d77b19fe3e08898e856a3c1aed9b45a7e1fc3406f6bb9909fdf53c6c23f97efdc0528066669610be9a4a295341b6d451919d6d
+  languageName: node
+  linkType: hard
+
+"@babel/core@npm:^7.2.2":
+  version: 7.15.5
+  resolution: "@babel/core@npm:7.15.5"
+  dependencies:
+    "@babel/code-frame": ^7.14.5
+    "@babel/generator": ^7.15.4
+    "@babel/helper-compilation-targets": ^7.15.4
+    "@babel/helper-module-transforms": ^7.15.4
+    "@babel/helpers": ^7.15.4
+    "@babel/parser": ^7.15.5
+    "@babel/template": ^7.15.4
+    "@babel/traverse": ^7.15.4
+    "@babel/types": ^7.15.4
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.1.2
+    semver: ^6.3.0
+    source-map: ^0.5.0
+  checksum: 8121bf74040d98562b773c1e92a174cd53c99a5158ae5a9ef25645ed35d6f821c64155e394cdb04e7dc77a0871ba42a638f6703b2c44a75bc04564b21cad9e1b
   languageName: node
   linkType: hard
 
@@ -11845,25 +11845,26 @@ fsevents@^1.2.7:
     bindings: ^1.5.0
     nan: ^2.12.1
   checksum: ae855aa737aaa2f9167e9f70417cf6e45a5cd11918e1fee9923709a0149be52416d765433b4aeff56c789b1152e718cd1b13ddec6043b78cdda68260d86383c1
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
 "fsevents@patch:fsevents@^1.2.7#~builtin<compat/fsevents>":
   version: 1.2.13
-  resolution: "fsevents@patch:fsevents@npm%3A1.2.13#~builtin<compat/fsevents>::version=1.2.13&hash=1cc4b2"
+  resolution: "fsevents@patch:fsevents@npm%3A1.2.13#~builtin<compat/fsevents>::version=1.2.13&hash=18f3a7"
   dependencies:
     bindings: ^1.5.0
     nan: ^2.12.1
-  checksum: b264407498db2cfdcc2a05287334a4160c985a88e4a989e2f2f8dcc6afc8b04a4fcd82c797266442452e11c1fb07d7747d138b078fe4bb1f8f4fd2a6f2484d7e
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
 "fsevents@patch:fsevents@~2.3.1#~builtin<compat/fsevents>":
   version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=1cc4b2"
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=18f3a7"
   dependencies:
     node-gyp: latest
-  checksum: 78db9daf1f6526a49cefee3917cc988f62dc7f25b5dd80ad6de4ffc4af7f0cab7491ac737626ff53e482a111bc53aac9e411fe3602458eca36f6a003ecf69c16
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -11873,6 +11874,7 @@ fsevents@~2.3.1:
   dependencies:
     node-gyp: latest
   checksum: 97ade64e75091afee5265e6956cb72ba34db7819b4c3e94c431d4be2b19b8bb7a2d4116da417950c3425f17c8fe693d25e20212cac583ac1521ad066b77ae31f
+  conditions: os=darwin
   languageName: node
   linkType: hard
 
@@ -17671,11 +17673,11 @@ fsevents@~2.3.1:
 
 "resolve@patch:resolve@^1.1.7#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.10.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.11.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.12.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.13.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.14.2#~builtin<compat/resolve>, resolve@patch:resolve@^1.17.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.18.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.19.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.20.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.3.3#~builtin<compat/resolve>, resolve@patch:resolve@^1.4.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.5.0#~builtin<compat/resolve>, resolve@patch:resolve@^1.7.1#~builtin<compat/resolve>, resolve@patch:resolve@^1.8.1#~builtin<compat/resolve>":
   version: 1.20.0
-  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=00b1ff"
+  resolution: "resolve@patch:resolve@npm%3A1.20.0#~builtin<compat/resolve>::version=1.20.0&hash=07638b"
   dependencies:
     is-core-module: ^2.2.0
     path-parse: ^1.0.6
-  checksum: bed00be983cd20a8af0e7840664f655c4b269786dbd9595c5f156cd9d8a0050e65cdbbbdafc30ee9b6245b230c78a2c8ab6447a52545b582f476c29adb188cc5
+  checksum: a0dd7d16a8e47af23afa9386df2dff10e3e0debb2c7299a42e581d9d9b04d7ad5d2c53f24f1e043f7b3c250cbdc71150063e53d0b6559683d37f790b7c8c3cd5
   languageName: node
   linkType: hard
 
@@ -20365,40 +20367,6 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"webpack@npm:4.28.4, webpack@npm:~4.28":
-  version: 4.28.4
-  resolution: "webpack@npm:4.28.4"
-  dependencies:
-    "@webassemblyjs/ast": 1.7.11
-    "@webassemblyjs/helper-module-context": 1.7.11
-    "@webassemblyjs/wasm-edit": 1.7.11
-    "@webassemblyjs/wasm-parser": 1.7.11
-    acorn: ^5.6.2
-    acorn-dynamic-import: ^3.0.0
-    ajv: ^6.1.0
-    ajv-keywords: ^3.1.0
-    chrome-trace-event: ^1.0.0
-    enhanced-resolve: ^4.1.0
-    eslint-scope: ^4.0.0
-    json-parse-better-errors: ^1.0.2
-    loader-runner: ^2.3.0
-    loader-utils: ^1.1.0
-    memory-fs: ~0.4.1
-    micromatch: ^3.1.8
-    mkdirp: ~0.5.0
-    neo-async: ^2.5.0
-    node-libs-browser: ^2.0.0
-    schema-utils: ^0.4.4
-    tapable: ^1.1.0
-    terser-webpack-plugin: ^1.1.0
-    watchpack: ^1.5.0
-    webpack-sources: ^1.3.0
-  bin:
-    webpack: ./bin/webpack.js
-  checksum: d21fd4b9573d1a2342ec090105aafe5636edf420cc81de932f1abbade4ea83aab90cdaf12610ed2312736bec932773cfc9eca96c7535780f91d0b9394d11f3fb
-  languageName: node
-  linkType: hard
-
 "webpack@npm:^4.43.0":
   version: 4.46.0
   resolution: "webpack@npm:4.46.0"
@@ -20434,6 +20402,40 @@ fsevents@~2.3.1:
   bin:
     webpack: bin/webpack.js
   checksum: 013fa24c00d4261e16ebca60353fa6f848e417b5a44bdf28c16ebebd67fa61e960420bb314c8df05cfe2dad9b90efabcf38fd6875f2361922769a0384085ef1e
+  languageName: node
+  linkType: hard
+
+"webpack@npm:~4.28":
+  version: 4.28.4
+  resolution: "webpack@npm:4.28.4"
+  dependencies:
+    "@webassemblyjs/ast": 1.7.11
+    "@webassemblyjs/helper-module-context": 1.7.11
+    "@webassemblyjs/wasm-edit": 1.7.11
+    "@webassemblyjs/wasm-parser": 1.7.11
+    acorn: ^5.6.2
+    acorn-dynamic-import: ^3.0.0
+    ajv: ^6.1.0
+    ajv-keywords: ^3.1.0
+    chrome-trace-event: ^1.0.0
+    enhanced-resolve: ^4.1.0
+    eslint-scope: ^4.0.0
+    json-parse-better-errors: ^1.0.2
+    loader-runner: ^2.3.0
+    loader-utils: ^1.1.0
+    memory-fs: ~0.4.1
+    micromatch: ^3.1.8
+    mkdirp: ~0.5.0
+    neo-async: ^2.5.0
+    node-libs-browser: ^2.0.0
+    schema-utils: ^0.4.4
+    tapable: ^1.1.0
+    terser-webpack-plugin: ^1.1.0
+    watchpack: ^1.5.0
+    webpack-sources: ^1.3.0
+  bin:
+    webpack: ./bin/webpack.js
+  checksum: d21fd4b9573d1a2342ec090105aafe5636edf420cc81de932f1abbade4ea83aab90cdaf12610ed2312736bec932773cfc9eca96c7535780f91d0b9394d11f3fb
   languageName: node
   linkType: hard
 
