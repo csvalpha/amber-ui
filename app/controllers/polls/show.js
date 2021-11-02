@@ -16,13 +16,13 @@ export default class ShowPollsController extends Controller {
   }
 
   @computed('model.form', 'model.form.currentUserCanRespond')
-  canSubmitResponse() {
+  get canSubmitResponse() {
     const { form } = this.model;
     return !isNone(form) && form.get('currentUserCanRespond');
   }
 
   @computed('model.poll.question.options.@each.option', 'model.poll.question.options.@each.sumOfAnswers', 'model.poll.form.amountOfResponses')
-  optionsWithResults() {
+  get optionsWithResults() {
     const { options } = this.model.poll.question;
     const amountOfResponses = this.model.poll.form.get('amountOfResponses');
 
