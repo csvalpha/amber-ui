@@ -1,8 +1,16 @@
 import { hash } from 'rsvp';
-import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
+import { inject as service } from '@ember/service';
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import FormLoadOrCreateUtil from 'alpha-amber/lib/utils/form-load-or-create';
 
-export default class ShowPollsRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+export default class ShowPollsRoute extends AuthenticatedRoute {
+  @service store;
+
+  constructor() {
+    super(...arguments);
+    this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
+  }
+
   get breadCrumb() {
     return { title: this.controller.model.poll.question.question };
   }
@@ -36,9 +44,9 @@ export default class ShowPollsRoute extends AuthenticatedRoute.extend(formLoadOr
     const formPromise = pollPromise.then(poll => poll.get('form'));
     const responsePromise = formPromise
       // Load or create the response
-      .then(form => form === null ? null : this.loadOrCreateCurrentUserResponse(form))
+      .then(form => form === null ? null : this.formLoadOrCreateUtil.loadOrCreateCurrentUserResponse(form))
       // Make sure there are answers for each question in the response
-      .then(response => response === null ? null : this.loadOrCreateAnswers(response));
+      .then(response => response === null ? null : this.formLoadOrCreateUtil.loadOrCreateAnswers(response));
 
     return hash({
       poll: pollPromise,

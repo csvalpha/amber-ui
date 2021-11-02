@@ -1,7 +1,15 @@
+import { inject as service } from '@ember/service';
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
-import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
+import FormLoadOrCreateUtil from 'alpha-amber/lib/utils/form-load-or-create';
 
-export default class ShowArticleRoute extends ApplicationRoute.extend(formLoadOrCreateMixin) {
+export default class ShowArticleRoute extends ApplicationRoute {
+  @service store;
+
+  constructor() {
+    super(...arguments);
+    this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
+  }
+
   get breadCrumb() {
     return { title: this.controller.model.title };
   }
