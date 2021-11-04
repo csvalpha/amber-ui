@@ -1,27 +1,48 @@
-import Component from '@ember/component';
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-import { isPresent } from '@ember/utils';
 import {
   PicturePublicationPreferenceTypes,
   UserDetailsPreferenceTypes
 } from 'alpha-amber/constants';
-import ModelSaveMixin from 'alpha-amber/mixins/model-save-mixin';
+import Component from '@glimmer/component';
+import ModelSaveUtil from 'alpha-amber/lib/utils/model-save';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
+import { isPresent } from '@ember/utils';
+import { tracked } from '@glimmer/tracking';
 
-export default Component.extend(ModelSaveMixin, {
-  session: service(),
-  formActionsVisible: true,
-  picturePublicationPreferenceTypes: computed(function() {
+export default class PrivacySettingsComponent extends Component {
+  @service('flash-notice') flashNotice;
+  @service session;
+
+  @tracked errorMessage = null;
+
+  successMessage = 'Privacyinstellingen gewijzigd!';
+  successTransitionTarget = null;
+  successTransitionModel = null;
+  formActionsVisible = true;
+
+  constructor() {
+    super(...arguments);
+    this.modelSaveUtil = new ModelSaveUtil(this);
+  }
+
+  get picturePublicationPreferenceTypes() {
     return Object.entries(PicturePublicationPreferenceTypes).map(([value, label]) => ({ value, label }));
-  }),
-  userDetailsPreferenceTypes: computed(function() {
+  }
+
+  get userDetailsPreferenceTypes() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({ value, label }));
-  }),
-  isOwnUser: computed('session.currentUser', 'model', function() {
-    return this.model === this.session.currentUser;
-  }),
-  canChangeTomatoSettings: computed('model.allowTomatoSharing', function() {
-    return !isPresent(this.model.changedAttributes().allowTomatoSharing) && this.model.allowTomatoSharing;
-  }),
-  successMessage: 'Privacyinstellingen gewijzigd!'
-});
+  }
+
+  get isOwnUser() {
+    return this.args.model === this.session.currentUser;
+  }
+
+  get canChangeTomatoSettings() {
+    return !isPresent(this.args.model.changedAttributes().allowTomatoSharing) && this.args.model.allowTomatoSharing;
+  }
+
+  @action
+  submit() {
+    this.modelSaveUtil.saveModel(this.args.model);
+  }
+}
