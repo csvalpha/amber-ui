@@ -6,7 +6,7 @@ import Controller from '@ember/controller';
 import EmberObject, { action, computed, set } from '@ember/object';
 import FormLoadOrCreateUtil from 'alpha-amber/lib/utils/form-load-or-create';
 
-export default class ShowPollsController extends Controller {
+export default class ShowPollController extends Controller {
   @service('flash-notice') flashNotice;
   @service store;
 

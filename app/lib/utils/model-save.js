@@ -24,7 +24,7 @@ export default class ModelSaveUtil {
   }
 
   onError(error) {
-    this.entity.errorMessage = error.errors.map((e) => e.detail).join(', ');
+    this.entity.errorMessage = error.errors.map(err => err.detail).join(', ');
   }
 
   saveModel(model) {
