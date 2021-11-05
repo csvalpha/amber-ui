@@ -15,7 +15,7 @@
     },
     {
       "matchManagers": ["npm", "dockerfile"],
-      "matchPackageNames": ["madnificient/ember", "ember-cli", "ember-data", "ember-source"],
+      "matchPackageNames": ["madnificent/ember", "ember-cli", "ember-data", "ember-source"],
       "groupName": "Ember.js",
       "groupSlug": "ember",
       "separateMinorPatch": true,
