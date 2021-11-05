@@ -4,11 +4,10 @@ import { isBlank } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupMembershipsController extends Controller {
+  @tracked filter = ''
+  @tracked oldMembershipsAreVisible = false
   @tracked sortedAttribute = null
   @tracked sortedAscending = true
-  @tracked oldMembershipsAreVisible = false
-
-  filter = ''
 
   get models() {
     return this.model.memberships;
@@ -27,7 +26,7 @@ export default class GroupMembershipsController extends Controller {
 
     return models.filter(model => {
       return this.filterableAttributes.reduce((show, attribute) => {
-        const value = model[attribute];
+        const value = model.get(attribute);
         return show + value;
       }, '').toLowerCase().includes(this.filter.toLowerCase());
     });
@@ -40,13 +39,13 @@ export default class GroupMembershipsController extends Controller {
 
   get oldMemberships() {
     return this.models.filter(membership => (
-      membership.get('endDate') && membership.get('endDate') < moment.now()
+      membership.endDate && membership.endDate < moment.now()
     ));
   }
 
   get currentMemberships() {
     return this.models.filter(membership => (
-      !(membership.get('endDate') && membership.get('endDate') < moment.now())
+      !(membership.endDate && membership.endDate < moment.now())
     ));
   }
 
