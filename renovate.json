@@ -1,0 +1,37 @@
+{
+  "extends": ["config:base", ":preserveSemverRanges", ":disableDependencyDashboard"],
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    },
+    {
+      "matchManagers": ["npm", "dockerfile"],
+      "matchPackageNames": ["ember", "ember-cli", "ember-data", "ember-source"],
+      "groupName": "Ember.js",
+      "groupSlug": "ember",
+      "separateMinorPatch": true,
+      "prBodyNotes": ["{{#unless isPatch}}:warning: Check https://github.com/ember-cli/ember-cli/blob/master/docs/node-support.md if this version comes with new Node.js compatibility and change the Node.js versions if so. :warning:{{/unless}}"]
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["nvm"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ],
+  "buildkite": {
+    "enabled": false
+  },
+  "docker-compose": {
+    "enabled": false
+  }
+}
