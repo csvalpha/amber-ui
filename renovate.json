@@ -4,8 +4,10 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
+      "matchManagers": ["npm"],
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
+      "excludePackageNames": ["yarn"],
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch"
     },
