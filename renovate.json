@@ -18,7 +18,7 @@
       "groupName": "Ember.js",
       "groupSlug": "ember",
       "separateMinorPatch": true,
-      "prBodyNotes": ["{{#unless isPatch}}:warning: Check https://github.com/ember-cli/ember-cli/blob/master/docs/node-support.md if this version comes with new Node.js compatibility and change the Node.js versions if so. :warning:{{/unless}}"]
+      "prBodyNotes": ["{{#unless isPatch}}:warning: Check https://github.com/ember-cli/ember-cli/blob/master/docs/node-support.md if this version comes with new Node.js compatibility and change the Node.js version in `.nvmrc` if so. :warning:{{/unless}}"]
     },
     {
       "matchManagers": ["npm"],
