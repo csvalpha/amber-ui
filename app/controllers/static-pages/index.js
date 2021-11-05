@@ -1,19 +1,22 @@
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
 import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
 import groupBy from 'ember-group-by';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  session: service('session'),
-  queryParams: ['search', 'sort'],
-  errorMessage: null,
-  routeOnEnter: 'static-pages.show',
-  sortableAttributes: [
+export default class StaticPagesIndexController extends FilterableAndSortableController {
+  @service session
+
+  @tracked errorMessage = null
+  @tracked sortedAttribute = 'title'
+
+  queryParams = ['search', 'sort']
+  routeOnEnter = 'static-pages.show'
+  sortableAttributes = [
     {
       value: 'title',
       label: 'Titel'
     }
-  ],
-  sortedAttribute: 'title',
-  groupedModel: groupBy('model', 'category')
-});
+  ]
+
+  groupedModel = groupBy('model', 'category')
+}

@@ -1,14 +1,17 @@
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import EmberObject, { action, computed } from '@ember/object';
+import Controller from '@ember/controller';
+import FormLoadOrCreateUtil from 'alpha-amber/lib/utils/form-load-or-create';
 import { htmlSafe } from '@ember/string';
 import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
-import Controller from '@ember/controller';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import EmberObject, { action, computed, set } from '@ember/object';
-import FormLoadOrCreateUtil from 'alpha-amber/lib/utils/form-load-or-create';
+import { tracked } from '@glimmer/tracking';
 
-export default class ShowPollController extends Controller {
-  @service('flash-notice') flashNotice;
-  @service store;
+export default class PollsShowController extends Controller {
+  @service('flash-notice') flashNotice
+  @service store
+
+  @tracked errorMessage = null
 
   constructor() {
     super(...arguments);
@@ -27,8 +30,8 @@ export default class ShowPollController extends Controller {
     const amountOfResponses = this.model.poll.form.get('amountOfResponses');
 
     return options.map(option => {
-      // When multiple answers per user are allowed we need to devide by the total amount of users
-      // When only one answer is allowed we need to devided by the total amount of answers,
+      // When multiple answers per user are allowed we need to divide by the total amount of users
+      // When only one answer is allowed we need to divided by the total amount of answers,
       // which is equal to the total amount of users in that case
       const percentage = option.get('sumOfAnswers') / amountOfResponses * 100;
 
@@ -55,9 +58,9 @@ export default class ShowPollController extends Controller {
       form.reload();
       this.flashNotice.sendSuccess('Keuze opgeslagen');
     }).catch(error => {
-      set(this, 'errorMessage', error.message);
+      this.errorMessage = error.message;
       if (error.errors && error.errors.isAny('source.pointer', '/data/relationships/user')) {
-        set(this, 'errorMessage', 'Er is al een keuze gevonden, probeer eerst te refreshen, zie je dit formulier dan nog? Neem dan contact op met de ict-commissie.');
+        this.errorMessage = 'Er is al een keuze gevonden, probeer eerst te refreshen, zie je dit formulier dan nog? Neem dan contact op met de ict-commissie.';
       }
     });
   }

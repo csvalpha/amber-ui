@@ -1,42 +1,45 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
-import { computed } from '@ember/object';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  queryParams: {
+export default class GroupsIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'name'
+  @tracked showAdministrative = false
+  @tracked showInactive = false
+
+  routeOnEnter = 'groups.show'
+
+  queryParams = {
     selectedGroupKind: 'kind',
     search: 'search',
     sort: 'sort',
     showAdministrative: 'administrative',
     showInactive: 'inactive'
-  },
-  routeOnEnter: 'groups.show',
-  sortableAttributes: [
+  }
+
+  sortableAttributes = [
     {
       value: 'name',
       label: 'Naam'
     }
-  ],
-  sortedAttribute: 'name',
-  groupKinds: computed('search', function() {
+  ]
+
+  _selectedGroupKindOverride
+
+  get groupKinds() {
     if (this.search) {
       return ['zoekresultaten'];
     }
 
     return ['bestuur', 'commissie', 'dispuut', 'genootschap', 'groep', 'huis', 'jaargroep', 'werkgroep', 'kring', 'lichting'];
-  }),
-  selectedGroupKind: computed('groupKinds.firstObject', 'search', {
-    get() {
-      if (this.search) {
-        return 'zoekresultaten';
-      }
+  }
 
-      return this.groupKinds.firstObject;
-    },
-    set(key, value) {
-      return value;
-    }
-  }),
-  showAdministrative: false,
-  showInactive: false
-});
+  get selectedGroupKind() {
+    return this.search
+      ? 'zoekresultaten'
+      : this._selectedGroupKindOverride || this.groupKinds.firstObject;
+  }
+
+  set selectedGroupKind(value) {
+    this._selectedGroupKindOverride = value;
+  }
+}

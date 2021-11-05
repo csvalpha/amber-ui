@@ -1,7 +1,8 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  sortedAttribute: 'received_at',
-  routeOnEnter: 'mail-moderations.show'
-});
+export default class MailModerationsIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'received_at'
+
+  routeOnEnter = 'mail-moderations.show'
+}
