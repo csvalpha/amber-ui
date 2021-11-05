@@ -1,13 +1,13 @@
-import { action } from '@ember/object';
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class FilterableAndSortableController extends Controller {
-  @tracked sortedAttribute = null;
-  @tracked sortedAscending = true;
+  @tracked sortedAttribute = null
+  @tracked sortedAscending = true
 
-  search = '';
-  sortableAttributes = [];
+  search = ''
+  sortableAttributes = []
 
   get sort() {
     if (this.sortedAscending) {

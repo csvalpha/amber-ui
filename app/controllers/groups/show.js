@@ -1,13 +1,16 @@
-import Controller from '@ember/controller';
-import GroupMembershipsMixin from 'alpha-amber/mixins/group-memberships-mixin';
+import GroupMembershipsController from 'alpha-amber/controllers/application/group-memberships';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(GroupMembershipsMixin, {
-  filterableAttributes: [
+export default class GroupsShowController extends GroupMembershipsController {
+  @tracked sortedAttribute = 'user.firstName'
+
+  filterableAttributes = [
     'user.username',
     'user.fullName',
     'function'
-  ],
-  sortableAttributes: [
+  ]
+
+  sortableAttributes = [
     {
       value: 'user.firstName',
       label: 'Voornaam'
@@ -20,6 +23,5 @@ export default Controller.extend(GroupMembershipsMixin, {
       value: 'startDate',
       label: 'Lid sinds'
     }
-  ],
-  sortedAttribute: 'user.firstName'
-});
+  ]
+}
