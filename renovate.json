@@ -1,8 +1,9 @@
 {
-  "extends": ["config:base", ":preserveSemverRanges", ":disableDependencyDashboard"],
+  "extends": ["config:base", "schedule:weekly", ":preserveSemverRanges", ":disableDependencyDashboard"],
   "labels": ["dependencies"],
-  "rangeStrategy": "bump",
   "prConcurrentLimit": 0,
+  "rangeStrategy": "bump",
+  "timezone": "Europe/Amsterdam",
   "packageRules": [
     {
       "matchManagers": ["npm"],
