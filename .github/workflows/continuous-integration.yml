@@ -1,0 +1,101 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [staging, master]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref_name }}
+  cancel-in-progress: true
+
+env:
+  APP_ID: 152323
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build test image
+        uses: guidojw/actions/build-docker-image@v1
+        with:
+          file: Dockerfile.test
+          name: app
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Add problem matchers
+        run: |
+          echo "::add-matcher::.github/problem-matchers/eslint-stylish.json"
+          echo "::add-matcher::.github/problem-matchers/stylelint.json"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Load test image
+        uses: guidojw/actions/load-docker-image@v1
+        with:
+          name: app
+
+      - name: Lint
+        # Convert output of stylelint so that the problem matcher can match it correctly.
+        run: |
+          EXIT_STATUS=0
+          docker run app yarn ci:eslint || EXIT_STATUS=$?
+          node bin/convert-stylelint-output.js "$(docker run app yarn ci:stylelint)" || EXIT_STATUS=$?
+          exit $EXIT_STATUS
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Load test image
+        uses: guidojw/actions/load-docker-image@v1
+        with:
+          name: app
+
+      - name: Test
+        run: |
+          docker run -t app yarn test
+
+  update_check_run:
+    name: Update Check Run
+    runs-on: ubuntu-latest
+    needs: [build, lint, test]
+    if: github.event_name == 'workflow_dispatch' && github.workflow == 'Continuous Integration' && always()
+    steps:
+      - name: Get conclusion
+        id: get_conclusion
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          for RESULT in $RESULTS; do
+            if [ $RESULT = 'cancelled' ] || [ $RESULT = 'failure' ]; then
+              echo '::set-output name=conclusion::'$RESULT
+              exit
+            fi
+          done
+          echo '::set-output name=conclusion::success'
+
+      - name: Update Continuous Integration check run
+        uses: guidojw/actions/update-check-run@v1
+        with:
+          app_id: ${{ env.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+          sha: ${{ needs.merge.outputs.sha }}
+          name: Continuous Integration
+          conclusion: ${{ steps.get_conclusion.outputs.conclusion }}
+          details_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

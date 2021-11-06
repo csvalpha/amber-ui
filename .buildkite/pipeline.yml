@@ -3,7 +3,7 @@ steps:
     plugins:
       - docker-compose#v2.6.0:
           build: app
-          config: docker-compose.buildkite.yml
+          config: docker-compose.ci.yml
 
   - wait
 
@@ -12,14 +12,14 @@ steps:
     plugins:
       - docker-compose#v2.6.0:
           run: app
-          config: docker-compose.buildkite.yml
+          config: docker-compose.ci.yml
 
   - label: ":yarn: :eslint: Lint"
     command: "yarn lint"
     plugins:
       - docker-compose#v2.6.0:
           run: app
-          config: docker-compose.buildkite.yml
+          config: docker-compose.ci.yml
 
   - wait
 
@@ -32,7 +32,7 @@ steps:
           password-env: DOCKER_PASSWORD
       - docker-compose#v2.6.0:
           push: app-staging:docker.csvalpha.nl/amber-ui:staging
-          config: docker-compose.buildkite.yml
+          config: docker-compose.ci.yml
 
   - label: ":docker: Build+Push `:production` image"
     branches: "master"
@@ -43,7 +43,7 @@ steps:
           password-env: DOCKER_PASSWORD
       - docker-compose#v2.6.0:
           push: app-production:docker.csvalpha.nl/amber-ui:latest
-          config: docker-compose.buildkite.yml
+          config: docker-compose.ci.yml
 
   - block: "Deploy this stage"
     branches: "master staging"
