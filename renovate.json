@@ -1,11 +1,12 @@
 {
-  "extends": ["config:base", "schedule:weekly", ":preserveSemverRanges", ":disableDependencyDashboard"],
+  "extends": ["config:base", ":preserveSemverRanges", ":disableDependencyDashboard"],
   "labels": ["dependencies"],
   "prConcurrentLimit": 0,
   "rangeStrategy": "bump",
   "timezone": "Europe/Amsterdam",
   "packageRules": [
     {
+      "extends": ["schedule:weekly"],
       "matchManagers": ["npm"],
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
