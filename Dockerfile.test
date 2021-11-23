@@ -2,7 +2,7 @@ FROM madnificent/ember:3.17.0 as ember
 MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
 
 ENV NODE_ENV=test
-ENV BUILDKITE=true
+ENV CI=true
 
 # Install chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
