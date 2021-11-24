@@ -125,6 +125,15 @@ jobs:
       github.event.inputs.merge == 'y' && fromJSON(needs.metadata.outputs.has_diff) && success()) ||
       ((github.event.inputs.merge != 'y' || !fromJSON(needs.metadata.outputs.has_diff)) && !cancelled()))
     steps:
+      - name: Get environment URL
+        id: get_url
+        run: |
+          if [ $GITHUB_REF_NAME = 'master' ]; then
+            echo '::set-output name=environment_url::https://csvalpha.nl'
+          else
+            echo '::set-output name=environment_url::https://staging.csvalpha.nl'
+          fi
+
       - name: Checkout code
         uses: actions/checkout@v2
         with:
@@ -169,7 +178,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.start_deployment.outputs.deployment_id }}
-          env_url: https://${{ needs.metadata.outputs.stage }}.csvalpha.nl
+          env_url: ${{ steps.get_url.outputs.environment_url }}
 
   update_check_run:
     name: Update Check Run
