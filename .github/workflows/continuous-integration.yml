@@ -14,9 +14,6 @@ concurrency:
   group: ci-${{ github.ref_name }}
   cancel-in-progress: true
 
-env:
-  APP_ID: 152333
-
 jobs:
   build:
     name: Build
@@ -79,32 +76,3 @@ jobs:
       - name: Test
         run: |
           docker run -t app yarn test
-
-  update_check_run:
-    name: Update Check Run
-    runs-on: ubuntu-latest
-    needs: [build, lint, test]
-    if: github.event_name == 'workflow_dispatch' && github.workflow == 'Continuous Integration' && always()
-    steps:
-      - name: Get conclusion
-        id: get_conclusion
-        env:
-          RESULTS: ${{ join(needs.*.result, ' ') }}
-        run: |
-          for RESULT in $RESULTS; do
-            if [ $RESULT = 'cancelled' ] || [ $RESULT = 'failure' ]; then
-              echo '::set-output name=conclusion::'$RESULT
-              exit
-            fi
-          done
-          echo '::set-output name=conclusion::success'
-
-      - name: Update Continuous Integration check run
-        uses: guidojw/actions/update-check-run@v1
-        with:
-          app_id: ${{ env.APP_ID }}
-          private_key: ${{ secrets.APP_PRIVATE_KEY }}
-          sha: ${{ needs.merge.outputs.sha }}
-          name: Continuous Integration
-          conclusion: ${{ steps.get_conclusion.outputs.conclusion }}
-          details_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
