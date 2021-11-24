@@ -100,6 +100,14 @@ jobs:
           git fetch origin master
           echo '::set-output name=sha::'$(git rev-parse origin/master)
 
+  continuous_integration:
+    name: Continuous Integration
+    needs: [metadata, merge]
+    if: fromJSON(needs.metadata.outputs.has_diff)
+    uses: csvalpha/amber-ui/.github/workflows/continuous-integration.yml@staging
+    with:
+      sha: ${{ needs.merge.outputs.sha }}
+
   publish:
     name: Publish
     needs: [metadata, merge]
@@ -111,7 +119,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
-    needs: [metadata, merge, publish]
+    needs: [metadata, merge, continuous_integration, publish]
     if: |
       (github.ref_name == 'staging' || github.ref_name == 'master') && ((github.ref_name == 'master' &&
       github.event.inputs.merge == 'y' && fromJSON(needs.metadata.outputs.has_diff) && success()) ||
@@ -166,7 +174,7 @@ jobs:
   update_check_run:
     name: Update Check Run
     runs-on: ubuntu-latest
-    needs: [branch_check, metadata, merge, publish, deploy]
+    needs: [branch_check, metadata, merge, continuous_integration, publish, deploy]
     if: (github.ref_name == 'staging' || github.ref_name == 'master') && always()
     steps:
       - name: Get conclusion

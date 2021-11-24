@@ -4,6 +4,11 @@ on:
   push:
     branches: [staging, master]
   pull_request:
+  workflow_call:
+    inputs:
+      sha:
+        required: false
+        type: string
 
 concurrency:
   group: ci-${{ github.ref_name }}
@@ -19,6 +24,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.sha }}
 
       - name: Build test image
         uses: guidojw/actions/build-docker-image@v1
@@ -33,6 +40,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.sha }}
 
       - name: Add problem matchers
         run: |
