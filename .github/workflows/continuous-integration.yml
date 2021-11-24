@@ -42,8 +42,8 @@ jobs:
 
       - name: Add problem matchers
         run: |
-          echo "::add-matcher::.github/problem-matchers/eslint-stylish.json"
-          echo "::add-matcher::.github/problem-matchers/stylelint.json"
+          echo '::add-matcher::.github/problem-matchers/eslint-stylish.json'
+          echo '::add-matcher::.github/problem-matchers/stylelint.json'
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
