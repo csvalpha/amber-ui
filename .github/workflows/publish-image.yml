@@ -126,4 +126,4 @@ jobs:
           private_key: ${{ secrets.APP_PRIVATE_KEY }}
           name: Publish Image
           conclusion: ${{ steps.get_conclusion.outputs.conclusion }}
-          details_url:  ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          details_url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
