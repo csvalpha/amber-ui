@@ -191,13 +191,12 @@ jobs:
         env:
           RESULTS: ${{ join(needs.*.result, ' ') }}
         run: |
+          echo '::set-output name=conclusion::success'
           for RESULT in $RESULTS; do
             if [ $RESULT = 'cancelled' ] || [ $RESULT = 'failure' ]; then
               echo '::set-output name=conclusion::'$RESULT
-              exit
             fi
           done
-          echo '::set-output name=conclusion::success'
 
       - name: Update Continuous Delivery check run
         uses: guidojw/actions/update-check-run@v1

@@ -83,14 +83,14 @@ jobs:
             needs.metadata.outputs.tag }}
 
       - name: Get sourcemaps from image
-        if: !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image')
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image') }}
         env:
           IMAGE_NAME: ${{ fromJSON(steps.build_push_image.outputs.metadata)['image.name'] }}
         run: |
           docker cp $(docker create $IMAGE_NAME):/usr/share/nginx/html/assets/. sourcemaps
 
       - name: Create Sentry release
-        if: !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image')
+        if: ${{ !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image') }}
         uses: getsentry/action-release@v1
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
@@ -111,13 +111,12 @@ jobs:
         env:
           RESULTS: ${{ join(needs.*.result, ' ') }}
         run: |
+          echo '::set-output name=conclusion::success'
           for RESULT in $RESULTS; do
             if [ $RESULT = 'cancelled' ] || [ $RESULT = 'failure' ]; then
               echo '::set-output name=conclusion::'$RESULT
-              exit
             fi
           done
-          echo '::set-output name=conclusion::success'
 
       - name: Update Publish Image check run
         uses: guidojw/actions/update-check-run@v1
