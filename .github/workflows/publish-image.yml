@@ -77,7 +77,7 @@ jobs:
           context: .
           build-args: ${{ needs.metadata.outputs.build_args }}
           cache-from: type=gha,scope=main
-          cache-to: type=gha,scope=main
+          cache-to: type=gha,mode=max,scope=main
           tags: |
             ${{ env.REGISTRY_URL }}/${{ github.repository_owner }}/${{ env.PROJECT_NAME }}:${{
             needs.metadata.outputs.tag }}
