@@ -100,7 +100,7 @@
     "stylelint-scss": "^3.13"
   },
   "engines": {
-    "node": ">=14.18.2"
+    "node": ">=12"
   },
   "ember": {
     "edition": "octane"
