@@ -1,0 +1,40 @@
+<h5>Authentication token </h5>
+
+<p>
+  In plaats van gebruik maken van een zescijferige code is het ook mogelijk om een beveiligingskey te gebruiken.
+  Dit is een USB stick die je dan nodig hebt om te kunnen inloggen,
+  dit is nog weer net wat veiliger dan met je telefoon, maar je hebt er wel de USB stick voor nodig
+</p>
+
+{{#if @model.webauthnCredentials}}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <th scope="col">Naam</th>
+        <th scope="col">Toegevoegd op</th>
+        <th scope="col">Verwijderen</th>
+      </thead>
+      <tbody>
+        {{#each @model.webauthnCredentials as |cred|}}
+          <td>{{cred.nickname}}</td>
+          <td>{{moment-format cred.createdAt 'DD-MM-YYYY'}}</td>
+          <td>
+            <button class="btn-danger btn">
+              <FaIcon @icon='trash'/>
+            </button>
+          </td>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+{{/if}}
+
+{{#if this.webauthnErrorMessage}}
+  <div class="alert alert-danger" role="alert">
+    <strong>{{this.webauthnErrorMessage}}</strong>
+  </div>
+{{/if}}
+
+<Input @type="text" @value={{keyNickname}} @id="nickname" class="form-control mb-2 col-4" required placeholder="Key name" @enter={{action "activateWebauthn"}} />
+<button type="button" class="btn btn-primary mb-2" {{action "activateWebauthn"}}>Security key toevoegen</button>
+

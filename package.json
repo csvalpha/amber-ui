@@ -30,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.12",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
+    "@github/webauthn-json": "^0.5",
     "@sentry/ember": "^6.2",
     "babel-eslint": "^10.0",
     "bootstrap": "^4.4",

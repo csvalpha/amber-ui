@@ -64,6 +64,7 @@ export default class User extends Model {
   @hasMany('debit/mandate') mandates;
   @hasMany mailAliases;
   @hasMany('mail-alias') groupMailAliases;
+  @hasMany('webauthn/credentials') webauthnCredentials;
 
   // Computed properties
   get fullName() {
