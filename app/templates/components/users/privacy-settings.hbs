@@ -84,7 +84,7 @@
 
   {{#if formActionsVisible}}
     <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}} @inputLayout="vertical">
-      <LinkTo @route="users.show" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
+      <LinkTo @route="users.show" @model={{model.id}} class="btn btn-default">Annuleren</LinkTo>
     </ModelForm::FormActions>
   {{/if}}
 </form>

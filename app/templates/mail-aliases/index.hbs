@@ -15,7 +15,7 @@
   </div>
 
   {{#each model as |mailAlias|}}
-    <LinkTo @route="mail-aliases.show" @model={{mailAlias}}>
+    <LinkTo @route="mail-aliases.show" @model={{mailAlias.id}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-3 rtable-item"> {{mailAlias.email}} </span>
         <span class="col-12 col-md-1 rtable-item">
