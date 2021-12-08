@@ -17,7 +17,9 @@
     "lint:hbs": "ember-template-lint .",
     "start": "ember serve",
     "stylefix": "stylelint 'app/**/*.scss' --fix",
-    "test": "ember test"
+    "test": "ember test",
+    "ci:eslint": "eslint 'app/**/*.js'",
+    "ci:stylelint": "stylelint 'app/**/*.scss'"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.16.0",
