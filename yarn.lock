@@ -1489,7 +1489,7 @@
   integrity sha512-3sQlpEjOXt03sId8ZYGWjm6SdQaR78Ppa6LwLon76kYsDM8J2hRXY1Zcpt1rKTSuOyXs/0Pc5+ri1MNfJKD3DA==
   dependencies:
     "@embroider/macros" "0.39.1"
-    broccoli-funnel "github:ef4/broccoli-funnel#c70d060076e14793e8495571f304a976afc754ac"
+    broccoli-funnel ef4/broccoli-funnel#c70d060076e14793e8495571f304a976afc754ac
     ember-cli-babel "^7.23.1"
 
 "@embroider/util@^0.39.1 || ^0.40.0 || ^0.41.0", "@embroider/util@^0.41.0":
@@ -4146,9 +4146,8 @@ broccoli-funnel@^3.0.5, broccoli-funnel@^3.0.8:
     minimatch "^3.0.0"
     walk-sync "^2.0.2"
 
-"broccoli-funnel@github:ef4/broccoli-funnel#c70d060076e14793e8495571f304a976afc754ac":
+broccoli-funnel@ef4/broccoli-funnel#c70d060076e14793e8495571f304a976afc754ac:
   version "2.0.2-ef4.0"
-  uid c70d060076e14793e8495571f304a976afc754ac
   resolved "https://codeload.github.com/ef4/broccoli-funnel/tar.gz/c70d060076e14793e8495571f304a976afc754ac"
   dependencies:
     array-equal "^1.0.0"
@@ -4860,9 +4859,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001181:
-  version "1.0.30001187"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001187.tgz#5706942631f83baa5a0218b7dfa6ced29f845438"
-  integrity sha512-w7/EP1JRZ9552CyrThUnay2RkZ1DXxKe/Q2swTC4+LElLh9RRYrL1Z+27LlakB8kzY0fSmHw9mc7XYDUKAKWMA==
+  version "1.0.30001285"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001285.tgz"
+  integrity sha512-KAOkuUtcQ901MtmvxfKD+ODHH9YVDYnBt+TGYSz2KIfnq22CiArbUxXPN9067gNbgMlnNYRSwho8OPXZPALB9Q==
 
 capture-exit@^2.0.0:
   version "2.0.0"
