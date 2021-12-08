@@ -7,7 +7,7 @@
 <td>
   {{#if (can 'destroy form/response')}}
     {{#if response.form.canRespond}}
-      <LinkTo @route="form.responses.destroy" @model={{response}} class="no-print">
+      <LinkTo @route="form.responses.destroy" @model={{response.id}} class="no-print">
         <FaIcon @icon='trash'/>
       </LinkTo>
     {{/if}}
