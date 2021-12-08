@@ -92,7 +92,7 @@
                 <span class="col-12 col-md-5 rtable-item">{{alias.description}}</span>
                 <span class="col-12 col-md-2 rtable-item">{{alias.moderationType}}</span>
                 {{#if (can 'edit mail-aliases')}}
-                  <LinkTo @route="mail-aliases.edit" @model={{alias}}>
+                  <LinkTo @route="mail-aliases.edit" @model={{alias.id}}>
                     <span class="col-12 col-md-1 rtable-item">
                       <button type="button" class="btn btn-danger">
                         <FaIcon @icon='pencil-alt'/>

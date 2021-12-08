@@ -1,0 +1,74 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [staging, master]
+  pull_request:
+  workflow_call:
+    inputs:
+      sha:
+        required: false
+        type: string
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.sha }}
+
+      - name: Build test image
+        uses: guidojw/actions/build-docker-image@v1
+        with:
+          file: Dockerfile.test
+          name: app
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ inputs.sha }}
+
+      - name: Add problem matchers
+        run: |
+          echo '::add-matcher::.github/problem-matchers/eslint-stylish.json'
+          echo '::add-matcher::.github/problem-matchers/stylelint.json'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Load test image
+        uses: guidojw/actions/load-docker-image@v1
+        with:
+          name: app
+
+      - name: Lint
+        # Convert output of stylelint so that the problem matcher can match it correctly.
+        run: |
+          EXIT_STATUS=0
+          docker run app yarn ci:eslint || EXIT_STATUS=$?
+          node bin/convert-stylelint-output.js "$(docker run app yarn ci:stylelint)" || EXIT_STATUS=$?
+          exit $EXIT_STATUS
+
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Load test image
+        uses: guidojw/actions/load-docker-image@v1
+        with:
+          name: app
+
+      - name: Test
+        run: |
+          docker run -t app yarn test
