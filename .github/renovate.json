@@ -35,9 +35,6 @@
       "enabled": false
     }
   ],
-  "buildkite": {
-    "enabled": false
-  },
   "docker-compose": {
     "enabled": false
   }
