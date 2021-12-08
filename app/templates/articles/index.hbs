@@ -7,7 +7,7 @@
 <div class="row">
   {{#each model as |article|}}
     <div class="article-col col-md-6">
-      <LinkTo @route="articles.show" @model={{article}}>
+      <LinkTo @route="articles.show" @model={{article.id}}>
         {{cards/article-card article showExcerpt=true useMaxHeight=true}}
       </LinkTo>
     </div>

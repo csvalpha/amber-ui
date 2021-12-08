@@ -14,7 +14,7 @@
 <div class="row">
   {{#each sortedPhotos as |photo|}}
     <div class="col-md-3 col-xs-6 photo-album-image-card">
-      <LinkTo @route="photo-albums.photo-album.photos.show" @model={{photo}}>
+      <LinkTo @route="photo-albums.photo-album.photos.show" @model={{photo.id}}>
         {{#if photo.amountOfComments}}
           <span class="comments-counter badge badge-info">
             <FaIcon @icon='comments'/>
@@ -26,7 +26,7 @@
     </div>
   {{else}}
     <div class="alert alert-warning">
-      <LinkTo @route="photo-albums.photo-album.edit" @model={{model}}>Geen foto's gevonden, wil je die toevoegen?</LinkTo>
+      <LinkTo @route="photo-albums.photo-album.edit" @model={{model.id}}>Geen foto's gevonden, wil je die toevoegen?</LinkTo>
     </div>
   {{/each}}
 </div>

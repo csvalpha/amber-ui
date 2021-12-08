@@ -7,7 +7,7 @@
       {{poll/poll-form @model.form}}
 
       <ModelForm::FormActions @errors={{combinedErrors}} @errorMessage={{this.errorMessage}}>
-        <LinkTo @route="polls.show" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
+        <LinkTo @route="polls.show" @model={{model.id}} class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

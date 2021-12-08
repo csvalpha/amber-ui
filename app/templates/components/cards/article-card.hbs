@@ -7,7 +7,7 @@
           <img src="{{article.avatarThumbUrlOrDefault}}" class="profile-picture-medium profile-picture-margin" alt="{{article.authorName}}" height="60px" style="display: inline;">
         </div>
         <div class="card-titles">
-          <LinkTo @route="articles.show" @model={{article}}>
+          <LinkTo @route="articles.show" @model={{article.id}}>
             <h2 class="card-title" itemprop="name headline">{{#if article.pinned}} <FaIcon @icon="thumbtack"/> {{/if}} {{article.title}}</h2>
           </LinkTo>
           <h3 class="card-subtitle">
@@ -43,7 +43,7 @@
       <span itemprop="datePublished" content={{moment-format article.createdAt}}> {{moment-calendar article.createdAt}} </span>
       <span>{{t 'component.cards.articleCard.reactions' count=article.amountOfComments}}</span>
       {{#if useMaxHeight}}
-        <LinkTo @route="articles.show" @model={{article}} @itemprop="url">
+        <LinkTo @route="articles.show" @model={{article.id}} @itemprop="url">
           <span class="float-md-right"> {{t 'tag.button.readMore'}} </span>
         </LinkTo>
       {{/if}}
