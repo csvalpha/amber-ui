@@ -37,7 +37,7 @@
     </label>
     <div class="col-sm-6">
       {{input/select-input
-        data-test-picturePublicationPreferenceTypes
+        data-test-picturePublicationPreferenceTypes=true
         class="form-control"
         required=true
         options=picturePublicationPreferenceTypes
@@ -54,7 +54,7 @@
       <div class="form-check">
         <label class="form-check-label">
           {{input
-            data-test-ifesDataSharingPreference
+            data-test-ifesDataSharingPreference=true
             type="checkbox"
             checked=@model.ifesDataSharingPreference
             class="form-check-input"}}
@@ -72,7 +72,7 @@
       <div class="form-check">
         <label class="form-check-label">
           {{input
-            data-test-infoInAlmanak
+            data-test-infoInAlmanak=true
             type="checkbox"
             checked=@model.infoInAlmanak
             class="form-check-input"}}
