@@ -26,7 +26,7 @@
     <span class="col-1 rtable-ta-right"> # </span>
   </div>
   {{#each @model.categories as |category|}}
-    <LinkTo @route="forum.categories.category" @model={{category}}>
+    <LinkTo @route="forum.categories.category" @model={{category.id}}>
       <div class="row rtable-row">
         <span class="col"> {{category.name}} </span>
         <span class="col-1 rtable-ta-right"> {{category.amountOfThreads}} </span>

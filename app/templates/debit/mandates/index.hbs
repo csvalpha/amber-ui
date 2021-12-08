@@ -13,7 +13,7 @@
   </div>
 
   {{#each model as |mandate|}}
-    <LinkTo @route="debit.mandates.show" @model={{mandate}}>
+    <LinkTo @route="debit.mandates.show" @model={{mandate.id}}>
       <div class="row rtable-row">
         <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> ID:  </span> <b> {{mandate.id}} </b> </span>
         <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Startdatum:  </span>{{moment-format mandate.startDate 'DD-M-YYYY'}} </span>
