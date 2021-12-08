@@ -1,5 +1,5 @@
 FROM madnificent/ember:3.17.0 as ember
-MAINTAINER C.S.V. Alpha <ict@csvalpha.nl>
+LABEL maintainer="C.S.V. Alpha <ict@csvalpha.nl>"
 
 ENV NODE_ENV=test
 ENV CI=true
