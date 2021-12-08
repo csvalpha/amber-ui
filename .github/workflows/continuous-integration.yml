@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
         with:
           ref: ${{ inputs.sha }}
 
       - name: Build test image
-        uses: guidojw/actions/build-docker-image@v1
+        uses: guidojw/actions/build-docker-image@fcb92ed90a3965b130f4e5ed3f53df9ef65e6de1 # renovate: tag=v1.0.0
         with:
           file: Dockerfile.test
           name: app
@@ -32,7 +32,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
         with:
           ref: ${{ inputs.sha }}
 
@@ -42,12 +42,12 @@ jobs:
           echo '::add-matcher::.github/problem-matchers/stylelint.json'
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@04c56d2f954f1e4c69436aa54cfef261a018f458 # renovate: tag=v2.5.0
         with:
           node-version: '14'
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@v1
+        uses: guidojw/actions/load-docker-image@fcb92ed90a3965b130f4e5ed3f53df9ef65e6de1 # renovate: tag=v1.0.0
         with:
           name: app
 
@@ -65,7 +65,7 @@ jobs:
     needs: build
     steps:
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@v1
+        uses: guidojw/actions/load-docker-image@fcb92ed90a3965b130f4e5ed3f53df9ef65e6de1 # renovate: tag=v1.0.0
         with:
           name: app
 

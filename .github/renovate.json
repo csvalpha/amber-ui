@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard", ":semanticCommits", ":semanticCommitTypeAll(chore)"],
+  "extends": ["config:base", ":disableDependencyDashboard", ":semanticCommits", ":semanticCommitTypeAll(chore)", "helpers:pinGitHubActionDigests"],
   "labels": ["dependencies"],
   "prConcurrentLimit": 0,
   "rangeStrategy": "bump",
