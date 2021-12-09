@@ -7,12 +7,12 @@
       <div class="alert alert-danger">
         Je kunt deze activiteit niet verwijderen, omdat er al reacties zijn!
       </div>
-      <LinkTo @route="activities.show" @model={{model}} class="btn btn-default">Terug</LinkTo>
+      <LinkTo @route="activities.show" @model={{model.id}} class="btn btn-default">Terug</LinkTo>
     {{else}}
       <p>Weet je zeker dat je deze activiteit ({{@model.title}}) wilt verwijderen?</p>
 
       <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
-      <LinkTo @route="activities.show" @model={{model}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
+      <LinkTo @route="activities.show" @model={{model.id}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
       {{#if errorMessage}}
         <div class="text-danger">{{this.errorMessage}}</div>
       {{/if}}

@@ -12,14 +12,14 @@ export default class ThreadIndexRoute extends AuthenticatedRoute {
         link: 'forum.categories.category.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.controller.model,
+        linkArgument: this.controller.model.id,
         canAccess: this.can.can('edit forum/categories')
       },
       {
         link: 'forum.categories.category.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.controller.model,
+        linkArgument: this.controller.model.id,
         canAccess: this.can.can('destroy forum/categories')
       },
       {

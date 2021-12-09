@@ -2,7 +2,7 @@
 <p>Er wordt geen bericht gestuurd naar de afzender.</p>
 
 <button {{action "destroy"}} class="btn btn-danger" type="button">Ja</button>
-<LinkTo @route="mail-moderations.show" @model={{model}} class="btn btn-default" @tagName="button">Nee</LinkTo>
+<LinkTo @route="mail-moderations.show" @model={{model.id}} class="btn btn-default" @tagName="button">Nee</LinkTo>
 
 {{#if errorMessage}}
   <div class="text-danger">{{this.errorMessage}}</div>

@@ -69,7 +69,7 @@
       </div>
 
       <ModelForm::FormActions @errors={{combinedErrors}} @errorMessage={{this.errorMessage}}>
-        <LinkTo @route="activities.show" @model={{model}} class="btn btn-default">Annuleren</LinkTo>
+        <LinkTo @route="activities.show" @model={{model.id}} class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>
