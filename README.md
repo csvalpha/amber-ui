@@ -1,14 +1,15 @@
 Alpha AMBER UI
 ===============
 
-[![Build status](https://badge.buildkite.com/42748a5ed2c1c77c1dd974c497f0f39eaf39d782a289d19a8e.svg)](https://buildkite.com/csv-alpha/amber-ui)
+[![Continuous Integration](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml)
+[![Continuous Delivery](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml)
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with NPM, see `.node-version`, install preferably with [nvm](https://github.com/creationix/nvm#install-script))
+* [Node.js](https://nodejs.org/) (with NPM, see `.nvmrc`, install preferably with [nvm](https://github.com/creationix/nvm#install-script))
 * [Yarn](https://yarnpkg.com/) (Alternative to NPM. Not strictly required, but uses version locking and is much faster)
 * [Ember CLI](https://www.ember-cli.com/): `yarn global add ember-cli` (or `npm install -g ember-cli`)
 
@@ -77,7 +78,12 @@ For auto fix run
 
 ### Deploying
 
-Deploying is done via buildkite. To do a deploy push to GitHub and click on the 'Deploy this step' button in buildkite to finish the deploy.
+Deployments are done using GitHub Actions. To deploy a branch, follow the following steps:
+
+* Go to the Continuous Delivery [workflow page](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml).
+* Open the "Run workflow" modal.
+* Choose a branch and if you want to merge the changes on the staging branch into the master branch (only possible when the branch chosen in previous step is master).
+* Click the green button "Run workflow".
 
 ## Further Reading / Useful Links
 

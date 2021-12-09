@@ -4,7 +4,7 @@
       <h5> Details </h5>
     </div>
     <div class="card-body">
-      <ModelForm::FileInput @model={{model}} @property="avatar" @label="Groepsafbeeling" @fileLoaded={{action "fileLoaded"}} />
+      <ModelForm::FileInput @model={{model}} @property="avatar" @label="Groepsafbeeling" @loadedCallback={{action "fileLoaded"}} />
       <ModelForm::TextInput @model={{model}} @property="name" @label="Naam" @required={{true}} @disabled={{not (can "edit protected fields of groups")}} />
       <ModelForm::TextareaInput @model={{model}} @property="description" @label="Omschrijving" />
       <ModelForm::SelectInput @model={{model}} @property="kind" @label="Soort" @options={{groupKindOptions}} @required={{true}} @disabled={{not (can "edit protected fields of groups")}} />
