@@ -3481,7 +3481,7 @@ __metadata:
     broccoli-asset-rev: ^3.0
     ember-auto-import: ^1.12.0
     ember-bootstrap: ^4.4
-    ember-can: ^3.0
+    ember-can: ^4.1
     ember-cli: ~3.20.2
     ember-cli-babel: ^7.26.6
     ember-cli-content-security-policy: ^1.1
@@ -8063,14 +8063,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-can@npm:^3.0":
-  version: 3.2.0
-  resolution: "ember-can@npm:3.2.0"
+"ember-can@npm:^4.1":
+  version: 4.1.0
+  resolution: "ember-can@npm:4.1.0"
   dependencies:
     ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
+    ember-cli-htmlbars: ^6.0.0
     ember-inflector: ^4.0.2
-  checksum: 05d35902a5708e71cd2ab69d6a28b23ceb8644b4acf610ba13b5a8fb55a790c082b124c591e7ceaa8fe90c1a79d8db8f316a2f0a3699712d6e47c2c431c8db84
+  checksum: 6d4dd27d583bb1a8f124499e6e28169c9ca6ec9565140126254c25c772380aea5bbec533703929f110a4e61a63a7ea5f2b19027c43314838925eee16e2714b6c
   languageName: node
   linkType: hard
 
