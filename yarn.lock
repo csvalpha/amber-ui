@@ -3742,7 +3742,7 @@ __metadata:
     ember-linkify: ^4.1
     ember-load-initializers: ^2.1
     ember-maybe-import-regenerator: ^1.0
-    ember-moment: ^8.0
+    ember-moment: ^9.0
     ember-pikaday: ^3.0
     ember-power-select: ^4.0
     ember-promise-helpers: ^1.0
@@ -8143,6 +8143,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-auto-import@npm:^1.10.1, ember-auto-import@npm:^1.11.3, ember-auto-import@npm:^1.12.0":
+  version: 1.12.0
+  resolution: "ember-auto-import@npm:1.12.0"
+  dependencies:
+    "@babel/core": ^7.1.6
+    "@babel/preset-env": ^7.10.2
+    "@babel/traverse": ^7.1.6
+    "@babel/types": ^7.1.6
+    "@embroider/core": ^0.33.0
+    babel-core: ^6.26.3
+    babel-loader: ^8.0.6
+    babel-plugin-syntax-dynamic-import: ^6.18.0
+    babylon: ^6.18.0
+    broccoli-debug: ^0.6.4
+    broccoli-node-api: ^1.7.0
+    broccoli-plugin: ^4.0.0
+    broccoli-source: ^3.0.0
+    debug: ^3.1.0
+    ember-cli-babel: ^7.0.0
+    enhanced-resolve: ^4.0.0
+    fs-extra: ^6.0.1
+    fs-tree-diff: ^2.0.0
+    handlebars: ^4.3.1
+    js-string-escape: ^1.0.1
+    lodash: ^4.17.19
+    mkdirp: ^0.5.1
+    resolve-package-path: ^3.1.0
+    rimraf: ^2.6.2
+    semver: ^7.3.4
+    symlink-or-copy: ^1.2.0
+    typescript-memoize: ^1.0.0-alpha.3
+    walk-sync: ^0.3.3
+    webpack: ^4.43.0
+  checksum: 689de6088854855c7eb50d882a81fc9ee3efd1671ddd8aea35a7d6ef0db8e08d211d156b63390da4fd98518d32ad2a3f9ed9be6f25810311a9011604f10b3c85
+  languageName: node
+  linkType: hard
+
 "ember-auto-import@npm:^1.11.2":
   version: 1.11.3
   resolution: "ember-auto-import@npm:1.11.3"
@@ -8177,43 +8214,6 @@ __metadata:
     walk-sync: ^0.3.3
     webpack: ^4.43.0
   checksum: 2ac4e08696f46b4e9e1ada49c068d5ca7a338e063ea47e332f81e72613ae287479504b1246e97b31bed7ca6a84ec7928d250e0de6f5bc7c6412a7e537532684b
-  languageName: node
-  linkType: hard
-
-"ember-auto-import@npm:^1.11.3, ember-auto-import@npm:^1.12.0":
-  version: 1.12.0
-  resolution: "ember-auto-import@npm:1.12.0"
-  dependencies:
-    "@babel/core": ^7.1.6
-    "@babel/preset-env": ^7.10.2
-    "@babel/traverse": ^7.1.6
-    "@babel/types": ^7.1.6
-    "@embroider/core": ^0.33.0
-    babel-core: ^6.26.3
-    babel-loader: ^8.0.6
-    babel-plugin-syntax-dynamic-import: ^6.18.0
-    babylon: ^6.18.0
-    broccoli-debug: ^0.6.4
-    broccoli-node-api: ^1.7.0
-    broccoli-plugin: ^4.0.0
-    broccoli-source: ^3.0.0
-    debug: ^3.1.0
-    ember-cli-babel: ^7.0.0
-    enhanced-resolve: ^4.0.0
-    fs-extra: ^6.0.1
-    fs-tree-diff: ^2.0.0
-    handlebars: ^4.3.1
-    js-string-escape: ^1.0.1
-    lodash: ^4.17.19
-    mkdirp: ^0.5.1
-    resolve-package-path: ^3.1.0
-    rimraf: ^2.6.2
-    semver: ^7.3.4
-    symlink-or-copy: ^1.2.0
-    typescript-memoize: ^1.0.0-alpha.3
-    walk-sync: ^0.3.3
-    webpack: ^4.43.0
-  checksum: 689de6088854855c7eb50d882a81fc9ee3efd1671ddd8aea35a7d6ef0db8e08d211d156b63390da4fd98518d32ad2a3f9ed9be6f25810311a9011604f10b3c85
   languageName: node
   linkType: hard
 
@@ -8377,7 +8377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.7.2, ember-cli-babel@npm:^6.8.1":
+"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.8.1":
   version: 6.18.0
   resolution: "ember-cli-babel@npm:6.18.0"
   dependencies:
@@ -9418,7 +9418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-getowner-polyfill@npm:^1.1.0 || ^2.0.0, ember-getowner-polyfill@npm:^2.0.1, ember-getowner-polyfill@npm:^2.2.0":
+"ember-getowner-polyfill@npm:^1.1.0 || ^2.0.0, ember-getowner-polyfill@npm:^2.0.1":
   version: 2.2.0
   resolution: "ember-getowner-polyfill@npm:2.2.0"
   dependencies:
@@ -9555,17 +9555,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-macro-helpers@npm:^4.2.2":
-  version: 4.2.2
-  resolution: "ember-macro-helpers@npm:4.2.2"
-  dependencies:
-    ember-cli-babel: ^7.7.3
-    ember-cli-string-utils: ^1.1.0
-    ember-cli-test-info: ^1.0.0
-  checksum: 27d23c3aaae397b71494557abe9d3ed749136ae4deaf8a068dbf173be5d4c26123dee34140fb8800c1ac34773316e410a809fb612fb0aaf4c07294b6bea78e01
-  languageName: node
-  linkType: hard
-
 "ember-maybe-import-regenerator@npm:^1.0":
   version: 1.0.0
   resolution: "ember-maybe-import-regenerator@npm:1.0.0"
@@ -9628,14 +9617,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-moment@npm:^8.0":
-  version: 8.0.2
-  resolution: "ember-moment@npm:8.0.2"
+"ember-moment@npm:^9.0":
+  version: 9.0.1
+  resolution: "ember-moment@npm:9.0.1"
   dependencies:
-    ember-cli-babel: ^6.7.2
-    ember-getowner-polyfill: ^2.2.0
-    ember-macro-helpers: ^4.2.2
-  checksum: b0a6ce822661eccd69097b04069db318c6a0d311e05abdeea353a2dc342b0d8a9ca6acf87a7ceedbc3b29105a040a591044df6dad61b7e540a1ff4a306aa1607
+    ember-auto-import: ^1.10.1
+    ember-cli-babel: ^7.23.0
+    ember-cli-htmlbars: ^5.3.1
+    moment: ^2.29.1
+    moment-timezone: ^0.5.33
+  checksum: 902a509c00383f798fa96b49c986d84d164c411861749561655627e1cd74c882b6776e8fa75efdd376ad1460234244fc8dcb7a58b694fad7340108b5d768dde0
   languageName: node
   linkType: hard
 
@@ -15208,7 +15199,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment@npm:>= 2.9.0, moment@npm:^2.19.3":
+"moment-timezone@npm:^0.5.33":
+  version: 0.5.34
+  resolution: "moment-timezone@npm:0.5.34"
+  dependencies:
+    moment: ">= 2.9.0"
+  checksum: 12a1d3d52e4ba509cf1fa36bbda59d898a08fa80ab35f6c358747e93aec1f07e617cec647eaf2e8acf5f9132e581d4704d34a9edffa9a80c5cd04bf23b277595
+  languageName: node
+  linkType: hard
+
+"moment@npm:>= 2.9.0, moment@npm:^2.19.3, moment@npm:^2.29.1":
   version: 2.29.1
   resolution: "moment@npm:2.29.1"
   checksum: 1e14d5f422a2687996be11dd2d50c8de3bd577c4a4ca79ba5d02c397242a933e5b941655de6c8cb90ac18f01cc4127e55b4a12ae3c527a6c0a274e455979345e
