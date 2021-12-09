@@ -28,7 +28,8 @@ module.exports = function(defaults) {
     },
 
     babel: {
-      plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')]
+      plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')],
+      sourceMaps: 'inline'
     }
   });
 
