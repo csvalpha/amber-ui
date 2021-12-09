@@ -9,19 +9,19 @@ export default class MembersRoute extends AuthenticatedRoute {
         link: 'users.new',
         title: 'Nieuw lid',
         icon: 'plus',
-        canAccess: this.can.can('create users')
+        canAccess: this.abilities.can('create users')
       },
       {
         link: 'users.webdav',
         title: 'Contactsynchronisatie',
         icon: 'address-book',
-        canAccess: this.can.can('show webdav users')
+        canAccess: this.abilities.can('show webdav users')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show members');
+    return this.abilities.can('show members');
   }
 
   model(params) {

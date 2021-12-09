@@ -12,20 +12,20 @@ export default class ShowStaticPagesRoute extends ApplicationRoute {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.controller.model,
-        canAccess: this.can.can('edit static-pages')
+        canAccess: this.abilities.can('edit static-pages')
       },
       {
         link: 'static-pages.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.controller.model,
-        canAccess: this.can.can('destroy static-pages')
+        canAccess: this.abilities.can('destroy static-pages')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show static-pages');
+    return this.abilities.can('show static-pages');
   }
 
   model(params) {

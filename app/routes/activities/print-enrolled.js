@@ -4,7 +4,7 @@ export default class PrintEnrolledRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Print inschrijvingen/streeplijst' };
 
   canAccess(model) {
-    return this.can.can('edit activity', model);
+    return this.abilities.can('edit activity', model);
   }
 
   model(params) {

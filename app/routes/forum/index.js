@@ -2,7 +2,7 @@ import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class ForumIndexRoute extends AuthenticatedRoute {
   canAccess() {
-    return this.can.can('show forum/categories');
+    return this.abilities.can('show forum/categories');
   }
 
   beforeModel() {

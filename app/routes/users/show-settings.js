@@ -9,12 +9,12 @@ export default class ShowUserSettings extends ShowUserRouter {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: user,
-        canAccess: this.can.can('edit user', user)
+        canAccess: this.abilities.can('edit user', user)
       }
     ];
   }
 
   canAccess(model) {
-    return this.can.can('edit users', model);
+    return this.abilities.can('edit users', model);
   }
 }

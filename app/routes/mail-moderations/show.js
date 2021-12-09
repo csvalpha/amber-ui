@@ -12,27 +12,27 @@ export default class ShowModerationRoute extends AuthenticatedRoute {
         title: 'Goedkeuren',
         icon: 'check',
         linkArgument: this.controller.model,
-        canAccess: this.can.can('accept mail-moderations')
+        canAccess: this.abilities.can('accept mail-moderations')
       },
       {
         link: 'mail-moderations.reject',
         title: 'Afkeuren',
         icon: 'minus-circle',
         linkArgument: this.controller.model,
-        canAccess: this.can.can('reject mail-moderations')
+        canAccess: this.abilities.can('reject mail-moderations')
       },
       {
         link: 'mail-moderations.destroy',
         title: 'Negeren',
         icon: 'trash',
         linkArgument: this.controller.model,
-        canAccess: this.can.can('destroy mail-moderations')
+        canAccess: this.abilities.can('destroy mail-moderations')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show mail-moderations');
+    return this.abilities.can('show mail-moderations');
   }
 
   model(params) {

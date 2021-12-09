@@ -4,7 +4,7 @@ export default class DestroyCollectionsRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Incasso aanpassen' }
 
   canAccess() {
-    return this.can.can('destroy debit/collections');
+    return this.abilities.can('destroy debit/collections');
   }
 
   model(params) {

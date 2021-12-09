@@ -9,13 +9,13 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
         link: 'debit.collections.new',
         title: 'Nieuwe incasso',
         icon: 'plus',
-        canAccess: this.can.can('create debit/collections')
+        canAccess: this.abilities.can('create debit/collections')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show debit/collections');
+    return this.abilities.can('show debit/collections');
   }
 
   model(params) {
