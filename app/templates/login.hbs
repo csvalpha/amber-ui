@@ -13,12 +13,7 @@
               </div>
             {{/if}}
 
-            {{#if twoFactorRequired}}
-              <div class="form-group">
-                <Input @type="text" @value={{verificationCode}} placeholder={{t "template.login.authcode"}} @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-otp" />
-                <p>{{t 'template.login.authcodeHint'}}</p>
-              </div>
-            {{else}}
+            {{#if (eq loginStage 'credentials')}}
               <div class="form-group">
                 <Input @type="text" @value={{username}} placeholder={{t "template.login.username"}} @autofocus="autofocus" @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-username" />
               </div>
@@ -28,6 +23,21 @@
 
               <div class="row password-forgot-holder">
                 <LinkTo @route="users.forgot_password" class="forgot-password-label">{{t 'template.login.forgotPassword'}}</LinkTo>
+              </div>
+            {{else if (eq loginStage 'WebAuthn')}}
+              <div class="form-group">
+                <p>
+                  {{t 'template.login.securityKeyHint'}}
+                </p>
+
+                {{#if this.otpAvailable}}
+                  <small {{on "click" (fn this.changeStage 'otp')}}></small>
+                {{/if}}
+              </div>
+            {{else if (eq loginStage 'otp')}}
+              <div class="form-group">
+                <Input @type="text" @value={{otpCode}} placeholder={{t "template.login.authcode"}} @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-otp" />
+                <p>{{t 'template.login.authcodeHint'}}</p>
               </div>
             {{/if}}
 

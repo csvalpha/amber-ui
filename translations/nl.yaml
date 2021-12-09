@@ -73,6 +73,10 @@ template:
     authcodeHint: Open de authenticatie app op je telefoon en geef hier de zescijferige
       authenticatiecode op. Authenticatie codes kwijtgeraakt? Neem dan contact op
       met de beheerders van de site voor identificatie.
+    securityKeyHint: Inloggen met security key,
+      geef alsjebieft toestemming om in te loggen bij C.S.V. Alpha
+      door je security key aan te raken.
+    changeToOTP: Liever inloggen met de authenticator app?
     username: Gebruikersnaam
     password: Wachtwoord
     forgotPassword: Wachtwoord vergeten?

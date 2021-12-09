@@ -82,10 +82,9 @@ export default class Application extends JSONAPISerializer {
       return `debit/${key}`;
     }
 
-    if (key === 'credential'){
-      return 'webauthn/credential'
+    if (key === 'credential') {
+      return 'webauthn/credential';
     }
-
 
     return key;
   }

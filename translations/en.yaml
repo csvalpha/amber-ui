@@ -73,6 +73,10 @@ template:
     authcodeHint: Open the authentication app on your phone and enter the six-figure
       authentication code. Lost your authentication codes? Then please contact the
       adminstrators for identification.
+    securityKeyHint: Login using a security key,
+      please allow authenticating with C.S.V. Alpha
+      by touching your security key
+    changeToOTP: Prefer authentication with your authentication app?
     username: Username
     password: Password
     forgotPassword: Forgot your password?
