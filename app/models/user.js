@@ -116,6 +116,10 @@ export default class User extends Model {
     return this.avatarThumbUrl || AvatarThumbFallback;
   }
 
+  get webauthnActivated() {
+    return this.webauthnCredentials.size > 0
+  }
+
   // Methods
   setNullIfEmptyString(property) {
     const value = this.get(property);

@@ -59,8 +59,12 @@
       <td data-test-updatedAt>{{moment-format @model.updatedAt 'DD-MM-YYYY'}}</td>
     </tr>
     <tr>
-      <td>Two-Factor geactiveerd</td>
+      <td>Two-Factor OTP geactiveerd</td>
       <td data-test-otpRequired>{{boolean-tag @model.otpRequired}}</td>
+    </tr>
+    <tr>
+      <td>Two-Factor Security Key geactiveerd</td>
+      <td>{{boolean-tag @model.webauthnActivated}}</td>
     </tr>
   </table>
 </TabbedView>

@@ -2,6 +2,7 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { isInvalidResponse } from 'ember-fetch/errors';
 import { create } from '@github/webauthn-json';
+import { assign } from '@ember/polyfills';
 
 export default Component.extend({
   fetch: service(),
@@ -22,11 +23,13 @@ export default Component.extend({
       const authResponse = await create({ publicKey: (await authOptions.json()) });
 
       // Send PubKey information to the erver
-      const registrationResponse = await this.fetch.post('/webauthn/credentials', { body: authResponse });
+      let body = { nickname: this.keyNickname };
+      assign(body, authResponse);
+      const registrationResponse = await this.fetch.post('/webauthn/credentials', { body });
       let json = await registrationResponse.json();
 
       if (registrationResponse.ok) {
-        // Todo do some magic and create a table with all keys
+        this.model.webauthnCredentials.reload();
       } else if (isInvalidResponse(registrationResponse)) {
         this.set('webauthnErrorMessage', json.error);
       }
