@@ -32,12 +32,12 @@
             <div class="col-12">
               <b>Extra opties</b> <br>
               <ul class="list-group" {{sortable-group onChange=(action 'reorderItems')}}>
-                {{#each options as |item index|}}
+                {{#each options as |option index|}}
                   <li class="list-group-item" {{sortable-item model=option}}>
                     <div class="row">
-                      <span class="col"> {{item}} </span>
+                      <span class="col"> {{option}} </span>
                       <a class="pl-2 link-highlight text-danger" {{action "removeOption" index}}> Verwijderen </a>
-                      <item.handle class="px-3"><FaIcon @icon='sort' class="handle text-muted"/></item.handle>
+                      <span class="px-3" {{sortable-handle}}><FaIcon @icon='sort' class="handle text-muted"/></span>
                     </div>
                   </li>
                 {{else}}
