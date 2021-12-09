@@ -2113,6 +2113,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@github/webauthn-json@npm:^0.5":
+  version: 0.5.7
+  resolution: "@github/webauthn-json@npm:0.5.7"
+  bin:
+    webauthn-json: dist/bin/webauthn-json-bin.js
+  checksum: bfd438d6ad962205c8ae78b2e8720cdc43a2ae831081610b498aad9c3bfca47c3f9bffb6f7b8e415df8ec3dea49ecd3a66cf5d6ea314153d7a7fd9f2f544b632
+  languageName: node
+  linkType: hard
+
 "@glimmer/compiler@npm:^0.27.0":
   version: 0.27.0
   resolution: "@glimmer/compiler@npm:0.27.0"
@@ -3473,6 +3482,7 @@ __metadata:
     "@fortawesome/free-brands-svg-icons": ^5.12
     "@fortawesome/free-regular-svg-icons": ^5.12
     "@fortawesome/free-solid-svg-icons": ^5.12
+    "@github/webauthn-json": ^0.5
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     "@sentry/ember": ^6.2

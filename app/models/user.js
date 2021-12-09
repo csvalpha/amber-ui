@@ -117,7 +117,7 @@ export default class User extends Model {
   }
 
   get webauthnActivated() {
-    return this.webauthnCredentials.size > 0
+    return this.webauthnCredentials.length > 0
   }
 
   // Methods
