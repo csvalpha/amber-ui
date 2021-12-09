@@ -3741,7 +3741,7 @@ __metadata:
     ember-link-action: ^2.0
     ember-linkify: ^4.1
     ember-load-initializers: ^2.1
-    ember-maybe-import-regenerator: ^0.1
+    ember-maybe-import-regenerator: ^1.0
     ember-moment: ^8.0
     ember-pikaday: ^3.0
     ember-power-select: ^4.0
@@ -5831,7 +5831,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-merge-trees@npm:^1.0.0, broccoli-merge-trees@npm:^1.1.1":
+"broccoli-merge-trees@npm:^1.1.1":
   version: 1.2.4
   resolution: "broccoli-merge-trees@npm:1.2.4"
   dependencies:
@@ -5857,7 +5857,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-merge-trees@npm:^2.0.0 || ^3.0.0, broccoli-merge-trees@npm:^3.0.1, broccoli-merge-trees@npm:^3.0.2":
+"broccoli-merge-trees@npm:^2.0.0 || ^3.0.0, broccoli-merge-trees@npm:^3.0.0, broccoli-merge-trees@npm:^3.0.1, broccoli-merge-trees@npm:^3.0.2":
   version: 3.0.2
   resolution: "broccoli-merge-trees@npm:3.0.2"
   dependencies:
@@ -8377,7 +8377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^6.0.0-beta.4, ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.7.2, ember-cli-babel@npm:^6.8.1":
+"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.7.2, ember-cli-babel@npm:^6.8.1":
   version: 6.18.0
   resolution: "ember-cli-babel@npm:6.18.0"
   dependencies:
@@ -9569,15 +9569,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-maybe-import-regenerator@npm:^0.1":
-  version: 0.1.6
-  resolution: "ember-maybe-import-regenerator@npm:0.1.6"
+"ember-maybe-import-regenerator@npm:^1.0":
+  version: 1.0.0
+  resolution: "ember-maybe-import-regenerator@npm:1.0.0"
   dependencies:
-    broccoli-funnel: ^1.0.1
-    broccoli-merge-trees: ^1.0.0
-    ember-cli-babel: ^6.0.0-beta.4
-    regenerator-runtime: ^0.9.5
-  checksum: 6fe36f609c5c96d947219efd0299887eefaffb1793f49de10702f37dae65045457d6a3f8c7ad85d3f1e89355dc686548f5915213777b953a1bdba94256a5a7e8
+    broccoli-funnel: ^2.0.1
+    broccoli-merge-trees: ^3.0.0
+    ember-cli-babel: ^7.26.6
+    regenerator-runtime: ^0.13.2
+  checksum: 5776819832e2017e424da6223d1fd2502d121349fce671842135d15038fb30961718be3d344014674c427cb56aa01a792eb533c22a25b70b6b5c14b4f1f6c2fd
   languageName: node
   linkType: hard
 
@@ -17192,17 +17192,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"regenerator-runtime@npm:^0.13.2":
+  version: 0.13.9
+  resolution: "regenerator-runtime@npm:0.13.9"
+  checksum: 65ed455fe5afd799e2897baf691ca21c2772e1a969d19bb0c4695757c2d96249eb74ee3553ea34a91062b2a676beedf630b4c1551cc6299afb937be1426ec55e
+  languageName: node
+  linkType: hard
+
 "regenerator-runtime@npm:^0.13.4":
   version: 0.13.7
   resolution: "regenerator-runtime@npm:0.13.7"
   checksum: 52b66e6669152c0b1bccd95c8e11aabbfe67bb97bdf00e223bdf723b0f0052d4da5c02001d4c4bef576bdc5bcdc38a20496d1b5363b65c950c8434ed5071d9e0
-  languageName: node
-  linkType: hard
-
-"regenerator-runtime@npm:^0.9.5":
-  version: 0.9.6
-  resolution: "regenerator-runtime@npm:0.9.6"
-  checksum: 4b0969f23863a6ef037b10c27f3ad33e66b8202c523ff5e9804178d51502b9884180733670f6ac2916d270969f986b0f5a489b00736a53bed430975d3029d5b7
   languageName: node
   linkType: hard
 
