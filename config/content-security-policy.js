@@ -24,7 +24,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    policy['report-uri'] = 'https://sentry.io/api/186017/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f';
+    policy['report-uri'] = ['https://sentry.io/api/186017/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f'];
   }
 
   return {
