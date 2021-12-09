@@ -1743,7 +1743,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/render-modifiers@npm:^2.0.0":
+"@ember/render-modifiers@npm:^1.0.2 || ^2.0.0, @ember/render-modifiers@npm:^2.0.0":
   version: 2.0.0
   resolution: "@ember/render-modifiers@npm:2.0.0"
   dependencies:
@@ -3519,7 +3519,7 @@ __metadata:
     ember-responsive: ^4.0
     ember-router-scroll: ^4.0
     ember-simple-auth: ^3.0
-    ember-sortable: ^2.1
+    ember-sortable: ^3.0
     ember-source: ~3.20.7
     ember-test-selectors: ^5.0
     ember-truth-helpers: ^3.0
@@ -9591,11 +9591,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-sortable@npm:^2.1":
-  version: 2.4.0
-  resolution: "ember-sortable@npm:2.4.0"
+"ember-sortable@npm:^3.0":
+  version: 3.0.0
+  resolution: "ember-sortable@npm:3.0.0"
   dependencies:
-    "@ember/render-modifiers": ^1.0.2
+    "@ember/render-modifiers": ^1.0.2 || ^2.0.0
     "@ember/test-waiters": ^2.4.4
     ember-cli-babel: ^7.26.6
     ember-cli-htmlbars: ^5.0.0
@@ -9603,7 +9603,7 @@ __metadata:
     ember-get-config: ^0.3.0
     ember-modifier: ^2.1.0
     ember-test-selectors: ^5.0.0
-  checksum: a331c8f07423b9112e81c330c1e4c492becbeb811e756c1cb2153317d63ea1c9595d936408ffc8fa76971a2f474d96fc03126cfd6ee6797efebfd882c51c3dd1
+  checksum: ed0e9a23ccea07852dbbb5287c7c61411db58deff43b826447db710498bff8ade61001aa9c80a6f4aa757bdcd2ffafbbd79045d12db81d019c058f32ac9fc283
   languageName: node
   linkType: hard
 

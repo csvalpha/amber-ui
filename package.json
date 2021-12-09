@@ -76,7 +76,7 @@
     "ember-responsive": "^4.0",
     "ember-router-scroll": "^4.0",
     "ember-simple-auth": "^3.0",
-    "ember-sortable": "^2.1",
+    "ember-sortable": "^3.0",
     "ember-source": "~3.20.7",
     "ember-test-selectors": "^5.0",
     "ember-truth-helpers": "^3.0",
