@@ -4,7 +4,7 @@ export default class NewPollRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Poll aanmaken' }
 
   canAccess() {
-    return this.can.can('create polls');
+    return this.abilities.can('create polls');
   }
 
   model() {

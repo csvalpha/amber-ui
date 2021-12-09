@@ -4,7 +4,7 @@ export default class EditMailAliasRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Poll aanpassen' }
 
   canAccess(model) {
-    return this.can.can('edit poll', model);
+    return this.abilities.can('edit poll', model);
   }
 
   model(params) {

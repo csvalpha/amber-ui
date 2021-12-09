@@ -4,7 +4,7 @@ export default class DestroyArticleRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Fotoreactie verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy photo-comments');
+    return this.abilities.can('destroy photo-comments');
   }
 
   model(params) {

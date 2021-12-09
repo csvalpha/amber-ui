@@ -4,7 +4,7 @@ export default class NewGroupRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Groep aanpassen' }
 
   canAccess(model) {
-    return this.can.can('edit group', model);
+    return this.abilities.can('edit group', model);
   }
 
   model(params) {

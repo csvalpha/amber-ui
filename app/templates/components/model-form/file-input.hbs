@@ -1,6 +1,6 @@
 <label class="col-form-label form-control-label {{labelClass}}">{{label}}{{if required " *"}}</label>
 <div class="{{inputWrapperClass}}">
-  <FileUpload @name="fileUpload" @accept={{validMimetypes}} @onfileadd={{action "fileLoaded"}} @class="clickable d-block file-picker">
+  <FileUpload @name="fileUpload" @accept={{validMimetypes}} @onFileAdd={{action "fileLoaded"}} @class="clickable d-block file-picker">
     {{#if (get model property)}}
       <img id={{inputIdentifier}} src={{mut (get model property)}} alt={{label}}>
       <br>

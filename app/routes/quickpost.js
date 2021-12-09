@@ -4,6 +4,6 @@ export default class QuickpostRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Quickpost' }
 
   canAccess() {
-    return this.can.can('show quickpost-messages');
+    return this.abilities.can('show quickpost-messages');
   }
 }

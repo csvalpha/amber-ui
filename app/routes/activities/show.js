@@ -15,35 +15,35 @@ export default class ShowActivityRoute extends AuthenticatedRoute.extend(formLoa
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: activity,
-        canAccess: this.can.can('edit activity', activity)
+        canAccess: this.abilities.can('edit activity', activity)
       },
       {
         link: 'activities.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: activity,
-        canAccess: this.can.can('destroy activities')
+        canAccess: this.abilities.can('destroy activities')
       },
       {
         link: 'activities.print-enrolled',
         title: 'Print ingeschrevenen',
         icon: 'print',
         linkArgument: activity,
-        canAccess: this.can.can('print enrolled members of activity', activity)
+        canAccess: this.abilities.can('print enrolled members of activity', activity)
       },
       {
         link: 'activities.generate-alias',
         title: 'Mail ingeschrevenen',
         icon: 'paper-plane',
         linkArgument: activity,
-        canAccess: this.can.can('generate alias for activity', activity)
+        canAccess: this.abilities.can('generate alias for activity', activity)
         // canAccess: true
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show activities');
+    return this.abilities.can('show activities');
   }
 
   model(params) {
@@ -51,7 +51,7 @@ export default class ShowActivityRoute extends AuthenticatedRoute.extend(formLoa
     let formPromise,
       responsePromise;
 
-    if (this.can.can('show form/forms') && this.can.can('show form/responses')) {
+    if (this.abilities.can('show form/forms') && this.abilities.can('show form/responses')) {
       formPromise = activityPromise.then(activity => activity.get('form'));
       responsePromise = formPromise
         // Load or create the response

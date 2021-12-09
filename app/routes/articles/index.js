@@ -15,13 +15,13 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
         link: 'articles.new',
         title: 'Nieuw artikel',
         icon: 'plus',
-        canAccess: this.can.can('create articles')
+        canAccess: this.abilities.can('create articles')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show articles');
+    return this.abilities.can('show articles');
   }
 
   model(params) {

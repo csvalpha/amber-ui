@@ -4,7 +4,7 @@ export default class SogIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'SOG' }
 
   canAccess() {
-    return this.can.can('show sog');
+    return this.abilities.can('show sog');
   }
 
   model() {

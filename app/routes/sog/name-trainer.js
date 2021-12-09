@@ -4,7 +4,7 @@ export default class SogIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Namen leren' }
 
   canAccess() {
-    return this.can.can('show sog/name-trainer');
+    return this.abilities.can('show sog/name-trainer');
   }
 
   model() {

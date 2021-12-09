@@ -4,7 +4,7 @@ export default class DestroyFormResponseRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Formulierantwoord verwijderen' }
 
   canAccess(model) {
-    return this.can.can('destroy form/response', model);
+    return this.abilities.can('destroy form/response', model);
   }
 
   model(params) {

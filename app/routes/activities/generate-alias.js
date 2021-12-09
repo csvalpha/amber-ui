@@ -4,7 +4,7 @@ export default class GenerateAliasRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Creëer mailalias' };
 
   canAccess(model) {
-    return this.can.can('generate alias for activity', model);
+    return this.abilities.can('generate alias for activity', model);
   }
 
   model(params) {

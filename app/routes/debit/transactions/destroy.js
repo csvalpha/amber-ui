@@ -4,7 +4,7 @@ export default class DestroyTransactionRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Transactie verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy debit/transactions');
+    return this.abilities.can('destroy debit/transactions');
   }
 
   model(params) {

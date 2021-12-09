@@ -4,7 +4,7 @@ export default class NewCategoryRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Categorie aanmaken' }
 
   canAccess() {
-    return this.can.can('create forum/categories');
+    return this.abilities.can('create forum/categories');
   }
 
   model() {

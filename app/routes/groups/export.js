@@ -6,7 +6,7 @@ export default class ExportGroupRoute extends AuthenticatedRoute {
   }
 
   canAccess(model) {
-    return this.can.can('export group', model);
+    return this.abilities.can('export group', model);
   }
 
   model(params) {

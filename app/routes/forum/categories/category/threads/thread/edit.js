@@ -4,7 +4,7 @@ export default class EditTopicRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Topic aanpassen' }
 
   canAccess() {
-    return this.can.can('edit forum/threads');
+    return this.abilities.can('edit forum/threads');
   }
 
   model() {

@@ -4,7 +4,7 @@ export default class EditStaticPageRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Informatie pagina aanpassen' }
 
   canAccess() {
-    return this.can.can('edit static-pages');
+    return this.abilities.can('edit static-pages');
   }
 
   model(params) {

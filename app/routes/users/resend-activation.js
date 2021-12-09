@@ -4,7 +4,7 @@ export default class ResendActivationRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activatiecode hersturen' }
 
   canAccess(model) {
-    return this.can.can('resend activation code of user', model);
+    return this.abilities.can('resend activation code of user', model);
   }
 
   model(params) {
