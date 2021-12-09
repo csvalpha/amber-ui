@@ -19,7 +19,7 @@
           <td>{{cred.nickname}}</td>
           <td>{{moment-format cred.createdAt 'DD-MM-YYYY'}}</td>
           <td>
-            <button class="btn-danger btn">
+            <button class="btn-danger btn" {{action "deleteCredential" cred}}>
               <FaIcon @icon='trash'/>
             </button>
           </td>

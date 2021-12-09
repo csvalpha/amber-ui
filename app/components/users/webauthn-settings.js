@@ -29,10 +29,16 @@ export default Component.extend({
       let json = await registrationResponse.json();
 
       if (registrationResponse.ok) {
+        this.model.reload();
         this.model.webauthnCredentials.reload();
       } else if (isInvalidResponse(registrationResponse)) {
         this.set('webauthnErrorMessage', json.error);
       }
+    },
+
+    async deleteCredential(credential) {
+      await credential.destroyRecord();
+      this.model.webauthnCredentials.reload();
     }
   }
 });
