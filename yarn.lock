@@ -3726,7 +3726,7 @@ __metadata:
     ember-cli-page-object: ^1.17
     ember-cli-qrcode: ^1.0
     ember-cli-sass: ^10.0
-    ember-cli-showdown: ^4.5
+    ember-cli-showdown: ^6.0
     ember-cli-sri: ^2.1
     ember-cli-template-lint: ^2.0
     ember-cli-uglify: ^3.0
@@ -8377,7 +8377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.7.2, ember-cli-babel@npm:^6.8.1":
+"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.7.2":
   version: 6.18.0
   resolution: "ember-cli-babel@npm:6.18.0"
   dependencies:
@@ -8625,7 +8625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-htmlbars@npm:^2.0.1, ember-cli-htmlbars@npm:^2.0.3":
+"ember-cli-htmlbars@npm:^2.0.1":
   version: 2.0.5
   resolution: "ember-cli-htmlbars@npm:2.0.5"
   dependencies:
@@ -8865,22 +8865,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-showdown@npm:^4.5":
-  version: 4.5.0
-  resolution: "ember-cli-showdown@npm:4.5.0"
+"ember-cli-showdown@npm:^6.0":
+  version: 6.0.1
+  resolution: "ember-cli-showdown@npm:6.0.1"
   dependencies:
     broccoli-funnel: ^2.0.0
     broccoli-source: ^1.1.0
     broccoli-string-replace: ^0.1.2
-    ember-cli-babel: ^6.8.1
-    ember-cli-htmlbars: ^2.0.3
-    ember-cli-import-polyfill: ^0.2.0
-    ember-cli-version-checker: ^2.1.2
-    ember-getowner-polyfill: ^2.0.1
+    ember-cli-babel: ^7.26.6
+    ember-cli-htmlbars: ^5.7.1
     resolve: ^1.8.1
     semver: ^5.5.0
     showdown: ^1.8.6
-  checksum: a576cc66de8630b755742f6a379be5241c832555187cce789f3f771627bdf87e926962ff5465ca7732a9297f7e5bde7c354eb58e34a9cfbcdd25c63260dbac94
+  checksum: 47cf037eab8c755b5df5a500bc0c43fb7b72727533c192882c47ca4c3e97e480088c68b4f983435bce02945c153ff38c5e25f2c474a1796c2d824c00d54873a3
   languageName: node
   linkType: hard
 
@@ -9418,7 +9415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-getowner-polyfill@npm:^1.1.0 || ^2.0.0, ember-getowner-polyfill@npm:^2.0.1, ember-getowner-polyfill@npm:^2.2.0":
+"ember-getowner-polyfill@npm:^1.1.0 || ^2.0.0, ember-getowner-polyfill@npm:^2.2.0":
   version: 2.2.0
   resolution: "ember-getowner-polyfill@npm:2.2.0"
   dependencies:
