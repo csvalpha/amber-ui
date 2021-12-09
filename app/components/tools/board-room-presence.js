@@ -8,7 +8,7 @@ import { task, timeout } from 'ember-concurrency';
 const BoardRoomPresence = Component.extend({
   session: service(),
   store: service(),
-  can: service(),
+  abilities: service(),
   presenceModalIsOpen: false,
   model: [],
 
@@ -83,7 +83,7 @@ const BoardRoomPresence = Component.extend({
     },
 
     newPresence() {
-      if (this.can.can('create board-room-presences')) {
+      if (this.abilities.can('create board-room-presences')) {
         const newPresenceObject = this.store.createRecord('board-room-presence', {
           startTime: moment().startOf('minute').toDate(),
           endTime: moment().startOf('minute').add(1, 'hours').toDate(),

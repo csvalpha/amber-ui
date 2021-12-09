@@ -4,7 +4,7 @@ export default class EditPostRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Forumbericht aanpassen' }
 
   canAccess(model) {
-    return this.can.can('edit forum/post', model);
+    return this.abilities.can('edit forum/post', model);
   }
 
   model(params) {

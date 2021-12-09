@@ -4,7 +4,7 @@ export default class EditPhotoAlbumRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Foto album aanpassen' }
 
   canAccess(model) {
-    return this.can.can('edit photo-albums', model);
+    return this.abilities.can('edit photo-albums', model);
   }
 
   model() {

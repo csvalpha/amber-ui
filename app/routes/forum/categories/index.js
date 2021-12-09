@@ -9,13 +9,13 @@ export default class ForumIndexRoute extends AuthenticatedRoute {
         link: 'forum.categories.new',
         title: 'Nieuwe categorie',
         icon: 'plus',
-        canAccess: this.can.can('create forum/categories')
+        canAccess: this.abilities.can('create forum/categories')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show forum/categories');
+    return this.abilities.can('show forum/categories');
   }
 
   model() {

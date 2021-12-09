@@ -27,13 +27,13 @@ export default class GroupIndexRoute extends AuthenticatedRoute {
         link: 'groups.new',
         title: 'Nieuwe groep',
         icon: 'plus',
-        canAccess: this.can.can('create groups')
+        canAccess: this.abilities.can('create groups')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show groups');
+    return this.abilities.can('show groups');
   }
 
   model(params) {

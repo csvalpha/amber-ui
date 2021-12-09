@@ -16,7 +16,7 @@ export default class EditUserRoute extends AuthenticatedRoute {
         link: 'users.edit-permissions',
         title: 'Rechten',
         linkArgument: user,
-        canAccess: this.can.can('create permissions-users')
+        canAccess: this.abilities.can('create permissions-users')
       },
       {
         link: 'users.edit-privacy',
@@ -34,7 +34,7 @@ export default class EditUserRoute extends AuthenticatedRoute {
   }
 
   canAccess(model) {
-    return this.can.can('edit user', model);
+    return this.abilities.can('edit user', model);
   }
 
   model(params) {

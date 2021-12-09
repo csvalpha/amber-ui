@@ -4,7 +4,7 @@ import EditController from 'alpha-amber/controllers/application/edit';
 
 export default EditController.extend({
   session: service('session'),
-  can: service(),
+  abilities: service(),
   successTransitionTarget: 'articles.show',
   canPin: computed('session.currentUser', function() {
     return this.session.hasPermission('article.update');
@@ -26,7 +26,7 @@ export default EditController.extend({
     return optionArray;
   }),
   groups: computed('session.currentUser', 'store', function() {
-    if (this.can.can('select all groups for articles')) {
+    if (this.abilities.can('select all groups for articles')) {
       return this.store.findAll('group');
     }
 

@@ -4,7 +4,7 @@ export default class NewArticleRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Artikel aanmaken' }
 
   canAccess() {
-    return this.can.can('create articles');
+    return this.abilities.can('create articles');
   }
 
   model() {

@@ -24,19 +24,19 @@ export default class ActivityIndexRoute extends AuthenticatedRoute {
         link: 'activities.new',
         title: 'Nieuwe activiteit',
         icon: 'plus',
-        canAccess: this.can.can('create activities')
+        canAccess: this.abilities.can('create activities')
       },
       {
         link: 'activities.ical',
         title: 'Ical link',
         icon: 'calendar-alt',
-        canAccess: this.can.can('show ical activities')
+        canAccess: this.abilities.can('show ical activities')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show activities');
+    return this.abilities.can('show activities');
   }
 
   model(params) {
