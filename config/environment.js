@@ -124,7 +124,7 @@ module.exports = function(environment) {
     sentry: {
       dsn: 'https://invalid@xx.ingest.sentry.io/12345', // invalid key, will be replaced when run as prod
       environment: deployTarget,
-      release: `amber-ui@${process.env.BUILD_HASH}`
+      release: process.env.BUILD_HASH
     }
   };
 
