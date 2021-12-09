@@ -25,13 +25,13 @@ export default class ShowPhotosRoute extends ApplicationRoute {
         linkArgument: this.controller.model,
         title: 'Foto verwijderen',
         icon: 'trash',
-        canAccess: this.can.can('destroy photos')
+        canAccess: this.abilities.can('destroy photos')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show photo-albums');
+    return this.abilities.can('show photo-albums');
   }
 
   model(params) {

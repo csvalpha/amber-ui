@@ -12,19 +12,19 @@ export default class PhotoAlbumSubRoute extends ApplicationRoute {
         link: 'photo-comments.index',
         title: 'Bekijk fotoreacties',
         icon: 'comments',
-        canAccess: this.can.can('show photo-comments')
+        canAccess: this.abilities.can('show photo-comments')
       },
       {
         link: 'photo-albums.new',
         title: 'Nieuw foto-album',
         icon: 'plus',
-        canAccess: this.can.can('create photo-albums')
+        canAccess: this.abilities.can('create photo-albums')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show photo-albums');
+    return this.abilities.can('show photo-albums');
   }
 
   model(params) {

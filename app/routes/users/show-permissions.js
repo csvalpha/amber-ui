@@ -9,12 +9,12 @@ export default class ShowUserPermissions extends ShowUserRouter {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: user,
-        canAccess: this.can.can('edit user', user)
+        canAccess: this.abilities.can('edit user', user)
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show permissions-users');
+    return this.abilities.can('show permissions-users');
   }
 }

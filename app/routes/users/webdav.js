@@ -4,6 +4,6 @@ export default class WebdavRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Contactsynchronisatie' }
 
   canAccess() {
-    return this.can.can('show webdav users');
+    return this.abilities.can('show webdav users');
   }
 }

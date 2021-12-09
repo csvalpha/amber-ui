@@ -9,7 +9,7 @@ export default class SepaRoute extends AuthenticatedRoute.extend(FileSaverMixin)
   @service fetch
 
   canAccess() {
-    return this.can.can('download sepa debit/collections');
+    return this.abilities.can('download sepa debit/collections');
   }
 
   async model(params) {

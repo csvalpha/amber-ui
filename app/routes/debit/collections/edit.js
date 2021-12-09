@@ -4,7 +4,7 @@ export default class EditCollectionRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Incasso aanpassen' }
 
   canAccess() {
-    return this.can.can('edit debit/collections');
+    return this.abilities.can('edit debit/collections');
   }
 
   model(params) {

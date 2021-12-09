@@ -4,7 +4,7 @@ export default class EditMailAliasRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Mail-alias aanpassen' }
 
   canAccess(model) {
-    return this.can.can('edit mail-alias', model);
+    return this.abilities.can('edit mail-alias', model);
   }
 
   model(params) {

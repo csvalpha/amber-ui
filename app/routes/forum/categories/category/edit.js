@@ -4,7 +4,7 @@ export default class EditCategoryRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Categorie aanpassen' }
 
   canAccess() {
-    return this.can.can('edit forum/categories');
+    return this.abilities.can('edit forum/categories');
   }
 
   model() {

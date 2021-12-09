@@ -4,7 +4,7 @@ export default class NewTopicRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Topic aanmaken' }
 
   canAccess() {
-    return this.can.can('create forum/thread');
+    return this.abilities.can('create forum/thread');
   }
 
   model() {

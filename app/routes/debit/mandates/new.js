@@ -4,7 +4,7 @@ export default class NewMandateRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Mandaat aanmaken' }
 
   canAccess() {
-    return this.can.can('create debit/mandates');
+    return this.abilities.can('create debit/mandates');
   }
 
   model() {
