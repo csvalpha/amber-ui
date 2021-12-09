@@ -66,7 +66,7 @@
     "ember-link-action": "^2.0",
     "ember-linkify": "^4.1",
     "ember-load-initializers": "^2.1",
-    "ember-maybe-import-regenerator": "^0.1",
+    "ember-maybe-import-regenerator": "^1.0",
     "ember-moment": "^8.0",
     "ember-pikaday": "^3.0",
     "ember-power-select": "^4.0",
