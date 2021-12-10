@@ -12,8 +12,7 @@ $advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-adv
 
 .advertisement-holder {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   padding: 0 20px;
 
   .advertisement-item {

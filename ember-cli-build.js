@@ -2,7 +2,6 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const nodeSass = require('node-sass');
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
