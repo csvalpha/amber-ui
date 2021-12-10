@@ -91,7 +91,7 @@
     "loader.js": "^4.7",
     "moment-duration-format": "^2.3",
     "morgan": "^1.9",
-    "node-sass": "^5.0",
+    "node-sass": "^7.0",
     "qunit": "^2.17.2",
     "qunit-dom": "^1.2",
     "remove-markdown": "^0.3",
