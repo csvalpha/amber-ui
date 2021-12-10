@@ -3726,7 +3726,7 @@ __metadata:
     ember-cli-page-object: ^1.17
     ember-cli-qrcode: ^1.0
     ember-cli-sass: ^10.0
-    ember-cli-showdown: ^4.5
+    ember-cli-showdown: ^6.0
     ember-cli-sri: ^2.1
     ember-cli-template-lint: ^2.0
     ember-cli-uglify: ^3.0
@@ -3742,7 +3742,7 @@ __metadata:
     ember-linkify: ^4.1
     ember-load-initializers: ^2.1
     ember-maybe-import-regenerator: ^1.0
-    ember-moment: ^9.0
+    ember-moment: ^8.0
     ember-pikaday: ^3.0
     ember-power-select: ^4.0
     ember-promise-helpers: ^1.0
@@ -8377,7 +8377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.8.1":
+"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0, ember-cli-babel@npm:^6.7.2":
   version: 6.18.0
   resolution: "ember-cli-babel@npm:6.18.0"
   dependencies:
@@ -8625,7 +8625,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-htmlbars@npm:^2.0.1, ember-cli-htmlbars@npm:^2.0.3":
+"ember-cli-htmlbars@npm:^2.0.1":
   version: 2.0.5
   resolution: "ember-cli-htmlbars@npm:2.0.5"
   dependencies:
@@ -8865,22 +8865,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-showdown@npm:^4.5":
-  version: 4.5.0
-  resolution: "ember-cli-showdown@npm:4.5.0"
+"ember-cli-showdown@npm:^6.0":
+  version: 6.0.1
+  resolution: "ember-cli-showdown@npm:6.0.1"
   dependencies:
     broccoli-funnel: ^2.0.0
     broccoli-source: ^1.1.0
     broccoli-string-replace: ^0.1.2
-    ember-cli-babel: ^6.8.1
-    ember-cli-htmlbars: ^2.0.3
-    ember-cli-import-polyfill: ^0.2.0
-    ember-cli-version-checker: ^2.1.2
-    ember-getowner-polyfill: ^2.0.1
+    ember-cli-babel: ^7.26.6
+    ember-cli-htmlbars: ^5.7.1
     resolve: ^1.8.1
     semver: ^5.5.0
     showdown: ^1.8.6
-  checksum: a576cc66de8630b755742f6a379be5241c832555187cce789f3f771627bdf87e926962ff5465ca7732a9297f7e5bde7c354eb58e34a9cfbcdd25c63260dbac94
+  checksum: 47cf037eab8c755b5df5a500bc0c43fb7b72727533c192882c47ca4c3e97e480088c68b4f983435bce02945c153ff38c5e25f2c474a1796c2d824c00d54873a3
   languageName: node
   linkType: hard
 
@@ -9418,7 +9415,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-getowner-polyfill@npm:^1.1.0 || ^2.0.0, ember-getowner-polyfill@npm:^2.0.1":
+"ember-getowner-polyfill@npm:^1.1.0 || ^2.0.0, ember-getowner-polyfill@npm:^2.2.0":
   version: 2.2.0
   resolution: "ember-getowner-polyfill@npm:2.2.0"
   dependencies:
@@ -9555,6 +9552,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-macro-helpers@npm:^4.2.2":
+  version: 4.2.2
+  resolution: "ember-macro-helpers@npm:4.2.2"
+  dependencies:
+    ember-cli-babel: ^7.7.3
+    ember-cli-string-utils: ^1.1.0
+    ember-cli-test-info: ^1.0.0
+  checksum: 27d23c3aaae397b71494557abe9d3ed749136ae4deaf8a068dbf173be5d4c26123dee34140fb8800c1ac34773316e410a809fb612fb0aaf4c07294b6bea78e01
+  languageName: node
+  linkType: hard
+
 "ember-maybe-import-regenerator@npm:^1.0":
   version: 1.0.0
   resolution: "ember-maybe-import-regenerator@npm:1.0.0"
@@ -9617,16 +9625,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-moment@npm:^9.0":
-  version: 9.0.1
-  resolution: "ember-moment@npm:9.0.1"
+"ember-moment@npm:^8.0":
+  version: 8.0.2
+  resolution: "ember-moment@npm:8.0.2"
   dependencies:
-    ember-auto-import: ^1.10.1
-    ember-cli-babel: ^7.23.0
-    ember-cli-htmlbars: ^5.3.1
-    moment: ^2.29.1
-    moment-timezone: ^0.5.33
-  checksum: 902a509c00383f798fa96b49c986d84d164c411861749561655627e1cd74c882b6776e8fa75efdd376ad1460234244fc8dcb7a58b694fad7340108b5d768dde0
+    ember-cli-babel: ^6.7.2
+    ember-getowner-polyfill: ^2.2.0
+    ember-macro-helpers: ^4.2.2
+  checksum: b0a6ce822661eccd69097b04069db318c6a0d311e05abdeea353a2dc342b0d8a9ca6acf87a7ceedbc3b29105a040a591044df6dad61b7e540a1ff4a306aa1607
   languageName: node
   linkType: hard
 
@@ -15199,16 +15205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.33":
-  version: 0.5.34
-  resolution: "moment-timezone@npm:0.5.34"
-  dependencies:
-    moment: ">= 2.9.0"
-  checksum: 12a1d3d52e4ba509cf1fa36bbda59d898a08fa80ab35f6c358747e93aec1f07e617cec647eaf2e8acf5f9132e581d4704d34a9edffa9a80c5cd04bf23b277595
-  languageName: node
-  linkType: hard
-
-"moment@npm:>= 2.9.0, moment@npm:^2.19.3, moment@npm:^2.29.1":
+"moment@npm:>= 2.9.0, moment@npm:^2.19.3":
   version: 2.29.1
   resolution: "moment@npm:2.29.1"
   checksum: 1e14d5f422a2687996be11dd2d50c8de3bd577c4a4ca79ba5d02c397242a933e5b941655de6c8cb90ac18f01cc4127e55b4a12ae3c527a6c0a274e455979345e
