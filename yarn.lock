@@ -19471,22 +19471,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:^3.18.0":
-  version: 3.19.0
-  resolution: "stylelint-scss@npm:3.19.0"
-  dependencies:
-    lodash: ^4.17.15
-    postcss-media-query-parser: ^0.2.3
-    postcss-resolve-nested-selector: ^0.1.1
-    postcss-selector-parser: ^6.0.2
-    postcss-value-parser: ^4.1.0
-  peerDependencies:
-    stylelint: ^8.0.0 || ^9.0.0 || ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
-  checksum: 5ce72106f5a99800ce463715d9ff7c59eb2169c8c046b5f5ff0dcf8cdfadc7c6f67a02a2a9f2c2be376cebdae5dcfc467f07c7a71a2a919444226705cea9fc44
-  languageName: node
-  linkType: hard
-
-"stylelint-scss@npm:^4.0.0":
+"stylelint-scss@npm:^4.0, stylelint-scss@npm:^4.0.0":
   version: 4.0.1
   resolution: "stylelint-scss@npm:4.0.1"
   dependencies:
