@@ -75,7 +75,7 @@
     "ember-resolver": "^8.0",
     "ember-responsive": "^4.0",
     "ember-router-scroll": "^4.0",
-    "ember-simple-auth": "^3.0",
+    "ember-simple-auth": "^4.1",
     "ember-sortable": "^3.0",
     "ember-source": "~3.20.7",
     "ember-test-selectors": "^6.0",

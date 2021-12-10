@@ -3912,7 +3912,7 @@ __metadata:
     ember-resolver: ^8.0
     ember-responsive: ^4.0
     ember-router-scroll: ^4.0
-    ember-simple-auth: ^3.0
+    ember-simple-auth: ^4.1
     ember-sortable: ^3.0
     ember-source: ~3.20.7
     ember-test-selectors: ^6.0
@@ -5803,7 +5803,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-file-creator@npm:^2.0.0, broccoli-file-creator@npm:^2.1.1":
+"broccoli-file-creator@npm:^2.1.1":
   version: 2.1.1
   resolution: "broccoli-file-creator@npm:2.1.1"
   dependencies:
@@ -5992,7 +5992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-merge-trees@npm:^2.0.0 || ^3.0.0, broccoli-merge-trees@npm:^3.0.0, broccoli-merge-trees@npm:^3.0.1, broccoli-merge-trees@npm:^3.0.2":
+"broccoli-merge-trees@npm:^3.0.0, broccoli-merge-trees@npm:^3.0.1, broccoli-merge-trees@npm:^3.0.2":
   version: 3.0.2
   resolution: "broccoli-merge-trees@npm:3.0.2"
   dependencies:
@@ -9948,21 +9948,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-simple-auth@npm:^3.0":
-  version: 3.1.0
-  resolution: "ember-simple-auth@npm:3.1.0"
+"ember-simple-auth@npm:^4.1":
+  version: 4.1.1
+  resolution: "ember-simple-auth@npm:4.1.1"
   dependencies:
     base-64: ^0.1.0
-    broccoli-file-creator: ^2.0.0
+    broccoli-file-creator: ^2.1.1
     broccoli-funnel: ^1.2.0 || ^2.0.0
-    broccoli-merge-trees: ^2.0.0 || ^3.0.0
+    broccoli-merge-trees: ^4.0.0
     ember-cli-babel: ^7.20.5
     ember-cli-is-package-missing: ^1.0.0
     ember-cookies: ^0.5.0
     silent-error: ^1.0.0
   peerDependencies:
     ember-fetch: ^8.0.1
-  checksum: c93fe6e635525058fe81c55b2eed6470be41a3bfa5d27f419542cd765fc0a0218982e1bd0605b3628ae011e50f864538fa19cd9617713424e78fd1d4454e23c3
+  checksum: a04e508c54266a5dff9d491637d375271ae105f5b9dc19162574b7c0174fe41deb8164420c5e4f4fb47835e5e360957e5f686158df8a8504b9d2ea054e05ecdb
   languageName: node
   linkType: hard
 

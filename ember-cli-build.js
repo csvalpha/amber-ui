@@ -22,6 +22,10 @@ module.exports = function(defaults) {
       importBootstrapCSS: false
     },
 
+    'ember-simple-auth': {
+      useSessionSetupMethod: true
+    },
+
     babel: {
       plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')],
       sourceMaps: 'inline'
