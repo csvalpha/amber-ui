@@ -97,7 +97,7 @@
     "remove-markdown": "^0.3",
     "stylelint": "^14.1",
     "stylelint-config-sass-guidelines": "^9.0",
-    "stylelint-config-standard": "^20.0",
+    "stylelint-config-standard": "^24.0",
     "stylelint-order": "^5.0",
     "stylelint-scss": "^4.0",
     "webpack": "^5.65.0"
