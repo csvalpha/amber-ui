@@ -3976,7 +3976,7 @@ __metadata:
     stylelint: ^13.0
     stylelint-config-sass-guidelines: ^8.0
     stylelint-config-standard: ^20.0
-    stylelint-order: ^4.0
+    stylelint-order: ^5.0
     stylelint-scss: ^3.13
     webpack: ^5.65.0
   languageName: unknown
@@ -17014,6 +17014,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-sorting@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "postcss-sorting@npm:7.0.1"
+  peerDependencies:
+    postcss: ^8.3.9
+  checksum: 79cca6703ef7c60ea913c3bfb91f85bd7adce35e60b834a40cadd1c7e18f37961d63f0e641387651ee3bf1df1996e952d8fe443f93a271aa2d23f239ea3145bc
+  languageName: node
+  linkType: hard
+
 "postcss-syntax@npm:^0.36.2":
   version: 0.36.2
   resolution: "postcss-syntax@npm:0.36.2"
@@ -17041,7 +17050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.2.15":
+"postcss@npm:^8.2.15, postcss@npm:^8.3.11":
   version: 8.4.4
   resolution: "postcss@npm:8.4.4"
   dependencies:
@@ -19449,7 +19458,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-order@npm:^4.0, stylelint-order@npm:^4.0.0":
+"stylelint-order@npm:^4.0.0":
   version: 4.1.0
   resolution: "stylelint-order@npm:4.1.0"
   dependencies:
@@ -19459,6 +19468,18 @@ __metadata:
   peerDependencies:
     stylelint: ^10.0.1 || ^11.0.0 || ^12.0.0 || ^13.0.0
   checksum: 95162ed46e2e90d923827a4bd4652d160cb225ead5520d13d83132337a72546c79d7d5d67833b87d054945dd74361a181a509273311fe7f56ac0f034959172c8
+  languageName: node
+  linkType: hard
+
+"stylelint-order@npm:^5.0":
+  version: 5.0.0
+  resolution: "stylelint-order@npm:5.0.0"
+  dependencies:
+    postcss: ^8.3.11
+    postcss-sorting: ^7.0.1
+  peerDependencies:
+    stylelint: ^14.0.0
+  checksum: fa3ace3cc65486b9f94165603bd04983636fda5ac959cd29bf87847a95b32f366b16faf612bd49e3b9f96073f8fe28a22a5c5727cc08c8f9d7327c89084b3f30
   languageName: node
   linkType: hard
 
