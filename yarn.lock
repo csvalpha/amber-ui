@@ -3947,7 +3947,7 @@ __metadata:
     ember-maybe-import-regenerator: ^1.0
     ember-moment: ^9.0
     ember-pikaday: ^3.0
-    ember-power-select: ^4.0
+    ember-power-select: ^5.0
     ember-promise-helpers: ^1.0
     ember-qunit: ^5.0
     ember-resolver: ^8.0
@@ -8347,13 +8347,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-assign-helper@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "ember-assign-helper@npm:0.3.0"
+"ember-assign-helper@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "ember-assign-helper@npm:0.4.0"
   dependencies:
-    ember-cli-babel: ^7.19.0
-    ember-cli-htmlbars: ^4.3.1
-  checksum: 5529b2ebd83579f6008881fa0d65c2af9756aad3a2c38da1641f72595d0d222966036c935c56208f827f3241e88e3db3ce52395a16a98d4bfe07972fa0011523
+    ember-cli-babel: ^7.26.0
+    ember-cli-htmlbars: ^6.0.0
+  checksum: 32bbec384c8f78c919d7a6e24cc36c7a48bd0244d3b38c4aa8a17fc1f1b68822f4805a838fec7e1fe35dfcd2832eb9afa146606f625e737ea258127254a5b9d4
   languageName: node
   linkType: hard
 
@@ -8517,9 +8517,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-basic-dropdown@npm:^3.0.21":
-  version: 3.1.0
-  resolution: "ember-basic-dropdown@npm:3.1.0"
+"ember-basic-dropdown@npm:^3.1.0 || ^4.0.0":
+  version: 4.0.1
+  resolution: "ember-basic-dropdown@npm:4.0.1"
   dependencies:
     "@ember/render-modifiers": ^2.0.0
     "@embroider/macros": ^0.47.2
@@ -8533,7 +8533,7 @@ __metadata:
     ember-maybe-in-element: ^2.0.3
     ember-style-modifier: ^0.7.0
     ember-truth-helpers: ^2.1.0 || ^3.0.0
-  checksum: ef6f6e358007ebf7d3afa277e04bc9c9075430dda71d304e5fcf3dc8a123b3244b78c77ae650550a766aae01fc31d740799d3a27bb48285200d6ec0e1f1b19c3
+  checksum: b67e666e5bbafd71d02316790b5ffba5094eed0d2c675ab1c65763057014d931c8f9a2de38bb6956abf05273bb7d32231d05f2c40e70a608d958a89684851eb3
   languageName: node
   linkType: hard
 
@@ -9948,14 +9948,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-power-select@npm:^4.0":
-  version: 4.1.7
-  resolution: "ember-power-select@npm:4.1.7"
+"ember-power-select@npm:^5.0":
+  version: 5.0.2
+  resolution: "ember-power-select@npm:5.0.2"
   dependencies:
+    "@embroider/util": ^0.47.2
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    ember-assign-helper: ^0.3.0
-    ember-basic-dropdown: ^3.0.21
+    ember-assign-helper: ^0.4.0
+    ember-basic-dropdown: ^3.1.0 || ^4.0.0
     ember-cli-babel: ^7.26.0
     ember-cli-htmlbars: ^6.0.0
     ember-cli-typescript: ^4.2.0
@@ -9963,7 +9964,7 @@ __metadata:
     ember-concurrency-decorators: ^2.0.0
     ember-text-measurer: ^0.6.0
     ember-truth-helpers: ^2.1.0 || ^3.0.0
-  checksum: 47a57f4125d33520be818ba14b79d5fe21241d3ae3968c24d4d12f2c18e14ef635340da55cc2a06f7dcd29f44da19479f9d54413693d550de1e6a2a15ec8b2b6
+  checksum: b2af5d48650049779522ae005304230589852d29fdc5092d0318868309ecc28128b0806534d929403eddc7b71afed0b30060feb07a938aa86d422795ee83da24
   languageName: node
   linkType: hard
 
