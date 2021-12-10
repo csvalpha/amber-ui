@@ -3915,7 +3915,7 @@ __metadata:
     ember-simple-auth: ^3.0
     ember-sortable: ^3.0
     ember-source: ~3.20.7
-    ember-test-selectors: ^5.0
+    ember-test-selectors: ^6.0
     ember-truth-helpers: ^3.0
     ember-wormhole: ^0.6
     eslint: ^7.32.0
@@ -10086,17 +10086,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-test-selectors@npm:^5.0":
-  version: 5.5.0
-  resolution: "ember-test-selectors@npm:5.5.0"
-  dependencies:
-    calculate-cache-key-for-tree: ^2.0.0
-    ember-cli-babel: ^7.26.4
-    ember-cli-version-checker: ^5.1.2
-  checksum: d581d1f24bb1c175a3626886fa4107ec0a2e4c44a6bb187f9169f23478b4f1c356b63d1595e7121d532f7d2cd12ea2a2007e3e39be2d42f46685e621f8ff14b3
-  languageName: node
-  linkType: hard
-
 "ember-test-selectors@npm:^5.0.0":
   version: 5.0.0
   resolution: "ember-test-selectors@npm:5.0.0"
@@ -10105,6 +10094,17 @@ __metadata:
     ember-cli-babel: ^7.22.1
     ember-cli-version-checker: ^5.1.1
   checksum: 9c51076fa0a8eff8ce4c996c89e187d842e5e672f3dad17deb5493d7729431b1536175fbb44b77f08d2a2b58ad1ca77f669a86461bd38dd8f33fb2607ff9e356
+  languageName: node
+  linkType: hard
+
+"ember-test-selectors@npm:^6.0":
+  version: 6.0.0
+  resolution: "ember-test-selectors@npm:6.0.0"
+  dependencies:
+    calculate-cache-key-for-tree: ^2.0.0
+    ember-cli-babel: ^7.26.4
+    ember-cli-version-checker: ^5.1.2
+  checksum: f03bd35caca4390613f68192b257b8edb836cec847ed966e75cd19ce58e5cf62c6a6107575feea0da9b6885cbf4141842b4de05a14edbf3e4164bd93d0c05601
   languageName: node
   linkType: hard
 
