@@ -23,10 +23,6 @@ module.exports = function(defaults) {
       importBootstrapCSS: false
     },
 
-    sassOptions: {
-      implementation: nodeSass
-    },
-
     babel: {
       plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')],
       sourceMaps: 'inline'

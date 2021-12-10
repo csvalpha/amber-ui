@@ -182,7 +182,7 @@ $card-border: 0 solid $gray-300;
 }
 
 .card-subtitle {
-  margin-top: -($card-spacer-y / 2);
+  margin-top: -(calc($card-spacer-y / 2));
   margin-bottom: 0;
 }
 
