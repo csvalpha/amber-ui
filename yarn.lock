@@ -3929,7 +3929,7 @@ __metadata:
     moment-duration-format: ^2.3
     morgan: ^1.9
     qunit: ^2.17.2
-    qunit-dom: ^1.2
+    qunit-dom: ^2.0
     remove-markdown: ^0.3
     sass: ^1.44.0
     stylelint: ^14.1
@@ -16851,15 +16851,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qunit-dom@npm:^1.2":
-  version: 1.6.0
-  resolution: "qunit-dom@npm:1.6.0"
+"qunit-dom@npm:^2.0":
+  version: 2.0.0
+  resolution: "qunit-dom@npm:2.0.0"
   dependencies:
     broccoli-funnel: ^3.0.3
     broccoli-merge-trees: ^4.2.0
     ember-cli-babel: ^7.23.0
     ember-cli-version-checker: ^5.1.1
-  checksum: 4f4a0a4de5c1509a18569ff607d11230e0a285203eca74137bd7765d78cf2570615f47be581627c0de56b7d8963e86f326d962d3849256dbbbda40c0cbb8cef2
+  checksum: f9f06ad19adaaa4f8f107f28fd3feacd65b26d4de647d08b11a844b750ebbed2adbeabab52edc9d8cda2b0b7a0e08812425a5d4698b34f1b2a9af7b6f53b8413
   languageName: node
   linkType: hard
 
