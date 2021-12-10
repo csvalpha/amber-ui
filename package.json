@@ -70,7 +70,7 @@
     "ember-moment": "^9.0",
     "ember-pikaday": "^3.0",
     "ember-power-select": "^5.0",
-    "ember-promise-helpers": "^1.0",
+    "ember-promise-helpers": "^2.0",
     "ember-qunit": "^5.0",
     "ember-resolver": "^8.0",
     "ember-responsive": "^4.0",
