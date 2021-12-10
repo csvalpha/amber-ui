@@ -15,13 +15,13 @@ $white:                     #fff;
 $black:                     #000;
 
 // transparent colors
-$transparent:               rgba(0, 0, 0, 0);
-$opaque-black-tenth:        rgba(0, 0, 0, .1);
-$opaque-black-halfly:       rgba(0, 0, 0, .5);
-$opaque-black-two-thirds:   rgba(0, 0, 0, .66);
-$opaque-black-dark:         rgba(0, 0, 0, .9);
-$opaque-white-halfly:       rgba(255, 255, 255, .5);
-$brand-primary-transparent-halfly: rgba(255, 210, 24, .3);
+$transparent:               rgb(0 0 0 / 0%);
+$opaque-black-tenth:        rgb(0 0 0 / 10%);
+$opaque-black-halfly:       rgb(0 0 0 / 50%);
+$opaque-black-two-thirds:   rgb(0 0 0 / 66%);
+$opaque-black-dark:         rgb(0 0 0 / 90%);
+$opaque-white-halfly:       rgb(255 255 255 / 50%);
+$brand-primary-transparent-halfly: rgb(255 210 24 / 30%);
 
 $photo-card-height: 200px;
 
