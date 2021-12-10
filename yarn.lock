@@ -3907,7 +3907,7 @@ __metadata:
     ember-moment: ^9.0
     ember-pikaday: ^3.0
     ember-power-select: ^5.0
-    ember-promise-helpers: ^1.0
+    ember-promise-helpers: ^2.0
     ember-qunit: ^5.0
     ember-resolver: ^8.0
     ember-responsive: ^4.0
@@ -9828,12 +9828,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-promise-helpers@npm:^1.0":
-  version: 1.0.9
-  resolution: "ember-promise-helpers@npm:1.0.9"
+"ember-promise-helpers@npm:^2.0":
+  version: 2.0.0
+  resolution: "ember-promise-helpers@npm:2.0.0"
   dependencies:
-    ember-cli-babel: ^6.16.0
-  checksum: 543c3154422a398bae7c455eb16942851259d88766ed547981836984562aa6214d5a7ab9e78cafef3c848cd9cd651fdc91a3173908133b489e9e25b6e1c948c8
+    ember-cli-babel: ^7.26.6
+    ember-cli-htmlbars: ^5.7.1
+  checksum: 7c73628bf631f6b08cd457558d66972d8d3b1310146b7ebd053052dda5761b240e88ed3ee6d0e9809f8d45ba6f37f0c97f817e79b00f1a6a1a04d17b264c5251
   languageName: node
   linkType: hard
 
