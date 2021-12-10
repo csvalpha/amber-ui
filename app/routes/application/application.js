@@ -21,10 +21,6 @@ export class ApplicationRoute extends Route {
     return [];
   }
 
-  async beforeModel() {
-    await this.session.setup();
-  }
-
   setupController(controller) {
     super.setupController(...arguments);
     controller.pageActions = this.pageActions;
