@@ -16,7 +16,7 @@ module.exports = function(environment) {
     'base-uri': ['\'none\''],
     'form-action': ['\'self\''],
     'frame-ancestors': ['\'self\''],
-    'block-all-mixed-content': []
+    'block-all-mixed-content': ''
   };
 
   if (environment === 'development' || environment === 'test') {
