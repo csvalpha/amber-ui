@@ -19,7 +19,7 @@ module.exports = function(environment) {
     'block-all-mixed-content': []
   };
 
-  if (!['development', 'test'].includes(environment)) {
+  if (['development', 'test'].includes(environment)) {
     policy['script-src'].push('\'unsafe-inline\'', '\'unsafe-eval\'');
   }
 
