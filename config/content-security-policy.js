@@ -16,10 +16,10 @@ module.exports = function(environment) {
     'base-uri': ['\'none\''],
     'form-action': ['\'self\''],
     'frame-ancestors': ['\'self\''],
-    'block-all-mixed-content': ''
+    'block-all-mixed-content': []
   };
 
-  if (environment === 'development' || environment === 'test') {
+  if (!['development', 'test'].includes(environment)) {
     policy['script-src'].push('\'unsafe-inline\'', '\'unsafe-eval\'');
   }
 
