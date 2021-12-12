@@ -43,12 +43,6 @@ jobs:
             fi
             BUILD_ARGS=${BUILD_ARGS//$'\n'/'%0A'}
             echo '::set-output name=build_args::'$BUILD_ARGS
-
-            if [ $GITHUB_REF_NAME = 'master' ]; then
-              echo '::set-output name=stage::production'
-            else
-              echo '::set-output name=stage::staging'
-            fi
           fi
 
   publish:
@@ -99,9 +93,9 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_PROJECT: ${{ env.PROJECT_NAME }}
         with:
-          environment: ${{ needs.metadata.outputs.stage }}
           finalize: false
           sourcemaps: sourcemaps
+          version: ${{ github.event.inputs.sha }}
           url_prefix: ~/assets/
 
   update_check_run:
