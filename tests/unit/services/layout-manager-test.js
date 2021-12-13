@@ -1,9 +1,18 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import { setBreakpoint } from 'ember-responsive/test-support';
+import Service from '@ember/service';
+
+class SessionStub extends Service {
+  isAuthenticated = false
+}
 
 module('Unit | Service | layoutManager', function(hooks) {
   setupTest(hooks);
+
+  hooks.beforeEach(function() {
+    this.owner.register('service:session', SessionStub);
+  });
 
   test('it sets the left sidebar visibility according to media device', function(assert) {
     let service = this.owner.lookup('service:layout-manager');
