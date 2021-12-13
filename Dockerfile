@@ -1,4 +1,4 @@
-FROM danlynn/ember-cli:3.28.2-node_16.11 as base
+FROM danlynn/ember-cli:3.28.2-node_14.18 as base
 
 ARG DEPLOY_TARGET='production'
 ARG BUILD_HASH='unknown'
