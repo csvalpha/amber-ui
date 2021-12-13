@@ -7,7 +7,7 @@ export default class IndexRoute extends ApplicationRoute {
         link: 'articles.new',
         title: 'Nieuw artikel',
         icon: 'plus',
-        canAccess: this.can.can('create articles')
+        canAccess: this.abilities.can('create articles')
       }
     ];
   }

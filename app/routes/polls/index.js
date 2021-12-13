@@ -9,13 +9,13 @@ export default class MailAliasIndexRoute extends ApplicationRoute {
         link: 'polls.new',
         title: 'Nieuwe Poll',
         icon: 'plus',
-        canAccess: this.can.can('create polls')
+        canAccess: this.abilities.can('create polls')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show polls');
+    return this.abilities.can('show polls');
   }
 
   model(params) {

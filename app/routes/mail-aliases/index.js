@@ -11,13 +11,13 @@ export default class MailAliasIndexRoute extends ApplicationRoute {
         link: 'mail-aliases.new',
         title: 'Nieuw mailalias',
         icon: 'plus',
-        canAccess: this.can.can('create mail-aliases')
+        canAccess: this.abilities.can('create mail-aliases')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show mail-aliases');
+    return this.abilities.can('show mail-aliases');
   }
 
   model(params) {

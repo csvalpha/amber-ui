@@ -8,7 +8,7 @@ import { ActivityCategories } from 'alpha-amber/constants';
 export default Controller.extend({
   session: service(),
   store: service(),
-  can: service(),
+  abilities: service(),
   flashNotice: service('flash-notice'),
   combinedErrors: union('model.errors', 'model.form.errors'),
   activityHasForm: computed('model.form.content', {
@@ -29,7 +29,7 @@ export default Controller.extend({
   }),
 
   groups: computed('session.currentUser', function() {
-    if (this.can.can('select all groups for activities')) {
+    if (this.abilities.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
 

@@ -4,7 +4,7 @@ export default class DestroyStaticPageRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Informatie pagina verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy static-pages');
+    return this.abilities.can('destroy static-pages');
   }
 
   model(params) {

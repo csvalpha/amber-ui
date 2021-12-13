@@ -10,8 +10,7 @@
 
 .dropzone.dropzone {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   align-content: flex-end;
   align-items: center;
   border: 1px solid $gray-200;

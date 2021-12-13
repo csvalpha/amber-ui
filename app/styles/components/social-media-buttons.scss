@@ -1,7 +1,6 @@
 .social-buttons {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  flex-flow: column wrap;
   align-self: center;
 }
 
