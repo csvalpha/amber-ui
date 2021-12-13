@@ -1,4 +1,4 @@
-FROM madnificent/ember:3.17.0 as ember
+FROM danlynn/ember-cli:3.28.2-node_16.11 as base
 
 ARG DEPLOY_TARGET='production'
 ARG BUILD_HASH='unknown'
@@ -9,6 +9,10 @@ COPY .yarn .yarn
 RUN yarn install --immutable
 
 COPY . .
+
+
+FROM base AS builder
+
 RUN DEPLOY_TARGET=$DEPLOY_TARGET BUILD_HASH=$BUILD_HASH ember build --environment=production
 
 
@@ -17,4 +21,4 @@ LABEL maintainer="C.S.V. Alpha <ict@csvalpha.nl>"
 
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d/app.conf
-COPY --from=ember /opt/app/dist /usr/share/nginx/html
+COPY --from=builder /opt/app/dist /usr/share/nginx/html
