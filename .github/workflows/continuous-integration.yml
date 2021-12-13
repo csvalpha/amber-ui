@@ -24,7 +24,7 @@ jobs:
         uses: guidojw/actions/build-docker-image@2b1dea8cbd9e44491c269e771b75636026caf8ca # renovate: tag=v1.1.0
         with:
           file: Dockerfile
-          stage: base
+          target: base
           name: app
 
   lint:
