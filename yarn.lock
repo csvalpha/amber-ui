@@ -3716,7 +3716,7 @@ __metadata:
     ember-can: ^4.1
     ember-cli: ~3.20.2
     ember-cli-babel: ^7.26.6
-    ember-cli-content-security-policy: ^2.0
+    ember-cli-content-security-policy: ^2.0.1
     ember-cli-dependency-checker: ^3.2
     ember-cli-dropzonejs: ^1.3
     ember-cli-file-saver: ^2.0
@@ -8546,16 +8546,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-content-security-policy@npm:^2.0":
-  version: 2.0.0
-  resolution: "ember-cli-content-security-policy@npm:2.0.0"
+"ember-cli-content-security-policy@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "ember-cli-content-security-policy@npm:2.0.1"
   dependencies:
     body-parser: ^1.17.0
     chalk: ^4.1.1
     debug: ^4.3.1
     ember-cli-babel: ^7.26.3
     ember-cli-version-checker: ^5.0.2
-  checksum: 1f1c739fb93ad05a369945d1d0bd68d297a66259e9a9d79c9b39ca77b8fb061569742b36d5c3a714b6abf4973629cd3c68a439a1332f57c502f22b2006c551c5
+  checksum: ba0e5f21962ca44719d043b52407e89c9b473cc20f69aa4b642105916066ebfcf85311b1bf48eaabd421a9a7f8d0e10de75151a3934ec08c74c66cd15d9c09ac
   languageName: node
   linkType: hard
 
