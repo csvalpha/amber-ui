@@ -45,9 +45,10 @@ export default class SessionService extends BaseSessionService {
       debug(
         `Current user does not have permission '${permissionName}'`,
         !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,
-        {id: 'alpha-amber.session.no-permission'}
+        { id: 'alpha-amber.session.no-permission' }
       );
     }
+
     return hasPermission;
   }
 }
