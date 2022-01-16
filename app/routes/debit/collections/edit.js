@@ -8,7 +8,7 @@ export default class EditCollectionRoute extends AuthenticatedRoute {
   }
 
   model(params) {
-    return this.store.findRecord('debit/collections', params.id, params);
+    return this.store.findRecord('debit/collection', params.id, params);
   }
 
   deactivate() {
