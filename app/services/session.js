@@ -35,18 +35,20 @@ export default class SessionService extends BaseSessionService {
       let user = await this.store.query('user', { me: true, include: 'user_permissions' });
       await user.firstObject.permissions; // Load the permissions
       this.currentUser = user.firstObject;
-
       Sentry.setUser({ id: this.currentUser?.id });
     }
   }
 
   hasPermission(permissionName) {
     const hasPermission = !isNone(this.currentUser) && this.currentUser.hasPermission(permissionName);
-    debug(
-      `Current user does not have permission '${permissionName}'`,
-      !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,
-      { id: 'alpha-amber.session.no-permission' }
-    );
+    if (!hasPermission) {
+      debug(
+        `Current user does not have permission '${permissionName}'`,
+        !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,
+        { id: 'alpha-amber.session.no-permission' }
+      );
+    }
+
     return hasPermission;
   }
 }

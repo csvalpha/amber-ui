@@ -28,7 +28,7 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
         link: 'debit.collections.sepa',
         title: 'SEPA bestand downloaden',
         icon: 'download',
-        linkArgument: collection,
+        linkArgument: collection.id,
         canAccess: this.abilities.can('download sepa debit/collections')
       }
     ];
