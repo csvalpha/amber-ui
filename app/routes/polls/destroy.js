@@ -4,7 +4,7 @@ export default class DestroyPollRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Poll verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy polls');
+    return this.abilities.can('destroy polls');
   }
 
   model(params) {

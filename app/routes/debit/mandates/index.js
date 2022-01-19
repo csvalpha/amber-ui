@@ -9,13 +9,13 @@ export default class MandatesRoute extends AuthenticatedRoute {
         link: 'debit.mandates.new',
         title: 'Nieuwe mandaat',
         icon: 'plus',
-        canAccess: this.can.can('create debit/mandates')
+        canAccess: this.abilities.can('create debit/mandates')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show debit/mandates');
+    return this.abilities.can('show debit/mandates');
   }
 
   model(params) {

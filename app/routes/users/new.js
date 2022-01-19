@@ -4,7 +4,7 @@ export default class NewUserRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Gebruiker aanmaken' }
 
   canAccess() {
-    return this.can.can('create users');
+    return this.abilities.can('create users');
   }
 
   model() {

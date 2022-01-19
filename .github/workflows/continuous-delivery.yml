@@ -142,7 +142,7 @@ jobs:
           ref: ${{ needs.merge.outputs.sha }}
 
       - name: Start deployment
-        uses: bobheadxi/deployments@3288e49ca0bde112b9414f998339321d537e2a51 # renovate: tag=v0.6.1
+        uses: bobheadxi/deployments@f235d02c2daaaa84c710d013c7d39f7f0f8bf298 # renovate: tag=v0.6.2
         id: start_deployment
         with:
           step: start
@@ -170,10 +170,11 @@ jobs:
           SENTRY_PROJECT: ${{ env.PROJECT_NAME }}
         with:
           environment: ${{ needs.metadata.outputs.stage }}
+          version: ${{ needs.merge.outputs.sha }}
           set_commits: skip
 
       - name: Finish deployment
-        uses: bobheadxi/deployments@3288e49ca0bde112b9414f998339321d537e2a51 # renovate: tag=v0.6.1
+        uses: bobheadxi/deployments@f235d02c2daaaa84c710d013c7d39f7f0f8bf298 # renovate: tag=v0.6.2
         if: steps.start_deployment.conclusion == 'success' && always()
         with:
           step: finish
@@ -202,7 +203,7 @@ jobs:
           done
 
       - name: Update Continuous Delivery check run
-        uses: guidojw/actions/update-check-run@fcb92ed90a3965b130f4e5ed3f53df9ef65e6de1 # renovate: tag=v1.0.0
+        uses: guidojw/actions/update-check-run@2b1dea8cbd9e44491c269e771b75636026caf8ca # renovate: tag=v1.1.0
         with:
           app_id: ${{ env.APP_ID }}
           private_key: ${{ secrets.APP_PRIVATE_KEY }}

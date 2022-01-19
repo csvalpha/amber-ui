@@ -15,13 +15,13 @@ export default class StaticPagesIndexRoute extends ApplicationRoute {
         link: 'static-pages.new',
         title: 'Nieuwe infopagina',
         icon: 'plus',
-        canAccess: this.can.can('create static-pages')
+        canAccess: this.abilities.can('create static-pages')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show static-pages');
+    return this.abilities.can('show static-pages');
   }
 
   model(params) {

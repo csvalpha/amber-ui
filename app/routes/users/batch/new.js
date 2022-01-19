@@ -4,7 +4,7 @@ export default class EditStaticPageRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Batch gebruikers uploaden' }
 
   canAccess() {
-    return this.can.can('batch upload users');
+    return this.abilities.can('batch upload users');
   }
 
   model() {

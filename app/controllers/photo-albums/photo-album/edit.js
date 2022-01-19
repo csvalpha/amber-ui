@@ -6,7 +6,7 @@ export default Controller.extend({
   store: service(),
   fetch: service(),
   session: service(),
-  can: service(),
+  abilities: service(),
 
   groupOptions: computed('session.currentUser.{group,groups}', function() {
     const optionArray = [
@@ -25,7 +25,7 @@ export default Controller.extend({
     return optionArray;
   }),
   groups: computed('session.currentUser', 'store', function() {
-    if (this.can.can('select all groups for photo-albums')) {
+    if (this.abilities.can('select all groups for photo-albums')) {
       return this.store.findAll('group');
     }
 

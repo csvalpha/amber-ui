@@ -12,7 +12,7 @@ COPY . .
 RUN DEPLOY_TARGET=$DEPLOY_TARGET BUILD_HASH=$BUILD_HASH ember build --environment=production
 
 
-FROM nginx:1.17-alpine
+FROM nginx:1.21-alpine
 LABEL maintainer="C.S.V. Alpha <ict@csvalpha.nl>"
 
 RUN rm /etc/nginx/conf.d/default.conf

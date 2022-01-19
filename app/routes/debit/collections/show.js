@@ -15,27 +15,27 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: collection,
-        canAccess: this.can.can('edit debit/collections')
+        canAccess: this.abilities.can('edit debit/collections')
       },
       {
         link: 'debit.collections.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: collection,
-        canAccess: this.can.can('destroy debit/collections')
+        canAccess: this.abilities.can('destroy debit/collections')
       },
       {
         link: 'debit.collections.sepa',
         title: 'SEPA bestand downloaden',
         icon: 'download',
-        linkArgument: collection,
-        canAccess: this.can.can('download sepa debit/collections')
+        linkArgument: collection.id,
+        canAccess: this.abilities.can('download sepa debit/collections')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show debit/collections');
+    return this.abilities.can('show debit/collections');
   }
 
   model(params) {

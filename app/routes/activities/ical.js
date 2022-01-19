@@ -4,6 +4,6 @@ export default class IcalRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Agenda Ical' };
 
   canAccess() {
-    return this.can.can('show ical activities');
+    return this.abilities.can('show ical activities');
   }
 }

@@ -5,8 +5,8 @@ export default class AppRoute extends Route {
   @service session;
   @service intl;
 
-  beforeModel() {
-    super.beforeModel(...arguments);
+  async beforeModel() {
+    await this.session.setup();
     moment.locale('nl');
     this.intl.setLocale(['nl']);
     return this.session.loadUser();

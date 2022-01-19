@@ -11,11 +11,11 @@ export default Component.extend({
   store: service(),
   messageBus: service(),
   notification: service(),
-  can: service(),
+  abilities: service(),
   init() {
     this._super(...arguments);
     this.set('messages', []);
-    if (this.can.can('show quickpost-messages')) {
+    if (this.abilities.can('show quickpost-messages')) {
       this.send('loadMessages', 1);
       this.send('subscribeToQuickpostMessagesMessageBus');
     }

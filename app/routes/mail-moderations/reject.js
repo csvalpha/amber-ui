@@ -4,7 +4,7 @@ export default class RejectModerationRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Moderatieverzoek afwijzen' }
 
   canAccess() {
-    return this.can.can('reject mail-moderations');
+    return this.abilities.can('reject mail-moderations');
   }
 
   model(params) {
