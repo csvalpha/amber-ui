@@ -29,6 +29,8 @@ jobs:
     steps:
       - name: Get metadata
         id: get_metadata
+        env:
+          INPUT_SHA: ${{ inputs.sha }}
         run: |
           if [ $GITHUB_REF_NAME = 'master' ]; then
             echo '::set-output name=tag::latest'
@@ -37,18 +39,12 @@ jobs:
           fi
 
           if [ $GITHUB_REF_NAME = 'staging' ] || [ $GITHUB_REF_NAME = 'master' ]; then
-            BUILD_ARGS='BUILD_HASH='$GITHUB_SHA
+            BUILD_ARGS='BUILD_HASH='${INPUT_SHA:-GITHUB_SHA}
             if [ $GITHUB_REF_NAME = 'staging' ]; then
               BUILD_ARGS+=$'\nDEPLOY_TARGET=staging'
             fi
             BUILD_ARGS=${BUILD_ARGS//$'\n'/'%0A'}
             echo '::set-output name=build_args::'$BUILD_ARGS
-
-            if [ $GITHUB_REF_NAME = 'master' ]; then
-              echo '::set-output name=stage::production'
-            else
-              echo '::set-output name=stage::staging'
-            fi
           fi
 
   publish:
@@ -99,9 +95,9 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_PROJECT: ${{ env.PROJECT_NAME }}
         with:
-          environment: ${{ needs.metadata.outputs.stage }}
           finalize: false
           sourcemaps: sourcemaps
+          version: ${{ inputs.sha }}
           url_prefix: ~/assets/
 
   update_check_run:
