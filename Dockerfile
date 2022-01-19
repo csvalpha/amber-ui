@@ -11,7 +11,7 @@ RUN yarn install --immutable
 COPY . .
 
 
-FROM base as builder
+FROM base AS builder
 
 RUN DEPLOY_TARGET=$DEPLOY_TARGET BUILD_HASH=$BUILD_HASH ember build --environment=production
 
