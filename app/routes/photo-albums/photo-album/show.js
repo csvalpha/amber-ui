@@ -2,7 +2,7 @@ import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 
 export default class ShowPhotoAlbumRoute extends ApplicationRoute {
   canAccess() {
-    return this.can.can('show photo-albums');
+    return this.abilities.can('show photo-albums');
   }
 
   beforeModel() {

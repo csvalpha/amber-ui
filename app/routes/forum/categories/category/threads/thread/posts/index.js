@@ -17,20 +17,20 @@ export default class PostIndexRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: this.controller.model.thread,
-        canAccess: this.can.can('edit forum/threads')
+        canAccess: this.abilities.can('edit forum/threads')
       },
       {
         link: 'forum.categories.category.threads.thread.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.controller.model.thread,
-        canAccess: this.can.can('destroy forum/threads')
+        canAccess: this.abilities.can('destroy forum/threads')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show forum/posts');
+    return this.abilities.can('show forum/posts');
   }
 
   async model(params) {

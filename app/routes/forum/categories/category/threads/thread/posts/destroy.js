@@ -4,7 +4,7 @@ export default class DestroyPostRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Forumbericht verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy forum/posts');
+    return this.abilities.can('destroy forum/posts');
   }
 
   model(params) {

@@ -13,21 +13,21 @@ export default class ShowUserRouter extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: user,
-        canAccess: this.can.can('edit user', user)
+        canAccess: this.abilities.can('edit user', user)
       },
       {
         link: 'users.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: user,
-        canAccess: this.can.can('destroy user', user)
+        canAccess: this.abilities.can('destroy user', user)
       },
       {
         link: 'users.resend_activation',
         title: 'Verstuur activatie code',
         icon: 'paper-plane',
         linkArgument: user,
-        canAccess: this.can.can('resend activation code of user', user)
+        canAccess: this.abilities.can('resend activation code of user', user)
       }
     ];
   }
@@ -39,25 +39,25 @@ export default class ShowUserRouter extends AuthenticatedRoute {
         link: 'users.show',
         title: 'Algemeen',
         linkArgument: user,
-        canAccess: this.can.can('show users')
+        canAccess: this.abilities.can('show users')
       },
       {
         link: 'users.show-groups',
         title: 'Groepen',
         linkArgument: user,
-        canAccess: this.can.can('show memberships')
+        canAccess: this.abilities.can('show memberships')
       },
       {
         link: 'users.show-settings',
         title: 'Instellingen',
         linkArgument: user,
-        canAccess: this.can.can('edit user', user)
+        canAccess: this.abilities.can('edit user', user)
       },
       {
         link: 'users.show-mail',
         title: 'Mail aliassen',
         linkArgument: user,
-        canAccess: this.can.can('show mail-aliases')
+        canAccess: this.abilities.can('show mail-aliases')
       },
       {
         link: 'users.show-mandates',
@@ -69,13 +69,13 @@ export default class ShowUserRouter extends AuthenticatedRoute {
         link: 'users.show-permissions',
         title: 'Rechten',
         linkArgument: user,
-        canAccess: this.can.can('show permissions-users')
+        canAccess: this.abilities.can('show permissions-users')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show individual users');
+    return this.abilities.can('show individual users');
   }
 
   model(params) {

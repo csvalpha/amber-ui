@@ -4,7 +4,7 @@ export default class DestroyTopicRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Topic verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy forum/threads');
+    return this.abilities.can('destroy forum/threads');
   }
 
   model() {

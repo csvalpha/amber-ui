@@ -11,26 +11,26 @@ export default Component.extend({
   intl: service(),
   localStorage: service(),
   router: service(),
-  can: service(),
+  abilities: service(),
   unAuthenticatedMenuOptions: computed('intl.locale', function() {
     return [
       {
         link: 'articles',
         title: this.intl.t('mixin.menuItems.articles'),
         icon: '',
-        canAccess: this.can.can('show articles')
+        canAccess: this.abilities.can('show articles')
       },
       {
         link: 'photo-albums',
         title: this.intl.t('mixin.menuItems.photoAlbums'),
         icon: '',
-        canAccess: this.can.can('show photo-albums')
+        canAccess: this.abilities.can('show photo-albums')
       },
       {
         link: 'static-pages',
         title: this.intl.t('mixin.menuItems.staticPages'),
         icon: '',
-        canAccess: this.can.can('show static-pages')
+        canAccess: this.abilities.can('show static-pages')
       }
     ];
   }),

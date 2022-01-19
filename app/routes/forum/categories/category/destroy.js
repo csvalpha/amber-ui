@@ -4,7 +4,7 @@ export default class DestroyCategoryRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Categorie verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy forum/categories');
+    return this.abilities.can('destroy forum/categories');
   }
 
   model() {

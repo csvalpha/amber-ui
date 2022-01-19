@@ -4,7 +4,7 @@ export default class NewPhotoAlbumRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Foto album aanmaken' }
 
   canAccess() {
-    return this.can.can('create photo-album');
+    return this.abilities.can('create photo-album');
   }
 
   model() {

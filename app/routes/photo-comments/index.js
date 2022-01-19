@@ -4,7 +4,7 @@ export default class PhotoCommentsIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Fotoreacties' }
 
   canAccess() {
-    return this.can.can('show photo-comments');
+    return this.abilities.can('show photo-comments');
   }
 
   model(params) {

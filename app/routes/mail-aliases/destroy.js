@@ -4,7 +4,7 @@ export default class DestroyMailAliasRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Mail-alias verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy mail-aliases');
+    return this.abilities.can('destroy mail-aliases');
   }
 
   model(params) {

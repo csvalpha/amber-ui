@@ -4,7 +4,7 @@ export default class DestroyGroupRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activiteit verwijderen' }
 
   canAccess() {
-    return this.can.can('destroy activities');
+    return this.abilities.can('destroy activities');
   }
 
   model(params) {

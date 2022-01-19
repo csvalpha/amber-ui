@@ -4,7 +4,7 @@ export default class EditTransactionRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Transactie aanpassen' }
 
   canAccess() {
-    return this.can.can('edit debit/transactions');
+    return this.abilities.can('edit debit/transactions');
   }
 
   model(params) {

@@ -4,7 +4,7 @@ export default class DestroyModerationRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Moderatieverzoek negeren' }
 
   canAccess() {
-    return this.can.can('destroy mail-moderations');
+    return this.abilities.can('destroy mail-moderations');
   }
 
   model(params) {
