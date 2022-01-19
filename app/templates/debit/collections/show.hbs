@@ -35,13 +35,13 @@
 
           <div class="col-2">
             {{#if (can 'destroy debit/transactions')}}
-              <LinkTo @route="debit.transactions.destroy" @model={{transaction}}>
+              <LinkTo @route="debit.transactions.destroy" @model={{transaction.id}}>
                 <FaIcon @icon='trash'/>
               </LinkTo>
             {{/if}}
 
             {{#if (can 'edit debit/transactions')}}
-              <LinkTo @route="debit.transactions.edit" @model={{transaction}}>
+              <LinkTo @route="debit.transactions.edit" @model={{transaction.id}}>
                 <FaIcon @icon='pencil-alt'/>
               </LinkTo>
             {{/if}}

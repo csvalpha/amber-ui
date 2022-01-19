@@ -12,15 +12,15 @@ export default class ThreadIndexRoute extends AuthenticatedRoute {
         link: 'forum.categories.category.edit',
         title: 'Wijzigen',
         icon: 'pencil-alt',
-        linkArgument: this.controller.model,
-        canAccess: this.can.can('edit forum/categories')
+        linkArgument: this.controller.model.id,
+        canAccess: this.abilities.can('edit forum/categories')
       },
       {
         link: 'forum.categories.category.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.controller.model,
-        canAccess: this.can.can('destroy forum/categories')
+        linkArgument: this.controller.model.id,
+        canAccess: this.abilities.can('destroy forum/categories')
       },
       {
         link: 'forum.categories.category.threads.new',
@@ -30,13 +30,13 @@ export default class ThreadIndexRoute extends AuthenticatedRoute {
         // pass id to force Ember to call model() on forum.categories.threads.new
         // and not use the supplied category model as model for that route (as per Ember's default)
         linkArgument: this.controller.model.id,
-        canAccess: this.can.can('create forum/threads')
+        canAccess: this.abilities.can('create forum/threads')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show forum/threads');
+    return this.abilities.can('show forum/threads');
   }
 
   async model(params) {

@@ -14,20 +14,20 @@ export default class ShowGroupRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: group,
-        canAccess: this.can.can('edit group', group)
+        canAccess: this.abilities.can('edit group', group)
       },
       {
         link: 'groups.export',
         title: 'Gebruikers exporteren',
         icon: 'download',
         linkArgument: group,
-        canAccess: this.can.can('export group', group)
+        canAccess: this.abilities.can('export group', group)
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show groups');
+    return this.abilities.can('show groups');
   }
 
   model(params) {
@@ -36,7 +36,7 @@ export default class ShowGroupRoute extends AuthenticatedRoute {
 
   afterModel(group) {
     // This ensures all memberships and users are loaded
-    if (this.can.can('show memberships')) {
+    if (this.abilities.can('show memberships')) {
       return group.get('memberships').then(memberships => {
         return all(memberships.mapBy('user'));
       });

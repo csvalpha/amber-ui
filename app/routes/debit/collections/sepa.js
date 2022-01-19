@@ -9,7 +9,7 @@ export default class SepaRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Sepa downloaden' }
 
   canAccess() {
-    return this.can.can('download sepa debit/collections');
+    return this.abilities.can('download sepa debit/collections');
   }
 
   async model(params) {

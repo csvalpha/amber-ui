@@ -8,7 +8,7 @@ export default class CategoryRoute extends AuthenticatedRoute {
   }
 
   canAccess() {
-    return this.can.can('show forum/categories');
+    return this.abilities.can('show forum/categories');
   }
 
   model(params) {

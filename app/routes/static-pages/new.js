@@ -4,7 +4,7 @@ export default class NewStaticPageRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Informatie pagina aanmaken' }
 
   canAccess() {
-    return this.can.can('create static-pages');
+    return this.abilities.can('create static-pages');
   }
 
   model() {

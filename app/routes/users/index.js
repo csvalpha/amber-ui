@@ -10,18 +10,18 @@ export default class UserIndexRoute extends AuthenticatedRoute {
         link: 'users.new',
         title: 'Nieuwe gebruiker',
         icon: 'plus',
-        canAccess: this.can.can('create users')
+        canAccess: this.abilities.can('create users')
       }, {
         link: 'users.batch.new',
         title: 'Gebruikers importeren vanuit bestand',
         icon: 'upload',
-        canAccess: this.can.can('batch upload users')
+        canAccess: this.abilities.can('batch upload users')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show users');
+    return this.abilities.can('show users');
   }
 
   model(params) {

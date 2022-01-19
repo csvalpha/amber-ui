@@ -4,7 +4,7 @@ export default class NewActivityRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activiteit aanmaken' }
 
   canAccess() {
-    return this.can.can('create activities');
+    return this.abilities.can('create activities');
   }
 
   model() {

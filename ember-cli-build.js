@@ -2,7 +2,6 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const nodeSass = require('node-sass');
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
@@ -23,12 +22,13 @@ module.exports = function(defaults) {
       importBootstrapCSS: false
     },
 
-    sassOptions: {
-      implementation: nodeSass
+    'ember-simple-auth': {
+      useSessionSetupMethod: true
     },
 
     babel: {
-      plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')]
+      plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')],
+      sourceMaps: 'inline'
     }
   });
 

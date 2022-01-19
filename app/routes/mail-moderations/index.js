@@ -4,7 +4,7 @@ export default class ModerationIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Mailmoderatie' }
 
   canAccess() {
-    return this.can.can('show mail-moderations');
+    return this.abilities.can('show mail-moderations');
   }
 
   model(params) {

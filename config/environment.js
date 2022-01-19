@@ -12,29 +12,6 @@ module.exports = function(environment) {
       hostname: '/api/v1'
     },
 
-    // See https://github.com/rwjblue/ember-cli-content-security-policy
-    contentSecurityPolicyHeader: 'Content-Security-Policy',
-
-    // See https://github.com/damiencaselli/ember-cli-sentry#content-security-policy
-    // Keep this Content Security Policy in sync with nginx config
-    contentSecurityPolicy: {
-      'default-src': '\'none\'',
-      'manifest-src': '\'self\'',
-      'script-src': '\'self\' www.google-analytics.com www.googletagmanager.com',
-      'font-src': '\'self\' fonts.gstatic.com',
-      'connect-src': '\'self\' sentry.io',
-      'img-src': '\'self\' camo.csvalpha.nl www.google-analytics.com img.youtube.com',
-      'style-src': '\'self\' \'unsafe-inline\' fonts.googleapis.com/',
-      'media-src': '\'self\'',
-      'object-src': '\'self\'',
-      'frame-src': '\'self\' www.youtube.com',
-      'worker-src': '\'self\'',
-      'base-uri': '\'none\'',
-      'form-action': '\'self\'',
-      'frame-ancestors': '\'self\'',
-      'block-all-mixed-content': ''
-    },
-
     moment: {
       includeLocales: ['nl'],
       allowEmpty: true
@@ -104,8 +81,6 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-
-    ENV.contentSecurityPolicy['script-src'] += ' \'unsafe-inline\' \'unsafe-eval\'';
   }
 
   if (environment === 'test') {
@@ -122,14 +97,13 @@ module.exports = function(environment) {
 
   ENV['@sentry/ember'] = {
     sentry: {
-      dsn: 'https://invalid@xx.ingest.sentry.io/12345', // invalid key, will be replaced when run as prod
+      dsn: 'https://invalid@sentry.io/12345', // invalid key, will be replaced when run as prod
       environment: deployTarget,
-      release: `amber-ui@${process.env.BUILD_HASH}`
+      release: process.env.BUILD_HASH
     }
   };
 
   if (environment === 'production') {
-    ENV.contentSecurityPolicy['report-uri'] = 'https://sentry.io/api/186017/security/?sentry_key=5931cc6f635a4e6c96c8dcab4885485f';
     ENV['@sentry/ember'].sentry.dsn = 'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
   }
 

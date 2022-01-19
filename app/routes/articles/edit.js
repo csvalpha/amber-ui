@@ -4,7 +4,7 @@ export default class EditArticleRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activiteit aanpassen' }
 
   canAccess(model) {
-    return this.can.can('edit article', model);
+    return this.abilities.can('edit article', model);
   }
 
   model(params) {

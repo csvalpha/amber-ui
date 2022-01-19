@@ -23,20 +23,20 @@ export default class ShowPollsRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil-alt',
         linkArgument: poll,
-        canAccess: this.can.can('edit poll', poll)
+        canAccess: this.abilities.can('edit poll', poll)
       },
       {
         link: 'polls.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: poll,
-        canAccess: this.can.can('destroy polls')
+        canAccess: this.abilities.can('destroy polls')
       }
     ];
   }
 
   canAccess() {
-    return this.can.can('show polls');
+    return this.abilities.can('show polls');
   }
 
   model(params) {

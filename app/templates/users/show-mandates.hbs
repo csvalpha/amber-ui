@@ -18,7 +18,7 @@
       {{#each @model.mandates as |mandate|}}
         <tr>
           <td>
-            <LinkTo @route="debit.mandates.show" @model={{mandate}}>
+            <LinkTo @route="debit.mandates.show" @model={{mandate.id}}>
               {{mandate.id}}
             </LinkTo>
           </td>

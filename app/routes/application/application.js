@@ -50,7 +50,7 @@ export class AuthenticatedRoute extends ApplicationRoute {
     }
 
     if (this.canAccess.length > 1) {
-      throw Error('canAccess method with more than 1 argument found. Authorization is not performeds');
+      throw new Error('canAccess method with more than 1 argument found, authorization is not performed');
     }
 
     return super.afterModel(model, transition);

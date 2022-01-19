@@ -14,7 +14,7 @@ module.exports = {
     Chrome: {
       ci: [
         // --no-sandbox is needed when running Chrome inside a container
-        process.env.BUILDKITE ? '--no-sandbox' : null,
+        process.env.CI ? '--no-sandbox' : null,
         '--headless',
         '--disable-dev-shm-usage',
         '--disable-software-rasterizer',

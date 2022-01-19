@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: docker.csvalpha.nl/amber-ui:latest
+    image: ghcr.io/csvalpha/amber-ui:latest
     labels:
     - traefik.enable=true
     - traefik.frontend.rule=Host:csvalpha.nl

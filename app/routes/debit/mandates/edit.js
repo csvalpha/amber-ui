@@ -4,7 +4,7 @@ export default class EditMandateRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Mandaat aanpassen' }
 
   canAccess() {
-    return this.can.can('edit debit/mandates');
+    return this.abilities.can('edit debit/mandates');
   }
 
   model(params) {

@@ -13,7 +13,7 @@
   </div>
 
   {{#each @model.threads as |thread|}}
-    <LinkTo @route="forum.categories.category.threads.thread.show" @model={{thread}}>
+    <LinkTo @route="forum.categories.category.threads.thread.show" @model={{thread.id}}>
       <div class="row rtable-row">
         <span class="col-12 col-md rtable-item">  {{forum/status-icon thread}} {{thread.title}} </span>
         <span class="col-6 col-md-3 text-muted rtable-item"> <LinkTo @route="users.show" @model={{thread.author.id}}>{{ thread.author.fullName }}</LinkTo> </span>
