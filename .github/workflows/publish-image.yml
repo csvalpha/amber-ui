@@ -39,7 +39,7 @@ jobs:
           fi
 
           if [ $GITHUB_REF_NAME = 'staging' ] || [ $GITHUB_REF_NAME = 'master' ]; then
-            BUILD_ARGS='BUILD_HASH='${INPUT_SHA:-GITHUB_SHA}
+            BUILD_ARGS='BUILD_HASH='${INPUT_SHA:-$GITHUB_SHA}
             if [ $GITHUB_REF_NAME = 'staging' ]; then
               BUILD_ARGS+=$'\nDEPLOY_TARGET=staging'
             fi
