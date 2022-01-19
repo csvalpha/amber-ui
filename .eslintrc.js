@@ -27,14 +27,12 @@ module.exports = {
     'ember-suave/no-const-outside-module-scope': 0,
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
-    'ember/no-new-mixins': 1,
     'object-curly-spacing': [
       'error',
       'always'
     ],
     'ember-suave/lines-between-object-properties': 0,
     'ember-suave/require-access-in-comments': 0,
-    'ember/no-mixins': 1,
     'ember/no-controller-access-in-routes': 1,
     'ember/no-classic-classes': 1,
     'ember/no-actions-hash': 1,

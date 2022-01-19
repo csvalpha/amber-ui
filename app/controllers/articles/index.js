@@ -1,10 +1,13 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  routeOnEnter: 'articles.show',
-  queryParams: ['search', 'sort', 'page'],
-  sortableAttributes: [
+export default class ArticlesIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'created_at'
+  @tracked sortedAscending = false
+
+  routeOnEnter = 'articles.show'
+  queryParams = ['search', 'sort', 'page']
+  sortableAttributes = [
     {
       value: 'title',
       label: 'Titel'
@@ -13,7 +16,5 @@ export default Controller.extend(FilterableAndSortableMixin, {
       value: 'created_at',
       label: 'Aangemaakt op'
     }
-  ],
-  sortedAttribute: 'created_at',
-  sortedAscending: false
-});
+  ]
+}

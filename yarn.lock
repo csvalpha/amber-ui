@@ -3897,7 +3897,6 @@ __metadata:
     ember-cli-content-security-policy: ^2.0.1
     ember-cli-dependency-checker: ^3.2
     ember-cli-dropzonejs: ^1.3
-    ember-cli-file-saver: ^2.0
     ember-cli-htmlbars: ^6.0.1
     ember-cli-inject-live-reload: ^2.0
     ember-cli-mirage: ^2.0
@@ -8434,7 +8433,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0":
+"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.6.0":
   version: 6.18.0
   resolution: "ember-cli-babel@npm:6.18.0"
   dependencies:
@@ -8638,19 +8637,6 @@ __metadata:
     dropzone: 5.5.1
     ember-cli-babel: ^6.16.0
   checksum: fba599c886ca7621ba8623b3588fc8d74a38d6773db45498287cc7ea9c9f3d63487081a27d955da25ac7b0a1c861f61a388f9bedff74c49cc86b2cbe2b0dd85b
-  languageName: node
-  linkType: hard
-
-"ember-cli-file-saver@npm:^2.0":
-  version: 2.0.0
-  resolution: "ember-cli-file-saver@npm:2.0.0"
-  dependencies:
-    broccoli-funnel: ^2.0.1
-    broccoli-merge-trees: ^2.0.0
-    broccoli-stew: ^1.5.0
-    ember-cli-babel: ^6.3.0
-    file-saver: 2.0.0
-  checksum: 51ae03516c66e133acc0c1077e1939662409d76b44440345f65383629a7d40fd9ba8c476541581123d1d16cb4965797e565da2f583a3a061dc51aecbbfe19516
   languageName: node
   linkType: hard
 
@@ -11165,13 +11151,6 @@ __metadata:
   dependencies:
     flat-cache: ^3.0.4
   checksum: f49701feaa6314c8127c3c2f6173cfefff17612f5ed2daaafc6da13b5c91fd43e3b2a58fd0d63f9f94478a501b167615931e7200e31485e320f74a33885a9c74
-  languageName: node
-  linkType: hard
-
-"file-saver@npm:2.0.0":
-  version: 2.0.0
-  resolution: "file-saver@npm:2.0.0"
-  checksum: 0fda833103a61fe0db85f399548d469251f9b43df75f1c4cbf85f8431f37146763b710254c6e9688147f26b8856137599775efc8720c5b1a8c950122bf334be7
   languageName: node
   linkType: hard
 

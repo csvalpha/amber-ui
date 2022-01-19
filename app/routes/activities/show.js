@@ -1,8 +1,16 @@
 import { hash } from 'rsvp';
+import { inject as service } from '@ember/service';
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import formLoadOrCreateMixin from 'alpha-amber/mixins/form-load-or-create-mixin';
+import FormLoadOrCreateUtil from 'alpha-amber/utils/form-load-or-create';
 
-export default class ShowActivityRoute extends AuthenticatedRoute.extend(formLoadOrCreateMixin) {
+export default class ShowActivityRoute extends AuthenticatedRoute {
+  @service store;
+
+  constructor() {
+    super(...arguments);
+    this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
+  }
+
   get breadCrumb() {
     return { title: this.controller.model.activity.title };
   }
@@ -55,9 +63,9 @@ export default class ShowActivityRoute extends AuthenticatedRoute.extend(formLoa
       formPromise = activityPromise.then(activity => activity.get('form'));
       responsePromise = formPromise
         // Load or create the response
-        .then(form => form === null ? null : this.loadOrCreateCurrentUserResponse(form))
+        .then(form => form === null ? null : this.formLoadOrCreateUtil.loadOrCreateCurrentUserResponse(form))
         // Make sure there are answers for each question in the response
-        .then(response => response === null ? null : this.loadOrCreateAnswers(response));
+        .then(response => response === null ? null : this.formLoadOrCreateUtil.loadOrCreateAnswers(response));
     }
 
     return hash({

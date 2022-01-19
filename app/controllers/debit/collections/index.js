@@ -1,10 +1,13 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  routeOnEnter: 'debit.collections.show',
-  queryParams: ['search', 'sort', 'page'],
-  sortableAttributes: [
+export default class CollectionsIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'date'
+  @tracked sortedAscending = false
+
+  routeOnEnter = 'debit.collections.show'
+  queryParams = ['search', 'sort', 'page']
+  sortableAttributes = [
     {
       value: 'name',
       label: 'Naam'
@@ -13,7 +16,5 @@ export default Controller.extend(FilterableAndSortableMixin, {
       value: 'date',
       label: 'Datum'
     }
-  ],
-  sortedAttribute: 'date',
-  sortedAscending: false
-});
+  ]
+}

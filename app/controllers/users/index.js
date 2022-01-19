@@ -1,11 +1,12 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  queryParams: ['search', 'sort', 'page'],
-  sortedAttribute: 'first_name',
-  routeOnEnter: 'users.show',
-  sortableAttributes: [
+export default class UsersIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'first_name'
+
+  queryParams = ['search', 'sort', 'page']
+  routeOnEnter = 'users.show'
+  sortableAttributes = [
     {
       value: 'username',
       label: 'Gebruikersnaam'
@@ -23,4 +24,4 @@ export default Controller.extend(FilterableAndSortableMixin, {
       label: 'Adres'
     }
   ]
-});
+}

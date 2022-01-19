@@ -1,10 +1,12 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  queryParams: ['search', 'sort', 'page'],
-  routeOnEnter: 'activities.show',
-  sortableAttributes: [
+export default class ActivitiesIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'start_time'
+
+  queryParams = ['search', 'sort', 'page']
+  routeOnEnter = 'activities.show'
+  sortableAttributes = [
     {
       value: 'title',
       label: 'Titel'
@@ -13,7 +15,7 @@ export default Controller.extend(FilterableAndSortableMixin, {
       value: 'start_time',
       label: 'Begindatum'
     }
-  ],
-  sortedAttribute: 'start_time',
-  showPassed: false
-});
+  ]
+
+  showPassed = false
+}
