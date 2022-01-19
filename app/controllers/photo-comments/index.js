@@ -1,5 +1,5 @@
-import EmberObject, { action } from '@ember/object';
 import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
@@ -18,12 +18,13 @@ export default class PhotoCommentsIndexController extends FilterableAndSortableC
     }
   ]
 
-  commentContent = EmberObject.create()
+  commentContent = {}
 
   @action
   submitPhotoComment(photo) {
     return new Promise((resolve, reject) => {
-      const content = this.commentContent.get(photo.get('id')).trim();
+      const photoId = photo.get('id');
+      const content = this.commentContent[photoId].trim();
 
       if (content.length > 0) {
         const photoComment = this.store.createRecord('photoComment', { content, photo });
@@ -37,7 +38,7 @@ export default class PhotoCommentsIndexController extends FilterableAndSortableC
         reject();
       }
 
-      this.commentContent.set(photo.get('id'), '');
+      this.commentContent[photoId] = '';
     });
   }
 }
