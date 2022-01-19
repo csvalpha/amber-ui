@@ -3922,7 +3922,7 @@ __metadata:
     eslint-plugin-ember: ^10.2
     eslint-plugin-ember-suave: ^2.0
     eslint-plugin-node: ^11.1
-    faker: ^5.1
+    faker: ^6.6
     glob: ^7.1
     http-proxy: ^1.18
     loader.js: ^4.7
@@ -11033,10 +11033,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"faker@npm:^5.1":
-  version: 5.5.3
-  resolution: "faker@npm:5.5.3"
-  checksum: 684fd64c8d3897e54248f95b4f6319f75d97691b8500cd13adf4af2c28f9204f766c1d1aaa6b41338f0beaaa87256c3132f8708a1a8f189d122b92f6b98081c3
+"faker@npm:^6.6":
+  version: 6.6.6
+  resolution: "faker@npm:6.6.6"
+  checksum: bfb0d581ab4d76095f2c6bff213fe1735ce077f0f8df849c144ad26035e105bce1b7a704cc030366338c52e25b636ac097a712426a78c9b8804af78f6f2bffe7
   languageName: node
   linkType: hard
 

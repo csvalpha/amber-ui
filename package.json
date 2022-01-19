@@ -85,7 +85,7 @@
     "eslint-plugin-ember": "^10.2",
     "eslint-plugin-ember-suave": "^2.0",
     "eslint-plugin-node": "^11.1",
-    "faker": "^5.1",
+    "faker": "^6.6",
     "glob": "^7.1",
     "http-proxy": "^1.18",
     "loader.js": "^4.7",
