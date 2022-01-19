@@ -1,4 +1,5 @@
 import GroupMembershipsController from 'alpha-amber/controllers/application/group-memberships';
+import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class UsersShowGroupsController extends GroupMembershipsController {
@@ -21,5 +22,12 @@ export default class UsersShowGroupsController extends GroupMembershipsControlle
       const { administrative } = model;
       return ((administrative && this.showAdministrativeGroups) || administrative === false);
     });
+  }
+
+  @action
+  selectFirstItem() {
+    if (this.filteredModels.length > 0) {
+      this.transitionToRoute('groups.show', this.filteredModels.firstObject.group.get('id'));
+    }
   }
 }

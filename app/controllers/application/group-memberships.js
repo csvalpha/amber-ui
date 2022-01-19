@@ -56,13 +56,6 @@ export default class GroupMembershipsController extends Controller {
   }
 
   @action
-  selectFirstItem() {
-    if (this.filteredModels.length > 0) {
-      this.transitionToRoute('users.show', this.filteredModels.firstObject.user.id);
-    }
-  }
-
-  @action
   showOldMemberships() {
     if (this.oldMemberships.length > 0) {
       this.oldMembershipsAreVisible = true;
