@@ -1,6 +1,0 @@
-<label class="col-form-label form-control-label {{labelClass}}" for={{inputIdentifier}}>{{label}}{{if required " *"}}</label>
-<div class="{{inputWrapperClass}}">
-  <Input::SelectInput @data-test-input={{property}} @class={{concat "form-control " inputValidityClass}} @elementId={{inputIdentifier}} @required={{required}} @disabled={{disabled}} @options={{options}} @placeholder={{placeholder}} @value={{mut (get model property)}} />
-  {{form-control-feedback (get @model.errors property)}}
-</div>
-

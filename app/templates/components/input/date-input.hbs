@@ -1,5 +1,0 @@
-{{#if showNativeDateInput}}
-  <Input @type="date" @id={{inputId}} @value={{inputValue}} class={{inputClass}} placeholder={{placeholder}} required={{required}} @disabled={{disabled}} />
-{{else}}
-  <PikadayInput @id={{inputId}} @autocomplete="off" @format={{pikadayFormat}} @i18n={{pikadayI18n}} @value={{dateValue}} @class={{inputClass}} @placeholder={{placeholder}} @required={{required}} @disabled={{disabled}} @yearRange={{yearRange}} @onSelection={{action "onPikadaySelection"}} />
-{{/if}}

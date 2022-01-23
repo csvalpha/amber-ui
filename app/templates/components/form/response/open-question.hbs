@@ -1,5 +1,0 @@
-{{#if (eq question.fieldType 'textarea')}}
-  <ModelForm::TextareaInput @model={{answer}} @property="answer" @inputLayout="vertical" @label={{question.question}} @inputIdentifier={{inputIdentifier}} @required={{question.required}} />
-{{else}}
-  <ModelForm::TextInput @type={{question.fieldType}} @model={{answer}} @property="answer" @inputLayout="vertical" @label={{question.question}} @inputIdentifier={{inputIdentifier}} @required={{question.required}} />
-{{/if}}
