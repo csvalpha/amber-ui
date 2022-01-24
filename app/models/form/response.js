@@ -62,6 +62,6 @@ export default class Response extends DirtySaveModel {
   }
 
   async rollbackAttributesAndAnswers() {
-    [this, ...(await this.answers).toArray()].forEach(model => model.rollbackAttributes());
+    [this, ...(await this.answers)].forEach(model => model.rollbackAttributes());
   }
 }
