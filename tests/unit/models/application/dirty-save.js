@@ -5,7 +5,7 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Model | application/dirty-save', function(hooks) {
   setupTest(hooks);
 
-  test('DirtySaveModel#saveIfDirty saves dirty attributes', function(assert) {
+  test('DirtySaveModel#saveIfDirty', function(assert) {
     const store = this.owner.lookup('service:store');
     // Random model that extends DirtySaveModel.
     const response = run(() => store.createRecord('forms/response'));
