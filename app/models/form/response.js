@@ -24,9 +24,9 @@ export default class Response extends Model {
     // (the question is linked to the answer through the option).
     return this.answers
       .then(async answers => {
-        await Promise.all(this.closedQuestionAnswers.then(closedQuestionAnswers => (
+        await this.closedQuestionAnswers.then(closedQuestionAnswers => (
           closedQuestionAnswers.toArray().map(closedQuestionAnswer => closedQuestionAnswer.option)
-        )));
+        ));
         return answers;
       })
       .then(this.groupAnswers);
@@ -37,29 +37,30 @@ export default class Response extends Model {
   }
 
   groupAnswers(answers) {
-    return answers.reduce((result, answer) => {
-      const questionId = answer.question.id;
-      if (questionId) {
-        if (!result.includes(questionId)) {
-          result[questionId] = [];
-        }
-
-        result[questionId].push(answer);
-        return result;
+    return answers.reduce(async(resultPromise, answer) => {
+      const result = await resultPromise;
+      const questionId = (await answer.question).id;
+      if (!result.includes(questionId)) {
+        result[questionId] = [];
       }
+
+      result[questionId].push(answer);
+      return result;
     }, []);
   }
 
   async saveWithAnswers() {
     const response = await this.saveIfDirty();
-    const answerPromises = (await response.answers)
-      .filter(async answer => (await answer.option)?.option || answer.answer || (await answer.question)?.required)
-      .map(answer => answer.saveIfDirty());
-    await Promise.all(answerPromises);
+    const answers = await response.answers;
+    await Promise.all(answers.map(async answer => {
+      if ((await answer.option)?.option || answer.answer || (await answer.question)?.required) {
+        return answer.saveIfDirty();
+      }
+    }));
     return response;
   }
 
-  rollbackAttributesAndAnswers() {
-    [this, ...this.answers].forEach(model => model.rollbackAttributes());
+  async rollbackAttributesAndAnswers() {
+    [this, ...(await this.answers).toArray()].forEach(model => model.rollbackAttributes());
   }
 }
