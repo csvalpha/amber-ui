@@ -1,6 +1,7 @@
-import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
+import { hasMany, belongsTo, attr } from '@ember-data/model';
+import DirtySaveModel from 'alpha-amber/models/application/dirty-save';
 
-export default class Response extends Model {
+export default class Response extends DirtySaveModel {
   @attr('date') createdAt
   @attr('date') updatedAt
   @attr('boolean') completed
