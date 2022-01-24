@@ -1,82 +1,65 @@
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
-import { alias, union } from '@ember/object/computed';
-import { computed } from '@ember/object';
-import { A } from '@ember/array';
-import { all } from 'rsvp';
 
-export default Model.extend({
-  createdAt: attr('date'),
-  updatedAt: attr('date'),
-  completed: attr('boolean'),
+export default class Response extends Model {
+  @attr('date') createdAt
+  @attr('date') updatedAt
+  @attr('boolean') completed
 
-  // Relations
-  form: belongsTo('form/form'),
-  user: belongsTo('user'),
-  openQuestionAnswers: hasMany('form/open-question-answer'),
-  closedQuestionAnswers: hasMany('form/closed-question-answer'),
+  @belongsTo('form/form') form
+  @belongsTo('user') user
+  @hasMany('form/open-question-answer') openQuestionAnswers
+  @hasMany('form/closed-question-answer') closedQuestionAnswers
 
-  // Computed properties
-  userFullName: alias('user.fullName'),
-  answers: union('openQuestionAnswers', 'closedQuestionAnswers'),
-  groupedAnswersPromise: computed('answers', 'closedQuestionAnswers.[]', 'openQuestionAnswers.[]', function() {
-    // For the id of the question, we have to wait until the answers are actually loaded
+  get answers() {
+    return Promise.all([this.openQuestionAnswers, this.closedQuestionAnswers])
+      .then(answersResults => answersResults.reduce((result, answersResult) => {
+        result.push(...answersResult.toArray());
+        return result;
+      }, []));
+  }
+
+  get groupedAnswers() {
+    // For the id of the question, we have to wait until the answers are actually loaded.
     // Furthermore, for the closed question answers we have to wait until the linked options are loaded
-    // (the question is linked to the answer through the option)
-    return all([
-      this.openQuestionAnswers,
-      this.closedQuestionAnswers
-        .then(
-          closedQuestionAnswers =>
-            all(closedQuestionAnswers.map(closedQuestionAnswer => closedQuestionAnswer.get('option')))
-        )
-    ]).then(() => {
-      const groupedAnswers = this.groupAnswers(this.answers);
-      // eslint-disable-next-line ember/no-side-effects
-      this.set('groupedAnswers', groupedAnswers);
-      return groupedAnswers;
-    });
-  }),
-  _groupedAnswers: A(),
-  groupedAnswers: computed('_groupedAnswers', 'groupedAnswersPromise', {
-    get() {
-      // Lazy loading: only load answers when requested
-      this.groupedAnswersPromise;
-      return this._groupedAnswers;
-    },
-    set(key, value) {
-      this.set('_groupedAnswers', value);
-      return value;
-    }
-  }),
+    // (the question is linked to the answer through the option).
+    return this.answers
+      .then(async answers => {
+        await Promise.all(this.closedQuestionAnswers.then(closedQuestionAnswers => (
+          closedQuestionAnswers.toArray().map(closedQuestionAnswer => closedQuestionAnswer.option)
+        )));
+        return answers;
+      })
+      .then(this.groupAnswers);
+  }
 
-  // Groups answers on question id
+  get userFullName() {
+    return this.user.fullName;
+  }
+
   groupAnswers(answers) {
-    const result = A();
-
-    answers.forEach(answer => {
-      const questionId = answer.get('question.id');
+    return answers.reduce((result, answer) => {
+      const questionId = answer.question.id;
       if (questionId) {
-        if (!result.get(questionId)) {
-          result.set(questionId, A());
+        if (!result.includes(questionId)) {
+          result[questionId] = [];
         }
 
-        result.get(questionId).push(answer);
+        result[questionId].push(answer);
+        return result;
       }
-    });
-
-    return result;
-  },
-  saveWithAnswers() {
-    return this.saveIfDirty().then(response => {
-      const answerPromises = response.get('answers')
-      // Only save answers which have a selected option, given answer or are required
-        .filter(answer => answer.get('option.option') || answer.get('answer') || answer.get('question.required'))
-        .map(answer => answer.saveIfDirty());
-      return all(answerPromises).then(() => response);
-    });
-  },
-  rollbackAttributesAndAnswers() {
-    this.answers.forEach(answer => answer.rollbackAttributes());
-    this.rollbackAttributes();
+    }, []);
   }
-});
+
+  async saveWithAnswers() {
+    const response = await this.saveIfDirty();
+    const answerPromises = (await response.answers)
+      .filter(async answer => (await answer.option)?.option || answer.answer || (await answer.question)?.required)
+      .map(answer => answer.saveIfDirty());
+    await Promise.all(answerPromises);
+    return response;
+  }
+
+  rollbackAttributesAndAnswers() {
+    [this, ...this.answers].forEach(model => model.rollbackAttributes());
+  }
+}
