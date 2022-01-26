@@ -13,10 +13,10 @@ export default class Response extends DirtySaveModel {
 
   get answers() {
     return Promise.all([this.openQuestionAnswers, this.closedQuestionAnswers])
-      .then(answersResults => answersResults.reduce((result, answersResult) => {
-        result.push(...answersResult.toArray());
-        return result;
-      }, []));
+      .then(([openQuestionAnswers, closedQuestionAnswers]) => [
+        ...openQuestionAnswers.toArray(), 
+        ...closedQuestionAnswers.toArray()
+      ]);
   }
 
   get groupedAnswers() {
