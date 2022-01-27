@@ -14,7 +14,7 @@ export default class Response extends DirtySaveModel {
   get answers() {
     return Promise.all([this.openQuestionAnswers, this.closedQuestionAnswers])
       .then(([openQuestionAnswers, closedQuestionAnswers]) => [
-        ...openQuestionAnswers.toArray(), 
+        ...openQuestionAnswers.toArray(),
         ...closedQuestionAnswers.toArray()
       ]);
   }
