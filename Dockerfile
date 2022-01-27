@@ -1,4 +1,4 @@
-FROM danlynn/ember-cli:3.28.2@sha256:fe88d8ecf88086b77ef9a21b5ce523c8f1ae5402df5e25632bd3390be92a75a7 AS base
+FROM danlynn/ember-cli:3.28.5@sha256:e51e83121cefac0ba13c2a39f60623532c99386e418f18f4d03b9f554058a6ae AS base
 
 ARG DEPLOY_TARGET='production'
 ARG BUILD_HASH='unknown'
