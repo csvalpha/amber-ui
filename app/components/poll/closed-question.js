@@ -1,3 +1,3 @@
-import ClosedQuestionComponent from 'alpha-amber/components/form/closed-question';
+import FormClosedQuestionComponent from 'alpha-amber/components/form/closed-question';
 
-export default ClosedQuestionComponent;
+export default class PollClosedQuestionComponent extends FormClosedQuestionComponent {};
