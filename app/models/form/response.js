@@ -11,7 +11,9 @@ export default class Response extends DirtySaveModel {
   @hasMany('form/open-question-answer') openQuestionAnswers
   @hasMany('form/closed-question-answer') closedQuestionAnswers
 
-  get answers() {
+  _groupedAnswers
+
+  get answersPromise() {
     return Promise.all([this.openQuestionAnswers, this.closedQuestionAnswers])
       .then(([openQuestionAnswers, closedQuestionAnswers]) => [
         ...openQuestionAnswers.toArray(),
@@ -19,18 +21,27 @@ export default class Response extends DirtySaveModel {
       ]);
   }
 
-  get groupedAnswers() {
+  get groupedAnswersPromise() {
     // For the id of the question, we have to wait until the answers are actually loaded.
     // Furthermore, for the closed question answers we have to wait until the linked options are loaded
     // (the question is linked to the answer through the option).
-    return this.answers
+    return this.answersPromise
       .then(async answers => {
         await this.closedQuestionAnswers.then(closedQuestionAnswers => (
-          closedQuestionAnswers.toArray().map(closedQuestionAnswer => closedQuestionAnswer.option)
+          closedQuestionAnswers.map(closedQuestionAnswer => closedQuestionAnswer.option)
         ));
         return answers;
       })
-      .then(this.groupAnswers);
+      .then(this.groupAnswers)
+      .then(groupedAnswers => {
+        this._groupedAnswers = groupedAnswers;
+        return groupedAnswers;
+      });
+  }
+
+  get groupedAnswers() {
+    this.groupedAnswersPromise;
+    return this._groupedAnswers;
   }
 
   get userFullName() {
@@ -52,16 +63,17 @@ export default class Response extends DirtySaveModel {
 
   async saveWithAnswers() {
     const response = await this.saveIfDirty();
-    const answers = await response.answers;
+    const answers = await response.answersPromise;
     await Promise.all(answers.map(async answer => {
       if ((await answer.option)?.option || answer.answer || (await answer.question)?.required) {
         return answer.saveIfDirty();
       }
     }));
+    this.groupedAnswers; // Trigger an update.
     return response;
   }
 
   async rollbackAttributesAndAnswers() {
-    [this, ...(await this.answers)].forEach(model => model.rollbackAttributes());
+    [this, ...(await this.answersPromise)].forEach(model => model.rollbackAttributes());
   }
 }
