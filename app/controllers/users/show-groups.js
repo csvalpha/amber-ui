@@ -1,23 +1,33 @@
-import Controller from '@ember/controller';
-import GroupMembershipsMixin from 'alpha-amber/mixins/group-memberships-mixin';
-import { computed } from '@ember/object';
+import GroupMembershipsController from 'alpha-amber/controllers/application/group-memberships';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(GroupMembershipsMixin, {
-  filterableAttributes: [
+export default class UsersShowGroupsController extends GroupMembershipsController {
+  @tracked sortedAttribute = 'group.name'
+  @tracked showAdministrativeGroups = false
+
+  filterableAttributes = [
     'group.name'
-  ],
-  sortableAttributes: [
+  ]
+
+  sortableAttributes = [
     {
       value: 'group.name',
       label: 'Titel'
     }
-  ],
-  sortedAttribute: 'group.name',
-  showAdministrativeGroups: false,
-  filteredModelsWithAdministrative: computed('filteredModels', 'showAdministrativeGroups', 'filteredModels.@each.administrative', function() {
-    return this.filteredModels.filter((model) => {
-      const administrative = model.get('administrative');
+  ]
+
+  get filteredModelsWithAdministrative() {
+    return this.filteredModels.filter(model => {
+      const { administrative } = model;
       return ((administrative && this.showAdministrativeGroups) || administrative === false);
     });
-  })
-});
+  }
+
+  @action
+  selectFirstItem() {
+    if (this.filteredModels.length > 0) {
+      this.transitionToRoute('groups.show', this.filteredModels.firstObject.group.get('id'));
+    }
+  }
+}

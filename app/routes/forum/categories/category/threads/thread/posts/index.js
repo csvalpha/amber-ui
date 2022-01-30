@@ -54,7 +54,9 @@ export default class PostIndexRoute extends AuthenticatedRoute {
 
     this.router.on('routeDidChange', () => {
       const thread = this.modelFor('forum.categories.category.threads.thread');
-      this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, { method: 'POST' });
+      if (thread) {  // only mark as read if we are in a thread
+        this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, { method: 'POST' });
+      }
     });
   }
 }

@@ -1,43 +1,44 @@
-import Controller from '@ember/controller';
-import EmberObject from '@ember/object';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  routeOnEnter: 'photo-albums.photo-album.photos.show',
-  queryParams: ['search', 'sort', 'page'],
+export default class PhotoCommentsIndexController extends FilterableAndSortableController {
+  @service('flash-notice') flashNotice
 
-  sortableAttributes: [
+  @tracked sortedAscending = false
+  @tracked sortedAttribute = 'updated_at'
+
+  routeOnEnter = 'photo-albums.photo-album.photos.show'
+  queryParams = ['search', 'sort', 'page']
+  sortableAttributes = [
     {
       value: 'updated_at',
       label: 'Laatste reactie'
     }
-  ],
+  ]
 
-  sortedAscending: false,
-  sortedAttribute: 'updated_at',
-  commentContent: EmberObject.create(),
-  flashNotice: service(),
+  commentContent = {}
 
-  actions: {
-    submitPhotoComment(photo) {
-      return new Promise((resolve, reject) => {
-        const content = this.commentContent.get(photo.get('id')).trim();
+  @action
+  submitPhotoComment(photo) {
+    return new Promise((resolve, reject) => {
+      const photoId = photo.get('id');
+      const content = this.commentContent[photoId].trim();
 
-        if (content.length > 0) {
-          const photoComment = this.store.createRecord('photoComment', { content, photo });
+      if (content.length > 0) {
+        const photoComment = this.store.createRecord('photoComment', { content, photo });
 
-          photoComment.save().then(() => {
-            this.flashNotice.sendSuccess('Reactie opgeslagen!');
-            photo.reload(); // Reload for updated Photo#amountOfComments and updated_at
-            resolve();
-          }).catch(reject);
-        } else {
-          reject();
-        }
+        photoComment.save().then(() => {
+          this.flashNotice.sendSuccess('Reactie opgeslagen!');
+          photo.reload(); // Reload for updated Photo#amountOfComments and updated_at
+          resolve();
+        }).catch(reject);
+      } else {
+        reject();
+      }
 
-        this.commentContent.set(photo.get('id'), '');
-      });
-    }
+      this.commentContent[photoId] = '';
+    });
   }
-});
+}

@@ -3892,12 +3892,11 @@ __metadata:
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^4.4
     ember-can: ^4.1
-    ember-cli: ^3.20.2
+    ember-cli: ^3.28.4
     ember-cli-babel: ^7.26.6
     ember-cli-content-security-policy: ^2.0.1
     ember-cli-dependency-checker: ^3.2
     ember-cli-dropzonejs: ^1.3
-    ember-cli-file-saver: ^2.0
     ember-cli-htmlbars: ^6.0.1
     ember-cli-inject-live-reload: ^2.0
     ember-cli-mirage: ^2.0
@@ -3938,7 +3937,8 @@ __metadata:
     eslint-plugin-ember: ^10.2
     eslint-plugin-ember-suave: ^2.0
     eslint-plugin-node: ^11.1
-    faker: ^5.1
+    faker: ^5.5.3
+    file-saver: ^2.0.5
     glob: ^7.1
     http-proxy: ^1.18
     loader.js: ^4.7
@@ -8434,7 +8434,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.3.0, ember-cli-babel@npm:^6.6.0":
+"ember-cli-babel@npm:^6.16.0, ember-cli-babel@npm:^6.6.0":
   version: 6.18.0
   resolution: "ember-cli-babel@npm:6.18.0"
   dependencies:
@@ -8638,19 +8638,6 @@ __metadata:
     dropzone: 5.5.1
     ember-cli-babel: ^6.16.0
   checksum: fba599c886ca7621ba8623b3588fc8d74a38d6773db45498287cc7ea9c9f3d63487081a27d955da25ac7b0a1c861f61a388f9bedff74c49cc86b2cbe2b0dd85b
-  languageName: node
-  linkType: hard
-
-"ember-cli-file-saver@npm:^2.0":
-  version: 2.0.0
-  resolution: "ember-cli-file-saver@npm:2.0.0"
-  dependencies:
-    broccoli-funnel: ^2.0.1
-    broccoli-merge-trees: ^2.0.0
-    broccoli-stew: ^1.5.0
-    ember-cli-babel: ^6.3.0
-    file-saver: 2.0.0
-  checksum: 51ae03516c66e133acc0c1077e1939662409d76b44440345f65383629a7d40fd9ba8c476541581123d1d16cb4965797e565da2f583a3a061dc51aecbbfe19516
   languageName: node
   linkType: hard
 
@@ -9143,7 +9130,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:^3.20.2":
+"ember-cli@npm:^3.28.4":
   version: 3.28.4
   resolution: "ember-cli@npm:3.28.4"
   dependencies:
@@ -10973,7 +10960,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"faker@npm:^5.1":
+"faker@npm:^5.5.3":
   version: 5.5.3
   resolution: "faker@npm:5.5.3"
   checksum: 684fd64c8d3897e54248f95b4f6319f75d97691b8500cd13adf4af2c28f9204f766c1d1aaa6b41338f0beaaa87256c3132f8708a1a8f189d122b92f6b98081c3
@@ -11168,10 +11155,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"file-saver@npm:2.0.0":
-  version: 2.0.0
-  resolution: "file-saver@npm:2.0.0"
-  checksum: 0fda833103a61fe0db85f399548d469251f9b43df75f1c4cbf85f8431f37146763b710254c6e9688147f26b8856137599775efc8720c5b1a8c950122bf334be7
+"file-saver@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "file-saver@npm:2.0.5"
+  checksum: c62d96e5cebc58b4bdf3ae8a60d5cf9607ad82f75f798c33a4ee63435ac2203002584d5256a2a780eda7feb5e19dc3b6351c2212e58b3f529e63d265a7cc79f7
   languageName: node
   linkType: hard
 

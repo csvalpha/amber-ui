@@ -2,11 +2,11 @@ import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 import { inject as service } from '@ember/service';
 import { isInvalidResponse } from 'ember-fetch/errors';
 
-import FileSaverMixin from 'ember-cli-file-saver/mixins/file-saver';
-
-export default class SepaRoute extends AuthenticatedRoute.extend(FileSaverMixin) {
-  breadCrumb = { title: 'Sepa downloaden' }
+export default class SepaRoute extends AuthenticatedRoute {
   @service fetch
+  @service('file-saver') fileSaver
+
+  breadCrumb = { title: 'Sepa downloaden' }
 
   canAccess() {
     return this.abilities.can('download sepa debit/collections');
@@ -18,7 +18,7 @@ export default class SepaRoute extends AuthenticatedRoute.extend(FileSaverMixin)
 
     if (response.ok) {
       let blob = await response.blob();
-      this.saveFileAs(`${model.get('name')}.xml`, blob, 'application/xml');
+      this.fileSaver.saveFileAs(`${model.get('name')}.xml`, blob, 'application/xml');
       return this.transitionTo('debit.collections.show', model.id);
     } else if (isInvalidResponse(response)) {
       const json = await response.json();

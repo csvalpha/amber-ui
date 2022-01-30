@@ -1,11 +1,12 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  queryParams: ['search', 'sort'],
-  sortedAttribute: 'email',
-  routeOnEnter: 'users.show',
-  sortableAttributes: [
+export default class MailAliasesIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'email'
+
+  queryParams = ['search', 'sort']
+  routeOnEnter = 'users.show'
+  sortableAttributes = [
     {
       value: 'email',
       label: 'E-mail'
@@ -20,4 +21,4 @@ export default Controller.extend(FilterableAndSortableMixin, {
       label: 'Laatst ontvangen'
     }
   ]
-});
+}
