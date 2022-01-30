@@ -1,6 +1,6 @@
 'use strict';
 
-const proxyPath = '/api';
+const proxyPath = '/uploads';
 
 module.exports = function(app) {
   // For options, see:

@@ -72,4 +72,4 @@ jobs:
 
       - name: Test
         run: |
-          docker run -e CI=true -t app yarn test
+          docker run -e CI=true -t app yarn test:ember

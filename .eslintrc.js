@@ -43,9 +43,6 @@ module.exports = {
     'no-multiple-empty-lines': [2, { 'max': 1, 'maxBOF': 0, 'maxEOF': 0 }],
     'padded-blocks': [2, 'never', { 'allowSingleLineBlocks': true }]
   },
-  globals: {
-    'moment': true
-  },
   overrides: [
     // node files
     {
@@ -75,5 +72,8 @@ module.exports = {
         'node/no-unpublished-require': 'off'
       }
     }
-  ]
+  ],
+  globals: {
+    'moment': true
+  }
 };

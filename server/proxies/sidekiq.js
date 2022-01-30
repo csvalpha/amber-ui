@@ -1,6 +1,6 @@
 'use strict';
 
-const proxyPath = '/api';
+const proxyPath = '/sidekiq';
 
 module.exports = function(app) {
   // For options, see:

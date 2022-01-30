@@ -1,0 +1,95 @@
+{
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    "helpers:pinGitHubActionDigests",
+    "docker:enableMajor"
+  ],
+  "labels": ["dependencies"],
+  "prConcurrentLimit": 0,
+  "rangeStrategy": "bump",
+  "timezone": "Europe/Amsterdam",
+  // These dependencies are handled by ember-cli-update.
+  "ignoreDeps": [
+    "@ember/optional-features",
+    "@glimmer/component",
+    "@glimmer/tracking",
+    "babel-eslint",
+    "broccoli-asset-rev",
+    "ember-auto-import",
+    "ember-cli-babel",
+    "ember-cli-dependency-checker",
+    "ember-cli-htmlbars",
+    "ember-cli-inject-live-reload",
+    "ember-cli-sri",
+    "ember-cli-uglify",
+    "ember-data",
+    "ember-fetch",
+    "ember-load-initializers",
+    "ember-maybe-import-regenerator",
+    "ember-qunit",
+    "ember-resolver",
+    "ember-source",
+    "ember-template-lint",
+    "eslint",
+    "eslint-plugin-ember",
+    "eslint-plugin-node",
+    // ember-cli's server blueprint is responsible for this.
+    "glob",
+    // ember-cli's http-proxy blueprint is responsible for this.
+    "http-proxy",
+    "loader.js",
+    // ember-cli's server blueprint is responsible for this.
+    "morgan",
+    "npm-run-all",
+    "qunit-dom"
+  ],
+  "packageRules": [
+    {
+      "extends": ["schedule:weekly"],
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "excludePackageNames": ["ember-cli", "yarn"],
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch"
+    },
+    {
+      "matchPackageNames": ["danlynn/ember-cli", "ember-cli"],
+      "groupName": "ember-cli",
+      "separateMinorPatch": true,
+      "draftPR": true,
+      "prBodyDefinitions": {
+        // Update the Change column definition to match
+        // ember-cli-update-action's regex.
+        "Change": "[`{{currentValue}}` -> `{{newValue}}`]({{url}})"
+      },
+      "prBodyNotes": "{{#unless isPatch}}### Upgrade Instructions{{/unless}}"
+    },
+    {
+      "matchPackageNames": ["danlynn/ember-cli", "ember-cli"],
+      "matchUpdateTypes": ["patch"],
+      "draftPR": false
+    },
+    {
+      "description": "faker v5.5.3 -> v6.6.6 update removed all its source.",
+      "matchPackageNames": ["faker"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["nvm"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ],
+  "docker-compose": {
+    "enabled": false
+  }
+}
