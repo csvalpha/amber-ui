@@ -27,9 +27,7 @@ export default class Response extends DirtySaveModel {
     // (the question is linked to the answer through the option).
     return this.answersPromise
       .then(async answers => {
-        await this.closedQuestionAnswers.then(closedQuestionAnswers => (
-          closedQuestionAnswers.map(closedQuestionAnswer => closedQuestionAnswer.option)
-        ));
+        await Promise.all((await this.closedQuestionAnswers).map(closedQuestionAnswer => closedQuestionAnswer.option));
         return answers;
       })
       .then(this.groupAnswers)
