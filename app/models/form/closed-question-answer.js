@@ -11,6 +11,6 @@ export default class ClosedQuestionAnswer extends DirtySaveModel {
 
   // Getters
   get question() {
-    return this.option.then(option => option.question);
+    return this.option.then(option => option?.question);
   }
 }

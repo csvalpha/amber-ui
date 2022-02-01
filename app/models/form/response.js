@@ -49,9 +49,12 @@ export default class Response extends DirtySaveModel {
   groupAnswers(answers) {
     return answers.reduce(async(resultPromise, answer) => {
       const result = await resultPromise;
-      const questionId = (await answer.question).id;
-      result[questionId] ??= [];
-      result[questionId].push(answer);
+      const questionId = (await answer.question)?.id;
+      if (questionId) {
+        result[questionId] ??= [];
+        result[questionId].push(answer);
+      }
+
       return result;
     }, []);
   }
