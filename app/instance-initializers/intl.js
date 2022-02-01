@@ -4,6 +4,9 @@ export function initialize(instance) {
   if (intl.get('locales').includes(localStorage.getItem('locale'))) {
     intl.set('locale', localStorage.getItem('locale'));
   }
+
+  const moment = instance.lookup('service:moment');
+  moment.setLocale(localStorage.getItem('locale'));
 }
 
 export default {
