@@ -1,4 +1,3 @@
-import Ember from 'ember';
 import ENV from 'module:ember.Ember.ENV';
 
 export default {
