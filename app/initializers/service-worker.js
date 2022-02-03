@@ -1,4 +1,4 @@
-import ENV from 'module:ember.Ember.ENV';
+import ENV from '../config/environment';
 
 export default {
   name: 'service-worker',
