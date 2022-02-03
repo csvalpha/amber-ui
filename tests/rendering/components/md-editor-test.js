@@ -7,7 +7,6 @@ module('Integration | Component | markdown editor', function(hooks) {
   setupRenderingTest(hooks);
 
   test('should render the textarea content', async function(assert) {
-    debugger;
     assert.expect(1);
 
     this.set('markdownContent', 'This is some text');
