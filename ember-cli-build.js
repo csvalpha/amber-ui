@@ -32,6 +32,7 @@ module.exports = function(defaults) {
     },
 
     fingerprint: {
+      extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg'],
       replaceExtensions: ['html', 'css', 'js', 'json']
     }
   });
