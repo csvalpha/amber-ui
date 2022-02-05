@@ -1,6 +1,5 @@
 import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
 import { inject as service } from '@ember/service';
-import { computed, get } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
 import { isPresent } from '@ember/utils';
