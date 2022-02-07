@@ -1,21 +1,21 @@
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
-import { computed } from '@ember/object';
-import { and, not } from '@ember/object/computed';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
+import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 
-import FileSaverMixin from 'ember-cli-file-saver/mixins/file-saver';
+export default class GroupsExportController extends Controller {
+  @service fetch
+  @service('file-saver') fileSaver
 
-export default Controller.extend(FileSaverMixin, {
-  fetch: service(),
-  questions: [
+  questions = [
     { question: 'Wat moet je doen dat je zonder deze data niet kan?', answer: '' },
     { question: 'Wie gaat er bij de data kunnen?', answer: '' },
     { question: 'Waar gaat de data worden opgeslagen?', answer: '' },
     { question: 'Wanneer gaat de data verwijderd worden?', answer: '' }
-  ],
-  error: '',
-  userPropertyOptions: [
+  ]
+
+  userPropertyOptions = [
     {
       value: 'id',
       label: 'ID'
@@ -97,34 +97,44 @@ export default Controller.extend(FileSaverMixin, {
       value: 'avatar_url',
       label: 'Profielfoto url'
     }
-  ],
-  questionAnswered: computed('questions.@each.answer', function() {
-    return this.questions.filter(q => q.answer.length > 0).length > 0;
-  }),
-  checkedFieldsValid: computed('userPropertyOptions.@each.isChecked', function() {
-    return this.userPropertyOptions.filter(p => p.isChecked).length > 0;
-  }),
-  valid: and('questionAnswered', 'checkedFieldsValid'),
-  exportButtonDisabled: not('valid'),
+  ]
 
-  actions: {
-    async exportUsers() {
-      const selectedProperties = A();
-      this.userPropertyOptions.forEach((property) => {
-        if (property.isChecked) {
-          selectedProperties.push(property.value);
-        }
-      });
-      const description = this.questions.map((question) => {
-        return `${question.question}\n ${question.answer}\n\n`;
-      }).join('\n');
-
-      let response = await this.fetch.fetch(
-        `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(description)}`,
-        { dataType: 'text' });
-      let blob = await response.blob();
-      this.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, blob, 'application/csv');
-      this.transitionToRoute('groups.show', this.model);
-    }
+  @computed('questions.@each.answer')
+  get questionAnswered() {
+    return this.questions.filter(q => q.answer.length > 0).length === this.questions.length;
   }
-});
+
+  @computed('userPropertyOptions.@each.isChecked')
+  get checkedFieldsValid() {
+    return this.userPropertyOptions.filter(p => p.isChecked).length > 0;
+  }
+
+  get valid() {
+    return this.questionAnswered && this.checkedFieldsValid;
+  }
+
+  get exportButtonDisabled() {
+    return !this.valid;
+  }
+
+  @action
+  async exportUsers() {
+    const selectedProperties = A();
+    this.userPropertyOptions.forEach(property => {
+      if (property.isChecked) {
+        selectedProperties.push(property.value);
+      }
+    });
+    const description = this.questions.map(question => (
+      `${question.question}\n ${question.answer}\n\n`
+    )).join('\n');
+
+    const response = await this.fetch.fetch(
+      `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(description)}`,
+      { dataType: 'text' }
+    );
+    const blob = await response.blob();
+    this.fileSaver.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, blob, 'application/csv');
+    this.transitionToRoute('groups.show', this.model);
+  }
+}

@@ -11,12 +11,15 @@ export default class GroupIndexRoute extends AuthenticatedRoute {
       refreshModel: true
     },
     selectedGroupKind: {
+      as: 'kind',
       refreshModel: true
     },
     showAdministrative: {
+      as: 'administrative',
       refreshModel: true
     },
     showInactive: {
+      as: 'inactive',
       refreshModel: true
     }
   }

@@ -1,10 +1,13 @@
-import Controller from '@ember/controller';
-import FilterableAndSortableMixin from 'alpha-amber/mixins/filterable-and-sortable-mixin';
+import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import { tracked } from '@glimmer/tracking';
 
-export default Controller.extend(FilterableAndSortableMixin, {
-  routeOnEnter: 'forum.categories.category.threads.thread.show',
-  queryParams: ['search', 'sort'],
-  sortableAttributes: [
+export default class ThreadsIndexController extends FilterableAndSortableController {
+  @tracked sortedAttribute = 'updated_at'
+  @tracked sortedAscending = false
+
+  routeOnEnter = 'forum.categories.category.threads.thread.show'
+  queryParams = ['search', 'sort']
+  sortableAttributes = [
     {
       value: 'updated_at',
       label: 'Laatst gewijzigd'
@@ -13,7 +16,5 @@ export default Controller.extend(FilterableAndSortableMixin, {
       value: 'created_at',
       label: 'Aanmaakdatum'
     }
-  ],
-  sortedAttribute: 'updated_at',
-  sortedAscending: false
-});
+  ]
+}

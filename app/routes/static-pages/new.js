@@ -8,7 +8,7 @@ export default class NewStaticPageRoute extends AuthenticatedRoute {
   }
 
   model() {
-    return this.store.createRecord('mail-alias');
+    return this.store.createRecord('static-page');
   }
 
   deactivate() {

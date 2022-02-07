@@ -23,7 +23,8 @@ jobs:
       - name: Build test image
         uses: guidojw/actions/build-docker-image@2b1dea8cbd9e44491c269e771b75636026caf8ca # renovate: tag=v1.1.0
         with:
-          file: Dockerfile.test
+          file: Dockerfile
+          target: base
           name: app
 
   lint:
@@ -71,4 +72,4 @@ jobs:
 
       - name: Test
         run: |
-          docker run -t app yarn test
+          docker run -e CI=true -t app yarn test
