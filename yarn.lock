@@ -3912,7 +3912,6 @@ __metadata:
     ember-data: ~3.20.0
     ember-fetch: ^8.0
     ember-file-upload: ^4.0.3
-    ember-group-by: ^0.0
     ember-intl: ^5.1
     ember-keyboard-shortcuts: ^1.2
     ember-link-action: ^2.0
@@ -9471,15 +9470,6 @@ __metadata:
     ember-cli-version-checker: ^2.1.0
     ember-factory-for-polyfill: ^1.3.1
   checksum: c448df6974a559401b1f86c74f681d8e05d50f0217c5e9c03720177005c936903faa8962df3f8766b68339a0ea34ef781ecabe322c9965b45118011c2642bc23
-  languageName: node
-  linkType: hard
-
-"ember-group-by@npm:^0.0":
-  version: 0.0.6
-  resolution: "ember-group-by@npm:0.0.6"
-  dependencies:
-    ember-cli-babel: ^6.6.0
-  checksum: a577bcc391ef17d97eebe5723f5eb17f6f8bafa7007f24fed6d38dad3a6149bc872024a3199c4cb86f49601d8a072cece353f5bb0dfcd7f2efc8f905274b79ca
   languageName: node
   linkType: hard
 
