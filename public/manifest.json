@@ -49,19 +49,19 @@
       "icons": [{ "src": "/images/shortcuts/activities.png", "sizes": "192x192" }]
     },
     {
+      "name": "Leden",
+      "url": "/users/members",
+      "icons": [{ "src": "/images/shortcuts/members.png", "sizes": "192x192" }]
+    },
+    {
       "name": "Forum",
       "url": "/forum",
       "icons": [{ "src": "/images/shortcuts/forum.png", "sizes": "192x192" }]
     },
     {
-      "name": "Polls",
-      "url": "/polls",
-      "icons": [{ "src": "/images/shortcuts/polls.png", "sizes": "192x192" }]
+      "name": "Groepen",
+      "url": "/groups",
+      "icons": [{ "src": "/images/shortcuts/groups.png", "sizes": "192x192" }]
     },
-    {
-      "name": "Leden",
-      "url": "/users/members",
-      "icons": [{ "src": "/images/shortcuts/members.png", "sizes": "192x192" }]
-    }
   ]
 }
