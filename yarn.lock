@@ -3889,6 +3889,7 @@ __metadata:
     babel-eslint: ^10.0
     bootstrap: ^4.4
     broccoli-asset-rev: ^3.0
+    ember-async-data: ^0.6.0
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^4.4
     ember-can: ^4.1
@@ -8156,6 +8157,19 @@ __metadata:
     "@glimmer/compiler": ^0.27.0
     "@glimmer/syntax": ^0.27.0
   checksum: 6d00342b1a90bca84fc6969186deb64452da7cafceb08a089c5a339571e4bda520039aecc64823f520ea2ffc4a128f62b1b7e24a5d16302b841dbf960c7e1b65
+  languageName: node
+  linkType: hard
+
+"ember-async-data@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "ember-async-data@npm:0.6.0"
+  dependencies:
+    "@ember/test-waiters": ^3.0.0
+    ember-cli-babel: ^7.26.6
+    ember-cli-htmlbars: ^5.7.1
+    ember-cli-typescript: ^4.1.0
+    ember-destroyable-polyfill: ^2.0.3
+  checksum: 6614afe67c47cd5763076bca520209d4b42690d9a77735b6bf27846273a9149b2da2a108540b8fa95548c3de218832fe07dd49c389429c7e755ced3849e516d3
   languageName: node
   linkType: hard
 
