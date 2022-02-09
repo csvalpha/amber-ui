@@ -2308,7 +2308,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-free@npm:^6.0":
+"@fortawesome/fontawesome-free@npm:^6.0.0":
   version: 6.0.0
   resolution: "@fortawesome/fontawesome-free@npm:6.0.0"
   checksum: 138e352ba6e9ecdd711899943919d4020704ddf22dc6a7de14d0dbfb5222c60738fcded6ca39a3fcd6fa8eaf9b83033e44dd25625d9e0118a9cea1d4585b36de
@@ -2324,7 +2324,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-brands-svg-icons@npm:^6.0":
+"@fortawesome/free-brands-svg-icons@npm:^6.0.0":
   version: 6.0.0
   resolution: "@fortawesome/free-brands-svg-icons@npm:6.0.0"
   dependencies:
@@ -2333,7 +2333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:^6.0":
+"@fortawesome/free-regular-svg-icons@npm:^6.0.0":
   version: 6.0.0
   resolution: "@fortawesome/free-regular-svg-icons@npm:6.0.0"
   dependencies:
@@ -2342,7 +2342,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/free-solid-svg-icons@npm:^6.0":
+"@fortawesome/free-solid-svg-icons@npm:^6.0.0":
   version: 6.0.0
   resolution: "@fortawesome/free-solid-svg-icons@npm:6.0.0"
   dependencies:
@@ -3879,10 +3879,10 @@ __metadata:
     "@ember/optional-features": ^2.0.0
     "@ember/test-helpers": ^2.2
     "@fortawesome/ember-fontawesome": ^0.2
-    "@fortawesome/fontawesome-free": ^6.0
-    "@fortawesome/free-brands-svg-icons": ^6.0
-    "@fortawesome/free-regular-svg-icons": ^6.0
-    "@fortawesome/free-solid-svg-icons": ^6.0
+    "@fortawesome/fontawesome-free": ^6.0.0
+    "@fortawesome/free-brands-svg-icons": ^6.0.0
+    "@fortawesome/free-regular-svg-icons": ^6.0.0
+    "@fortawesome/free-solid-svg-icons": ^6.0.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     "@sentry/ember": ^6.2
