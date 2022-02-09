@@ -1,5 +1,4 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import { assign } from '@ember/polyfills';
 
 export default class UserIndexRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Gebruikers' }
