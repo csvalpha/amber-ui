@@ -17,7 +17,7 @@ export default class ShowModerationRoute extends AuthenticatedRoute {
       {
         link: 'mail-moderations.reject',
         title: 'Afkeuren',
-        icon: 'minus-circle',
+        icon: 'circle-minus',
         linkArgument: this.controller.model,
         canAccess: this.abilities.can('reject mail-moderations')
       },

@@ -15,7 +15,7 @@ export default class PostIndexRoute extends AuthenticatedRoute {
       {
         link: 'forum.categories.category.threads.thread.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: this.controller.model.thread,
         canAccess: this.abilities.can('edit forum/threads')
       },

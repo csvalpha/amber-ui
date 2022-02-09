@@ -29,7 +29,7 @@ export default class MdEditorToolbarComponent extends Component {
       {
         name: 'Stijl',
         dropdown: true,
-        faIconName: 'magic',
+        faIconName: 'wand-magic-sparkles',
         options: [
           {
             name: 'Titel 1',

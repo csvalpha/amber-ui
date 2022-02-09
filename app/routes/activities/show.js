@@ -21,7 +21,7 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
       {
         link: 'activities.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: activity,
         canAccess: this.abilities.can('edit activity', activity)
       },

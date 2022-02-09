@@ -10,7 +10,7 @@ export default class ShowStaticPagesRoute extends ApplicationRoute {
       {
         link: 'static-pages.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: this.controller.model,
         canAccess: this.abilities.can('edit static-pages')
       },

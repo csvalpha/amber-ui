@@ -21,7 +21,7 @@ export default class ShowPollsRoute extends AuthenticatedRoute {
       {
         link: 'polls.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: poll,
         canAccess: this.abilities.can('edit poll', poll)
       },

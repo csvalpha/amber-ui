@@ -14,7 +14,7 @@
         <FaIcon @icon="angle-down" class="ml-3 profile-menu-arrow"/>
       </div>
     {{else}}
-      <MenuSidebarItem @link="login" @hasPermission={{true}} @icon="sign-in-alt" @title={{t "tag.button.signin"}} />
+      <MenuSidebarItem @link="login" @hasPermission={{true}} @icon="right-to-bracket" @title={{t "tag.button.signin"}} />
     {{/if}}
 
     <div class="profile-menu {{if layoutManager.profileMenuOpen 'open'}}">
@@ -27,29 +27,29 @@
 
       {{!-- Link to alpha-tomato --}}
       <a class="link" href="https://streep.csvalpha.nl" target="_blank">
-        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="beer" @title={{t "mixin.menuItems.tomato"}} @minor={{true}} />
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="beer-mug-empty" @title={{t "mixin.menuItems.tomato"}} @minor={{true}} />
       </a>
 
       {{!-- Link to alpha nextcloud --}}
       <a class="link" href="https://nextcloud.csvalpha.nl" target="_blank">
-        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="hdd" @title={{t "mixin.menuItems.nextcloud"}} @minor={{true}} />
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="hard-drive" @title={{t "mixin.menuItems.nextcloud"}} @minor={{true}} />
       </a>
 
       {{!-- Logout --}}
       <a class="link" {{action 'invalidateSession'}}>
-        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="sign-out-alt" @title={{t "tag.button.signout"}} @minor={{true}} />
+        <MenuSidebarItem @link="" @hasPermission={{session.isAuthenticated}} @icon="right-from-bracket" @title={{t "tag.button.signout"}} @minor={{true}} />
       </a>
     </div>
 
-    <MenuSidebarItem @link="index" @hasPermission={{true}} @icon="home" @title={{t "mixin.menuItems.home"}} />
+    <MenuSidebarItem @link="index" @hasPermission={{true}} @icon="house" @title={{t "mixin.menuItems.home"}} />
     <MenuSidebarItem @link="articles" @hasPermission={{can "show articles"}} @icon="newspaper" @title={{t "mixin.menuItems.articles"}} />
-    <MenuSidebarItem @link="activities" @hasPermission={{can "show activities"}} @icon="calendar-alt" @title={{t "mixin.menuItems.activities"}} />
+    <MenuSidebarItem @link="activities" @hasPermission={{can "show activities"}} @icon="calendar-days" @title={{t "mixin.menuItems.activities"}} />
     <MenuSidebarItem @link="forum" @hasPermission={{can "show forum/categories"}} @icon="comments" @title={{t "mixin.menuItems.forum"}} />
     <MenuSidebarItem @link="photo-albums" @hasPermission={{can "show photo-albums"}} @icon="image" @title={{t "mixin.menuItems.photoAlbums"}} />
-    <MenuSidebarItem @link="polls" @hasPermission={{can "show polls"}} @icon="check-circle" @title={{t "mixin.menuItems.polls"}} />
+    <MenuSidebarItem @link="polls" @hasPermission={{can "show polls"}} @icon="circle-check" @title={{t "mixin.menuItems.polls"}} />
     <MenuSidebarItem @link="groups" @hasPermission={{can "show groups"}} @icon="users" @title={{t "mixin.menuItems.groups"}} />
     <MenuSidebarItem @link="users.members" @hasPermission={{can "show users"}} @icon="user" @title={{t "mixin.menuItems.members"}} />
-    <MenuSidebarItem @link="static-pages" @hasPermission={{can "show static-pages"}} @icon="info-circle" @title={{t "mixin.menuItems.staticPages"}} />
+    <MenuSidebarItem @link="static-pages" @hasPermission={{can "show static-pages"}} @icon="circle-info" @title={{t "mixin.menuItems.staticPages"}} />
     <MenuSidebarItem @link="sog" @hasPermission={{can "show sog"}} @icon="gamepad" @title={{t "mixin.menuItems.sog"}} />
 
   </div>
