@@ -12,7 +12,7 @@ export default class ShowGroupRoute extends AuthenticatedRoute {
       {
         link: 'groups.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: group,
         canAccess: this.abilities.can('edit group', group)
       },

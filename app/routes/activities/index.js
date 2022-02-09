@@ -29,7 +29,7 @@ export default class ActivityIndexRoute extends AuthenticatedRoute {
       {
         link: 'activities.ical',
         title: 'Ical link',
-        icon: 'calendar-alt',
+        icon: 'calendar-days',
         canAccess: this.abilities.can('show ical activities')
       }
     ];

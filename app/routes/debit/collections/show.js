@@ -13,7 +13,7 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
       {
         link: 'debit.collections.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: collection,
         canAccess: this.abilities.can('edit debit/collections')
       },

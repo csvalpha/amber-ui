@@ -11,7 +11,7 @@ export default class ShowUserRouter extends AuthenticatedRoute {
       {
         link: 'users.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: user,
         canAccess: this.abilities.can('edit user', user)
       },

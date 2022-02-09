@@ -3,7 +3,7 @@
     <div class="row justify-content-between align-items-center">
       <h5 class="flash-notice-content col-xs"> {{flashNotice.content}} </h5>
       {{#if flashNotice.isPermanent}}
-        <FaIcon @icon='times' {{on 'click' flashNotice.dismiss}}/>
+        <FaIcon @icon='xmark' {{on 'click' flashNotice.dismiss}}/>
       {{/if}}
     </div>
   </div>
