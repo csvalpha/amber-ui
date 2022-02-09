@@ -78,7 +78,7 @@ export default class Activity extends Model {
     if (user.get('id') === this.author.get('id')) {
       return true;
     }
-
+    console.log(user.currentMemberships);
     return user.currentMemberships.some(membership => membership.group.get('id') === this.group.get('id'));
   }
 

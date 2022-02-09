@@ -37,6 +37,7 @@ export default class Activity extends Ability {
 
   isActivityOwner(activity) {
     const { currentUser } = this.session;
+    console.log(currentUser.currentMemberships);
     return !isNone(currentUser) && activity.isOwner(currentUser);
   }
 }

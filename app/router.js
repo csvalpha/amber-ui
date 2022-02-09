@@ -198,6 +198,7 @@ Router.map(function() {
 
   this.route('sog', function() {
     this.route('name-trainer');
+    this.route('chess');
   });
 
   this.route('404-page-not-found', { path: '/*path' });
