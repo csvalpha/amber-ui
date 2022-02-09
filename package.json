@@ -36,6 +36,7 @@
     "babel-eslint": "^10.0",
     "bootstrap": "^4.4",
     "broccoli-asset-rev": "^3.0",
+    "ember-async-data": "^0.6.0",
     "ember-auto-import": "^2.2.4",
     "ember-bootstrap": "^4.4",
     "ember-can": "^4.1",
@@ -96,7 +97,7 @@
     "sass": "^1.44.0",
     "stylelint": "^14.1",
     "stylelint-config-sass-guidelines": "^9.0",
-    "stylelint-config-standard": "^24.0",
+    "stylelint-config-standard": "^25.0",
     "stylelint-order": "^5.0",
     "stylelint-scss": "^4.0",
     "webpack": "^5.65.0"

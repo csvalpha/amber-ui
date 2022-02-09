@@ -20,9 +20,13 @@
 
 {{#each form.sortedQuestions as |question|}}
   <td>
-    {{#each (get response.groupedAnswers question.id) as |answer|}}
-      <p> {{ if answer.option answer.option.option answer.answer }} </p>
-    {{/each}}
+    {{#let (load response.groupedAnswersPromise) as |groupedAnswers|}}
+      {{#let groupedAnswers.value as |answers|}}
+        {{#each (get answers question.id) as |answer|}}
+          <p> {{ if answer.option answer.option.option answer.answer }} </p>
+        {{/each}}
+      {{/let}}
+    {{/let}}
   </td>
 {{/each}}
 
