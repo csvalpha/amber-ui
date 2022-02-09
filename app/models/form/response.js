@@ -11,8 +11,6 @@ export default class Response extends DirtySaveModel {
   @hasMany('form/open-question-answer') openQuestionAnswers
   @hasMany('form/closed-question-answer') closedQuestionAnswers
 
-  _groupedAnswers
-
   get answersPromise() {
     return Promise.all([this.openQuestionAnswers, this.closedQuestionAnswers])
       .then(([openQuestionAnswers, closedQuestionAnswers]) => [
@@ -30,20 +28,11 @@ export default class Response extends DirtySaveModel {
         await Promise.all((await this.closedQuestionAnswers).map(closedQuestionAnswer => closedQuestionAnswer.option));
         return answers;
       })
-      .then(this.groupAnswers)
-      .then(groupedAnswers => {
-        this._groupedAnswers = groupedAnswers;
-        return groupedAnswers;
-      });
-  }
-
-  get groupedAnswers() {
-    this.groupedAnswersPromise;
-    return this._groupedAnswers;
+      .then(this.groupAnswers);
   }
 
   get userFullName() {
-    return this.user.fullName;
+    return this.user.then(user => user.fullName);
   }
 
   groupAnswers(answers) {
@@ -67,7 +56,6 @@ export default class Response extends DirtySaveModel {
         return answer.saveIfDirty();
       }
     }));
-    this.groupedAnswers; // Trigger an update.
     return response;
   }
 
