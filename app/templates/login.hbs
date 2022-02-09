@@ -15,7 +15,7 @@
 
             {{#if twoFactorRequired}}
               <div class="form-group">
-                <Input @type="text" @value={{verificationCode}} placeholder={{t "template.login.authcode"}} pattern="[0-9]*" @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-otp" />
+                <Input @type="text" @value={{verificationCode}} placeholder={{t "template.login.authcode"}} inputmode="numeric" pattern="[0-9]*" @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-otp" />
                 <p>{{t 'template.login.authcodeHint'}}</p>
               </div>
             {{else}}
