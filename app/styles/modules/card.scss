@@ -167,9 +167,6 @@ $card-border: 0 solid $gray-300;
 
 %gradient-overlay {
   background: linear-gradient(to bottom, $transparent 0%, $opaque-black-two-thirds 100%);
-  // stylelint-disable-next-line declaration-colon-space-after
-  filter:
-    progid:dximagetransform.microsoft.gradient(startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
 }
 
 .gradient-overlay {
@@ -183,7 +180,7 @@ $card-border: 0 solid $gray-300;
 }
 
 .card-subtitle {
-  margin-top: -(calc($card-spacer-y / 2));
+  margin-top: calc($card-spacer-y / -2);
   margin-bottom: 0;
 }
 
