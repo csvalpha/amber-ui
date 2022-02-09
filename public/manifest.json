@@ -62,6 +62,6 @@
       "name": "Groepen",
       "url": "/groups",
       "icons": [{ "src": "/images/shortcuts/groups.png", "sizes": "192x192" }]
-    },
+    }
   ]
 }
