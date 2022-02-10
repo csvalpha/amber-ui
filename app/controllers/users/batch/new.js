@@ -64,12 +64,13 @@ export default Controller.extend({
       const groupId = this.addToGroup ? this.addToGroup.id : null;
 
       const response = await this.fetch.post('/users/batch_import', {
+        /* eslint-disable camelcase */
         body: {
           file: this.importFile,
           group: groupId,
-          /* eslint-disable-next-line camelcase */
           live_run: true,
         },
+        /* eslint-enable camelcase */
       });
 
       if (response.ok) {

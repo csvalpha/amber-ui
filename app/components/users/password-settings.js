@@ -33,12 +33,12 @@ export default Component.extend({
             },
           },
         }),
+        /* eslint-enable camelcase */
         headers: {
           Accept: 'application/vnd.api+json',
           'Content-Type': 'application/vnd.api+json',
         },
         method: 'PATCH',
-        /* eslint-enable camelcase */
       });
 
       if (response.ok) {

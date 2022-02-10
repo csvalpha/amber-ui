@@ -23,9 +23,11 @@ export default class Router extends EmberRouter {
         window.gtag('js', new Date());
       }
 
+      /* eslint-disable camelcase */
       window.gtag('config', config.googleAnalytics.webPropertyId, {
         page_path: this.url,
       });
+      /* eslint-enable camelcase */
     });
   }
 }

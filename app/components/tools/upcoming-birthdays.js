@@ -12,10 +12,11 @@ export default Component.extend({
   ],
 
   users: computed(function () {
+    /* eslint-disable camelcase */
     const params = {
-      // eslint-disable-next-line camelcase
       filter: { upcoming_birthdays: true, group: 'Leden' },
     };
+    /* eslint-enable camelcase */
 
     return this.store.query('user', params);
   }),

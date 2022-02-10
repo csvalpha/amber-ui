@@ -5,12 +5,13 @@ import { computed } from '@ember/object';
 export default Component.extend({
   store: service(),
   photosWithComments: computed(function () {
-    // eslint-disable-next-line camelcase
+    /* eslint-disable camelcase */
     return this.store.query('photo', {
       sort: '-updated_at',
       filter: { with_comments: true },
       page: { number: '1', size: 4 },
     });
+    /* eslint-enable camelcase */
   }),
   albums: computed(function () {
     return this.store.query('photo-album', {

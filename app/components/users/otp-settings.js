@@ -60,11 +60,11 @@ export default Component.extend({
       const response = await this.fetch.post(
         `/users/${this.model.id}/activate_otp`,
         {
-          /* eslint-disable camelcase */
           body: {
+            /* eslint-disable camelcase */
             one_time_password: this.verificationCode,
+            /* eslint-enable camelcase */
           },
-          /* eslint-enable camelcase */
         }
       );
 

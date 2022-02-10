@@ -8,11 +8,16 @@ export default class PhotoCommentsIndexRoute extends ApplicationRoute {
   }
 
   model(params) {
-    params.paramMapping = this.paramMapping;
-    params.sort = '-updated_at';
-    // eslint-disable-next-line camelcase
-    params.filter = { with_comments: true };
-    params.perPage = 4;
+    /* eslint-disable camelcase */
+    params = {
+      ...params,
+      paramMapping: this.paramMapping,
+      sort: '-updated_at',
+      filter: { with_comments: true },
+      perPage: 4,
+    };
+    /* eslint-enable camelcase */
+
     return this.store.queryPaged('photo', params);
   }
 }

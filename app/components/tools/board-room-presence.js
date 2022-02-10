@@ -38,12 +38,13 @@ const BoardRoomPresence = Component.extend({
     .drop()
     .on('didInsertElement'),
 
-  // Fetch task is seperate from polling task, so we can call it individually
+  // Fetch task is separate from polling task, so we can call it individually.
   fetchData: task(function* () {
-    // eslint-disable-next-line camelcase
+    /* eslint-disable camelcase */
     const model = yield this.store.query('board-room-presence', {
       filter: { current_and_future: true },
     });
+    /* eslint-enable camelcase */
 
     this.set('model', model);
   }).restartable(),

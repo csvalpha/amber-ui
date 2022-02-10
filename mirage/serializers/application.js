@@ -19,18 +19,21 @@ export default JSONAPISerializer.extend({
     if (model.modelName in modelNames) {
       return modelNames[model.modelName];
     }
+
     return underscore(JSONAPISerializer.prototype.typeKeyForModel(model));
   },
   serialize(object) {
-    // This is how to call super, as Mirage borrows [Backbone's implementation of extend](http://backbonejs.org/#Model-extend)
+    // This is how to call super, as Mirage borrows
+    // [Backbone's implementation of extend](http://backbonejs.org/#Model-extend).
     const json = JSONAPISerializer.prototype.serialize.apply(this, arguments);
 
     if (this.isCollection(object)) {
+      /* eslint-disable camelcase */
       json.meta = {
-        // When there are no models, there is no page. Otherwise, all models are in 1 page
-        // eslint-disable-next-line camelcase
+        // When there are no models, there is no page. Otherwise, all models are in 1 page.
         total_pages: object.length > 0 ? 1 : 0,
       };
+      /* eslint-enable camelcase */
     }
 
     return json;
