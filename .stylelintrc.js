@@ -14,7 +14,6 @@ module.exports = {
   rules: {
     'at-rule-no-unknown': null, // use scss/at-rule-no-unknown instead
     'no-descending-specificity': null,
-    'number-leading-zero': 'never',
     'max-nesting-depth': 3,
     'scss/at-rule-no-unknown': true,
     'scss/dollar-variable-colon-space-after': null,
