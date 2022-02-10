@@ -49,19 +49,20 @@ module.exports = {
     // node files
     {
       files: [
-        '.eslintrc.js',
+        './.eslintrc.js',
         './.prettierrc.js',
-        '.template-lintrc.js',
-        'ember-cli-build.js',
-        'testem.js',
-        'blueprints/*/index.js',
-        'config/**/*.js',
-        'lib/*/index.js',
-        'server/**/*.js',
+        './.template-lintrc.js',
+        './ember-cli-build.js',
+        './testem.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './lib/*/index.js',
+        './server/**/*.js',
+        './.stylelintrc.js',
+        './.stylelintrc.order.js',
       ],
       parserOptions: {
         sourceType: 'script',
-        ecmaVersion: 2018,
       },
       env: {
         browser: false,
