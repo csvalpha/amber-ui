@@ -1,25 +1,31 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} />
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+    />
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="row">
+<div class='row'>
   {{#each model as |album|}}
-    <div class="col-md-6">
-      <LinkTo @route="photo-albums.photo-album" @model={{album.id}}>
+    <div class='col-md-6'>
+      <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
         {{cards/photo-album-card album}}
       </LinkTo>
     </div>
   {{else}}
-    <div class="col-md-12">
-      <div class="alert alert-warning">
+    <div class='col-md-12'>
+      <div class='alert alert-warning'>
         Geen foto-albums gevonden
       </div>
     </div>
   {{/each}}
 </div>
 
-<div class="row justify-content-center">
+<div class='row justify-content-center'>
   <PageNumbers @info={{model.meta}} />
 </div>

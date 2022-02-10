@@ -1,7 +1,7 @@
 import { lowercase } from 'alpha-amber/helpers/lowercase';
 import { module, test } from 'qunit';
 
-module('Unit | Helper | lowercase', function() {
+module('Unit | Helper | lowercase', function () {
   test('it converts the given value to lowercase', (assert) => {
     assert.equal(lowercase(['Test']), 'test');
     assert.equal(lowercase(['Test Test']), 'test test');
@@ -9,4 +9,3 @@ module('Unit | Helper | lowercase', function() {
     assert.equal(lowercase(['Opent over 3 dagen']), 'opent over 3 dagen');
   });
 });
-

@@ -12,17 +12,19 @@ export default Factory.extend({
   withQuestions: trait({
     afterCreate(form, server) {
       form.openQuestions = server.createList('form-open-question', 3, { form });
-      form.closedQuestions = server.createList('form-closed-question', 3, { form });
-    }
+      form.closedQuestions = server.createList('form-closed-question', 3, {
+        form,
+      });
+    },
   }),
 
   closed: trait({
     respondUntil: () => faker.date.recent(),
-    canRespond: false
+    canRespond: false,
   }),
 
   opensLater: trait({
     respondFrom: () => faker.date.future(),
-    canRespond: false
-  })
+    canRespond: false,
+  }),
 });

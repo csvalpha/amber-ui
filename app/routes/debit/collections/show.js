@@ -15,22 +15,22 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: collection,
-        canAccess: this.abilities.can('edit debit/collections')
+        canAccess: this.abilities.can('edit debit/collections'),
       },
       {
         link: 'debit.collections.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: collection,
-        canAccess: this.abilities.can('destroy debit/collections')
+        canAccess: this.abilities.can('destroy debit/collections'),
       },
       {
         link: 'debit.collections.sepa',
         title: 'SEPA bestand downloaden',
         icon: 'download',
         linkArgument: collection.id,
-        canAccess: this.abilities.can('download sepa debit/collections')
-      }
+        canAccess: this.abilities.can('download sepa debit/collections'),
+      },
     ];
   }
 
@@ -39,18 +39,21 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
   }
 
   model(params) {
-    const collectionPromise = this.store.findRecord('debit/collection', params.id);
+    const collectionPromise = this.store.findRecord(
+      'debit/collection',
+      params.id
+    );
     assign(params, {
       paramMapping: this.paramMapping,
       filter: { collection: params.id },
-      sort: 'created_at'
+      sort: 'created_at',
     });
     delete params.id;
     const transactionsPromise = this.store.query('debit/transaction', params);
 
     return hash({
       collection: collectionPromise,
-      transactions: transactionsPromise
+      transactions: transactionsPromise,
     });
   }
 }

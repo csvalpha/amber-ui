@@ -5,25 +5,34 @@ import destroyApp from '../../../helpers/destroy-app';
 
 let App;
 
-module('Unit | Route | groups/new', function(hooks) {
+module('Unit | Route | groups/new', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     App = startApp();
   });
 
-  hooks.afterEach(function() {
+  hooks.afterEach(function () {
     destroyApp(App);
   });
 
-  test('model is removed on deactivation', function(assert) {
-    itShouldRemoveNewModel(assert, this.owner.lookup('route:groups/new'), 'group');
+  test('model is removed on deactivation', function (assert) {
+    itShouldRemoveNewModel(
+      assert,
+      this.owner.lookup('route:groups/new'),
+      'group'
+    );
   });
 
-  test('memberships are removed on deactivation', function(assert) {
+  test('memberships are removed on deactivation', function (assert) {
     const relationshipType = 'membership';
     const relationshipName = 'memberships';
 
-    itShouldRemoveRelationship(assert, this.owner.lookup('route:groups/new'), relationshipName, relationshipType);
+    itShouldRemoveRelationship(
+      assert,
+      this.owner.lookup('route:groups/new'),
+      relationshipName,
+      relationshipType
+    );
   });
 });

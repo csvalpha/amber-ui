@@ -1,15 +1,16 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
 <TabbedView @tabItems={{tabItems}}>
   <p>
-    Deze informatie is alleen voor jou, het bestuur en de ICT-commissie beschikbaar
+    Deze informatie is alleen voor jou, het bestuur en de ICT-commissie
+    beschikbaar
   </p>
   {{cards/privacy-preference model data-test-privacy-preference-card=true}}
 
   <h5>Afgeschermde informatie</h5>
-  <table class="table table-sm">
+  <table class='table table-sm'>
     <tr>
       <td>Noodcontact</td>
       <td data-test-emergencyContact>{{@model.emergencyContact}}</td>
@@ -21,19 +22,23 @@
     <tr>
       <td>Almanak voorkeur</td>
       <td data-test-almanakSubscriptionPreference>
-        {{humanize-almanak-subscription-preference @model.almanakSubscriptionPreference}}
+        {{humanize-almanak-subscription-preference
+          @model.almanakSubscriptionPreference
+        }}
       </td>
     </tr>
     <tr>
       <td>Digtus voorkeur</td>
       <td data-test-digtusSubscriptionPreference>
-        {{humanize-digtus-subscription-preference @model.digtusSubscriptionPreference}}
+        {{humanize-digtus-subscription-preference
+          @model.digtusSubscriptionPreference
+        }}
       </td>
     </tr>
   </table>
 
   <h5>Technische informatie</h5>
-  <table class="table table-sm">
+  <table class='table table-sm'>
     <tr>
       <td>Id</td>
       <td data-test-id>{{@model.id}}</td>
@@ -48,15 +53,24 @@
     </tr>
     <tr>
       <td>Activatiedatum</td>
-      <td data-test-activatedAt>{{moment-format @model.activatedAt 'DD-MM-YYYY'}}</td>
+      <td data-test-activatedAt>{{moment-format
+          @model.activatedAt
+          'DD-MM-YYYY'
+        }}</td>
     </tr>
     <tr>
       <td>Aangemaakt</td>
-      <td data-test-createdAt>{{moment-format @model.createdAt 'DD-MM-YYYY'}}</td>
+      <td data-test-createdAt>{{moment-format
+          @model.createdAt
+          'DD-MM-YYYY'
+        }}</td>
     </tr>
     <tr>
       <td>Laatst gewijzigd</td>
-      <td data-test-updatedAt>{{moment-format @model.updatedAt 'DD-MM-YYYY'}}</td>
+      <td data-test-updatedAt>{{moment-format
+          @model.updatedAt
+          'DD-MM-YYYY'
+        }}</td>
     </tr>
     <tr>
       <td>Two-Factor geactiveerd</td>

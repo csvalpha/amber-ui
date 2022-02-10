@@ -11,7 +11,7 @@ const modelNames = {
   'form-response': 'responses',
   'forum-category': 'categories',
   'forum-post': 'posts',
-  'forum-thread': 'threads'
+  'forum-thread': 'threads',
 };
 
 export default JSONAPISerializer.extend({
@@ -29,7 +29,7 @@ export default JSONAPISerializer.extend({
       json.meta = {
         // When there are no models, there is no page. Otherwise, all models are in 1 page
         // eslint-disable-next-line camelcase
-        total_pages: object.length > 0 ? 1 : 0
+        total_pages: object.length > 0 ? 1 : 0,
       };
     }
 
@@ -40,5 +40,5 @@ export default JSONAPISerializer.extend({
   },
   keyForRelationship(modelName) {
     return underscore(modelName);
-  }
+  },
 });

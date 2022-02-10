@@ -1,7 +1,7 @@
 <thead>
   <tr>
     {{#if showCheckbox}}
-      <th class="table-collumn-narrow"></th>
+      <th class='table-collumn-narrow'></th>
     {{/if}}
     <th> Naam </th>
     {{#each form.sortedQuestions as |question|}}
@@ -17,12 +17,17 @@
 <tbody>
   {{#each responses as |response|}}
     {{#if response.completed}}
-      {{form/responses-table-row form response showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox}}
+      {{form/responses-table-row
+        form
+        response
+        showAllergyInfo=showAllergyInfo
+        showCheckbox=showCheckbox
+      }}
     {{/if}}
   {{else}}
     <tr>
-      <td colspan="100%">
-        <div class="alert alert-warning">
+      <td colspan='100%'>
+        <div class='alert alert-warning'>
           Geen inschrijvingen die voldoen aan de huidige filteropties.
         </div>
       </td>
@@ -30,5 +35,9 @@
   {{/each}}
 </tbody>
 <tfoot>
-  {{form/responses-table-totals form showAllergyInfo=showAllergyInfo showCheckbox=showCheckbox}}
+  {{form/responses-table-totals
+    form
+    showAllergyInfo=showAllergyInfo
+    showCheckbox=showCheckbox
+  }}
 </tfoot>

@@ -1,31 +1,59 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5> {{if model.isNew 'Artikel aanmaken' 'Artikel wijzigen'}} </h5>
   </div>
-  <div class="card-body">
-    <form {{action "submit" on="submit"}}>
-      <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" @maxlength={{50}} />
-      <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @loadedCallback={{action "coverPhotoLoaded"}} />
-      <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
+  <div class='card-body'>
+    <form {{action 'submit' on='submit'}}>
+      <ModelForm::TextInput
+        @model={{model}}
+        @property='title'
+        @label='Titel'
+        @maxlength={{50}}
+      />
+      <ModelForm::FileInput
+        @model={{model}}
+        @property='coverPhoto'
+        @label='Coverfoto'
+        @loadedCallback={{action 'coverPhotoLoaded'}}
+      />
+      <ModelForm::CheckboxInput
+        @model={{model}}
+        @property='publiclyVisible'
+        @label='Zichtbaar voor externen'
+      />
 
       {{#if model.publiclyVisible}}
-        <div class="alert alert-warning" role="alert">
-          Een publiek artikel is ook zichtbaar voor niet-leden.
-          Fijn dat je ook helpt om te laten zien dat Alpha een levendige boel is!
-          Houd hier wel rekening mee in je artikel. <br>
-          Plaats je een coverfoto met mensen er op? Zorg dan wel dat je toestemming van deze mensen hebt.
+        <div class='alert alert-warning' role='alert'>
+          Een publiek artikel is ook zichtbaar voor niet-leden. Fijn dat je ook
+          helpt om te laten zien dat Alpha een levendige boel is! Houd hier wel
+          rekening mee in je artikel.
+          <br />
+          Plaats je een coverfoto met mensen er op? Zorg dan wel dat je
+          toestemming van deze mensen hebt.
         </div>
       {{/if}}
 
       {{#if canPin}}
-        <ModelForm::CheckboxInput @model={{model}} @property="pinned" @label="Artikel vastzetten" />
+        <ModelForm::CheckboxInput
+          @model={{model}}
+          @property='pinned'
+          @label='Artikel vastzetten'
+        />
       {{/if}}
 
-      <div class="form-group row">
-        <label class="col-md-2 form-control-label">Namens groep of commissie</label>
+      <div class='form-group row'>
+        <label class='col-md-2 form-control-label'>Namens groep of commissie</label>
 
-        <div class="col-sm-10">
-          <PowerSelect @options={{groups}} @onChange={{action (mut @model.group)}} @selected={{@model.group}} @searchEnabled={{true}} @searchField="name" @allowClear={{true}} as |group|>
+        <div class='col-sm-10'>
+          <PowerSelect
+            @options={{groups}}
+            @onChange={{action (mut @model.group)}}
+            @selected={{@model.group}}
+            @searchEnabled={{true}}
+            @searchField='name'
+            @allowClear={{true}}
+            as |group|
+          >
             {{group.name}}
           </PowerSelect>
 
@@ -33,10 +61,19 @@
         </div>
       </div>
 
-      <ModelForm::MdInput @model={{@model}} @property="content" @label="Inhoud" @required={{true}} @inputIdentifier="article-form-content" />
+      <ModelForm::MdInput
+        @model={{@model}}
+        @property='content'
+        @label='Inhoud'
+        @required={{true}}
+        @inputIdentifier='article-form-content'
+      />
 
-      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{errorMessage}}>
-        <LinkTo @route="index" class="btn btn-default">Annuleren</LinkTo>
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{errorMessage}}
+      >
+        <LinkTo @route='index' class='btn btn-default'>Annuleren</LinkTo>
       </ModelForm::FormActions>
 
     </form>

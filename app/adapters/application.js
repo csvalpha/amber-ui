@@ -8,8 +8,8 @@ import { pluralize } from 'ember-inflector';
 export default class ApplicationAdapter extends JSONAPIAdapter {
   @service session;
 
-  host = ENV.api.hostname
-  coalesceFindRequests = true
+  host = ENV.api.hostname;
+  coalesceFindRequests = true;
 
   get headers() {
     let headers = {};

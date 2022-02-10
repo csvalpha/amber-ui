@@ -6,11 +6,17 @@ import { isInvalidResponse } from 'ember-fetch/errors';
 export default Component.extend({
   fetch: service(),
   flashNotice: service(),
-  isSaveButtonDisabled: computed('password.length', 'passwordConfirmation', function() {
-    return this.password === undefined
-      || this.password.length < 12
-      || this.password !== this.passwordConfirmation;
-  }),
+  isSaveButtonDisabled: computed(
+    'password.length',
+    'passwordConfirmation',
+    function () {
+      return (
+        this.password === undefined ||
+        this.password.length < 12 ||
+        this.password !== this.passwordConfirmation
+      );
+    }
+  ),
   actions: {
     async changePassword() {
       this.set('passwordErrorMessage', null);
@@ -23,15 +29,15 @@ export default Component.extend({
             type: 'users',
             attributes: {
               password: this.password,
-              old_password: this.oldPassword
-            }
-          }
+              old_password: this.oldPassword,
+            },
+          },
         }),
         headers: {
-          'Accept': 'application/vnd.api+json',
-          'Content-Type': 'application/vnd.api+json'
+          Accept: 'application/vnd.api+json',
+          'Content-Type': 'application/vnd.api+json',
         },
-        method: 'PATCH'
+        method: 'PATCH',
         /* eslint-enable camelcase */
       });
 
@@ -43,8 +49,11 @@ export default Component.extend({
         this.transitionToRoute('users.show-security', userId);
       } else if (isInvalidResponse(response)) {
         let json = await response.json();
-        this.set('passwordErrorMessage', json.errors ? json.errors[0].detail : response);
+        this.set(
+          'passwordErrorMessage',
+          json.errors ? json.errors[0].detail : response
+        );
       }
-    }
-  }
+    },
+  },
 });

@@ -6,8 +6,8 @@ export default class StoredMail extends Model {
   @attr('date') receivedAt;
   @attr subject;
   @attr plainBody;
-  @attr  sender;
-  @attr  attachments;
+  @attr sender;
+  @attr attachments;
 
   // Relations
   @belongsTo mailAlias;

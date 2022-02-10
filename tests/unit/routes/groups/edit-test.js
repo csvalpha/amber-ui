@@ -5,23 +5,23 @@ import destroyApp from '../../../helpers/destroy-app';
 
 let App;
 
-module('Unit | Route | groups/edit', function(hooks) {
+module('Unit | Route | groups/edit', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     App = startApp();
   });
 
-  hooks.afterEach(function() {
+  hooks.afterEach(function () {
     destroyApp(App);
   });
 
-  test('it exists', function(assert) {
+  test('it exists', function (assert) {
     const route = this.owner.lookup('route:groups/edit');
     assert.ok(route);
   });
 
-  test('it exists', function(assert) {
+  test('it exists', function (assert) {
     const route = this.owner.lookup('route:groups/edit');
     assert.ok(route);
   });

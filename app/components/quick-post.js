@@ -32,37 +32,49 @@ export default Component.extend({
 
   maxCharacters: 400,
   currentCharacterCount: reads('newQpMessage.length'),
-  characterCountPercentage: computed('currentCharacterCount', 'maxCharacters', function() {
-    return Math.round(this.currentCharacterCount / this.maxCharacters * 100);
-  }),
-
-  progressBarClass: computed('currentCharacterCount', 'maxCharacters', function() {
-    const count = this.currentCharacterCount;
-    const max = this.maxCharacters;
-
-    if (count > max) {
-      return 'danger';
-    } else if (count > 0.8 * max) {
-      return 'warning';
+  characterCountPercentage: computed(
+    'currentCharacterCount',
+    'maxCharacters',
+    function () {
+      return Math.round(
+        (this.currentCharacterCount / this.maxCharacters) * 100
+      );
     }
+  ),
 
-    return 'primary';
-  }),
-  progressBarStyle: computed('characterCountPercentage', function() {
+  progressBarClass: computed(
+    'currentCharacterCount',
+    'maxCharacters',
+    function () {
+      const count = this.currentCharacterCount;
+      const max = this.maxCharacters;
+
+      if (count > max) {
+        return 'danger';
+      } else if (count > 0.8 * max) {
+        return 'warning';
+      }
+
+      return 'primary';
+    }
+  ),
+  progressBarStyle: computed('characterCountPercentage', function () {
     return htmlSafe(`width: ${this.characterCountPercentage}%`);
   }),
 
-  tooMuchText: computed('currentCharacterCount', 'maxCharacters', function() {
+  tooMuchText: computed('currentCharacterCount', 'maxCharacters', function () {
     return this.currentCharacterCount > this.maxCharacters;
   }),
 
-  welcomeText: computed(function() {
-    return WelcomeTextLines[Math.floor(Math.random() * WelcomeTextLines.length)];
+  welcomeText: computed(function () {
+    return WelcomeTextLines[
+      Math.floor(Math.random() * WelcomeTextLines.length)
+    ];
   }),
 
   emoticons: SuggestedEmojis,
 
-  showLoaderButton: computed('page', 'totalPages', function() {
+  showLoaderButton: computed('page', 'totalPages', function () {
     return this.page < this.totalPages;
   }),
 
@@ -89,7 +101,9 @@ export default Component.extend({
     },
 
     destroyMessage(message) {
-      const answer = confirm('Weet je zeker dat je dit bericht wilt verwijderen?'); // eslint-disable-line no-alert
+      const answer = confirm(
+        'Weet je zeker dat je dit bericht wilt verwijderen?'
+      ); // eslint-disable-line no-alert
       if (answer) {
         message.destroyRecord().then(() => {
           this.set('messages', []);
@@ -104,7 +118,9 @@ export default Component.extend({
         message.trim().replace(/(\r\n|\n|\r)/gm, '');
         const unicodeMessage = convertToUnicode(message);
 
-        this.store.createRecord('quickpost-message', { message: unicodeMessage }).save();
+        this.store
+          .createRecord('quickpost-message', { message: unicodeMessage })
+          .save();
 
         this.send('koeAan', unicodeMessage);
         this.set('newQpMessage', '');
@@ -116,7 +132,7 @@ export default Component.extend({
       pageParams['page[size]'] = 15;
       pageParams['page[number]'] = page;
       pageParams.sort = '-created_at';
-      this.store.query('quickpost-message', pageParams).then(result => {
+      this.store.query('quickpost-message', pageParams).then((result) => {
         this.messages.addObjects(result);
         this.set('totalPages', result.get('meta.page_count'));
       });
@@ -125,41 +141,47 @@ export default Component.extend({
 
     subscribeToQuickpostMessagesMessageBus() {
       const channel = '/quickpost_messages';
-      this.messageBus.subscribe(channel, data => {
-        const json = JSON.parse(data);
-        const quickpostMessageData = {
-          data: {
-            type: 'quickpost-message',
-            id: json.id,
-            attributes: {
-              message: json.message,
-              createdAt: json.created_at
+      this.messageBus.subscribe(
+        channel,
+        (data) => {
+          const json = JSON.parse(data);
+          const quickpostMessageData = {
+            data: {
+              type: 'quickpost-message',
+              id: json.id,
+              attributes: {
+                message: json.message,
+                createdAt: json.created_at,
+              },
+              relationships: {
+                author: {
+                  data: {
+                    type: 'user',
+                    id: json.author_id,
+                  },
+                },
+              },
             },
-            relationships: {
-              author: {
-                data: {
-                  type: 'user',
-                  id: json.author_id
-                }
-              }
-            }
-          }
-        };
-        const quickpost = this.store.push(quickpostMessageData);
-        this.set('messages', this.store.peekAll('quickpostMessage'));
-        this.send('notify', quickpost);
-      }, null);
+          };
+          const quickpost = this.store.push(quickpostMessageData);
+          this.set('messages', this.store.peekAll('quickpostMessage'));
+          this.send('notify', quickpost);
+        },
+        null
+      );
     },
 
     notify(quickpost) {
-      if (this.notification.isEnabled
-        && quickpost.get('author.id') !== this.session.currentUser.id) {
+      if (
+        this.notification.isEnabled &&
+        quickpost.get('author.id') !== this.session.currentUser.id
+      ) {
         this.notification.new(
           quickpost.get('author.fullName'),
           quickpost.get('message'),
           quickpost.get('author.avatarThumbUrlOrDefault')
         );
       }
-    }
-  }
+    },
+  },
 });

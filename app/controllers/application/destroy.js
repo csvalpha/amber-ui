@@ -8,14 +8,17 @@ export default EditController.extend({
       this.set('errorMessage', null);
 
       if (!isNone(this.model)) {
-        this.model.destroyRecord().then(() => {
-          this.send('onSuccess');
-        }).catch(error => {
-          this.send('onError', error);
-        });
+        this.model
+          .destroyRecord()
+          .then(() => {
+            this.send('onSuccess');
+          })
+          .catch((error) => {
+            this.send('onError', error);
+          });
       }
     },
     saveModel: undefined,
-    submit: undefined
-  }
+    submit: undefined,
+  },
 });

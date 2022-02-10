@@ -8,7 +8,9 @@ export default Controller.extend({
   actions: {
     async generateAlias() {
       this.set('errorMessage', null);
-      const response = await this.fetch.post(`/activities/${this.model.id}/generate_alias`);
+      const response = await this.fetch.post(
+        `/activities/${this.model.id}/generate_alias`
+      );
 
       if (response.ok) {
         const json = await response.json();
@@ -16,8 +18,11 @@ export default Controller.extend({
         this.set('expires_at', json.data.expires_at);
       } else if (isInvalidResponse(response)) {
         const json = await response.json();
-        this.set('errorMessage', json.errors ? json.errors[0].detail : response);
+        this.set(
+          'errorMessage',
+          json.errors ? json.errors[0].detail : response
+        );
       }
-    }
-  }
+    },
+  },
 });

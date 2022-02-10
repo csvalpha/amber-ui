@@ -12,6 +12,7 @@ export default class ClosedQuestionOption extends Model {
 
   // Computed properties
   get sumOfAnswers() {
-    return this.answers.map(answer => answer.get('response.completed')).length;
+    return this.answers.map((answer) => answer.get('response.completed'))
+      .length;
   }
 }

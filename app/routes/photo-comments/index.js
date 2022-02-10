@@ -1,7 +1,7 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 
 export default class PhotoCommentsIndexRoute extends ApplicationRoute {
-  breadCrumb = { title: 'Fotoreacties' }
+  breadCrumb = { title: 'Fotoreacties' };
 
   canAccess() {
     return this.abilities.can('show photo-comments');

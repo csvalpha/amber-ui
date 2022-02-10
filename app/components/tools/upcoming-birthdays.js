@@ -5,16 +5,20 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  sortProperties: ['hasBirthdayToday:desc', 'upcomingBirthdayDate:asc', 'age:asc'],
+  sortProperties: [
+    'hasBirthdayToday:desc',
+    'upcomingBirthdayDate:asc',
+    'age:asc',
+  ],
 
-  users: computed(function() {
+  users: computed(function () {
     const params = {
       // eslint-disable-next-line camelcase
-      filter: { upcoming_birthdays: true, group: 'Leden' }
+      filter: { upcoming_birthdays: true, group: 'Leden' },
     };
 
     return this.store.query('user', params);
   }),
 
-  sortedUsers: sort('users', 'sortProperties')
+  sortedUsers: sort('users', 'sortProperties'),
 });

@@ -7,15 +7,15 @@ export class ApplicationRoute extends Route {
 
   queryParams = {
     search: {
-      refreshModel: true
+      refreshModel: true,
     },
     sort: {
-      refreshModel: true
+      refreshModel: true,
     },
     page: {
-      refreshModel: true
-    }
-  }
+      refreshModel: true,
+    },
+  };
 
   get pageActions() {
     return [];
@@ -50,14 +50,20 @@ export class AuthenticatedRoute extends ApplicationRoute {
     }
 
     if (this.canAccess.length > 1) {
-      throw new Error('canAccess method with more than 1 argument found, authorization is not performed');
+      throw new Error(
+        'canAccess method with more than 1 argument found, authorization is not performed'
+      );
     }
 
     return super.afterModel(model, transition);
   }
 
   onAccessDenied(transition) {
-    const error = new Error(`Access denied for route ${transition.targetName} with params ${JSON.stringify(transition.params)}`);
+    const error = new Error(
+      `Access denied for route ${
+        transition.targetName
+      } with params ${JSON.stringify(transition.params)}`
+    );
     error.isAuthorizationError = true;
     throw error;
   }

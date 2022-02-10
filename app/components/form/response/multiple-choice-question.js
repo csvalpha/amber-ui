@@ -5,13 +5,17 @@ import { ClosedQuestionBaseComponent } from './closed-question';
 const MultipleChoiceQuestionComponent = ClosedQuestionBaseComponent.extend({
   answers: null,
   selectedOptionIds: mapBy('answers', 'option.id'),
-  requiredAndNothingSelected: computed('question.required', 'selectedOptionIds.length', function() {
-    return this.question.required && this.selectedOptionIds.length === 0;
-  })
+  requiredAndNothingSelected: computed(
+    'question.required',
+    'selectedOptionIds.length',
+    function () {
+      return this.question.required && this.selectedOptionIds.length === 0;
+    }
+  ),
 });
 
 MultipleChoiceQuestionComponent.reopenClass({
-  positionalParams: ['question', 'answers']
+  positionalParams: ['question', 'answers'],
 });
 
 export default MultipleChoiceQuestionComponent;

@@ -3,5 +3,5 @@ import Controller from '@ember/controller';
 
 export default Controller.extend({
   session: service(),
-  layoutManager: service('layout-manager')
+  layoutManager: service('layout-manager'),
 });

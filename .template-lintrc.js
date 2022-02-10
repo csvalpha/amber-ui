@@ -27,5 +27,5 @@ module.exports = {
     'no-negated-condition': false,
     'no-unused-block-params': false,
   },
-  extends: 'octane'
+  extends: 'octane',
 };

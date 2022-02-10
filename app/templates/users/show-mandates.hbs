@@ -1,11 +1,11 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
 <TabbedView @tabItems={{tabItems}}>
   <h5>Incasso mandaten</h5>
 
-  <table class="table">
+  <table class='table'>
     <thead>
       <tr>
         <td>Mandaat nummer</td>
@@ -18,7 +18,7 @@
       {{#each @model.mandates as |mandate|}}
         <tr>
           <td>
-            <LinkTo @route="debit.mandates.show" @model={{mandate.id}}>
+            <LinkTo @route='debit.mandates.show' @model={{mandate.id}}>
               {{mandate.id}}
             </LinkTo>
           </td>
@@ -28,8 +28,8 @@
         </tr>
       {{else}}
         <tr>
-          <td colspan="4">
-            <p class="text-center text-muted">
+          <td colspan='4'>
+            <p class='text-center text-muted'>
               Geen mandaten gevonden
             </p>
           </td>

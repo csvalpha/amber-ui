@@ -10,7 +10,8 @@
       <strong>{{question.sumOfAnswers}}</strong>
     {{else}}
       {{#each question.options as |opt|}}
-        <strong>{{opt.sumOfAnswers}}</strong> {{opt.option}}<br>
+        <strong>{{opt.sumOfAnswers}}</strong>
+        {{opt.option}}<br />
       {{/each}}
     {{/if}}
   </th>

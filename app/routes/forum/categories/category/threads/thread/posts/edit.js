@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditPostRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Forumbericht aanpassen' }
+  breadCrumb = { title: 'Forumbericht aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit forum/post', model);

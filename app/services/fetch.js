@@ -17,7 +17,7 @@ export default class FetchService extends Service {
     return basefetch(url, args);
   }
 
-  post(url, args  = {}) {
+  post(url, args = {}) {
     args.method = 'POST';
     this._parseBody(args);
     this._setHeaders(args);
