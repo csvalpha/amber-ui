@@ -1,0 +1,22 @@
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+  </PageActionsButtons>
+</EmberWormhole>
+
+<div class="row">
+  {{#each model as |book|}}
+    <div class="article-col col-md-6 mb-3">
+      <LinkTo @route="books.show" @model={{book.id}}>
+        <div>
+          <b>{{book.title}}</b><br>
+          {{book.author}}
+        </div>
+      </LinkTo>
+    </div>
+  {{/each}}
+</div>
+
+<div class="row justify-content-center">
+  <PageNumbers @info={{model.meta}} />
+</div>

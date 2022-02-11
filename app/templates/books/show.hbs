@@ -1,0 +1,14 @@
+<EmberWormhole @to="navbar-wormhole">
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<div class="card">
+  <div class="card-header">
+    <h5> {{model.title}} </h5><br>
+    {{ model.author }}
+  </div>
+
+  <div class="card-body">
+    {{ model.description }}
+  </div>
+</div>
