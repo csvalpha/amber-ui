@@ -43,6 +43,9 @@ export default Controller.extend({
     },
     toggleShowExif() {
       this.toggleProperty('showExif');
+    },
+    onSwipe(direction) {
+      return this.advanceToPhoto(direction);
     }
   }
 });

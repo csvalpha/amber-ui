@@ -1,0 +1,9 @@
+{{#if this.swipe_direction}}
+  <div {{on "touchstart" this.onTouchStart}} {{on "touchmove" this.onTouchMove}} {{on "touchend" this.onTouchEnd}}>
+    {{yield}}
+  </div>
+{{else}}
+  <div>
+    {{yield}}
+  </div>
+{{/if}}

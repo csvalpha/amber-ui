@@ -19,9 +19,12 @@
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="d-flex justify-content-center align-items-center">
-  <img src={{@model.imageUrl}} class="photo-large">
-</div>
+
+<Swipable @onSwipeHorizontal={{action "onSwipe"}}>
+  <div class="d-flex justify-content-center align-items-center">
+    <img src={{@model.imageUrl}} class="photo-large">
+  </div>
+</Swipable>
 
 {{#if (can 'show individual users')}}
   <p class="text-right text-muted">
@@ -99,11 +102,13 @@
       <div class="card-footer">
         {{#if @model.photoAlbum.publiclyVisible}}
           <div class="alert alert-info">
-            Deze foto is ook te zien voor niet-leden, dat geldt ook voor de reacties die er geplaatst worden. Het is natuurlijk heel fijn om te laten zien hoe actief Alpha is, maar houd er wel rekening mee als je wat plaatst.
+            Deze foto is ook te zien voor niet-leden, dat geldt ook voor de reacties die er geplaatst worden. Het is
+            natuurlijk heel fijn om te laten zien hoe actief Alpha is, maar houd er wel rekening mee als je wat plaatst.
           </div>
         {{/if}}
         <div class="input-group new-photo-comment">
-          <Input @value={{content}} class="form-control" placeholder="Typ hier je reactie" @minlength="1" @maxlength="500" @enter={{action "submitPhotoComment" photo}} @id="new-photo-comment-input" />
+          <Input @value={{content}} class="form-control" placeholder="Typ hier je reactie" @minlength="1"
+                 @maxlength="500" @enter={{action "submitPhotoComment" photo}} @id="new-photo-comment-input"/>
           <span class="input-group-btn">
             <button class="btn btn-default" {{action "submitPhotoComment"}} type="button">Reageren</button>
           </span>
