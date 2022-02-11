@@ -20,11 +20,11 @@
 </EmberWormhole>
 
 
-<swipeable @onSwipeHorizontal={{action "onSwipe"}}>
+<Swipeable @onSwipeHorizontal={{action "onSwipe"}}>
   <div class="d-flex justify-content-center align-items-center">
     <img src={{@model.imageUrl}} class="photo-large">
   </div>
-</swipeable>
+</Swipeable>
 
 {{#if (can 'show individual users')}}
   <p class="text-right text-muted">
