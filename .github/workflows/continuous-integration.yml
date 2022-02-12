@@ -57,7 +57,8 @@ jobs:
         run: |
           EXIT_STATUS=0
           docker run app yarn ci:eslint || EXIT_STATUS=$?
-          node bin/convert-stylelint-output.js "$(docker run app yarn ci:stylelint)" || EXIT_STATUS=$?
+          STYLELINT_OUTPUT="$(docker run app yarn ci:stylelint)" || EXIT_STATUS=$?
+          node bin/convert-stylelint-output.js "$STYLELINT_OUTPUT"
           exit $EXIT_STATUS
 
   test:

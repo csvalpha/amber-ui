@@ -11,7 +11,7 @@ export default class PhotosIndexRoute extends ApplicationRoute {
       {
         link: 'photo-albums.photo-album.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: this.controller.model.photoAlbum,
         canAccess: this.abilities.can('edit photo-albums', photoAlbum)
       },

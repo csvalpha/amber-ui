@@ -11,7 +11,7 @@ export default class ShowArticleRoute extends ApplicationRoute {
       {
         link: 'articles.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: article,
         canAccess: this.abilities.can('edit article', article)
       },

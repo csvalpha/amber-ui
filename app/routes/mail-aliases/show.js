@@ -11,7 +11,7 @@ export default class ShowMailAliasRoute extends AuthenticatedRoute {
       {
         link: 'mail-aliases.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: mailAlias,
         canAccess: this.abilities.can('edit mail-aliases')
       },

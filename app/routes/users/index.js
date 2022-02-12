@@ -1,5 +1,4 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import { assign } from '@ember/polyfills';
 
 export default class UserIndexRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Gebruikers' }
@@ -25,7 +24,6 @@ export default class UserIndexRoute extends AuthenticatedRoute {
   }
 
   model(params) {
-    params = assign({ 'filter': { 'archived': false } }, params);
     params.perPage = 12;
     return this.store.queryPaged('user', params);
   }
