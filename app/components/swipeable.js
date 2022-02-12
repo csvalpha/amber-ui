@@ -25,7 +25,7 @@ export default class SwipeableComponent extends Component {
   onTouchStart(touchStartEvent) {
     if (touchStartEvent.targetTouches.length === 1) {
       this.touching = true;
-      let touch = touchStartEvent.targetTouches.item(0);
+      const touch = touchStartEvent.targetTouches.item(0);
       this.xStart = touch.pageX;
       this.yStart = touch.pageY;
     }
@@ -34,7 +34,7 @@ export default class SwipeableComponent extends Component {
   @action
   onTouchEnd(touchEndEvent) {
     if (touchEndEvent.targetTouches.length === 0 && touchEndEvent.changedTouches.length === 1 && this.swiping) {
-      let touch = touchEndEvent.changedTouches.item(0);
+      const touch = touchEndEvent.changedTouches.item(0);
       this.xEnd = touch.pageX;
       this.yEnd = touch.pageY;
       this.doSwipe();
@@ -45,13 +45,12 @@ export default class SwipeableComponent extends Component {
 
   @action
   onTouchMove(touchMoveEvent) {
-    console.log('touch move');
     if (this.touching) {
       if (touchMoveEvent.targetTouches.length === 1) { // only do swiping if one finger touches
         // you need to define the swipe actions, even if it's just an empty function
-        let touch = touchMoveEvent.targetTouches.item(0);
-        let xDiff = touch.pageX - this.xStart;
-        let yDiff = touch.pageY - this.yStart;
+        const touch = touchMoveEvent.targetTouches.item(0);
+        const xDiff = touch.pageX - this.xStart;
+        const yDiff = touch.pageY - this.yStart;
         if (this.swipeDirection === 'horizontal') {
           // it is reasonable to assume that a swipe should be done mainly in the direction in which can be swiped.
           this.swiping = xDiff ** 2 > yDiff ** 2;
@@ -65,7 +64,6 @@ export default class SwipeableComponent extends Component {
   }
 
   doSwipe() {
-    console.log('do swipe');
     if (this.swiping) {
       if (this.swipeDirection === 'horizontal') {
         let direction = this.xEnd - this.xStart;
