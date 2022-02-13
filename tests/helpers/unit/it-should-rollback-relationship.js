@@ -2,6 +2,7 @@ import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
 import { registerAsyncHelper } from '@ember/test';
 import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
+import { getContext } from '@ember/test-helpers';
 
 /**
  * @public
@@ -18,9 +19,10 @@ export default registerAsyncHelper('itShouldRollbackRelationship',
   (app, assert, route, modelType, relationshipName, relationshipType, properties) => {
     assert.expect(properties.length);
 
-    const generatedModel = this.server.create(modelType);
+    const context = getContext();
+    const generatedModel = context.server.create(modelType);
     const model = createEmberModel(generatedModel, route.store);
-    const generatedRelatedModel = this.server.create(relationshipType);
+    const generatedRelatedModel = context.server.create(relationshipType);
     const relatedModel = createEmberModel(generatedRelatedModel, route.store);
 
     run(() => {

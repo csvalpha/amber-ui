@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import startApp from '../../../helpers/start-app';
-import destroyApp from '../../../helpers/destroy-app';
-import itShouldRemoveRelationship from '../../../helpers/unit/it-should-remove-relationship';
-import itShouldRemoveNewModel from '../../../helpers/unit/it-should-remove-new-model';
+import startApp from 'alpha-amber/tests/helpers/start-app';
+import destroyApp from 'alpha-amber/tests/helpers/destroy-app';
+import itShouldRemoveRelationship from 'alpha-amber/tests/helpers/unit/it-should-remove-relationship';
+import itShouldRemoveNewModel from 'alpha-amber/tests/helpers/unit/it-should-remove-new-model';
 
 let App;
 

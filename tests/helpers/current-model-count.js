@@ -1,6 +1,8 @@
 import { registerHelper } from '@ember/test';
 import { camelize } from '@ember/string';
+import { getContext } from '@ember/test-helpers';
 
 export default registerHelper('currentModelCount', (app, modelName) => {
-  return this.server.db[camelize(modelName)].length;
+  const context = getContext();
+  return context.server.db[camelize(modelName)].length;
 });

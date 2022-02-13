@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import startApp from '../../../helpers/start-app';
-import destroyApp from '../../../helpers/destroy-app';
+import startApp from 'alpha-amber/tests/helpers/start-app';
+import destroyApp from 'alpha-amber/tests/helpers/destroy-app';
 
 let App;
 

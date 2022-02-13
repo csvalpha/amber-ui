@@ -23,7 +23,7 @@ module('Unit | Model | user', function(hooks) {
     assert.expect(1);
     run(() => {
       user.setProperties({ firstName: 'Henk', lastName: 'Vries', lastNamePrefix: null });
-      assert.equal(user.get('fullName'), 'Henk de Vries');
+      assert.equal(user.get('fullName'), 'Henk Vries');
     });
   });
 

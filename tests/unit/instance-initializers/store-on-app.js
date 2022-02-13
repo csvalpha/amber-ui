@@ -1,8 +1,8 @@
 import { run } from '@ember/runloop';
 import { initialize } from 'alpha-amber/instance-initializers/store-on-app';
 import { module, test } from 'qunit';
-import startApp from '../../helpers/start-app';
-import destroyApp from '../../helpers/destroy-app';
+import startApp from 'alpha-amber/tests/helpers/start-app';
+import destroyApp from 'alpha-amber/tests/helpers/destroy-app';
 
 module('Unit | Instance-Initializer | store on app', function(hooks) {
   hooks.beforeEach(function() {

@@ -2,6 +2,7 @@ import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
 import { registerAsyncHelper } from '@ember/test';
 import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
+import { getContext } from '@ember/test-helpers';
 
 /**
  * @public
@@ -16,7 +17,8 @@ import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
 export default registerAsyncHelper('itShouldRollbackUnsavedChanges', (app, assert, route, modelType, properties) => {
   assert.expect(properties.length);
 
-  const generatedModel = this.server.create(modelType);
+  const context = getContext();
+  const generatedModel = context.server.create(modelType);
   const model = createEmberModel(generatedModel, route.store);
 
   // Set the current model.
