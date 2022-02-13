@@ -6,12 +6,25 @@
 
 <div class="row">
   {{#each model as |book|}}
-    <div class="article-col col-md-6 mb-3">
+    <div class="col-lg-3 col-md-4 col-6 mb-3">
       <LinkTo @route="books.show" @model={{book.id}}>
-        <div>
-          <b>{{book.title}}</b><br>
-          {{book.author}}
-        </div>
+        <article itemscope itemtype="https://schema.org/Book">
+          <div class="card" data-test-article-card>
+            <div class="card-header card-header--overlay">
+              <img itemprop="image" class="card-img-top" src={{book.coverPhotoUrlOrDefault}}>
+              <div class="card-title-bar gradient-overlay">
+                <div class="card-titles">
+                  <h2 class="card-title" itemprop="name">{{book.title}}</h2>
+                  <h3 class="card-subtitle">
+                    <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+                      <span itemprop="name">{{book.author}}</span>
+                    </span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
       </LinkTo>
     </div>
   {{/each}}

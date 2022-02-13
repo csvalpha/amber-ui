@@ -1,7 +1,4 @@
 import Model, { attr } from '@ember-data/model';
-import {
-  CoverPhotoFallback
-} from 'alpha-amber/constants';
 
 export default class Article extends Model {
   // Attributes
@@ -23,6 +20,6 @@ export default class Article extends Model {
   }
 
   get coverPhotoUrlOrDefault() {
-    return this.coverPhotoUrl || CoverPhotoFallback;
+    return this.coverPhotoUrl || '/images/fallback/book_cover_default.png';
   }
 }

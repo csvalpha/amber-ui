@@ -16,6 +16,7 @@ module.exports = function() {
       'beer-mug-empty',
       'bell',
       'bell-slash',
+      'book',
       'bold',
       'building',
       'calendar-days',

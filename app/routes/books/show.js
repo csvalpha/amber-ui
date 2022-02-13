@@ -21,7 +21,7 @@ export default class ShowBookRoute extends AuthenticatedRoute {
       {
         link: 'books.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: book,
         canAccess: this.abilities.can('edit book', book)
       },
