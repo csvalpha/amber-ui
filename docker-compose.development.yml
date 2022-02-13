@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      target: base
+    environment:
+      - API_HOST=http://api:3000
+    ports:
+      - '4200:4200' # Ember server
+      - '7020:7020' # Livereload server
+      - '7357:7357' # Test server
+    volumes:
+      - .:/opt/app
+      - node_modules:/opt/app/node_modules
+    tmpfs:
+      - /opt/app/tmp
+    networks:
+      - amber_development_default
+
+volumes:
+  node_modules:
+
+networks:
+  amber_development_default:
+    external: true
