@@ -19,7 +19,7 @@ export default class BookIndexRoute extends AuthenticatedRoute {
     return [
       {
         link: 'books.new',
-        title: 'Nieuwe boek',
+        title: 'Nieuw boek',
         icon: 'plus',
         canAccess: this.abilities.can('create books')
       }
