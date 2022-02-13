@@ -1,20 +1,9 @@
 import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
-import { registerAsyncHelper } from '@ember/test';
 import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
 import { getContext } from '@ember/test-helpers';
 
-/**
- * @public
- * Helper which tests whether unsaved changes to a model are rolled back when leaving a route.
- *
- * @param app The current application, always given by default.
- * @param assert The assert class.
- * @param route The route under testing.
- * @parem modelType The type of the model for this route.
- * @param properties An array of property names which should be updated and rolled back on deactivation.
- */
-export default registerAsyncHelper('itShouldRollbackUnsavedChanges', (app, assert, route, modelType, properties) => {
+export default async function(assert, route, modelType, properties) {
   assert.expect(properties.length);
 
   const context = getContext();
@@ -44,4 +33,4 @@ export default registerAsyncHelper('itShouldRollbackUnsavedChanges', (app, asser
   properties.forEach(property => {
     assert.equal(model.get(property), oldValues[property], `the property '${property}' should be rolled back`);
   });
-});
+}
