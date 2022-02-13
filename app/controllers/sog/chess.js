@@ -20,7 +20,44 @@ class Board {
       }
       squares.push(row)
     }
+    let lightPieces = []
+    let darkPieces = []
+    for (let i = 0; i < 8; i++) {
+      let pawn = new Piece(Pawn)
+      this.place(pawn, squares[squares.length - 1][i])
+      lightPieces.push(pawn)
+      pawn = new Piece(Pawn)
+      this.place(pawn, squares[1][i])
+      darkPieces.push(pawn)
+    } for (let i = 0; i < 8; i++) {
+      let piece = new Piece([Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook][i])
+      this.place(piece, squares[squares.length - 1][i])
+      lightPieces.push(piece)
+      piece = new Piece([Rook, Knight, Bishop, Queen, King, Bishop, Knight, Rook][i])
+      this.place(piece, squares[0][i])
+      darkPieces.push(piece)
+    }
+    this.players[0].setPieces(lightPieces)
+    this.players[1].setPieces(darkPieces)
+
     this.squares = squares
+  }
+
+  place(piece, square) {
+    piece.setSquare(square)
+    square.setPiece(piece)
+  }
+
+
+  makeMove(piece, destinationSquare) {
+    // todo: at some point, check move legality
+    // todo: animate moves?
+    const player = piece.player;
+    if (destinationSquare.piece) {
+      player.addCapture(destinationSquare.piece);
+    }
+    piece.setSquare(destinationSquare)
+    destinationSquare.setPiece(piece)
   }
 }
 class Color {
@@ -46,9 +83,6 @@ class Player {
     this.pieces.forEach(piece => {
       piece.setPlayer(this)
     })
-  }
-  makeMove(piece, destinationSquare) {
-    piece.setSquare(destinationSquare) // todo: animate this?
   }
   addCapture(capture) {
     this.captures.push(capture)
@@ -90,11 +124,6 @@ class Piece {
   }
   setSquare(square) {
     this.square = square
-    if (this.square.piece) {
-      let capture = this.square.piece
-      this.player.addCapture(capture)
-    }
-    this.square.setPiece(this)
   }
   toString() {
     return (this.color ? this.color.toString() : 'colorless') + ' ' + this.pieceName.toString()

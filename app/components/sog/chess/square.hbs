@@ -1,3 +1,5 @@
-<div style="height: 100%; flex-grow: 1; background-color: {{this.color}}">
-
+<div class="col chess-square {{this.colorClass}}">
+  {{#if @square.piece}}
+    <FaIcon @icon={{this.pieceIcon}} class={{this.pieceColor}}/>
+  {{/if}}
 </div>

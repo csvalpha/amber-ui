@@ -1,0 +1,13 @@
+.chess {
+  //height: calc(0.8 * (100vh - $navbar-height));
+  .card-body {
+    margin: 30px;
+  }
+  .chess-square {
+    aspect-ratio: 1;
+  }
+  .chess-game-info {
+    flex: 0 1;
+    margin-left: 30px;
+  }
+}
