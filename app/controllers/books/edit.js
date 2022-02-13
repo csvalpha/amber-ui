@@ -24,6 +24,7 @@ export default class BookEditController extends EditController {
     if (!this.model.isbn) {
       this.model.isbn = null;
     }
+
     this.model.save().then(() => {
       this.transitionToRoute('books.show', this.model);
     }).catch(error => {
