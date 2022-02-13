@@ -3,7 +3,7 @@ import EmberObject from '@ember/object';
 import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
 import { getContext } from '@ember/test-helpers';
 
-export default async function(assert, route, modelType, relationshipName, relationshipType, properties) {
+export default function(assert, route, modelType, relationshipName, relationshipType, properties) {
   assert.expect(properties.length);
 
   const context = getContext();

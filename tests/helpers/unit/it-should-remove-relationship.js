@@ -1,7 +1,7 @@
 import EmberObject from '@ember/object';
 import { run } from '@ember/runloop';
 
-export default async function(assert, route, relationshipName, relationshipType, relationshipParameters = {}) {
+export default function(assert, route, relationshipName, relationshipType, relationshipParameters = {}) {
   assert.expect(1);
 
   // Get the initial amount of models.
