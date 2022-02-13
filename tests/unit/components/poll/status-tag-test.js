@@ -33,6 +33,4 @@ module('Unit | Component | poll/status tag', function(hooks) {
     assert.equal(component.get('content'), 'Ingevuld', 'response completed');
     assert.equal(component.get('colorIndicatorClass'), 'badge-success', 'response completed has badge-success class');
   });
-
 });
-

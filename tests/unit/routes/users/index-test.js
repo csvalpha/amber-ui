@@ -28,6 +28,7 @@ module('Unit | Route | users/index', function(hooks) {
 
   // TODO: Fix this mess
   // Dennis: I cant get the test for the model() method working, only with visit() the ajax request is mocked.
+  // eslint-disable-next-line qunit/no-commented-tests
   /* test('model() returns a list of people', function(assert) {
     // Create dummy models
     // console.log(FactoryGuy.make('person').get('lastName'));

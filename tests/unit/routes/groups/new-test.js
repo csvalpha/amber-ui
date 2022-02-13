@@ -2,6 +2,8 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import startApp from '../../../helpers/start-app';
 import destroyApp from '../../../helpers/destroy-app';
+import itShouldRemoveRelationship from '../../../helpers/unit/it-should-remove-relationship';
+import itShouldRemoveNewModel from '../../../helpers/unit/it-should-remove-new-model';
 
 let App;
 
@@ -17,13 +19,14 @@ module('Unit | Route | groups/new', function(hooks) {
   });
 
   test('model is removed on deactivation', function(assert) {
+    assert.expect(1);
     itShouldRemoveNewModel(assert, this.owner.lookup('route:groups/new'), 'group');
   });
 
   test('memberships are removed on deactivation', function(assert) {
+    assert.expect(1);
     const relationshipType = 'membership';
     const relationshipName = 'memberships';
-
     itShouldRemoveRelationship(assert, this.owner.lookup('route:groups/new'), relationshipName, relationshipType);
   });
 });

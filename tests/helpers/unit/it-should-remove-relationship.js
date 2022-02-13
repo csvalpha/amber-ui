@@ -17,7 +17,7 @@ export default registerAsyncHelper('itShouldRemoveRelationship',
   (app, assert, route, relationshipName, relationshipType, relationshipParameters = {}) => {
     assert.expect(1);
 
-    // Get the initial amount of models
+    // Get the initial amount of models.
     const count = route.store.peekAll(relationshipType).get('length');
     const model = route.model();
 
@@ -26,14 +26,14 @@ export default registerAsyncHelper('itShouldRemoveRelationship',
         route.store.createRecord(relationshipType, relationshipParameters)
       );
 
-      // Set the current model
+      // Set the current model.
       route.set('controller', EmberObject.extend({ model }).create());
 
-      // Deativate the route
+      // Deactivate the route.
       route.deactivate();
     });
 
-    // There should be no new model
+    // There should be no new model.
     assert.equal(route.store.peekAll(relationshipType).get('length'), count,
       `There should be no new ${relationshipType} in the store after deactivation`);
   }

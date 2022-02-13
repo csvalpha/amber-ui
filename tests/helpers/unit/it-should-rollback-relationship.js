@@ -18,9 +18,9 @@ export default registerAsyncHelper('itShouldRollbackRelationship',
   (app, assert, route, modelType, relationshipName, relationshipType, properties) => {
     assert.expect(properties.length);
 
-    const generatedModel = server.create(modelType);
+    const generatedModel = this.server.create(modelType);
     const model = createEmberModel(generatedModel, route.store);
-    const generatedRelatedModel = server.create(relationshipType);
+    const generatedRelatedModel = this.server.create(relationshipType);
     const relatedModel = createEmberModel(generatedRelatedModel, route.store);
 
     run(() => {
@@ -28,19 +28,19 @@ export default registerAsyncHelper('itShouldRollbackRelationship',
       route.set('controller', EmberObject.extend({ model }).create());
     });
 
-    // Get the current values of the properies
+    // Get the current values of the properties.
     const oldValues = [];
     properties.forEach(property => {
       oldValues[property] = relatedModel.get(property);
     });
 
     run(() => {
-      // Update properties
+      // Update properties.
       properties.forEach(property => {
         relatedModel.set(property, `${oldValues[property]}123`);
       });
 
-      // Deativate the route
+      // Deactivate the route.
       route.deactivate();
     });
 

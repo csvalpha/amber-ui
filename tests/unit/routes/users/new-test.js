@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import startApp from '../../../helpers/start-app';
 import destroyApp from '../../../helpers/destroy-app';
+import itShouldRemoveNewModel from '../../../helpers/unit/it-should-remove-new-model';
 
 let App;
 
@@ -22,6 +23,7 @@ module('Unit | Route | users/new', function(hooks) {
   });
 
   test('model is removed on deactivation', function(assert) {
+    assert.expect(1);
     itShouldRemoveNewModel(assert, this.owner.lookup('route:users/new'), 'user');
   });
 });

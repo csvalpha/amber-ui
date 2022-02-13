@@ -9,4 +9,3 @@ module('Unit | Route | activities/print_enrolled', function(hooks) {
     assert.ok(route);
   });
 });
-

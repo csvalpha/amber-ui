@@ -56,8 +56,8 @@ jobs:
         # Convert output of stylelint so that the problem matcher can match it correctly.
         run: |
           EXIT_STATUS=0
-          docker run app yarn ci:eslint || EXIT_STATUS=$?
-          STYLELINT_OUTPUT="$(docker run app yarn ci:stylelint)" || EXIT_STATUS=$?
+          docker run app yarn lint:js || EXIT_STATUS=$?
+          STYLELINT_OUTPUT="$(docker run app yarn lint:scss)" || EXIT_STATUS=$?
           node bin/convert-stylelint-output.js "$STYLELINT_OUTPUT"
           exit $EXIT_STATUS
 
@@ -73,4 +73,4 @@ jobs:
 
       - name: Test
         run: |
-          docker run -e CI=true -t app yarn test
+          docker run -e CI=true -t app yarn test:ember

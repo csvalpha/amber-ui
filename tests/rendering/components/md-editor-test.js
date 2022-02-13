@@ -15,4 +15,3 @@ module('Integration | Component | markdown editor', function(hooks) {
     assert.equal(this.element.querySelector('textarea').value, 'This is some text');
   });
 });
-

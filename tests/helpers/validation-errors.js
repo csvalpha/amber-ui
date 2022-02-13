@@ -1,4 +1,5 @@
 import { registerHelper } from '@ember/test';
+import validationError from './validation-error';
 
 export default registerHelper('validationErrors', (app, values) => {
   const errors = [];

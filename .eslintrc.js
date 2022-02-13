@@ -10,29 +10,20 @@ module.exports = {
       legacyDecorators: true
     }
   },
-  plugins: [
-    'ember',
-    'ember-suave'
-  ],
+  plugins: ['ember'],
   extends: [
     'eslint:recommended',
-    'plugin:ember/recommended',
-    'plugin:ember-suave/recommended'
+    'plugin:ember/recommended'
   ],
   env: {
     browser: true
   },
   rules: {
     'arrow-parens': 0,
-    'ember-suave/no-const-outside-module-scope': 0,
+    'camelcase': ['error', { 'properties': 'always' }],
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
-    'object-curly-spacing': [
-      'error',
-      'always'
-    ],
-    'ember-suave/lines-between-object-properties': 0,
-    'ember-suave/require-access-in-comments': 0,
+    'object-curly-spacing': ['error', 'always'],
     'ember/no-controller-access-in-routes': 1,
     'ember/no-classic-classes': 1,
     'ember/no-actions-hash': 1,
@@ -57,7 +48,9 @@ module.exports = {
         'blueprints/*/index.js',
         'config/**/*.js',
         'lib/*/index.js',
-        'server/**/*.js'
+        'server/**/*.js',
+        './.stylelintrc.js',
+        './.stylelintrc.order.js',
       ],
       parserOptions: {
         sourceType: 'script',
@@ -74,6 +67,11 @@ module.exports = {
         // https://github.com/mysticatea/eslint-plugin-node/issues/77
         'node/no-unpublished-require': 'off'
       }
+    },
+    {
+      // Test files:
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended']
     }
   ]
 };

@@ -13,13 +13,14 @@
   "scripts": {
     "build": "ember build --environment=production",
     "jsfix": "eslint 'app/**/*.js' --fix",
-    "lint": "eslint 'app/**/*.js' && stylelint 'app/**/*.scss'",
+    "lint": "npm-run-all --aggregate-output --continue-on-error --parallel 'lint:*'",
     "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint .",
+    "lint:scss": "stylelint 'app/**/*.scss'",
     "start": "ember serve",
     "stylefix": "stylelint 'app/**/*.scss' --fix",
-    "test": "ember test",
-    "ci:eslint": "eslint 'app/**/*.js'",
-    "ci:stylelint": "stylelint 'app/**/*.scss'"
+    "test": "npm-run-all 'lint:*' 'test:*'",
+    "test:ember": "ember test"
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.16.0",
@@ -82,8 +83,8 @@
     "ember-wormhole": "^0.6",
     "eslint": "^7.32.0",
     "eslint-plugin-ember": "^10.2",
-    "eslint-plugin-ember-suave": "^2.0",
     "eslint-plugin-node": "^11.1",
+    "eslint-plugin-qunit": "^6.2.0",
     "faker": "^5.5.3",
     "file-saver": "^2.0.5",
     "glob": "^7.1",
@@ -91,6 +92,7 @@
     "loader.js": "^4.7",
     "moment-duration-format": "^2.3",
     "morgan": "^1.9",
+    "npm-run-all": "^4.1.5",
     "qunit": "^2.17.2",
     "qunit-dom": "^2.0",
     "remove-markdown": "^0.3",

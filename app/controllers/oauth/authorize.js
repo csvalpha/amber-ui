@@ -5,9 +5,7 @@ export default Controller.extend({
   fetch: service(),
   clientName: null,
 
-  /* eslint-disable camelcase */
   queryParams: ['client_id', 'redirect_uri', 'response_type', 'state', 'scope'],
-  /* eslint-enable camelcase */
 
   actions: {
     authorize() {
