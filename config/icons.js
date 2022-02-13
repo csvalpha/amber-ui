@@ -13,6 +13,7 @@ module.exports = function() {
       'arrow-right',
       'arrow-up',
       'arrow-up-wide-short',
+      'barcode',
       'beer-mug-empty',
       'bell',
       'bell-slash',

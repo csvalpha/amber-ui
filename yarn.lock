@@ -2213,6 +2213,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/shared-internals@npm:^1.0.0":
+  version: 1.2.0
+  resolution: "@embroider/shared-internals@npm:1.2.0"
+  dependencies:
+    babel-import-util: ^1.1.0
+    ember-rfc176-data: ^0.3.17
+    fs-extra: ^9.1.0
+    lodash: ^4.17.21
+    resolve-package-path: ^4.0.1
+    semver: ^7.3.5
+    typescript-memoize: ^1.0.1
+  checksum: 50015e45abf9753f1cdc7ddc8c8f09cd344b2e7ffd2bff9990b886e42e8b46d2c6ac33a08b7e7fa5bfc2c1f64a96d9dbccaf1ce561b0e680132b66cc1e25dea1
+  languageName: node
+  linkType: hard
+
 "@embroider/util@npm:^0.39.1":
   version: 0.39.1
   resolution: "@embroider/util@npm:0.39.1"
@@ -3688,6 +3703,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@zxing/library@npm:^0.18.0":
+  version: 0.18.6
+  resolution: "@zxing/library@npm:0.18.6"
+  dependencies:
+    "@zxing/text-encoding": ~0.9.0
+    ts-custom-error: ^3.0.0
+  dependenciesMeta:
+    "@zxing/text-encoding":
+      optional: true
+  checksum: 564a25f6245b4fd81b4ce686116bf1fe577daa2aaee4263b4dea3776676482fd3e063ad43783c6378713a4a3dcefd311b6154b6cd43e7be24bb7e7c3e5fec98a
+  languageName: node
+  linkType: hard
+
+"@zxing/text-encoding@npm:~0.9.0":
+  version: 0.9.0
+  resolution: "@zxing/text-encoding@npm:0.9.0"
+  checksum: c23b12aee7639382e4949961304a1294776afaffa40f579e09ffecd0e5e68cf26ef3edd75009de46da8a536e571448755ca68b3e2ea707d53793c0edb2e2c34a
+  languageName: node
+  linkType: hard
+
 "abab@npm:^2.0.3":
   version: 2.0.5
   resolution: "abab@npm:2.0.5"
@@ -3927,6 +3962,7 @@ __metadata:
     ember-resolver: ^8.0
     ember-responsive: ^4.0
     ember-router-scroll: ^4.0
+    ember-scanner: ^0.3.7
     ember-simple-auth: ^4.1
     ember-sortable: ^3.0
     ember-source: ~3.20.7
@@ -4673,6 +4709,13 @@ __metadata:
   version: 0.2.0
   resolution: "babel-import-util@npm:0.2.0"
   checksum: 32a71d1de47cfbf99dba552e87c11798ef6116643f24429a654b09cb7d365db0dd5bbfe318eb1b63f0c9eae3a4a0c2aefd9c1e21f2b21f1e24ad703693429f95
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "babel-import-util@npm:1.1.0"
+  checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
   languageName: node
   linkType: hard
 
@@ -8297,6 +8340,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-auto-import@npm:^1.6.0":
+  version: 1.12.1
+  resolution: "ember-auto-import@npm:1.12.1"
+  dependencies:
+    "@babel/core": ^7.1.6
+    "@babel/preset-env": ^7.10.2
+    "@babel/traverse": ^7.1.6
+    "@babel/types": ^7.1.6
+    "@embroider/shared-internals": ^1.0.0
+    babel-core: ^6.26.3
+    babel-loader: ^8.0.6
+    babel-plugin-syntax-dynamic-import: ^6.18.0
+    babylon: ^6.18.0
+    broccoli-debug: ^0.6.4
+    broccoli-node-api: ^1.7.0
+    broccoli-plugin: ^4.0.0
+    broccoli-source: ^3.0.0
+    debug: ^3.1.0
+    ember-cli-babel: ^7.0.0
+    enhanced-resolve: ^4.0.0
+    fs-extra: ^6.0.1
+    fs-tree-diff: ^2.0.0
+    handlebars: ^4.3.1
+    js-string-escape: ^1.0.1
+    lodash: ^4.17.19
+    mkdirp: ^0.5.1
+    resolve-package-path: ^3.1.0
+    rimraf: ^2.6.2
+    semver: ^7.3.4
+    symlink-or-copy: ^1.2.0
+    typescript-memoize: ^1.0.0-alpha.3
+    walk-sync: ^0.3.3
+    webpack: ^4.43.0
+  checksum: 8230c3ff6fd222eee7179e0e5c2ea0268702b66400a4b51de4dbc608bdfa8d2236125999b7bfa25dc36acb51d9eb93bcc45aea5783bdf95ad74f7e898014013d
+  languageName: node
+  linkType: hard
+
 "ember-auto-import@npm:^2.2.4":
   version: 2.2.4
   resolution: "ember-auto-import@npm:2.2.4"
@@ -9371,7 +9451,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-decorators@npm:^6.1.0":
+"ember-decorators@npm:^6.1.0, ember-decorators@npm:^6.1.1":
   version: 6.1.1
   resolution: "ember-decorators@npm:6.1.1"
   dependencies:
@@ -9888,6 +9968,19 @@ __metadata:
     ember-cli-babel: ^7.26.6
     ember-compatibility-helpers: ^1.2.5
   checksum: 50446ccedde1dc65e0145bc2ad8bd74c275fee427e35abb9e565058eb7e4f39583da352ff618a804f28fa4cbc001a71410affc3626ae5cb91effc2a6c7dd7278
+  languageName: node
+  linkType: hard
+
+"ember-scanner@npm:^0.3.7":
+  version: 0.3.7
+  resolution: "ember-scanner@npm:0.3.7"
+  dependencies:
+    "@zxing/library": ^0.18.0
+    ember-auto-import: ^1.6.0
+    ember-cli-babel: ^7.23.0
+    ember-cli-htmlbars: ^5.3.1
+    ember-decorators: ^6.1.1
+  checksum: e6a87f89afe7855c53a36415fa21f19c7505eb51771a86a1ca6ac8c9557c94e6bd4956aca1c8f4178bfde47cbb6e8e909bb070374bc336ad6bbfd89ead30f897
   languageName: node
   linkType: hard
 
@@ -19323,6 +19416,13 @@ __metadata:
   version: 1.0.1
   resolution: "trim-right@npm:1.0.1"
   checksum: 9120af534e006a7424a4f9358710e6e707887b6ccf7ea69e50d6ac6464db1fe22268400def01752f09769025d480395159778153fb98d4a2f6f40d4cf5d4f3b6
+  languageName: node
+  linkType: hard
+
+"ts-custom-error@npm:^3.0.0":
+  version: 3.2.0
+  resolution: "ts-custom-error@npm:3.2.0"
+  checksum: b1d2016de891cecea46a70c4adbaf1e6f7c6178994f72070ee3c218cc1a9e2b12c3011defb8385f15dc03ddfafd8d88ef2c9217e23700fb6e537755f33b9c801
   languageName: node
   linkType: hard
 

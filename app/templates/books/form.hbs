@@ -4,7 +4,27 @@
   </div>
   <div class="card-body">
     <form {{action "submit" on="submit"}}>
-      <ModelForm::TextInput @model={{model}} @property="isbn" @label="ISBN" @maxlength={{20}} />
+      {{#if model.isNew}}
+        <ModelForm::TextInput @model={{model}} @property="isbn" @label="ISBN" @maxlength={{20}} @inputWrapperClass="col-sm-10 input-group">
+          <div class="input-group-append">
+            <button type="button" class="btn btn-outline-dark" onclick={{action toggleScanner}}>
+              <FaIcon @icon="barcode" />
+            </button>
+          </div>
+        </ModelForm::TextInput>
+        {{#if showScanner}}
+          <div class="row">
+            <div class="col-sm-10 offset-sm-2 mb-3">
+              <CodeScanner @device={{this.device.deviceId}} @onDevicesFound={{fn this.onDevicesFound}} @onScanSuccess={{fn this.onScanSuccess}} />
+              <PowerSelect @options={{this.devices}} @selected={{this.device}} @onChange={{fn (mut this.device)}} @searchEnabled={{false}} as |item|>
+                {{item.label}}
+              </PowerSelect>
+            </div>
+          </div>
+        {{/if}}
+      {{else}}
+        <ModelForm::TextInput @model={{model}} @property="isbn" @label="ISBN" @maxlength={{20}} @inputWrapperClass="col-sm-10" />
+      {{/if}}
       <ModelForm::TextInput @model={{model}} @property="title" @label="Titel*" @maxlength={{50}} />
       <ModelForm::TextInput @model={{model}} @property="author" @label="Auteur" @maxlength={{50}} />
       <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @loadedCallback={{action "coverPhotoLoaded"}} />
