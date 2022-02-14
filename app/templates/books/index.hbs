@@ -5,6 +5,9 @@
 </EmberWormhole>
 
 <div class="row">
+  <div class="col-12 mb-4">
+    Op deze pagina kan je een overzicht vinden van de inhoud van de Alpha bibliotheek in de bestuurskamer. Als je een boek wilt lenen, ga dan naar de BK, of neem contact op met een bestuurder.
+  </div>
   {{#each model as |book|}}
     <div class="col-lg-3 col-md-4 col-6 mb-3">
       <LinkTo @route="books.show" @model={{book.id}}>
