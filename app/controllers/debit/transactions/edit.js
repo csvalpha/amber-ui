@@ -1,18 +1,23 @@
-import { alias } from '@ember/object/computed';
-import { computed } from '@ember/object';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { action, computed } from '@ember/object';
 import EditController from 'alpha-amber/controllers/application/edit';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { alias } from '@ember/object/computed';
 
-export default EditController.extend({
-  successMessage: 'Transactie aangepast!',
-  successTransitionTarget: 'debit.collections.show',
-  successTransitionModel: alias('model.collection.id'),
-  users: computed('store', function() {
+export default class EditTransactionController extends EditController {
+  successMessage = 'Transactie aangepast!';
+  successTransitionTarget = 'debit.collections.show';
+
+  @alias('model.collection.id')
+  successTransitionModel;
+
+  @computed('store', function() {
     return this.store.findAll('user');
-  }),
+  })
+  users;
 
-  actions: {
-    setUser(user) {
-      this.model.set('user', user);
-    }
+  @action
+  setUser(user) {
+    this.model.set('user', user);
   }
-});
+}
