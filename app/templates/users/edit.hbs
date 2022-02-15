@@ -1,3 +1,11 @@
 <TabbedView @tabItems={{tabItems}}>
-  {{partial 'users/form'}}
+  <Users::Form
+    @model={{@model}}
+    @onSubmit={{action "submit"}}
+    @onFileLoaded={{action "fileLoaded"}}
+    @canEditOnlyOwnProperties={{this.canEditOnlyOwnProperties}}
+    @almanakSubscriptionPreferenceTypes={{this.almanakSubscriptionPreferenceTypes}}
+    @digtusSubscriptionPreferenceTypes={{this.digtusSubscriptionPreferenceTypes}}
+    @errorMessage={{this.errorMessage}}
+  />
 </TabbedView>
