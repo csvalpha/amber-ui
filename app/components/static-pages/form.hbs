@@ -3,10 +3,10 @@
     <h5> {{if @model.isNew "Infopagina aanmaken" "Infopagina wijzigen"}} </h5>
   </div>
   <div class="card-body">
-    <form {{action "submit" on="submit"}}>
-      <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" />
-      <ModelForm::SelectInput @model={{model}} @property="category" @label="Categorie" @options={{staticPageCategoryOptions}} @required={{true}} />
-      <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
+    <form {{action @onSubmit on="submit"}}>
+      <ModelForm::TextInput @model={{@model}} @property="title" @label="Titel" />
+      <ModelForm::SelectInput @model={{@model}} @property="category" @label="Categorie" @options={{@staticPageCategoryOptions}} @required={{true}} />
+      <ModelForm::CheckboxInput @model={{@model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if @model.publiclyVisible}}
         <div class="alert alert-warning" role="alert">
@@ -21,7 +21,7 @@
         </div>
       </div>
 
-      <ModelForm::FormActions @model={{model}} @errorMessage={{this.errorMessage}}>
+      <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
         <LinkTo @route="static-pages.index" class="btn btn-default">Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
