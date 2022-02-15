@@ -1,1 +1,7 @@
-{{partial 'polls/form'}}
+<Poll::PollForm
+  @model={{@model.form}}
+  @onSubmit={{action "submit"}}
+  @inputIdentifier={{this.inputIdentifier}}
+  @combinedErrors={{this.combinedErrors}}
+  @errorMessage={{this.errorMessage}}
+/>
