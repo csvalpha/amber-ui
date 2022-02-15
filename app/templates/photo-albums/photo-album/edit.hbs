@@ -1,1 +1,7 @@
-{{partial 'photo-albums/photo-album/form'}}
+<PhotoAlbums::Form
+  @model={{@model}}
+  @onSubmit={{action "submit"}}
+  @groups={{this.groups}}
+  @dropzoneHeaders={{this.dropzoneHeaders}}
+  @errorMessage={{this.errorMessage}}
+/>

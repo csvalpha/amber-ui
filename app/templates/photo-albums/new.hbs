@@ -1,1 +1,6 @@
-{{partial 'photo-albums/photo-album/form'}}
+<PhotoAlbums::Form
+  @model={{@model}}
+  @onSubmit={{action "submit"}}
+  @groups={{this.groups}}
+  @errorMessage={{this.errorMessage}}
+/>
