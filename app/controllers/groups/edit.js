@@ -1,3 +1,4 @@
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
 import Controller from '@ember/controller';
