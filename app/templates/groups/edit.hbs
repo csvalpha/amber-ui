@@ -1,1 +1,10 @@
-{{partial 'groups/form'}}
+<Groups::Form
+  @model={{@model}}
+  @onSubmit={{action "submit"}}
+  @onFileLoaded={{action "fileLoaded"}}
+  @groupKindOptions={{this.groupKindOptions}}
+  @errorMessage={{this.errorMessage}}
+  @users={{this.users}}
+  @onAddUser={{action "addUser"}}
+  @onRemoveMembership={{action "removeMembership"}}
+/>

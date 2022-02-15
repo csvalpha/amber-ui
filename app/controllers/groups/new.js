@@ -1,3 +1,3 @@
 import EditController from './edit';
 
-export default EditController;
+export default class NewGroupController extends EditController {}
