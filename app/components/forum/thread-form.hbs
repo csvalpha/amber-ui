@@ -3,7 +3,7 @@
     <h5> {{if @model.thread.isNew "Topic aanmaken" "Topic wijzigen"}} </h5>
   </div>
   <div class="card-body">
-    <form {{action "submit" on="submit"}}>
+    <form {{action @onSubmit on="submit"}}>
       <ModelForm::TextInput @model={{@model.thread}} @property="title" @label="Titel" @required={{true}} />
 
       {{#if @model.post}}
@@ -15,7 +15,7 @@
         {{/if}}
       {{/if}}
 
-      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{this.errorMessage}}>
+      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{@errorMessage}}>
         {{#if @model.thread.isNew}}
           <LinkTo @route="forum.categories.category.threads" class="btn btn-default">Annuleren</LinkTo>
         {{else}}
