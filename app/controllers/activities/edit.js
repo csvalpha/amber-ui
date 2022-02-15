@@ -1,17 +1,29 @@
-import { inject as service } from '@ember/service';
-import { union } from '@ember/object/computed';
-import Controller from '@ember/controller';
-import { computed } from '@ember/object';
-import { isNone } from '@ember/utils';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { action, computed } from '@ember/object';
 import { ActivityCategories } from 'alpha-amber/constants';
+import Controller from '@ember/controller';
+import { isNone } from '@ember/utils';
+import { inject as service } from '@ember/service';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { union } from '@ember/object/computed';
 
-export default Controller.extend({
-  session: service(),
-  store: service(),
-  abilities: service(),
-  flashNotice: service('flash-notice'),
-  combinedErrors: union('model.errors', 'model.form.errors'),
-  activityHasForm: computed('model.form.content', {
+export default class EditActivityController extends Controller {
+  @service session;
+  @service store;
+  @service abilities;
+  @service('flash-notice') flashNotice;
+
+  _activityCategoryToOption(activityCategory) {
+    return {
+      value: activityCategory.toLowerCase().replace('ë', 'e'),
+      label: activityCategory
+    };
+  }
+
+  @union('model.errors', 'model.form.errors')
+  combinedErrors;
+
+  @computed('model.form.content', {
     get() {
       return !isNone(this.model.form.content);
     },
@@ -26,39 +38,35 @@ export default Controller.extend({
 
       return value;
     }
-  }),
+  })
+  activityHasForm;
 
-  groups: computed('session.currentUser', function() {
+  @computed('session.currentUser', function() {
     if (this.abilities.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
 
     return this.session.currentUser.get('groups');
-  }),
+  })
+  groups;
 
-  _activityCategoryToOption: activityCategory => {
-    return {
-      value: activityCategory.toLowerCase().replace('ë', 'e'),
-      label: activityCategory
-    };
-  },
-
-  activityCategoryOptions: computed('_activityCategoryToOption', function() {
+  @computed('_activityCategoryToOption', function() {
     return ActivityCategories.map(this._activityCategoryToOption);
-  }),
+  })
+  activityCategoryOptions;
 
-  actions: {
-    submit() {
-      this.model.saveWithForm().then(savedActivity => {
-        this.transitionToRoute('activities.show', savedActivity.id);
-        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
-      }).catch(error => {
-        this.set('errorMessage', error.message);
-      });
-    },
-
-    coverPhotoLoaded(file) {
-      this.model.set('coverPhoto', file.data);
-    }
+  @action
+  submit() {
+    this.model.saveWithForm().then(savedActivity => {
+      this.transitionToRoute('activities.show', savedActivity.id);
+      this.flashNotice.sendSuccess('Activiteit opgeslagen!');
+    }).catch(error => {
+      this.set('errorMessage', error.message);
+    });
   }
-});
+
+  @action
+  coverPhotoLoaded(file) {
+    this.model.set('coverPhoto', file.data);
+  }
+}

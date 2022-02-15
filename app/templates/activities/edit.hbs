@@ -1,1 +1,10 @@
-{{partial 'activities/form'}}
+<Activities::Form
+  @model={{@model}}
+  @onSubmit={{action "submit"}}
+  @activityCategoryOptions={{this.activityCategoryOptions}}
+  @onCoverPhotoLoaded={{action "coverPhotoLoaded"}}
+  @groups={{this.groups}}
+  @activityHasForm={{this.activityHasForm}}
+  @combinedErrors={{this.combinedErrors}}
+  @errorMessage={{this.errorMessage}}
+/>
