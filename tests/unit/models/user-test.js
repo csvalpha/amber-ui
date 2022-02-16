@@ -11,7 +11,7 @@ module('Unit | Model | user', function (hooks) {
     user = run(() => this.owner.lookup('service:store').createRecord('user'));
   });
 
-  test('User#fullName when with lastNamePrefix', (assert) => {
+  test('User#fullName when with lastNamePrefix', function (assert) {
     assert.expect(1);
     run(() => {
       user.setProperties({
@@ -19,11 +19,11 @@ module('Unit | Model | user', function (hooks) {
         lastName: 'Vries',
         lastNamePrefix: 'de',
       });
-      assert.equal('Henk de Vries', user.get('fullName'));
+      assert.equal(user.get('fullName'), 'Henk de Vries');
     });
   });
 
-  test('User#fullName when without lastNamePrefix', (assert) => {
+  test('User#fullName when without lastNamePrefix', function (assert) {
     assert.expect(1);
     run(() => {
       user.setProperties({
@@ -31,11 +31,11 @@ module('Unit | Model | user', function (hooks) {
         lastName: 'Vries',
         lastNamePrefix: null,
       });
-      assert.equal('Henk Vries', user.get('fullName'));
+      assert.equal(user.get('fullName'), 'Henk Vries');
     });
   });
 
-  test('User#age', (assert) => {
+  test('User#age', function (assert) {
     assert.expect(4);
     run(() => {
       user.setProperties({ birthday: new Date() });
@@ -56,7 +56,7 @@ module('Unit | Model | user', function (hooks) {
     });
   });
 
-  test('User#upcomingBirthdayAge', (assert) => {
+  test('User#upcomingBirthdayAge', function (assert) {
     assert.expect(4);
     run(() => {
       user.setProperties({ birthday: new Date() });
@@ -77,7 +77,7 @@ module('Unit | Model | user', function (hooks) {
     });
   });
 
-  test('User#hasBirthdayToday when user has birthday', (assert) => {
+  test('User#hasBirthdayToday when user has birthday', function (assert) {
     assert.expect(4);
     run(() => {
       user.setProperties({ birthday: new Date() });
@@ -96,7 +96,7 @@ module('Unit | Model | user', function (hooks) {
     });
   });
 
-  test('User#hasBirthdayToday when user does not have birthday', (assert) => {
+  test('User#hasBirthdayToday when user does not have birthday', function (assert) {
     assert.expect(2);
     run(() => {
       user.setProperties({ birthday: moment().add(1, 'day').toDate() });

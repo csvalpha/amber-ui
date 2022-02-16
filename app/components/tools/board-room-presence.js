@@ -29,7 +29,6 @@ const BoardRoomPresence = Component.extend({
 
   // Periodically poll for new boardroom data
   poll: task(function* () {
-    // eslint-disable-next-line ember-suave/no-direct-property-access
     while (!Ember.testing) {
       this.fetchData.perform();
       yield timeout(1000 * 30); // Wait 30 seconds

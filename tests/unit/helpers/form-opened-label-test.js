@@ -13,7 +13,7 @@ module('Unit | Helper | form opened label', function () {
     respondUntil: moment().add(7, 'days').toDate(),
   });
 
-  test('it computes a label indicating when the form opens or closes', (assert) => {
+  test('it computes a label indicating when the form opens or closes', function (assert) {
     const subject = formOpenedLabelHelper.create({
       i18n: i18nStub.create(),
     });
