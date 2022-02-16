@@ -4,17 +4,21 @@ import { setupTest } from 'ember-qunit';
 
 let user;
 
-module('Unit | Model | user', function(hooks) {
+module('Unit | Model | user', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     user = run(() => this.owner.lookup('service:store').createRecord('user'));
   });
 
   test('User#fullName when with lastNamePrefix', (assert) => {
     assert.expect(1);
     run(() => {
-      user.setProperties({ firstName: 'Henk', lastName: 'Vries', lastNamePrefix: 'de' });
+      user.setProperties({
+        firstName: 'Henk',
+        lastName: 'Vries',
+        lastNamePrefix: 'de',
+      });
       assert.equal('Henk de Vries', user.get('fullName'));
     });
   });
@@ -22,7 +26,11 @@ module('Unit | Model | user', function(hooks) {
   test('User#fullName when without lastNamePrefix', (assert) => {
     assert.expect(1);
     run(() => {
-      user.setProperties({ firstName: 'Henk', lastName: 'Vries', lastNamePrefix: null });
+      user.setProperties({
+        firstName: 'Henk',
+        lastName: 'Vries',
+        lastNamePrefix: null,
+      });
       assert.equal('Henk Vries', user.get('fullName'));
     });
   });
@@ -36,10 +44,14 @@ module('Unit | Model | user', function(hooks) {
       user.setProperties({ birthday: moment().subtract(20, 'years').toDate() });
       assert.equal(user.get('age'), 20);
 
-      user.setProperties({ birthday: moment().subtract(20, 'years').subtract(1, 'day').toDate() });
+      user.setProperties({
+        birthday: moment().subtract(20, 'years').subtract(1, 'day').toDate(),
+      });
       assert.equal(user.get('age'), 20);
 
-      user.setProperties({ birthday: moment().subtract(20, 'years').add(1, 'day').toDate() });
+      user.setProperties({
+        birthday: moment().subtract(20, 'years').add(1, 'day').toDate(),
+      });
       assert.equal(user.get('age'), 19);
     });
   });
@@ -53,10 +65,14 @@ module('Unit | Model | user', function(hooks) {
       user.setProperties({ birthday: moment().subtract(20, 'years').toDate() });
       assert.equal(user.get('upcomingBirthdayAge'), 21);
 
-      user.setProperties({ birthday: moment().subtract(20, 'years').subtract(1, 'day').toDate() });
+      user.setProperties({
+        birthday: moment().subtract(20, 'years').subtract(1, 'day').toDate(),
+      });
       assert.equal(user.get('upcomingBirthdayAge'), 21);
 
-      user.setProperties({ birthday: moment().subtract(20, 'years').add(1, 'day').toDate() });
+      user.setProperties({
+        birthday: moment().subtract(20, 'years').add(1, 'day').toDate(),
+      });
       assert.equal(user.get('upcomingBirthdayAge'), 20);
     });
   });
@@ -73,7 +89,9 @@ module('Unit | Model | user', function(hooks) {
       user.setProperties({ birthday: moment().hour(12).minute(30).toDate() });
       assert.ok(user.get('hasBirthdayToday'));
 
-      user.setProperties({ birthday: moment().hour(0).minute(0).second(0).toDate() });
+      user.setProperties({
+        birthday: moment().hour(0).minute(0).second(0).toDate(),
+      });
       assert.ok(user.get('hasBirthdayToday'));
     });
   });

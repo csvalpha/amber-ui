@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 import { typeOf } from '@ember/utils';
-import { inject as service }  from '@ember/service';
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
@@ -23,8 +23,14 @@ export default class LoginController extends Controller {
     }
 
     try {
-      await this.session.authenticate('authenticator:oauth2', this.username, this.password, undefined, headers);
-    } catch(error) {
+      await this.session.authenticate(
+        'authenticator:oauth2',
+        this.username,
+        this.password,
+        undefined,
+        headers
+      );
+    } catch (error) {
       if (typeOf(error) === 'string') {
         this.errorMessage = error;
         return;
@@ -48,7 +54,8 @@ export default class LoginController extends Controller {
       }
 
       if (error.status === 429) {
-        this.errorMessage = 'Je hebt teveel inlogpogingen gedaan. Probeer het over een paar minuten opnieuw.';
+        this.errorMessage =
+          'Je hebt teveel inlogpogingen gedaan. Probeer het over een paar minuten opnieuw.';
       }
     }
   }

@@ -1,4 +1,4 @@
-$animation-duration: .3s;
+$animation-duration: 0.3s;
 $animation-behaviour: ease-in-out;
 $profile-menu-height: 360px;
 
@@ -7,7 +7,8 @@ $profile-menu-height: 360px;
   position: fixed;
   flex-direction: column;
   transform: translateX(-72px);
-  transition: transform $animation-duration $animation-behaviour, width $animation-duration $animation-behaviour;
+  transition: transform $animation-duration $animation-behaviour,
+    width $animation-duration $animation-behaviour;
   z-index: 1;
   background-color: #111;
   padding-top: 80px;
@@ -18,7 +19,7 @@ $profile-menu-height: 360px;
 
   .menu-sidebar-item {
     display: flex;
-    transition: color .15s ease-in-out;
+    transition: color 0.15s ease-in-out;
     width: 300px;
     overflow: hidden;
     color: $gray-400;
@@ -51,7 +52,8 @@ $profile-menu-height: 360px;
 
   .menu-sidebar-item-text {
     transform: translateX(-40px);
-    transition: transform $animation-duration $animation-behaviour, opacity $animation-duration $animation-behaviour;
+    transition: transform $animation-duration $animation-behaviour,
+      opacity $animation-duration $animation-behaviour;
     opacity: 0;
     margin-left: 10px;
     line-height: 40px;
@@ -147,7 +149,8 @@ $profile-menu-height: 360px;
 .profile-menu-arrow {
   align-self: center;
   transform: rotate(0deg) translateX(0);
-  transition: transform $animation-duration $animation-behaviour, $animation-duration $animation-behaviour;
+  transition: transform $animation-duration $animation-behaviour,
+    $animation-duration $animation-behaviour;
 }
 
 .profile-menu-open .profile-menu-arrow {

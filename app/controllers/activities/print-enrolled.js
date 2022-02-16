@@ -18,10 +18,16 @@ export default Controller.extend({
       const { title } = this.model;
       const popup = window.open('', 'PRINT', 'height=400,width=600');
 
-      popup.document.write(`<html><head><title>Inschrijflijst ${title}</title>`);
+      popup.document.write(
+        `<html><head><title>Inschrijflijst ${title}</title>`
+      );
       popup.document.write('<link rel="stylesheet" href="/assets/vendor.css">');
-      popup.document.write('<link rel="stylesheet" href="/assets/alpha-amber.css">');
-      popup.document.write('</head><body onload="window.print()" onfocus="setTimeout(window.close, 500)">');
+      popup.document.write(
+        '<link rel="stylesheet" href="/assets/alpha-amber.css">'
+      );
+      popup.document.write(
+        '</head><body onload="window.print()" onfocus="setTimeout(window.close, 500)">'
+      );
       popup.document.write(document.getElementById('printarea').innerHTML);
       popup.document.write('</body></html>');
       popup.document.close(); // Necessary for IE >= 10
@@ -43,6 +49,6 @@ export default Controller.extend({
     },
     reorderItems(itemModels) {
       this.set('options', itemModels);
-    }
-  }
+    },
+  },
 });

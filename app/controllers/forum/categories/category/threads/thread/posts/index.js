@@ -9,16 +9,19 @@ export default Controller.extend({
 
   count: computed.reads('model.posts.length'),
 
-  currentPageIsLastPage: computed('model.posts.meta.{page,totalPages}', function() {
-    const page = parseInt(this.model.posts.meta.page, 10);
-    const totalPages = parseInt(this.model.posts.meta.totalPages, 10);
+  currentPageIsLastPage: computed(
+    'model.posts.meta.{page,totalPages}',
+    function () {
+      const page = parseInt(this.model.posts.meta.page, 10);
+      const totalPages = parseInt(this.model.posts.meta.totalPages, 10);
 
-    return totalPages === 0 || page === totalPages;
-  }),
+      return totalPages === 0 || page === totalPages;
+    }
+  ),
 
   actions: {
     async newPostCreated() {
       await this.model.posts.reload();
-    }
-  }
+    },
+  },
 });

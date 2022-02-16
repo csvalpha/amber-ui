@@ -13,8 +13,16 @@ import EmberObject from '@ember/object';
  * @param relationshipType The type of the relationship on the model.
  * @param relationshipParameters Additional parameters for the creation of the relationship.
  */
-export default registerAsyncHelper('itShouldRemoveRelationship',
-  (app, assert, route, relationshipName, relationshipType, relationshipParameters = {}) => {
+export default registerAsyncHelper(
+  'itShouldRemoveRelationship',
+  (
+    app,
+    assert,
+    route,
+    relationshipName,
+    relationshipType,
+    relationshipParameters = {}
+  ) => {
     assert.expect(1);
 
     // Get the initial amount of models
@@ -22,9 +30,11 @@ export default registerAsyncHelper('itShouldRemoveRelationship',
     const model = route.model();
 
     run(() => {
-      model.get(relationshipName).pushObject(
-        route.store.createRecord(relationshipType, relationshipParameters)
-      );
+      model
+        .get(relationshipName)
+        .pushObject(
+          route.store.createRecord(relationshipType, relationshipParameters)
+        );
 
       // Set the current model
       route.set('controller', EmberObject.extend({ model }).create());
@@ -34,7 +44,10 @@ export default registerAsyncHelper('itShouldRemoveRelationship',
     });
 
     // There should be no new model
-    assert.equal(route.store.peekAll(relationshipType).get('length'), count,
-      `There should be no new ${relationshipType} in the store after deactivation`);
+    assert.equal(
+      route.store.peekAll(relationshipType).get('length'),
+      count,
+      `There should be no new ${relationshipType} in the store after deactivation`
+    );
   }
 );

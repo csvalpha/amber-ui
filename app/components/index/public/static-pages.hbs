@@ -1,9 +1,9 @@
-<div class="static-page-list">
-  <div class="container">
-    <ul class="list-inline">
+<div class='static-page-list'>
+  <div class='container'>
+    <ul class='list-inline'>
       {{#each staticPages as |m|}}
-        <LinkTo @route="static-pages.show" @model={{m.id}}>
-          <li class="list-inline-item"> <h3> {{m.title}} </h3> </li>
+        <LinkTo @route='static-pages.show' @model={{m.id}}>
+          <li class='list-inline-item'> <h3> {{m.title}} </h3> </li>
         </LinkTo>
       {{/each}}
     </ul>

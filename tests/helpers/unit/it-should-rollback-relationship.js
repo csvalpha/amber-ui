@@ -14,8 +14,17 @@ import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
  * @param relationshipType The type of the relationship on the model.
  * @param relationshipParameters Additional parameters for the creation of the relationship.
  */
-export default registerAsyncHelper('itShouldRollbackRelationship',
-  (app, assert, route, modelType, relationshipName, relationshipType, properties) => {
+export default registerAsyncHelper(
+  'itShouldRollbackRelationship',
+  (
+    app,
+    assert,
+    route,
+    modelType,
+    relationshipName,
+    relationshipType,
+    properties
+  ) => {
     assert.expect(properties.length);
 
     const generatedModel = server.create(modelType);
@@ -30,13 +39,13 @@ export default registerAsyncHelper('itShouldRollbackRelationship',
 
     // Get the current values of the properies
     const oldValues = [];
-    properties.forEach(property => {
+    properties.forEach((property) => {
       oldValues[property] = relatedModel.get(property);
     });
 
     run(() => {
       // Update properties
-      properties.forEach(property => {
+      properties.forEach((property) => {
         relatedModel.set(property, `${oldValues[property]}123`);
       });
 
@@ -45,8 +54,12 @@ export default registerAsyncHelper('itShouldRollbackRelationship',
     });
 
     // All properties should be rolled back.
-    properties.forEach(property => {
-      assert.equal(relatedModel.get(property), oldValues[property], `the property '${property}' should be rolled back`);
+    properties.forEach((property) => {
+      assert.equal(
+        relatedModel.get(property),
+        oldValues[property],
+        `the property '${property}' should be rolled back`
+      );
     });
   }
 );

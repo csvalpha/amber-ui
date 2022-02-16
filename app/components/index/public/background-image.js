@@ -9,7 +9,7 @@ export default class BackgroundImage extends Component {
     '/images/frontpage/serious.jpg',
     '/images/frontpage/smile.jpg',
     '/images/frontpage/dance.jpg',
-    '/images/frontpage/fire.jpg'
+    '/images/frontpage/fire.jpg',
   ];
 
   get style() {

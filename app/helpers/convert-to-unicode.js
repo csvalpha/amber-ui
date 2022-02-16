@@ -17,7 +17,8 @@ export default helper(convertToUnicode);
 
 // Source: https://raw.githubusercontent.com/paragbhadoria/emoji.json/master/emoji.js
 // Source key, value inverted
-const emojiList = { '*': '*️⃣',
+const emojiList = {
+  '*': '*️⃣',
   ':0:': '0️⃣',
   ':100:': '💯',
   ':1234:': '🔢',
@@ -1933,4 +1934,5 @@ const emojiList = { '*': '*️⃣',
   ':zap:': '⚡️',
   ':zero:': '0⃣',
   ':zipper_mouth:': '🤐',
-  ':zzz:': '💤' };
+  ':zzz:': '💤',
+};

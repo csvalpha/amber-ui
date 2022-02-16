@@ -24,6 +24,8 @@ export default class Activities extends UpcomingActivitiesToolComponent {
   }
 
   get modalImageStyle() {
-    return htmlSafe(`background: url('${this.modalImage}'); background-size: cover; background-position: center;"`);
+    return htmlSafe(
+      `background: url('${this.modalImage}'); background-size: cover; background-position: center;"`
+    );
   }
 }

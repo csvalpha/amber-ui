@@ -13,15 +13,15 @@ export default class ShowArticleRoute extends ApplicationRoute {
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: article,
-        canAccess: this.abilities.can('edit article', article)
+        canAccess: this.abilities.can('edit article', article),
       },
       {
         link: 'articles.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.controller.model,
-        canAccess: this.abilities.can('destroy articles')
-      }
+        canAccess: this.abilities.can('destroy articles'),
+      },
     ];
   }
 

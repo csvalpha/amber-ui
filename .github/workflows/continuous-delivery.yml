@@ -186,7 +186,15 @@ jobs:
   update_check_run:
     name: Update Check Run
     runs-on: ubuntu-latest
-    needs: [branch_check, metadata, merge, continuous_integration, publish_image, deploy]
+    needs:
+      [
+        branch_check,
+        metadata,
+        merge,
+        continuous_integration,
+        publish_image,
+        deploy,
+      ]
     if: (github.ref_name == 'staging' || github.ref_name == 'master') && always()
     steps:
       - name: Get conclusion

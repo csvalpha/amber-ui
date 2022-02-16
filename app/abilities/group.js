@@ -4,7 +4,10 @@ import { Ability } from 'ember-can';
 export default class Group extends Ability {
   get canEdit() {
     const group = this.model;
-    return this.session.hasPermission('group.update') || (group.get('name') !== 'Leden' && this.isGroupMember(group));
+    return (
+      this.session.hasPermission('group.update') ||
+      (group.get('name') !== 'Leden' && this.isGroupMember(group))
+    );
   }
 
   get canExport() {
@@ -26,6 +29,13 @@ export default class Group extends Ability {
 
   isGroupMember(group) {
     const { currentUser } = this.session;
-    return !isNone(currentUser) && group.get('memberships').filterBy('userIsCurrentlyMember').mapBy('user.id').includes(currentUser.get('id'));
+    return (
+      !isNone(currentUser) &&
+      group
+        .get('memberships')
+        .filterBy('userIsCurrentlyMember')
+        .mapBy('user.id')
+        .includes(currentUser.get('id'))
+    );
   }
 }

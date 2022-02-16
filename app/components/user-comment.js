@@ -1,10 +1,9 @@
 import Component from '@ember/component';
 
-const UserCommentComponent = Component.extend({
-});
+const UserCommentComponent = Component.extend({});
 
 UserCommentComponent.reopenClass({
-  positionalParams: ['comment']
+  positionalParams: ['comment'],
 });
 
 export default UserCommentComponent;

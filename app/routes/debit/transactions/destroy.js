@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class DestroyTransactionRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Transactie verwijderen' }
+  breadCrumb = { title: 'Transactie verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy debit/transactions');

@@ -4,6 +4,6 @@ export default registerHelper('validationError', (app, pointer) => {
   return {
     status: 422,
     source: { pointer },
-    detail: 'testfoutmelding'
+    detail: 'testfoutmelding',
   };
 });

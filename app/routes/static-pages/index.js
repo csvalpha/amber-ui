@@ -3,10 +3,12 @@ import { inject as service } from '@ember/service';
 import { capitalize } from '@ember/string';
 
 export default class StaticPagesIndexRoute extends ApplicationRoute {
-  @service intl
+  @service intl;
 
   get breadCrumb() {
-    return { title: capitalize(this.intl.t('model.staticPage.name.other').toString()) };
+    return {
+      title: capitalize(this.intl.t('model.staticPage.name.other').toString()),
+    };
   }
 
   get pageActions() {
@@ -15,8 +17,8 @@ export default class StaticPagesIndexRoute extends ApplicationRoute {
         link: 'static-pages.new',
         title: 'Nieuwe infopagina',
         icon: 'plus',
-        canAccess: this.abilities.can('create static-pages')
-      }
+        canAccess: this.abilities.can('create static-pages'),
+      },
     ];
   }
 

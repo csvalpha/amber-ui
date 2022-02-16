@@ -1,23 +1,31 @@
-<div class="d-flex justify-content-between align-items-center pb-2">
-  <h5 class="m-0">Privacyinstellingen</h5>
+<div class='d-flex justify-content-between align-items-center pb-2'>
+  <h5 class='m-0'>Privacyinstellingen</h5>
 
-  {{#if (can "edit user" model)}}
-    <LinkTo @route="users.edit-privacy" @model={{model.id}} class="btn btn-outline-info">
+  {{#if (can 'edit user' model)}}
+    <LinkTo
+      @route='users.edit-privacy'
+      @model={{model.id}}
+      class='btn btn-outline-info'
+    >
       Voorkeuren wijzigen
-      <FaIcon @icon='pen-to-square' class="pl-1"/>
+      <FaIcon @icon='pen-to-square' class='pl-1' />
     </LinkTo>
   {{/if}}
 </div>
 
-<table class="table table-sm">
+<table class='table table-sm'>
   <tr>
-    <td>Ik wil profieldetails (contactgegevens, studie, geboortedatum en dieetwensen) delen met:</td>
+    <td>Ik wil profieldetails (contactgegevens, studie, geboortedatum en
+      dieetwensen) delen met:</td>
     <td data-test-user-details-sharing-preference>
-      {{humanize-user-details-sharing-preference @model.userDetailsSharingPreference}}
+      {{humanize-user-details-sharing-preference
+        @model.userDetailsSharingPreference
+      }}
     </td>
   </tr>
   <tr>
-    <td>Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het streepsysteem</td>
+    <td>Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het
+      streepsysteem</td>
     <td data-test-allow-tomato-sharing>
       {{boolean-tag @model.allowTomatoSharing}}
     </td>

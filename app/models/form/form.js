@@ -51,9 +51,15 @@ export default class Form extends Model {
 
   // Methods
   saveWithQuestions() {
-    return this.save().then(form => {
-      const questionSavePromises = form.get('openQuestions').map(question => question.save());
-      questionSavePromises.pushObjects(form.get('closedQuestions').map(question => question.saveWithOptions()));
+    return this.save().then((form) => {
+      const questionSavePromises = form
+        .get('openQuestions')
+        .map((question) => question.save());
+      questionSavePromises.pushObjects(
+        form
+          .get('closedQuestions')
+          .map((question) => question.saveWithOptions())
+      );
 
       return all(questionSavePromises).then(() => {
         return form;
@@ -62,10 +68,10 @@ export default class Form extends Model {
   }
 
   rollbackAttributesAndQuestions() {
-    this.openQuestions.forEach(openQuestion => {
+    this.openQuestions.forEach((openQuestion) => {
       openQuestion.rollbackAttributes();
     });
-    this.closedQuestions.forEach(closedQuestion => {
+    this.closedQuestions.forEach((closedQuestion) => {
       closedQuestion.rollbackAttributesAndOptions();
     });
     this.rollbackAttributes();

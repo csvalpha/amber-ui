@@ -10,21 +10,28 @@ import { registerAsyncHelper } from '@ember/test';
  * @param route The route under testing.
  * @param properties The type of the model which should be removed from the store.
  */
-export default registerAsyncHelper('itShouldRemoveNewModel', (app, assert, route, modelType) => {
-  assert.expect(1);
+export default registerAsyncHelper(
+  'itShouldRemoveNewModel',
+  (app, assert, route, modelType) => {
+    assert.expect(1);
 
-  // Get the initial amount of models
-  const count = route.store.peekAll(modelType).get('length');
-  const model = route.model();
+    // Get the initial amount of models
+    const count = route.store.peekAll(modelType).get('length');
+    const model = route.model();
 
-  run(() => {
-    // Set the current model
-    route.set('controller', EmberObject.extend({ model }).create());
+    run(() => {
+      // Set the current model
+      route.set('controller', EmberObject.extend({ model }).create());
 
-    // Deativate the route
-    route.deactivate();
-  });
+      // Deativate the route
+      route.deactivate();
+    });
 
-  // There should be no new model
-  assert.equal(route.store.peekAll(modelType).get('length'), count, `There should be no new ${modelType} in the store after deactivation`);
-});
+    // There should be no new model
+    assert.equal(
+      route.store.peekAll(modelType).get('length'),
+      count,
+      `There should be no new ${modelType} in the store after deactivation`
+    );
+  }
+);

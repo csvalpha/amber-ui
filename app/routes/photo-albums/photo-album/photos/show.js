@@ -3,11 +3,11 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import {
   bindKeyboardShortcuts,
-  unbindKeyboardShortcuts
+  unbindKeyboardShortcuts,
 } from 'ember-keyboard-shortcuts';
 
 export default class ShowPhotosRoute extends ApplicationRoute {
-  @service intl
+  @service intl;
 
   get breadCrumb() {
     const photo = this.controller.model;
@@ -25,8 +25,8 @@ export default class ShowPhotosRoute extends ApplicationRoute {
         linkArgument: this.controller.model,
         title: 'Foto verwijderen',
         icon: 'trash',
-        canAccess: this.abilities.can('destroy photos')
-      }
+        canAccess: this.abilities.can('destroy photos'),
+      },
     ];
   }
 
@@ -50,8 +50,8 @@ export default class ShowPhotosRoute extends ApplicationRoute {
     left: 'goToPreviousPhoto',
     up: 'goToPreviousPhoto',
     right: 'goToNextPhoto',
-    down: 'goToNextPhoto'
-  }
+    down: 'goToNextPhoto',
+  };
 
   @action
   goToPreviousPhoto() {

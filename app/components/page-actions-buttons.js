@@ -2,11 +2,12 @@ import Component from '@ember/component';
 
 const PageActionsButtonsComponent = Component.extend({
   tagName: 'span',
-  classNames: 'page-actions-buttons col col-md-auto row no-gutters flex-wrap justify-content-right p-0'
+  classNames:
+    'page-actions-buttons col col-md-auto row no-gutters flex-wrap justify-content-right p-0',
 });
 
 PageActionsButtonsComponent.reopenClass({
-  positionalParams: ['pageActions']
+  positionalParams: ['pageActions'],
 });
 
 export default PageActionsButtonsComponent;

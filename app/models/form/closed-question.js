@@ -27,8 +27,10 @@ export default class ClosedQuestion extends Model {
 
   // Methods
   saveWithOptions() {
-    return this.save().then(closedQuestion => {
-      const optionSavePromises = closedQuestion.options.map(option => option.save());
+    return this.save().then((closedQuestion) => {
+      const optionSavePromises = closedQuestion.options.map((option) =>
+        option.save()
+      );
       return all(optionSavePromises).then(() => {
         return closedQuestion;
       });
@@ -36,7 +38,7 @@ export default class ClosedQuestion extends Model {
   }
 
   rollbackAttributesAndOptions() {
-    this.options.forEach(option => {
+    this.options.forEach((option) => {
       option.rollbackAttributes();
     });
     this.rollbackAttributes();
