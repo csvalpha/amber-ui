@@ -1,19 +1,28 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5> Foto verwijderen </h5>
   </div>
-  <div class="card-block p-3">
-    <p class="card-text">
+  <div class='card-block p-3'>
+    <p class='card-text'>
       Weet je zeker dat deze foto wilt verwijderen?
     </p>
-    <img src={{@model.imageUrl}} width="300">
+    <img src={{@model.imageUrl}} width='300' />
 
     {{#if errorMessage}}
-      <div class="text-danger">{{this.errorMessage}}</div>
+      <div class='text-danger'>{{this.errorMessage}}</div>
     {{/if}}
   </div>
-  <div class="card-footer">
-    <button {{action "destroy"}} class="btn btn-danger" type="button">Verwijderen</button>
-    <LinkTo @route="photo-albums.photo-album.photos.show" @model={{model.id}} class="btn btn-default" @tagName="button">Annuleren</LinkTo>
+  <div class='card-footer'>
+    <button
+      {{action 'destroy'}}
+      class='btn btn-danger'
+      type='button'
+    >Verwijderen</button>
+    <LinkTo
+      @route='photo-albums.photo-album.photos.show'
+      @model={{model.id}}
+      class='btn btn-default'
+      @tagName='button'
+    >Annuleren</LinkTo>
   </div>
 </div>

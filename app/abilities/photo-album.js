@@ -9,7 +9,10 @@ export default class PhotoAlbum extends Ability {
   }
 
   get canEdit() {
-    return this.session.hasPermission('photo-album.update') || this.isPhotoAlbumOwner(this.model);
+    return (
+      this.session.hasPermission('photo-album.update') ||
+      this.isPhotoAlbumOwner(this.model)
+    );
   }
 
   get canSelectAllGroups() {

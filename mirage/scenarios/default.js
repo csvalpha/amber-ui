@@ -1,6 +1,6 @@
 import { A } from '@ember/array';
 
-export default function(server) {
+export default function (server) {
   // Permissions and user
   const resourceNames = new A([
     'user',
@@ -26,14 +26,16 @@ export default function(server) {
     'form/open_question_answer',
     'permissions_users',
     'groups_permissions',
-    'static_page'
+    'static_page',
   ]);
   const actions = new A(['create', 'read', 'update', 'destroy']);
 
   const permissions = [];
-  resourceNames.forEach(resource => {
-    actions.forEach(action => {
-      permissions.push(server.create('permission', { name: `${resource}.${action}` }));
+  resourceNames.forEach((resource) => {
+    actions.forEach((action) => {
+      permissions.push(
+        server.create('permission', { name: `${resource}.${action}` })
+      );
     });
   });
 

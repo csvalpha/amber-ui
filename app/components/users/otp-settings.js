@@ -16,12 +16,12 @@ export default Component.extend({
         body: {
           data: {
             attributes: {
-              otp_required: false
+              otp_required: false,
             },
             id: userId,
-            type: 'users'
-          }
-        }
+            type: 'users',
+          },
+        },
         /* eslint-enable camelcase */
       });
 
@@ -30,32 +30,43 @@ export default Component.extend({
         this.set('model.otpRequired', false);
       } else if (isInvalidResponse(response)) {
         const json = await response.json();
-        this.set('otpErrorMessage', json.errors ? json.errors[0].detail : response);
+        this.set(
+          'otpErrorMessage',
+          json.errors ? json.errors[0].detail : response
+        );
       }
     },
     async generateOTP() {
       this.set('otpErrorMessage', null);
       this.set('otpKey', null);
 
-      const response = await this.fetch.post(`/users/${this.model.id}/generate_otp_secret`);
+      const response = await this.fetch.post(
+        `/users/${this.model.id}/generate_otp_secret`
+      );
       let json = await response.json();
 
       if (response.ok) {
         this.set('otpKey', json.otp_code);
       } else if (isInvalidResponse(response)) {
-        this.set('otpErrorMessage', json.errors ? json.errors[0].detail : response);
+        this.set(
+          'otpErrorMessage',
+          json.errors ? json.errors[0].detail : response
+        );
       }
     },
     async confirmOTP() {
       this.set('otpErrorMessage', null);
 
-      const response = await this.fetch.post(`/users/${this.model.id}/activate_otp`, {
-        /* eslint-disable camelcase */
-        body: {
-          one_time_password: this.verificationCode
+      const response = await this.fetch.post(
+        `/users/${this.model.id}/activate_otp`,
+        {
+          body: {
+            /* eslint-disable camelcase */
+            one_time_password: this.verificationCode,
+            /* eslint-enable camelcase */
+          },
         }
-        /* eslint-enable camelcase */
-      });
+      );
 
       if (response.ok) {
         this.set('model.otpRequired', true);
@@ -65,6 +76,6 @@ export default Component.extend({
       } else if (isInvalidResponse(response)) {
         this.set('otpErrorMessage', 'Deze authenticatiecode is niet geldig');
       }
-    }
-  }
+    },
+  },
 });

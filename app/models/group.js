@@ -38,12 +38,14 @@ export default class Group extends Model {
   }
 
   get avatarThumbUrlOrDefault() {
-    return this.avatarThumbUrl || '/images/fallback/group_avatar_thumb_default.png';
+    return (
+      this.avatarThumbUrl || '/images/fallback/group_avatar_thumb_default.png'
+    );
   }
 
   // Methods
   rollbackAttributesAndMemberships() {
-    this.memberships.forEach(membership => {
+    this.memberships.forEach((membership) => {
       membership?.rollbackAttributes();
     });
     this.rollbackAttributes();

@@ -3,11 +3,11 @@ import Component from '@ember/component';
 
 const ArticleCardComponent = Component.extend({
   session: service('session'),
-  article: null
+  article: null,
 });
 
 ArticleCardComponent.reopenClass({
-  positionalParams: ['article']
+  positionalParams: ['article'],
 });
 
 export default ArticleCardComponent;

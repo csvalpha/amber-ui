@@ -1,7 +1,7 @@
 import EmberObject from '@ember/object';
 import { run } from '@ember/runloop';
 
-export default function(assert, route, modelType) {
+export default function (assert, route, modelType) {
   assert.expect(1);
 
   // Get the initial amount of models.
@@ -17,5 +17,9 @@ export default function(assert, route, modelType) {
   });
 
   // There should be no new model.
-  assert.equal(route.store.peekAll(modelType).get('length'), count, `There should be no new ${modelType} in the store after deactivation`);
-}
+  assert.equal(
+    route.store.peekAll(modelType).get('length'),
+    count,
+    `There should be no new ${modelType} in the store after deactivation`
+  );
+);

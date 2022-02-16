@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class DestroyPostRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Forumbericht verwijderen' }
+  breadCrumb = { title: 'Forumbericht verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy forum/posts');

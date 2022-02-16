@@ -35,9 +35,13 @@ export default class FlashNoticeService extends Service {
 
     if (!isPermanent) {
       let _this = this;
-      run.later(this, function() {
-        _this.visibility = false;
-      }, ENV.APP.flashNoticeDefaultDuration);
+      run.later(
+        this,
+        function () {
+          _this.visibility = false;
+        },
+        ENV.APP.flashNoticeDefaultDuration
+      );
     }
   }
 

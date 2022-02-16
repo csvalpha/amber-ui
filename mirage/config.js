@@ -1,22 +1,27 @@
-export default function() {
+export default function () {
   this.namespace = '/api/v1';
 
-  this.post('/oauth/token', (schema, request) => {
-    const body = {};
-    request.requestBody.split('&').forEach(keyValue => {
-      const parts = keyValue.split('=');
-      body[parts[0]] = parts[1];
-    });
+  this.post(
+    '/oauth/token',
+    (schema, request) => {
+      const body = {};
+      request.requestBody.split('&').forEach((keyValue) => {
+        const parts = keyValue.split('=');
+        body[parts[0]] = parts[1];
+      });
 
-    /* eslint-disable camelcase */
-    return {
-      access_token: 'e9eea4d996f1b22d7a770f4ee9651e3a2d3d84b232c22a9f6705ab24633b478c',
-      created_at: 123456789,
-      expires_in: 7200,
-      token_type: 'bearer'
-    };
-    /* eslint-enable camelcase */
-  }, 200);
+      /* eslint-disable camelcase */
+      return {
+        access_token:
+          'e9eea4d996f1b22d7a770f4ee9651e3a2d3d84b232c22a9f6705ab24633b478c',
+        created_at: 123456789,
+        expires_in: 7200,
+        token_type: 'bearer',
+      };
+      /* eslint-enable camelcase */
+    },
+    200
+  );
 
   this.resource('articles');
   this.resource('article_comments');
@@ -59,7 +64,10 @@ export default function() {
   this.get('/form/closed_question_options', 'form-closed-question-option');
   this.get('/form/closed_questions_options/:id', 'form-closed-question-option');
   this.post('/form/closed_questions_options', 'form-closed-question-option');
-  this.patch('/form/closed_questions_options/:id', 'form-closed-question-option');
+  this.patch(
+    '/form/closed_questions_options/:id',
+    'form-closed-question-option'
+  );
 
   this.get('/form/responses', 'form-response');
   this.get('/form/responses/:id', 'form-response');
@@ -89,7 +97,9 @@ export default function() {
   this.get('/forum/posts', ({ forumPosts }, { queryParams }) => {
     const filterThreadId = queryParams['filter[thread_id]'];
     if (filterThreadId) {
-      return forumPosts.where(forumPost => forumPost.threadId === filterThreadId);
+      return forumPosts.where(
+        (forumPost) => forumPost.threadId === filterThreadId
+      );
     }
     return forumPosts.all();
   });

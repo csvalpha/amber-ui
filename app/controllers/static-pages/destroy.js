@@ -1,5 +1,5 @@
 import DestroyController from 'alpha-amber/controllers/application/destroy';
 
 export default DestroyController.extend({
-  successTransitionTarget: 'static-pages.index'
+  successTransitionTarget: 'static-pages.index',
 });

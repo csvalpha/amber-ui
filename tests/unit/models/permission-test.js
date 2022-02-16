@@ -4,11 +4,13 @@ import { setupTest } from 'ember-qunit';
 
 let permission;
 
-module('Unit | Model | permission', function(hooks) {
+module('Unit | Model | permission', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {
-    permission = run(() => this.owner.lookup('service:store').createRecord('permission'));
+  hooks.beforeEach(function () {
+    permission = run(() =>
+      this.owner.lookup('service:store').createRecord('permission')
+    );
   });
 
   test('Permission#model', function(assert) {

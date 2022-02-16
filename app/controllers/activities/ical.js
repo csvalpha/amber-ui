@@ -12,7 +12,9 @@ export default class IcalController extends Controller {
 
   constructor() {
     super(...arguments);
-    this.activityCategoryOptions = ActivityCategories.map(this._activityCategoryToOption);
+    this.activityCategoryOptions = ActivityCategories.map(
+      this._activityCategoryToOption
+    );
   }
 
   @computed('activityCategoryOptions.@each.checked')
@@ -39,7 +41,7 @@ export default class IcalController extends Controller {
     return {
       value: activityCategory.toLowerCase().replace('ë', 'e'),
       label: activityCategory,
-      checked: true
+      checked: true,
     };
   }
 }

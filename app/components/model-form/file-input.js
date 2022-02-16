@@ -9,7 +9,7 @@ export default ModelFormTextInputComponent.extend({
   maxFilesize: ENV.maxFilesize,
   validMimetypes: 'image/jpeg,image/png',
   validExtensions: EmberArray.apply(['png', 'jpeg', 'jpg']),
-  validExtensionsString: computed('validExtensions', function() {
+  validExtensionsString: computed('validExtensions', function () {
     return this.validExtensions.join(', ');
   }),
 
@@ -23,7 +23,7 @@ export default ModelFormTextInputComponent.extend({
       this.set('extensionNotPermitted', false);
 
       // File.size is in bytes
-      if (file.size > (ENV.maxFilesize * 1048576)) {
+      if (file.size > ENV.maxFilesize * 1048576) {
         this.set('fileTooBig', true);
       } else if (this.extensionInvalid(this, file)) {
         this.set('extensionNotPermitted', true);
@@ -33,6 +33,6 @@ export default ModelFormTextInputComponent.extend({
           this.loadedCallback(file);
         });
       }
-    }
-  }
+    },
+  },
 });

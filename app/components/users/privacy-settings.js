@@ -1,6 +1,6 @@
 import {
   PicturePublicationPreferenceTypes,
-  UserDetailsPreferenceTypes
+  UserDetailsPreferenceTypes,
 } from 'alpha-amber/constants';
 import Component from '@glimmer/component';
 import ModelSaveUtil from 'alpha-amber/utils/model-save';
@@ -26,11 +26,16 @@ export default class PrivacySettingsComponent extends Component {
   }
 
   get picturePublicationPreferenceTypes() {
-    return Object.entries(PicturePublicationPreferenceTypes).map(([value, label]) => ({ value, label }));
+    return Object.entries(PicturePublicationPreferenceTypes).map(
+      ([value, label]) => ({ value, label })
+    );
   }
 
   get userDetailsPreferenceTypes() {
-    return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({ value, label }));
+    return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
+      value,
+      label,
+    }));
   }
 
   get isOwnUser() {
@@ -38,7 +43,10 @@ export default class PrivacySettingsComponent extends Component {
   }
 
   get canChangeTomatoSettings() {
-    return !isPresent(this.args.model.changedAttributes().allowTomatoSharing) && this.args.model.allowTomatoSharing;
+    return (
+      !isPresent(this.args.model.changedAttributes().allowTomatoSharing) &&
+      this.args.model.allowTomatoSharing
+    );
   }
 
   @action

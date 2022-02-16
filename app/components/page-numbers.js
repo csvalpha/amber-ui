@@ -4,7 +4,7 @@ import { tracked } from '@glimmer/tracking';
 export default class PageNumbers extends Component {
   @tracked info;
 
-  pagesToShow = 5
+  pagesToShow = 5;
 
   get currentPage() {
     return parseInt(this.info.page, 10);
@@ -25,17 +25,17 @@ export default class PageNumbers extends Component {
   get pageItems() {
     let result = [];
     let before = parseInt(this.pagesToShow / 2);
-    if ((this.currentPage - before) < 1) {
+    if (this.currentPage - before < 1) {
       before = this.currentPage - 1;
     }
 
     let after = this.pagesToShow - before - 1;
-    if ((this.totalPages - this.currentPage) < after) {
+    if (this.totalPages - this.currentPage < after) {
       after = this.totalPages - this.currentPage;
       before = this.pagesToShow - after - 1;
     }
 
-    if ((this.currentPage - before) < 1) {
+    if (this.currentPage - before < 1) {
       before = this.currentPage - 1;
     }
 

@@ -1,5 +1,11 @@
-<ModelForm::CheckboxGroup @model={{this}} @property="selectedOptionIds"
-                          @options={{options}} @inputLayout="vertical"
-                          @label={{question.question}} @inputIdentifier={{inputIdentifier}}
-                          @required={{question.required}} @requiredAndNothingSelected={{requiredAndNothingSelected}}
-                          {{on 'click' (fn this.updateAnswers this.question this.selectedOptionIds)}}/>
+<ModelForm::CheckboxGroup
+  @model={{this}}
+  @property='selectedOptionIds'
+  @options={{options}}
+  @inputLayout='vertical'
+  @label={{question.question}}
+  @inputIdentifier={{inputIdentifier}}
+  @required={{question.required}}
+  @requiredAndNothingSelected={{requiredAndNothingSelected}}
+  {{on 'click' (fn this.updateAnswers this.question this.selectedOptionIds)}}
+/>

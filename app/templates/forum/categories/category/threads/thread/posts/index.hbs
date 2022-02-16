@@ -1,12 +1,12 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<div class="row justify-content-center">
+<div class='row justify-content-center'>
   <PageNumbers @info={{model.posts.meta}} />
 </div>
 
-{{#each @model.posts as |post| }}
+{{#each @model.posts as |post|}}
   {{#unless post.isDeleted}}
     {{forum/forum-post post newContent=newContent data-test-forum-post=post.id}}
   {{/unless}}
@@ -14,7 +14,7 @@
 
 {{#if currentPageIsLastPage}}
   {{#unless @model.thread.isOpen}}
-    <div class="alert alert-danger" role="alert">
+    <div class='alert alert-danger' role='alert'>
       <strong>Dit topic is gesloten!</strong>
       {{#if (can 'create post for forum/thread' @model.thread)}}
         Jij kunt echter nog wel reageren omdat je moderatierechten hebt.
@@ -25,17 +25,21 @@
   {{/unless}}
 
   {{#if (can 'create post for forum/thread' @model.thread)}}
-    <div class="card">
-      <div class="card-header">
+    <div class='card'>
+      <div class='card-header'>
         <h5>Reageren</h5>
       </div>
-      <div class="card-body">
-        <Forum::ForumPostNew @thread={{@model.thread}} @content={{newContent}} @onSubmit={{action "newPostCreated"}} />
+      <div class='card-body'>
+        <Forum::ForumPostNew
+          @thread={{@model.thread}}
+          @content={{newContent}}
+          @onSubmit={{action 'newPostCreated'}}
+        />
       </div>
     </div>
   {{/if}}
 {{/if}}
 
-<div class="row justify-content-center">
+<div class='row justify-content-center'>
   <PageNumbers @info={{@model.posts.meta}} />
 </div>

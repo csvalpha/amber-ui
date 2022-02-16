@@ -25,7 +25,7 @@ export default class LocalStorageService extends Service {
           this.isSupported = true;
           this.isEnabled = false;
         }
-      } catch(error) {
+      } catch (error) {
         this.isSupported = true;
         this.isEnabled = false;
       }

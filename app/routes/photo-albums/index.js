@@ -3,10 +3,12 @@ import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
 
 export default class ArticlesIndexRoute extends ApplicationRoute {
-  @service intl
+  @service intl;
 
   get breadCrumb() {
-    return { title: capitalize(this.intl.t('model.photoAlbum.name.other').toString()) };
+    return {
+      title: capitalize(this.intl.t('model.photoAlbum.name.other').toString()),
+    };
   }
 
   get pageActions() {
@@ -15,14 +17,14 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
         link: 'photo-comments.index',
         title: 'Bekijk fotoreacties',
         icon: 'comments',
-        canAccess: this.abilities.can('show photo-comments')
+        canAccess: this.abilities.can('show photo-comments'),
       },
       {
         link: 'photo-albums.new',
         title: 'Nieuw foto-album',
         icon: 'plus',
-        canAccess: this.abilities.can('create photo-albums')
-      }
+        canAccess: this.abilities.can('create photo-albums'),
+      },
     ];
   }
 

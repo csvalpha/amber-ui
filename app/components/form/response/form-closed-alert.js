@@ -1,11 +1,11 @@
 import Component from '@ember/component';
 
 const FormClosedAlert = Component.extend({
-  form: null
+  form: null,
 });
 
 FormClosedAlert.reopenClass({
-  positionalParams: ['form']
+  positionalParams: ['form'],
 });
 
 export default FormClosedAlert;

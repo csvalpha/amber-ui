@@ -1,7 +1,7 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 
 export default class MailAliasIndexRoute extends ApplicationRoute {
-  breadCrumb = { title: 'Polls' }
+  breadCrumb = { title: 'Polls' };
 
   get pageActions() {
     return [
@@ -9,8 +9,8 @@ export default class MailAliasIndexRoute extends ApplicationRoute {
         link: 'polls.new',
         title: 'Nieuwe Poll',
         icon: 'plus',
-        canAccess: this.abilities.can('create polls')
-      }
+        canAccess: this.abilities.can('create polls'),
+      },
     ];
   }
 

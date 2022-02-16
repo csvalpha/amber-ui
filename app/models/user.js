@@ -2,10 +2,7 @@ import { inject as service } from '@ember/service';
 import Model, { hasMany, attr } from '@ember-data/model';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
-import {
-  AvatarThumbFallback,
-  AvatarFallback
-} from 'alpha-amber/constants';
+import { AvatarThumbFallback, AvatarFallback } from 'alpha-amber/constants';
 
 export default class User extends Model {
   @service session;
@@ -83,7 +80,9 @@ export default class User extends Model {
   }
 
   get upcomingBirthdayDate() {
-    return moment(this.birthday).add(this.upcomingBirthdayAge, 'years').toDate();
+    return moment(this.birthday)
+      .add(this.upcomingBirthdayAge, 'years')
+      .toDate();
   }
 
   get hasBirthdayToday() {
@@ -104,7 +103,9 @@ export default class User extends Model {
   }
 
   get currentMemberships() {
-    return this.memberships.filter(membership => membership.get('userIsCurrentlyMember'));
+    return this.memberships.filter((membership) =>
+      membership.get('userIsCurrentlyMember')
+    );
   }
 
   get avatarUrlOrDefault() {

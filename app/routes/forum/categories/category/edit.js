@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditCategoryRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Categorie aanpassen' }
+  breadCrumb = { title: 'Categorie aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit forum/categories');

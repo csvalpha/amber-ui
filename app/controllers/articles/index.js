@@ -2,19 +2,19 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class ArticlesIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'created_at'
-  @tracked sortedAscending = false
+  @tracked sortedAttribute = 'created_at';
+  @tracked sortedAscending = false;
 
-  routeOnEnter = 'articles.show'
-  queryParams = ['search', 'sort', 'page']
+  routeOnEnter = 'articles.show';
+  queryParams = ['search', 'sort', 'page'];
   sortableAttributes = [
     {
       value: 'title',
-      label: 'Titel'
+      label: 'Titel',
     },
     {
       value: 'created_at',
-      label: 'Aangemaakt op'
-    }
-  ]
+      label: 'Aangemaakt op',
+    },
+  ];
 }

@@ -1,7 +1,7 @@
 import { youtubeRegex } from 'alpha-amber/initializers/register-showdown-extensions';
 import { module, test } from 'qunit';
 
-module('Unit | Helper | youtube regex', function() {
+module('Unit | Helper | youtube regex', function () {
   const youtubeUrl = '$(https://www.youtube.com/watch?v=Sr0g_A00Vvo)';
   const youtubeID = 'Sr0g_A00Vvo';
 

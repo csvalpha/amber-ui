@@ -13,11 +13,17 @@ export default class Post extends Ability {
   get canEdit() {
     if (this.isThreadClosed(this.model.thread)) {
       // Permission to both update post and thread
-      return this.session.hasPermission('forum/post.update') && this.session.hasPermission('forum/thread.update');
+      return (
+        this.session.hasPermission('forum/post.update') &&
+        this.session.hasPermission('forum/thread.update')
+      );
     }
 
     // Permission to update or owner of post
-    return this.session.hasPermission('forum/post.update') || this.isPostOwner(this.model);
+    return (
+      this.session.hasPermission('forum/post.update') ||
+      this.isPostOwner(this.model)
+    );
   }
 
   isThreadClosed(thread) {
@@ -26,6 +32,8 @@ export default class Post extends Ability {
 
   isPostOwner(post) {
     const { currentUser } = this.session;
-    return !isNone(currentUser) && (post.get('author.id') === currentUser.get('id'));
+    return (
+      !isNone(currentUser) && post.get('author.id') === currentUser.get('id')
+    );
   }
 }

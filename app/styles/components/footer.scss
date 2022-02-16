@@ -2,7 +2,7 @@
   position: absolute;
   right: 0;
   left: 0;
-  transition: padding-left .3s ease-in-out;
+  transition: padding-left 0.3s ease-in-out;
   margin-top: 50px;
   background-color: $black;
   padding-left: 0;
@@ -19,7 +19,7 @@
 @include media-breakpoint-down(sm) {
   .footer-holder {
     transform: translateX(0);
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
     padding-left: 0;
 
     &.left-sidebar-open {

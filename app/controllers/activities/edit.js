@@ -18,17 +18,22 @@ export default Controller.extend({
     set(_, value) {
       if (value) {
         const form = this.store.createRecord('form/form');
-        this.store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
+        this.store.createRecord('form/open-question', {
+          form,
+          question: 'Opmerkingen',
+          fieldType: 'text',
+          position: 0,
+        });
         this.set('model.form', form);
       } else {
         this.set('model.form', null);
       }
 
       return value;
-    }
+    },
   }),
 
-  groups: computed('session.currentUser', function() {
+  groups: computed('session.currentUser', function () {
     if (this.abilities.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
@@ -36,29 +41,32 @@ export default Controller.extend({
     return this.session.currentUser.get('groups');
   }),
 
-  _activityCategoryToOption: activityCategory => {
+  _activityCategoryToOption: (activityCategory) => {
     return {
       value: activityCategory.toLowerCase().replace('ë', 'e'),
-      label: activityCategory
+      label: activityCategory,
     };
   },
 
-  activityCategoryOptions: computed('_activityCategoryToOption', function() {
+  activityCategoryOptions: computed('_activityCategoryToOption', function () {
     return ActivityCategories.map(this._activityCategoryToOption);
   }),
 
   actions: {
     submit() {
-      this.model.saveWithForm().then(savedActivity => {
-        this.transitionToRoute('activities.show', savedActivity.id);
-        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
-      }).catch(error => {
-        this.set('errorMessage', error.message);
-      });
+      this.model
+        .saveWithForm()
+        .then((savedActivity) => {
+          this.transitionToRoute('activities.show', savedActivity.id);
+          this.flashNotice.sendSuccess('Activiteit opgeslagen!');
+        })
+        .catch((error) => {
+          this.set('errorMessage', error.message);
+        });
     },
 
     coverPhotoLoaded(file) {
       this.model.set('coverPhoto', file.data);
-    }
-  }
+    },
+  },
 });

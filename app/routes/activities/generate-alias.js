@@ -8,6 +8,8 @@ export default class GenerateAliasRoute extends AuthenticatedRoute {
   }
 
   model(params) {
-    return this.store.findRecord('activity', params.id, params).then(activity => activity.get('form').then(() => activity));
+    return this.store
+      .findRecord('activity', params.id, params)
+      .then((activity) => activity.get('form').then(() => activity));
   }
 }
