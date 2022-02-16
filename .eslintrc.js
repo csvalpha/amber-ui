@@ -21,7 +21,7 @@ module.exports = {
   },
   rules: {
     'arrow-parens': 0,
-    'camelcase': ['error', { 'properties': 'always' }],
+    camelcase: ['error', { properties: 'always' }],
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
     'object-curly-spacing': ['error', 'always'],
