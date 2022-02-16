@@ -15,6 +15,7 @@ module.exports = function (environment) {
       'camo.csvalpha.nl',
       'www.google-analytics.com',
       'img.youtube.com',
+      'data:',
     ],
     'style-src': ["'self'", "'unsafe-inline'", 'fonts.googleapis.com/'],
     'media-src': ["'self'"],

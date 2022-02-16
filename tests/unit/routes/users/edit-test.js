@@ -20,9 +20,4 @@ module('Unit | Route | users/edit', function (hooks) {
     const route = this.owner.lookup('route:users/edit');
     assert.ok(route);
   });
-
-  test('it exists', function (assert) {
-    const route = this.owner.lookup('route:users/edit');
-    assert.ok(route);
-  });
 });

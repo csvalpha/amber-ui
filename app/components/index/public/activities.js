@@ -1,5 +1,5 @@
 import { action } from '@ember/object';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import UpcomingActivitiesToolComponent from 'alpha-amber/components/tools/upcoming-activities';
 
 export default class Activities extends UpcomingActivitiesToolComponent {

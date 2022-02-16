@@ -8,9 +8,4 @@ module('Unit | Route | polls/destroy', function (hooks) {
     const route = this.owner.lookup('route:polls/destroy');
     assert.ok(route);
   });
-
-  test('it exists', function (assert) {
-    const route = this.owner.lookup('route:polls/destroy');
-    assert.ok(route);
-  });
 });

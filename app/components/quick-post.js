@@ -1,5 +1,5 @@
 import { inject as service } from '@ember/service';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { sort, reads } from '@ember/object/computed';
