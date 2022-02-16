@@ -10,7 +10,10 @@ export default function (mirageModel, store) {
   // request, and this request is given to the store, so we can request the real
   // model from the store.
   const context = getContext();
-  const registry = new SerializerRegistry(context.server, context.server.options.serializers);
+  const registry = new SerializerRegistry(
+    context.server,
+    context.server.options.serializers
+  );
   const serializedModel = registry.serialize(mirageModel);
   store.pushPayload(serializedModel);
   return store.peekRecord(serializedModel.data.type, serializedModel.data.id);

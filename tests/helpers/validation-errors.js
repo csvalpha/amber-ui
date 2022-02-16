@@ -1,6 +1,6 @@
 import validationError from './validation-error';
 
-export default function(values) {
+export default function (values) {
   const errors = [];
   for (const attribute in values) {
     if ({}.hasOwnProperty.call(values, attribute)) {

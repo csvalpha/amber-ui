@@ -8,15 +8,15 @@ module('Unit | Helper | youtube regex', function () {
   const nonYoutubeUrl = '$(https://forms.gle/PQRjWdhdg6fWDxQd9)';
   const linkUrl = '[link](https://www.youtube.com/watch?v=Sr0g_A00Vvo)';
 
-  test('youtube is recognized', function(assert) {
+  test('youtube is recognized', function (assert) {
     assert.equal(youtubeRegex.exec(youtubeUrl)[3], youtubeID);
   });
 
-  test('non youtube is not recognized', function(assert) {
+  test('non youtube is not recognized', function (assert) {
     assert.equal(youtubeRegex.exec(nonYoutubeUrl), null);
   });
 
-  test('link to youtube is not recognized', function(assert) {
+  test('link to youtube is not recognized', function (assert) {
     assert.equal(youtubeRegex.exec(linkUrl), null);
   });
 });

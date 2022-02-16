@@ -13,7 +13,7 @@ module('Unit | Model | permission', function (hooks) {
     );
   });
 
-  test('Permission#model', function(assert) {
+  test('Permission#model', function (assert) {
     assert.expect(1);
     run(() => {
       permission.setProperties({ name: 'form/closed-question.read' });
@@ -21,7 +21,7 @@ module('Unit | Model | permission', function (hooks) {
     });
   });
 
-  test('Permission#action', function(assert) {
+  test('Permission#action', function (assert) {
     assert.expect(1);
     run(() => {
       permission.setProperties({ name: 'form/closed-question.read' });
