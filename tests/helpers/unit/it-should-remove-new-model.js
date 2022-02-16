@@ -22,4 +22,4 @@ export default function (assert, route, modelType) {
     count,
     `There should be no new ${modelType} in the store after deactivation`
   );
-);
+}

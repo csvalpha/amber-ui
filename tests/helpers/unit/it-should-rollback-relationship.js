@@ -3,7 +3,14 @@ import EmberObject from '@ember/object';
 import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
 import { getContext } from '@ember/test-helpers';
 
-export default function (assert, route, modelType, relationshipName, relationshipType, properties) {
+export default function (
+  assert,
+  route,
+  modelType,
+  relationshipName,
+  relationshipType,
+  properties
+) {
   assert.expect(properties.length);
 
   const context = getContext();
@@ -41,4 +48,4 @@ export default function (assert, route, modelType, relationshipName, relationshi
       `the property '${property}' should be rolled back`
     );
   });
-);
+}

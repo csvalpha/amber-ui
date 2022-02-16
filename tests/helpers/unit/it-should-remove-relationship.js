@@ -1,7 +1,13 @@
 import EmberObject from '@ember/object';
 import { run } from '@ember/runloop';
 
-export default function (assert, route, relationshipName, relationshipType, relationshipParameters = {}) {
+export default function (
+  assert,
+  route,
+  relationshipName,
+  relationshipType,
+  relationshipParameters = {}
+) {
   assert.expect(1);
 
   // Get the initial amount of models.
@@ -28,4 +34,4 @@ export default function (assert, route, relationshipName, relationshipType, rela
     count,
     `There should be no new ${relationshipType} in the store after deactivation`
   );
-);
+}
