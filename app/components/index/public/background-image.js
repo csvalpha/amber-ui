@@ -1,6 +1,6 @@
 import { classNames, attributeBindings } from '@ember-decorators/component';
 import Component from '@ember/component';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 
 @classNames('index-poster')
 @attributeBindings('style')

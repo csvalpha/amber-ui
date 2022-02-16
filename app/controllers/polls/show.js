@@ -2,7 +2,7 @@
 import EmberObject, { action, computed } from '@ember/object';
 import Controller from '@ember/controller';
 import FormLoadOrCreateUtil from 'alpha-amber/utils/form-load-or-create';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
