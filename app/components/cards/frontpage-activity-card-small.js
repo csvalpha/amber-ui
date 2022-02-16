@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { htmlSafe } from '@ember/string';
+import { htmlSafe } from '@ember/template';
 
 const FrontpageActivityCardSmall = Component.extend({
   classNames: ['card', 'frontpage-activity-card-small', 'border-0', 'p-0'],
