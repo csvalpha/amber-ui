@@ -1,7 +1,7 @@
-{{page-actions pageActions}}
+{{page-actions this.pageActions}}
 
-<Debit::TransactionForm
-  @model={{model}}
+<Forms::TransactionForm
+  @model={{@model}}
   @onSubmit={{action "submit"}}
   @users={{this.users}}
   @onSetUser={{action "setUser"}}
