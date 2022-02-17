@@ -46,7 +46,9 @@
     {
       "name": "Activiteiten",
       "url": "/activities",
-      "icons": [{ "src": "/images/shortcuts/activities.png", "sizes": "192x192" }]
+      "icons": [
+        { "src": "/images/shortcuts/activities.png", "sizes": "192x192" }
+      ]
     },
     {
       "name": "Leden",

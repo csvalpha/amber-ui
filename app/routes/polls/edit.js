@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditMailAliasRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Poll aanpassen' }
+  breadCrumb = { title: 'Poll aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit poll', model);

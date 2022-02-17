@@ -1,32 +1,52 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+      @enter={{action 'selectFirstItem'}}
+    />
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="card">
-  <div class="row rtable-row header d-none d-md-flex">
-    <span class="col-3"> ID </span>
-    <span class="col-3"> Startdatum </span>
-    <span class="col-3"> Einddatum </span>
-    <span class="col-3"> Gebruiker </span>
+<div class='card'>
+  <div class='row rtable-row header d-none d-md-flex'>
+    <span class='col-3'> ID </span>
+    <span class='col-3'> Startdatum </span>
+    <span class='col-3'> Einddatum </span>
+    <span class='col-3'> Gebruiker </span>
   </div>
 
   {{#each model as |mandate|}}
-    <LinkTo @route="debit.mandates.show" @model={{mandate.id}}>
-      <div class="row rtable-row">
-        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> ID:  </span> <b> {{mandate.id}} </b> </span>
-        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Startdatum:  </span>{{moment-format mandate.startDate 'DD-M-YYYY'}} </span>
-        <span class="col-12 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Einddatum:  </span> {{moment-format mandate.endDate 'DD-M-YYYY'}} </span>
+    <LinkTo @route='debit.mandates.show' @model={{mandate.id}}>
+      <div class='row rtable-row'>
+        <span class='col-12 col-md-3 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> ID: </span>
+          <b> {{mandate.id}} </b>
+        </span>
+        <span class='col-12 col-md-3 rtable-item'>
+          <span class='d-inline d-md-none text-muted'>
+            Startdatum:
+          </span>{{moment-format mandate.startDate 'DD-M-YYYY'}}
+        </span>
+        <span class='col-12 col-md-3 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> Einddatum: </span>
+          {{moment-format mandate.endDate 'DD-M-YYYY'}}
+        </span>
 
-        <LinkTo @route="users.show" @model={{mandate.user.id}}>
-          <span class="col-8 col-md-3 rtable-item"> <span class="d-inline d-md-none text-muted"> Gebruiker:  </span> {{mandate.user.fullName}} </span>
+        <LinkTo @route='users.show' @model={{mandate.user.id}}>
+          <span class='col-8 col-md-3 rtable-item'>
+            <span class='d-inline d-md-none text-muted'> Gebruiker: </span>
+            {{mandate.user.fullName}}
+          </span>
         </LinkTo>
       </div>
     </LinkTo>
   {{/each}}
 </div>
 
-<div class="row justify-content-center">
+<div class='row justify-content-center'>
   <PageNumbers @info={{model.meta}} />
 </div>

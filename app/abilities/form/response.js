@@ -11,10 +11,16 @@ export default class Response extends Ability {
   }
 
   get canDestroy() {
-    return this.session.hasPermission('form/response.destroy') || this.isResponseOwner(this.model);
+    return (
+      this.session.hasPermission('form/response.destroy') ||
+      this.isResponseOwner(this.model)
+    );
   }
 
   isResponseOwner(response) {
-    return !isNone(response) && response.get('user.id') === this.session.currentUser.id;
+    return (
+      !isNone(response) &&
+      response.get('user.id') === this.session.currentUser.id
+    );
   }
 }

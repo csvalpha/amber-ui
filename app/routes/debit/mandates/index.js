@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class MandatesRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Incasso mandaten' }
+  breadCrumb = { title: 'Incasso mandaten' };
 
   get pageActions() {
     return [
@@ -9,8 +9,8 @@ export default class MandatesRoute extends AuthenticatedRoute {
         link: 'debit.mandates.new',
         title: 'Nieuwe mandaat',
         icon: 'plus',
-        canAccess: this.abilities.can('create debit/mandates')
-      }
+        canAccess: this.abilities.can('create debit/mandates'),
+      },
     ];
   }
 

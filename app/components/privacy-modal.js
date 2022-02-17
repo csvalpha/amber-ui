@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 import Component from '@ember/component';
 import {
   PicturePublicationPreferenceTypes,
-  UserDetailsPreferenceTypes
+  UserDetailsPreferenceTypes,
 } from 'alpha-amber/constants';
 
 export default Component.extend({
@@ -16,22 +16,35 @@ export default Component.extend({
   step: 1,
   maxSteps: 6,
   errorMessage: null,
-  userDetailsPreferenceTypes: computed(function() {
-    return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({ value, label }));
+  userDetailsPreferenceTypes: computed(function () {
+    return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
+      value,
+      label,
+    }));
   }),
-  picturePublicationPreferenceTypes: computed(function() {
-    return Object.entries(PicturePublicationPreferenceTypes).map(([value, label]) => ({ value, label }));
+  picturePublicationPreferenceTypes: computed(function () {
+    return Object.entries(PicturePublicationPreferenceTypes).map(
+      ([value, label]) => ({ value, label })
+    );
   }),
   actions: {
     select(attribute, value) {
       this.model.set(attribute, value);
-      this.model.save().then(() => {
-        this.send('nextPage');
-      }).catch(error => {
-        this.set('errorMessage', error.errors.map((e) => {
-          return e.detail;
-        }).join(', '));
-      });
+      this.model
+        .save()
+        .then(() => {
+          this.send('nextPage');
+        })
+        .catch((error) => {
+          this.set(
+            'errorMessage',
+            error.errors
+              .map((e) => {
+                return e.detail;
+              })
+              .join(', ')
+          );
+        });
     },
     nextPage() {
       this.set('errorMessage', null);
@@ -42,18 +55,23 @@ export default Component.extend({
       }
     },
     allowWebdav() {
-      return this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, { method: 'POST' }).then(() => {
-        this.model.reload();
-        this.send('nextPage');
-      });
-    }
+      return this.fetch
+        .fetch(`/users/${this.model.id}/activate_webdav`, { method: 'POST' })
+        .then(() => {
+          this.model.reload();
+          this.send('nextPage');
+        });
+    },
   },
   init() {
     this._super(...arguments);
-    if (this.model?.userDetailsSharingPreference === null || this.model?.allowTomatoSharing === null) {
+    if (
+      this.model?.userDetailsSharingPreference === null ||
+      this.model?.allowTomatoSharing === null
+    ) {
       this.set('isOpen', true);
     } else {
       this.set('isOpen', false);
     }
-  }
+  },
 });

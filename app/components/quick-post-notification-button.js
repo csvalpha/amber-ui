@@ -6,7 +6,11 @@ export default Component.extend({
   notification: service(),
   actions: {
     sendTest() {
-      this.notification.new('Test', 'Dit is een test bericht', '/images/alphalogonotext.png');
+      this.notification.new(
+        'Test',
+        'Dit is een test bericht',
+        '/images/alphalogonotext.png'
+      );
     },
     activate() {
       this.notification.getPermission();
@@ -18,6 +22,6 @@ export default Component.extend({
     soundOn() {
       this.notification.toggleSound();
       this.send('sendTest');
-    }
-  }
+    },
+  },
 });

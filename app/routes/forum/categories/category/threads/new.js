@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class NewTopicRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Topic aanmaken' }
+  breadCrumb = { title: 'Topic aanmaken' };
 
   canAccess() {
     return this.abilities.can('create forum/thread');

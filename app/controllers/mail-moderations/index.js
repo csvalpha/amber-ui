@@ -2,7 +2,7 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class MailModerationsIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'received_at'
+  @tracked sortedAttribute = 'received_at';
 
-  routeOnEnter = 'mail-moderations.show'
+  routeOnEnter = 'mail-moderations.show';
 }

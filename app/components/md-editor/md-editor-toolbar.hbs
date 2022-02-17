@@ -1,7 +1,11 @@
-<div class="btn-toolbar" role="toolbar" aria-label="Editor toolbar">
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-secondary" {{on "click" this.toggleEditMode}}>
-      {{if editMode "Voorbeeld" "Bewerk"}}
+<div class='btn-toolbar' role='toolbar' aria-label='Editor toolbar'>
+  <div class='btn-group' role='group'>
+    <button
+      type='button'
+      class='btn btn-secondary'
+      {{on 'click' this.toggleEditMode}}
+    >
+      {{if editMode 'Voorbeeld' 'Bewerk'}}
     </button>
   </div>
 
@@ -10,13 +14,24 @@
       {{#if group.dropdown}}
 
         <BsDropdown as |dd|>
-          <dd.button @type="secondary"><FaIcon @icon={{group.faIconName}}/></dd.button>
+          <dd.button @type='secondary'><FaIcon
+              @icon={{group.faIconName}}
+            /></dd.button>
 
           <dd.menu as |menu|>
             {{#each group.options as |opt|}}
               <menu.item>
-                <button type="button" class="dropdown-item" {{on "click" (fn this.applyStyleOption opt)}}>
-                  <FaIcon @icon={{opt.faIconName}} @size={{opt.size}} @prefix={{opt.faIconPrefix}} @fixedWidth={{true}}/>
+                <button
+                  type='button'
+                  class='dropdown-item'
+                  {{on 'click' (fn this.applyStyleOption opt)}}
+                >
+                  <FaIcon
+                    @icon={{opt.faIconName}}
+                    @size={{opt.size}}
+                    @prefix={{opt.faIconPrefix}}
+                    @fixedWidth={{true}}
+                  />
                   {{opt.name}}
                 </button>
               </menu.item>
@@ -26,15 +41,27 @@
 
       {{else}}
 
-        <div class="btn-group" role="group" aria-label="{{group.name}}">
+        <div class='btn-group' role='group' aria-label='{{group.name}}'>
           {{#each group.options as |opt|}}
             {{#if opt.modal}}
-              <button type="button" class="btn btn-secondary" title="{{opt.name}}" data-toggle="modal" data-target="#insertModal" {{on "click" (fn this.openModal opt)}}>
-                <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}}/>
+              <button
+                type='button'
+                class='btn btn-secondary'
+                title='{{opt.name}}'
+                data-toggle='modal'
+                data-target='#insertModal'
+                {{on 'click' (fn this.openModal opt)}}
+              >
+                <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}} />
               </button>
             {{else}}
-              <button type="button" class="btn btn-secondary" title="{{opt.name}}" {{on "click" (fn this.applyStyleOption opt)}}>
-                <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}}/>
+              <button
+                type='button'
+                class='btn btn-secondary'
+                title='{{opt.name}}'
+                {{on 'click' (fn this.applyStyleOption opt)}}
+              >
+                <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}} />
               </button>
             {{/if}}
           {{/each}}
@@ -43,17 +70,29 @@
     {{/each}}
   {{/if}}
 
-  <div class="btn-group">
-    <a href="http://commonmark.org/help/" target="_blank">
-      <button type="button" class="btn btn-secondary" title="Help"><FaIcon @icon="circle-question"/></button>
+  <div class='btn-group'>
+    <a href='http://commonmark.org/help/' target='_blank'>
+      <button type='button' class='btn btn-secondary' title='Help'><FaIcon
+          @icon='circle-question'
+        /></button>
     </a>
   </div>
 </div>
 
-<BsModalSimple @open={{modalOpen}} @fade={{true}} @title={{modalOption.name}}
-               @submitTitle="Invoegen" @closeTitle="Sluiten"
-               @onSubmit={{fn this.submitModal}}
-               @onHidden={{action (mut modalOpen) false}}>
-  {{modalOption.modal.question}}<br>
-  <Input @type="text" class="form-control" @id="md-editor-modal-input" @value={{modalInput}} />
+<BsModalSimple
+  @open={{modalOpen}}
+  @fade={{true}}
+  @title={{modalOption.name}}
+  @submitTitle='Invoegen'
+  @closeTitle='Sluiten'
+  @onSubmit={{fn this.submitModal}}
+  @onHidden={{action (mut modalOpen) false}}
+>
+  {{modalOption.modal.question}}<br />
+  <Input
+    @type='text'
+    class='form-control'
+    @id='md-editor-modal-input'
+    @value={{modalInput}}
+  />
 </BsModalSimple>

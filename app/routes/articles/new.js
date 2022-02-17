@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class NewArticleRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Artikel aanmaken' }
+  breadCrumb = { title: 'Artikel aanmaken' };
 
   canAccess() {
     return this.abilities.can('create articles');

@@ -10,14 +10,17 @@ export default class ForumPostNewComponent extends Component {
   save() {
     let { content, thread } = this;
 
-    this.store.createRecord('forum/post', {
-      message: content,
-      thread
-    }).save().then(() => {
-      this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
-      this.set('content', '');
-      this.onSubmit();
-    });
+    this.store
+      .createRecord('forum/post', {
+        message: content,
+        thread,
+      })
+      .save()
+      .then(() => {
+        this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
+        this.set('content', '');
+        this.onSubmit();
+      });
   }
 
   @action

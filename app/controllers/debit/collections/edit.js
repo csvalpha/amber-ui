@@ -5,14 +5,14 @@ import EditController from 'alpha-amber/controllers/application/edit';
 
 export default EditController.extend({
   successMessage: 'Incasso aangepast!',
-  users: computed('store', function() {
+  users: computed('store', function () {
     return this.store.findAll('user');
   }),
   actions: {
     addUser(user) {
-      this.model.get('transactions').pushObject(
-        this.store.createRecord('debit/transaction', { user })
-      );
+      this.model
+        .get('transactions')
+        .pushObject(this.store.createRecord('debit/transaction', { user }));
     },
     removeTransaction(transaction) {
       transaction.deleteRecord();
@@ -23,26 +23,35 @@ export default EditController.extend({
 
       if (!isNone(collection)) {
         let failedTransactions = 0;
-        collection.save().then(() => {
-          return all(collection.get('transactions').map((transaction) => {
-            if (transaction.get('hasDirtyAttributes')) {
-              return transaction.save().catch(() => {
-                failedTransactions++;
-              });
+        collection
+          .save()
+          .then(() => {
+            return all(
+              collection.get('transactions').map((transaction) => {
+                if (transaction.get('hasDirtyAttributes')) {
+                  return transaction.save().catch(() => {
+                    failedTransactions++;
+                  });
+                }
+              })
+            );
+          })
+          .then(() => {
+            if (failedTransactions) {
+              const prefix = failedTransactions > 1 ? 'zijn' : 'is';
+              this.set(
+                'errorMessage',
+                `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`
+              );
+            } else {
+              this.flashNotice.sendSuccess('Incasso aangepast!');
+              this.transitionToRoute('debit.collections.show', collection.id);
             }
-          }));
-        }).then(() => {
-          if (failedTransactions) {
-            const prefix = failedTransactions > 1 ? 'zijn' : 'is';
-            this.set('errorMessage', `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`);
-          } else {
-            this.flashNotice.sendSuccess('Incasso aangepast!');
-            this.transitionToRoute('debit.collections.show', collection.id);
-          }
-        }).catch(error => {
-          this.set('errorMessage', error.message);
-        });
+          })
+          .catch((error) => {
+            this.set('errorMessage', error.message);
+          });
       }
-    }
-  }
+    },
+  },
 });

@@ -36,7 +36,7 @@ p {
 
 .main {
   transform: translateX(0);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   padding-top: 100px;
   min-height: 100vh;
 
@@ -50,7 +50,7 @@ p {
 }
 
 .main-content {
-  transition: max-width .3s linear;
+  transition: max-width 0.3s linear;
   padding-top: 20px;
   min-height: 100vh;
 }

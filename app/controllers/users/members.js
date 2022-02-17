@@ -2,26 +2,26 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class UsersMembersController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'first_name'
+  @tracked sortedAttribute = 'first_name';
 
-  queryParams = ['search', 'sort']
-  routeOnEnter = 'users.show'
+  queryParams = ['search', 'sort'];
+  routeOnEnter = 'users.show';
   sortableAttributes = [
     {
       value: 'username',
-      label: 'Gebruikersnaam'
+      label: 'Gebruikersnaam',
     },
     {
       value: 'first_name',
-      label: 'Voornaam'
+      label: 'Voornaam',
     },
     {
       value: 'last_name',
-      label: 'Achternaam'
+      label: 'Achternaam',
     },
     {
       value: 'address',
-      label: 'Adres'
-    }
-  ]
+      label: 'Adres',
+    },
+  ];
 }

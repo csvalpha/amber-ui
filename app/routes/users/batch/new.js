@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditStaticPageRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Batch gebruikers uploaden' }
+  breadCrumb = { title: 'Batch gebruikers uploaden' };
 
   canAccess() {
     return this.abilities.can('batch upload users');

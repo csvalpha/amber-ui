@@ -1,30 +1,42 @@
-<div class="board-room-presence-dropdown page-action">
-  <BsButton @type="primary">
-    <FaIcon @icon="mug-saucer"/>
-    <span class="d-none d-md-inline"> Bestuurskamer </span>
-    <span class="status-dot label-{{overallStatus}}"></span>
+<div class='board-room-presence-dropdown page-action'>
+  <BsButton @type='primary'>
+    <FaIcon @icon='mug-saucer' />
+    <span class='d-none d-md-inline'> Bestuurskamer </span>
+    <span class='status-dot label-{{overallStatus}}'></span>
 
-    <BsPopover @triggerEvents="focus" @placement="bottom" @title="Aanwezig in de BK">
+    <BsPopover
+      @triggerEvents='focus'
+      @placement='bottom'
+      @title='Aanwezig in de BK'
+    >
       {{#each sortedPresences as |presence|}}
-        <div class="py-1">
-          <div class="d-block">
-            <LinkTo @route="users.show" @model={{presence.user.id}}>
+        <div class='py-1'>
+          <div class='d-block'>
+            <LinkTo @route='users.show' @model={{presence.user.id}}>
               <small><b> {{presence.user.fullName}} </b></small>
             </LinkTo>
           </div>
-          <span class="presence-label label-{{presence.status}}">
-            {{t (concat 'component.tools.boardRoomPresence.' presence.status) }} van {{moment-format presence.startTime 'HH:mm'}} tot {{moment-format presence.endTime 'HH:mm'}}
+          <span class='presence-label label-{{presence.status}}'>
+            {{t (concat 'component.tools.boardRoomPresence.' presence.status)}}
+            van
+            {{moment-format presence.startTime 'HH:mm'}}
+            tot
+            {{moment-format presence.endTime 'HH:mm'}}
           </span>
         </div>
       {{else}}
-        <div class="pt-2">
+        <div class='pt-2'>
           Er is niemand aanwezig
         </div>
       {{/each}}
       {{#if (can 'create board-room-presences')}}
-        <a class="dropdown-divider"> </a>
-        <span class="d-flex">
-          <button class="btn btn-secondary mb-2 mt-3 update-presence-button" {{action "setPresenceModalState" "open"}} type="button">
+        <a class='dropdown-divider'> </a>
+        <span class='d-flex'>
+          <button
+            class='btn btn-secondary mb-2 mt-3 update-presence-button'
+            {{action 'setPresenceModalState' 'open'}}
+            type='button'
+          >
             Beschikbaarheid updaten
           </button>
         </span>
@@ -34,10 +46,16 @@
 </div>
 
 {{#if presenceModalIsOpen}}
-  <EmberWormhole @to="ember-wormhole-destination">
-    <BasicModal @title="Bestuurskamer beschikbaarheid opgeven" @closeModal={{action "setPresenceModalState" "closed"}} @submit={{action "save"}} @submitText="Beschikbaarheid opslaan" @submitDisabled={{saveButtonDisabled}}>
+  <EmberWormhole @to='ember-wormhole-destination'>
+    <BasicModal
+      @title='Bestuurskamer beschikbaarheid opgeven'
+      @closeModal={{action 'setPresenceModalState' 'closed'}}
+      @submit={{action 'save'}}
+      @submitText='Beschikbaarheid opslaan'
+      @submitDisabled={{saveButtonDisabled}}
+    >
       {{#if sortedPresences}}
-        <table class="table">
+        <table class='table'>
           <tr>
             <th>Persoon</th>
             <th>Status</th>
@@ -47,31 +65,62 @@
           {{#each sortedPresences as |presence|}}
             <tr>
               <td> {{presence.user.fullName}} </td>
-              <td> {{t (concat 'component.tools.boardRoomPresence.' presence.status) }} </td>
-              <td> {{moment-format presence.endTime "HH:mm"}} </td>
+              <td>
+                {{t
+                  (concat 'component.tools.boardRoomPresence.' presence.status)
+                }}
+              </td>
+              <td> {{moment-format presence.endTime 'HH:mm'}} </td>
               <td>
                 {{#if (can 'destroy board-room-presences')}}
-                  <button class="btn btn-danger" aria-hidden="true" {{action "deletePresence"}} type="button"> <FaIcon @icon="trash"/> </button>
+                  <button
+                    class='btn btn-danger'
+                    aria-hidden='true'
+                    {{action 'deletePresence'}}
+                    type='button'
+                  > <FaIcon @icon='trash' /> </button>
                 {{/if}}
               </td>
             </tr>
           {{/each}}
         </table>
       {{else}}
-        <div class="alert alert-info">
+        <div class='alert alert-info'>
           Er zijn geen bestuursleden aanwezig
         </div>
       {{/if}}
 
       {{#if currentUserPresence}}
         Status
-        <Input::SelectInput @class="form-control col-xs-12 presence-select" @required={{true}} @options={{statusOptions}} @placeholder={{Status}} @value={{currentUserPresence.status}} />
+        <Input::SelectInput
+          @class='form-control col-xs-12 presence-select'
+          @required={{true}}
+          @options={{statusOptions}}
+          @placeholder={{Status}}
+          @value={{currentUserPresence.status}}
+        />
         Van
-        <Input::TimeInput @dateValue={{currentUserPresence.startTime}} @class="col-xs-12 presence-time-input" @inputClass="form-control" @placeholder={{currentUserPresence.startTime}} @required={{true}} />
+        <Input::TimeInput
+          @dateValue={{currentUserPresence.startTime}}
+          @class='col-xs-12 presence-time-input'
+          @inputClass='form-control'
+          @placeholder={{currentUserPresence.startTime}}
+          @required={{true}}
+        />
         Tot
-        <Input::TimeInput @dateValue={{currentUserPresence.endTime}} @class="col-xs-12 presence-time-input" @inputClass="form-control" @placeholder={{currentUserPresence.endTime}} @required={{true}} />
+        <Input::TimeInput
+          @dateValue={{currentUserPresence.endTime}}
+          @class='col-xs-12 presence-time-input'
+          @inputClass='form-control'
+          @placeholder={{currentUserPresence.endTime}}
+          @required={{true}}
+        />
       {{else}}
-        <button class="btn btn-secondary" {{action "newPresence"}} type="button">Nieuw</button>
+        <button
+          class='btn btn-secondary'
+          {{action 'newPresence'}}
+          type='button'
+        >Nieuw</button>
       {{/if}}
     </BasicModal>
   </EmberWormhole>

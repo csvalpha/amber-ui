@@ -14,22 +14,23 @@ export default class NotificationService extends Service {
 
     if ('Notification' in window) {
       this.isSupported = true;
-      this.permissionIsGranted = (Notification.permission === 'granted');
-      this.permissionIsDenied = (Notification.permission === 'denied');
-      this.isEnabled = (localStorage.getItem('notificationEnabled') === 'true');
-      this.isSoundEnabled = (localStorage.getItem('notificationSoundEnabled') === 'true');
+      this.permissionIsGranted = Notification.permission === 'granted';
+      this.permissionIsDenied = Notification.permission === 'denied';
+      this.isEnabled = localStorage.getItem('notificationEnabled') === 'true';
+      this.isSoundEnabled =
+        localStorage.getItem('notificationSoundEnabled') === 'true';
     } else {
       this.isSupported = false;
       this.permissionIsGranted = false;
       this.permissionIsDenied = false;
       this.isEnabled = false;
-      this.isSoundEnabled =  false;
+      this.isSoundEnabled = false;
     }
   }
 
   getPermission() {
     if (!this.isEnabled) {
-      Notification.requestPermission(permission => {
+      Notification.requestPermission((permission) => {
         if (permission === 'granted') {
           this.permissionIsGranted = true;
           this.new(
@@ -59,12 +60,12 @@ export default class NotificationService extends Service {
   new(title, body, icon) {
     const options = {
       body,
-      icon
+      icon,
     };
     if (this.permissionIsGranted && this.isEnabled) {
       try {
         return new Notification(title, options);
-      } catch(error) {
+      } catch (error) {
         if ('serviceWorker' in navigator) {
           navigator.serviceWorker.register('sw.js').then((registration) => {
             registration.showNotification(title, options);

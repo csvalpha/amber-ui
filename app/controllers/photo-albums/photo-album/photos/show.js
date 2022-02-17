@@ -12,7 +12,10 @@ export default Controller.extend({
     const photos = this.model.photoAlbum.get('photos');
     const length = photos.get('length');
     const index = (photos.indexOf(this.model) + delta + length) % length;
-    return this.transitionToRoute('photo-albums.photo-album.photos.show', photos.objectAt(index));
+    return this.transitionToRoute(
+      'photo-albums.photo-album.photos.show',
+      photos.objectAt(index)
+    );
   },
   actions: {
     goToPreviousPhoto() {
@@ -27,13 +30,19 @@ export default Controller.extend({
 
         if (content.length > 0) {
           const photo = this.model;
-          const photoComment = this.store.createRecord('photoComment', { content, photo });
+          const photoComment = this.store.createRecord('photoComment', {
+            content,
+            photo,
+          });
 
-          photoComment.save().then(() => {
-            this.flashNotice.sendSuccess('Reactie opgeslagen!');
-            photo.reload(); // Reload for updated Photo#amountOfComments
-            resolve();
-          }).catch(reject);
+          photoComment
+            .save()
+            .then(() => {
+              this.flashNotice.sendSuccess('Reactie opgeslagen!');
+              photo.reload(); // Reload for updated Photo#amountOfComments
+              resolve();
+            })
+            .catch(reject);
         } else {
           reject();
         }
@@ -43,6 +52,6 @@ export default Controller.extend({
     },
     toggleShowExif() {
       this.toggleProperty('showExif');
-    }
-  }
+    },
+  },
 });

@@ -1,11 +1,11 @@
 import Component from '@ember/component';
 
 const ResponseCompletedAlert = Component.extend({
-  form: null
+  form: null,
 });
 
 ResponseCompletedAlert.reopenClass({
-  positionalParams: ['form']
+  positionalParams: ['form'],
 });
 
 export default ResponseCompletedAlert;

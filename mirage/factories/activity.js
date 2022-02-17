@@ -12,7 +12,21 @@ export default Factory.extend({
   createdAt: () => faker.date.recent(),
   startTime: () => faker.date.future(),
   endTime: () => faker.date.future(),
-  category: () => faker.helpers.randomize(['algemeen', 'sociëteit', 'vorming', 'dinsdagkring', 'woensdagkring', 'choose', 'ifes', 'ozon', 'disputen', 'jaargroepen', 'huizen', 'extern']),
+  category: () =>
+    faker.helpers.randomize([
+      'algemeen',
+      'sociëteit',
+      'vorming',
+      'dinsdagkring',
+      'woensdagkring',
+      'choose',
+      'ifes',
+      'ozon',
+      'disputen',
+      'jaargroepen',
+      'huizen',
+      'extern',
+    ]),
 
   afterCreate(activity, server) {
     activity.author = server.create('user');
@@ -23,13 +37,13 @@ export default Factory.extend({
     afterCreate(activity, server) {
       activity.group = server.create('group');
       activity.save();
-    }
+    },
   }),
 
   withForm: trait({
     afterCreate(activity, server) {
       activity.form = server.create('form-form', 'withQuestions');
       activity.save();
-    }
-  })
+    },
+  }),
 });
