@@ -10,7 +10,7 @@ export default class NewPhotoAlbumController extends NewController {
 
   successTransitionTarget = 'photo-albums.photo-album.edit';
 
-  @computed('session.currentUser.{group,groups}', function() {
+  @computed('session.currentUser.{group,groups}', function () {
     const optionArray = [
       {
         label: '',
@@ -28,7 +28,7 @@ export default class NewPhotoAlbumController extends NewController {
   })
   groupOptions;
 
-  @computed('session.currentUser', 'store', function() {
+  @computed('session.currentUser', 'store', function () {
     if (this.abilities.can('select all groups for photo-albums')) {
       return this.store.findAll('group');
     }

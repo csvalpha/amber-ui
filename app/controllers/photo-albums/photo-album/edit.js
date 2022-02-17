@@ -8,8 +8,8 @@ export default class EditPhotoAlbumController extends NewPhotoAlbumController {
 
   successTransitionTarget = 'photo-albums.photo-album';
 
-  @computed(function() {
-    return { 'Authorization': this.fetch.authorizationHeader() };
+  @computed(function () {
+    return { Authorization: this.fetch.authorizationHeader() };
   })
   dropzoneHeaders;
 }

@@ -2,7 +2,7 @@ import EditController from 'alpha-amber/controllers/application/edit';
 import { action } from '@ember/object';
 
 export default class EditThreadController extends EditController {
-  successMessage= 'Topic aangepast!';
+  successMessage = 'Topic aangepast!';
   successTransitionTarget = 'forum.categories.category.threads.thread';
 
   @action

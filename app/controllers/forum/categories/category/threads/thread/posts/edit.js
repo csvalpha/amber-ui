@@ -7,6 +7,9 @@ export default class EditPostController extends EditController {
 
   @action
   onSuccess(model) {
-    this.transitionToRoute('forum.categories.category.threads.thread', model.get('thread'));
+    this.transitionToRoute(
+      'forum.categories.category.threads.thread',
+      model.get('thread')
+    );
   }
 }

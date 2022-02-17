@@ -16,7 +16,7 @@ export default class EditActivityController extends Controller {
   _activityCategoryToOption(activityCategory) {
     return {
       value: activityCategory.toLowerCase().replace('ë', 'e'),
-      label: activityCategory
+      label: activityCategory,
     };
   }
 
@@ -30,18 +30,23 @@ export default class EditActivityController extends Controller {
     set(_, value) {
       if (value) {
         const form = this.store.createRecord('form/form');
-        this.store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
+        this.store.createRecord('form/open-question', {
+          form,
+          question: 'Opmerkingen',
+          fieldType: 'text',
+          position: 0,
+        });
         this.set('model.form', form);
       } else {
         this.set('model.form', null);
       }
 
       return value;
-    }
+    },
   })
   activityHasForm;
 
-  @computed('session.currentUser', function() {
+  @computed('session.currentUser', function () {
     if (this.abilities.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
@@ -50,19 +55,22 @@ export default class EditActivityController extends Controller {
   })
   groups;
 
-  @computed('_activityCategoryToOption', function() {
+  @computed('_activityCategoryToOption', function () {
     return ActivityCategories.map(this._activityCategoryToOption);
   })
   activityCategoryOptions;
 
   @action
   submit() {
-    this.model.saveWithForm().then(savedActivity => {
-      this.transitionToRoute('activities.show', savedActivity.id);
-      this.flashNotice.sendSuccess('Activiteit opgeslagen!');
-    }).catch(error => {
-      this.set('errorMessage', error.message);
-    });
+    this.model
+      .saveWithForm()
+      .then((savedActivity) => {
+        this.transitionToRoute('activities.show', savedActivity.id);
+        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
+      })
+      .catch((error) => {
+        this.set('errorMessage', error.message);
+      });
   }
 
   @action

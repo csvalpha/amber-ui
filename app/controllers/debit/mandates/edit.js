@@ -5,7 +5,7 @@ import { computed } from '@ember/object';
 export default class EditMandateController extends EditController {
   successTransitionTarget = 'debit.mandates.show';
 
-  @computed('store', function() {
+  @computed('store', function () {
     return this.store.findAll('user');
   })
   users;

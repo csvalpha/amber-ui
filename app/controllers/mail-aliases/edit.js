@@ -11,19 +11,19 @@ export default class EditMailAliasController extends EditController {
   _mailAliasModerationTypes(moderationType) {
     return {
       value: moderationType.toLowerCase(),
-      label: moderationType
+      label: moderationType,
     };
   }
 
   @equal('model.moderationType', 'open')
   moderationTypeOpen;
 
-  @computed('store', function() {
+  @computed('store', function () {
     return this.store.findAll('group');
   })
   groups;
 
-  @computed('store', function() {
+  @computed('store', function () {
     return this.store.findAll('user');
   })
   users;
@@ -34,7 +34,7 @@ export default class EditMailAliasController extends EditController {
   @reads('model.group.id')
   anyGroup;
 
-  @computed('_mailAliasModerationTypes', function() {
+  @computed('_mailAliasModerationTypes', function () {
     return MailAliasModerationTypes.map(this._mailAliasModerationTypes);
   })
   mailAliasModerationTypes;

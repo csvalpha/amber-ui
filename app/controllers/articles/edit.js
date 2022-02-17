@@ -9,30 +9,30 @@ export default class EditArticleController extends EditController {
 
   successTransitionTarget = 'articles.show';
 
-  @computed('session.currentUser', function() {
+  @computed('session.currentUser', function () {
     return this.session.hasPermission('article.update');
   })
   canPin;
 
-  @computed('session.currentUser.{group,groups}', function() {
+  @computed('session.currentUser.{group,groups}', function () {
     const optionArray = [
       {
         label: '',
-        value: null
-      }
+        value: null,
+      },
     ];
     const groups = this.session.currentUser.group;
     groups.forEach((group) => {
       optionArray.push({
         label: group,
-        value: group
+        value: group,
       });
     });
     return optionArray;
   })
   groupOptions;
 
-  @computed('session.currentUser', 'store', function() {
+  @computed('session.currentUser', 'store', function () {
     if (this.abilities.can('select all groups for articles')) {
       return this.store.findAll('group');
     }

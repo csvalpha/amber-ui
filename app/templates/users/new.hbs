@@ -1,13 +1,13 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5> Gebruiker aanmaken </h5>
   </div>
 
-  <div class="card-body">
+  <div class='card-body'>
     <Forms::UserForm
       @model={{@model}}
-      @onSubmit={{action "submit"}}
-      @onFileLoaded={{action "fileLoaded"}}
+      @onSubmit={{action 'submit'}}
+      @onFileLoaded={{action 'fileLoaded'}}
       @canEditOnlyOwnProperties={{this.canEditOnlyOwnProperties}}
       @almanakSubscriptionPreferenceTypes={{this.almanakSubscriptionPreferenceTypes}}
       @digtusSubscriptionPreferenceTypes={{this.digtusSubscriptionPreferenceTypes}}
