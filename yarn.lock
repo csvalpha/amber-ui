@@ -3955,7 +3955,7 @@ __metadata:
     eslint-plugin-ember: ^10.2
     eslint-plugin-node: ^11.1
     eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-qunit: ^6.2.0
+    eslint-plugin-qunit: ^7.2.0
     faker: ^5.5.3
     file-saver: ^2.0.5
     glob: ^7.1
@@ -10397,13 +10397,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-qunit@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "eslint-plugin-qunit@npm:6.2.0"
+"eslint-plugin-qunit@npm:^7.2.0":
+  version: 7.2.0
+  resolution: "eslint-plugin-qunit@npm:7.2.0"
   dependencies:
     eslint-utils: ^3.0.0
     requireindex: ^1.2.0
-  checksum: 07c23cc03d590468e21beb66ec7fe7a38b45695f12dd5e2169ad9b7e23ceb0f3b0eb40e9d03fa2d8adab9a740d5b292a237856e1d8e8ba710f3db0cb42a64719
+  checksum: 374dedd6580cd651645e3a20f67068a47c76f1ca13337edce822154dd40665d13d15e81fa609f44105a4d6d17feba32b1d9d9c51405f4195ca2eb5cd71e3761f
   languageName: node
   linkType: hard
 
