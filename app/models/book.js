@@ -13,7 +13,10 @@ export default class Book extends Model {
   get excerpt() {
     const maxExcerptLength = 218;
     if (this.description && this.description.length > maxExcerptLength) {
-      return `${this.description.substr(0, this.description.lastIndexOf(' ', maxExcerptLength))}...`;
+      return `${this.description.substr(
+        0,
+        this.description.lastIndexOf(' ', maxExcerptLength)
+      )}...`;
     }
 
     return this.description;

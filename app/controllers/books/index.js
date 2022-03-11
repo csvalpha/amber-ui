@@ -2,18 +2,18 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class BookIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'author'
+  @tracked sortedAttribute = 'author';
 
-  routeOnEnter = 'books.show'
-  queryParams = ['search', 'sort', 'page']
+  routeOnEnter = 'books.show';
+  queryParams = ['search', 'sort', 'page'];
   sortableAttributes = [
     {
       value: 'title',
-      label: 'Titel'
+      label: 'Titel',
     },
     {
       value: 'author',
-      label: 'Auteur'
-    }
-  ]
+      label: 'Auteur',
+    },
+  ];
 }

@@ -4,9 +4,9 @@ import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
 export default class BookEditController extends EditController {
-  @service fetch
+  @service fetch;
 
-  successTransitionTarget = 'books.show'
+  successTransitionTarget = 'books.show';
   @tracked showScanner = false;
   @tracked devices = [];
   @tracked device = null;
@@ -51,18 +51,20 @@ export default class BookEditController extends EditController {
   lookupIsbn() {
     this.lookingUpIsbn = true;
     this.lookupIsbnError = false;
-    this.fetch.fetch(`/books/isbn_lookup?isbn=${this.model.isbn}`).then(response => {
-      this.lookingUpIsbn = false;
-      if (response.ok) {
-        response.json().then(data => {
-          this.model.title = data.title;
-          this.model.author = data.author;
-          this.model.description = data.description;
-          this.model.coverPhoto = data.cover_photo;
-        });
-      } else {
-        this.lookupIsbnError = true;
-      }
-    });
+    this.fetch
+      .fetch(`/books/isbn_lookup?isbn=${this.model.isbn}`)
+      .then((response) => {
+        this.lookingUpIsbn = false;
+        if (response.ok) {
+          response.json().then((data) => {
+            this.model.title = data.title;
+            this.model.author = data.author;
+            this.model.description = data.description;
+            this.model.coverPhoto = data.cover_photo;
+          });
+        } else {
+          this.lookupIsbnError = true;
+        }
+      });
   }
 }

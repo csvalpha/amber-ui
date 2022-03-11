@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditBookRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Boek aanpassen' }
+  breadCrumb = { title: 'Boek aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit book', model);

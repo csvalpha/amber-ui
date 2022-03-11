@@ -22,15 +22,15 @@ export default class ShowBookRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: book,
-        canAccess: this.abilities.can('edit book', book)
+        canAccess: this.abilities.can('edit book', book),
       },
       {
         link: 'books.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: book,
-        canAccess: this.abilities.can('destroy books')
-      }
+        canAccess: this.abilities.can('destroy books'),
+      },
     ];
   }
 

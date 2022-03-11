@@ -1,19 +1,19 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class BookIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Boeken' }
+  breadCrumb = { title: 'Boeken' };
 
   queryParams = {
     search: {
-      refreshModel: true
+      refreshModel: true,
     },
     sort: {
-      refreshModel: true
+      refreshModel: true,
     },
     page: {
-      refreshModel: true
-    }
-  }
+      refreshModel: true,
+    },
+  };
 
   get pageActions() {
     return [
@@ -21,8 +21,8 @@ export default class BookIndexRoute extends AuthenticatedRoute {
         link: 'books.new',
         title: 'Nieuw boek',
         icon: 'plus',
-        canAccess: this.abilities.can('create books')
-      }
+        canAccess: this.abilities.can('create books'),
+      },
     ];
   }
 

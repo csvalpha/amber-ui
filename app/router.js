@@ -210,7 +210,7 @@ Router.map(function () {
 
   this.route('sponsorkliks');
 
-  this.route('books', function() {
+  this.route('books', function () {
     this.route('show', { path: '/:id' });
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
