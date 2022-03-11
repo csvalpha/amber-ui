@@ -6,16 +6,20 @@ export default Component.extend({
   amountOfActivities: 5,
   store: service(),
   session: service(),
-  activities: computed('amountOfActivities', 'session.currentUser', function() {
-    const params = {
-      filter: { upcoming: true },
-      sort: 'start_time'
-    };
+  activities: computed(
+    'amountOfActivities',
+    'session.currentUser',
+    function () {
+      const params = {
+        filter: { upcoming: true },
+        sort: 'start_time',
+      };
 
-    if (this.session.currentUser) {
-      params.page = { size: this.amountOfActivities };
+      if (this.session.currentUser) {
+        params.page = { size: this.amountOfActivities };
+      }
+
+      return this.store.query('activity', params);
     }
-
-    return this.store.query('activity', params);
-  })
+  ),
 });

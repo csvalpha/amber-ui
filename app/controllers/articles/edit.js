@@ -6,26 +6,26 @@ export default EditController.extend({
   session: service('session'),
   abilities: service(),
   successTransitionTarget: 'articles.show',
-  canPin: computed('session.currentUser', function() {
+  canPin: computed('session.currentUser', function () {
     return this.session.hasPermission('article.update');
   }),
-  groupOptions: computed('session.currentUser.{group,groups}', function() {
+  groupOptions: computed('session.currentUser.{group,groups}', function () {
     const optionArray = [
       {
         label: '',
-        value: null
-      }
+        value: null,
+      },
     ];
     const groups = this.session.currentUser.group;
     groups.forEach((group) => {
       optionArray.push({
         label: group,
-        value: group
+        value: group,
       });
     });
     return optionArray;
   }),
-  groups: computed('session.currentUser', 'store', function() {
+  groups: computed('session.currentUser', 'store', function () {
     if (this.abilities.can('select all groups for articles')) {
       return this.store.findAll('group');
     }
@@ -39,11 +39,14 @@ export default EditController.extend({
     },
 
     submit() {
-      this.model.save().then(() => {
-        this.transitionToRoute('articles.show', this.model);
-      }).catch(error => {
-        this.set('errorMessage', error.message);
-      });
-    }
-  }
+      this.model
+        .save()
+        .then(() => {
+          this.transitionToRoute('articles.show', this.model);
+        })
+        .catch((error) => {
+          this.set('errorMessage', error.message);
+        });
+    },
+  },
 });

@@ -1,21 +1,24 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<div class="row">
-  <div class="col">
-    <div class="card">
-      <div class="row">
-        <div class="col-md">
-          <div class="card-header">
+<div class='row'>
+  <div class='col'>
+    <div class='card'>
+      <div class='row'>
+        <div class='col-md'>
+          <div class='card-header'>
             <h5>{{@model.subject}}</h5>
           </div>
-          <div class="card-body table-responsive">
-            <p class="card-text">
-              <table class="table table-sm">
+          <div class='card-body table-responsive'>
+            <p class='card-text'>
+              <table class='table table-sm'>
                 <tr>
                   <td>Datum</td>
-                  <td>{{moment-format @model.receivedAt 'ddd D MMM YYYY HH:mm'}}</td>
+                  <td>{{moment-format
+                      @model.receivedAt
+                      'ddd D MMM YYYY HH:mm'
+                    }}</td>
                 </tr>
                 <tr>
                   <td>Afzender</td>
@@ -34,7 +37,9 @@
                   <td>
                     <ul>
                       {{#each @model.attachments as |attachment|}}
-                        <li><pre>{{attachment.name}} ({{attachment.size}} bytes)</pre></li>
+                        <li><pre>{{attachment.name}}
+                            ({{attachment.size}}
+                            bytes)</pre></li>
                       {{/each}}
                     </ul>
                   </td>

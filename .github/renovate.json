@@ -1,5 +1,12 @@
 {
-  "extends": ["config:base", ":disableDependencyDashboard", ":semanticCommits", ":semanticCommitTypeAll(chore)", "helpers:pinGitHubActionDigests", "docker:enableMajor"],
+  "extends": [
+    "config:base",
+    ":disableDependencyDashboard",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    "helpers:pinGitHubActionDigests",
+    "docker:enableMajor"
+  ],
   "labels": ["dependencies"],
   "prConcurrentLimit": 0,
   "rangeStrategy": "bump",

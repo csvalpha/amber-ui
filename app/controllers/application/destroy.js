@@ -6,18 +6,17 @@ export default EditController.extend({
   successMessage: 'Verwijderen gelukt!',
   actions: {
     destroy() {
-      let modelSaveUtil = new ModelSaveUtil(this);
+      const modelSaveUtil = new ModelSaveUtil(this);
       this.set('errorMessage', null);
 
       if (!isNone(this.model)) {
-        this.model.destroyRecord().then(() => {
-          modelSaveUtil.onSuccess();
-        }).catch(error => {
-          modelSaveUtil.onError(error);
-        });
+        this.model
+          .destroyRecord()
+          .then(modelSaveUtil.onSuccess)
+          .catch(modelSaveUtil.onError);
       }
     },
     saveModel: undefined,
-    submit: undefined
-  }
+    submit: undefined,
+  },
 });

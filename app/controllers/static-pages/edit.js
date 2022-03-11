@@ -7,13 +7,12 @@ export default EditController.extend({
   successMessage: 'Infopagina aangepast!',
   successTransitionTarget: 'static-pages.show',
 
-  staticPageCategoryOptions: computed(function() {
-    return StaticPageCategories.map(pageCategory => {
+  staticPageCategoryOptions: computed(function () {
+    return StaticPageCategories.map((pageCategory) => {
       return {
         value: pageCategory,
-        label: capitalize(pageCategory)
+        label: capitalize(pageCategory),
       };
     });
-  })
-
+  }),
 });

@@ -18,11 +18,17 @@ export default class PhotoAlbum extends Model {
   }
 
   get albumThumbUrl() {
-    return this.photos?.firstObject?.imageThumbUrl || '/images/fallback/photo_album_thumb_default.png';
+    return (
+      this.photos?.firstObject?.imageThumbUrl ||
+      '/images/fallback/photo_album_thumb_default.png'
+    );
   }
 
   get albumMediumUrl() {
-    return this.photos?.firstObject?.imageMediumUrl || '/images/fallback/photo_album_thumb_default.png';
+    return (
+      this.photos?.firstObject?.imageMediumUrl ||
+      '/images/fallback/photo_album_thumb_default.png'
+    );
   }
 
   // Methods
@@ -31,6 +37,8 @@ export default class PhotoAlbum extends Model {
       return true;
     }
 
-    return user.currentMemberships.some(membership => membership.group.get('id') === this.group.get('id'));
+    return user.currentMemberships.some(
+      (membership) => membership.group.get('id') === this.group.get('id')
+    );
   }
 }

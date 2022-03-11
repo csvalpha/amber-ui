@@ -5,8 +5,12 @@ import { isNone } from '@ember/utils';
 
 export default Controller.extend({
   flashNotice: service('flash-notice'),
-  canSubmitResponse: computed('model.form', 'model.form.currentUserCanRespond', function() {
-    const { form } = this.model;
-    return !isNone(form) && form.get('currentUserCanRespond');
-  })
+  canSubmitResponse: computed(
+    'model.form',
+    'model.form.currentUserCanRespond',
+    function () {
+      const { form } = this.model;
+      return !isNone(form) && form.get('currentUserCanRespond');
+    }
+  ),
 });

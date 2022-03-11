@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditTransactionRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Transactie aanpassen' }
+  breadCrumb = { title: 'Transactie aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit debit/transactions');

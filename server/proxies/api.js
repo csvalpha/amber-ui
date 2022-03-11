@@ -2,7 +2,7 @@
 const proxyPath = '/api';
 const passthroughPaths = ['/ical', '/uploads', '/sidekiq', '/webdav'];
 
-module.exports = function(app) {
+module.exports = function (app) {
   // For options, see:
   // https://github.com/nodejitsu/node-http-proxy
   const proxy = require('http-proxy').createProxyServer({});

@@ -8,7 +8,7 @@ export default Model.extend({
       return `${this.firstName} ${this.lastNamePrefix} ${this.lastName}`;
     }
     return `${this.firstName} ${this.lastName}`;
-  }
+  },
 });
 
 export const publicPropertyNames = [
@@ -23,12 +23,12 @@ export const publicPropertyNames = [
   'vegetarian',
   'study',
   'startStudy',
-  'picturePublicationPreference'
+  'picturePublicationPreference',
 ];
 
 export const protectedPropertyNames = [
   'id',
   'username',
   'loginEnabled',
-  'activatedAt'
+  'activatedAt',
 ];

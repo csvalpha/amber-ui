@@ -8,7 +8,10 @@ export default class FormLoadOrCreateUtil {
   loadOrCreateCurrentUserResponse(form) {
     const { currentUserResponseId } = form;
     if (currentUserResponseId) {
-      return this.entity.store.findRecord('form/response', currentUserResponseId);
+      return this.entity.store.findRecord(
+        'form/response',
+        currentUserResponseId
+      );
     }
 
     const user = this.entity.session.currentUser;
@@ -20,25 +23,34 @@ export default class FormLoadOrCreateUtil {
     const [groupedAnswers, openQuestions, closedQuestions] = await Promise.all([
       response.groupedAnswersPromise,
       form.openQuestions,
-      form.closedQuestions
+      form.closedQuestions,
     ]);
 
-    openQuestions.forEach(question => {
+    openQuestions.forEach((question) => {
       const questionId = question.id;
-      const existingAnswers = isNone(groupedAnswers) ? null : groupedAnswers[questionId];
-      const answerExist = !isNone(existingAnswers) && existingAnswers.length > 0;
+      const existingAnswers = isNone(groupedAnswers)
+        ? null
+        : groupedAnswers[questionId];
+      const answerExist =
+        !isNone(existingAnswers) && existingAnswers.length > 0;
 
       if (answerExist) {
         question.linkedAnswer = existingAnswers[0];
       } else {
-        question.linkedAnswer = this.entity.store.createRecord('form/open-question-answer', { response, question });
+        question.linkedAnswer = this.entity.store.createRecord(
+          'form/open-question-answer',
+          { response, question }
+        );
       }
     });
 
-    closedQuestions.forEach(question => {
+    closedQuestions.forEach((question) => {
       const questionId = question.id;
-      const existingAnswers = isNone(groupedAnswers) ? null : groupedAnswers[questionId];
-      const answerExist = !isNone(existingAnswers) && existingAnswers.length > 0;
+      const existingAnswers = isNone(groupedAnswers)
+        ? null
+        : groupedAnswers[questionId];
+      const answerExist =
+        !isNone(existingAnswers) && existingAnswers.length > 0;
 
       if (question.isMultipleChoice) {
         if (answerExist) {
@@ -50,7 +62,10 @@ export default class FormLoadOrCreateUtil {
         if (answerExist) {
           question.linkedAnswer = existingAnswers[0];
         } else {
-          question.linkedAnswer = this.entity.store.createRecord('form/closed-question-answer', { response });
+          question.linkedAnswer = this.entity.store.createRecord(
+            'form/closed-question-answer',
+            { response }
+          );
         }
       }
     });

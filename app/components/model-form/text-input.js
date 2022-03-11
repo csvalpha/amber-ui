@@ -9,7 +9,7 @@ export default Component.extend({
   usesGrid: none('inputLayout'),
   labelClass: 'col-sm-2',
   inputWrapperClass: 'col-sm-10',
-  inputValidityClass: computed('isInvalid', function() {
+  inputValidityClass: computed('isInvalid', function () {
     return this.isInvalid ? 'is-invalid' : '';
   }),
   type: 'text',
@@ -18,13 +18,17 @@ export default Component.extend({
   property: null,
   disabled: false,
   required: false,
-  isInvalid: computed('model.errors.[]', 'property', function() {
+  isInvalid: computed('model.errors.[]', 'property', function () {
     return this.get(`model.errors.${this.property}.length`) > 0;
   }),
-  inputIdentifier: computed('model.constructor.modelName', 'property', function() {
-    // See http://stackoverflow.com/questions/34864580/ember-data-model-getmodelname-is-undefined-but-model-internalmodel-works
-    // On why model.constructor.modelName is used instead of model.modelName
-    return `${this.model.constructor.modelName}-form-${this.property}`;
-  }),
-  placeholder: alias('label')
+  inputIdentifier: computed(
+    'model.constructor.modelName',
+    'property',
+    function () {
+      // See http://stackoverflow.com/questions/34864580/ember-data-model-getmodelname-is-undefined-but-model-internalmodel-works
+      // On why model.constructor.modelName is used instead of model.modelName
+      return `${this.model.constructor.modelName}-form-${this.property}`;
+    }
+  ),
+  placeholder: alias('label'),
 });

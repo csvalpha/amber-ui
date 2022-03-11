@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class CollectionsIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Incasso\'s' }
+  breadCrumb = { title: "Incasso's" };
 
   get pageActions() {
     return [
@@ -9,8 +9,8 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
         link: 'debit.collections.new',
         title: 'Nieuwe incasso',
         icon: 'plus',
-        canAccess: this.abilities.can('create debit/collections')
-      }
+        canAccess: this.abilities.can('create debit/collections'),
+      },
     ];
   }
 

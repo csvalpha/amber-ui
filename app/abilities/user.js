@@ -22,7 +22,10 @@ export default class User extends Ability {
   }
 
   get canEditAllProperties() {
-    return this.session.hasPermission('user.update') || this.session.hasPermission('user.create');
+    return (
+      this.session.hasPermission('user.update') ||
+      this.session.hasPermission('user.create')
+    );
   }
 
   get canBatchUpload() {
@@ -46,7 +49,10 @@ export default class User extends Ability {
   }
 
   get canResendActivationCode() {
-    return this.session.hasPermission('user.create') && this.model.activatedAt === null;
+    return (
+      this.session.hasPermission('user.create') &&
+      this.model.activatedAt === null
+    );
   }
 
   get isCurrentUser() {

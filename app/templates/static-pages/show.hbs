@@ -1,14 +1,17 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h1>{{@model.title}}</h1>
   </div>
-  <div class="card-body">
+  <div class='card-body'>
     <p>
-      {{markdown-to-html @model.contentCamofied extensions='youtubeEmbed bootstrapTable'}}
+      {{markdown-to-html
+        @model.contentCamofied
+        extensions='youtubeEmbed bootstrapTable'
+      }}
     </p>
   </div>
 </div>

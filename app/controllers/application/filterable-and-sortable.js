@@ -3,11 +3,11 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class FilterableAndSortableController extends Controller {
-  @tracked sortedAttribute = null
-  @tracked sortedAscending = true
+  @tracked sortedAttribute = null;
+  @tracked sortedAscending = true;
 
-  search = ''
-  sortableAttributes = []
+  search = '';
+  sortableAttributes = [];
 
   get sort() {
     if (this.sortedAscending) {
@@ -33,7 +33,10 @@ export default class FilterableAndSortableController extends Controller {
   selectFirstItem() {
     if (this.routeOnEnter && this.model.length > 0) {
       const routeOnEnterParam = this.routeOnEnterParam || 'id';
-      this.transitionToRoute(this.routeOnEnter, this.model.firstObject[routeOnEnterParam]);
+      this.transitionToRoute(
+        this.routeOnEnter,
+        this.model.firstObject[routeOnEnterParam]
+      );
     }
   }
 }

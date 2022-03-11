@@ -3,10 +3,12 @@ import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
 
 export default class ArticlesIndexRoute extends ApplicationRoute {
-  @service intl
+  @service intl;
 
   get breadCrumb() {
-    return { title: capitalize(this.intl.t('model.article.name.other').toString()) };
+    return {
+      title: capitalize(this.intl.t('model.article.name.other').toString()),
+    };
   }
 
   get pageActions() {
@@ -15,8 +17,8 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
         link: 'articles.new',
         title: 'Nieuw artikel',
         icon: 'plus',
-        canAccess: this.abilities.can('create articles')
-      }
+        canAccess: this.abilities.can('create articles'),
+      },
     ];
   }
 

@@ -1,36 +1,54 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
-      <div class="form-check">
-        <label class="form-check-label">
-          <Input @type="checkbox" @checked={{showPassed}} class="form-check-input" />
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+      @enter={{action 'selectFirstItem'}}
+    >
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <Input
+            @type='checkbox'
+            @checked={{showPassed}}
+            class='form-check-input'
+          />
           Toon activiteiten in verleden
-          <div class="custom-checkmark"></div>
+          <div class='custom-checkmark'></div>
         </label>
       </div>
     </FilterBar>
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="card">
-  <div class="row rtable-row header d-none d-md-flex">
-    <span class="col"> Naam </span>
-    <span class="col-3"> Startdatum </span>
-    <span class="col-1 rtable-ta-right"> # </span>
+<div class='card'>
+  <div class='row rtable-row header d-none d-md-flex'>
+    <span class='col'> Naam </span>
+    <span class='col-3'> Startdatum </span>
+    <span class='col-1 rtable-ta-right'> # </span>
   </div>
 
   {{#each model as |activity|}}
-    <LinkTo @route="activities.show" @model={{activity.id}} data-test-activity-item={{true}}>
-      <div class="row rtable-row">
-        <span class="col-12 col-md-8 rtable-item">
+    <LinkTo
+      @route='activities.show'
+      @model={{activity.id}}
+      data-test-activity-item={{true}}
+    >
+      <div class='row rtable-row'>
+        <span class='col-12 col-md-8 rtable-item'>
           {{#if activity.form}}
             {{form/status-icon activity.form}}
-          {{/if}} {{activity.title}}
+          {{/if}}
+          {{activity.title}}
         </span>
-        <span class="col-8 col-md-3 text-muted rtable-item"> {{moment-format activity.startTime 'DD-MM-YY HH:mm'}} </span>
-        <span class="col-4 col-md-1 text-muted rtable-item rtable-ta-right">
+        <span class='col-8 col-md-3 text-muted rtable-item'>
+          {{moment-format activity.startTime 'DD-MM-YY HH:mm'}}
+        </span>
+        <span class='col-4 col-md-1 text-muted rtable-item rtable-ta-right'>
           {{activity.form.amountOfResponses}}
-          <span class="d-inline d-md-none">
+          <span class='d-inline d-md-none'>
             {{#if activity.form.amountOfResponses}}
               Inschrijvingen
             {{/if}}
@@ -41,6 +59,6 @@
   {{/each}}
 </div>
 
-<div class="row justify-content-center">
+<div class='row justify-content-center'>
   <PageNumbers @info={{model.meta}} />
 </div>

@@ -13,15 +13,15 @@ export default class PhotosIndexRoute extends ApplicationRoute {
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: this.controller.model.photoAlbum,
-        canAccess: this.abilities.can('edit photo-albums', photoAlbum)
+        canAccess: this.abilities.can('edit photo-albums', photoAlbum),
       },
       {
         link: 'photo-albums.photo-album.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: this.controller.model.photoAlbum,
-        canAccess: this.abilities.can('destroy photo-albums')
-      }
+        canAccess: this.abilities.can('destroy photo-albums'),
+      },
     ];
   }
 

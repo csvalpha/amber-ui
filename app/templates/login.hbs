@@ -1,37 +1,77 @@
-<div class="container">
-  <div class="d-flex justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card login-form">
-        <div class="card-header">
-          <h5 class="card-title pl-2">{{if twoFactorRequired (t 'template.login.authcode') (t 'tag.button.signin')}}</h5>
+<div class='container'>
+  <div class='d-flex justify-content-center'>
+    <div class='col-12 col-md-6 col-lg-4'>
+      <div class='card login-form'>
+        <div class='card-header'>
+          <h5 class='card-title pl-2'>{{if
+              twoFactorRequired
+              (t 'template.login.authcode')
+              (t 'tag.button.signin')
+            }}</h5>
         </div>
-        <form {{on "submit" this.authenticate}} method="post">
-          <div class="card-body p-4">
+        <form {{on 'submit' this.authenticate}} method='post'>
+          <div class='card-body p-4'>
             {{#if errorMessage}}
-              <div class="alert alert-danger" role="alert" data-test-error>
+              <div class='alert alert-danger' role='alert' data-test-error>
                 {{this.errorMessage}}
               </div>
             {{/if}}
 
             {{#if twoFactorRequired}}
-              <div class="form-group">
-                <Input @type="text" @value={{verificationCode}} placeholder={{t "template.login.authcode"}} inputmode="numeric" pattern="[0-9]*" @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-otp" />
+              <div class='form-group'>
+                <Input
+                  @type='text'
+                  @value={{verificationCode}}
+                  placeholder={{t 'template.login.authcode'}}
+                  inputmode='numeric'
+                  pattern='[0-9]*'
+                  @autocorrect='off'
+                  @autocapitalize='none'
+                  class='form-control'
+                  @id='field-otp'
+                />
                 <p>{{t 'template.login.authcodeHint'}}</p>
               </div>
             {{else}}
-              <div class="form-group">
-                <Input @type="text" @value={{username}} placeholder={{t "template.login.username"}} @autofocus="autofocus" @autocorrect="off" @autocapitalize="none" class="form-control" @id="field-username" />
+              <div class='form-group'>
+                <Input
+                  @type='text'
+                  @value={{username}}
+                  placeholder={{t 'template.login.username'}}
+                  @autofocus='autofocus'
+                  @autocorrect='off'
+                  @autocapitalize='none'
+                  class='form-control'
+                  @id='field-username'
+                />
               </div>
-              <div class="form-group password-textfield">
-                <Input @type="password" @value={{password}} placeholder={{t "template.login.password"}} class="form-control" @id="field-password" />
+              <div class='form-group password-textfield'>
+                <Input
+                  @type='password'
+                  @value={{password}}
+                  placeholder={{t 'template.login.password'}}
+                  class='form-control'
+                  @id='field-password'
+                />
               </div>
 
-              <div class="row password-forgot-holder">
-                <LinkTo @route="users.forgot_password" class="forgot-password-label">{{t 'template.login.forgotPassword'}}</LinkTo>
+              <div class='row password-forgot-holder'>
+                <LinkTo
+                  @route='users.forgot_password'
+                  class='forgot-password-label'
+                >{{t 'template.login.forgotPassword'}}</LinkTo>
               </div>
             {{/if}}
 
-            <button type="submit" class="btn btn-primary login-button" id="button-login">{{if twoFactorRequired (t 'tag.button.authenticate') (t 'tag.button.signin')}}</button>
+            <button
+              type='submit'
+              class='btn btn-primary login-button'
+              id='button-login'
+            >{{if
+                twoFactorRequired
+                (t 'tag.button.authenticate')
+                (t 'tag.button.signin')
+              }}</button>
           </div>
         </form>
       </div>

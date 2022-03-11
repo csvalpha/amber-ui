@@ -4,7 +4,10 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  polls: computed(function() {
-    return this.store.query('poll', { sort: '-created_at', page: { number: '1', size: 5 } });
-  })
+  polls: computed(function () {
+    return this.store.query('poll', {
+      sort: '-created_at',
+      page: { number: '1', size: 5 },
+    });
+  }),
 });

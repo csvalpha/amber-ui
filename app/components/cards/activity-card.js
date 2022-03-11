@@ -1,11 +1,11 @@
 import Component from '@ember/component';
 
 const ActivityCardComponent = Component.extend({
-  moreInfo: false
+  moreInfo: false,
 });
 
 ActivityCardComponent.reopenClass({
-  positionalParams: ['activity']
+  positionalParams: ['activity'],
 });
 
 export default ActivityCardComponent;

@@ -7,7 +7,7 @@ export default class MessageBusService extends Service {
   constructor() {
     super(...arguments);
 
-    messageBus.headers = { 'Authorization': this.fetch.authorizationHeader() };
+    messageBus.headers = { Authorization: this.fetch.authorizationHeader() };
     messageBus.baseUrl = '/api/';
     messageBus.start();
     this.messageBus = messageBus;

@@ -9,6 +9,10 @@ export default Factory.extend({
   required: () => faker.random.boolean(),
   _optionCount: 4,
   afterCreate(question, server) {
-    question.options = server.createList('formClosedQuestionOption', question._optionCount, { question });
-  }
+    question.options = server.createList(
+      'formClosedQuestionOption',
+      question._optionCount,
+      { question }
+    );
+  },
 });

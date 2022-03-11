@@ -9,5 +9,5 @@ export default {
       // Register service worker for PWA
       navigator.serviceWorker.register('/sw.js');
     }
-  }
+  },
 };
