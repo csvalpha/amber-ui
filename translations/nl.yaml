@@ -228,6 +228,7 @@ mixin:
     groups: Groepen
     users: Gebruikers
     staticPages: Informatie
+    books: Boeken
     sog: SOG
 tag:
   button:
