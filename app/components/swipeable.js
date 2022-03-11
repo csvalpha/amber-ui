@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class SwipeableComponent extends Component {
@@ -9,7 +8,6 @@ export default class SwipeableComponent extends Component {
   yStart = null;
   xEnd = null;
   yEnd = null;
-  @tracked
   swipeDirection = this.args.onSwipeHorizontal
     ? 'horizontal'
     : this.args.onSwipeVertical
@@ -83,7 +81,7 @@ export default class SwipeableComponent extends Component {
         direction = direction > 0 ? 1 : -1;
         this.args.onSwipeVertical(direction);
       } else {
-        throw 'No swipe direction defined';
+        throw new Error('No swipe direction defined');
       }
     }
   }
