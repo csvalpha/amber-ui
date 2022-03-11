@@ -8,47 +8,55 @@ export const FormStatusTagComponent = Component.extend({
   isTag: true,
   isNoneValue: 'Vrij toegankelijk',
   responseCompletedValue: 'Ingeschreven',
-  classNameBindings: [
-    'isTag:badge',
-    'colorIndicatorClass'
-  ],
-  content: computed('form.{canRespond,currentUserResponseCompleted,respondFrom}', 'isNoneValue', 'responseCompletedValue', function() {
-    if (isNone(this.form)) {
-      return this.isNoneValue;
+  classNameBindings: ['isTag:badge', 'colorIndicatorClass'],
+  content: computed(
+    'form.{canRespond,currentUserResponseCompleted,respondFrom}',
+    'isNoneValue',
+    'responseCompletedValue',
+    function () {
+      if (isNone(this.form)) {
+        return this.isNoneValue;
+      }
+
+      if (this.form.get('currentUserResponseCompleted')) {
+        return this.responseCompletedValue;
+      }
+
+      if (this.form.get('canRespond')) {
+        return 'Open';
+      }
+
+      if (this.form.get('respondFrom') > new Date()) {
+        return 'Opent later';
+      }
+
+      return 'Gesloten';
     }
+  ),
+  colorIndicatorClass: computed(
+    'form',
+    'form.canRespond',
+    'form.respondFrom',
+    'form.currentUserResponseCompleted',
+    function () {
+      if (isNone(this.form)) {
+        return 'badge-success';
+      }
 
-    if (this.form.get('currentUserResponseCompleted')) {
-      return this.responseCompletedValue;
+      const formIsOpen = this.form.get('canRespond');
+      const userHasResponded = this.form.get('currentUserResponseCompleted');
+
+      if (userHasResponded) {
+        return 'badge-success';
+      }
+
+      return formIsOpen ? 'badge-info' : 'badge-default';
     }
-
-    if (this.form.get('canRespond')) {
-      return 'Open';
-    }
-
-    if (this.form.get('respondFrom') > new Date()) {
-      return 'Opent later';
-    }
-
-    return 'Gesloten';
-  }),
-  colorIndicatorClass: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {
-    if (isNone(this.form)) {
-      return 'badge-success';
-    }
-
-    const formIsOpen = this.form.get('canRespond');
-    const userHasResponded = this.form.get('currentUserResponseCompleted');
-
-    if (userHasResponded) {
-      return 'badge-success';
-    }
-
-    return formIsOpen ? 'badge-info' : 'badge-default';
-  })
+  ),
 });
 
 FormStatusTagComponent.reopenClass({
-  positionalParams: ['form']
+  positionalParams: ['form'],
 });
 
 export default FormStatusTagComponent;

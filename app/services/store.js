@@ -1,7 +1,7 @@
 import EmberDataStore from '@ember-data/store';
 
 export default class StoreService extends EmberDataStore {
-  perPage = 10
+  perPage = 10;
 
   async queryPaged(modelName, params) {
     let result = await this.query(modelName, this.processParams(params));
@@ -15,7 +15,7 @@ export default class StoreService extends EmberDataStore {
     // Convert UI params to Backend params
     params.page = {
       number: params.page || 1,
-      size: params.perPage || this.perPage
+      size: params.perPage || this.perPage,
     };
 
     return params;

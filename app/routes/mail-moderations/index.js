@@ -1,7 +1,7 @@
 import { ApplicationRoute } from 'alpha-amber/routes/application/application';
 
 export default class ModerationIndexRoute extends ApplicationRoute {
-  breadCrumb = { title: 'Mailmoderatie' }
+  breadCrumb = { title: 'Mailmoderatie' };
 
   canAccess() {
     return this.abilities.can('show mail-moderations');

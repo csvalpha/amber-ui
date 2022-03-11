@@ -1,11 +1,15 @@
 {{#if hasPermission}}
-  <div {{on "mouseover" this.showPopup}} {{on "mouseout" this.hidePopup}}>
+  <div {{on 'mouseover' this.showPopup}} {{on 'mouseout' this.hidePopup}}>
     {{#if (and link linkArgument)}}
-      <LinkTo @route={{link}} @model={{linkArgument}} @invokeAction={{action "closeAfterNavigation"}}>
+      <LinkTo
+        @route={{link}}
+        @model={{linkArgument}}
+        @invokeAction={{action 'closeAfterNavigation'}}
+      >
         <MenuSidebarLink @minor={{minor}} @title={{title}} @icon={{icon}} />
       </LinkTo>
     {{else if link}}
-      <LinkTo @route={{link}} @invokeAction={{action "closeAfterNavigation"}}>
+      <LinkTo @route={{link}} @invokeAction={{action 'closeAfterNavigation'}}>
         <MenuSidebarLink @minor={{minor}} @title={{title}} @icon={{icon}} />
       </LinkTo>
     {{else}}

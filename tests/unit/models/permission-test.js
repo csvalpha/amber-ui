@@ -4,26 +4,28 @@ import { setupTest } from 'ember-qunit';
 
 let permission;
 
-module('Unit | Model | permission', function(hooks) {
+module('Unit | Model | permission', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {
-    permission = run(() => this.owner.lookup('service:store').createRecord('permission'));
+  hooks.beforeEach(function () {
+    permission = run(() =>
+      this.owner.lookup('service:store').createRecord('permission')
+    );
   });
 
-  test('Permission#model', (assert) => {
+  test('Permission#model', function (assert) {
     assert.expect(1);
     run(() => {
       permission.setProperties({ name: 'form/closed-question.read' });
-      assert.equal('form/closed-question', permission.get('model'));
+      assert.equal(permission.get('model'), 'form/closed-question');
     });
   });
 
-  test('Permission#action', (assert) => {
+  test('Permission#action', function (assert) {
     assert.expect(1);
     run(() => {
       permission.setProperties({ name: 'form/closed-question.read' });
-      assert.equal('read', permission.get('action'));
+      assert.equal(permission.get('action'), 'read');
     });
   });
 });

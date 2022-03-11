@@ -17,6 +17,6 @@ export default DestroyController.extend({
     },
     onError() {
       this.set('errorMessage', 'Er ging iets fout bij het verwijderen');
-    }
-  }
+    },
+  },
 });

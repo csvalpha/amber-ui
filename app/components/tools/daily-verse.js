@@ -4,7 +4,7 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  verses: computed(function() {
+  verses: computed(function () {
     return this.store.findAll('daily-verse');
-  })
+  }),
 });

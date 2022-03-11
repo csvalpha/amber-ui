@@ -1,58 +1,112 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <FilterBar @class="col-12 col-md mt-1" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}}>
-      <div class="form-check">
-        <label class="form-check-label">
-          <Input @type="checkbox" @checked={{showAdministrative}} class="form-check-input" />
+    <FilterBar
+      @class='col-12 col-md mt-1'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+      @enter={{action 'selectFirstItem'}}
+    >
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <Input
+            @type='checkbox'
+            @checked={{showAdministrative}}
+            class='form-check-input'
+          />
           Toon administratieve groepen
-          <div class="custom-checkmark"></div>
+          <div class='custom-checkmark'></div>
         </label>
       </div>
-      <div class="form-check">
-        <label class="form-check-label">
-          <Input @type="checkbox" @checked={{showInactive}} class="form-check-input" />
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <Input
+            @type='checkbox'
+            @checked={{showInactive}}
+            class='form-check-input'
+          />
           Toon inactieve groepen
-          <div class="custom-checkmark"></div>
+          <div class='custom-checkmark'></div>
         </label>
       </div>
     </FilterBar>
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="card p-3 p-md-0">
-  <div class="row">
-    <BsDropdown class="col d-block d-md-none" as |dd|>
-      <dd.toggle class="btn btn-default col">
+<div class='card p-3 p-md-0'>
+  <div class='row'>
+    <BsDropdown class='col d-block d-md-none' as |dd|>
+      <dd.toggle class='btn btn-default col'>
         {{capitalize selectedGroupKind}}
       </dd.toggle>
       <dd.menu as |ddm|>
         {{#each groupKinds as |item index|}}
-          <LinkTo @route="groups" @query={{hash kind=item}} class="dropdown-item" data-toggle="pill" @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
+          <LinkTo
+            @route='groups'
+            @query={{hash kind=item}}
+            class='dropdown-item'
+            data-toggle='pill'
+            @role='tab'
+            @aria-controls={{concat 'v-pills-' item}}
+            @aria-selected='true'
+          >
             {{capitalize item}}
           </LinkTo>
         {{/each}}
       </dd.menu>
     </BsDropdown>
-    <div class="col-12 col-md-3">
-      <div class="nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex" id="v-pills-tab-groups" role="tablist" aria-orientation="vertical">
-        <h5 class="ml-3 mb-3"> Groepen</h5>
+    <div class='col-12 col-md-3'>
+      <div
+        class='nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex'
+        id='v-pills-tab-groups'
+        role='tablist'
+        aria-orientation='vertical'
+      >
+        <h5 class='ml-3 mb-3'> Groepen</h5>
         {{#each groupKinds as |item index|}}
-          <LinkTo @route="groups" @query={{hash kind=item}} class={{if (eq item selectedGroupKind) "nav-link active" "nav-link"}} @id={{concat "v-pills-" item}} data-toggle="pill" @role="tab" @aria-controls={{concat "v-pills-" item}} @aria-selected="true">
+          <LinkTo
+            @route='groups'
+            @query={{hash kind=item}}
+            class={{if
+              (eq item selectedGroupKind)
+              'nav-link active'
+              'nav-link'
+            }}
+            @id={{concat 'v-pills-' item}}
+            data-toggle='pill'
+            @role='tab'
+            @aria-controls={{concat 'v-pills-' item}}
+            @aria-selected='true'
+          >
             {{capitalize item}}
           </LinkTo>
         {{/each}}
       </div>
     </div>
-    <div class="col-12 col-md-9">
-      <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active p-3" id="v-pills-{{selectedGroupKind}}" role="tabpanel" aria-labelledby="v-pills-{{selectedGroupKind}}-tab">
-          <div class="row">
+    <div class='col-12 col-md-9'>
+      <div class='tab-content' id='v-pills-tabContent'>
+        <div
+          class='tab-pane fade show active p-3'
+          id='v-pills-{{selectedGroupKind}}'
+          role='tabpanel'
+          aria-labelledby='v-pills-{{selectedGroupKind}}-tab'
+        >
+          <div class='row'>
             {{#each model as |group|}}
-              <LinkTo @route="groups.show" @model={{group.id}} class="col-6 col-md-12 col-lg-4">
-                <Cards::MembershipCard @title={{group.name}} @imageSource={{group.avatarThumbUrlOrDefault}} @administrative={{group.administrative}} />
+              <LinkTo
+                @route='groups.show'
+                @model={{group.id}}
+                class='col-6 col-md-12 col-lg-4'
+              >
+                <Cards::MembershipCard
+                  @title={{group.name}}
+                  @imageSource={{group.avatarThumbUrlOrDefault}}
+                  @administrative={{group.administrative}}
+                />
               </LinkTo>
             {{else}}
-              <div class="alert alert-warning col mr-4 mt-3">
+              <div class='alert alert-warning col mr-4 mt-3'>
                 Er zijn geen resultaten gevonden
               </div>
             {{/each}}

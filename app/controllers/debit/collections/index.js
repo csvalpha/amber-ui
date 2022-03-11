@@ -2,19 +2,19 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class CollectionsIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'date'
-  @tracked sortedAscending = false
+  @tracked sortedAttribute = 'date';
+  @tracked sortedAscending = false;
 
-  routeOnEnter = 'debit.collections.show'
-  queryParams = ['search', 'sort', 'page']
+  routeOnEnter = 'debit.collections.show';
+  queryParams = ['search', 'sort', 'page'];
   sortableAttributes = [
     {
       value: 'name',
-      label: 'Naam'
+      label: 'Naam',
     },
     {
       value: 'date',
-      label: 'Datum'
-    }
-  ]
+      label: 'Datum',
+    },
+  ];
 }

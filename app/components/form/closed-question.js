@@ -10,10 +10,11 @@ export default OpenQuestionComponent.extend({
   },
   actions: {
     addOption() {
-      const position = this.question.get('sortedOptions.lastObject.position') + 1 || 0;
+      const position =
+        this.question.get('sortedOptions.lastObject.position') + 1 || 0;
       this.store.createRecord('form/closed-question-option', {
         question: this.question,
-        position
+        position,
       });
     },
     deleteOption(option) {
@@ -22,16 +23,20 @@ export default OpenQuestionComponent.extend({
     moveOptionUp(option) {
       const index = this.question.get('sortedOptions').indexOf(option);
       if (index > 0) {
-        const previousOption = this.question.get('sortedOptions').objectAt(index - 1);
+        const previousOption = this.question
+          .get('sortedOptions')
+          .objectAt(index - 1);
         this.send('switchPositions', option, previousOption);
       }
     },
     moveOptionDown(option) {
       const index = this.question.get('sortedOptions').indexOf(option);
-      if (index < (this.question.get('sortedOptions.length') - 1)) {
-        const nextOption = this.question.get('sortedOptions').objectAt(index + 1);
+      if (index < this.question.get('sortedOptions.length') - 1) {
+        const nextOption = this.question
+          .get('sortedOptions')
+          .objectAt(index + 1);
         this.send('switchPositions', option, nextOption);
       }
-    }
-  }
+    },
+  },
 });

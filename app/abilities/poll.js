@@ -15,11 +15,15 @@ export default class Poll extends Ability {
   }
 
   get canEdit() {
-    return this.session.hasPermission('poll.update') || this.isPollOwner(this.model);
+    return (
+      this.session.hasPermission('poll.update') || this.isPollOwner(this.model)
+    );
   }
 
   isPollOwner(poll) {
     const { currentUser } = this.session;
-    return !isNone(currentUser) && (poll.get('author.id') === currentUser.get('id'));
+    return (
+      !isNone(currentUser) && poll.get('author.id') === currentUser.get('id')
+    );
   }
 }

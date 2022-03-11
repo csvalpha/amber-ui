@@ -14,13 +14,13 @@ export default Controller.extend({
         const articleComment = this.store.createRecord('articleComment', {
           content: this.newArticleComment,
           article: this.model,
-          user: this.session.get('currentUser')
+          user: this.session.get('currentUser'),
         });
         articleComment.save().then(() => {
           this.flashNotice.sendSuccess('Reactie opgeslagen!');
         });
         this.set('newArticleComment', '');
       }
-    }
-  }
+    },
+  },
 });

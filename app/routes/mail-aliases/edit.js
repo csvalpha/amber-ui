@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditMailAliasRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Mail-alias aanpassen' }
+  breadCrumb = { title: 'Mail-alias aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit mail-alias', model);

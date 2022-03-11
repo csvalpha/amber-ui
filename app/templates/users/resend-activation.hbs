@@ -1,8 +1,19 @@
-<p>Weet je zeker dat je de activatiecode voor {{@model.fullName}} opnieuw wil versturen? Dit zal de oude activatiecode ongeldig maken.</p>
+<p>Weet je zeker dat je de activatiecode voor
+  {{@model.fullName}}
+  opnieuw wil versturen? Dit zal de oude activatiecode ongeldig maken.</p>
 
-<button {{action "resendActivation"}} class="btn btn-danger" type="button">Ja</button>
-<LinkTo @route="users.show" @model={{@model.id}} class="btn btn-default" @tagName="button">Nee</LinkTo>
+<button
+  {{action 'resendActivation'}}
+  class='btn btn-danger'
+  type='button'
+>Ja</button>
+<LinkTo
+  @route='users.show'
+  @model={{@model.id}}
+  class='btn btn-default'
+  @tagName='button'
+>Nee</LinkTo>
 
 {{#if errorMessage}}
-  <div class="text-danger">{{this.errorMessage}}</div>
+  <div class='text-danger'>{{this.errorMessage}}</div>
 {{/if}}

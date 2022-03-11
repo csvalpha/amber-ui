@@ -6,7 +6,7 @@ const ConsumptionListComponent = Component.extend({
   options: null,
   extraRows: 0,
   showRobertHofstra: false,
-  additionalEmptyRows: 0
+  additionalEmptyRows: 0,
 });
 
 export default ConsumptionListComponent;

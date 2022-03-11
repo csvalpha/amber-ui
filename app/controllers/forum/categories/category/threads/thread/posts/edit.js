@@ -6,7 +6,10 @@ export default EditController.extend({
   actions: {
     onSuccess(model) {
       this._super(...arguments);
-      this.transitionToRoute('forum.categories.category.threads.thread', model.get('thread'));
-    }
-  }
+      this.transitionToRoute(
+        'forum.categories.category.threads.thread',
+        model.get('thread')
+      );
+    },
+  },
 });

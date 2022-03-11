@@ -2,20 +2,20 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class ActivitiesIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'start_time'
+  @tracked sortedAttribute = 'start_time';
 
-  queryParams = ['search', 'sort', 'page']
-  routeOnEnter = 'activities.show'
+  queryParams = ['search', 'sort', 'page'];
+  routeOnEnter = 'activities.show';
   sortableAttributes = [
     {
       value: 'title',
-      label: 'Titel'
+      label: 'Titel',
     },
     {
       value: 'start_time',
-      label: 'Begindatum'
-    }
-  ]
+      label: 'Begindatum',
+    },
+  ];
 
-  showPassed = false
+  showPassed = false;
 }

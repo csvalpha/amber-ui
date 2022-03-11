@@ -6,5 +6,5 @@ export default ApplicationSerializer.extend({
       return ['permissions'];
     }
     return [];
-  }
+  },
 });

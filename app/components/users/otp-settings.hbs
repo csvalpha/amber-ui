@@ -1,20 +1,26 @@
 <h5>Two-factor-authenticatie </h5>
 
 <p>
-  Two-factor-authenticatie geeft een extra beveiligingslaag door bij het inloggen naast je wachtwoord ook om een zescijferige code te vragen.
-  Deze code wordt gegenereerd door een app op je telefoon.
-  Zo heb je naast iets dat je weet (wachtwoord) ook iets nodig dat je hebt (telefoon) om in te kunnen loggen.
+  Two-factor-authenticatie geeft een extra beveiligingslaag door bij het
+  inloggen naast je wachtwoord ook om een zescijferige code te vragen. Deze code
+  wordt gegenereerd door een app op je telefoon. Zo heb je naast iets dat je
+  weet (wachtwoord) ook iets nodig dat je hebt (telefoon) om in te kunnen
+  loggen.
 </p>
 
 {{#if @model.otpRequired}}
-  <div class="alert alert-success" role="alert">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-12">
+  <div class='alert alert-success' role='alert'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-lg-8 col-md-12'>
           <strong>Je hebt two-factor-authenticatie geactiveerd!</strong>
         </div>
-        <div class="col-lg-4 col-md-12">
-          <button type="button" class="btn btn-primary float-right" {{action "disableOTP"}}>
+        <div class='col-lg-4 col-md-12'>
+          <button
+            type='button'
+            class='btn btn-primary float-right'
+            {{action 'disableOTP'}}
+          >
             Deactiveren
           </button>
         </div>
@@ -24,66 +30,92 @@
 {{else}}
   {{#if otpKey}}
     <p>
-      Scan de QR-code hieronder met een authenticatorapp.
-      Er zijn authenticatorapps beschikbaar voor alle mobiele platforms. Hier volgen enkele links naar apps:
+      Scan de QR-code hieronder met een authenticatorapp. Er zijn
+      authenticatorapps beschikbaar voor alle mobiele platforms. Hier volgen
+      enkele links naar apps:
     </p>
 
     <ul>
       <li>
-        <FaIcon @icon='android' @prefix="fab"/>
-        <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2" target="_blank">
+        <FaIcon @icon='android' @prefix='fab' />
+        <a
+          href='https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2'
+          target='_blank'
+        >
           Google Authenticator
         </a>
       </li>
       <li>
-        <FaIcon @icon='apple' @prefix="fab"/>
-        <a href="https://itunes.apple.com/us/app/authenticator/id766157276?mt=8" target="_blank">
+        <FaIcon @icon='apple' @prefix='fab' />
+        <a
+          href='https://itunes.apple.com/us/app/authenticator/id766157276?mt=8'
+          target='_blank'
+        >
           Authenticator
         </a>
       </li>
       <li>
-        <FaIcon @icon='windows' @prefix="fab"/>
-        <a href="https://www.microsoft.com/en-us/store/p/microsoft-authenticator/9nblgggzmcj6" target="_blank">
+        <FaIcon @icon='windows' @prefix='fab' />
+        <a
+          href='https://www.microsoft.com/en-us/store/p/microsoft-authenticator/9nblgggzmcj6'
+          target='_blank'
+        >
           Microsoft Authenticator
         </a>
       </li>
     </ul>
     <p>
-      Nadat je de code gescand heb, bevestig je de set-up door een keer een gegenereerde code in te voeren.
+      Nadat je de code gescand heb, bevestig je de set-up door een keer een
+      gegenereerde code in te voeren.
     </p>
 
     {{#if this.otpErrorMessage}}
-      <div class="alert alert-danger" role="alert">
+      <div class='alert alert-danger' role='alert'>
         <strong>{{this.otpErrorMessage}}</strong>
       </div>
     {{/if}}
 
-    <form class="form" {{action "confirmOTP" on="submit"}}>
+    <form class='form' {{action 'confirmOTP' on='submit'}}>
       <div>
         <QrCode @text={{this.otpKey}} @size={{240}} />
       </div>
 
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label form-control-label">Verificatiecode</label>
-        <div class="col-sm-8">
-          <Input @type="text" @min="6" @value={{this.verificationCode}} placeholder="Verificatiecode" required="true" class="form-control" />
+      <div class='form-group row'>
+        <label
+          class='col-sm-4 col-form-label form-control-label'
+        >Verificatiecode</label>
+        <div class='col-sm-8'>
+          <Input
+            @type='text'
+            @min='6'
+            @value={{this.verificationCode}}
+            placeholder='Verificatiecode'
+            inputmode='numeric'
+            pattern='[0-9]*'
+            required='true'
+            class='form-control'
+          />
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Verifiëren</button>
+      <button type='submit' class='btn btn-primary'>Verifiëren</button>
     </form>
 
   {{else}}
-    <div class="alert alert-warning" role="alert">
+    <div class='alert alert-warning' role='alert'>
       <span>Je hebt geen two-factor-authenticatie geactiveerd</span>
     </div>
 
     {{#if this.otpErrorMessage}}
-      <div class="alert alert-danger" role="alert">
+      <div class='alert alert-danger' role='alert'>
         <strong>{{this.otpErrorMessage}}</strong>
       </div>
     {{/if}}
 
-    <button type="button" class="btn btn-primary" {{action "generateOTP"}}>Instellen</button>
+    <button
+      type='button'
+      class='btn btn-primary'
+      {{action 'generateOTP'}}
+    >Instellen</button>
   {{/if}}
 {{/if}}
