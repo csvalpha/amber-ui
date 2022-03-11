@@ -1,3 +1,3 @@
 import Controller from '@ember/controller';
 
-export default Controller;
+export default class ShowBookController extends Controller {}

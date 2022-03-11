@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default class BookIndexRoute extends AuthenticatedRoute {
+export default class IndexBookRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Boeken' };
 
   queryParams = {
