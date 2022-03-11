@@ -16,20 +16,24 @@ export default class Router extends EmberRouter {
 
       if (typeof gtag === 'undefined') {
         window.dataLayer = window.dataLayer || [];
-        window.gtag = function() {
+        window.gtag = function () {
           window.dataLayer.push(arguments);
         };
 
         window.gtag('js', new Date());
       }
 
-      window.gtag('config', config.googleAnalytics.webPropertyId, { 'page_path': this.url });
+      /* eslint-disable camelcase */
+      window.gtag('config', config.googleAnalytics.webPropertyId, {
+        page_path: this.url,
+      });
+      /* eslint-enable camelcase */
     });
   }
 }
 
-Router.map(function() {
-  this.route('oauth', function() {
+Router.map(function () {
+  this.route('oauth', function () {
     this.route('authorize');
   });
 
@@ -37,7 +41,7 @@ Router.map(function() {
 
   this.route('profile');
 
-  this.route('static-pages', function() {
+  this.route('static-pages', function () {
     this.route('show', { path: '/:id' });
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
@@ -46,24 +50,24 @@ Router.map(function() {
 
   this.route('quickpost');
 
-  this.route('forum', function() {
-    this.route('categories', function() {
+  this.route('forum', function () {
+    this.route('categories', function () {
       this.route('new');
 
-      this.route('category', { path: ':category_id' }, function() {
+      this.route('category', { path: ':category_id' }, function () {
         this.route('show', { path: '/' });
         this.route('edit');
         this.route('destroy');
 
-        this.route('threads',  function() {
+        this.route('threads', function () {
           this.route('new');
 
-          this.route('thread', { path: ':thread_id' }, function() {
+          this.route('thread', { path: ':thread_id' }, function () {
             this.route('show', { path: '/' });
             this.route('edit');
             this.route('destroy');
 
-            this.route('posts', function() {
+            this.route('posts', function () {
               this.route('edit', { path: ':post_id/edit' });
               this.route('destroy', { path: ':post_id/destroy' });
             });
@@ -73,26 +77,26 @@ Router.map(function() {
     });
   });
 
-  this.route('photo-albums', function() {
+  this.route('photo-albums', function () {
     this.route('new');
 
-    this.route('photo-album', { path: ':photo_album_id' }, function() {
+    this.route('photo-album', { path: ':photo_album_id' }, function () {
       this.route('show', { path: '/' });
       this.route('edit');
       this.route('destroy');
 
-      this.route('photos',  function() {
+      this.route('photos', function () {
         this.route('show', { path: '/:photo_id' });
         this.route('destroy', { path: '/:photo_id/destroy' });
       });
     });
   });
 
-  this.route('photo-comments', function() {
+  this.route('photo-comments', function () {
     this.route('destroy', { path: '/:id/destroy' });
   });
 
-  this.route('users', function() {
+  this.route('users', function () {
     this.route('members');
 
     this.route('new');
@@ -114,45 +118,45 @@ Router.map(function() {
     this.route('activate_account', { path: '/:id/activate_account' });
     this.route('resend_activation', { path: '/:id/resend_activation' });
 
-    this.route('batch', function() {
+    this.route('batch', function () {
       this.route('new');
       this.route('confirm');
     });
   });
 
-  this.route('articles', function() {
+  this.route('articles', function () {
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
     this.route('show', { path: '/:id' });
     this.route('destroy', { path: '/:id/destroy' });
   });
 
-  this.route('article-comments', function() {
+  this.route('article-comments', function () {
     this.route('destroy', { path: '/:id/destroy' });
   });
 
-  this.route('polls', function() {
+  this.route('polls', function () {
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
     this.route('show', { path: '/:id' });
     this.route('destroy', { path: '/:id/destroy' });
   });
 
-  this.route('mail-aliases', function() {
+  this.route('mail-aliases', function () {
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
     this.route('show', { path: '/:id' });
     this.route('destroy', { path: '/:id/destroy' });
   });
 
-  this.route('mail-moderations', function() {
+  this.route('mail-moderations', function () {
     this.route('show', { path: '/:id' });
     this.route('destroy', { path: '/:id/destroy' });
     this.route('accept', { path: '/:id/accept' });
     this.route('reject', { path: '/:id/reject' });
   });
 
-  this.route('activities', function() {
+  this.route('activities', function () {
     this.route('show', { path: '/:id' });
     this.route('ical');
     this.route('new');
@@ -162,8 +166,8 @@ Router.map(function() {
     this.route('print-enrolled', { path: '/:id/print-enrolled' });
   });
 
-  this.route('debit', function() {
-    this.route('collections', function() {
+  this.route('debit', function () {
+    this.route('collections', function () {
       this.route('show', { path: '/:id' });
       this.route('sepa', { path: '/:id/sepa' });
       this.route('new');
@@ -171,32 +175,32 @@ Router.map(function() {
       this.route('destroy', { path: '/:id/destroy' });
     });
 
-    this.route('transactions', function() {
+    this.route('transactions', function () {
       this.route('edit', { path: '/:id/edit' });
       this.route('destroy', { path: '/:id/destroy' });
     });
 
-    this.route('mandates', function() {
+    this.route('mandates', function () {
       this.route('show', { path: '/:id' });
       this.route('new');
       this.route('edit', { path: '/:id/edit' });
     });
   });
 
-  this.route('form', function() {
-    this.route('responses', function() {
+  this.route('form', function () {
+    this.route('responses', function () {
       this.route('destroy', { path: '/:id/destroy' });
     });
   });
 
-  this.route('groups', function() {
+  this.route('groups', function () {
     this.route('show', { path: '/:id' });
     this.route('export', { path: '/:id/export' });
     this.route('new');
     this.route('edit', { path: '/:id/edit' });
   });
 
-  this.route('sog', function() {
+  this.route('sog', function () {
     this.route('name-trainer');
     this.route('chess');
   });

@@ -10,5 +10,5 @@ export default Factory.extend({
   afterCreate(post, server) {
     post.author = server.create('user');
     post.save();
-  }
+  },
 });

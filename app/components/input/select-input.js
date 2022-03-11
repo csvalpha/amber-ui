@@ -9,5 +9,5 @@ export default Component.extend({
   placeholder: null,
   change() {
     this.set('value', this.element.value);
-  }
+  },
 });

@@ -21,10 +21,10 @@ export default class MdEditorComponent extends Component {
       styledSelection = styledSelection.replace('$2', modalInput);
     }
 
-    const styledContent
-      = this.content.substring(0, selectionStart)
-      + styledSelection
-      + this.content.substring(selectionStart + selection.length);
+    const styledContent =
+      this.content.substring(0, selectionStart) +
+      styledSelection +
+      this.content.substring(selectionStart + selection.length);
 
     this.content = styledContent;
   }

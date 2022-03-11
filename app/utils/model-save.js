@@ -18,22 +18,27 @@ export default class ModelSaveUtil {
         this.entity.transitionToRoute(this.entity.successTransitionTarget);
       } else {
         const targetModel = this.entity.successTransitionModel || model;
-        this.entity.transitionToRoute(this.entity.successTransitionTarget, targetModel);
+        this.entity.transitionToRoute(
+          this.entity.successTransitionTarget,
+          targetModel
+        );
       }
     }
   }
 
   onError(error) {
-    this.entity.errorMessage = error.errors.map(err => err.detail).join(', ');
+    this.entity.errorMessage = error.errors.map((err) => err.detail).join(', ');
   }
 
   saveModel(model) {
     this.entity.errorMessage = null;
     if (!isNone(model)) {
-      model.save()
-        .then(savedModel => {
+      model
+        .save()
+        .then((savedModel) => {
           this.onSuccess(savedModel);
-        }).catch(error => {
+        })
+        .catch((error) => {
           this.onError(error);
         });
     }

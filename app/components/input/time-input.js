@@ -19,7 +19,7 @@ export default TextField.extend({
       const updatedMomentValue = moment(inputValue, format);
       this.updateDateValue(updatedMomentValue);
       return inputValue;
-    }
+    },
   }),
   updateDateValue(updatedMomentValue) {
     let momentValue = moment(this.dateValue);
@@ -33,8 +33,8 @@ export default TextField.extend({
     this.set('dateValue', momentValue.toDate());
   },
   updateMomentDateValue(momentValue, updatedMomentValue) {
-    this.momentFieldsToUpdate.forEach(fieldName => {
-      momentValue.set(fieldName, (updatedMomentValue.get(fieldName)));
+    this.momentFieldsToUpdate.forEach((fieldName) => {
+      momentValue.set(fieldName, updatedMomentValue.get(fieldName));
     });
-  }
+  },
 });

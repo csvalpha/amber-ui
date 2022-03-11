@@ -4,17 +4,17 @@ import { setBreakpoint } from 'ember-responsive/test-support';
 import Service from '@ember/service';
 
 class SessionStub extends Service {
-  isAuthenticated = false
+  isAuthenticated = false;
 }
 
-module('Unit | Service | layoutManager', function(hooks) {
+module('Unit | Service | layoutManager', function (hooks) {
   setupTest(hooks);
 
-  hooks.beforeEach(function() {
+  hooks.beforeEach(function () {
     this.owner.register('service:session', SessionStub);
   });
 
-  test('it sets the left sidebar visibility according to media device', function(assert) {
+  test('it sets the left sidebar visibility according to media device', function (assert) {
     let service = this.owner.lookup('service:layout-manager');
     service.set('session.isAuthenticated', true);
 
@@ -38,7 +38,7 @@ module('Unit | Service | layoutManager', function(hooks) {
     assert.notOk(service.leftSideBarOpen);
   });
 
-  test('it sets the left sidebar visibility according to localStorage - true', function(assert) {
+  test('it sets the left sidebar visibility according to localStorage - true', function (assert) {
     const service = this.owner.lookup('service:layout-manager');
     service.set('session.isAuthenticated', true);
 
@@ -52,12 +52,12 @@ module('Unit | Service | layoutManager', function(hooks) {
       getItem(identifier) {
         // Return string because localstorage does return string
         return identifier === 'leftSideBarExpanded' ? 'true' : 'false';
-      }
+      },
     });
 
     assert.ok(service.leftSideBarExpanded);
   });
-  test('it sets the left sidebar visibility according to localStorage - false', function(assert) {
+  test('it sets the left sidebar visibility according to localStorage - false', function (assert) {
     const service = this.owner.lookup('service:layout-manager');
     service.set('session.isAuthenticated', true);
 
@@ -66,7 +66,7 @@ module('Unit | Service | layoutManager', function(hooks) {
       getItem(identifier) {
         // Return string because localstorage does return string
         return identifier === 'leftSideBarExpanded' ? 'false' : 'true';
-      }
+      },
     });
 
     assert.notOk(service.leftSideBarExpanded);

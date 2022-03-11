@@ -10,5 +10,5 @@ export default Factory.extend({
     transaction.user = server.create('user');
     transaction.collection = server.create('debit-collection');
     transaction.save();
-  }
+  },
 });

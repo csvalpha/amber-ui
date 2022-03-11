@@ -8,6 +8,8 @@ export default class ThreadHasNewPosts extends Helper {
     let currentStore = this.localStorage.getItem('forumLastRead') || '{}';
     currentStore = JSON.parse(currentStore);
     const lastRead = currentStore[thread.get('id')];
-    return lastRead === undefined || new Date(lastRead) < thread.get('updatedAt');
+    return (
+      lastRead === undefined || new Date(lastRead) < thread.get('updatedAt')
+    );
   }
 }

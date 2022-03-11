@@ -3,31 +3,35 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class UsersShowGroupsController extends GroupMembershipsController {
-  @tracked sortedAttribute = 'group.name'
-  @tracked showAdministrativeGroups = false
+  @tracked sortedAttribute = 'group.name';
+  @tracked showAdministrativeGroups = false;
 
-  filterableAttributes = [
-    'group.name'
-  ]
+  filterableAttributes = ['group.name'];
 
   sortableAttributes = [
     {
       value: 'group.name',
-      label: 'Titel'
-    }
-  ]
+      label: 'Titel',
+    },
+  ];
 
   get filteredModelsWithAdministrative() {
-    return this.filteredModels.filter(model => {
+    return this.filteredModels.filter((model) => {
       const { administrative } = model;
-      return ((administrative && this.showAdministrativeGroups) || administrative === false);
+      return (
+        (administrative && this.showAdministrativeGroups) ||
+        administrative === false
+      );
     });
   }
 
   @action
   selectFirstItem() {
     if (this.filteredModels.length > 0) {
-      this.transitionToRoute('groups.show', this.filteredModels.firstObject.group.get('id'));
+      this.transitionToRoute(
+        'groups.show',
+        this.filteredModels.firstObject.group.get('id')
+      );
     }
   }
 }

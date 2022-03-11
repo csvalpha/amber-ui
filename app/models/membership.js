@@ -18,6 +18,9 @@ export default class Membership extends Model {
   }
 
   get userIsCurrentlyMember() {
-    return (this.startDate < moment.now() && (!this.endDate || this.endDate > moment.now()));
+    return (
+      this.startDate < moment.now() &&
+      (!this.endDate || this.endDate > moment.now())
+    );
   }
 }

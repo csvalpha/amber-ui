@@ -1,9 +1,6 @@
-module.exports = function() {
+module.exports = function () {
   return {
-    'free-regular-svg-icons': [
-      'face-smile',
-      'square'
-    ],
+    'free-regular-svg-icons': ['face-smile', 'square'],
     'free-solid-svg-icons': [
       'address-book',
       'angle-down',
@@ -74,7 +71,7 @@ module.exports = function() {
       'volume-high',
       'wand-magic-sparkles',
       'wrench',
-      'xmark'
+      'xmark',
     ],
     'free-brands-svg-icons': [
       'android',
@@ -82,7 +79,7 @@ module.exports = function() {
       'facebook',
       'instagram',
       'windows',
-      'youtube'
-    ]
+      'youtube',
+    ],
   };
 };

@@ -23,12 +23,19 @@ export default class Activity extends Ability {
   }
 
   get canEdit() {
-    return this.session.hasPermission('activity.update') || this.isActivityOwner(this.model);
+    return (
+      this.session.hasPermission('activity.update') ||
+      this.isActivityOwner(this.model)
+    );
   }
 
   get canGenerateAlias() {
     const { form } = this.model;
-    return !isNone(form) && form.get('hasResponses') && this.isActivityOwner(this.model);
+    return (
+      !isNone(form) &&
+      form.get('hasResponses') &&
+      this.isActivityOwner(this.model)
+    );
   }
 
   get canPrintEnrolledMembers() {

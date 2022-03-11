@@ -5,5 +5,5 @@ export default Model.extend({
   options: hasMany('form-closed-question-option'),
   isMultipleChoice() {
     return this.fieldType === 'checkbox';
-  }
+  },
 });

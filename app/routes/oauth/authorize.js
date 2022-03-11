@@ -13,9 +13,9 @@ export default class OauthAuthorizeRoute extends AuthenticatedRoute {
   constructor() {
     super(...arguments);
 
-    this.router.on('routeDidChange', event => {
+    this.router.on('routeDidChange', (event) => {
       // When routeDidChange is not oauth.authorize, skip
-      if (event.targetName !==  'oauth.authorize') {
+      if (event.targetName !== 'oauth.authorize') {
         return;
       }
 
@@ -25,17 +25,20 @@ export default class OauthAuthorizeRoute extends AuthenticatedRoute {
       const responseType = event.to.queryParams.response_type;
       const { state, scope } = event.to.queryParams;
 
-      this.fetch.fetch(`/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&state=${state}&scope=${scope}`
-      ).then(response => {
-        response.json().then(json => {
-          // If user already authenticated redirect, otherwise show client name
-          if (json.status === 'redirect') {
-            location.href = json.redirect_uri;
-          } else {
-            this.controller.set('clientName', json.client_name);
-          }
+      this.fetch
+        .fetch(
+          `/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&state=${state}&scope=${scope}`
+        )
+        .then((response) => {
+          response.json().then((json) => {
+            // If user already authenticated redirect, otherwise show client name
+            if (json.status === 'redirect') {
+              location.href = json.redirect_uri;
+            } else {
+              this.controller.set('clientName', json.client_name);
+            }
+          });
         });
-      });
     });
   }
 }

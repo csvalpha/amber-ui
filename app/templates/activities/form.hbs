@@ -1,48 +1,108 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5>{{if @model.isNew 'Activiteit aanmaken' 'Activiteit wijzigen'}}</h5>
   </div>
-  <div class="card-body">
-    <form {{action "submit" on="submit"}}>
+  <div class='card-body'>
+    <form {{action 'submit' on='submit'}}>
 
       {{#if @model.form.hasResponses}}
-        <div class="alert alert-danger">
+        <div class='alert alert-danger'>
           Je kunt niet alles meer aanpassen, omdat er al reacties zijn.
         </div>
       {{/if}}
-      <ModelForm::TextInput @model={{model}} @property="title" @label="Titel" @required={{true}} />
-      <ModelForm::MdInput @model={{model}} @property="description" @label="Omschrijving" @required={{true}} @inputIdentifier="activity-form-content" />
-      <ModelForm::SelectInput @model={{model}} @property="category" @label="Categorie" @required={{true}} @options={{activityCategoryOptions}} />
-      <ModelForm::FileInput @model={{model}} @property="coverPhoto" @label="Coverfoto" @loadedCallback={{action "coverPhotoLoaded"}} />
-      <ModelForm::TextInput @model={{model}} @property="location" @label="Locatie" @required={{true}} />
-      <ModelForm::TextInput @model={{model}} @property="price" @label="Prijs" @required={{true}} @type="number" @step="0.01" @disabled={{@model.form.hasResponses}} />
-      <ModelForm::DatetimeInput @model={{model}} @property="startTime" @label="Begintijd" @required={{true}} />
-      <ModelForm::DatetimeInput @model={{model}} @property="endTime" @label="Eindtijd" @required={{true}} />
+      <ModelForm::TextInput
+        @model={{model}}
+        @property='title'
+        @label='Titel'
+        @required={{true}}
+      />
+      <ModelForm::MdInput
+        @model={{model}}
+        @property='description'
+        @label='Omschrijving'
+        @required={{true}}
+        @inputIdentifier='activity-form-content'
+      />
+      <ModelForm::SelectInput
+        @model={{model}}
+        @property='category'
+        @label='Categorie'
+        @required={{true}}
+        @options={{activityCategoryOptions}}
+      />
+      <ModelForm::FileInput
+        @model={{model}}
+        @property='coverPhoto'
+        @label='Coverfoto'
+        @loadedCallback={{action 'coverPhotoLoaded'}}
+      />
+      <ModelForm::TextInput
+        @model={{model}}
+        @property='location'
+        @label='Locatie'
+        @required={{true}}
+      />
+      <ModelForm::TextInput
+        @model={{model}}
+        @property='price'
+        @label='Prijs'
+        @required={{true}}
+        @type='number'
+        @step='0.01'
+        @disabled={{@model.form.hasResponses}}
+      />
+      <ModelForm::DatetimeInput
+        @model={{model}}
+        @property='startTime'
+        @label='Begintijd'
+        @required={{true}}
+      />
+      <ModelForm::DatetimeInput
+        @model={{model}}
+        @property='endTime'
+        @label='Eindtijd'
+        @required={{true}}
+      />
 
       {{#if @model.isFullDayButNotMidnight}}
-        <div class="alert alert-warning">
-          De activiteit is langer dan 24 uur. In Apple Calendar worden alle dagen afgeblokt waarop de activiteit plaatsvind, in tegenstelling tot Google Calendar, waar de activiteit een balk bovenin wordt.
-          Om in Apple Calendar ook een balk bovenin te krijgen moet je de activiteit laten beginnen en eindigen om middernacht (00:00).
+        <div class='alert alert-warning'>
+          De activiteit is langer dan 24 uur. In Apple Calendar worden alle
+          dagen afgeblokt waarop de activiteit plaatsvind, in tegenstelling tot
+          Google Calendar, waar de activiteit een balk bovenin wordt. Om in
+          Apple Calendar ook een balk bovenin te krijgen moet je de activiteit
+          laten beginnen en eindigen om middernacht (00:00).
         </div>
       {{/if}}
 
-      <ModelForm::CheckboxInput @model={{model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
+      <ModelForm::CheckboxInput
+        @model={{model}}
+        @property='publiclyVisible'
+        @label='Zichtbaar voor externen'
+      />
 
       {{#if @model.publiclyVisible}}
-        <div class="alert alert-warning">
-          Een activiteit die zichtbaar is voor niet-leden is zichtbaar op de externe website. Zet dit vinkje alleen aan met toestemming van het Algemeen Bestuur.
+        <div class='alert alert-warning'>
+          Een activiteit die zichtbaar is voor niet-leden is zichtbaar op de
+          externe website. Zet dit vinkje alleen aan met toestemming van het
+          Algemeen Bestuur.
         </div>
       {{/if}}
 
-      <div class="row">
-        <div class="col-md-12">
-          <div class="form-group row">
-            <label class="col-md-2 form-control-label">Namens groep of commissie</label>
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='form-group row'>
+            <label class='col-md-2 form-control-label'>Namens groep of commissie</label>
 
-            <div class="col-sm-10">
-              <PowerSelect @options={{groups}} @onChange={{action (mut @model.group)}}
-                           @selected={{@model.group}} @searchEnabled={{true}} @searchField="name"
-                           @allowClear={{true}} as |group|>
+            <div class='col-sm-10'>
+              <PowerSelect
+                @options={{groups}}
+                @onChange={{action (mut @model.group)}}
+                @selected={{@model.group}}
+                @searchEnabled={{true}}
+                @searchField='name'
+                @allowClear={{true}}
+                as |group|
+              >
                 {{group.name}}
               </PowerSelect>
 
@@ -52,35 +112,49 @@
         </div>
       </div>
 
-      <ModelForm::CheckboxInput @model={{this}} @property="activityHasForm" @label="Deze activiteit heeft een inschrijflijst" @disabled={{@model.form.hasResponses}} />
+      <ModelForm::CheckboxInput
+        @model={{this}}
+        @property='activityHasForm'
+        @label='Deze activiteit heeft een inschrijflijst'
+        @disabled={{@model.form.hasResponses}}
+      />
 
       {{#if (and @model.publiclyVisible activityHasForm)}}
-        <div class="alert alert-warning">
-          Inschrijflijsten zijn alleen zichtbaar voor leden. Voor extern gebruik van formulieren kan gebruik gemaakt worden van Google Forms. Plaats dan de link in de beschrijving van je activiteit.
+        <div class='alert alert-warning'>
+          Inschrijflijsten zijn alleen zichtbaar voor leden. Voor extern gebruik
+          van formulieren kan gebruik gemaakt worden van Google Forms. Plaats
+          dan de link in de beschrijving van je activiteit.
         </div>
       {{/if}}
 
-      <div class="row">
-        <div class="col-sm-10 offset-sm-2">
+      <div class='row'>
+        <div class='col-sm-10 offset-sm-2'>
           {{#each @model.form.errors.base as |error|}}
-            <div class="text-danger form-submit-error">{{error.message}}</div>
+            <div class='text-danger form-submit-error'>{{error.message}}</div>
           {{/each}}
         </div>
       </div>
 
-      <ModelForm::FormActions @errors={{combinedErrors}} @errorMessage={{this.errorMessage}}>
-        <LinkTo @route="activities.show" @model={{model.id}} class="btn btn-default">Annuleren</LinkTo>
+      <ModelForm::FormActions
+        @errors={{combinedErrors}}
+        @errorMessage={{this.errorMessage}}
+      >
+        <LinkTo
+          @route='activities.show'
+          @model={{model.id}}
+          class='btn btn-default'
+        >Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>
 </div>
 
 {{#if activityHasForm}}
-  <div class="card">
-    <div class="card-header">
+  <div class='card'>
+    <div class='card-header'>
       <h5>Inschrijflijst</h5>
     </div>
-    <div class="card-block p-3">
+    <div class='card-block p-3'>
       {{form/form-form @model.form}}
     </div>
   </div>

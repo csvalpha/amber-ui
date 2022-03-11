@@ -2,22 +2,22 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class PhotoAlbumsIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute = 'date'
-  @tracked sortedAscending = false
+  @tracked sortedAttribute = 'date';
+  @tracked sortedAscending = false;
 
-  queryParams = ['search', 'sort', 'page']
+  queryParams = ['search', 'sort', 'page'];
   sortableAttributes = [
     {
       value: 'title',
-      label: 'Titel'
+      label: 'Titel',
     },
     {
       value: 'date',
-      label: 'Datum'
+      label: 'Datum',
     },
     {
       value: 'created_at',
-      label: 'Toegevoegd'
-    }
-  ]
+      label: 'Toegevoegd',
+    },
+  ];
 }

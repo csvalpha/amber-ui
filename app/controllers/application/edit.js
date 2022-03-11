@@ -5,13 +5,13 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class EditController extends Controller {
-  @service('flash-notice') flashNotice
+  @service('flash-notice') flashNotice;
 
-  @tracked errorMessage = null
+  @tracked errorMessage = null;
 
-  successMessage = 'Wijzigen gelukt!'
-  successTransitionTarget = null
-  successTransitionModel = null
+  successMessage = 'Wijzigen gelukt!';
+  successTransitionTarget = null;
+  successTransitionModel = null;
 
   constructor() {
     super(...arguments);

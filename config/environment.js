@@ -1,7 +1,7 @@
 /* eslint-env node */
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const deployTarget = process.env.DEPLOY_TARGET;
 
   const ENV = {
@@ -9,12 +9,12 @@ module.exports = function(environment) {
     environment,
     rootURL: '/',
     api: {
-      hostname: '/api/v1'
+      hostname: '/api/v1',
     },
 
     moment: {
       includeLocales: ['nl'],
-      allowEmpty: true
+      allowEmpty: true,
     },
 
     showdown: {
@@ -36,13 +36,13 @@ module.exports = function(environment) {
       simpleLineBreaks: true,
 
       // ~~strikethrough~~
-      strikethrough: true
+      strikethrough: true,
     },
 
     // FontAwesome
     fontawesome: {
       // Regular icons as default
-      defaultPrefix: 'fas'
+      defaultPrefix: 'fas',
     },
 
     locationType: 'auto',
@@ -54,15 +54,15 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
-      flashNoticeDefaultDuration: 2000
+      flashNoticeDefaultDuration: 2000,
     },
 
-    maxFilesize: 8.5 // MB
+    maxFilesize: 8.5, // MB
   };
 
   if (environment === 'development') {
@@ -71,7 +71,7 @@ module.exports = function(environment) {
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
       enabled: false,
-      excludeFilesFromBuild: true
+      excludeFilesFromBuild: true,
     };
 
     // When true, log all access and permission lookups in the console.
@@ -99,12 +99,13 @@ module.exports = function(environment) {
     sentry: {
       dsn: 'https://invalid@sentry.io/12345', // invalid key, will be replaced when run as prod
       environment: deployTarget,
-      release: process.env.BUILD_HASH
-    }
+      release: process.env.BUILD_HASH,
+    },
   };
 
   if (environment === 'production') {
-    ENV['@sentry/ember'].sentry.dsn = 'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
+    ENV['@sentry/ember'].sentry.dsn =
+      'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
   }
 
   if (deployTarget === 'production') {

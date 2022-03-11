@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class MembersRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Leden' }
+  breadCrumb = { title: 'Leden' };
 
   get pageActions() {
     return [
@@ -9,14 +9,14 @@ export default class MembersRoute extends AuthenticatedRoute {
         link: 'users.new',
         title: 'Nieuw lid',
         icon: 'plus',
-        canAccess: this.abilities.can('create users')
+        canAccess: this.abilities.can('create users'),
       },
       {
         link: 'users.webdav',
         title: 'Contactsynchronisatie',
         icon: 'address-book',
-        canAccess: this.abilities.can('show webdav users')
-      }
+        canAccess: this.abilities.can('show webdav users'),
+      },
     ];
   }
 

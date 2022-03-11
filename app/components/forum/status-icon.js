@@ -1,11 +1,11 @@
 import Component from '@ember/component';
 
 export const ForumStatusIconComponent = Component.extend({
-  thread: null
+  thread: null,
 });
 
 ForumStatusIconComponent.reopenClass({
-  positionalParams: ['thread']
+  positionalParams: ['thread'],
 });
 
 export default ForumStatusIconComponent;

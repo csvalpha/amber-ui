@@ -39,7 +39,9 @@ export default class Activity extends Model {
     const prettyStartTime = startTime.format('HH:mm');
 
     if (moment().isBetween(startTime, endTime)) {
-      const format = startTime.isBefore(moment(), 'day') ? prettyStartDateTime : prettyStartTime;
+      const format = startTime.isBefore(moment(), 'day')
+        ? prettyStartDateTime
+        : prettyStartTime;
       return `Nu bezig (vanaf ${format})`;
     } else if (moment().isSame(startTime, 'day')) {
       return `Vandaag, ${prettyStartTime}`;
@@ -52,8 +54,16 @@ export default class Activity extends Model {
     const startTime = moment(this.startTime);
     const endTime = moment(this.endTime);
     const days = endTime.diff(startTime, 'days');
-    const midnight = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 0 && endTime.minute() === 0;
-    const oneDay = startTime.hour() === 0 && startTime.minute() === 0 && endTime.hour() === 23 && endTime.minute() === 59;
+    const midnight =
+      startTime.hour() === 0 &&
+      startTime.minute() === 0 &&
+      endTime.hour() === 0 &&
+      endTime.minute() === 0;
+    const oneDay =
+      startTime.hour() === 0 &&
+      startTime.minute() === 0 &&
+      endTime.hour() === 23 &&
+      endTime.minute() === 59;
     return oneDay || (days >= 1 && !midnight);
   }
 
@@ -63,7 +73,7 @@ export default class Activity extends Model {
 
   // Methods
   saveWithForm() {
-    return this.form.then(form => {
+    return this.form.then((form) => {
       if (!isNone(form)) {
         return form.saveWithQuestions().then(() => {
           return this.save();
@@ -78,13 +88,15 @@ export default class Activity extends Model {
     if (user.get('id') === this.author.get('id')) {
       return true;
     }
-    console.log(user.currentMemberships);
-    return user.currentMemberships.some(membership => membership.group.get('id') === this.group.get('id'));
+
+    return user.currentMemberships.some(
+      (membership) => membership.group.get('id') === this.group.get('id')
+    );
   }
 
   rollbackAttributesAndForm() {
     this.rollbackAttributes();
-    this.form.then(form => {
+    this.form.then((form) => {
       if (!isNone(form)) {
         form.rollbackAttributesAndQuestions();
       }

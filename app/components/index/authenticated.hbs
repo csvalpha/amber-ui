@@ -1,38 +1,37 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
     <Tools::BoardRoomPresence />
-    <div class="col col-md-auto page-action d-md-none">
-      <LinkTo @route="quickpost">
-        <button type="button" class="btn btn-primary" title=quickpost>
-          <FaIcon @icon="comments"/>
-          <span class="d-none d-md-inline"> Quickpost </span>
+    <div class='col col-md-auto page-action d-md-none'>
+      <LinkTo @route='quickpost'>
+        <button type='button' class='btn btn-primary' title='quickpost'>
+          <FaIcon @icon='comments' />
+          <span class='d-none d-md-inline'> Quickpost </span>
         </button>
       </LinkTo>
     </div>
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="article-cards-wrapper full-width-small-screens pl-3 pl-md-0">
-  <div class="row pb-3 horizontal-scroll-container">
+<div class='article-cards-wrapper full-width-small-screens pl-3 pl-md-0'>
+  <div class='row pb-3 horizontal-scroll-container'>
     {{#each @articles as |article|}}
-      {{cards/frontpage-article-card article class="col-10 col-sm-8 col-lg-4"}}
+      {{cards/frontpage-article-card article class='col-10 col-sm-8 col-lg-4'}}
     {{/each}}
   </div>
 </div>
 
-<div class="d-flex full-width-small-screens">
+<div class='d-flex full-width-small-screens'>
   <AdvertisementTool />
 </div>
 
-
-<div class="row pt-4">
-  <div class="col-7 d-none d-md-block">
-    <div class="article-cards-wrapper full-width-small-screens pl-3 pl-md-0">
+<div class='row pt-4'>
+  <div class='col-7 d-none d-md-block'>
+    <div class='article-cards-wrapper full-width-small-screens pl-3 pl-md-0'>
       <Index::SponsorkliksAlert />
     </div>
     <QuickPost />
   </div>
-  <div class="col-12 col-md-5">
+  <div class='col-12 col-md-5'>
     {{#if (can 'show activities')}}
       {{#if (can 'create form/responses')}}
         <Tools::ClosingActivities />

@@ -12,8 +12,8 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: this.controller.model,
-        canAccess: this.abilities.can('edit debit/mandates')
-      }
+        canAccess: this.abilities.can('edit debit/mandates'),
+      },
     ];
   }
 
