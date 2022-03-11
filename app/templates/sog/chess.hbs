@@ -1,19 +1,19 @@
-<div class="row-cols-12 chess">
-  <div class="card">
-    <div class="card-body container">
-      <h1 class="card-title">Schaken</h1>
-      <div class="row">
-        <div class="col-lg-7 col-10">
+<div class='row-cols-12 chess'>
+  <div class='card'>
+    <div class='card-body container'>
+      <h1 class='card-title'>Schaken</h1>
+      <div class='row'>
+        <div class='col-lg-7 col-10'>
           <h2>Bord</h2>
           {{#each this.board.squares as |row|}}
-            <div class="row">
+            <div class='row'>
               {{#each row as |square|}}
-                <Sog::Chess::Square @square={{square}}/>
+                <Sog::Chess::Square @square={{square}} />
               {{/each}}
             </div>
           {{/each}}
         </div>
-        <div class="col-lg-5 col-10 chess-game-info">
+        <div class='col-lg-5 col-10 chess-game-info'>
           <h2>Info</h2>
         </div>
       </div>
