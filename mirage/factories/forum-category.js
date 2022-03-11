@@ -8,7 +8,9 @@ export default Factory.extend({
   withThreads: trait({
     amountOfThreads: 6,
     afterCreate(category, server) {
-      category.threads = server.createList('forum-thread', 6, 'withPosts', { category });
-    }
-  })
+      category.threads = server.createList('forum-thread', 6, 'withPosts', {
+        category,
+      });
+    },
+  }),
 });

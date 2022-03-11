@@ -1,18 +1,18 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<div class="row">
-  <div class="col">
-    <div class="card">
-      <div class="row">
-        <div class="col-md">
-          <div class="card-header">
+<div class='row'>
+  <div class='col'>
+    <div class='card'>
+      <div class='row'>
+        <div class='col-md'>
+          <div class='card-header'>
             <h2>Mandaat {{@model.id}}</h2>
           </div>
-          <div class="card-body table-responsive">
-            <p class="card-text">
-              <table class="table table-sm">
+          <div class='card-body table-responsive'>
+            <p class='card-text'>
+              <table class='table table-sm'>
                 <tr>
                   <td>Start datum</td>
                   <td>{{moment-format @model.startDate 'DD-M-YYYY'}}</td>
@@ -32,7 +32,10 @@
                 <tr>
                   <td>Gebruiker</td>
                   <td>
-                    <LinkTo @route="users.show" @model={{@model.user.id}}>{{@model.user.fullName}}</LinkTo>
+                    <LinkTo
+                      @route='users.show'
+                      @model={{@model.user.id}}
+                    >{{@model.user.fullName}}</LinkTo>
                   </td>
                 </tr>
               </table>

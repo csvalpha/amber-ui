@@ -1,8 +1,15 @@
 import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 
 const exif = [
-  'Make', 'Model', 'DateTimeOriginal', 'ExposureTime', 'ApertureValue',
-  'IsoSpeedRatings', 'Copyright', 'LensModel', 'FocalLength'
+  'Make',
+  'Model',
+  'DateTimeOriginal',
+  'ExposureTime',
+  'ApertureValue',
+  'IsoSpeedRatings',
+  'Copyright',
+  'LensModel',
+  'FocalLength',
 ];
 
 export default class Photo extends Model {

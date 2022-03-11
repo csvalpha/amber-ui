@@ -3,14 +3,18 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class SwipeableComponent extends Component {
-  touching = false
-  swiping = false
-  xStart = null
-  yStart = null
-  xEnd = null
-  yEnd = null
+  touching = false;
+  swiping = false;
+  xStart = null;
+  yStart = null;
+  xEnd = null;
+  yEnd = null;
   @tracked
-  swipeDirection = this.args.onSwipeHorizontal ? 'horizontal' : (this.args.onSwipeVertical ? 'vertical' : null)
+  swipeDirection = this.args.onSwipeHorizontal
+    ? 'horizontal'
+    : this.args.onSwipeVertical
+    ? 'vertical'
+    : null;
 
   reset() {
     this.touching = false;
@@ -33,7 +37,11 @@ export default class SwipeableComponent extends Component {
 
   @action
   onTouchEnd(touchEndEvent) {
-    if (touchEndEvent.targetTouches.length === 0 && touchEndEvent.changedTouches.length === 1 && this.swiping) {
+    if (
+      touchEndEvent.targetTouches.length === 0 &&
+      touchEndEvent.changedTouches.length === 1 &&
+      this.swiping
+    ) {
       const touch = touchEndEvent.changedTouches.item(0);
       this.xEnd = touch.pageX;
       this.yEnd = touch.pageY;
@@ -46,7 +54,8 @@ export default class SwipeableComponent extends Component {
   @action
   onTouchMove(touchMoveEvent) {
     if (this.touching) {
-      if (touchMoveEvent.targetTouches.length === 1) { // only do swiping if one finger touches
+      if (touchMoveEvent.targetTouches.length === 1) {
+        // only do swiping if one finger touches
         // you need to define the swipe actions, even if it's just an empty function
         const touch = touchMoveEvent.targetTouches.item(0);
         const xDiff = touch.pageX - this.xStart;

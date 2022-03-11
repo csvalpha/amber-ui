@@ -3,9 +3,9 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class LayoutManager extends Service {
-  @service media
-  @service session
-  @service localStorage
+  @service media;
+  @service session;
+  @service localStorage;
 
   @tracked profileMenuOpen;
   @tracked _leftSideBarOverride;

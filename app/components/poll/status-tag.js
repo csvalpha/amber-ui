@@ -2,11 +2,11 @@ import { FormStatusTagComponent } from 'alpha-amber/components/form/status-tag';
 
 const PollStatusTagComponent = FormStatusTagComponent.extend({
   isNoneValue: 'laden...',
-  responseCompletedValue: 'Ingevuld'
+  responseCompletedValue: 'Ingevuld',
 });
 
 PollStatusTagComponent.reopenClass({
-  positionalParams: ['form']
+  positionalParams: ['form'],
 });
 
 export default PollStatusTagComponent;

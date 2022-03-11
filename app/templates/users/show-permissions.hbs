@@ -1,10 +1,13 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
 <TabbedView @tabItems={{tabItems}}>
   <h5>Persoonlijke rechten</h5>
-  <div class="table-responsive">
-    <Permissions::PermissionsTable @modelPermissions={{@model.userPermissions}} @inheritedPermissions={{@model.permissions}} />
+  <div class='table-responsive'>
+    <Permissions::PermissionsTable
+      @modelPermissions={{@model.userPermissions}}
+      @inheritedPermissions={{@model.permissions}}
+    />
   </div>
 </TabbedView>

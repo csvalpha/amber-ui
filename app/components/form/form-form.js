@@ -12,7 +12,7 @@ export const FormFormComponent = Component.extend({
         form,
         fieldType,
         position,
-        required: true
+        required: true,
       });
     },
     addOpenQuestion() {
@@ -20,12 +20,12 @@ export const FormFormComponent = Component.extend({
     },
     addClosedQuestion() {
       this.send('createQuestion', 'form/closed-question', 'radio');
-    }
-  }
+    },
+  },
 });
 
 FormFormComponent.reopenClass({
-  positionalParams: ['model']
+  positionalParams: ['model'],
 });
 
 export default FormFormComponent;

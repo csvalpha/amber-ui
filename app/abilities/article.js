@@ -17,11 +17,17 @@ export default class Article extends Ability {
   }
 
   get canShowArticleComments() {
-    return this.session.hasPermission('article-comment.read') || this.model.publiclyVisible;
+    return (
+      this.session.hasPermission('article-comment.read') ||
+      this.model.publiclyVisible
+    );
   }
 
   get canEdit() {
-    return this.session.hasPermission('article.update') || this.isArticleOwner(this.model);
+    return (
+      this.session.hasPermission('article.update') ||
+      this.isArticleOwner(this.model)
+    );
   }
 
   isArticleOwner(article) {

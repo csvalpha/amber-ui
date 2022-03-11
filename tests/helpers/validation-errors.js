@@ -1,6 +1,6 @@
-import { registerHelper } from '@ember/test';
+import validationError from './validation-error';
 
-export default registerHelper('validationErrors', (app, values) => {
+export default function (values) {
   const errors = [];
   for (const attribute in values) {
     if ({}.hasOwnProperty.call(values, attribute)) {
@@ -9,4 +9,4 @@ export default registerHelper('validationErrors', (app, values) => {
   }
 
   return errors;
-});
+}

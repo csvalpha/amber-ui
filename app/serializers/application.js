@@ -3,13 +3,13 @@ import JSONAPISerializer from '@ember-data/serializer/json-api';
 import { underscore } from '@ember/string';
 import Ember from 'ember';
 
-const {  Logger } = Ember;
+const { Logger } = Ember;
 
 const verbReplacements = {
   new: 'create',
   show: 'read',
   index: 'read',
-  edit: 'update'
+  edit: 'update',
 };
 
 export default class Application extends JSONAPISerializer {
@@ -19,7 +19,7 @@ export default class Application extends JSONAPISerializer {
   // provides wrong links data for namespaced models
   normalize(typeHash, hash) {
     if (hash.relationships) {
-      Object.keys(hash.relationships).forEach(relationship => {
+      Object.keys(hash.relationships).forEach((relationship) => {
         if (hash.relationships[relationship].data) {
           delete hash.relationships[relationship].links;
         }
@@ -45,7 +45,9 @@ export default class Application extends JSONAPISerializer {
 
     const { modelName } = route;
     if (modelName === undefined || modelName === null) {
-      Logger.error(`modelName for route '${routeName}' is not defined nor overridden`);
+      Logger.error(
+        `modelName for route '${routeName}' is not defined nor overridden`
+      );
     }
 
     return `${modelName}.${action}`;
@@ -68,9 +70,17 @@ export default class Application extends JSONAPISerializer {
     // Add the namespace to the PayloadKey
     // The api gives type forms while Ember expects form/forms
     key = super.modelNameFromPayloadKey(key);
-    if (['form', 'closed-question',
-      'closed-question-answer', 'closed-question-option',
-      'open-question', 'open-question-answer', 'response'].includes(key)) {
+    if (
+      [
+        'form',
+        'closed-question',
+        'closed-question-answer',
+        'closed-question-option',
+        'open-question',
+        'open-question-answer',
+        'response',
+      ].includes(key)
+    ) {
       return `form/${key}`;
     }
 

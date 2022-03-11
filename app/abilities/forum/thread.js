@@ -18,8 +18,11 @@ export default class Thread extends Ability {
   }
 
   get canCreatePost() {
-    return (this.model.get('isOpen') || this.session.hasPermission('forum/thread.update'))
-      && this.session.hasPermission('forum/post.create');
+    return (
+      (this.model.get('isOpen') ||
+        this.session.hasPermission('forum/thread.update')) &&
+      this.session.hasPermission('forum/post.create')
+    );
   }
 
   get canQuotePost() {

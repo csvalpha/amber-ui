@@ -1,29 +1,61 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5> Gebruikers importeren </h5>
   </div>
-  <div class="card-body">
+  <div class='card-body'>
     <h5>Hoe werkt het importeren van gebruikers?</h5>
-    <p>Je upload een bestand met hetzelfde format als het voorbeeldbestand. Vervolgens krijg je te zien welke gebruikers er geïmporteerd gaan worden. Controleer de lijst goed, en bevestig het importeren als je geen fouten in de data ziet.</p>
-    <p class="alert alert-info">Na het importeren zijn de nieuwe gebruikers nog niet geactiveerd. Je zal zelf bij elke gebruiker nog op de knop "Verstuur activatie code" moeten klikken.</p>
-    <a href="/files/user_import_example.csv" class="small" target="_blank" rel="noopener noreferrer">Voorbeeldbestand gebruikers importeren</a>
+    <p>Je upload een bestand met hetzelfde format als het voorbeeldbestand.
+      Vervolgens krijg je te zien welke gebruikers er geïmporteerd gaan worden.
+      Controleer de lijst goed, en bevestig het importeren als je geen fouten in
+      de data ziet.</p>
+    <p class='alert alert-info'>Na het importeren zijn de nieuwe gebruikers nog
+      niet geactiveerd. Je zal zelf bij elke gebruiker nog op de knop "Verstuur
+      activatie code" moeten klikken.</p>
+    <a
+      href='/files/user_import_example.csv'
+      class='small'
+      target='_blank'
+      rel='noopener noreferrer'
+    >Voorbeeldbestand gebruikers importeren</a>
 
-    <hr>
+    <hr />
 
     <form {{action 'uploadFile' on='submit'}}>
-      <ModelForm::FileInput @model={{model}} @property="importFile" @label="Bestand *" @loadedCallback={{action "fileLoaded"}} @validExtensions={{validExtensions}} @validMimetypes={{validMimetypes}} />
-      <div class="row form-group">
-        <label class="col-sm-2 col-form-label form-control-label" for="group">Toevoegen aan groep</label>
-        <div class="col-sm-10">
-          <PowerSelect @selected={{addToGroup}} @options={{groups}} @onChange={{action (mut addToGroup)}} @searchEnabled={{true}} @searchField="name" @allowClear={{true}} as |group|>
+      <ModelForm::FileInput
+        @model={{model}}
+        @property='importFile'
+        @label='Bestand *'
+        @loadedCallback={{action 'fileLoaded'}}
+        @validExtensions={{validExtensions}}
+        @validMimetypes={{validMimetypes}}
+      />
+      <div class='row form-group'>
+        <label
+          class='col-sm-2 col-form-label form-control-label'
+          for='group'
+        >Toevoegen aan groep</label>
+        <div class='col-sm-10'>
+          <PowerSelect
+            @selected={{addToGroup}}
+            @options={{groups}}
+            @onChange={{action (mut addToGroup)}}
+            @searchEnabled={{true}}
+            @searchField='name'
+            @allowClear={{true}}
+            as |group|
+          >
             {{group.name}}
           </PowerSelect>
         </div>
       </div>
       {{#unless newUsers}}
-        <div class="form-actions form-group row justify-content-end">
-          <div class="col-sm-10">
-            <button type="submit" class="btn btn-secondary" disabled={{if importFile false true}}>
+        <div class='form-actions form-group row justify-content-end'>
+          <div class='col-sm-10'>
+            <button
+              type='submit'
+              class='btn btn-secondary'
+              disabled={{if importFile false true}}
+            >
               Bestand uploaden
             </button>
           </div>
@@ -32,8 +64,9 @@
     </form>
 
     {{#if importErrors}}
-      <div class="alert alert-danger">
-        Er zijn (ook) nog fouten gevonden in het geüploade bestand, deze moeten opgelost worden voordat je het importeren kan voltooien!
+      <div class='alert alert-danger'>
+        Er zijn (ook) nog fouten gevonden in het geüploade bestand, deze moeten
+        opgelost worden voordat je het importeren kan voltooien!
 
         <ul>
           {{#each importErrors as |error|}}
@@ -43,19 +76,19 @@
       </div>
     {{/if}}
 
-    {{#if newUsers }}
-      <hr>
+    {{#if newUsers}}
+      <hr />
 
-      <div class="row p-3">
-        <div class="col-sm-12">
+      <div class='row p-3'>
+        <div class='col-sm-12'>
 
           <h5>Gevonden gebruikers</h5>
 
-          <table class="table table-striped table-sm table-responsive">
+          <table class='table table-striped table-sm table-responsive'>
             <thead>
               {{#each properties as |property|}}
-                <th scope="col">
-                  {{ property }}
+                <th scope='col'>
+                  {{property}}
                 </th>
               {{/each}}
             </thead>
@@ -72,11 +105,20 @@
         </div>
       </div>
 
-      <div class="d-flex alert alert-warning mb-3 justify-content-between align-items-center">
+      <div
+        class='d-flex alert alert-warning mb-3 justify-content-between align-items-center'
+      >
         <span>
-          <strong>Ik heb de gegevens in de bovenstaande tabel gecontroleerd en ik heb geen fouten gevonden:</strong>
+          <strong>Ik heb de gegevens in de bovenstaande tabel gecontroleerd en
+            ik heb geen fouten gevonden:</strong>
         </span>
-        <button type="button" class="btn btn-secondary btn-inline ml-3" {{action 'confirmUpload'}} name="confirmUpload" disabled={{if importErrors true false}}>Importeren bevestigen</button>
+        <button
+          type='button'
+          class='btn btn-secondary btn-inline ml-3'
+          {{action 'confirmUpload'}}
+          name='confirmUpload'
+          disabled={{if importErrors true false}}
+        >Importeren bevestigen</button>
       </div>
     {{/if}}
   </div>

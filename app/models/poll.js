@@ -32,12 +32,15 @@ export default class Poll extends Model {
   }
 
   get closedWithNoResponses() {
-    return moment().isAfter(this.form.get('respondUntil')) && this.form.get('amountOfResponses') === 0;
+    return (
+      moment().isAfter(this.form.get('respondUntil')) &&
+      this.form.get('amountOfResponses') === 0
+    );
   }
 
   // Methods
   saveWithForm() {
-    return this.form.then(form => {
+    return this.form.then((form) => {
       if (!isNone(form)) {
         return form.saveWithQuestions().then(() => {
           return this.save();
@@ -50,7 +53,7 @@ export default class Poll extends Model {
 
   rollbackAttributesAndForm() {
     this.rollbackAttributes();
-    this.form.then(form => {
+    this.form.then((form) => {
       form?.rollbackAttributesAndQuestions();
     });
   }

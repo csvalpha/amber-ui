@@ -6,6 +6,6 @@ export default EditController.extend({
   actions: {
     submit() {
       this.send('saveModel', this.model.thread);
-    }
-  }
+    },
+  },
 });

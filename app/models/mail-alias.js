@@ -10,6 +10,6 @@ export default class MailAlias extends Model {
 
   // Relations
   @belongsTo({ inverse: 'mailAliases' }) user;
-  @belongsTo group
+  @belongsTo group;
   @belongsTo('group', { inverse: 'moderatorForMailAliases' }) moderatorGroup;
 }

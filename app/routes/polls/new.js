@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class NewPollRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Poll aanmaken' }
+  breadCrumb = { title: 'Poll aanmaken' };
 
   canAccess() {
     return this.abilities.can('create polls');

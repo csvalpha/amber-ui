@@ -14,5 +14,5 @@ export default Factory.extend({
     });
   },
   createdAt: () => faker.date.recent(14),
-  publiclyVisible: false
+  publiclyVisible: false,
 });

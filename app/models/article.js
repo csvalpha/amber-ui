@@ -2,7 +2,7 @@ import Model, { hasMany, belongsTo, attr } from '@ember-data/model';
 import {
   CoverPhotoFallback,
   AvatarFallback,
-  AvatarThumbFallback
+  AvatarThumbFallback,
 } from 'alpha-amber/constants';
 
 export default class Article extends Model {
@@ -31,7 +31,10 @@ export default class Article extends Model {
   get excerpt() {
     const maxExcerptLength = 218;
     if (this.content && this.content.length > maxExcerptLength) {
-      return `${this.content.substr(0, this.content.lastIndexOf(' ', maxExcerptLength))}...`;
+      return `${this.content.substr(
+        0,
+        this.content.lastIndexOf(' ', maxExcerptLength)
+      )}...`;
     }
 
     return this.content;
@@ -55,6 +58,8 @@ export default class Article extends Model {
       return true;
     }
 
-    return user.currentMemberships.some(membership => membership.group.id === this.group.id);
+    return user.currentMemberships.some(
+      (membership) => membership.group.id === this.group.id
+    );
   }
 }

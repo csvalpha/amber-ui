@@ -14,7 +14,6 @@ export default NewController.extend({
     fileLoaded(file) {
       const collection = this.model;
       collection.set('importFile', file.data);
-    }
-
-  }
+    },
+  },
 });

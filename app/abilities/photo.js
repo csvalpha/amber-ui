@@ -6,6 +6,9 @@ export default class Photo extends Ability {
   }
 
   get canShowPhotoComments() {
-    return this.session.hasPermission('photo-comment.read') || this.model.photoAlbum.publiclyVisible;
+    return (
+      this.session.hasPermission('photo-comment.read') ||
+      this.model.photoAlbum.publiclyVisible
+    );
   }
 }

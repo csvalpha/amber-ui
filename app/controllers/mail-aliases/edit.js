@@ -8,10 +8,10 @@ export default EditController.extend({
 
   moderationTypeOpen: equal('model.moderationType', 'open'),
 
-  groups: computed('store', function() {
+  groups: computed('store', function () {
     return this.store.findAll('group');
   }),
-  users: computed('store', function() {
+  users: computed('store', function () {
     return this.store.findAll('user');
   }),
 
@@ -19,14 +19,14 @@ export default EditController.extend({
 
   anyGroup: reads('model.group.id'),
 
-  _mailAliasModerationTypes: moderationType => {
+  _mailAliasModerationTypes: (moderationType) => {
     return {
       value: moderationType.toLowerCase(),
-      label: moderationType
+      label: moderationType,
     };
   },
 
-  mailAliasModerationTypes: computed('_mailAliasModerationTypes', function() {
+  mailAliasModerationTypes: computed('_mailAliasModerationTypes', function () {
     return MailAliasModerationTypes.map(this._mailAliasModerationTypes);
-  })
+  }),
 });

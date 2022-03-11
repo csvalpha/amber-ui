@@ -7,5 +7,5 @@ export default {
 
     // Always inject session in abilities
     application.inject('ability', 'session', 'service:session');
-  }
+  },
 };
