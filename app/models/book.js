@@ -1,6 +1,6 @@
 import Model, { attr } from '@ember-data/model';
 
-export default class Article extends Model {
+export default class Book extends Model {
   // Attributes
   @attr('string') title;
   @attr('string') author;

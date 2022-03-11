@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
-export default class DestroyGroupRoute extends AuthenticatedRoute {
+export default class DestroyBookRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Boek verwijderen' }
 
   canAccess() {
