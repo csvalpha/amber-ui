@@ -226,6 +226,7 @@ mixin:
     groups: Groups
     users: Users
     staticPages: Information
+    books: Books
     sog: SOG
 tag:
   button:

@@ -27,9 +27,11 @@
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class='d-flex justify-content-center align-items-center'>
-  <img src={{@model.imageUrl}} class='photo-large' />
-</div>
+<Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
+  <div class='d-flex justify-content-center align-items-center'>
+    <img src={{@model.imageUrl}} class='photo-large' />
+  </div>
+</Swipeable>
 
 {{#if (can 'show individual users')}}
   <p class='text-right text-muted'>
