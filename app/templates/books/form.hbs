@@ -68,7 +68,8 @@
       <ModelForm::TextInput
         @model={{model}}
         @property='title'
-        @label='Titel*'
+        @label='Titel'
+        @required={{true}}
         @maxlength={{50}}
       />
       <ModelForm::TextInput
@@ -88,7 +89,6 @@
         @model={{@model}}
         @property='description'
         @label='Beschrijving'
-        @required={{true}}
         @inputIdentifier='article-form-content'
       />
 
