@@ -1,9 +1,6 @@
-module.exports = function() {
+module.exports = function () {
   return {
-    'free-regular-svg-icons': [
-      'face-smile',
-      'square'
-    ],
+    'free-regular-svg-icons': ['face-smile', 'square'],
     'free-solid-svg-icons': [
       'address-book',
       'angle-down',
@@ -13,9 +10,11 @@ module.exports = function() {
       'arrow-right',
       'arrow-up',
       'arrow-up-wide-short',
+      'barcode',
       'beer-mug-empty',
       'bell',
       'bell-slash',
+      'book',
       'bold',
       'building',
       'calendar-days',
@@ -68,7 +67,7 @@ module.exports = function() {
       'volume-high',
       'wand-magic-sparkles',
       'wrench',
-      'xmark'
+      'xmark',
     ],
     'free-brands-svg-icons': [
       'android',
@@ -76,7 +75,7 @@ module.exports = function() {
       'facebook',
       'instagram',
       'windows',
-      'youtube'
-    ]
+      'youtube',
+    ],
   };
 };

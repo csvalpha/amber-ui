@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class ForumIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Forum' }
+  breadCrumb = { title: 'Forum' };
 
   get pageActions() {
     return [
@@ -9,8 +9,8 @@ export default class ForumIndexRoute extends AuthenticatedRoute {
         link: 'forum.categories.new',
         title: 'Nieuwe categorie',
         icon: 'plus',
-        canAccess: this.abilities.can('create forum/categories')
-      }
+        canAccess: this.abilities.can('create forum/categories'),
+      },
     ];
   }
 
@@ -21,7 +21,10 @@ export default class ForumIndexRoute extends AuthenticatedRoute {
   model() {
     return {
       categories: this.store.query('forum/category', { sort: '-updated_at' }),
-      recentThreads: this.store.query('forum/thread', { sort: '-updated_at', page: { number: '1', size: 7 } })
+      recentThreads: this.store.query('forum/thread', {
+        sort: '-updated_at',
+        page: { number: '1', size: 7 },
+      }),
     };
   }
 }

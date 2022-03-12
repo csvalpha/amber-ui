@@ -30,7 +30,12 @@ export default class EditActivityController extends Controller {
     set(_, value) {
       if (value) {
         const form = this.store.createRecord('form/form');
-        this.store.createRecord('form/open-question', { form, question: 'Opmerkingen', fieldType: 'text', position: 0 });
+        this.store.createRecord('form/open-question', {
+          form,
+          question: 'Opmerkingen',
+          fieldType: 'text',
+          position: 0,
+        });
         this.set('model.form', form);
       } else {
         this.set('model.form', null);

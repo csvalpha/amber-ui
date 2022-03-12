@@ -9,13 +9,18 @@ export default Controller.extend({
 
   actions: {
     async forgotPassword() {
-      const response = await this.fetch.post('/users/reset_password', { body: { email: this.email } });
+      const response = await this.fetch.post('/users/reset_password', {
+        body: { email: this.email },
+      });
 
       if (response.ok) {
-        this.set('successMessage', 'Je ontvangt een e-mail met verdere instructies');
+        this.set(
+          'successMessage',
+          'Je ontvangt een e-mail met verdere instructies'
+        );
       } else {
         this.set('errorMessage', 'Er ging iets mis, probeer het nog een keer');
       }
-    }
-  }
+    },
+  },
 });

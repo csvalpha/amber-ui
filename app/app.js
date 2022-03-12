@@ -5,7 +5,6 @@ import config from 'alpha-amber/config/environment';
 import { InitSentryForEmber } from '@sentry/ember';
 
 if (config.environment === 'production') {
-  // eslint-disable-next-line new-cap
   InitSentryForEmber();
 }
 

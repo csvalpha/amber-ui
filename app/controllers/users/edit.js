@@ -2,7 +2,7 @@
 import { action, computed } from '@ember/object';
 import {
   DigtusSubscriptionPreferenceTypes,
-  AlmanakSubscriptionPreferenceTypes
+  AlmanakSubscriptionPreferenceTypes,
 } from 'alpha-amber/constants';
 import EditController from 'alpha-amber/controllers/application/edit';
 import { inject as service } from '@ember/service';

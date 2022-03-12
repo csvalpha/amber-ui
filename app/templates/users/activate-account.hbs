@@ -1,30 +1,49 @@
-<div class="row">
-  <div class="col-md-6 offset-md-3 login-form-holder">
-    <div class="card login-form">
+<div class='row'>
+  <div class='col-md-6 offset-md-3 login-form-holder'>
+    <div class='card login-form'>
       <form {{action 'resetPassword' on='submit'}}>
-        <div class="card-body">
-          <h4 class="card-title">Account activeren</h4>
+        <div class='card-body'>
+          <h4 class='card-title'>Account activeren</h4>
           {{#if successMessage}}
-            <div class="alert alert-success" role="alert">
+            <div class='alert alert-success' role='alert'>
               <strong>{{successMessage}}</strong>
             </div>
           {{else if errorMessage}}
-            <div class="alert alert-danger" role="alert">
+            <div class='alert alert-danger' role='alert'>
               <strong>{{this.errorMessage}}</strong>
             </div>
           {{else if infoMessage}}
-            <div class="alert alert-info" role="alert">
+            <div class='alert alert-info' role='alert'>
               <span>{{infoMessage}}</span>
             </div>
           {{/if}}
 
-          <div class="form-group">
-            <Input @type="password" @value={{password}} placeholder="Wachtwoord (minimaal 12 tekens)" required="true" @autofocus="autofocus" class="form-control" @id="field-password" />
+          <div class='form-group'>
+            <Input
+              @type='password'
+              @value={{password}}
+              placeholder='Wachtwoord (minimaal 12 tekens)'
+              required='true'
+              @autofocus='autofocus'
+              class='form-control'
+              @id='field-password'
+            />
           </div>
-          <div class="form-group">
-            <Input @type="password" @value={{passwordConfirmation}} placeholder="Wachtwoord herhalen" required="true" class="form-control" @id="field-password-confirmation" />
+          <div class='form-group'>
+            <Input
+              @type='password'
+              @value={{passwordConfirmation}}
+              placeholder='Wachtwoord herhalen'
+              required='true'
+              class='form-control'
+              @id='field-password-confirmation'
+            />
           </div>
-          <button type="submit" class="btn btn-primary float-md-left reset-password-button" disabled={{isSaveButtonDisabled}}>Account activeren</button>
+          <button
+            type='submit'
+            class='btn btn-primary float-md-left reset-password-button'
+            disabled={{isSaveButtonDisabled}}
+          >Account activeren</button>
         </div>
       </form>
     </div>

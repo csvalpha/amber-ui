@@ -2,12 +2,20 @@
 $amount-of-advertisements: 18;
 $single-advertisement-width: 175px;
 $advertisement-animation-duration: 15s;
-$advertisement-animation-holder-width: - $amount-of-advertisements * $single-advertisement-width;
-$advertisement-row-width: calc(calc($amount-of-advertisements + 1) * $single-advertisement-width);
+$advertisement-animation-holder-width: -$amount-of-advertisements *
+  $single-advertisement-width;
+$advertisement-row-width: calc(
+  calc($amount-of-advertisements + 1) * $single-advertisement-width
+);
 
 @keyframes bannermoves {
-  0% { margin-left: $advertisement-animation-holder-width; }
-  100% { margin-left: 0; }
+  0% {
+    margin-left: $advertisement-animation-holder-width;
+  }
+
+  100% {
+    margin-left: 0;
+  }
 }
 
 .advertisement-holder {

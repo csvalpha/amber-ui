@@ -18,7 +18,7 @@ export default Controller.extend({
   validMimetypes: 'text/csv',
   validExtensions: EmberArray.apply(['csv']),
 
-  groups: computed('store', function() {
+  groups: computed('store', function () {
     return this.store.findAll('group');
   }),
 
@@ -30,20 +30,22 @@ export default Controller.extend({
     },
     async uploadFile() {
       const groupId = this.addToGroup ? this.addToGroup.id : null;
-      let response = await this.fetch.post('/users/batch_import', { body: { file: this.importFile, group: groupId } });
+      let response = await this.fetch.post('/users/batch_import', {
+        body: { file: this.importFile, group: groupId },
+      });
       const json = await response.json();
 
       if (response.ok) {
         this.newUsers.clear();
         this.importErrors.clear();
 
-        JSON.parse(json.users).forEach(jsonObject => {
+        JSON.parse(json.users).forEach((jsonObject) => {
           this.set('properties', Object.keys(jsonObject));
           this.newUsers.pushObject(jsonObject);
         });
 
         if (json.errors && json.errors.user) {
-          json.errors.user.forEach(jsonObject => {
+          json.errors.user.forEach((jsonObject) => {
             this.importErrors.pushObject(jsonObject);
           });
         }
@@ -52,7 +54,7 @@ export default Controller.extend({
         this.importErrors.clear();
 
         if (json.errors && json.errors.header) {
-          json.errors.header.forEach(jsonObject => {
+          json.errors.header.forEach((jsonObject) => {
             this.importErrors.pushObject(jsonObject);
           });
         }
@@ -62,12 +64,13 @@ export default Controller.extend({
       const groupId = this.addToGroup ? this.addToGroup.id : null;
 
       const response = await this.fetch.post('/users/batch_import', {
+        /* eslint-disable camelcase */
         body: {
           file: this.importFile,
           group: groupId,
-          /* eslint-disable-next-line camelcase */
-          live_run: true
-        }
+          live_run: true,
+        },
+        /* eslint-enable camelcase */
       });
 
       if (response.ok) {
@@ -77,6 +80,6 @@ export default Controller.extend({
         this.flashNotice.sendError('Gebruikers niet opgeslagen');
         this.transitionToRoute('users.batch.new');
       }
-    }
-  }
+    },
+  },
 });

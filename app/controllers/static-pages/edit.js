@@ -12,7 +12,7 @@ export default class EditStaticPageController extends EditController {
     return StaticPageCategories.map(pageCategory => {
       return {
         value: pageCategory,
-        label: capitalize(pageCategory)
+        label: capitalize(pageCategory),
       };
     });
   })

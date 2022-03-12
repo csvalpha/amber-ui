@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class NewCategoryRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Categorie aanmaken' }
+  breadCrumb = { title: 'Categorie aanmaken' };
 
   canAccess() {
     return this.abilities.can('create forum/categories');

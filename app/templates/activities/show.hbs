@@ -1,4 +1,4 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
@@ -9,7 +9,11 @@
     {{#if @model.currentUserResponse.completed}}
       {{form/response/response-completed-alert @model.form}}
     {{else if canSubmitResponse}}
-      {{form/response/response-card @model.form @model.currentUserResponse data-test-form-response-card=@model.form.id}}
+      {{form/response/response-card
+        @model.form
+        @model.currentUserResponse
+        data-test-form-response-card=@model.form.id
+      }}
     {{else}}
       {{form/response/form-closed-alert @model.form}}
     {{/if}}

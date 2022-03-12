@@ -14,7 +14,7 @@ export default class EditGroupController extends Controller {
   _groupKindToOption(groupKind) {
     return {
       value: groupKind,
-      label: capitalize(groupKind)
+      label: capitalize(groupKind),
     };
   }
 

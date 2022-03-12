@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditStaticPageRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Informatie pagina aanpassen' }
+  breadCrumb = { title: 'Informatie pagina aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit static-pages');

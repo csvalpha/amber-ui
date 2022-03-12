@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class NewMailAliasRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Mail-alias aanmaken' }
+  breadCrumb = { title: 'Mail-alias aanmaken' };
 
   canAccess() {
     return this.abilities.can('create mail-aliases');

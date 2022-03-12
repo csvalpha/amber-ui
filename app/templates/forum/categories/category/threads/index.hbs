@@ -1,23 +1,43 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+      @enter={{action 'selectFirstItem'}}
+    />
   </PageActionsButtons>
 </EmberWormhole>
 
-
-<div class="card">
-  <div class="row rtable-row header d-none d-md-flex">
-    <span class="col rtable-header-item"> Topic </span>
-    <span class="col-3 rtable-header-item"> Auteur </span>
-    <span class="col-1 rtable-header-item rtable-ta-right"> # </span>
+<div class='card'>
+  <div class='row rtable-row header d-none d-md-flex'>
+    <span class='col rtable-header-item'> Topic </span>
+    <span class='col-3 rtable-header-item'> Auteur </span>
+    <span class='col-1 rtable-header-item rtable-ta-right'> # </span>
   </div>
 
   {{#each @model.threads as |thread|}}
-    <LinkTo @route="forum.categories.category.threads.thread.show" @model={{thread.id}}>
-      <div class="row rtable-row">
-        <span class="col-12 col-md rtable-item">  {{forum/status-icon thread}} {{thread.title}} </span>
-        <span class="col-6 col-md-3 text-muted rtable-item"> <LinkTo @route="users.show" @model={{thread.author.id}}>{{ thread.author.fullName }}</LinkTo> </span>
-        <span class="col-6 col-md-1 text-muted rtable-item rtable-ta-right"> {{ thread.amountOfPosts }} <span class="d-inline d-md-none"> reacties </span> </span>
+    <LinkTo
+      @route='forum.categories.category.threads.thread.show'
+      @model={{thread.id}}
+    >
+      <div class='row rtable-row'>
+        <span class='col-12 col-md rtable-item'>
+          {{forum/status-icon thread}}
+          {{thread.title}}
+        </span>
+        <span class='col-6 col-md-3 text-muted rtable-item'>
+          <LinkTo
+            @route='users.show'
+            @model={{thread.author.id}}
+          >{{thread.author.fullName}}</LinkTo>
+        </span>
+        <span class='col-6 col-md-1 text-muted rtable-item rtable-ta-right'>
+          {{thread.amountOfPosts}}
+          <span class='d-inline d-md-none'> reacties </span>
+        </span>
       </div>
     </LinkTo>
   {{/each}}

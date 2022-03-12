@@ -8,5 +8,5 @@ export default class Transaction extends Model {
 
   // Relationships
   @belongsTo user;
-  @belongsTo('debit/collection')  collection;
+  @belongsTo('debit/collection') collection;
 }

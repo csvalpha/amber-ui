@@ -4,17 +4,19 @@ import { isBlank } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupMembershipsController extends Controller {
-  @tracked filter = ''
-  @tracked oldMembershipsAreVisible = false
-  @tracked sortedAttribute = null
-  @tracked sortedAscending = true
+  @tracked filter = '';
+  @tracked oldMembershipsAreVisible = false;
+  @tracked sortedAttribute = null;
+  @tracked sortedAscending = true;
 
   get models() {
     return this.model.memberships;
   }
 
   get filteredModels() {
-    const records = this.oldMembershipsAreVisible ? this.oldMemberships : this.currentMemberships;
+    const records = this.oldMembershipsAreVisible
+      ? this.oldMemberships
+      : this.currentMemberships;
     return this.sortModels(this.filterModels(records));
   }
 
@@ -24,11 +26,14 @@ export default class GroupMembershipsController extends Controller {
       return models;
     }
 
-    return models.filter(model => {
-      return this.filterableAttributes.reduce((show, attribute) => {
-        const value = model.get(attribute);
-        return show + value;
-      }, '').toLowerCase().includes(this.filter.toLowerCase());
+    return models.filter((model) => {
+      return this.filterableAttributes
+        .reduce((show, attribute) => {
+          const value = model.get(attribute);
+          return show + value;
+        }, '')
+        .toLowerCase()
+        .includes(this.filter.toLowerCase());
     });
   }
 
@@ -38,20 +43,22 @@ export default class GroupMembershipsController extends Controller {
   }
 
   get oldMemberships() {
-    return this.models.filter(membership => (
-      membership.endDate && membership.endDate < moment.now()
-    ));
+    return this.models.filter(
+      (membership) => membership.endDate && membership.endDate < moment.now()
+    );
   }
 
   get currentMemberships() {
-    return this.models.filter(membership => (
-      !(membership.endDate && membership.endDate < moment.now())
-    ));
+    return this.models.filter(
+      (membership) => !(membership.endDate && membership.endDate < moment.now())
+    );
   }
 
   get oldMembershipsTabActive() {
     return this.oldMembershipsAreVisible
-      ? !(this.oldMemberships.length === 0 && this.currentMemberships.length > 0)
+      ? !(
+          this.oldMemberships.length === 0 && this.currentMemberships.length > 0
+        )
       : this.currentMemberships.length === 0 && this.oldMemberships.length > 0;
   }
 

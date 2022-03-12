@@ -17,13 +17,13 @@ export default Factory.extend({
   withCategory: trait({
     afterCreate(thread, server) {
       thread.category = server.create('forum-category');
-    }
+    },
   }),
 
   withPosts: trait({
     amountOfPosts: 4,
     afterCreate(thread, server) {
       thread.posts = server.createList('forum-post', 4, { thread });
-    }
-  })
+    },
+  }),
 });

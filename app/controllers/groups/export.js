@@ -5,108 +5,137 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
 export default class GroupsExportController extends Controller {
-  @service fetch
-  @service('file-saver') fileSaver
+  @service fetch;
+  @service('file-saver') fileSaver;
 
   questions = [
-    { question: 'Wat moet je doen dat je zonder deze data niet kan?', answer: '' },
+    {
+      question: 'Wat moet je doen dat je zonder deze data niet kan?',
+      answer: '',
+    },
     { question: 'Wie gaat er bij de data kunnen?', answer: '' },
     { question: 'Waar gaat de data worden opgeslagen?', answer: '' },
-    { question: 'Wanneer gaat de data verwijderd worden?', answer: '' }
-  ]
+    { question: 'Wanneer gaat de data verwijderd worden?', answer: '' },
+  ];
 
   userPropertyOptions = [
     {
       value: 'id',
-      label: 'ID'
+      label: 'ID',
     },
     {
       value: 'username',
-      label: 'Gebruikersnaam'
+      label: 'Gebruikersnaam',
     },
     {
       value: 'first_name',
-      label: 'Voornaam'
-    }, {
+      label: 'Voornaam',
+    },
+    {
       value: 'last_name_prefix',
-      label: 'Tussenvoegsel'
-    }, {
+      label: 'Tussenvoegsel',
+    },
+    {
       value: 'last_name',
-      label: 'Achternaam'
-    }, {
+      label: 'Achternaam',
+    },
+    {
       value: 'full_name',
-      label: 'Volledige naam'
-    }, {
+      label: 'Volledige naam',
+    },
+    {
       value: 'email',
-      label: 'Email'
-    }, {
+      label: 'Email',
+    },
+    {
       value: 'study',
-      label: 'Studie'
-    }, {
+      label: 'Studie',
+    },
+    {
       value: 'startStudy',
-      label: 'Start studie'
-    }, {
+      label: 'Start studie',
+    },
+    {
       value: 'address',
-      label: 'Adres'
-    }, {
+      label: 'Adres',
+    },
+    {
       value: 'postcode',
-      label: 'Postcode'
-    }, {
+      label: 'Postcode',
+    },
+    {
       value: 'city',
-      label: 'Stad'
-    }, {
+      label: 'Stad',
+    },
+    {
       value: 'foodPreferences',
-      label: 'Dieetwensen'
-    }, {
+      label: 'Dieetwensen',
+    },
+    {
       value: 'vegetarian',
-      label: 'Vegetariër'
-    }, {
+      label: 'Vegetariër',
+    },
+    {
       value: 'phone_number',
-      label: 'Telefoonnummer'
-    }, {
+      label: 'Telefoonnummer',
+    },
+    {
       value: 'birthday',
-      label: 'Geboortedatum'
-    }, {
+      label: 'Geboortedatum',
+    },
+    {
       value: 'picture_publication_preference',
-      label: 'Mediabeleid voorkeur'
-    }, {
+      label: 'Mediabeleid voorkeur',
+    },
+    {
       value: 'info_in_almanak',
-      label: 'Info in Almanak?'
-    }, {
+      label: 'Info in Almanak?',
+    },
+    {
       value: 'almanak_subscription_preference',
-      label: 'Almanak voorkeur'
-    }, {
+      label: 'Almanak voorkeur',
+    },
+    {
       value: 'digtus_subscription_preference',
-      label: 'Digtus voorkeur'
-    }, {
+      label: 'Digtus voorkeur',
+    },
+    {
       value: 'ifes_data_sharing_preference',
-      label: 'IFES voorkeur'
-    }, {
+      label: 'IFES voorkeur',
+    },
+    {
       value: 'iban',
-      label: 'IBAN'
-    }, {
+      label: 'IBAN',
+    },
+    {
       value: 'iban_holder',
-      label: 'IBAN tenaamgestelde'
-    }, {
+      label: 'IBAN tenaamgestelde',
+    },
+    {
       value: 'emergency_contact',
-      label: 'Noodcontact'
-    }, {
+      label: 'Noodcontact',
+    },
+    {
       value: 'emergency_number',
-      label: 'Noodnummer'
-    }, {
+      label: 'Noodnummer',
+    },
+    {
       value: 'avatar_url',
-      label: 'Profielfoto url'
-    }
-  ]
+      label: 'Profielfoto url',
+    },
+  ];
 
   @computed('questions.@each.answer')
   get questionAnswered() {
-    return this.questions.filter(q => q.answer.length > 0).length === this.questions.length;
+    return (
+      this.questions.filter((q) => q.answer.length > 0).length ===
+      this.questions.length
+    );
   }
 
   @computed('userPropertyOptions.@each.isChecked')
   get checkedFieldsValid() {
-    return this.userPropertyOptions.filter(p => p.isChecked).length > 0;
+    return this.userPropertyOptions.filter((p) => p.isChecked).length > 0;
   }
 
   get valid() {
@@ -120,21 +149,29 @@ export default class GroupsExportController extends Controller {
   @action
   async exportUsers() {
     const selectedProperties = A();
-    this.userPropertyOptions.forEach(property => {
+    this.userPropertyOptions.forEach((property) => {
       if (property.isChecked) {
         selectedProperties.push(property.value);
       }
     });
-    const description = this.questions.map(question => (
-      `${question.question}\n ${question.answer}\n\n`
-    )).join('\n');
+    const description = this.questions
+      .map((question) => `${question.question}\n ${question.answer}\n\n`)
+      .join('\n');
 
     const response = await this.fetch.fetch(
-      `/groups/${this.model.get('id')}/export?user_attrs=${selectedProperties.join(',')}&description=${encodeURI(description)}`,
+      `/groups/${this.model.get(
+        'id'
+      )}/export?user_attrs=${selectedProperties.join(
+        ','
+      )}&description=${encodeURI(description)}`,
       { dataType: 'text' }
     );
     const blob = await response.blob();
-    this.fileSaver.saveFileAs(`${this.model.get('name')}-${new Date().toJSON()}.csv`, blob, 'application/csv');
+    this.fileSaver.saveFileAs(
+      `${this.model.get('name')}-${new Date().toJSON()}.csv`,
+      blob,
+      'application/csv'
+    );
     this.transitionToRoute('groups.show', this.model);
   }
 }

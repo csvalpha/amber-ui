@@ -1,6 +1,6 @@
-<div class="card">
-  <div class="card-header">
-    <h5> {{if @model.isNew "Infopagina aanmaken" "Infopagina wijzigen"}} </h5>
+<div class='card'>
+  <div class='card-header'>
+    <h5> {{if @model.isNew 'Infopagina aanmaken' 'Infopagina wijzigen'}} </h5>
   </div>
   <div class="card-body">
     <form {{action @onSubmit on="submit"}}>
@@ -9,14 +9,18 @@
       <ModelForm::CheckboxInput @model={{@model}} @property="publiclyVisible" @label="Zichtbaar voor externen" />
 
       {{#if @model.publiclyVisible}}
-        <div class="alert alert-warning" role="alert">
-          Een publiek informatie pagina is ook zichtbaar voor niet-leden. Houd hier rekening mee.
+        <div class='alert alert-warning' role='alert'>
+          Een publiek informatie pagina is ook zichtbaar voor niet-leden. Houd
+          hier rekening mee.
         </div>
       {{/if}}
 
-      <div class="row">
-        <label for="article-form-content col-form-label form-control-label" class="col-sm-2">Inhoud</label>
-        <div class="col-sm-10">
+      <div class='row'>
+        <label
+          for='article-form-content col-form-label form-control-label'
+          class='col-sm-2'
+        >Inhoud</label>
+        <div class='col-sm-10'>
           <MdEditor @content={{@model.content}} />
         </div>
       </div>

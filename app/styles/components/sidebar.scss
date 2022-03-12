@@ -46,7 +46,7 @@ $sidebar-width: 256px;
 }
 
 .panel {
-  transition: margin ease-in-out .3s;
+  transition: margin ease-in-out 0.3s;
 
   .panel-overlay {
     margin-bottom: -50px;
@@ -80,7 +80,7 @@ $sidebar-width: 256px;
 }
 
 .sidebar-holder {
-  transition: flex ease-in-out .3s;
+  transition: flex ease-in-out 0.3s;
 }
 
 .sidebar-holder-collapsed {
@@ -89,7 +89,7 @@ $sidebar-width: 256px;
 
 .full-page-qp {
   padding-right: 5px;
-  padding-bottom: .75rem;
+  padding-bottom: 0.75rem;
   padding-left: 10px;
 }
 
@@ -136,7 +136,7 @@ $sidebar-width: 256px;
   }
 
   .sidebar {
-    transition: margin ease-in-out .3s;
+    transition: margin ease-in-out 0.3s;
   }
 
   .panel-close-overlay {

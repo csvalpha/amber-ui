@@ -21,8 +21,8 @@
         <ModelForm::CheckboxInput @model={{@model}} @property="pinned" @label="Artikel vastzetten" />
       {{/if}}
 
-      <div class="form-group row">
-        <label class="col-md-2 form-control-label">Namens groep of commissie</label>
+      <div class='form-group row'>
+        <label class='col-md-2 form-control-label'>Namens groep of commissie</label>
 
         <div class="col-sm-10">
           <PowerSelect @options={{@groups}} @onChange={{action (mut @model.group)}} @selected={{@model.group}} @searchEnabled={{true}} @searchField="name" @allowClear={{true}} as |group|>
@@ -31,7 +31,13 @@
         </div>
       </div>
 
-      <ModelForm::MdInput @model={{@model}} @property="content" @label="Inhoud" @required={{true}} @inputIdentifier="article-form-content" />
+      <ModelForm::MdInput
+        @model={{@model}}
+        @property='content'
+        @label='Inhoud'
+        @required={{true}}
+        @inputIdentifier='article-form-content'
+      />
 
       <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{@errorMessage}}>
         <LinkTo @route="index" class="btn btn-default">Annuleren</LinkTo>

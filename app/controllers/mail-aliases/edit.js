@@ -11,7 +11,7 @@ export default class EditMailAliasController extends EditController {
   _mailAliasModerationTypes(moderationType) {
     return {
       value: moderationType.toLowerCase(),
-      label: moderationType
+      label: moderationType,
     };
   }
 

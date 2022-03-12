@@ -18,14 +18,14 @@ export default class EditArticleController extends EditController {
     const optionArray = [
       {
         label: '',
-        value: null
-      }
+        value: null,
+      },
     ];
     const groups = this.session.currentUser.group;
     groups.forEach((group) => {
       optionArray.push({
         label: group,
-        value: group
+        value: group,
       });
     });
     return optionArray;

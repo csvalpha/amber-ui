@@ -5,7 +5,7 @@ const BooleanTagComponent = Component.extend({
   tagName: 'span',
   classNames: ['badge'],
   classNameBindings: ['value:badge-success:badge-danger'],
-  label: computed('value', function() {
+  label: computed('value', function () {
     switch (this.value) {
       case null:
         return 'Niet ingevuld';
@@ -15,11 +15,11 @@ const BooleanTagComponent = Component.extend({
       default:
         return 'Nee';
     }
-  })
+  }),
 });
 
 BooleanTagComponent.reopenClass({
-  positionalParams: ['value']
+  positionalParams: ['value'],
 });
 
 export default BooleanTagComponent;

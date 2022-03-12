@@ -2,30 +2,31 @@
   <Index::PageNotFound />
 {{else}}
   {{#if showStatic}}
-    <Index::Public/>
+    <Index::Public />
   {{else}}
-    <div class="row justify-content-center">
-      <div class="col-12 col-md-8">
-        <div class="card">
-          <div class="card-header">
+    <div class='row justify-content-center'>
+      <div class='col-12 col-md-8'>
+        <div class='card'>
+          <div class='card-header'>
             <h5> Oh oh...</h5>
           </div>
-          <div class="card-body">
-            <p class="card-text" data-test-error-message>
+          <div class='card-body'>
+            <p class='card-text' data-test-error-message>
               {{message}}
             </p>
-            <a href="." align="center" class="btn btn-primary">Herladen</a>
-            <br>
+            <a href='.' align='center' class='btn btn-primary'>Herladen</a>
+            <br />
             <p>
-              Is het na een tijdje niet verholpen? Stuur dan een e-mail naar ict@csvalpha.nl met onderstaande details:
+              Is het na een tijdje niet verholpen? Stuur dan een e-mail naar
+              ict@csvalpha.nl met onderstaande details:
             </p>
-            <hr>
-            <p class="code">
+            <hr />
+            <p class='code'>
               <small>
                 {{model}}
               </small>
             </p>
-            <hr>
+            <hr />
           </div>
         </div>
       </div>

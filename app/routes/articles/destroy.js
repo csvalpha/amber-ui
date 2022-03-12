@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class DestroyArticleRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Artikel verwijderen' }
+  breadCrumb = { title: 'Artikel verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy articles');

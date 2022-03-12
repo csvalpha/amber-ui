@@ -11,14 +11,14 @@ export default Component.extend({
     'name',
     'required',
     'type',
-    'value'
+    'value',
   ],
-  checked: computed('groupValue', 'value', function() {
+  checked: computed('groupValue', 'value', function () {
     return this.groupValue === this.value;
   }).readOnly(),
   change() {
     if (this.groupValue !== this.value) {
       this.set('groupValue', this.value);
     }
-  }
+  },
 });

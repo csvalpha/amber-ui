@@ -2,21 +2,23 @@ import { hasMany, belongsTo, attr } from '@ember-data/model';
 import DirtySaveModel from 'alpha-amber/models/application/dirty-save';
 
 export default class Response extends DirtySaveModel {
-  @attr('date') createdAt
-  @attr('date') updatedAt
-  @attr('boolean') completed
+  @attr('date') createdAt;
+  @attr('date') updatedAt;
+  @attr('boolean') completed;
 
-  @belongsTo('form/form') form
-  @belongsTo('user') user
-  @hasMany('form/open-question-answer') openQuestionAnswers
-  @hasMany('form/closed-question-answer') closedQuestionAnswers
+  @belongsTo('form/form') form;
+  @belongsTo('user') user;
+  @hasMany('form/open-question-answer') openQuestionAnswers;
+  @hasMany('form/closed-question-answer') closedQuestionAnswers;
 
   get answersPromise() {
-    return Promise.all([this.openQuestionAnswers, this.closedQuestionAnswers])
-      .then(([openQuestionAnswers, closedQuestionAnswers]) => [
-        ...openQuestionAnswers.toArray(),
-        ...closedQuestionAnswers.toArray()
-      ]);
+    return Promise.all([
+      this.openQuestionAnswers,
+      this.closedQuestionAnswers,
+    ]).then(([openQuestionAnswers, closedQuestionAnswers]) => [
+      ...openQuestionAnswers.toArray(),
+      ...closedQuestionAnswers.toArray(),
+    ]);
   }
 
   get groupedAnswersPromise() {
@@ -24,19 +26,23 @@ export default class Response extends DirtySaveModel {
     // Furthermore, for the closed question answers we have to wait until the linked options are loaded
     // (the question is linked to the answer through the option).
     return this.answersPromise
-      .then(async answers => {
-        await Promise.all((await this.closedQuestionAnswers).map(closedQuestionAnswer => closedQuestionAnswer.option));
+      .then(async (answers) => {
+        await Promise.all(
+          (
+            await this.closedQuestionAnswers
+          ).map((closedQuestionAnswer) => closedQuestionAnswer.option)
+        );
         return answers;
       })
       .then(this.groupAnswers);
   }
 
   get userFullName() {
-    return this.user.then(user => user.fullName);
+    return this.user.then((user) => user.fullName);
   }
 
   groupAnswers(answers) {
-    return answers.reduce(async(resultPromise, answer) => {
+    return answers.reduce(async (resultPromise, answer) => {
       const result = await resultPromise;
       const questionId = (await answer.question)?.id;
       if (questionId) {
@@ -51,15 +57,23 @@ export default class Response extends DirtySaveModel {
   async saveWithAnswers() {
     const response = await this.saveIfDirty();
     const answers = await response.answersPromise;
-    await Promise.all(answers.map(async answer => {
-      if ((await answer.option)?.option || answer.answer || (await answer.question)?.required) {
-        return answer.saveIfDirty();
-      }
-    }));
+    await Promise.all(
+      answers.map(async (answer) => {
+        if (
+          (await answer.option)?.option ||
+          answer.answer ||
+          (await answer.question)?.required
+        ) {
+          return answer.saveIfDirty();
+        }
+      })
+    );
     return response;
   }
 
   async rollbackAttributesAndAnswers() {
-    [this, ...(await this.answersPromise)].forEach(model => model.rollbackAttributes());
+    [this, ...(await this.answersPromise)].forEach((model) =>
+      model.rollbackAttributes()
+    );
   }
 }

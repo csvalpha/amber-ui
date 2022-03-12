@@ -12,9 +12,9 @@ export default Component.extend({
     set(key, value) {
       debounce(this, this.setFilter, value, 250);
       return null;
-    }
+    },
   }),
   setFilter(filter) {
     this.set('filter', filter);
-  }
+  },
 });

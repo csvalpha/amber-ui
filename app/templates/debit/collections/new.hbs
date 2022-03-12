@@ -1,26 +1,54 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5> Incasso aanmaken </h5>
   </div>
-  <div class="card-body">
-    Waar moet ik opletten bij het maken van de csv? <br>
-    1. De eerste regel dient te beginnen met username gevolgd door alle incassoposten<br>
-    2. Op de volgende regels staat de username van de gebruiker gevolgd door de kosten<br>
-    3. Let er op dat er geen eurotekens e.d. in je bestand staan<br>
-    4. Let er op dat je de "totalen" regel onderin het excel bestand verwijderd<br>
-    5. Gebruik een "," als delimiter<br><br>
+  <div class='card-body'>
+    Waar moet ik opletten bij het maken van de csv?
+    <br />
+    1. De eerste regel dient te beginnen met username gevolgd door alle
+    incassoposten<br />
+    2. Op de volgende regels staat de username van de gebruiker gevolgd door de
+    kosten<br />
+    3. Let er op dat er geen eurotekens e.d. in je bestand staan<br />
+    4. Let er op dat je de "totalen" regel onderin het excel bestand verwijderd<br
+    />
+    5. Gebruik een "," als delimiter<br /><br />
 
-    Waar moet ik opletten bij het aanmaken van de incasso?<br>
-    1. Druk maximaal 1 keer op opslaan<br>
-    2. Controleer je mailbox, hier ontvang je een berichtje of het importeren gelukt is<br>
-    3. Controleer het totaal bedrag in de mail<br><br>
-    <form {{action "submit" on="submit"}}>
-      <ModelForm::FileInput @model={{model}} @property="importFile" @label="Import file" @loadedCallback={{action "fileLoaded"}} @validExtensions={{validExtensions}} @validMimetypes={{validMimetypes}} />
-      <ModelForm::TextInput @model={{model}} @property="name" @label="Titel  " @required={{true}} />
-      <ModelForm::DateInput @model={{model}} @property="date" @label="Datum van incasso" @required={{true}} />
+    Waar moet ik opletten bij het aanmaken van de incasso?<br />
+    1. Druk maximaal 1 keer op opslaan<br />
+    2. Controleer je mailbox, hier ontvang je een berichtje of het importeren
+    gelukt is<br />
+    3. Controleer het totaal bedrag in de mail<br /><br />
+    <form {{action 'submit' on='submit'}}>
+      <ModelForm::FileInput
+        @model={{model}}
+        @property='importFile'
+        @label='Import file'
+        @loadedCallback={{action 'fileLoaded'}}
+        @validExtensions={{validExtensions}}
+        @validMimetypes={{validMimetypes}}
+      />
+      <ModelForm::TextInput
+        @model={{model}}
+        @property='name'
+        @label='Titel  '
+        @required={{true}}
+      />
+      <ModelForm::DateInput
+        @model={{model}}
+        @property='date'
+        @label='Datum van incasso'
+        @required={{true}}
+      />
 
-      <ModelForm::FormActions @model={{model}} @errorMessage={{this.errorMessage}}>
-        <LinkTo @route="debit.collections" class="btn btn-default">Annuleren</LinkTo>
+      <ModelForm::FormActions
+        @model={{model}}
+        @errorMessage={{this.errorMessage}}
+      >
+        <LinkTo
+          @route='debit.collections'
+          class='btn btn-default'
+        >Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

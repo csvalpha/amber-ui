@@ -1,4 +1,5 @@
 ## Module Report
+
 ### Unknown Global
 
 **Global**: `Ember.String`
@@ -6,11 +7,7 @@
 **Location**: `app/serializers/application.js` at line 7
 
 ```js
-
-const {
-  Logger, String
-} = Ember;
-
+const { Logger, String } = Ember;
 ```
 
 ### Unknown Global
@@ -20,11 +17,7 @@ const {
 **Location**: `app/serializers/application.js` at line 7
 
 ```js
-
-const {
-  Logger, String
-} = Ember;
-
+const { Logger, String } = Ember;
 ```
 
 ### Unknown Global

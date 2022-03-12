@@ -1,13 +1,16 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5>Forumpost bewerken</h5>
   </div>
   <div class="card-body">
     <form {{action @onSubmit on="submit"}}>
 
-      <div class="row">
-        <label class="col-sm-2" for="forum-post-form-message col-form-label form-control-label">Bericht</label>
-        <div class="col-sm-10">
+      <div class='row'>
+        <label
+          class='col-sm-2'
+          for='forum-post-form-message col-form-label form-control-label'
+        >Bericht</label>
+        <div class='col-sm-10'>
           <MdEditor @content={{@model.message}} />
         </div>
       </div>

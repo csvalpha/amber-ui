@@ -11,7 +11,7 @@ export default class Photos extends Component {
 
     const albums = this.store.query('photo-album', {
       sort: '-updated_at',
-      page: { number: '1', size: this.amountOfAlbumsToShow }
+      page: { number: '1', size: this.amountOfAlbumsToShow },
     });
     this.set('photoAlbums', albums);
   }

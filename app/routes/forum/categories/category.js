@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class CategoryRoute extends AuthenticatedRoute {
-  queryParams = {}
+  queryParams = {};
 
   get breadCrumb() {
     return { title: this.controller.model.name };
