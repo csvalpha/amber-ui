@@ -44,6 +44,8 @@
           >
             {{group.name}}
           </PowerSelect>
+
+          {{form-control-feedback (get @model.errors 'group')}}
         </div>
       </div>
 

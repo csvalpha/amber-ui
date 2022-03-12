@@ -35,6 +35,8 @@
           >
             {{user.fullName}}
           </PowerSelect>
+
+          {{form-control-feedback (get @model.errors 'user')}}
         </div>
       </div>
 
