@@ -11,7 +11,7 @@ export default class EditTransactionController extends EditController {
   @alias('model.collection.id')
   successTransitionModel;
 
-  @computed('store', function() {
+  @computed('store', function () {
     return this.store.findAll('user');
   })
   users;

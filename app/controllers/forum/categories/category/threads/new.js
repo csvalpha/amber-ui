@@ -31,15 +31,21 @@ export default class NewThreadController extends NewController {
     }
 
     if (!isNone(thread)) {
-      thread.save().then(savedModel => {
-        post.save().then(() => {
-          this.send('onSuccess', savedModel);
-        }).catch(error => {
+      thread
+        .save()
+        .then((savedModel) => {
+          post
+            .save()
+            .then(() => {
+              this.send('onSuccess', savedModel);
+            })
+            .catch((error) => {
+              this.send('onError', error);
+            });
+        })
+        .catch((error) => {
           this.send('onError', error);
         });
-      }).catch(error => {
-        this.send('onError', error);
-      });
     }
   }
 }

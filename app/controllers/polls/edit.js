@@ -15,11 +15,14 @@ export default class EditPollController extends Controller {
   @action
   submit() {
     const poll = this.model;
-    poll.saveWithForm().then(savedPoll => {
-      this.transitionToRoute('polls.show', savedPoll.get('id'));
-      this.flashNotice.sendSuccess('Poll opgeslagen!');
-    }).catch(error => {
-      this.set('errorMessage', error.message);
-    });
+    poll
+      .saveWithForm()
+      .then((savedPoll) => {
+        this.transitionToRoute('polls.show', savedPoll.get('id'));
+        this.flashNotice.sendSuccess('Poll opgeslagen!');
+      })
+      .catch((error) => {
+        this.set('errorMessage', error.message);
+      });
   }
 }

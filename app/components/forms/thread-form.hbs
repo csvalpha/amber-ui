@@ -2,9 +2,14 @@
   <div class='card-header'>
     <h5> {{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}} </h5>
   </div>
-  <div class="card-body">
-    <form {{action @onSubmit on="submit"}}>
-      <ModelForm::TextInput @model={{@model.thread}} @property="title" @label="Titel" @required={{true}} />
+  <div class='card-body'>
+    <form {{action @onSubmit on='submit'}}>
+      <ModelForm::TextInput
+        @model={{@model.thread}}
+        @property='title'
+        @label='Titel'
+        @required={{true}}
+      />
 
       {{#if @model.post}}
         <label for='forumpost-message'> Bericht * </label>
@@ -22,7 +27,10 @@
         {{/if}}
       {{/if}}
 
-      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{@errorMessage}}>
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{@errorMessage}}
+      >
         {{#if @model.thread.isNew}}
           <LinkTo
             @route='forum.categories.category.threads'

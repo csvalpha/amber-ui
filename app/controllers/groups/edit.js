@@ -18,12 +18,12 @@ export default class EditGroupController extends Controller {
     };
   }
 
-  @computed('_groupKindToOption', function() {
+  @computed('_groupKindToOption', function () {
     return GroupKinds.map(this._groupKindToOption);
   })
   groupKindOptions;
 
-  @computed('store', function() {
+  @computed('store', function () {
     return this.store.findAll('user');
   })
   users;
@@ -33,7 +33,7 @@ export default class EditGroupController extends Controller {
     this.model.get('memberships').pushObject(
       this.store.createRecord('membership', {
         user,
-        endDate: null
+        endDate: null,
       })
     );
   }
@@ -49,33 +49,47 @@ export default class EditGroupController extends Controller {
 
     if (this.model !== undefined) {
       let failedMembershipSavings = 0;
-      this.model.save().then(() => {
-        return all(this.model.get('memberships').map((membership) => {
-          if (membership.get('hasDirtyAttributes')) {
-            return membership.save().catch((error) => {
-              membershipErrors.push({ membership, error });
-              failedMembershipSavings++;
-            });
+      this.model
+        .save()
+        .then(() => {
+          return all(
+            this.model.get('memberships').map((membership) => {
+              if (membership.get('hasDirtyAttributes')) {
+                return membership.save().catch((error) => {
+                  membershipErrors.push({ membership, error });
+                  failedMembershipSavings++;
+                });
+              }
+            })
+          );
+        })
+        .then(() => {
+          if (failedMembershipSavings) {
+            const prefix = failedMembershipSavings > 1 ? 'zijn' : 'is';
+            const suffix =
+              failedMembershipSavings > 1 ? 'lidmaatschappen' : 'lidmaatschap';
+
+            const membershipErrorText = membershipErrors.reduce(
+              (errorMessage, membershipError) => {
+                const singleError = `\t ${membershipError.membership.get(
+                  'user.fullName'
+                )} (${membershipError.error.errors[0].source.pointer}) \n`;
+                return errorMessage + singleError;
+              },
+              ''
+            );
+            this.set(
+              'errorMessage',
+              `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`
+            );
+          } else {
+            this.flashNotice.sendSuccess('Groep aangepast!');
+            this.transitionToRoute('groups.show', this.model.id);
           }
         })
-        );
-      }).then(() => {
-        if (failedMembershipSavings) {
-          const prefix = failedMembershipSavings > 1 ? 'zijn' : 'is';
-          const suffix = failedMembershipSavings > 1 ? 'lidmaatschappen' : 'lidmaatschap';
-
-          const membershipErrorText = membershipErrors.reduce((errorMessage, membershipError) => {
-            const singleError = `\t ${membershipError.membership.get('user.fullName')} (${membershipError.error.errors[0].source.pointer}) \n`;
-            return errorMessage + singleError;
-          }, '');
-          this.set('errorMessage', `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`);
-        } else {
-          this.flashNotice.sendSuccess('Groep aangepast!');
-          this.transitionToRoute('groups.show', this.model.id);
-        }
-      }).catch(error => {
-        this.set('errorMessage', error.message);
-      });
+        .catch((error) => {
+          this.set('errorMessage', error.message);
+        });
     }
   }
 

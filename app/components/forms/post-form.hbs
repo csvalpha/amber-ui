@@ -2,8 +2,8 @@
   <div class='card-header'>
     <h5>Forumpost bewerken</h5>
   </div>
-  <div class="card-body">
-    <form {{action @onSubmit on="submit"}}>
+  <div class='card-body'>
+    <form {{action @onSubmit on='submit'}}>
 
       <div class='row'>
         <label
@@ -15,8 +15,15 @@
         </div>
       </div>
 
-      <ModelForm::FormActions @errors={{@model.errors}} @errorMessage={{@errorMessage}}>
-        <LinkTo @route="forum.categories.category.threads.thread.show" @model={{@model.thread}} class="btn btn-default">Annuleren</LinkTo>
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{@errorMessage}}
+      >
+        <LinkTo
+          @route='forum.categories.category.threads.thread.show'
+          @model={{@model.thread}}
+          class='btn btn-default'
+        >Annuleren</LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>
