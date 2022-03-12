@@ -38,6 +38,7 @@ export default Controller.extend({
       photoAlbum
         .save()
         .then(() => {
+          photoAlbum.photos.reload();
           // Only pass id when force reload is required, see http://emberigniter.com/force-store-reload-data-api-backend/
           this.transitionToRoute('photo-albums.photo-album', photoAlbum.id);
         })
