@@ -4,10 +4,6 @@ import { Promise } from 'rsvp';
 
 export default Controller.extend({
   session: service(),
-  store: service(),
-  flashNotice: service('flash-notice'),
-  content: null,
-  showExif: false,
   advanceToPhoto(delta) {
     const photos = this.model.photoAlbum.get('photos');
     const length = photos.get('length');
@@ -24,35 +20,6 @@ export default Controller.extend({
     },
     goToNextPhoto() {
       return this.advanceToPhoto(1);
-    },
-    submitPhotoComment() {
-      return new Promise((resolve, reject) => {
-        const content = this.content.trim();
-
-        if (content.length > 0) {
-          const photo = this.model;
-          const photoComment = this.store.createRecord('photoComment', {
-            content,
-            photo,
-          });
-
-          photoComment
-            .save()
-            .then(() => {
-              this.flashNotice.sendSuccess('Reactie opgeslagen!');
-              photo.reload(); // Reload for updated Photo#amountOfComments
-              resolve();
-            })
-            .catch(reject);
-        } else {
-          reject();
-        }
-
-        this.set('content', null);
-      });
-    },
-    toggleShowExif() {
-      this.toggleProperty('showExif');
     },
     onSwipe(direction) {
       return this.advanceToPhoto(-direction);
