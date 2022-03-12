@@ -1,5 +1,5 @@
-import EditController from './edit';
+import EditUserController from './edit';
 
-export default EditController.extend({
-  successMessage: 'Gebruiker aangemaakt!',
-});
+export default class NewUserController extends EditUserController {
+  successMessage = 'Gebruiker aangemaakt!';
+}

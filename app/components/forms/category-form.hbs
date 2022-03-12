@@ -3,9 +3,9 @@
     <h5> {{if @model.isNew 'Categorie aanmaken' 'Categorie wijzigen'}} </h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='name'
         @label='Naam'
         @required={{true}}
@@ -13,7 +13,7 @@
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
         {{#if @model.isNew}}
           <LinkTo

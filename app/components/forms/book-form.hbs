@@ -1,11 +1,11 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> {{if model.isNew 'Boek aanmaken' 'Boek wijzigen'}} </h5>
+    <h5> {{if @model.isNew 'Boek aanmaken' 'Boek wijzigen'}} </h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='isbn'
         @label='ISBN'
         @maxlength={{20}}
@@ -15,24 +15,24 @@
           <button
             type='button'
             class='btn btn-outline-dark'
-            {{on 'click' toggleScanner}}
+            {{on 'click' @onToggleScanner}}
           >
             <FaIcon @icon='barcode' />
           </button>
         </div>
       </ModelForm::TextInput>
-      {{#if showScanner}}
+      {{#if @showScanner}}
         <div class='row'>
           <div class='col-sm-10 offset-sm-2 mb-3'>
             <CodeScanner
-              @device={{this.device.deviceId}}
-              @onDevicesFound={{fn this.onDevicesFound}}
-              @onScanSuccess={{fn this.onScanSuccess}}
+              @device={{@device.deviceId}}
+              @onDevicesFound={{@onDevicesFound}}
+              @onScanSuccess={{@onScanSuccess}}
             />
             <PowerSelect
-              @options={{this.devices}}
-              @selected={{this.device}}
-              @onChange={{fn (mut this.device)}}
+              @options={{@devices}}
+              @selected={{@device}}
+              @onChange={{fn (mut @device)}}
               @searchEnabled={{false}}
               as |item|
             >
@@ -41,13 +41,13 @@
           </div>
         </div>
       {{/if}}
-      {{#if model.isbn}}
+      {{#if @model.isbn}}
         <div class='row'>
           <div class='col-sm-10 offset-sm-2 mb-3'>
             <button
               type='button'
-              class='btn btn-primary {{if lookingUpIsbn "disabled"}}'
-              {{on 'click' lookupIsbn}}
+              class='btn btn-primary {{if @lookingUpIsbn 'disabled'}}'
+              {{on 'click' @lookupIsbn}}
             >
               <FaIcon @icon='wand-magic-sparkles' />
               Aanvullen op basis van ISBN
@@ -55,7 +55,7 @@
           </div>
         </div>
       {{/if}}
-      {{#if lookupIsbnError}}
+      {{#if @lookupIsbnError}}
         <div class='row'>
           <div class='col-sm-10 offset-sm-2'>
             <div class='alert alert-danger'>
@@ -66,37 +66,37 @@
         </div>
       {{/if}}
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='title'
-        @label='Titel*'
+        @label='Titel'
+        @required={{true}}
         @maxlength={{50}}
       />
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='author'
         @label='Auteur'
         @maxlength={{50}}
       />
       <ModelForm::FileInput
-        @model={{model}}
+        @model={{@model}}
         @property='coverPhoto'
         @label='Coverfoto'
-        @loadedCallback={{fn coverPhotoLoaded}}
+        @loadedCallback={{@onCoverPhotoLoaded}}
       />
 
       <ModelForm::MdInput
         @model={{@model}}
         @property='description'
         @label='Beschrijving'
-        @required={{true}}
         @inputIdentifier='article-form-content'
       />
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
-        {{#if model.isNew}}
+        {{#if @model.isNew}}
           <LinkTo
             @route='books.index'
             class='btn btn-default'
@@ -104,12 +104,11 @@
         {{else}}
           <LinkTo
             @route='books.show'
-            @model={{model.id}}
+            @model={{@model.id}}
             class='btn btn-default'
           >Annuleren</LinkTo>
         {{/if}}
       </ModelForm::FormActions>
-
     </form>
   </div>
 </div>
