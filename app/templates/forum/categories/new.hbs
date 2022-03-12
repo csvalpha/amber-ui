@@ -1,1 +1,5 @@
-{{partial 'forum/categories/category/form'}}
+<Forms::CategoryForm
+  @model={{@model}}
+  @onSubmit={{action 'submit'}}
+  @errorMessage={{this.errorMessage}}
+/>

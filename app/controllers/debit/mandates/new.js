@@ -1,3 +1,3 @@
-import EditController from './edit';
+import EditMandateController from './edit';
 
-export default EditController.extend();
+export default class NewMandateController extends EditMandateController {}

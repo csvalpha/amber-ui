@@ -1,3 +1,3 @@
 import EditPollController from './edit';
 
-export default EditPollController.extend();
+export default class NewPollController extends EditPollController {}
