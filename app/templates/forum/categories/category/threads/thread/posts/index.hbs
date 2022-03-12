@@ -3,7 +3,7 @@
 </EmberWormhole>
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{model.posts.meta}} />
+  <PageNumbers @info={{model.posts.meta}} @replace={{true}} />
 </div>
 
 {{#each @model.posts as |post|}}
@@ -41,5 +41,5 @@
 {{/if}}
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{@model.posts.meta}} />
+  <PageNumbers @info={{@model.posts.meta}} @replace={{true}} />
 </div>

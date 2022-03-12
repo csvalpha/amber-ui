@@ -12,7 +12,8 @@ export default Controller.extend({
     const photos = this.model.photoAlbum.get('photos');
     const length = photos.get('length');
     const index = (photos.indexOf(this.model) + delta + length) % length;
-    return this.transitionToRoute(
+    this.route;
+    return this.replaceRoute(
       'photo-albums.photo-album.photos.show',
       photos.objectAt(index)
     );

@@ -4,6 +4,7 @@
       <LinkTo
         @query={{hash page=previousPage}}
         @disabled={{not canStepBackward}}
+        @replace={{replace}}
       >
         <span class='page-link previous' href='#' aria-label='Vorige'>
           <FaIcon @icon='chevron-left' />
@@ -22,7 +23,7 @@
             <span class='sr-only'>(current)</span></a>
         </li>
       {{else}}
-        <LinkTo @query={{hash page=item.page}}>
+        <LinkTo @query={{hash page=item.page}} @replace={{replace}}>
           <li class='page-item'>
             <span class='page-link' href='#'>{{item.page}}</span>
           </li>
@@ -31,7 +32,11 @@
     {{/each}}
 
     <li class='page-item'>
-      <LinkTo @query={{hash page=nextPage}} @disabled={{not canStepForward}}>
+      <LinkTo
+        @query={{hash page=nextPage}}
+        @disabled={{not canStepForward}}
+        @replace={{replace}}
+      >
         <span class='page-link next' href='#' aria-label='Volgende'>
           <FaIcon @icon='chevron-right' />
           <span class='sr-only'>Volgende</span>
