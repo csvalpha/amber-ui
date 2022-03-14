@@ -34,19 +34,19 @@ jobs:
         env:
           INPUT_SHA: ${{ inputs.sha }}
         run: |
-          if [ $GITHUB_REF_NAME = 'master' ]; then
+          if [ "$GITHUB_REF_NAME" = 'master' ]; then
             echo '::set-output name=tag::latest'
           else
-            echo '::set-output name=tag::'$GITHUB_REF_NAME
+            echo '::set-output name=tag::'"$GITHUB_REF_NAME"
           fi
 
-          if [ $GITHUB_REF_NAME = 'staging' ] || [ $GITHUB_REF_NAME = 'master' ]; then
+          if [ "$GITHUB_REF_NAME" = 'staging' ] || [ "$GITHUB_REF_NAME" = 'master' ]; then
             BUILD_ARGS='BUILD_HASH='${INPUT_SHA:-$GITHUB_SHA}
-            if [ $GITHUB_REF_NAME = 'staging' ]; then
+            if [ "$GITHUB_REF_NAME" = 'staging' ]; then
               BUILD_ARGS+=$'\nDEPLOY_TARGET=staging'
             fi
             BUILD_ARGS=${BUILD_ARGS//$'\n'/'%0A'}
-            echo '::set-output name=build_args::'$BUILD_ARGS
+            echo '::set-output name=build_args::'"$BUILD_ARGS"
           fi
 
   publish:
@@ -88,7 +88,7 @@ jobs:
         env:
           IMAGE_NAME: ${{ fromJSON(steps.build_push_image.outputs.metadata)['image.name'] }}
         run: |
-          docker cp $(docker create $IMAGE_NAME):/usr/share/nginx/html/assets/. sourcemaps
+          docker cp "$(docker create "$IMAGE_NAME")":/usr/share/nginx/html/assets/. sourcemaps
 
       - name: Create Sentry release
         if: ${{ !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image') }}
@@ -114,9 +114,10 @@ jobs:
           RESULTS: ${{ join(needs.*.result, ' ') }}
         run: |
           echo '::set-output name=conclusion::success'
+          : # shellcheck disable=SC2153
           for RESULT in $RESULTS; do
-            if [ $RESULT = 'cancelled' ] || [ $RESULT = 'failure' ]; then
-              echo '::set-output name=conclusion::'$RESULT
+            if [ "$RESULT" = 'cancelled' ] || [ "$RESULT" = 'failure' ]; then
+              echo '::set-output name=conclusion::'"$RESULT"
               break
             fi
           done
