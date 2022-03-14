@@ -4,6 +4,14 @@
   </div>
 
   <div class='card-body'>
-    {{partial 'users/form'}}
+    <Forms::UserForm
+      @model={{@model}}
+      @onSubmit={{action 'submit'}}
+      @onFileLoaded={{action 'fileLoaded'}}
+      @canEditOnlyOwnProperties={{this.canEditOnlyOwnProperties}}
+      @almanakSubscriptionPreferenceTypes={{this.almanakSubscriptionPreferenceTypes}}
+      @digtusSubscriptionPreferenceTypes={{this.digtusSubscriptionPreferenceTypes}}
+      @errorMessage={{this.errorMessage}}
+    />
   </div>
 </div>

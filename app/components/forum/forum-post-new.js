@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class ForumPostNewComponent extends Component {
   @service store;
-  @service flashNotice;
+  @service('flash-notice') flashNotice;
 
   @action
   save() {

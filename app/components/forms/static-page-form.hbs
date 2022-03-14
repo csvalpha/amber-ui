@@ -3,17 +3,21 @@
     <h5> {{if @model.isNew 'Infopagina aanmaken' 'Infopagina wijzigen'}} </h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
-      <ModelForm::TextInput @model={{model}} @property='title' @label='Titel' />
+    <form {{action @onSubmit on='submit'}}>
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='title'
+        @label='Titel'
+      />
       <ModelForm::SelectInput
-        @model={{model}}
+        @model={{@model}}
         @property='category'
         @label='Categorie'
-        @options={{staticPageCategoryOptions}}
+        @options={{@staticPageCategoryOptions}}
         @required={{true}}
       />
       <ModelForm::CheckboxInput
-        @model={{model}}
+        @model={{@model}}
         @property='publiclyVisible'
         @label='Zichtbaar voor externen'
       />
@@ -35,10 +39,7 @@
         </div>
       </div>
 
-      <ModelForm::FormActions
-        @model={{model}}
-        @errorMessage={{this.errorMessage}}
-      >
+      <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
         <LinkTo
           @route='static-pages.index'
           class='btn btn-default'
