@@ -1,3 +1,9 @@
-{{page-actions pageActions}}
+{{page-actions this.pageActions}}
 
-{{partial 'debit/transactions/form'}}
+<Forms::TransactionForm
+  @model={{@model}}
+  @onSubmit={{action 'submit'}}
+  @users={{this.users}}
+  @onSetUser={{action 'setUser'}}
+  @errorMessage={{this.errorMessage}}
+/>

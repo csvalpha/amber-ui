@@ -10,7 +10,6 @@ module.exports = {
     'no-shadowed-elements': true,
     // TODO: activate those
     'no-implicit-this': false,
-    'no-partial': false,
     'require-valid-alt-text': false,
     'table-groups': false,
     'no-action': false,

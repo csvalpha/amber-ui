@@ -1,3 +1,3 @@
-import EditController from './edit';
+import EditArticleController from './edit';
 
-export default EditController;
+export default class NewArticleController extends EditArticleController {}

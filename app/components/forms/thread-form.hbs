@@ -3,7 +3,7 @@
     <h5> {{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}} </h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
         @model={{@model.thread}}
         @property='title'
@@ -29,7 +29,7 @@
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
         {{#if @model.thread.isNew}}
           <LinkTo
