@@ -98,7 +98,7 @@ component:
       potentialMember:
         title: Interested in Alpha?
         info:
-          Nice that you are interested in Alpha. Put the weekend of 23 to 25 September 2022 in your agenda. On that weekend you can get to know Alpha and its (interested) members with a campfire, games & more. If you like it, or if you can't wait to get to know Alpha, send us a message! (0623038845)
+          Nice that you are interested in Alpha. Put the weekend of 23 to 25 September 2022 in your agenda. On that weekend you can get to know Alpha and its (interested) members with a campfire, games & more. If you like it, or if you can't wait to get to know Alpha, send us a <a href="https://api.whatsapp.com/send?phone=31623038845&text=Hoi!%20Mijn%20naam%20is%20X%20en%20ben%20XX%20jaar%20oud.%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20Alpha%20en%20zou%20graag%20een%20keer%20willen%20kennis%20maken%20met%20Alpha.">message!</a> (0623038845)
       aboutFlux:
         title: Our Pub
         info:
