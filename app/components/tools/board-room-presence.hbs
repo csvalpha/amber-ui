@@ -13,7 +13,7 @@
         <div class='py-1'>
           <div class='d-block'>
             <LinkTo @route='users.show' @model={{presence.user.id}}>
-              <small><b> {{presence.user.fullName}} </b></small>
+              <small><b>{{presence.user.fullName}}</b></small>
             </LinkTo>
           </div>
           <span class='presence-label label-{{presence.status}}'>
@@ -25,9 +25,7 @@
           </span>
         </div>
       {{else}}
-        <div class='pt-2'>
-          Er is niemand aanwezig
-        </div>
+        <div class='pt-2'>Er is niemand aanwezig</div>
       {{/each}}
       {{#if (can 'create board-room-presences')}}
         <span class='d-flex'>
@@ -63,7 +61,7 @@
           </tr>
           {{#each sortedPresences as |presence|}}
             <tr>
-              <td> {{presence.user.fullName}} </td>
+              <td>{{presence.user.fullName}}</td>
               <td>
                 {{t
                   (concat 'component.tools.boardRoomPresence.' presence.status)
@@ -86,9 +84,7 @@
           {{/each}}
         </table>
       {{else}}
-        <div class='alert alert-info'>
-          Er zijn geen bestuursleden aanwezig
-        </div>
+        <div class='alert alert-info'>Er zijn geen bestuursleden aanwezig</div>
       {{/if}}
 
       {{#if currentUserPresence}}

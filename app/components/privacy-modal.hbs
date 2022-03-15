@@ -5,16 +5,18 @@
       willen doornemen.
     </p>
     <small>
-      <b>Vraag {{step}} van {{maxSteps}}</b><br />
+      <b>Vraag {{step}} van {{maxSteps}}</b>
+      <br />
     </small>
 
     {{#if (eq step 1)}}
       <b>
         Wat moeten we doen als we een foto van je op social media willen zetten?
-      </b><br />
-      <small>
-        Voor meer informatie kijk in het mediabeleid
-      </small><br /><br />
+      </b>
+      <br />
+      <small>Voor meer informatie kijk in het mediabeleid</small>
+      <br />
+      <br />
 
       <div class='row'>
         {{#each picturePublicationPreferenceTypes as |preference|}}
@@ -33,12 +35,15 @@
         {{/each}}
       </div>
     {{else if (eq step 2)}}
-      <b>Mogen we je data delen met IFES?</b><br />
+      <b>Mogen we je data delen met IFES?</b>
+      <br />
       <small>
         IFES is een landelijk verband waar we bij betrokken zijn. Voor meer info
         zie
         <a href='https://ifes.nl'>ifes.nl</a>
-      </small><br /><br />
+      </small>
+      <br />
+      <br />
 
       <div
         class='btn btn-primary'
@@ -53,13 +58,16 @@
         Nee
       </div>
     {{else if (eq step 3)}}
-      <b>Mogen we je gegevens plaatsen in de almanak?</b><br />
+      <b>Mogen we je gegevens plaatsen in de almanak?</b>
+      <br />
       <small>
         De almanak is wordt jaarlijks uitgegeven door Alpha en wordt uitgedeeld
         aan (oud-)alphanen en externe verbanden.
         <br />
         De gegevens zijn je naam, profielfoto en studie.
-      </small><br /><br />
+      </small>
+      <br />
+      <br />
 
       <div class='btn btn-primary' {{action 'select' 'infoInAlmanak' true}}>
         Ja
@@ -68,10 +76,13 @@
         Nee
       </div>
     {{else if (eq step 4)}}
-      <b>Mogen we je gegevens delen met het streepsysteem?</b><br />
+      <b>Mogen we je gegevens delen met het streepsysteem?</b>
+      <br />
       <small>
         De gegevens die gedeeld worden zijn naam, mailadres en geboortedatum.
-      </small><br /><br />
+      </small>
+      <br />
+      <br />
 
       <div
         class='btn btn-primary'
@@ -86,20 +97,26 @@
         Nee
       </div>
     {{else if (eq step 5)}}
-      <b>Mogen we je gegevens delen via de contactsynchronizatie?</b><br />
+      <b>Mogen we je gegevens delen via de contactsynchronizatie?</b>
+      <br />
       <small>
         Om zelf gebruik te maken van de contactsynchronizatie ga naar Leden ->
         Contactsynchronizatie.
-      </small><br /><br />
+      </small>
+      <br />
+      <br />
 
-      <div class='btn btn-primary' {{action 'allowWebdav'}}> Ja </div>
-      <div class='btn btn-danger' {{action 'nextPage'}}> Nee </div>
+      <div class='btn btn-primary' {{action 'allowWebdav'}}>Ja</div>
+      <div class='btn btn-danger' {{action 'nextPage'}}>Nee</div>
     {{else if (eq step 6)}}
-      <b>Met wie mogen we je profieldetails delen?</b><br />
+      <b>Met wie mogen we je profieldetails delen?</b>
+      <br />
       <small>
         Profieldetails zijn je contactgegevens, studie, geboortedatum en
         dieetwensen.
-      </small><br /><br />
+      </small>
+      <br />
+      <br />
 
       <div class='row'>
         {{#each userDetailsPreferenceTypes as |preference|}}
@@ -120,10 +137,9 @@
     {{/if}}
 
     {{#if errorMessage}}
-      <br /><br />
-      <div class='alert alert-danger'>
-        {{this.errorMessage}}
-      </div>
+      <br />
+      <br />
+      <div class='alert alert-danger'>{{this.errorMessage}}</div>
     {{/if}}
   </BasicModal>
 {{/if}}

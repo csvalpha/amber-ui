@@ -10,6 +10,7 @@
         class='card-img-top'
         src={{article.coverPhotoUrlOrDefault}}
       />
+
       <div class='card-title-bar gradient-overlay'>
         <div class='hidden-xs-down'>
           <img
@@ -20,6 +21,7 @@
             style='display: inline;'
           />
         </div>
+
         <div class='card-titles'>
           <LinkTo @route='articles.show' @model={{article.id}}>
             <h2 class='card-title' itemprop='name headline'>
@@ -61,6 +63,7 @@
         </div>
       </div>
     </div>
+
     <div class='card-body'>
       <p class='card-text' itemprop='articleBody'>
         {{#if showExcerpt}}
@@ -83,6 +86,7 @@
         itemref='organisation-alpha'
       />
     </div>
+
     <div class='card-footer'>
       <span
         itemprop='datePublished'

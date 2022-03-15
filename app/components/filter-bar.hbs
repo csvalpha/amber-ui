@@ -1,6 +1,5 @@
 <div class='filter-bar w-100'>
   <div class='form-group mb-0'>
-
     <BsDropdown @class='w-100' as |dd|>
       <div class='input-group'>
         <div class='input-group-prepend'>
@@ -27,7 +26,7 @@
           </dd.button>
 
           <dd.menu as |ddm|>
-            <div class='ml-2 text-muted text-bold'> Sorteren </div>
+            <div class='ml-2 text-muted text-bold'>Sorteren</div>
 
             <ddm.item>
               <ModelForm::RadioGroup
@@ -37,7 +36,6 @@
                 @inputLayout='vertical'
                 @label={{null}}
                 @inputIdentifier='filter'
-                @required={{false}}
                 @class='sort-radio-group'
               />
             </ddm.item>

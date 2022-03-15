@@ -11,6 +11,7 @@
       {{#if activity.coverPhotoUrl}}
         <img class='card-img-top' src={{activity.coverPhotoUrl}} />
       {{/if}}
+
       <div class='card-title-bar gradient-overlay'>
         <div class='hidden-xs-down'>
           {{#if activity.group}}
@@ -31,6 +32,7 @@
             />
           {{/if}}
         </div>
+
         <div class='card-titles'>
           <h2 class='card-title' data-test-activity-title>
             {{activity.title}}
@@ -55,11 +57,9 @@
                 </LinkTo>
               {{/if}}
             </span>
-
           </h3>
         </div>
       </div>
-
     </div>
 
     <div class='row card-subheader-row ml-0 mr-0'>
@@ -77,6 +77,7 @@
             }}
           </span>
         </div>
+
         <div class='col-12 col-md-2 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='location-dot' />
           <span data-test-activity-location>
@@ -88,17 +89,18 @@
             </a>
           </span>
         </div>
+
         <div class='col-12 col-md-2 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='money-bill' />
           &plusmn; &euro;
-          <span data-test-activity-price>
-            {{activity.formattedPrice}}
-          </span>
+          <span data-test-activity-price>{{activity.formattedPrice}}</span>
         </div>
+
         <div class='col-12 col-md-2 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='calendar-days' />
           <span data-test-activity-category>{{activity.category}}</span>
         </div>
+
       {{else}}
         <div class='col-12 col-md-8 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='clock' />
@@ -111,6 +113,7 @@
             }}
           </span>
         </div>
+
         <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='location-dot' />
           <span>
