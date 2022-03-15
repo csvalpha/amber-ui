@@ -39,7 +39,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.1.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.13.15, @babel/core@npm:^7.13.8, @babel/core@npm:^7.16.7, @babel/core@npm:^7.3.4":
+"@babel/core@npm:^7.1.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.13.15, @babel/core@npm:^7.13.8, @babel/core@npm:^7.16.7":
   version: 7.17.7
   resolution: "@babel/core@npm:7.17.7"
   dependencies:
@@ -21345,30 +21345,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workerpool@npm:^2.3.0":
-  version: 2.3.3
-  resolution: "workerpool@npm:2.3.3"
+"workerpool@npm:^2.3.4":
+  version: 2.3.4
+  resolution: "workerpool@npm:2.3.4"
   dependencies:
     object-assign: 4.1.1
-  checksum: 093d29ddb103b3a9af40604fa501299ed49b82585279c386549647ae4e183244de68a0b718a87a7b94e1451f804669acc9719bfb3e0ba9dd9b9d2573c87cf62c
-  languageName: node
-  linkType: hard
-
-"workerpool@npm:^3.1.1":
-  version: 3.1.2
-  resolution: "workerpool@npm:3.1.2"
-  dependencies:
-    "@babel/core": ^7.3.4
-    object-assign: 4.1.1
-    rsvp: ^4.8.4
-  checksum: 7b382021ca70310926662b40c489ce78d391fb15a3aa7cf1d03eb7578e49eec777b1f332155b5f654118c03b53367ef96f66a42b128e5ca48b25164de9ef2a99
-  languageName: node
-  linkType: hard
-
-"workerpool@npm:^6.0.0, workerpool@npm:^6.1.4":
-  version: 6.2.0
-  resolution: "workerpool@npm:6.2.0"
-  checksum: 3493b4f0ef979a23d2c1583d7ef85f62fc9463cc02f82829d3e7e663b517f8ae9707da0249b382e46ac58986deb0ca2232ee1081713741211bda9254b429c9bb
+  checksum: 34793e88505ca6638372791d401a27d17674efdd34d5535b76ce6579b35a0cb1780156b113a3790405eefc447160d6e255e4887bfbf0c42edbae8fdf475ccc93
   languageName: node
   linkType: hard
 
