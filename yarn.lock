@@ -3462,7 +3462,6 @@ __metadata:
     ember-load-initializers: ^2.1.2
     ember-maybe-import-regenerator: ^0.1.6
     ember-moment: ^9.0.1
-    ember-page-title: ^6.2.2
     ember-pikaday: ^3.0.0
     ember-power-select: ^5.0.2
     ember-promise-helpers: ^2.0.0
@@ -9388,15 +9387,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-page-title@npm:^6.2.2":
-  version: 6.2.2
-  resolution: "ember-page-title@npm:6.2.2"
-  dependencies:
-    ember-cli-babel: ^7.23.1
-  checksum: 5dccbe76ad07ef2272c93487f2651cf196de8e89827f3d3be633f338a1f082543eee48053cff3c0b7319ca86cf73f88d28a75504c0f0244dee07018ebcd315ca
-  languageName: node
-  linkType: hard
-
 "ember-pikaday@npm:^3.0.0":
   version: 3.0.0
   resolution: "ember-pikaday@npm:3.0.0"
@@ -12544,14 +12534,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"inflection@npm:^1.12.0":
-  version: 1.12.0
-  resolution: "inflection@npm:1.12.0"
-  checksum: c640917b7c1ef2151df8eed5e7bc1ea6f6dd7b924e86f1add0bf801db55be8b581eb2d3d767a29e439153e4c06b00679a45853ac58c498ea519c4b4bdcd2a775
-  languageName: node
-  linkType: hard
-
-"inflection@npm:~1.13.1":
+"inflection@npm:^1.12.0, inflection@npm:~1.13.1":
   version: 1.13.2
   resolution: "inflection@npm:1.13.2"
   checksum: e7ad0559384ed7c526813404bde843f8f17941d47625ad60fc3b09e46efde873dd9840818007c6bd4dbe388e6248fa033d5a8c405c5fc62738c51b118a0e940f
@@ -13389,14 +13372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jquery@npm:^3.4.1":
-  version: 3.5.1
-  resolution: "jquery@npm:3.5.1"
-  checksum: 813047b852511ca1ecfaa7b2568aba1d7270a92e5c74962b308792a401adf041869a3b2a6858b0b7a02f6684947fb93171e40cbb4460831977a937b40b0e15ce
-  languageName: node
-  linkType: hard
-
-"jquery@npm:^3.5.1":
+"jquery@npm:^3.4.1, jquery@npm:^3.5.1":
   version: 3.6.0
   resolution: "jquery@npm:3.6.0"
   checksum: 8fd5fef4aa48fd374ec716dd1c1df1af407814a228e15c1260ca140de3a697c2a77c30c54ff1d238b6a3ab4ddc445ddeef9adce6c6d28e4869d85eb9d3951c0e
@@ -15479,7 +15455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2.6.0":
+"node-fetch@npm:^2.6.0, node-fetch@npm:^2.6.1":
   version: 2.6.7
   resolution: "node-fetch@npm:2.6.7"
   dependencies:
@@ -15490,15 +15466,6 @@ __metadata:
     encoding:
       optional: true
   checksum: 8d816ffd1ee22cab8301c7756ef04f3437f18dace86a1dae22cf81db8ef29c0bf6655f3215cb0cdb22b420b6fe141e64b26905e7f33f9377a7fa59135ea3e10b
-  languageName: node
-  linkType: hard
-
-"node-fetch@npm:^2.6.1":
-  version: 2.6.6
-  resolution: "node-fetch@npm:2.6.6"
-  dependencies:
-    whatwg-url: ^5.0.0
-  checksum: ee8290626bdb73629c59722b75dcf4b9b6a67c1ed7eb9102e368479c4a13b56a48c2bb3ad71571e378e98c8b2c64c820e11f9cd39e4b8557dd138ad571ef9a42
   languageName: node
   linkType: hard
 
@@ -20055,7 +20022,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:^5.3.0":
+"terser@npm:^5.3.0, terser@npm:^5.7.2":
   version: 5.12.1
   resolution: "terser@npm:5.12.1"
   dependencies:
@@ -20066,24 +20033,6 @@ __metadata:
   bin:
     terser: bin/terser
   checksum: dd33af5d87a1159bcc38f354707505f1449a33d1491c512e9536f11fea7c3474cdc40e2e5fdf75f58658cfaab8ef47cb7454acd6406b2ce487675cb1978c6275
-  languageName: node
-  linkType: hard
-
-"terser@npm:^5.7.2":
-  version: 5.10.0
-  resolution: "terser@npm:5.10.0"
-  dependencies:
-    commander: ^2.20.0
-    source-map: ~0.7.2
-    source-map-support: ~0.5.20
-  peerDependencies:
-    acorn: ^8.5.0
-  peerDependenciesMeta:
-    acorn:
-      optional: true
-  bin:
-    terser: bin/terser
-  checksum: 1080faeb6d5cd155bb39d9cc41d20a590eafc9869560d5285f255f6858604dcd135311e344188a106f87fedb12d096ad3799cfc2e65acd470b85d468b1c7bd4c
   languageName: node
   linkType: hard
 

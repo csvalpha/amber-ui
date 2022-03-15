@@ -29,6 +29,7 @@
     "ember-fetch",
     "ember-load-initializers",
     "ember-maybe-import-regenerator",
+    "ember-page-title",
     "ember-qunit",
     "ember-resolver",
     "ember-source",
