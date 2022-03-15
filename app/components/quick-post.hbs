@@ -97,7 +97,7 @@
                 <FaIcon
                   @icon='trash'
                   class='qp-destroy-icon link-highlight'
-                  @onClick={{action 'destroyMessage' message}}
+                  {{on 'click' (action 'destroyMessage' message)}}
                 />
               {{/if}}
               {{moment-format message.createdAt 'dddd D MMMM HH:mm'}}

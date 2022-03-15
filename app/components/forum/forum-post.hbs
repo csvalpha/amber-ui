@@ -75,7 +75,7 @@
             <FaIcon
               @icon='quote-left'
               class='link-highlight'
-              @onClick={{action 'quote'}}
+              {{on 'click' (action 'quote')}}
             />
           </span>
         {{/if}}
@@ -84,7 +84,7 @@
           <FaIcon
             @icon='code'
             class='link-highlight'
-            @onClick={{action 'toggleShowMarkdown'}}
+            {{on 'click' (action 'toggleShowMarkdown')}}
           />
         </span>
       </span>
