@@ -3,26 +3,29 @@
 </div>
 
 {{#if (can 'show individual users')}}
-  <p class='text-right text-muted'>
-    Foto geüpload door
-    <LinkTo @route='users.show' @model={{@model.uploader.id}}>
-      {{@model.uploader.fullName}}
-    </LinkTo>
 
-    {{#if @model.hasExif}}
-      <button
-        class='ml-1 btn btn-sm btn-outline-info'
-        {{action 'toggleShowExif'}}
-        type='button'
-      >
-        Toon Exif data
-      </button>
-    {{else}}
-      <button class='ml-1 btn btn-sm btn-outline-info disabled' type='button'>
-        Geen Exif data
-      </button>
-    {{/if}}
-  </p>
+  {{#if @showInfo}}
+    <p class='text-right text-muted'>
+      Foto geüpload door
+      <LinkTo @route='users.show' @model={{@model.uploader.id}}>
+        {{@model.uploader.fullName}}
+      </LinkTo>
+
+      {{#if @model.hasExif}}
+        <button
+          class='ml-1 btn btn-sm btn-outline-info'
+          {{action 'toggleShowExif'}}
+          type='button'
+        >
+          Toon Exif data
+        </button>
+      {{else}}
+        <button class='ml-1 btn btn-sm btn-outline-info disabled' type='button'>
+          Geen Exif data
+        </button>
+      {{/if}}
+    </p>
+  {{/if}}
 
   {{#if showExif}}
     <div class='card card-body'>

@@ -23,7 +23,7 @@ export default class PhotoCommentsIndexController extends FilterableAndSortableC
       const routeOnEnterParam = this.routeOnEnterParam || 'id';
       this.transitionToRoute(
         this.routeOnEnter,
-        this.model.firstObject.photoAlbum.id,
+        this.model.firstObject.photoAlbum,
         this.model.firstObject[routeOnEnterParam]
       );
     }
