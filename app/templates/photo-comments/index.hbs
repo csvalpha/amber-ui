@@ -14,7 +14,19 @@
 <div class='row'>
   <div class='col-12'>
     {{#each model as |photo|}}
-      <PhotoAlbums::Photo @model={{photo}} />
+      <div class='card'>
+        <div class='row row-cols-1 row-cols-md-2 ml-md-3'>
+          <div class='col mt-3'>
+            <PhotoAlbums::Photo @model={{photo}} />
+          </div>
+          <div class='col'>
+            <PhotoComments::Comments
+              @model={{photo}}
+              class='photo-comments mb-0'
+            />
+          </div>
+        </div>
+      </div>
     {{/each}}
   </div>
 </div>

@@ -1,0 +1,51 @@
+<div class='card w-100' ...attributes>
+  {{#if (can 'show photo comments of photo' @model)}}
+    <div class='card-header'>
+      <h5> Reacties </h5>
+    </div>
+    <div class='card-body' style='overflow: auto;'>
+      <div class='col'>
+        <div>
+          {{#each @model.comments as |comment|}}
+            <div class='row'>
+              {{user-comment comment data-test-photo-comment=comment.id}}
+            </div>
+          {{else}}
+            <span class='text-muted no-comment-text'>
+              Er zijn nog geen reacties
+            </span>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{#if (can 'create photo-comments')}}
+      <div class='card-footer'>
+        {{#if @model.photoAlbum.publiclyVisible}}
+          <div class='alert alert-info'>
+            Deze foto is ook te zien voor niet-leden, dat geldt ook voor de
+            reacties die er geplaatst worden. Het is natuurlijk heel fijn om te
+            laten zien hoe actief Alpha is, maar houd er wel rekening mee als je
+            wat plaatst.
+          </div>
+        {{/if}}
+        <div class='input-group new-photo-comment'>
+          <Input
+            @value={{content}}
+            class='form-control'
+            placeholder='Typ hier je reactie'
+            @minlength='1'
+            @maxlength='500'
+            @enter={{action 'submitPhotoComment'}}
+          />
+          <span class='input-group-btn'>
+            <button
+              class='btn btn-default'
+              {{action 'submitPhotoComment'}}
+              type='button'
+            >Reageren</button>
+          </span>
+        </div>
+      </div>
+    {{/if}}
+  {{/if}}
+</div>

@@ -1,25 +1,6 @@
-.photo-and-comments-card {
-  height: 400px;
-  overflow: hidden;
-
-  img {
-    object-fit: cover;
+@include media-breakpoint-up(md) {
+  .photo-comments {
+    position: absolute;
+    max-height: 100%;
   }
-}
-
-.photo-comments-and-input-holder {
-  display: flex;
-  flex-direction: column;
-  height: 400px;
-}
-
-.photo-comment-scroll-container {
-  display: flex;
-  flex: 1;
-  flex-direction: column-reverse;
-  width: 100%;
-  height: 100%;
-  max-height: inherit;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }

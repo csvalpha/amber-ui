@@ -28,5 +28,8 @@
 </EmberWormhole>
 
 <Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
-  <PhotoAlbums::Photo @model={{model}} />
+  <div class='col'>
+    <PhotoAlbums::Photo @model={{model}} />
+    <PhotoComments::Comments @model={{model}} />
+  </div>
 </Swipeable>
