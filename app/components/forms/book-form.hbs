@@ -1,0 +1,114 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5> {{if @model.isNew 'Boek aanmaken' 'Boek wijzigen'}} </h5>
+  </div>
+  <div class='card-body'>
+    <form {{action @onSubmit on='submit'}}>
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='isbn'
+        @label='ISBN'
+        @maxlength={{20}}
+        @inputWrapperClass='col-sm-10 input-group'
+      >
+        <div class='input-group-append'>
+          <button
+            type='button'
+            class='btn btn-outline-dark'
+            {{on 'click' @onToggleScanner}}
+          >
+            <FaIcon @icon='barcode' />
+          </button>
+        </div>
+      </ModelForm::TextInput>
+      {{#if @showScanner}}
+        <div class='row'>
+          <div class='col-sm-10 offset-sm-2 mb-3'>
+            <CodeScanner
+              @device={{@device.deviceId}}
+              @onDevicesFound={{@onDevicesFound}}
+              @onScanSuccess={{@onScanSuccess}}
+            />
+            <PowerSelect
+              @options={{@devices}}
+              @selected={{@device}}
+              @onChange={{fn (mut @device)}}
+              @searchEnabled={{false}}
+              as |item|
+            >
+              {{item.label}}
+            </PowerSelect>
+          </div>
+        </div>
+      {{/if}}
+      {{#if @model.isbn}}
+        <div class='row'>
+          <div class='col-sm-10 offset-sm-2 mb-3'>
+            <button
+              type='button'
+              class='btn btn-primary {{if @lookingUpIsbn 'disabled'}}'
+              {{on 'click' @lookupIsbn}}
+            >
+              <FaIcon @icon='wand-magic-sparkles' />
+              Aanvullen op basis van ISBN
+            </button>
+          </div>
+        </div>
+      {{/if}}
+      {{#if @lookupIsbnError}}
+        <div class='row'>
+          <div class='col-sm-10 offset-sm-2'>
+            <div class='alert alert-danger'>
+              Het boek is niet gevonden of er is een fout opgetreden. Probeer
+              het opnieuw of vul de gegevens handmatig in.
+            </div>
+          </div>
+        </div>
+      {{/if}}
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='title'
+        @label='Titel'
+        @required={{true}}
+        @maxlength={{50}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='author'
+        @label='Auteur'
+        @maxlength={{50}}
+      />
+      <ModelForm::FileInput
+        @model={{@model}}
+        @property='coverPhoto'
+        @label='Coverfoto'
+        @loadedCallback={{@onCoverPhotoLoaded}}
+      />
+
+      <ModelForm::MdInput
+        @model={{@model}}
+        @property='description'
+        @label='Beschrijving'
+        @inputIdentifier='article-form-content'
+      />
+
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{@errorMessage}}
+      >
+        {{#if @model.isNew}}
+          <LinkTo
+            @route='books.index'
+            class='btn btn-default'
+          >Annuleren</LinkTo>
+        {{else}}
+          <LinkTo
+            @route='books.show'
+            @model={{@model.id}}
+            class='btn btn-default'
+          >Annuleren</LinkTo>
+        {{/if}}
+      </ModelForm::FormActions>
+    </form>
+  </div>
+</div>

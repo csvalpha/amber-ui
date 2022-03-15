@@ -1,37 +1,37 @@
-<form class='form' {{action 'submit' on='submit'}}>
+<form class='form' {{action @onSubmit on='submit'}}>
   <h5>Publieke gegevens</h5>
   <p>Deze gegevens zijn zichtbaar voor alle leden en oud-leden.</p>
   <ModelForm::FileInput
-    @model={{model}}
+    @model={{@model}}
     @property='avatar'
     @label='Profielfoto'
-    @loadedCallback={{action 'fileLoaded'}}
+    @loadedCallback={{@onFileLoaded}}
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='firstName'
     @label='Voornaam'
     @required={{true}}
-    @disabled={{canEditOnlyOwnProperties}}
+    @disabled={{@canEditOnlyOwnProperties}}
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='lastNamePrefix'
     @label='Tussenvoegsel'
-    @disabled={{canEditOnlyOwnProperties}}
+    @disabled={{@canEditOnlyOwnProperties}}
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='lastName'
     @label='Achternaam'
     @required={{true}}
-    @disabled={{canEditOnlyOwnProperties}}
+    @disabled={{@canEditOnlyOwnProperties}}
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
@@ -43,7 +43,7 @@
     Bestuur en de ICT-commissie
   </p>
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='email'
     @label='E-mail'
     @required={{true}}
@@ -52,7 +52,7 @@
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='address'
     @label='Adres'
     @required={{true}}
@@ -60,7 +60,7 @@
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='postcode'
     @label='Postcode'
     @required={{true}}
@@ -68,7 +68,7 @@
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='city'
     @label='Stad'
     @required={{true}}
@@ -76,21 +76,21 @@
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='phoneNumber'
     @label='Telefoon'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='emergencyContact'
     @label='Noodcontact'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='emergencyNumber'
     @label='Noodnummer'
     @labelClass='col-sm-5'
@@ -99,37 +99,37 @@
 
   <h5>Overige gegevens</h5>
   <ModelForm::DateInput
-    @model={{model}}
+    @model={{@model}}
     @property='birthday'
     @label='Geboortedatum'
     @yearRange='1900,currentYear'
-    @disabled={{canEditOnlyOwnProperties}}
+    @disabled={{@canEditOnlyOwnProperties}}
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='foodPreferences'
     @label='Dieetwensen'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::CheckboxInput
-    @model={{model}}
+    @model={{@model}}
     @property='vegetarian'
     @label='Vegetariër'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::TextInput
-    @model={{model}}
+    @model={{@model}}
     @property='study'
     @label='Studie'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::DateInput
-    @model={{model}}
+    @model={{@model}}
     @property='startStudy'
     @label='Startdatum studie'
     @labelClass='col-sm-5'
@@ -138,17 +138,17 @@
 
   <h5>Voorkeuren</h5>
   <ModelForm::SelectInput
-    @model={{model}}
+    @model={{@model}}
     @property='almanakSubscriptionPreference'
-    @options={{almanakSubscriptionPreferenceTypes}}
+    @options={{@almanakSubscriptionPreferenceTypes}}
     @label='Almanakvoorkeur'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
   <ModelForm::SelectInput
-    @model={{model}}
+    @model={{@model}}
     @property='digtusSubscriptionPreference'
-    @options={{digtusSubscriptionPreferenceTypes}}
+    @options={{@digtusSubscriptionPreferenceTypes}}
     @label='Digtusvoorkeur'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
@@ -156,23 +156,23 @@
 
   <h5>Technische gegevens</h5>
   <ModelForm::CheckboxInput
-    @model={{model}}
+    @model={{@model}}
     @property='loginEnabled'
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
     @label='Gebruiker kan inloggen'
-    @disabled={{canEditOnlyOwnProperties}}
+    @disabled={{@canEditOnlyOwnProperties}}
     @labelColspan={{5}}
   />
 
   <ModelForm::FormActions
     @errors={{@model.errors}}
-    @errorMessage={{this.errorMessage}}
+    @errorMessage={{@errorMessage}}
     @inputLayout='vertical'
   >
     <LinkTo
       @route='users.show'
-      @model={{model.id}}
+      @model={{@model.id}}
       class='btn btn-default'
     >Annuleren</LinkTo>
   </ModelForm::FormActions>

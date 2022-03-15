@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Activiteit aanmaken' 'Activiteit wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
 
       {{#if @model.form.hasResponses}}
         <div class='alert alert-danger'>
@@ -11,39 +11,39 @@
         </div>
       {{/if}}
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='title'
         @label='Titel'
         @required={{true}}
       />
       <ModelForm::MdInput
-        @model={{model}}
+        @model={{@model}}
         @property='description'
         @label='Omschrijving'
         @required={{true}}
         @inputIdentifier='activity-form-content'
       />
       <ModelForm::SelectInput
-        @model={{model}}
+        @model={{@model}}
         @property='category'
         @label='Categorie'
         @required={{true}}
-        @options={{activityCategoryOptions}}
+        @options={{@activityCategoryOptions}}
       />
       <ModelForm::FileInput
-        @model={{model}}
+        @model={{@model}}
         @property='coverPhoto'
         @label='Coverfoto'
-        @loadedCallback={{action 'coverPhotoLoaded'}}
+        @loadedCallback={{@onCoverPhotoLoaded}}
       />
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='location'
         @label='Locatie'
         @required={{true}}
       />
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='price'
         @label='Prijs'
         @required={{true}}
@@ -52,13 +52,13 @@
         @disabled={{@model.form.hasResponses}}
       />
       <ModelForm::DatetimeInput
-        @model={{model}}
+        @model={{@model}}
         @property='startTime'
         @label='Begintijd'
         @required={{true}}
       />
       <ModelForm::DatetimeInput
-        @model={{model}}
+        @model={{@model}}
         @property='endTime'
         @label='Eindtijd'
         @required={{true}}
@@ -75,7 +75,7 @@
       {{/if}}
 
       <ModelForm::CheckboxInput
-        @model={{model}}
+        @model={{@model}}
         @property='publiclyVisible'
         @label='Zichtbaar voor externen'
       />
@@ -95,7 +95,7 @@
 
             <div class='col-sm-10'>
               <PowerSelect
-                @options={{groups}}
+                @options={{@groups}}
                 @onChange={{action (mut @model.group)}}
                 @selected={{@model.group}}
                 @searchEnabled={{true}}
@@ -106,20 +106,20 @@
                 {{group.name}}
               </PowerSelect>
 
-              {{form-control-feedback (get @model.errors property)}}
+              {{form-control-feedback (get @model.errors 'group')}}
             </div>
           </div>
         </div>
       </div>
 
       <ModelForm::CheckboxInput
-        @model={{this}}
+        @model={{@controller}}
         @property='activityHasForm'
         @label='Deze activiteit heeft een inschrijflijst'
         @disabled={{@model.form.hasResponses}}
       />
 
-      {{#if (and @model.publiclyVisible activityHasForm)}}
+      {{#if (and @model.publiclyVisible @activityHasForm)}}
         <div class='alert alert-warning'>
           Inschrijflijsten zijn alleen zichtbaar voor leden. Voor extern gebruik
           van formulieren kan gebruik gemaakt worden van Google Forms. Plaats
@@ -136,12 +136,12 @@
       </div>
 
       <ModelForm::FormActions
-        @errors={{combinedErrors}}
-        @errorMessage={{this.errorMessage}}
+        @errors={{@combinedErrors}}
+        @errorMessage={{@errorMessage}}
       >
         <LinkTo
           @route='activities.show'
-          @model={{model.id}}
+          @model={{@model.id}}
           class='btn btn-default'
         >Annuleren</LinkTo>
       </ModelForm::FormActions>
@@ -149,7 +149,7 @@
   </div>
 </div>
 
-{{#if activityHasForm}}
+{{#if @activityHasForm}}
   <div class='card'>
     <div class='card-header'>
       <h5>Inschrijflijst</h5>

@@ -1,3 +1,3 @@
 import EditStaticPageController from './edit';
 
-export default EditStaticPageController.extend();
+export default class NewStaticPageController extends EditStaticPageController {}

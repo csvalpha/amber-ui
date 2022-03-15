@@ -3,7 +3,7 @@
     <h5>Forumpost bewerken</h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
 
       <div class='row'>
         <label
@@ -17,7 +17,7 @@
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
         <LinkTo
           @route='forum.categories.category.threads.thread.show'

@@ -1,28 +1,28 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> {{if model.isNew 'Artikel aanmaken' 'Artikel wijzigen'}} </h5>
+    <h5> {{if @model.isNew 'Artikel aanmaken' 'Artikel wijzigen'}} </h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='title'
         @label='Titel'
         @maxlength={{50}}
       />
       <ModelForm::FileInput
-        @model={{model}}
+        @model={{@model}}
         @property='coverPhoto'
         @label='Coverfoto'
-        @loadedCallback={{action 'coverPhotoLoaded'}}
+        @loadedCallback={{@onCoverPhotoLoaded}}
       />
       <ModelForm::CheckboxInput
-        @model={{model}}
+        @model={{@model}}
         @property='publiclyVisible'
         @label='Zichtbaar voor externen'
       />
 
-      {{#if model.publiclyVisible}}
+      {{#if @model.publiclyVisible}}
         <div class='alert alert-warning' role='alert'>
           Een publiek artikel is ook zichtbaar voor niet-leden. Fijn dat je ook
           helpt om te laten zien dat Alpha een levendige boel is! Houd hier wel
@@ -33,9 +33,9 @@
         </div>
       {{/if}}
 
-      {{#if canPin}}
+      {{#if @canPin}}
         <ModelForm::CheckboxInput
-          @model={{model}}
+          @model={{@model}}
           @property='pinned'
           @label='Artikel vastzetten'
         />
@@ -46,7 +46,7 @@
 
         <div class='col-sm-10'>
           <PowerSelect
-            @options={{groups}}
+            @options={{@groups}}
             @onChange={{action (mut @model.group)}}
             @selected={{@model.group}}
             @searchEnabled={{true}}
@@ -57,7 +57,7 @@
             {{group.name}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors property)}}
+          {{form-control-feedback (get @model.errors 'group')}}
         </div>
       </div>
 
@@ -71,11 +71,10 @@
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
         <LinkTo @route='index' class='btn btn-default'>Annuleren</LinkTo>
       </ModelForm::FormActions>
-
     </form>
   </div>
 </div>

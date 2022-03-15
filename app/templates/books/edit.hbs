@@ -1,0 +1,19 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<Forms::BookForm
+  @model={{@model}}
+  @showScanner={{this.showScanner}}
+  @device={{this.device}}
+  @devices={{this.devices}}
+  @lookingUpIsbn={{this.lookingUpIsbn}}
+  @lookupIsbnError={{this.lookupIsbnError}}
+  @errorMessage={{this.errorMessage}}
+  @onSubmit={{action 'submit'}}
+  @onToggleScanner={{action 'toggleScanner'}}
+  @onDevicesFound={{action 'onDevicesFound'}}
+  @onScanSuccess={{action 'onScanSuccess'}}
+  @lookupIsbn={{action 'lookupIsbn'}}
+  @onCoverPhotoLoaded={{action 'coverPhotoLoaded'}}
+/>
