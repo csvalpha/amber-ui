@@ -11,7 +11,7 @@ module.exports = function (app) {
     console.error(err, req.url);
   });
 
-  app.use(proxyPath, function (req, res, _next){
+  app.use(proxyPath, function (req, res) {
     req.url = req.originalUrl;
     proxy.web(req, res, { target: 'http://localhost:3000' });
   });

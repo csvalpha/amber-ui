@@ -77,6 +77,6 @@ module.exports = {
     },
   ],
   globals: {
-    'moment': true,
+    moment: true,
   },
 };
