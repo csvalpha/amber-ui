@@ -135,7 +135,8 @@
                         <Input
                           @value={{membership.function}}
                           class='form-control'
-                          @disabled={{not
+                          aria-label='Functie'
+                          disabled={{not
                             (or (can 'update memberships') membership.isNew)
                           }}
                         />

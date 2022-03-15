@@ -7,16 +7,17 @@
       @model={{model.id}}
       class='btn btn-outline-info'
     >
-      Voorkeuren wijzigen
-      <FaIcon @icon='pen-to-square' class='pl-1' />
+      Voorkeuren wijzigen<FaIcon @icon='pen-to-square' class='pl-1' />
     </LinkTo>
   {{/if}}
 </div>
 
 <table class='table table-sm'>
   <tr>
-    <td>Ik wil profieldetails (contactgegevens, studie, geboortedatum en
-      dieetwensen) delen met:</td>
+    <td>
+      Ik wil profieldetails (contactgegevens, studie, geboortedatum en
+      dieetwensen) delen met:
+    </td>
     <td data-test-user-details-sharing-preference>
       {{humanize-user-details-sharing-preference
         @model.userDetailsSharingPreference
@@ -24,8 +25,10 @@
     </td>
   </tr>
   <tr>
-    <td>Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het
-      streepsysteem</td>
+    <td>
+      Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het
+      streepsysteem
+    </td>
     <td data-test-allow-tomato-sharing>
       {{boolean-tag @model.allowTomatoSharing}}
     </td>

@@ -9,7 +9,8 @@
       class='close-left-sidebar-panel
         {{if layoutManager.leftSideBarOpen "open"}}'
       {{on 'click' layoutManager.toggleLeftSidebar}}
-    > </div>
+    >
+    </div>
   </EmberWormhole>
 
   <div class='menu-items-holder'>
@@ -27,7 +28,9 @@
         <span
           class='menu-sidebar-item-text
             {{if layoutManager.leftSideBarExpanded "visible"}}'
-        > {{session.currentUser.firstName}}</span>
+        >
+          {{session.currentUser.firstName}}
+        </span>
 
         <FaIcon @icon='angle-down' class='ml-3 profile-menu-arrow' />
       </div>

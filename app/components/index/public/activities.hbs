@@ -1,6 +1,6 @@
 {{#if activities}}
   <hr />
-  <h2 class='pb-2'> {{t 'component.index.public.activities.title'}} </h2>
+  <h2 class='pb-2'>{{t 'component.index.public.activities.title'}}</h2>
   <div class='row'>
     {{#each activities as |activity index|}}
       <div class='col-12 col-md-6 col-lg-4'>
@@ -22,8 +22,8 @@
         <div class='modal-content'>
           <div class='modal-body'>
             <div class='modal-image-header' style={{modalImageStyle}}></div>
-            <h2 class='modal-title'> {{modalTitle}} </h2>
-            <p> <i> {{modalLocation}} </i> </p>
+            <h2 class='modal-title'>{{modalTitle}}</h2>
+            <p><i>{{modalLocation}}</i></p>
             {{markdown-to-html
               modalText
               extensions='youtubeEmbed bootstrapTable'
@@ -34,7 +34,9 @@
               type='button'
               class='btn btn-default'
               {{action 'closeModal'}}
-            > {{t 'tag.button.close'}} </button>
+            >
+              {{t 'tag.button.close'}}
+            </button>
           </div>
         </div>
       </div>

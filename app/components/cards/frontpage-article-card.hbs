@@ -1,6 +1,6 @@
 <LinkTo @route='articles.show' @model={{article.id}}>
   <article
-    class='{{if useMaxHeight "d-flex"}}'
+    class={{if useMaxHeight 'd-flex'}}
     itemscope
     itemtype='http://schema.org/Article'
   >
@@ -18,10 +18,10 @@
         </div>
         <div class='card-title-bar gradient-overlay-rounded d-flex'>
           <div class='card-titles col pl-0'>
-            <h5 itemprop='name headline'>{{#if article.pinned}}
-                <FaIcon @icon='thumbtack' />
-              {{/if}}
-              {{article.title}}</h5>
+            <h5 itemprop='name headline'>
+              {{#if article.pinned}}<FaIcon @icon='thumbtack' />{{/if}}
+              {{article.title}}
+            </h5>
             {{#if article.group}}
               <LinkTo
                 @route='groups.show'

@@ -33,17 +33,18 @@
         <label
           for='article-form-content col-form-label form-control-label'
           class='col-sm-2'
-        >Inhoud</label>
+        >
+          Inhoud
+        </label>
         <div class='col-sm-10'>
           <MdEditor @content={{@model.content}} />
         </div>
       </div>
 
       <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
-        <LinkTo
-          @route='static-pages.index'
-          class='btn btn-default'
-        >Annuleren</LinkTo>
+        <LinkTo @route='static-pages.index' class='btn btn-default'>
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

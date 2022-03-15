@@ -26,8 +26,10 @@
 
         {{#if (eq difficulty 1)}}
           <div class='card-body text-center trainer-question'>
-            <h2 class='card-title'>Wie is
-              {{currentQuestion.question.fullName}}?</h2>
+            <h2 class='card-title'>
+              Wie is
+              {{currentQuestion.question.fullName}}?
+            </h2>
           </div>
           <ul
             class='list-group list-group-flush trainer-options trainer-images'
@@ -75,8 +77,10 @@
         {{else if (eq difficulty 3)}}
           <div class='card-body text-center trainer-question'>
             {{#if answered}}
-              <h2 class='card-title'>Dit is
-                {{currentQuestion.question.fullName}}</h2>
+              <h2 class='card-title'>
+                Dit is
+                {{currentQuestion.question.fullName}}
+              </h2>
             {{else}}
               <h2 class='card-title'>Wie is dit?</h2>
             {{/if}}
@@ -90,7 +94,7 @@
               <Input
                 @type='text'
                 @value={{textInput}}
-                @id='answer'
+                id='answer'
                 class={{inputClass}}
                 placeholder='Type hier de volledige naam'
                 @enter={{action 'checkAnswer'}}
@@ -100,7 +104,9 @@
                   type='button'
                   class='btn btn-primary'
                   {{action 'checkAnswer'}}
-                >Antwoord</button>
+                >
+                  Antwoord
+                </button>
               </div>
             </div>
           </div>
@@ -113,11 +119,13 @@
 
     {{else if finished}}
       <div class='card-body text-center trainer-question'>
-        <h2 class='card-title'>Je hebt
+        <h2 class='card-title'>
+          Je hebt
           {{success}}
           van de
           {{questions.length}}
-          vragen goed</h2>
+          vragen goed
+        </h2>
         <p class='card-subtitle text-muted'>
           Dat is toch wel een
           {{grade}}
@@ -196,8 +204,9 @@
       </div>
 
       <div class='card-footer text-right'>
-        <a class='btn btn-default' {{action 'stopTrainer'}}>Terug naar
-          instellingen</a>
+        <a class='btn btn-default' {{action 'stopTrainer'}}>
+          Terug naar instellingen
+        </a>
       </div>
     {{else}}
       <div class='card-header'>

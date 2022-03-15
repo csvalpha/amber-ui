@@ -1,7 +1,9 @@
 <label
   class='col-form-label form-control-label {{labelClass}}'
   for={{inputIdentifier}}
->{{label}}{{if required ' *'}}</label>
+>
+  {{label}}{{if required ' *'}}
+</label>
 <div class='{{inputWrapperClass}}'>
   <Input::DateInput
     @inputId={{inputIdentifier}}

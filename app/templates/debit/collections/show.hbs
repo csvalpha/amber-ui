@@ -4,11 +4,15 @@
 
 <div class='card'>
   <div class='card-header d-flex justify-content-between'>
-    <h5>{{@model.collection.name}}
+    <h5>
+      {{@model.collection.name}}
       -
-      {{moment-format @model.collection.date 'DD-MM-YYYY'}}</h5>
-    <span class='text-muted'>Gemaakt door
-      {{@model.collection.author.fullName}}</span>
+      {{moment-format @model.collection.date 'DD-MM-YYYY'}}
+    </h5>
+    <span class='text-muted'>
+      Gemaakt door
+      {{@model.collection.author.fullName}}
+    </span>
   </div>
 
   <div class='card-body'>
@@ -19,21 +23,19 @@
 
       <div class='row'>
         <div class='col-7'>
-          <b> Beschrijving </b>
+          <b>Beschrijving</b>
         </div>
         <div class='col-5'>
-          <b> Bedrag </b>
+          <b>Bedrag</b>
         </div>
       </div>
 
       {{#each transactionGroup.transactions as |transaction|}}
         <div class='row'>
-          <div class='col-7'>
-            {{transaction.description}}
-          </div>
+          <div class='col-7'>{{transaction.description}}</div>
 
           <div class='col-3'>
-            <span> &euro; {{transaction.amount}} </span>
+            <span>&euro; {{transaction.amount}}</span>
           </div>
 
           <div class='col-2'>
@@ -58,22 +60,20 @@
         </div>
 
       {{else}}
-        <div class='alert alert-warning'> Geen transacties gevonden </div>
+        <div class='alert alert-warning'>Geen transacties gevonden</div>
       {{/each}}
 
       {{#if transactionGroup.transactions}}
         <div class='row mt-3'>
-          <div class='col-7'>
-            Totaal
-          </div>
+          <div class='col-7'>Totaal</div>
+
           <div class='col-5'>
-            <span> &euro; {{transactionGroup.totalTransactionAmount}} </span>
+            <span>&euro; {{transactionGroup.totalTransactionAmount}}</span>
           </div>
         </div>
       {{/if}}
 
       <hr />
-
     {{/each}}
   </div>
 </div>

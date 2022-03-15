@@ -35,13 +35,17 @@
           <LinkTo
             @route='forum.categories.category.threads'
             class='btn btn-default'
-          >Annuleren</LinkTo>
+          >
+            Annuleren
+          </LinkTo>
         {{else}}
           <LinkTo
             @route='forum.categories.category.threads.thread'
             @model={{@model.thread}}
             class='btn btn-default'
-          >Annuleren</LinkTo>
+          >
+            Annuleren
+          </LinkTo>
         {{/if}}
       </ModelForm::FormActions>
     </form>

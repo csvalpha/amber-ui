@@ -22,20 +22,20 @@
         {{yield}}
       </div>
       <div class='modal-footer'>
-        {{#if @submit}}
+        {{#if @onSubmit}}
           <button
             type='button'
             class='btn btn-secondary {{if @submitDisabled "disabled"}}'
-            {{action @submit}}
+            {{action @onSubmit}}
             disabled={{@submitDisabled}}
-          > {{@submitText}} </button>
+          >
+            {{@submitText}}
+          </button>
         {{/if}}
         {{#if @closeModal}}
-          <button
-            type='button'
-            class='btn btn-default'
-            {{action @closeModal}}
-          >Annuleren</button>
+          <button type='button' class='btn btn-default' {{action @closeModal}}>
+            Annuleren
+          </button>
         {{/if}}
       </div>
     </div>

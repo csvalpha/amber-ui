@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> Activiteit verwijderen </h5>
+    <h5>Activiteit verwijderen</h5>
   </div>
   <div class='card-block p-3'>
     {{#if @model.hasResponses}}
@@ -11,22 +11,25 @@
         @route='activities.show'
         @model={{model.id}}
         class='btn btn-default'
-      >Terug</LinkTo>
+      >
+        Terug
+      </LinkTo>
     {{else}}
-      <p>Weet je zeker dat je deze activiteit ({{@model.title}}) wilt
-        verwijderen?</p>
+      <p>
+        Weet je zeker dat je deze activiteit ({{@model.title}}) wilt
+        verwijderen?
+      </p>
 
-      <button
-        {{action 'destroy'}}
-        class='btn btn-danger'
-        type='button'
-      >Verwijderen</button>
+      <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+        Verwijderen
+      </button>
       <LinkTo
         @route='activities.show'
         @model={{model.id}}
         class='btn btn-default'
-        @tagName='button'
-      >Annuleren</LinkTo>
+      >
+        Annuleren
+      </LinkTo>
       {{#if errorMessage}}
         <div class='text-danger'>{{this.errorMessage}}</div>
       {{/if}}

@@ -2,7 +2,7 @@
   <li class='breadcrumb-item'><LinkTo @route='index'>C.S.V. Alpha</LinkTo></li>
 
   {{#each routeHierarchy as |route|}}
-    {{#if hasBlock}}
+    {{#if (has-block)}}
       {{yield this route}}
     {{else}}
       <BreadCrumb @route={{route}} @breadCrumbs={{this}} />

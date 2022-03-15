@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> Gebruiker verwijderen </h5>
+    <h5>Gebruiker verwijderen</h5>
   </div>
   <div class='card-block p-3'>
     <p class='card-text'>
@@ -12,22 +12,17 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button
-      {{action 'destroy'}}
-      class='btn btn-danger'
-      type='button'
-    >Verwijderen</button>
-    <LinkTo
-      @route='users.show'
-      @model={{model.id}}
-      class='btn btn-default'
-      @tagName='button'
-    >Annuleren</LinkTo>
+    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+      Verwijderen
+    </button>
+    <LinkTo @route='users.show' @model={{model.id}} class='btn btn-default'>
+      Annuleren
+    </LinkTo>
   </div>
 </div>
 <div class='card'>
   <div class='card-header'>
-    <h5> Details </h5>
+    <h5>Details</h5>
   </div>
   <div class='table-responsive'>
     <table class='table table-striped'>

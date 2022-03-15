@@ -2,7 +2,7 @@
 
 {{#unless question.form.hasResponses}}
   <div class='float-md-right mb-3'>
-    <FaIcon @icon='xmark' @click={{action 'deleteQuestion'}} />
+    <FaIcon @icon='xmark' @onClick={{action 'deleteQuestion'}} />
   </div>
 {{/unless}}
 
@@ -10,10 +10,11 @@
   <Input
     @type='text'
     class='form-control'
-    @name='question'
+    aria-label='Vraag'
+    name='question'
     placeholder='Vraag'
     @value={{question.question}}
-    @disabled={{question.form.hasResponses}}
+    disabled={{question.form.hasResponses}}
   />
 </div>
 
@@ -36,9 +37,9 @@
           <Input
             class='form-check-input'
             @type='checkbox'
-            @name='required'
+            name='required'
             @checked={{question.required}}
-            @disabled={{question.form.hasResponses}}
+            disabled={{question.form.hasResponses}}
           />
           Verplicht
           <div class='custom-checkmark'></div>
@@ -54,8 +55,7 @@
           class='btn btn-default'
           {{action 'moveQuestionUp'}}
         >
-          <FaIcon @icon='arrow-up' />
-          Omhoog
+          <FaIcon @icon='arrow-up' />Omhoog
         </button>
 
         <button
@@ -63,8 +63,7 @@
           class='btn btn-default'
           {{action 'moveQuestionDown'}}
         >
-          <FaIcon @icon='arrow-down' />
-          Omlaag
+          <FaIcon @icon='arrow-down' />Omlaag
         </button>
       </div>
     </div>
@@ -91,10 +90,11 @@
         <Input
           @type='text'
           class='form-control'
-          @name='option'
+          aria-label='Optie'
+          name='option'
           placeholder='Optie'
           @value={{opt.option}}
-          @disabled={{question.form.hasResponses}}
+          disabled={{question.form.hasResponses}}
         />
 
         {{#unless question.form.hasResponses}}
@@ -128,9 +128,7 @@
 {{/each}}
 
 {{#unless question.form.hasResponses}}
-  <button
-    type='button'
-    class='btn btn-default mb-3'
-    {{action 'addOption'}}
-  >Optie toevoegen</button>
+  <button type='button' class='btn btn-default mb-3' {{action 'addOption'}}>
+    Optie toevoegen
+  </button>
 {{/unless}}

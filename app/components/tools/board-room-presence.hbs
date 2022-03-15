@@ -1,7 +1,7 @@
 <div class='board-room-presence-dropdown page-action'>
   <BsButton @type='primary'>
     <FaIcon @icon='mug-saucer' />
-    <span class='d-none d-md-inline'> Bestuurskamer </span>
+    <span class='d-none d-md-inline'>Bestuurskamer</span>
     <span class='status-dot label-{{overallStatus}}'></span>
 
     <BsPopover
@@ -30,7 +30,6 @@
         </div>
       {{/each}}
       {{#if (can 'create board-room-presences')}}
-        <a class='dropdown-divider'> </a>
         <span class='d-flex'>
           <button
             class='btn btn-secondary mb-2 mt-3 update-presence-button'
@@ -50,7 +49,7 @@
     <BasicModal
       @title='Bestuurskamer beschikbaarheid opgeven'
       @closeModal={{action 'setPresenceModalState' 'closed'}}
-      @submit={{action 'save'}}
+      @onSubmit={{action 'save'}}
       @submitText='Beschikbaarheid opslaan'
       @submitDisabled={{saveButtonDisabled}}
     >
@@ -78,7 +77,9 @@
                     aria-hidden='true'
                     {{action 'deletePresence'}}
                     type='button'
-                  > <FaIcon @icon='trash' /> </button>
+                  >
+                    <FaIcon @icon='trash' />
+                  </button>
                 {{/if}}
               </td>
             </tr>
@@ -120,7 +121,9 @@
           class='btn btn-secondary'
           {{action 'newPresence'}}
           type='button'
-        >Nieuw</button>
+        >
+          Nieuw
+        </button>
       {{/if}}
     </BasicModal>
   </EmberWormhole>

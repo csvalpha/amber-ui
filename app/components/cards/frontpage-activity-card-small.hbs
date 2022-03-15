@@ -10,10 +10,9 @@
       itemprop='startDate'
       content={{moment-format activity.startTime}}
     >
-      <span class='day-of-month'>{{moment-format
-          activity.startTime
-          'DD'
-        }}</span>
+      <span class='day-of-month'>
+        {{moment-format activity.startTime 'DD'}}
+      </span>
       <b class='month-abbrev'> {{moment-format activity.startTime 'MMM'}}</b>
       <b class='time'> {{moment-format activity.startTime 'HH:mm'}}</b>
     </div>
