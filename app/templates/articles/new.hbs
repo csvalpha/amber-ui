@@ -1,5 +1,12 @@
-<EmberWormhole @to="navbar-wormhole">
-  <PageActionsButtons @pageActions={{pageActions}} />
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{this.pageActions}} />
 </EmberWormhole>
 
-{{partial 'articles/form'}}
+<Forms::ArticleForm
+  @model={{@model}}
+  @onSubmit={{action 'submit'}}
+  @onCoverPhotoLoaded={{action 'coverPhotoLoaded'}}
+  @canPin={{this.canPin}}
+  @groups={{this.groups}}
+  @errorMessage={{this.errorMessage}}
+/>

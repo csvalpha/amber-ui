@@ -3,33 +3,38 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     tests: process.env.EMBER_ENV === 'test',
     sourcemaps: {
       enabled: true,
-      extensions: ['js']
+      extensions: ['js'],
     },
 
     emberCliDropzonejs: {
-      includeDropzoneCss: false
+      includeDropzoneCss: false,
     },
 
     'ember-bootstrap': {
       blacklist: ['bs-accordion', 'bs-carousel'],
       bootstrapVersion: 4,
       importBootstrapFont: false,
-      importBootstrapCSS: false
+      importBootstrapCSS: false,
     },
 
     'ember-simple-auth': {
-      useSessionSetupMethod: true
+      useSessionSetupMethod: true,
     },
 
     babel: {
       plugins: [require.resolve('@babel/plugin-proposal-optional-chaining')],
-      sourceMaps: 'inline'
-    }
+      sourceMaps: 'inline',
+    },
+
+    fingerprint: {
+      extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'svg'],
+      replaceExtensions: ['html', 'css', 'js', 'json'],
+    },
   });
 
   app.import('vendor/message-bus.js');

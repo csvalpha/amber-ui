@@ -1,28 +1,28 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class GroupIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Groepen' }
+  breadCrumb = { title: 'Groepen' };
 
   queryParams = {
     search: {
-      refreshModel: true
+      refreshModel: true,
     },
     sort: {
-      refreshModel: true
+      refreshModel: true,
     },
     selectedGroupKind: {
       as: 'kind',
-      refreshModel: true
+      refreshModel: true,
     },
     showAdministrative: {
       as: 'administrative',
-      refreshModel: true
+      refreshModel: true,
     },
     showInactive: {
       as: 'inactive',
-      refreshModel: true
-    }
-  }
+      refreshModel: true,
+    },
+  };
 
   get pageActions() {
     return [
@@ -30,8 +30,8 @@ export default class GroupIndexRoute extends AuthenticatedRoute {
         link: 'groups.new',
         title: 'Nieuwe groep',
         icon: 'plus',
-        canAccess: this.abilities.can('create groups')
-      }
+        canAccess: this.abilities.can('create groups'),
+      },
     ];
   }
 

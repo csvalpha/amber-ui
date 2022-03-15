@@ -4,20 +4,23 @@ import { action } from '@ember/object';
 
 export default class ForumPostNewComponent extends Component {
   @service store;
-  @service flashNotice;
+  @service('flash-notice') flashNotice;
 
   @action
   save() {
     let { content, thread } = this;
 
-    this.store.createRecord('forum/post', {
-      message: content,
-      thread
-    }).save().then(() => {
-      this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
-      this.set('content', '');
-      this.onSubmit();
-    });
+    this.store
+      .createRecord('forum/post', {
+        message: content,
+        thread,
+      })
+      .save()
+      .then(() => {
+        this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
+        this.set('content', '');
+        this.onSubmit();
+      });
   }
 
   @action

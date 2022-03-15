@@ -1,55 +1,86 @@
-<div class="card">
-  <div class="card-body" >
-    <div class="row">
-      <div class="col-md-3 forum-post-author-info">
-        <LinkTo @route="users.show" @model={{post.author.id}}>
-          <img src="{{post.author.avatarThumbUrlOrDefault}}" alt="avatar" class="profile-picture profile-picture-large">
+<div class='card'>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-3 forum-post-author-info'>
+        <LinkTo @route='users.show' @model={{post.author.id}}>
+          <img
+            src='{{post.author.avatarThumbUrlOrDefault}}'
+            alt='avatar'
+            class='profile-picture profile-picture-large'
+          />
         </LinkTo>
-        <LinkTo @route="users.show" @model={{post.author.id}}>
+        <LinkTo @route='users.show' @model={{post.author.id}}>
           <p> <strong> {{post.author.fullName}} </strong> </p>
         </LinkTo>
       </div>
-      <div class="col-md-9">
+      <div class='col-md-9'>
         {{#if showMarkdown}}
-          <p><Textarea @value={{post.message}} class="form-control" @rows="7" @readonly={{true}} /></p>
+          <p><Textarea
+              @value={{post.message}}
+              class='form-control'
+              @rows='7'
+              @readonly={{true}}
+            /></p>
         {{else}}
-          <p>{{markdown-to-html post.messageCamofied extensions='youtubeEmbed bootstrapTable'}}</p>
+          <p>{{markdown-to-html
+              post.messageCamofied
+              extensions='youtubeEmbed bootstrapTable'
+            }}</p>
         {{/if}}
       </div>
     </div>
   </div>
 
-  <div class="forum-footer p-3">
-    <div class="row justify-content-between">
-      <p class="text-muted col mb-0">
+  <div class='forum-footer p-3'>
+    <div class='row justify-content-between'>
+      <p class='text-muted col mb-0'>
         {{moment-format post.createdAt 'DD-M-YYYY HH:mm'}}
         {{#if post.isUpdated}}
-          <span class="hidden-md-down">  - Laatst bewerkt op {{moment-format post.updatedAt 'DD-M-YYYY [om] HH:mm'}} </span>
-          <span class="hidden-lg-up"> - bewerkt </span>
+          <span class='hidden-md-down'>
+            - Laatst bewerkt op
+            {{moment-format post.updatedAt 'DD-M-YYYY [om] HH:mm'}}
+          </span>
+          <span class='hidden-lg-up'> - bewerkt </span>
         {{/if}}
       </p>
 
-      <span class="text-muted pr-1">
+      <span class='text-muted pr-1'>
         {{#if (can 'destroy forum/posts')}}
-          <LinkTo @route="forum.categories.category.threads.thread.posts.destroy" @model={{post.id}} class="link-highlight px-2">
-            <FaIcon @icon='trash'/>
+          <LinkTo
+            @route='forum.categories.category.threads.thread.posts.destroy'
+            @model={{post.id}}
+            class='link-highlight px-2'
+          >
+            <FaIcon @icon='trash' />
           </LinkTo>
         {{/if}}
 
         {{#if (can 'edit forum/post' post)}}
-          <LinkTo @route="forum.categories.category.threads.thread.posts.edit" @model={{post.id}} class="link-highlight px-2">
-            <FaIcon @icon='pencil-alt'/>
+          <LinkTo
+            @route='forum.categories.category.threads.thread.posts.edit'
+            @model={{post.id}}
+            class='link-highlight px-2'
+          >
+            <FaIcon @icon='pencil' />
           </LinkTo>
         {{/if}}
 
         {{#if (can 'quote post of forum/thread' post.thread)}}
-          <span class=" px-2">
-            <FaIcon @icon='quote-left' class="link-highlight" @click={{action "quote"}} />
+          <span class='px-2'>
+            <FaIcon
+              @icon='quote-left'
+              class='link-highlight'
+              @click={{action 'quote'}}
+            />
           </span>
         {{/if}}
 
-        <span class=" px-2">
-          <FaIcon @icon='code' class="link-highlight" @click={{action "toggleShowMarkdown"}}/>
+        <span class='px-2'>
+          <FaIcon
+            @icon='code'
+            class='link-highlight'
+            @click={{action 'toggleShowMarkdown'}}
+          />
         </span>
       </span>
     </div>

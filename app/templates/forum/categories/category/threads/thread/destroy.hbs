@@ -1,17 +1,26 @@
-<div class="card">
-  <div class="card-header">
+<div class='card'>
+  <div class='card-header'>
     <h5> Topic verwijderen </h5>
   </div>
-  <div class="card-body">
-    <p class="card-text">
+  <div class='card-body'>
+    <p class='card-text'>
       Weet je zeker dat je dit forumtopic ({{@model.title}}) wilt verwijderen?
     </p>
     {{#if errorMessage}}
-      <div class="text-danger">{{this.errorMessage}}</div>
+      <div class='text-danger'>{{this.errorMessage}}</div>
     {{/if}}
   </div>
-  <div class="card-footer">
-    <button {{action 'destroy'}} class="btn btn-danger" type="button">Ja</button>
-    <LinkTo @route="forum.categories.category.threads.thread.show" @model={{model.id}} class="btn btn-default" @tagName="button">Nee</LinkTo>
+  <div class='card-footer'>
+    <button
+      {{action 'destroy'}}
+      class='btn btn-danger'
+      type='button'
+    >Ja</button>
+    <LinkTo
+      @route='forum.categories.category.threads.thread.show'
+      @model={{model.id}}
+      class='btn btn-default'
+      @tagName='button'
+    >Nee</LinkTo>
   </div>
 </div>

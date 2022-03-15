@@ -1,34 +1,43 @@
-<div class="card tool">
-  <div class="card-header">
-    <div class="d-flex justify-content-between">
-      <LinkTo @route="activities.index">
-        <h5 class="card-text">Komende activiteiten</h5>
+<div class='card tool'>
+  <div class='card-header'>
+    <div class='d-flex justify-content-between'>
+      <LinkTo @route='activities.index'>
+        <h5 class='card-text'>Komende activiteiten</h5>
       </LinkTo>
-      <div class="col-xs-1 tool-actions">
-        <a href="#">
-          <FaIcon @icon='question-circle' class="link-highlight"/>
+      <div class='col-xs-1 tool-actions'>
+        <a href='#'>
+          <FaIcon @icon='circle-question' class='link-highlight' />
 
-          <BsPopover @triggerEvents="focus" @placement="bottom">
-            <div class="d-block"><div class="status-dot badge-info"></div> Inschrijving open</div>
-            <div class="d-block"><div class="status-dot badge-success"></div> Ingeschreven / vrij toegankelijk</div>
-            <div class="d-block"><div class="status-dot badge-danger"></div> Niet ingeschreven</div>
-            <div class="d-block"><div class="status-dot badge-default"></div> Inschrijving nog niet open</div>
+          <BsPopover @triggerEvents='focus' @placement='bottom'>
+            <div class='d-block'><div class='status-dot badge-info'></div>
+              Inschrijving open</div>
+            <div class='d-block'><div class='status-dot badge-success'></div>
+              Ingeschreven / vrij toegankelijk</div>
+            <div class='d-block'><div class='status-dot badge-danger'></div>
+              Niet ingeschreven</div>
+            <div class='d-block'><div class='status-dot badge-default'></div>
+              Inschrijving nog niet open</div>
           </BsPopover>
         </a>
       </div>
     </div>
   </div>
 
-  <ul class="list-group list-group-flush">
+  <ul class='list-group list-group-flush'>
     {{#each activities as |activity|}}
-      <LinkTo @route="activities.show" @model={{activity.id}}>
-        <li class="list-group-item">
-          <span class="activity-tool-title "> {{activity.title}} </span> <br>
-          <span class="activity-tool-start-time text-muted">{{#if (can "show form/form")}}{{form/status-dot activity.form}}{{/if}} {{activity.formattedStartDate}} </span>
+      <LinkTo @route='activities.show' @model={{activity.id}}>
+        <li class='list-group-item'>
+          <span class='activity-tool-title'> {{activity.title}} </span>
+          <br />
+          <span class='activity-tool-start-time text-muted'>{{#if
+              (can 'show form/form')
+            }}{{form/status-dot activity.form}}{{/if}}
+            {{activity.formattedStartDate}}
+          </span>
         </li>
       </LinkTo>
     {{else}}
-      <li class="list-group-item">
+      <li class='list-group-item'>
         Er zijn helaas geen komende activiteiten
       </li>
     {{/each}}

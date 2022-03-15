@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class NewActivityRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Activiteit aanmaken' }
+  breadCrumb = { title: 'Activiteit aanmaken' };
 
   canAccess() {
     return this.abilities.can('create activities');

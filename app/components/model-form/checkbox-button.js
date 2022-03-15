@@ -13,13 +13,16 @@ export default Component.extend({
     'name',
     'required',
     'type',
-    'value'
+    'value',
   ],
-  checked: computed('groupValue', 'value', function() {
+  checked: computed('groupValue', 'value', function () {
     return this.groupValue.includes(this.value);
   }).readOnly(),
   change() {
-    assert(`Group value of a checkbox group (name=${this.name}) should be an array!`, isArray(this.groupValue));
+    assert(
+      `Group value of a checkbox group (name=${this.name}) should be an array!`,
+      isArray(this.groupValue)
+    );
     if (this.groupValue.includes(this.value)) {
       this.groupValue.removeObject(this.value);
     } else {
@@ -27,5 +30,5 @@ export default Component.extend({
     }
 
     this.set('groupValue', this.groupValue);
-  }
+  },
 });

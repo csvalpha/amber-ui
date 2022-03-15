@@ -1,15 +1,23 @@
 {{#if (await pageAction.canAccess)}}
   {{#if pageAction.linkArgument}}
-    <LinkTo @route={{pageAction.link}} @model={{pageAction.linkArgument}} data-test-link={{pageAction.link}}>
+    <LinkTo
+      @route={{pageAction.link}}
+      @model={{pageAction.linkArgument}}
+      data-test-link={{pageAction.link}}
+    >
       {{#if pageAction.icon}}
-        <button type="button" class="btn btn-primary" title="{{pageAction.title}}">
-          <FaIcon @icon={{pageAction.icon}}/>
-          <span class="d-none d-md-inline"> {{pageAction.title}} </span>
+        <button
+          type='button'
+          class='btn btn-primary'
+          title='{{pageAction.title}}'
+        >
+          <FaIcon @icon={{pageAction.icon}} />
+          <span class='d-none d-md-inline'> {{pageAction.title}} </span>
         </button>
 
       {{else}}
 
-        <button type="button" class="btn btn-primary">
+        <button type='button' class='btn btn-primary'>
           {{pageAction.title}}
         </button>
       {{/if}}
@@ -19,14 +27,18 @@
 
     <LinkTo @route={{pageAction.link}} data-test-link={{pageAction.link}}>
       {{#if pageAction.icon}}
-        <button type="button" class="btn btn-primary" title="{{pageAction.title}}">
-          <FaIcon @icon={{pageAction.icon}}/>
-          <span class="d-none d-md-inline"> {{pageAction.title}} </span>
+        <button
+          type='button'
+          class='btn btn-primary'
+          title='{{pageAction.title}}'
+        >
+          <FaIcon @icon={{pageAction.icon}} />
+          <span class='d-none d-md-inline'> {{pageAction.title}} </span>
         </button>
 
       {{else}}
 
-        <button type="button" class="btn btn-primary">
+        <button type='button' class='btn btn-primary'>
           {{pageAction.title}}
         </button>
       {{/if}}

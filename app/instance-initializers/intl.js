@@ -9,5 +9,5 @@ export function initialize(instance) {
 export default {
   name: 'intl',
   after: 'ember-data',
-  initialize
+  initialize,
 };

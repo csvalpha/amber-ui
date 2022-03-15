@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class EditUserRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Lid aanpassen' }
+  breadCrumb = { title: 'Lid aanpassen' };
 
   get tabItems() {
     const user = this.controller.model;
@@ -10,26 +10,26 @@ export default class EditUserRoute extends AuthenticatedRoute {
         link: 'users.edit',
         title: 'Algemeen',
         linkArgument: user,
-        canAccess: true
+        canAccess: true,
       },
       {
         link: 'users.edit-permissions',
         title: 'Rechten',
         linkArgument: user,
-        canAccess: this.abilities.can('create permissions-users')
+        canAccess: this.abilities.can('create permissions-users'),
       },
       {
         link: 'users.edit-privacy',
         title: 'Privacy',
         linkArgument: user,
-        canAccess: this.session.currentUser === user
+        canAccess: this.session.currentUser === user,
       },
       {
         link: 'users.edit-security',
         title: 'Beveiliging',
         linkArgument: user,
-        canAccess: this.session.currentUser === user
-      }
+        canAccess: this.session.currentUser === user,
+      },
     ];
   }
 

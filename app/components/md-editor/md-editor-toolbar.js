@@ -29,27 +29,27 @@ export default class MdEditorToolbarComponent extends Component {
       {
         name: 'Stijl',
         dropdown: true,
-        faIconName: 'magic',
+        faIconName: 'wand-magic-sparkles',
         options: [
           {
             name: 'Titel 1',
             format: '# $1',
             faIconName: 'heading',
-            size: '2x'
+            size: '2x',
           },
           {
             name: 'Titel 2',
             format: '## $1',
             faIconName: 'heading',
-            size: 'lg'
+            size: 'lg',
           },
           {
             name: 'Titel 3',
             format: '### $1',
             faIconName: 'heading',
-            size: 'sm'
-          }
-        ]
+            size: 'sm',
+          },
+        ],
       },
       {
         name: 'Nadruk',
@@ -58,19 +58,19 @@ export default class MdEditorToolbarComponent extends Component {
           {
             name: 'Vet',
             format: '__$1__',
-            faIconName: 'bold'
+            faIconName: 'bold',
           },
           {
             name: 'Schuingedrukt',
             format: '*$1*',
-            faIconName: 'italic'
+            faIconName: 'italic',
           },
           {
             name: 'Doorgestreept',
             format: '~~$1~~',
-            faIconName: 'strikethrough'
-          }
-        ]
+            faIconName: 'strikethrough',
+          },
+        ],
       },
       {
         name: 'Lijsten',
@@ -79,14 +79,14 @@ export default class MdEditorToolbarComponent extends Component {
           {
             name: 'Ongesorteerde lijst',
             format: '+ $1',
-            faIconName: 'list-ul'
+            faIconName: 'list-ul',
           },
           {
             name: 'Gesorteerde lijst',
             format: '1. $1',
-            faIconName: 'list-ol'
-          }
-        ]
+            faIconName: 'list-ol',
+          },
+        ],
       },
       {
         name: 'Invoegen',
@@ -97,16 +97,17 @@ export default class MdEditorToolbarComponent extends Component {
             format: '[$1]($2)',
             faIconName: 'link',
             modal: {
-              question: 'Naar welke URL moet deze link gaan?'
-            }
+              question: 'Naar welke URL moet deze link gaan?',
+            },
           },
           {
             name: 'Afbeelding invoegen',
             format: '![$1]($2)',
             faIconName: 'image',
             modal: {
-              question: 'Wat is de URL van de afbeelding? Momenteel worden alleen afbeeldingen van externe hosters ondersteund. Gebruik bijvoorbeeld Imgur, Giphy of een andere service.'
-            }
+              question:
+                'Wat is de URL van de afbeelding? Momenteel worden alleen afbeeldingen van externe hosters ondersteund. Gebruik bijvoorbeeld Imgur, Giphy of een andere service.',
+            },
           },
           {
             name: 'Youtube filmpje invoegen',
@@ -114,11 +115,12 @@ export default class MdEditorToolbarComponent extends Component {
             faIconName: 'youtube',
             faIconPrefix: 'fab',
             modal: {
-              question: 'Wat is de Youtube url van het filmpje? Bijvoorbeeld https://www.youtube.com/watch?v=-GLMBp6OxRY'
-            }
-          }
-        ]
-      }
-    ]
+              question:
+                'Wat is de Youtube url van het filmpje? Bijvoorbeeld https://www.youtube.com/watch?v=-GLMBp6OxRY',
+            },
+          },
+        ],
+      },
+    ],
   };
 }

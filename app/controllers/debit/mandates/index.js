@@ -2,19 +2,19 @@ import FilterableAndSortableController from 'alpha-amber/controllers/application
 import { tracked } from '@glimmer/tracking';
 
 export default class MandatesIndexController extends FilterableAndSortableController {
-  @tracked sortedAttribute ='start_date'
-  @tracked sortedAscending = false
+  @tracked sortedAttribute = 'start_date';
+  @tracked sortedAscending = false;
 
-  routeOnEnter = 'debit.mandates.show'
-  queryParams = ['search', 'sort', 'page']
+  routeOnEnter = 'debit.mandates.show';
+  queryParams = ['search', 'sort', 'page'];
   sortableAttributes = [
     {
       value: 'start_date',
-      label: 'Begindatum'
+      label: 'Begindatum',
     },
     {
       value: 'id',
-      label: 'ID'
-    }
-  ]
+      label: 'ID',
+    },
+  ];
 }

@@ -24,36 +24,48 @@ export const FormStatusIconComponent = Component.extend({
   // closed always means lock except when it opens later
   // open always means dot
 
-  color: computed('form', 'form.canRespond', 'form.respondFrom', 'form.currentUserResponseCompleted', function() {
-    if (isNone(this.form)) {
-      return 'success';
-    }
+  color: computed(
+    'form',
+    'form.canRespond',
+    'form.respondFrom',
+    'form.currentUserResponseCompleted',
+    function () {
+      if (isNone(this.form)) {
+        return 'success';
+      }
 
-    if (this.form.get('currentUserResponseCompleted')) {
-      return 'success';
-    } else if (this.form.get('canRespond')) {
-      return 'primary';
-    }
+      if (this.form.get('currentUserResponseCompleted')) {
+        return 'success';
+      } else if (this.form.get('canRespond')) {
+        return 'primary';
+      }
 
-    return 'dark';
-  }),
-  icon: computed('form', 'form.currentUserResponseCompleted', 'form.canRespond', 'form.respondFrom', function() {
-    if (isNone(this.form)) {
-      return 'circle';
+      return 'dark';
     }
+  ),
+  icon: computed(
+    'form',
+    'form.currentUserResponseCompleted',
+    'form.canRespond',
+    'form.respondFrom',
+    function () {
+      if (isNone(this.form)) {
+        return 'circle';
+      }
 
-    if (this.form.get('canRespond')) {
-      return 'circle';
-    } else if (this.form.get('opensLater')) {
-      return 'clock';
+      if (this.form.get('canRespond')) {
+        return 'circle';
+      } else if (this.form.get('opensLater')) {
+        return 'clock';
+      }
+
+      return 'lock';
     }
-
-    return 'lock';
-  })
+  ),
 });
 
 FormStatusIconComponent.reopenClass({
-  positionalParams: ['form']
+  positionalParams: ['form'],
 });
 
 export default FormStatusIconComponent;

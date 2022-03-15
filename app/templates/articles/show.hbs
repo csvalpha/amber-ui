@@ -1,21 +1,21 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
 {{cards/article-card model}}
 
 {{#if (can 'show article comments of article' model)}}
-  <div class="card">
-    <div class="card-header">
+  <div class='card'>
+    <div class='card-header'>
       <h5> {{capitalize (t 'model.articleComment.name.other')}} </h5>
     </div>
 
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col'>
           {{#each sortedArticleComments as |comment|}}
             {{#unless comment.isDeleted}}
-              <div class="row">
+              <div class='row'>
                 {{user-comment comment}}
               </div>
             {{/unless}}
@@ -24,16 +24,28 @@
       </div>
     </div>
     {{#if (can 'create article-comments')}}
-      <div class="card-footer">
+      <div class='card-footer'>
         {{#if @model.publiclyVisible}}
-          <div class="alert alert-info" role="alert">
-            {{t 'template.articles.show.publicAlert'}} <br>
+          <div class='alert alert-info' role='alert'>
+            {{t 'template.articles.show.publicAlert'}}
+            <br />
           </div>
         {{/if}}
-        <div class="input-group">
-          <Input @value={{newArticleComment}} class="form-control" placeholder={{t "template.articles.show.commentHint"}} @minlength="1" @maxlength="500" @enter={{action "submitArticleComment"}} />
-          <span class="input-group-btn">
-            <button class="btn btn-default" {{action "submitArticleComment"}} type="button">{{t 'tag.button.react'}}</button>
+        <div class='input-group'>
+          <Input
+            @value={{newArticleComment}}
+            class='form-control'
+            placeholder={{t 'template.articles.show.commentHint'}}
+            @minlength='1'
+            @maxlength='500'
+            @enter={{action 'submitArticleComment'}}
+          />
+          <span class='input-group-btn'>
+            <button
+              class='btn btn-default'
+              {{action 'submitArticleComment'}}
+              type='button'
+            >{{t 'tag.button.react'}}</button>
           </span>
         </div>
       </div>

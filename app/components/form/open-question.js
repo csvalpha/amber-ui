@@ -8,24 +8,28 @@ const OpenQuestionComponent = Component.extend({
   question: null,
   form: null,
   questionTypes: OpenQuestionTypes,
-  questionTypeOptions: computed('questionTypes', function() {
-    return this.questionTypes.map(questionType => ({
+  questionTypeOptions: computed('questionTypes', function () {
+    return this.questionTypes.map((questionType) => ({
       value: questionType,
-      label: this.intl.t(`tag.input.types.${questionType}`)
+      label: this.intl.t(`tag.input.types.${questionType}`),
     }));
   }),
   actions: {
     moveQuestionUp() {
       const index = this.form.get('sortedQuestions').indexOf(this.question);
       if (index > 0) {
-        const previousQuestion = this.form.get('sortedQuestions').objectAt(index - 1);
+        const previousQuestion = this.form
+          .get('sortedQuestions')
+          .objectAt(index - 1);
         this.send('switchPositions', this.question, previousQuestion);
       }
     },
     moveQuestionDown() {
       const index = this.form.get('sortedQuestions').indexOf(this.question);
-      if (index < (this.form.get('sortedQuestions.length') - 1)) {
-        const nextQuestion = this.form.get('sortedQuestions').objectAt(index + 1);
+      if (index < this.form.get('sortedQuestions.length') - 1) {
+        const nextQuestion = this.form
+          .get('sortedQuestions')
+          .objectAt(index + 1);
         this.send('switchPositions', this.question, nextQuestion);
       }
     },
@@ -38,12 +42,12 @@ const OpenQuestionComponent = Component.extend({
 
       first.set('position', secondPosition);
       second.set('position', firstPosition);
-    }
-  }
+    },
+  },
 });
 
 OpenQuestionComponent.reopenClass({
-  positionalParams: ['question']
+  positionalParams: ['question'],
 });
 
 export default OpenQuestionComponent;

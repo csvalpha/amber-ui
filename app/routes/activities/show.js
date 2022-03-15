@@ -21,32 +21,35 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
       {
         link: 'activities.edit',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: activity,
-        canAccess: this.abilities.can('edit activity', activity)
+        canAccess: this.abilities.can('edit activity', activity),
       },
       {
         link: 'activities.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: activity,
-        canAccess: this.abilities.can('destroy activities')
+        canAccess: this.abilities.can('destroy activities'),
       },
       {
         link: 'activities.print-enrolled',
         title: 'Print ingeschrevenen',
         icon: 'print',
         linkArgument: activity,
-        canAccess: this.abilities.can('print enrolled members of activity', activity)
+        canAccess: this.abilities.can(
+          'print enrolled members of activity',
+          activity
+        ),
       },
       {
         link: 'activities.generate-alias',
         title: 'Mail ingeschrevenen',
         icon: 'paper-plane',
         linkArgument: activity,
-        canAccess: this.abilities.can('generate alias for activity', activity)
+        canAccess: this.abilities.can('generate alias for activity', activity),
         // canAccess: true
-      }
+      },
     ];
   }
 
@@ -55,23 +58,37 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
   }
 
   model(params) {
-    const activityPromise = this.store.findRecord('activity', params.id, params);
-    let formPromise,
-      responsePromise;
+    const activityPromise = this.store.findRecord(
+      'activity',
+      params.id,
+      params
+    );
+    let formPromise, responsePromise;
 
-    if (this.abilities.can('show form/forms') && this.abilities.can('show form/responses')) {
-      formPromise = activityPromise.then(activity => activity.get('form'));
+    if (
+      this.abilities.can('show form/forms') &&
+      this.abilities.can('show form/responses')
+    ) {
+      formPromise = activityPromise.then((activity) => activity.get('form'));
       responsePromise = formPromise
         // Load or create the response
-        .then(form => form === null ? null : this.formLoadOrCreateUtil.loadOrCreateCurrentUserResponse(form))
+        .then((form) =>
+          form === null
+            ? null
+            : this.formLoadOrCreateUtil.loadOrCreateCurrentUserResponse(form)
+        )
         // Make sure there are answers for each question in the response
-        .then(response => response === null ? null : this.formLoadOrCreateUtil.loadOrCreateAnswers(response));
+        .then((response) =>
+          response === null
+            ? null
+            : this.formLoadOrCreateUtil.loadOrCreateAnswers(response)
+        );
     }
 
     return hash({
       activity: activityPromise,
       form: formPromise,
-      currentUserResponse: responsePromise
+      currentUserResponse: responsePromise,
     });
   }
 

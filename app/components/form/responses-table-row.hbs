@@ -1,28 +1,36 @@
 {{#if showCheckbox}}
   <td>
-    <FaIcon @icon='square' @prefix="far"/>
+    <FaIcon @icon='square' @prefix='far' />
   </td>
 {{/if}}
 
 <td>
   {{#if (can 'destroy form/response')}}
     {{#if response.form.canRespond}}
-      <LinkTo @route="form.responses.destroy" @model={{response.id}} class="no-print">
-        <FaIcon @icon='trash'/>
+      <LinkTo
+        @route='form.responses.destroy'
+        @model={{response.id}}
+        class='no-print'
+      >
+        <FaIcon @icon='trash' />
       </LinkTo>
     {{/if}}
   {{/if}}
 
-  <LinkTo @route="users.show" @model={{response.user.id}}>
+  <LinkTo @route='users.show' @model={{response.user.id}}>
     {{response.user.fullName}}
   </LinkTo>
 </td>
 
 {{#each form.sortedQuestions as |question|}}
   <td>
-    {{#each (get response.groupedAnswers question.id) as |answer|}}
-      <p> {{ if answer.option answer.option.option answer.answer }} </p>
-    {{/each}}
+    {{#let (load response.groupedAnswersPromise) as |groupedAnswers|}}
+      {{#let groupedAnswers.value as |answers|}}
+        {{#each (get answers question.id) as |answer|}}
+          <p> {{if answer.option answer.option.option answer.answer}} </p>
+        {{/each}}
+      {{/let}}
+    {{/let}}
   </td>
 {{/each}}
 

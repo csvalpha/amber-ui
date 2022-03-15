@@ -1,61 +1,66 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <FilterBar @class="col-12 col-md" @filter={{search}} @sortedAttribute={{sortedAttribute}} @sortableAttributes={{sortableAttributes}} @sortedAscending={{sortedAscending}} @enter={{action "selectFirstItem"}} />
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+      @enter={{action 'selectFirstItem'}}
+    />
   </PageActionsButtons>
 </EmberWormhole>
 
-<div class="card">
-  <div class="row rtable-row header d-none d-md-flex">
-    <span class="col-3"> E-mail </span>
-    <span class="col-1"> Type </span>
-    <span class="col-3"> Omschrijving </span>
-    <span class="col-1"> SMTP </span>
-    <span class="col-2"> Groep/Gebruiker </span>
-    <span class="col-2"> Laatst ontvangen </span>
+<div class='card'>
+  <div class='row rtable-row header d-none d-md-flex'>
+    <span class='col-3'> E-mail </span>
+    <span class='col-1'> Type </span>
+    <span class='col-3'> Omschrijving </span>
+    <span class='col-1'> SMTP </span>
+    <span class='col-2'> Groep/Gebruiker </span>
+    <span class='col-2'> Laatst ontvangen </span>
   </div>
 
   {{#each model as |mailAlias|}}
-    <LinkTo @route="mail-aliases.show" @model={{mailAlias.id}}>
-      <div class="row rtable-row">
-        <span class="col-12 col-md-3 rtable-item"> {{mailAlias.email}} </span>
-        <span class="col-12 col-md-1 rtable-item">
-          <span class="d-inline d-md-none text-muted">
+    <LinkTo @route='mail-aliases.show' @model={{mailAlias.id}}>
+      <div class='row rtable-row'>
+        <span class='col-12 col-md-3 rtable-item'> {{mailAlias.email}} </span>
+        <span class='col-12 col-md-1 rtable-item'>
+          <span class='d-inline d-md-none text-muted'>
             ModeratieType:
           </span>
           {{mailAlias.moderationType}}
         </span>
-        <span class="col-12 col-md-3 rtable-item">
-          <span class="d-inline d-md-none text-muted">
+        <span class='col-12 col-md-3 rtable-item'>
+          <span class='d-inline d-md-none text-muted'>
             Omschrijving:
           </span>
           {{mailAlias.description}}
         </span>
-        <span class="col-12 col-md-1 rtable-item">
-          <span class="d-inline d-md-none text-muted">
+        <span class='col-12 col-md-1 rtable-item'>
+          <span class='d-inline d-md-none text-muted'>
             SMTP:
           </span>
           {{boolean-tag mailAlias.smtpEnabled}}
         </span>
 
-
-
-        <span class="col-12 col-md-2 rtable-item">
-          <span class="d-inline d-md-none text-muted"> Groep/Gebruiker:  </span>
+        <span class='col-12 col-md-2 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> Groep/Gebruiker: </span>
           {{#if mailAlias.group}}
-            <LinkTo @route="groups.show" @model={{mailAlias.group.id}}>
-              <span class="text-muted"> <FaIcon @icon='users'/> </span>
+            <LinkTo @route='groups.show' @model={{mailAlias.group.id}}>
+              <span class='text-muted'> <FaIcon @icon='users' /> </span>
               {{mailAlias.group.name}}
             </LinkTo>
           {{else}}
-            <LinkTo @route="users.show" @model={{mailAlias.user.id}}>
-              <span class="text-muted"> <FaIcon @icon='user'/> </span>
+            <LinkTo @route='users.show' @model={{mailAlias.user.id}}>
+              <span class='text-muted'> <FaIcon @icon='user' /> </span>
               {{mailAlias.user.fullName}}
             </LinkTo>
           {{/if}}
         </span>
 
-        <span class="col-12 col-md-2 rtable-item">
-          <span class="d-inline d-md-none text-muted">
+        <span class='col-12 col-md-2 rtable-item'>
+          <span class='d-inline d-md-none text-muted'>
             Laatste ontvangen
           </span>
           {{moment-format mailAlias.lastReceivedAt 'DD-M-YYYY'}}

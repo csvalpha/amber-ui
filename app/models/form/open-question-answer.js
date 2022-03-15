@@ -1,6 +1,7 @@
-import Model, { belongsTo, attr } from '@ember-data/model';
+import { belongsTo, attr } from '@ember-data/model';
+import DirtySaveModel from 'alpha-amber/models/application/dirty-save';
 
-export default class OpenQuestionAnswer extends Model {
+export default class OpenQuestionAnswer extends DirtySaveModel {
   @attr answer;
   @attr('date') createdAt;
   @attr('date') updatedAt;

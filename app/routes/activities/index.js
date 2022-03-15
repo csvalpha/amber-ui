@@ -1,22 +1,22 @@
 import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
 
 export default class ActivityIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Activiteiten' }
+  breadCrumb = { title: 'Activiteiten' };
 
   queryParams = {
     search: {
-      refreshModel: true
+      refreshModel: true,
     },
     sort: {
-      refreshModel: true
+      refreshModel: true,
     },
     showPassed: {
-      refreshModel: true
+      refreshModel: true,
     },
     page: {
-      refreshModel: true
-    }
-  }
+      refreshModel: true,
+    },
+  };
 
   get pageActions() {
     return [
@@ -24,14 +24,14 @@ export default class ActivityIndexRoute extends AuthenticatedRoute {
         link: 'activities.new',
         title: 'Nieuwe activiteit',
         icon: 'plus',
-        canAccess: this.abilities.can('create activities')
+        canAccess: this.abilities.can('create activities'),
       },
       {
         link: 'activities.ical',
         title: 'Ical link',
-        icon: 'calendar-alt',
-        canAccess: this.abilities.can('show ical activities')
-      }
+        icon: 'calendar-days',
+        canAccess: this.abilities.can('show ical activities'),
+      },
     ];
   }
 

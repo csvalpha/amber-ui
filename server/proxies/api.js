@@ -2,7 +2,7 @@
 
 const proxyPath = '/api';
 
-module.exports = function(app) {
+module.exports = function (app) {
   // For options, see:
   // https://github.com/nodejitsu/node-http-proxy
   let proxy = require('http-proxy').createProxyServer({});

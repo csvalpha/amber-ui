@@ -9,5 +9,5 @@ export default Factory.extend({
   afterCreate(collection, server) {
     collection.author = server.create('user');
     collection.save();
-  }
+  },
 });

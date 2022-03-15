@@ -1,69 +1,78 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<div class="card">
-  <div class="card-header d-flex justify-content-between">
-    <h5>{{@model.collection.name}} - {{moment-format @model.collection.date 'DD-MM-YYYY'}}</h5>
-    <span class="text-muted">Gemaakt door {{@model.collection.author.fullName}}</span>
+<div class='card'>
+  <div class='card-header d-flex justify-content-between'>
+    <h5>{{@model.collection.name}}
+      -
+      {{moment-format @model.collection.date 'DD-MM-YYYY'}}</h5>
+    <span class='text-muted'>Gemaakt door
+      {{@model.collection.author.fullName}}</span>
   </div>
 
-  <div class="card-body">
+  <div class='card-body'>
     {{#each groupedTransactions as |transactionGroup|}}
-      <LinkTo @route="users.show" @model={{transactionGroup.user.id}}>
+      <LinkTo @route='users.show' @model={{transactionGroup.user.id}}>
         <h5>{{transactionGroup.user.fullName}}</h5>
       </LinkTo>
 
-      <div class="row">
-        <div class="col-7">
+      <div class='row'>
+        <div class='col-7'>
           <b> Beschrijving </b>
         </div>
-        <div class="col-5">
+        <div class='col-5'>
           <b> Bedrag </b>
         </div>
       </div>
 
       {{#each transactionGroup.transactions as |transaction|}}
-        <div class="row">
-          <div class="col-7">
+        <div class='row'>
+          <div class='col-7'>
             {{transaction.description}}
           </div>
 
-          <div class="col-3">
+          <div class='col-3'>
             <span> &euro; {{transaction.amount}} </span>
           </div>
 
-          <div class="col-2">
+          <div class='col-2'>
             {{#if (can 'destroy debit/transactions')}}
-              <LinkTo @route="debit.transactions.destroy" @model={{transaction.id}}>
-                <FaIcon @icon='trash'/>
+              <LinkTo
+                @route='debit.transactions.destroy'
+                @model={{transaction.id}}
+              >
+                <FaIcon @icon='trash' />
               </LinkTo>
             {{/if}}
 
             {{#if (can 'edit debit/transactions')}}
-              <LinkTo @route="debit.transactions.edit" @model={{transaction.id}}>
-                <FaIcon @icon='pencil-alt'/>
+              <LinkTo
+                @route='debit.transactions.edit'
+                @model={{transaction.id}}
+              >
+                <FaIcon @icon='pencil' />
               </LinkTo>
             {{/if}}
           </div>
         </div>
 
       {{else}}
-        <div class="alert alert-warning"> Geen transacties gevonden </div>
+        <div class='alert alert-warning'> Geen transacties gevonden </div>
       {{/each}}
 
       {{#if transactionGroup.transactions}}
-        <div class="row mt-3">
-          <div class="col-7">
+        <div class='row mt-3'>
+          <div class='col-7'>
             Totaal
           </div>
-          <div class="col-5">
+          <div class='col-5'>
             <span> &euro; {{transactionGroup.totalTransactionAmount}} </span>
           </div>
         </div>
       {{/if}}
 
-      <hr>
+      <hr />
 
     {{/each}}
   </div>

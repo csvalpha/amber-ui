@@ -23,18 +23,47 @@
       "sizes": "128x128"
     },
     {
-      "src": "favicon196x196.png",
+      "src": "favicon192x192.png",
       "type": "image/png",
-      "sizes": "196x196"
+      "sizes": "192x192"
+    },
+    {
+      "src": "favicon512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
     },
     {
       "src": "favicon.svg",
       "type": "image/svg",
-      "sizes": "197x197"
+      "sizes": "222x222"
     }
   ],
-  "start-url": "/",
+  "start_url": "/",
   "background_color": "#ffd218",
   "theme_color": "#ffd218",
-  "display": "standalone"
+  "display": "standalone",
+  "shortcuts": [
+    {
+      "name": "Activiteiten",
+      "url": "/activities",
+      "icons": [
+        { "src": "/images/shortcuts/activities.png", "sizes": "192x192" }
+      ]
+    },
+    {
+      "name": "Leden",
+      "url": "/users/members",
+      "icons": [{ "src": "/images/shortcuts/members.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Forum",
+      "url": "/forum",
+      "icons": [{ "src": "/images/shortcuts/forum.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Groepen",
+      "url": "/groups",
+      "icons": [{ "src": "/images/shortcuts/groups.png", "sizes": "192x192" }]
+    }
+  ]
 }

@@ -7,10 +7,10 @@ export default class ShowUserSettings extends ShowUserRouter {
       {
         link: 'users.edit-privacy',
         title: 'Wijzigen',
-        icon: 'pencil-alt',
+        icon: 'pencil',
         linkArgument: user,
-        canAccess: this.abilities.can('edit user', user)
-      }
+        canAccess: this.abilities.can('edit user', user),
+      },
     ];
   }
 

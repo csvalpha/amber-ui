@@ -1,24 +1,24 @@
-<EmberWormhole @to="navbar-wormhole">
+<EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
 <TabbedView @tabItems={{tabItems}}>
   <h5>Mail aliassen</h5>
-  <div class="table-responsive">
-    <table class="table">
+  <div class='table-responsive'>
+    <table class='table'>
       <thead>
         <tr>
-          <td class="col-md-4">Alias</td>
-          <td class="col-md-8">Beschrijving</td>
-          <td class="col-md-8">Moderatietype</td>
-          <td class="col-md-8">Groep</td>
+          <td class='col-md-4'>Alias</td>
+          <td class='col-md-8'>Beschrijving</td>
+          <td class='col-md-8'>Moderatietype</td>
+          <td class='col-md-8'>Groep</td>
         </tr>
       </thead>
       <tbody>
         {{#each @model.mailAliases as |alias|}}
           <tr>
             <td>
-              <LinkTo @route="mail-aliases.show" @model={{alias.id}}>
+              <LinkTo @route='mail-aliases.show' @model={{alias.id}}>
                 {{alias.email}}
               </LinkTo>
             </td>
@@ -30,14 +30,14 @@
         {{#each @model.groupMailAliases as |alias|}}
           <tr>
             <td>
-              <LinkTo @route="mail-aliases.show" @model={{alias.id}}>
+              <LinkTo @route='mail-aliases.show' @model={{alias.id}}>
                 {{alias.email}}
               </LinkTo>
             </td>
             <td>{{alias.description}}</td>
             <td>{{alias.moderationType}}</td>
             <td>
-              <LinkTo @route="groups.show" @model={{alias.group.id}}>
+              <LinkTo @route='groups.show' @model={{alias.group.id}}>
                 {{alias.group.name}}
               </LinkTo>
             </td>

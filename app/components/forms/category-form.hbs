@@ -1,0 +1,32 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5> {{if @model.isNew 'Categorie aanmaken' 'Categorie wijzigen'}} </h5>
+  </div>
+  <div class='card-body'>
+    <form {{action @onSubmit on='submit'}}>
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='name'
+        @label='Naam'
+        @required={{true}}
+      />
+
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{@errorMessage}}
+      >
+        {{#if @model.isNew}}
+          <LinkTo
+            @route='forum.categories'
+            class='btn btn-default'
+          >Annuleren</LinkTo>
+        {{else}}
+          <LinkTo
+            @route='forum.categories.category'
+            class='btn btn-default'
+          >Annuleren</LinkTo>
+        {{/if}}
+      </ModelForm::FormActions>
+    </form>
+  </div>
+</div>

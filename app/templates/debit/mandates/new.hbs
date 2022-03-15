@@ -1,3 +1,8 @@
 {{page-actions pageActions}}
 
-{{partial 'debit/mandates/form'}}
+<Forms::MandateForm
+  @model={{@model}}
+  @onSubmit={{action 'submit'}}
+  @users={{this.users}}
+  @errorMessage={{this.errorMessage}}
+/>

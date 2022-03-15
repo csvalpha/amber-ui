@@ -15,19 +15,19 @@ export default TimeInputComponent.extend({
 
   // Format used to display the date in the pikaday input
   pikadayFormat: 'DD-MM-YYYY',
-  pikadayI18n: computed(function() {
+  pikadayI18n: computed(function () {
     return {
       previousMonth: 'Vorige maand',
       nextMonth: 'Volgende maand',
       months: moment.localeData()._months,
       weekdays: moment.localeData()._weekdays,
-      weekdaysShort: moment.localeData()._weekdaysShort
+      weekdaysShort: moment.localeData()._weekdaysShort,
     };
   }),
 
   actions: {
     onPikadaySelection(selectedDate) {
       this.updateDateValue(moment(selectedDate));
-    }
-  }
+    },
+  },
 });

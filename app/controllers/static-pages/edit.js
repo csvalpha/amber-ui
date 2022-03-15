@@ -1,19 +1,20 @@
 import EditController from 'alpha-amber/controllers/application/edit';
-import { computed } from '@ember/object';
 import { StaticPageCategories } from 'alpha-amber/constants';
 import { capitalize } from '@ember/string';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { computed } from '@ember/object';
 
-export default EditController.extend({
-  successMessage: 'Infopagina aangepast!',
-  successTransitionTarget: 'static-pages.show',
+export default class EditStaticPageController extends EditController {
+  successMessage = 'Infopagina aangepast!';
+  successTransitionTarget = 'static-pages.show';
 
-  staticPageCategoryOptions: computed(function() {
-    return StaticPageCategories.map(pageCategory => {
+  @computed(function () {
+    return StaticPageCategories.map((pageCategory) => {
       return {
         value: pageCategory,
-        label: capitalize(pageCategory)
+        label: capitalize(pageCategory),
       };
     });
   })
-
-});
+  staticPageCategoryOptions;
+}
