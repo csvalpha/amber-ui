@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> {{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}} </h5>
+    <h5>{{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
@@ -12,7 +12,7 @@
       />
 
       {{#if @model.post}}
-        <label for='forumpost-message'> Bericht * </label>
+        <label for='forumpost-message'>Bericht *</label>
         <MdEditor
           @content={{@model.post.message}}
           @textareaId='forumpost-message'

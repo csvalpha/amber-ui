@@ -1,6 +1,6 @@
 <div
   itemscope
-  itemtype='http://schema.org/Event'
+  itemtype='https://schema.org/Event'
   class='card-body p-0'
   {{action action}}
 >
@@ -18,7 +18,7 @@
     </div>
     <div class='col-9 frontpage-card-image p-3' style={{style}}>
       <h4 itemprop='name' class='card-title'>{{activity.title}}</h4>
-      <span itemprop='location' itemscope itemtype='http://schema.org/Place'>
+      <span itemprop='location' itemscope itemtype='https://schema.org/Place'>
         <i class='text-muted' itemprop='name address'>{{activity.location}}</i>
       </span>
       <meta itemprop='description' content={{activity.description}} />

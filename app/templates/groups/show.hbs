@@ -110,6 +110,7 @@
     </div>
   </div>
 {{/if}}
+
 {{#if (and (can 'show mail-aliases') @model.mailAliases)}}
   <div class='row'>
     <div class='col-sm-12'>
@@ -154,6 +155,7 @@
     </div>
   </div>
 {{/if}}
+
 {{#if (can 'create groups-permissions')}}
   <div class='row'>
     <div class='col'>

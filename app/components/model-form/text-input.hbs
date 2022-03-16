@@ -13,6 +13,7 @@
     disabled={{disabled}}
     maxlength={{maxlength}}
   />
+
   {{form-control-feedback (get @model.errors property)}}
 {{else}}
   <label
@@ -33,7 +34,9 @@
       disabled={{disabled}}
       maxlength={{maxlength}}
     />
+
     {{yield}}
+
     {{form-control-feedback (get @model.errors property)}}
   </div>
 {{/if}}

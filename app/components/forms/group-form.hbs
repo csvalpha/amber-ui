@@ -1,7 +1,7 @@
 <form {{action @onSubmit on='submit'}}>
   <div class='card'>
     <div class='card-header'>
-      <h5> Details </h5>
+      <h5>Details</h5>
     </div>
     <div class='card-body'>
       <ModelForm::FileInput
@@ -49,6 +49,7 @@
         @disabled={{not (can 'edit protected fields of groups')}}
       />
     </div>
+
     <div class='card-footer'>
       <ModelForm::FormActions
         @errors={{@model.errors}}
@@ -90,29 +91,18 @@
             <table class='table table-hover'>
               <thead>
                 <tr>
-                  <th>
-                    Naam
-                  </th>
-                  <th>
-                    Startdatum
-                  </th>
-                  <th>
-                    Einddatum
-                  </th>
-                  <th>
-                    Functie
-                  </th>
-                  <th class='narrow'>
-                  </th>
+                  <th>Naam</th>
+                  <th>Startdatum</th>
+                  <th>Einddatum</th>
+                  <th>Functie</th>
+                  <th class='narrow'></th>
                 </tr>
               </thead>
               <tbody>
                 {{#each @model.memberships as |membership|}}
                   {{#unless membership.isDeleted}}
                     <tr>
-                      <td>
-                        {{membership.user.fullName}}
-                      </td>
+                      <td>{{membership.user.fullName}}</td>
                       <td>
                         <Input::DateInput
                           @dateValue={{membership.startDate}}
@@ -162,9 +152,10 @@
       </div>
     </div>
   {{/if}}
+
   <div class='card'>
     <div class='card-header'>
-      <h5> Permissies </h5>
+      <h5>Permissies</h5>
     </div>
     {{#if (can 'create groups-permissions')}}
       <Permissions::PermissionsTable

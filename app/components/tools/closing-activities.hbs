@@ -36,7 +36,7 @@
       {{#each activities as |activity|}}
         <LinkTo @route='activities.show' @model={{activity.id}}>
           <li class='list-group-item'>
-            <span class='activity-tool-title'> {{activity.title}} </span>
+            <span class='activity-tool-title'>{{activity.title}}</span>
             <br />
             <span class='activity-tool-start-time text-muted'>
               {{form/status-dot activity.form}}

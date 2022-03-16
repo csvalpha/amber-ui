@@ -32,6 +32,7 @@
           @disabled={{question.form.hasResponses}}
         />
       </div>
+
       <div class='form-group ml-2'>
         <label class='form-check-label pl-3'>
           <Input
@@ -47,6 +48,7 @@
       </div>
     </div>
   </div>
+
   {{#unless question.form.hasResponses}}
     <div class='col-md-7 col-sm-12'>
       <div class='float-md-right'>
@@ -55,7 +57,8 @@
           class='btn btn-default'
           {{action 'moveQuestionUp'}}
         >
-          <FaIcon @icon='arrow-up' />Omhoog
+          <FaIcon @icon='arrow-up' />
+          Omhoog
         </button>
 
         <button
@@ -63,7 +66,8 @@
           class='btn btn-default'
           {{action 'moveQuestionDown'}}
         >
-          <FaIcon @icon='arrow-down' />Omlaag
+          <FaIcon @icon='arrow-down' />
+          Omlaag
         </button>
       </div>
     </div>
@@ -78,7 +82,7 @@
           class='input-group-addon d-flex justify-content-center align-items-center'
         >
           <label class='form-check-label' for='check-label'>
-            <input type={{question.fieldType}} disabled='disabled' />
+            <input type={{question.fieldType}} disabled={{true}} />
             {{#if (eq question.fieldType 'checkbox')}}
               <div class='custom-checkmark input-checkmark'></div>
             {{else}}
