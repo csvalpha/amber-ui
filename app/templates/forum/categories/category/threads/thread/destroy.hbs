@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> Topic verwijderen </h5>
+    <h5>Topic verwijderen</h5>
   </div>
   <div class='card-body'>
     <p class='card-text'>
@@ -11,16 +11,15 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button
-      {{action 'destroy'}}
-      class='btn btn-danger'
-      type='button'
-    >Ja</button>
+    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+      Ja
+    </button>
     <LinkTo
       @route='forum.categories.category.threads.thread.show'
       @model={{model.id}}
       class='btn btn-default'
-      @tagName='button'
-    >Nee</LinkTo>
+    >
+      Nee
+    </LinkTo>
   </div>
 </div>

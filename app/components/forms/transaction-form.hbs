@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> Transactie aanmaken </h5>
+    <h5>Transactie aanmaken</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
@@ -36,10 +36,9 @@
       </div>
 
       <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
-        <LinkTo
-          @route='debit.collections'
-          class='btn btn-default'
-        >Annuleren</LinkTo>
+        <LinkTo @route='debit.collections' class='btn btn-default'>
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

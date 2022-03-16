@@ -6,26 +6,28 @@
   <div class='col'>
     <div class='card-body table-responsive'>
       <p class='card-text'>
-        <h2 data-test-fullName> {{@model.fullName}} </h2>
+        <h2 data-test-fullName>{{@model.fullName}}</h2>
         <table class='table table-sm'>
           <tr>
             <td>Email</td>
-            <td data-test-email><a
-                href='mailto:{{@model.email}}'
-              >{{@model.email}}</a></td>
+            <td data-test-email>
+              <a href='mailto:{{@model.email}}'>{{@model.email}}</a>
+            </td>
           </tr>
           <tr>
             <td>Telefoon</td>
-            <td data-test-phoneNumber><a
-                href='tel:{{@model.phoneNumber}}'
-              >{{@model.phoneNumber}}</a></td>
+            <td data-test-phoneNumber>
+              <a href='tel:{{@model.phoneNumber}}'>{{@model.phoneNumber}}</a>
+            </td>
           </tr>
           <tr>
             <td>Adres</td>
             <td data-test-address>
               <a
                 href='https://maps.google.com?q={{@model.address}},{{@model.city}}'
-              >{{@model.address}}</a>
+              >
+                {{@model.address}}
+              </a>
             </td>
           </tr>
           <tr>
@@ -38,10 +40,9 @@
           </tr>
           <tr>
             <td>Geboortedatum</td>
-            <td data-test-birthday>{{moment-format
-                @model.birthday
-                'DD-MM-YYYY'
-              }}</td>
+            <td data-test-birthday>
+              {{moment-format @model.birthday 'DD-MM-YYYY'}}
+            </td>
           </tr>
           <tr>
             <td>Studie</td>
@@ -49,10 +50,9 @@
           </tr>
           <tr>
             <td>Start studie</td>
-            <td data-test-startStudy>{{moment-format
-                @model.startStudy
-                'DD-MM-YYYY'
-              }}</td>
+            <td data-test-startStudy>
+              {{moment-format @model.startStudy 'DD-MM-YYYY'}}
+            </td>
           </tr>
           <tr>
             <td>Dieetwensen</td>

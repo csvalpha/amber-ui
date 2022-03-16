@@ -8,7 +8,8 @@
       <strong class='col alert-text'>Je bent ingeschreven!</strong>
       <span class='alert-text'>
         Deze inschrijflijst
-        {{lowercase (form-opened-label form)}}</span>
+        {{lowercase (form-opened-label form)}}
+      </span>
       {{#if form.canRespond}}
         <LinkTo
           @route='form.responses.destroy'

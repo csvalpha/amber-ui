@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> {{if @model.isNew 'Boek aanmaken' 'Boek wijzigen'}} </h5>
+    <h5>{{if @model.isNew 'Boek aanmaken' 'Boek wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
@@ -46,7 +46,7 @@
           <div class='col-sm-10 offset-sm-2 mb-3'>
             <button
               type='button'
-              class='btn btn-primary {{if @lookingUpIsbn 'disabled'}}'
+              class='btn btn-primary {{if @lookingUpIsbn "disabled"}}'
               {{on 'click' @lookupIsbn}}
             >
               <FaIcon @icon='wand-magic-sparkles' />
@@ -55,6 +55,7 @@
           </div>
         </div>
       {{/if}}
+
       {{#if @lookupIsbnError}}
         <div class='row'>
           <div class='col-sm-10 offset-sm-2'>
@@ -65,6 +66,7 @@
           </div>
         </div>
       {{/if}}
+
       <ModelForm::TextInput
         @model={{@model}}
         @property='title'
@@ -97,16 +99,17 @@
         @errorMessage={{@errorMessage}}
       >
         {{#if @model.isNew}}
-          <LinkTo
-            @route='books.index'
-            class='btn btn-default'
-          >Annuleren</LinkTo>
+          <LinkTo @route='books.index' class='btn btn-default'>
+            Annuleren
+          </LinkTo>
         {{else}}
           <LinkTo
             @route='books.show'
             @model={{@model.id}}
             class='btn btn-default'
-          >Annuleren</LinkTo>
+          >
+            Annuleren
+          </LinkTo>
         {{/if}}
       </ModelForm::FormActions>
     </form>

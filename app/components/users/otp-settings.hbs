@@ -1,4 +1,4 @@
-<h5>Two-factor-authenticatie </h5>
+<h5>Two-factor-authenticatie</h5>
 
 <p>
   Two-factor-authenticatie geeft een extra beveiligingslaag door bij het
@@ -81,19 +81,20 @@
       </div>
 
       <div class='form-group row'>
-        <label
-          class='col-sm-4 col-form-label form-control-label'
-        >Verificatiecode</label>
+        <label class='col-sm-4 col-form-label form-control-label'>
+          Verificatiecode
+        </label>
         <div class='col-sm-8'>
           <Input
             @type='text'
-            @min='6'
+            min='6'
             @value={{this.verificationCode}}
             placeholder='Verificatiecode'
             inputmode='numeric'
             pattern='[0-9]*'
-            required='true'
+            required={{true}}
             class='form-control'
+            aria-label='Verificatiecode'
           />
         </div>
       </div>
@@ -112,10 +113,8 @@
       </div>
     {{/if}}
 
-    <button
-      type='button'
-      class='btn btn-primary'
-      {{action 'generateOTP'}}
-    >Instellen</button>
+    <button type='button' class='btn btn-primary' {{action 'generateOTP'}}>
+      Instellen
+    </button>
   {{/if}}
 {{/if}}

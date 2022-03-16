@@ -3,10 +3,12 @@
     <div class='card-text'>
       {{#if alias}}
         <h3>Je mailalias is aangemaakt!</h3>
-        <p>Je kunt alle ingeschrevenen mailen via
+        <p>
+          Je kunt alle ingeschrevenen mailen via
           <b>{{alias}}</b>.<br />
           Dit alias verloopt op
-          {{moment-format expires_at 'DD-MM-YYYY [om] HH:mm'}}.</p>
+          {{moment-format expires_at 'DD-MM-YYYY [om] HH:mm'}}.
+        </p>
       {{else}}
         <p>
           Als je een mail wil sturen naar alle aanwezigen van deze activiteit

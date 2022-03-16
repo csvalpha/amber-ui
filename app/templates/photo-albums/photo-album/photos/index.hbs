@@ -3,7 +3,7 @@
     <div class='col col-md-auto page-action'>
       <button class='btn btn-primary' {{action 'downloadAlbum'}} type='button'>
         <FaIcon @icon='download' />
-        <span class='d-none d-md-inline'> Fotoalbum downloaden </span>
+        <span class='d-none d-md-inline'>Fotoalbum downloaden</span>
       </button>
     </div>
   {{/page-actions-buttons}}
@@ -26,8 +26,9 @@
     </div>
   {{else}}
     <div class='alert alert-warning'>
-      <LinkTo @route='photo-albums.photo-album.edit' @model={{model.id}}>Geen
-        foto's gevonden, wil je die toevoegen?</LinkTo>
+      <LinkTo @route='photo-albums.photo-album.edit' @model={{model.id}}>
+        Geen foto's gevonden, wil je die toevoegen?
+      </LinkTo>
     </div>
   {{/each}}
 </div>
