@@ -4,12 +4,12 @@
       <LinkTo
         @route={{link}}
         @model={{linkArgument}}
-        @invokeAction={{action 'closeAfterNavigation'}}
+        {{on 'click' this.closeAfterNavigation}}
       >
         <MenuSidebarLink @minor={{minor}} @title={{title}} @icon={{icon}} />
       </LinkTo>
     {{else if link}}
-      <LinkTo @route={{link}} @invokeAction={{action 'closeAfterNavigation'}}>
+      <LinkTo @route={{link}} {{on 'click' this.closeAfterNavigation}}>
         <MenuSidebarLink @minor={{minor}} @title={{title}} @icon={{icon}} />
       </LinkTo>
     {{else}}

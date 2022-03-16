@@ -3,9 +3,9 @@
   <table class='table'>
     <thead>
       <tr>
-        <th> Naam </th>
+        <th>Naam</th>
         {{#each @model.form.sortedQuestions as |question|}}
-          <th> {{question.question}} </th>
+          <th>{{question.question}}</th>
         {{/each}}
       </tr>
     </thead>
@@ -16,11 +16,9 @@
 </div>
 
 <button {{action 'destroy'}} class='btn btn-danger' type='button'>Ja</button>
-<LinkTo
-  @route='activities.index'
-  class='btn btn-default'
-  @tagName='button'
->Nee</LinkTo>
+<LinkTo @route='activities.index' class='btn btn-default'>
+  Nee
+</LinkTo>
 
 {{#if errorMessage}}
   <div class='text-danger'>{{this.errorMessage}}</div>

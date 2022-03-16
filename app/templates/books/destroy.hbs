@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> Boek verwijderen </h5>
+    <h5>Boek verwijderen</h5>
   </div>
   <div class='card-block p-3'>
     <p class='card-text'>
@@ -11,13 +11,11 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroy'}} class='btn btn-danger' type='button'>Boek
-      verwijderen</button>
-    <LinkTo
-      @route='books.show'
-      @model={{model.id}}
-      class='btn btn-default'
-      @tagName='button'
-    >Annuleren</LinkTo>
+    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+      Boek verwijderen
+    </button>
+    <LinkTo @route='books.show' @model={{model.id}} class='btn btn-default'>
+      Annuleren
+    </LinkTo>
   </div>
 </div>

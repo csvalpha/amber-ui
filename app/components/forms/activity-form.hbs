@@ -10,6 +10,7 @@
           Je kunt niet alles meer aanpassen, omdat er al reacties zijn.
         </div>
       {{/if}}
+
       <ModelForm::TextInput
         @model={{@model}}
         @property='title'
@@ -143,7 +144,9 @@
           @route='activities.show'
           @model={{@model.id}}
           class='btn btn-default'
-        >Annuleren</LinkTo>
+        >
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

@@ -15,17 +15,22 @@
       </div>
       <div class='col-md-9'>
         {{#if showMarkdown}}
-          <p><Textarea
+          <p>
+            <Textarea
               @value={{post.message}}
               class='form-control'
-              @rows='7'
-              @readonly={{true}}
-            /></p>
+              aria-label='Bericht'
+              rows='7'
+              readonly={{true}}
+            />
+          </p>
         {{else}}
-          <p>{{markdown-to-html
+          <p>
+            {{markdown-to-html
               post.messageCamofied
               extensions='youtubeEmbed bootstrapTable'
-            }}</p>
+            }}
+          </p>
         {{/if}}
       </div>
     </div>
@@ -40,7 +45,7 @@
             - Laatst bewerkt op
             {{moment-format post.updatedAt 'DD-M-YYYY [om] HH:mm'}}
           </span>
-          <span class='hidden-lg-up'> - bewerkt </span>
+          <span class='hidden-lg-up'>- bewerkt</span>
         {{/if}}
       </p>
 
@@ -70,7 +75,7 @@
             <FaIcon
               @icon='quote-left'
               class='link-highlight'
-              @click={{action 'quote'}}
+              {{on 'click' (action 'quote')}}
             />
           </span>
         {{/if}}
@@ -79,7 +84,7 @@
           <FaIcon
             @icon='code'
             class='link-highlight'
-            @click={{action 'toggleShowMarkdown'}}
+            {{on 'click' (action 'toggleShowMarkdown')}}
           />
         </span>
       </span>
