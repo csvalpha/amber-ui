@@ -112,7 +112,7 @@
   },
   "resolutions": {
     "@embroider/macros": "^1.0.0",
-    "workerpool": "^2.3.4"
+    "workerpool@^2.3.0": "^2.3.4"
   },
   "engines": {
     "node": "12.* || 14.* || >= 16"
