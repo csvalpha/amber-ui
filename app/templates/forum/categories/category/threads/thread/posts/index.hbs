@@ -6,11 +6,17 @@
   <PageNumbers @info={{model.posts.meta}} @replace={{true}} />
 </div>
 
-{{#each @model.posts as |post|}}
-  {{#unless post.isDeleted}}
-    {{forum/forum-post post newContent=newContent data-test-forum-post=post.id}}
-  {{/unless}}
-{{/each}}
+<Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
+  {{#each @model.posts as |post|}}
+    {{#unless post.isDeleted}}
+      {{forum/forum-post
+        post
+        newContent=newContent
+        data-test-forum-post=post.id
+      }}
+    {{/unless}}
+  {{/each}}
+</Swipeable>
 
 {{#if currentPageIsLastPage}}
   {{#unless @model.thread.isOpen}}

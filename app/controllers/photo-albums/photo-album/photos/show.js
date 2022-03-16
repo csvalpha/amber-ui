@@ -1,6 +1,5 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import { Promise } from 'rsvp';
 
 export default Controller.extend({
   session: service(),
