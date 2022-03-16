@@ -17,6 +17,7 @@ export default class PhotoCommentsIndexController extends FilterableAndSortableC
       label: 'Laatste reactie',
     },
   ];
+
   @action
   selectFirstItem() {
     if (this.routeOnEnter && this.model.length > 0) {

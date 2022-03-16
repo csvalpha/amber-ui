@@ -8,6 +8,7 @@ export default class Comments extends Component {
   @service('flash-notice') flashNotice;
   @tracked
   content = null;
+
   @action
   async submitPhotoComment() {
     const content = this.content.trim();
