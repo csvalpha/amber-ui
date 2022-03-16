@@ -2,7 +2,7 @@
   <div class='col'>
     <div class='card'>
       <div class='card-header'>
-        <h5> {{@model.name}} - Exporteren </h5>
+        <h5>{{@model.name}} - Exporteren</h5>
       </div>
       <div class='card-body'>
         <div class='alert alert-warning'>
@@ -14,7 +14,8 @@
           hieronder aangeeft.
           <br />
           <br />
-          <strong>Van het ingevulde formulier wordt een kopie verstuurd aan
+          <strong>
+            Van het ingevulde formulier wordt een kopie verstuurd aan
             privacy@csvalpha.nl.
           </strong>
         </div>
@@ -37,8 +38,8 @@
                 <label>{{question.question}}*</label>
                 <Textarea
                   @value={{question.answer}}
-                  @type='text'
                   class='form-control'
+                  aria-label='Vraag'
                   required={{true}}
                 />
               </div>

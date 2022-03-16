@@ -23,10 +23,9 @@
               @type='password'
               @value={{password}}
               placeholder='Wachtwoord (minimaal 12 tekens)'
-              required='true'
-              @autofocus='autofocus'
+              required={{true}}
               class='form-control'
-              @id='field-password'
+              id='field-password'
             />
           </div>
           <div class='form-group'>
@@ -34,16 +33,18 @@
               @type='password'
               @value={{passwordConfirmation}}
               placeholder='Wachtwoord herhalen'
-              required='true'
+              required={{true}}
               class='form-control'
-              @id='field-password-confirmation'
+              id='field-password-confirmation'
             />
           </div>
           <button
             type='submit'
             class='btn btn-primary float-md-left reset-password-button'
             disabled={{isSaveButtonDisabled}}
-          >Account activeren</button>
+          >
+            Account activeren
+          </button>
         </div>
       </form>
     </div>

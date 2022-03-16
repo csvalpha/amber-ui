@@ -12,11 +12,10 @@
   {{#if editMode}}
     {{#each styleOptions.groups as |group|}}
       {{#if group.dropdown}}
-
         <BsDropdown as |dd|>
-          <dd.button @type='secondary'><FaIcon
-              @icon={{group.faIconName}}
-            /></dd.button>
+          <dd.button @type='secondary'>
+            <FaIcon @icon={{group.faIconName}} />
+          </dd.button>
 
           <dd.menu as |menu|>
             {{#each group.options as |opt|}}
@@ -40,7 +39,6 @@
         </BsDropdown>
 
       {{else}}
-
         <div class='btn-group' role='group' aria-label='{{group.name}}'>
           {{#each group.options as |opt|}}
             {{#if opt.modal}}
@@ -71,10 +69,10 @@
   {{/if}}
 
   <div class='btn-group'>
-    <a href='http://commonmark.org/help/' target='_blank'>
-      <button type='button' class='btn btn-secondary' title='Help'><FaIcon
-          @icon='circle-question'
-        /></button>
+    <a href='https://commonmark.org/help/' target='_blank'>
+      <button type='button' class='btn btn-secondary' title='Help'>
+        <FaIcon @icon='circle-question' />
+      </button>
     </a>
   </div>
 </div>
@@ -85,14 +83,15 @@
   @title={{modalOption.name}}
   @submitTitle='Invoegen'
   @closeTitle='Sluiten'
-  @onSubmit={{fn this.submitModal}}
+  @onSubmit={{this.submitModal}}
   @onHidden={{action (mut modalOpen) false}}
 >
-  {{modalOption.modal.question}}<br />
+  {{modalOption.modal.question}}
+  <br />
   <Input
     @type='text'
     class='form-control'
-    @id='md-editor-modal-input'
+    id='md-editor-modal-input'
     @value={{modalInput}}
   />
 </BsModalSimple>

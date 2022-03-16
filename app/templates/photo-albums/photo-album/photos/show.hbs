@@ -21,7 +21,7 @@
         download='{{@model.id}}'
       >
         <FaIcon @icon='download' />
-        <span class='d-none d-md-inline'> Foto downloaden </span>
+        <span class='d-none d-md-inline'>Foto downloaden</span>
       </a>
     </div>
   </PageActionsButtons>
@@ -72,10 +72,9 @@
         <tr>
           <td>{{@model.exifMake}}</td>
           <td>{{@model.exifModel}}</td>
-          <td>{{moment-format
-              @model.exifDateTimeOriginal
-              'DD-MM-YYYY HH:mm'
-            }}</td>
+          <td>
+            {{moment-format @model.exifDateTimeOriginal 'DD-MM-YYYY HH:mm'}}
+          </td>
           <td>{{@model.exifExposureTime}}</td>
           <td>
             {{#if @model.exifApertureValue}}
@@ -99,7 +98,7 @@
 {{#if (can 'show photo comments of photo' model)}}
   <div class='card'>
     <div class='card-header'>
-      <h5> Reacties </h5>
+      <h5>Reacties</h5>
     </div>
     <div class='card-body'>
       <div class='col'>
@@ -131,17 +130,19 @@
             @value={{content}}
             class='form-control'
             placeholder='Typ hier je reactie'
-            @minlength='1'
-            @maxlength='500'
+            minlength='1'
+            maxlength='500'
             @enter={{action 'submitPhotoComment' photo}}
-            @id='new-photo-comment-input'
+            id='new-photo-comment-input'
           />
           <span class='input-group-btn'>
             <button
               class='btn btn-default'
               {{action 'submitPhotoComment'}}
               type='button'
-            >Reageren</button>
+            >
+              Reageren
+            </button>
           </span>
         </div>
       </div>

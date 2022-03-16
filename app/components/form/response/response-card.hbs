@@ -15,10 +15,9 @@
       @inputLayout='vertical'
     >
       {{#if form.questions}}
-        <LinkTo
-          @route='activities.index'
-          class='btn btn-default'
-        >Annuleren</LinkTo>
+        <LinkTo @route='activities.index' class='btn btn-default'>
+          Annuleren
+        </LinkTo>
         Vragen met een * zijn verplicht
       {{/if}}
     </ModelForm::FormActions>

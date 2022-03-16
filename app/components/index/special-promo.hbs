@@ -2,14 +2,16 @@
   <div class='container'>
     <div class='row flex-items-xs-center'>
       <div class='col-xs col-sm-10 col-md-8'>
-        <h1> {{title}} </h1>
-        <em> {{date}} </em>
-        <p> {{text}} </p>
+        <h1>{{title}}</h1>
+        <em>{{date}}</em>
+        <p>{{text}}</p>
         <LinkTo
           @route='articles.show'
           @model={{123}}
           class='btn frontpage-button btn-lg float-xs-right'
-        > {{buttonText}} </LinkTo>
+        >
+          {{buttonText}}
+        </LinkTo>
       </div>
     </div>
   </div>

@@ -3,11 +3,13 @@
     <div class='col-12 col-md-6 col-lg-4'>
       <div class='card login-form'>
         <div class='card-header'>
-          <h5 class='card-title pl-2'>{{if
+          <h5 class='card-title pl-2'>
+            {{if
               twoFactorRequired
               (t 'template.login.authcode')
               (t 'tag.button.signin')
-            }}</h5>
+            }}
+          </h5>
         </div>
         <form {{on 'submit' this.authenticate}} method='post'>
           <div class='card-body p-4'>
@@ -25,10 +27,10 @@
                   placeholder={{t 'template.login.authcode'}}
                   inputmode='numeric'
                   pattern='[0-9]*'
-                  @autocorrect='off'
-                  @autocapitalize='none'
+                  autocorrect='off'
+                  autocapitalize='none'
                   class='form-control'
-                  @id='field-otp'
+                  id='field-otp'
                 />
                 <p>{{t 'template.login.authcodeHint'}}</p>
               </div>
@@ -38,11 +40,10 @@
                   @type='text'
                   @value={{username}}
                   placeholder={{t 'template.login.username'}}
-                  @autofocus='autofocus'
-                  @autocorrect='off'
-                  @autocapitalize='none'
+                  autocorrect='off'
+                  autocapitalize='none'
                   class='form-control'
-                  @id='field-username'
+                  id='field-username'
                 />
               </div>
               <div class='form-group password-textfield'>
@@ -51,7 +52,7 @@
                   @value={{password}}
                   placeholder={{t 'template.login.password'}}
                   class='form-control'
-                  @id='field-password'
+                  id='field-password'
                 />
               </div>
 
@@ -59,7 +60,9 @@
                 <LinkTo
                   @route='users.forgot_password'
                   class='forgot-password-label'
-                >{{t 'template.login.forgotPassword'}}</LinkTo>
+                >
+                  {{t 'template.login.forgotPassword'}}
+                </LinkTo>
               </div>
             {{/if}}
 
@@ -67,11 +70,13 @@
               type='submit'
               class='btn btn-primary login-button'
               id='button-login'
-            >{{if
+            >
+              {{if
                 twoFactorRequired
                 (t 'tag.button.authenticate')
                 (t 'tag.button.signin')
-              }}</button>
+              }}
+            </button>
           </div>
         </form>
       </div>

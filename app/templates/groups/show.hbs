@@ -19,10 +19,12 @@
         <div class='col-md order-12 order-md-1'>
           <div class='card-body'>
             <i class='card-subtitle'>{{@model.recognitionPeriod}}</i>
-            <p class='card-text'>{{markdown-to-html
+            <p class='card-text'>
+              {{markdown-to-html
                 @model.descriptionCamofied
                 extensions='youtubeEmbed bootstrapTable'
-              }}</p>
+              }}
+            </p>
           </div>
         </div>
         <div class='col-md-5 col-xs-12 order-1 order-md-12'>
@@ -47,7 +49,9 @@
                       {{unless oldMembershipsTabActive "active"}}
                       {{if (eq currentMemberships.length 0) "disabled"}}'
                     {{action 'hideOldMemberships'}}
-                  > Leden</a>
+                  >
+                    Leden
+                  </a>
                 </li>
                 <li class='nav-item'>
                   <a
@@ -55,7 +59,9 @@
                       {{if oldMembershipsTabActive "active"}}
                       {{if (eq oldMemberships.length 0) "disabled"}}'
                     {{action 'showOldMemberships'}}
-                  > Oud-leden</a>
+                  >
+                    Oud-leden
+                  </a>
                 </li>
               </ul>
             </div>
@@ -104,6 +110,7 @@
     </div>
   </div>
 {{/if}}
+
 {{#if (and (can 'show mail-aliases') @model.mailAliases)}}
   <div class='row'>
     <div class='col-sm-12'>
@@ -125,12 +132,12 @@
             {{#each @model.mailAliases as |alias|}}
               <div class='row rtable-row'>
                 <span class='col-12 col-md-4 rtable-item'>{{alias.email}}</span>
-                <span
-                  class='col-12 col-md-5 rtable-item'
-                >{{alias.description}}</span>
-                <span
-                  class='col-12 col-md-2 rtable-item'
-                >{{alias.moderationType}}</span>
+                <span class='col-12 col-md-5 rtable-item'>
+                  {{alias.description}}
+                </span>
+                <span class='col-12 col-md-2 rtable-item'>
+                  {{alias.moderationType}}
+                </span>
                 {{#if (can 'edit mail-aliases')}}
                   <LinkTo @route='mail-aliases.edit' @model={{alias.id}}>
                     <span class='col-12 col-md-1 rtable-item'>
@@ -148,6 +155,7 @@
     </div>
   </div>
 {{/if}}
+
 {{#if (can 'create groups-permissions')}}
   <div class='row'>
     <div class='col'>
