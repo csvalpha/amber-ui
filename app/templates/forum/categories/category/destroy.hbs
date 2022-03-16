@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> Categorie verwijderen </h5>
+    <h5>Categorie verwijderen</h5>
   </div>
   <div class='card-body'>
     <p class='card-text'>
@@ -12,15 +12,15 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button
-      {{action 'destroy'}}
-      class='btn btn-danger'
-      type='button'
-    >Verwijderen</button>
+    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+      Verwijderen
+    </button>
     <LinkTo
       @route='forum.categories.category'
       @model={{model.id}}
       class='btn btn-default'
-    >Annuleren</LinkTo>
+    >
+      Annuleren
+    </LinkTo>
   </div>
 </div>
