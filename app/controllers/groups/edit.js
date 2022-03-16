@@ -1,93 +1,100 @@
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
+import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
+import Controller from '@ember/controller';
 import { GroupKinds } from 'alpha-amber/constants';
 import { all } from 'rsvp';
 import { capitalize } from '@ember/string';
+import { inject as service } from '@ember/service';
 
-export default Controller.extend({
-  flashNotice: service('flash-notice'),
-  session: service(),
-  _groupKindToOption: (groupKind) => {
+export default class EditGroupController extends Controller {
+  @service('flash-notice') flashNotice;
+  @service session;
+
+  _groupKindToOption(groupKind) {
     return {
       value: groupKind,
       label: capitalize(groupKind),
     };
-  },
+  }
 
-  groupKindOptions: computed('_groupKindToOption', function () {
+  @computed('_groupKindToOption', function () {
     return GroupKinds.map(this._groupKindToOption);
-  }),
+  })
+  groupKindOptions;
 
-  users: computed('store', function () {
+  @computed('store', function () {
     return this.store.findAll('user');
-  }),
+  })
+  users;
 
-  actions: {
-    addUser(user) {
-      this.model.get('memberships').pushObject(
-        this.store.createRecord('membership', {
-          user,
-          endDate: null,
+  @action
+  addUser(user) {
+    this.model.get('memberships').pushObject(
+      this.store.createRecord('membership', {
+        user,
+        endDate: null,
+      })
+    );
+  }
+
+  @action
+  removeMembership(membership) {
+    membership.deleteRecord();
+  }
+
+  @action
+  submit() {
+    const membershipErrors = A();
+
+    if (this.model !== undefined) {
+      let failedMembershipSavings = 0;
+      this.model
+        .save()
+        .then(() => {
+          return all(
+            this.model.get('memberships').map((membership) => {
+              if (membership.get('hasDirtyAttributes')) {
+                return membership.save().catch((error) => {
+                  membershipErrors.push({ membership, error });
+                  failedMembershipSavings++;
+                });
+              }
+            })
+          );
         })
-      );
-    },
-    removeMembership(membership) {
-      membership.deleteRecord();
-    },
-    submit() {
-      const membershipErrors = A();
+        .then(() => {
+          if (failedMembershipSavings) {
+            const prefix = failedMembershipSavings > 1 ? 'zijn' : 'is';
+            const suffix =
+              failedMembershipSavings > 1 ? 'lidmaatschappen' : 'lidmaatschap';
 
-      if (this.model !== undefined) {
-        let failedMembershipSavings = 0;
-        this.model
-          .save()
-          .then(() => {
-            return all(
-              this.model.get('memberships').map((membership) => {
-                if (membership.get('hasDirtyAttributes')) {
-                  return membership.save().catch((error) => {
-                    membershipErrors.push({ membership, error });
-                    failedMembershipSavings++;
-                  });
-                }
-              })
+            const membershipErrorText = membershipErrors.reduce(
+              (errorMessage, membershipError) => {
+                const singleError = `\t ${membershipError.membership.get(
+                  'user.fullName'
+                )} (${membershipError.error.errors[0].source.pointer}) \n`;
+                return errorMessage + singleError;
+              },
+              ''
             );
-          })
-          .then(() => {
-            if (failedMembershipSavings) {
-              const prefix = failedMembershipSavings > 1 ? 'zijn' : 'is';
-              const suffix =
-                failedMembershipSavings > 1
-                  ? 'lidmaatschappen'
-                  : 'lidmaatschap';
+            this.set(
+              'errorMessage',
+              `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`
+            );
+          } else {
+            this.flashNotice.sendSuccess('Groep aangepast!');
+            this.transitionToRoute('groups.show', this.model.id);
+          }
+        })
+        .catch((error) => {
+          this.set('errorMessage', error.message);
+        });
+    }
+  }
 
-              const membershipErrorText = membershipErrors.reduce(
-                (errorMessage, membershipError) => {
-                  const singleError = `\t ${membershipError.membership.get(
-                    'user.fullName'
-                  )} (${membershipError.error.errors[0].source.pointer}) \n`;
-                  return errorMessage + singleError;
-                },
-                ''
-              );
-              this.set(
-                'errorMessage',
-                `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`
-              );
-            } else {
-              this.flashNotice.sendSuccess('Groep aangepast!');
-              this.transitionToRoute('groups.show', this.model.id);
-            }
-          })
-          .catch((error) => {
-            this.set('errorMessage', error.message);
-          });
-      }
-    },
-    fileLoaded(file) {
-      this.model.set('avatar', file.data);
-    },
-  },
-});
+  @action
+  fileLoaded(file) {
+    this.model.set('avatar', file.data);
+  }
+}

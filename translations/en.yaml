@@ -95,6 +95,10 @@ component:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
   index:
     public:
+      potentialMember:
+        title: Interested in Alpha?
+        info:
+          Nice that you are interested in Alpha. Put the weekend of 23 to 25 September 2022 in your agenda. On that weekend you can get to know Alpha and its (interested) members with a campfire, games & more. If you like it, or if you can't wait to get to know Alpha, send us a <a href="https://api.whatsapp.com/send?phone=31623038845">message!</a> (0623038845)
       aboutFlux:
         title: Our Pub
         info:

@@ -1,13 +1,16 @@
-import { inject as service } from '@ember/service';
-import Controller from '@ember/controller';
+import NewController from 'alpha-amber/controllers/application/new';
+// eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-export default Controller.extend({
-  store: service(),
-  session: service(),
-  abilities: service(),
+export default class NewPhotoAlbumController extends NewController {
+  @service store;
+  @service session;
+  @service abilities;
 
-  groupOptions: computed('session.currentUser.{group,groups}', function () {
+  successTransitionTarget = 'photo-albums.photo-album.edit';
+
+  @computed('session.currentUser.{group,groups}', function () {
     const optionArray = [
       {
         label: '',
@@ -22,30 +25,15 @@ export default Controller.extend({
       });
     });
     return optionArray;
-  }),
-  groups: computed('session.currentUser', 'store', function () {
+  })
+  groupOptions;
+
+  @computed('session.currentUser', 'store', function () {
     if (this.abilities.can('select all groups for photo-albums')) {
       return this.store.findAll('group');
     }
 
     return this.session.currentUser.get('groups');
-  }),
-
-  actions: {
-    submit() {
-      const photoAlbum = this.model;
-      photoAlbum
-        .save()
-        .then(() => {
-          // Only pass id when force reload is required, see http://emberigniter.com/force-store-reload-data-api-backend/
-          this.transitionToRoute(
-            'photo-albums.photo-album.edit',
-            photoAlbum.id
-          );
-        })
-        .catch((error) => {
-          this.set('errorMessage', error.message);
-        });
-    },
-  },
-});
+  })
+  groups;
+}

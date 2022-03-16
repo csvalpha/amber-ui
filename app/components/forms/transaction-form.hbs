@@ -3,15 +3,15 @@
     <h5> Transactie aanmaken </h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='description'
         @label='Beschrijving'
         @required={{true}}
       />
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='amount'
         @label='Bedrag'
         @required={{true}}
@@ -25,8 +25,8 @@
         <div class='col-md-10'>
           <PowerSelect
             @selected={{@model.user}}
-            @options={{users}}
-            @onchange={{action 'setUser'}}
+            @options={{@users}}
+            @onChange={{@onSetUser}}
             @searchField='fullName'
             as |user|
           >
@@ -35,10 +35,7 @@
         </div>
       </div>
 
-      <ModelForm::FormActions
-        @model={{model}}
-        @errorMessage={{this.errorMessage}}
-      >
+      <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
         <LinkTo
           @route='debit.collections'
           class='btn btn-default'
