@@ -16,6 +16,7 @@ export default class Square extends Component {
     return this.args.square.piece
       ? `chess-${this.args.square.piece.pieceName}`
       : null;
+    // return this.args.square.piece ? 'chess-bishop' : null;
   }
   get pieceColor() {
     return this.args.square.piece && this.args.square.piece.player

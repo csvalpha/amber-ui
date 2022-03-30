@@ -1,6 +1,6 @@
 module.exports = function () {
   return {
-    'free-regular-svg-icons': ['face-smile', 'square'],
+    'free-regular-svg-icons': ['face-smile', 'square', 'chess-bishop'],
     'free-solid-svg-icons': [
       'address-book',
       'angle-down',
