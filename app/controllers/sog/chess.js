@@ -50,6 +50,10 @@ class Board {
     square.setPiece(piece);
   }
 
+  get selectedPiece() {
+    return this.squares.flat().find((square) => square.piece?.isSelected);
+  }
+
   makeMove(piece, destinationSquare) {
     // todo: at some point, check move legality
     // todo: animate moves?
@@ -140,6 +144,7 @@ class Piece {
   }
 }
 class Square {
+  @tracked isSelected = false;
   @tracked color;
   @tracked piece = null;
   constructor(color) {
@@ -154,5 +159,9 @@ class Square {
     return (
       this.color.toString() + ' square ' + (this.piece?.toString() ?? 'empty')
     );
+  }
+
+  toggleSelect() {
+    this.isSelected = !this.isSelected;
   }
 }

@@ -4,13 +4,13 @@
   //  margin: 30px;
   //}
   .chess-square {
+    aspect-ratio: 1;
+    stroke-width: 1rem;
+  }
+  .chess-piece-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 1;
-    stroke-width: 1rem;
   }
-  //.chess-square path {
-  //}
 }

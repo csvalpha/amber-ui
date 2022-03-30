@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class Square extends Component {
   // todo: implement more themes/colormappings
@@ -11,6 +12,10 @@ export default class Square extends Component {
 
   get color() {
     return this.squareColorMapping[this.args.square.color?.name];
+  }
+
+  get bgColor() {
+    return this.args.square.isSelected ? 'bg-primary' : 'bg-' + this.color;
   }
 
   get pieceName() {
@@ -27,5 +32,9 @@ export default class Square extends Component {
 
   get strokeColor() {
     return this.strokeColorMapping[this.color];
+  }
+  @action
+  onClick() {
+    this.args.square.toggleSelect();
   }
 }
