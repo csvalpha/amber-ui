@@ -65,6 +65,7 @@ class Color {
   constructor(name) {
     this.name = name;
   }
+
   toString() {
     return this.name;
   }
@@ -79,15 +80,18 @@ class Player {
   constructor(color) {
     this.color = color;
   }
+
   setPieces(pieces) {
     this.pieces = pieces;
     this.pieces.forEach((piece) => {
       piece.setPlayer(this);
     });
   }
+
   addCapture(capture) {
     this.captures.push(capture);
   }
+
   toString() {
     return this.color.toString() + ' player';
   }
@@ -100,6 +104,7 @@ class PieceType {
   constructor(name) {
     this.name = name;
   }
+
   toString() {
     return this.name;
   }
@@ -118,13 +123,16 @@ class Piece {
   constructor(pieceName) {
     this.pieceName = pieceName;
   }
+
   setPlayer(player) {
     this.player = player;
     this.color = this.player.color;
   }
+
   setSquare(square) {
     this.square = square;
   }
+
   toString() {
     return (
       (this.color?.toString() ?? 'colorless') + ' ' + this.pieceName.toString()
@@ -137,9 +145,11 @@ class Square {
   constructor(color) {
     this.color = color;
   }
+
   setPiece(piece) {
     this.piece = piece;
   }
+
   toString() {
     return (
       this.color.toString() + ' square ' + (this.piece?.toString() ?? 'empty')
