@@ -1,10 +1,9 @@
-<div class='col p-0 chess-square {{this.colorClass}}'>
+<div class='col p-0 chess-square bg-{{this.color}}'>
   {{#if @square.piece}}
     <FaIcon
       @icon={{this.pieceIcon}}
-      class='w-75 {{this.pieceColor}}'
-      style='aspect-ratio: 1; height: auto;'
-      @prefix='fas'
+      class='w-75 text-{{this.pieceColor}}'
+      style='aspect-ratio: 1; height: auto; stroke: {{this.strokeColor}};'
     />
   {{/if}}
 </div>

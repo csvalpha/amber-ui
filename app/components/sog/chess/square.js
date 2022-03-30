@@ -6,10 +6,11 @@ export default class Square extends Component {
   @tracked
   squareColorMapping = { dark: 'dark', light: 'light' };
   pieceColorMapping = { dark: 'black', light: 'white' };
+  strokeColorMapping = { dark: 'white', light: 'black' };
 
-  get colorClass() {
+  get color() {
     return this.args.square.color
-      ? 'bg-' + this.squareColorMapping[this.args.square.color.name]
+      ? this.squareColorMapping[this.args.square.color.name]
       : null;
   }
   get pieceIcon() {
@@ -19,9 +20,9 @@ export default class Square extends Component {
     // return this.args.square.piece ? 'chess-bishop' : null;
   }
   get pieceColor() {
-    return this.args.square.piece && this.args.square.piece.player
-      ? 'text-' +
-          this.pieceColorMapping[this.args.square.piece.player.color.name]
-      : null;
+    return this.pieceColorMapping[this.args.square.piece?.player?.color?.name];
+  }
+  get strokeColor() {
+    return this.strokeColorMapping[this.color];
   }
 }
