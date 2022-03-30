@@ -44,9 +44,10 @@
               <Input
                 @value={{mut (get commentContent (get photo 'id'))}}
                 class='form-control photo-comment-input'
+                aria-label='Reactie'
                 placeholder='Typ hier je reactie'
-                @minlength='1'
-                @maxlength='500'
+                minlength='1'
+                maxlength='500'
                 @enter={{action 'submitPhotoComment' photo}}
               />
               <span class='input-group-btn'>
@@ -54,7 +55,9 @@
                   class='btn btn-default submit-photo-comment-button'
                   {{action 'submitPhotoComment' photo}}
                   type='button'
-                >Reageren</button>
+                >
+                  Reageren
+                </button>
               </span>
             </div>
           </div>

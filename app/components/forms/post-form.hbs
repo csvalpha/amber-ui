@@ -3,13 +3,15 @@
     <h5>Forumpost bewerken</h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
 
       <div class='row'>
         <label
           class='col-sm-2'
           for='forum-post-form-message col-form-label form-control-label'
-        >Bericht</label>
+        >
+          Bericht
+        </label>
         <div class='col-sm-10'>
           <MdEditor @content={{@model.message}} />
         </div>
@@ -17,13 +19,15 @@
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
         <LinkTo
           @route='forum.categories.category.threads.thread.show'
           @model={{@model.thread}}
           class='btn btn-default'
-        >Annuleren</LinkTo>
+        >
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

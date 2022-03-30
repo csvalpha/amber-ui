@@ -3,20 +3,20 @@
     <h5>{{if @model.isNew 'Foto-album aanmaken' 'Foto-album wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='title'
         @label='Titel'
         @required={{true}}
       />
       <ModelForm::DateInput
-        @model={{model}}
+        @model={{@model}}
         @property='date'
         @label='Datum van activiteit'
       />
       <ModelForm::CheckboxInput
-        @model={{model}}
+        @model={{@model}}
         @property='publiclyVisible'
         @label='Zichtbaar voor externen'
       />
@@ -34,7 +34,7 @@
 
         <div class='col-sm-10'>
           <PowerSelect
-            @options={{groups}}
+            @options={{@groups}}
             @onChange={{action (mut @model.group)}}
             @selected={{@model.group}}
             @searchEnabled={{true}}
@@ -45,7 +45,7 @@
             {{group.name}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors property)}}
+          {{form-control-feedback (get @model.errors 'group')}}
         </div>
       </div>
 
@@ -64,19 +64,18 @@
         </div>
         <DropZone
           @url={{@model.dropzoneEndpoint}}
-          @headers={{dropzoneHeaders}}
+          @headers={{@dropzoneHeaders}}
           @maxFilesize={{@model.maxFilesize}}
         />
       {{/if}}
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
-        <LinkTo
-          @route='photo-albums.index'
-          class='btn btn-default'
-        >Annuleren</LinkTo>
+        <LinkTo @route='photo-albums.index' class='btn btn-default'>
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

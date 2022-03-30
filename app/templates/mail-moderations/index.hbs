@@ -13,29 +13,31 @@
       <tbody>
         {{#each model as |storedMail|}}
           <tr>
-            <td><LinkTo
-                @route='mail-moderations.show'
-                @model={{storedMail.id}}
-              >{{storedMail.id}}</LinkTo></td>
-            <td><LinkTo
-                @route='mail-moderations.show'
-                @model={{storedMail.id}}
-              >{{moment-format
-                  storedMail.date
-                  'ddd D MMM YYYY hh:mm'
-                }}</LinkTo></td>
-            <td><LinkTo
-                @route='mail-moderations.show'
-                @model={{storedMail.id}}
-              >{{storedMail.subject}}</LinkTo></td>
-            <td><LinkTo
-                @route='mail-moderations.show'
-                @model={{storedMail.id}}
-              >{{storedMail.sender}}</LinkTo></td>
-            <td><LinkTo
-                @route='mail-moderations.show'
-                @model={{storedMail.id}}
-              >{{storedMail.mailAlias.email}}</LinkTo></td>
+            <td>
+              <LinkTo @route='mail-moderations.show' @model={{storedMail.id}}>
+                {{storedMail.id}}
+              </LinkTo>
+            </td>
+            <td>
+              <LinkTo @route='mail-moderations.show' @model={{storedMail.id}}>
+                {{moment-format storedMail.date 'ddd D MMM YYYY hh:mm'}}
+              </LinkTo>
+            </td>
+            <td>
+              <LinkTo @route='mail-moderations.show' @model={{storedMail.id}}>
+                {{storedMail.subject}}
+              </LinkTo>
+            </td>
+            <td>
+              <LinkTo @route='mail-moderations.show' @model={{storedMail.id}}>
+                {{storedMail.sender}}
+              </LinkTo>
+            </td>
+            <td>
+              <LinkTo @route='mail-moderations.show' @model={{storedMail.id}}>
+                {{storedMail.mailAlias.email}}
+              </LinkTo>
+            </td>
           </tr>
         {{else}}
           <tr>

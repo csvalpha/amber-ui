@@ -14,13 +14,13 @@
 {{#each groupedModel as |group|}}
   <div class='card'>
     <div class='card-header'>
-      <h5> {{capitalize group.value}} </h5>
+      <h5>{{capitalize group.value}}</h5>
     </div>
 
     {{#each group.items as |staticPage|}}
       <LinkTo @route='static-pages.show' @model={{staticPage.id}}>
         <div class='row rtable-row'>
-          <span class='col'> {{staticPage.title}} </span>
+          <span class='col'>{{staticPage.title}}</span>
         </div>
       </LinkTo>
     {{/each}}

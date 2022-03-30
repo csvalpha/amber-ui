@@ -1,1 +1,6 @@
-{{partial 'static-pages/form'}}
+<Forms::StaticPageForm
+  @model={{@model}}
+  @onSubmit={{action 'submit'}}
+  @staticPageCategoryOptions={{this.staticPageCategoryOptions}}
+  @errorMessage={{this.errorMessage}}
+/>

@@ -1,3 +1,3 @@
-import EditActivityController from './edit';
+import EditMailAliasController from './edit';
 
-export default EditActivityController.extend();
+export default class NewMailAliasController extends EditMailAliasController {}

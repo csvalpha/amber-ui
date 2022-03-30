@@ -1,0 +1,29 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<div class='card' itemscope itemtype='https://schema.org/Book'>
+  <div class='card-body p-3'>
+    <img
+      src={{model.coverPhotoUrlOrDefault}}
+      alt=''
+      width='200'
+      class='float-left mr-3 mb-3'
+    />
+    <h1 itemprop='name'>{{model.title}}</h1>
+    <div class='font-italic'>
+      <span itemprop='author' itemscope itemtype='https://schema.org/Person'>
+        <span itemprop='name'>{{model.author}}</span>
+      </span>
+    </div>
+    {{#if model.isbn}}
+      <div class='font-italic'>
+        ISBN:
+        <span itemprop='isbn'>{{model.isbn}}</span>
+      </div>
+    {{/if}}
+    <div class='mt-3' itemprop='abstract'>
+      {{markdown-to-html model.description extensions='bootstrapTable'}}
+    </div>
+  </div>
+</div>

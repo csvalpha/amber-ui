@@ -1,9 +1,9 @@
 <div class='card'>
   <div class='card-header'>
-    <h5> {{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}} </h5>
+    <h5>{{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
         @model={{@model.thread}}
         @property='title'
@@ -12,7 +12,7 @@
       />
 
       {{#if @model.post}}
-        <label for='forumpost-message'> Bericht * </label>
+        <label for='forumpost-message'>Bericht *</label>
         <MdEditor
           @content={{@model.post.message}}
           @textareaId='forumpost-message'
@@ -29,19 +29,23 @@
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
         {{#if @model.thread.isNew}}
           <LinkTo
             @route='forum.categories.category.threads'
             class='btn btn-default'
-          >Annuleren</LinkTo>
+          >
+            Annuleren
+          </LinkTo>
         {{else}}
           <LinkTo
             @route='forum.categories.category.threads.thread'
             @model={{@model.thread}}
             class='btn btn-default'
-          >Annuleren</LinkTo>
+          >
+            Annuleren
+          </LinkTo>
         {{/if}}
       </ModelForm::FormActions>
     </form>

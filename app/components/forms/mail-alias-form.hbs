@@ -3,9 +3,9 @@
     <h2>Details</h2>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='email'
         @label='E-mail'
         @required={{true}}
@@ -13,9 +13,9 @@
         @placeholder='voorbeeld@csvalpha.nl'
       />
       <ModelForm::SelectInput
-        @model={{model}}
+        @model={{@model}}
         @property='moderationType'
-        @options={{mailAliasModerationTypes}}
+        @options={{@mailAliasModerationTypes}}
         @label='Moderatietype'
       />
 
@@ -24,11 +24,11 @@
 
         <div class='col-sm-10'>
           <PowerSelect
-            @options={{groups}}
+            @options={{@groups}}
             @onChange={{action (mut @model.moderatorGroup)}}
             @selected={{@model.moderatorGroup}}
-            @disabled={{moderationTypeOpen}}
-            @placeholder={{Moderator}}
+            @disabled={{@moderationTypeOpen}}
+            @placeholder='Moderator'
             @searchEnabled={{true}}
             @searchField='name'
             @allowClear={{true}}
@@ -37,12 +37,12 @@
             {{group.name}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors property)}}
+          {{form-control-feedback (get @model.errors 'moderatorGroup')}}
         </div>
       </div>
 
       <ModelForm::TextInput
-        @model={{model}}
+        @model={{@model}}
         @property='description'
         @label='Omschrijving'
       />
@@ -52,11 +52,11 @@
 
         <div class='col-sm-10'>
           <PowerSelect
-            @options={{groups}}
+            @options={{@groups}}
             @onChange={{action (mut @model.group)}}
             @selected={{@model.group}}
-            @disabled={{anyUser}}
-            @placeholder={{Groep}}
+            @disabled={{@anyUser}}
+            @placeholder='Groep'
             @searchEnabled={{true}}
             @searchField='name'
             @allowClear={{true}}
@@ -65,7 +65,7 @@
             {{group.name}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors property)}}
+          {{form-control-feedback (get @model.errors 'group')}}
         </div>
       </div>
 
@@ -74,11 +74,11 @@
 
         <div class='col-sm-10'>
           <PowerSelect
-            @options={{users}}
+            @options={{@users}}
             @onChange={{action (mut @model.user)}}
             @selected={{@model.user}}
-            @disabled={{anyGroup}}
-            @placeholder={{Gebruiker}}
+            @disabled={{@anyGroup}}
+            @placeholder='Gebruiker'
             @searchEnabled={{true}}
             @searchField='fullName'
             @allowClear={{true}}
@@ -87,24 +87,23 @@
             {{user.fullName}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors property)}}
+          {{form-control-feedback (get @model.errors 'user')}}
         </div>
       </div>
 
       <ModelForm::CheckboxInput
-        @model={{model}}
+        @model={{@model}}
         @property='smtpEnabled'
         @label='SMTP inschakelen'
       />
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
-        @errorMessage={{this.errorMessage}}
+        @errorMessage={{@errorMessage}}
       >
-        <LinkTo
-          @route='mail-aliases.index'
-          class='btn btn-default'
-        >Annuleren</LinkTo>
+        <LinkTo @route='mail-aliases.index' class='btn btn-default'>
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

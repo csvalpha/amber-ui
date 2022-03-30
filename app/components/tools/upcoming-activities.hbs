@@ -9,14 +9,22 @@
           <FaIcon @icon='circle-question' class='link-highlight' />
 
           <BsPopover @triggerEvents='focus' @placement='bottom'>
-            <div class='d-block'><div class='status-dot badge-info'></div>
-              Inschrijving open</div>
-            <div class='d-block'><div class='status-dot badge-success'></div>
-              Ingeschreven / vrij toegankelijk</div>
-            <div class='d-block'><div class='status-dot badge-danger'></div>
-              Niet ingeschreven</div>
-            <div class='d-block'><div class='status-dot badge-default'></div>
-              Inschrijving nog niet open</div>
+            <div class='d-block'>
+              <div class='status-dot badge-info'></div>
+              Inschrijving open
+            </div>
+            <div class='d-block'>
+              <div class='status-dot badge-success'></div>
+              Ingeschreven / vrij toegankelijk
+            </div>
+            <div class='d-block'>
+              <div class='status-dot badge-danger'></div>
+              Niet ingeschreven
+            </div>
+            <div class='d-block'>
+              <div class='status-dot badge-default'></div>
+              Inschrijving nog niet open
+            </div>
           </BsPopover>
         </a>
       </div>
@@ -27,11 +35,12 @@
     {{#each activities as |activity|}}
       <LinkTo @route='activities.show' @model={{activity.id}}>
         <li class='list-group-item'>
-          <span class='activity-tool-title'> {{activity.title}} </span>
+          <span class='activity-tool-title'>{{activity.title}}</span>
           <br />
-          <span class='activity-tool-start-time text-muted'>{{#if
-              (can 'show form/form')
-            }}{{form/status-dot activity.form}}{{/if}}
+          <span class='activity-tool-start-time text-muted'>
+            {{#if (can 'show form/form')}}
+              {{form/status-dot activity.form}}
+            {{/if}}
             {{activity.formattedStartDate}}
           </span>
         </li>
