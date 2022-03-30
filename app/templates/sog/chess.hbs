@@ -22,7 +22,25 @@
         </div>
         <div class='col ml-lg-3 mt-4 mt-lg-0 chess-game-info'>
           <h2>Info</h2>
-          Hier komt later info over het verloop van het spel!
+          {{#each this.board.players as |player|}}
+            {{#if player.captures.length}}
+              <div class='my-3'>
+                <p>Stukken geslagen door {{player.name}}</p>
+                <div class='row'>
+                  {{#each player.captures as |capture|}}
+                    <div class='col-1 p-0 chess-piece-container'>
+                      <FaIcon
+                        @icon={{capture.icon}}
+                        class='w-75 chess-piece text-{{capture.variant}}'
+                        style='stroke: black;'
+                      />
+                      <!-- todo: order captures from high to low value -->
+                    </div>
+                  {{/each}}
+                </div>
+              </div>
+            {{/if}}
+          {{/each}}
           <!--todo: add info about moves made, pieces captured, (eval?), etc-->
         </div>
       </div>

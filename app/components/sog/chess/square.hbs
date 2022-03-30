@@ -5,9 +5,9 @@
   {{#if @square.piece}}
     <div class='w-100 h-100 chess-piece-container'>
       <FaIcon
-        @icon={{this.pieceIcon}}
-        class='w-75 text-{{this.pieceColor}}'
-        style='aspect-ratio: 1; height: auto; stroke: {{this.strokeColor}};'
+        @icon={{@square.piece.icon}}
+        class='w-75 chess-piece text-{{this.pieceColor}}'
+        style='stroke: {{this.strokeColor}};'
       />
     </div>
   {{/if}}

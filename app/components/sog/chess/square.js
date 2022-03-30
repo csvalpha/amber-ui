@@ -5,32 +5,30 @@ import { action } from '@ember/object';
 export default class Square extends Component {
   // todo: implement more themes/colormappings
   @tracked
-  squareColorMapping = { dark: 'dark', light: 'light' };
+  squareVariantVariantMapping = { dark: 'dark', light: 'light' };
 
-  pieceColorMapping = { dark: 'black', light: 'white' };
-  strokeColorMapping = { dark: 'white', light: 'black' };
+  strokeVariantColorMapping = { dark: 'white', light: 'black' };
 
-  get color() {
-    return this.squareColorMapping[this.args.square.color?.name];
+  get variant() {
+    return this.args.square.variant?.name;
   }
 
   get bgColor() {
-    return this.args.square.isSelected ? 'bg-primary' : 'bg-' + this.color;
+    return this.args.square.isSelected ? 'bg-primary' : 'bg-' + this.variant;
   }
 
   get pieceName() {
     return this.args.square.piece?.pieceName;
   }
 
-  get pieceIcon() {
-    return 'chess-' + this.pieceName;
-  }
-
   get pieceColor() {
-    return this.pieceColorMapping[this.args.square.piece?.player?.color?.name];
+    return this.args.square.piece?.color;
+    // return this.pieceVariantColorMapping[
+    //   this.args.square.piece?.player?.variant?.name
+    // ];
   }
 
   get strokeColor() {
-    return this.strokeColorMapping[this.color];
+    return this.strokeVariantColorMapping[this.variant];
   }
 }

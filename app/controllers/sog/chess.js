@@ -6,6 +6,8 @@ export default class SogChessController extends Controller {
   @tracked board = new Board();
 }
 
+const pieceVariantColorMapping = { dark: 'black', light: 'white' };
+const playerVariantNameMapping = { dark: 'zwart', light: 'wit' };
 class Board {
   @tracked players = [lightPlayer, darkPlayer];
   @tracked squares = [];
@@ -14,7 +16,9 @@ class Board {
     for (let i = 0; i < 8; i++) {
       let row = [];
       for (let j = 0; j < 8; j++) {
-        row.push(new Square((i + j) % 2 === 0 ? lightColor : darkColor, this));
+        row.push(
+          new Square((i + j) % 2 === 0 ? lightVariant : darkVariant, this)
+        );
       }
       squares.push(row);
     }
@@ -71,7 +75,7 @@ class Board {
     destinationSquare.setPiece(piece);
   }
 }
-class Color {
+class Variant {
   constructor(name) {
     this.name = name;
   }
@@ -80,15 +84,19 @@ class Color {
     return this.name;
   }
 }
-const darkColor = new Color('dark');
-const lightColor = new Color('light');
+const darkVariant = new Variant('dark');
+const lightVariant = new Variant('light');
 
 class Player {
-  @tracked color;
+  @tracked variant;
   @tracked pieces = null;
   @tracked captures = [];
-  constructor(color) {
-    this.color = color;
+  constructor(variant) {
+    this.variant = variant;
+  }
+
+  get name() {
+    return playerVariantNameMapping[this.variant];
   }
 
   setPieces(pieces) {
@@ -99,15 +107,15 @@ class Player {
   }
 
   addCapture(capture) {
-    this.captures.push(capture);
+    this.captures = [...this.captures, capture]; // simply pushing doesn't trigger a tracked update
   }
 
   toString() {
-    return this.color.toString() + ' player';
+    return this.variant.toString() + ' player';
   }
 }
-let darkPlayer = new Player(darkColor);
-let lightPlayer = new Player(lightColor);
+let darkPlayer = new Player(darkVariant);
+let lightPlayer = new Player(lightVariant);
 
 class PieceType {
   @tracked name;
@@ -127,16 +135,22 @@ let Queen = new PieceType('queen');
 let King = new PieceType('king');
 class Piece {
   @tracked pieceName;
-  @tracked color = null;
+  @tracked variant = null;
   @tracked player = null;
   @tracked square = null;
   constructor(pieceName) {
     this.pieceName = pieceName;
   }
 
+  get icon() {
+    return 'chess-' + this.pieceName;
+  }
+  get color() {
+    return pieceVariantColorMapping[this.variant?.name];
+  }
   setPlayer(player) {
     this.player = player;
-    this.color = this.player.color;
+    this.variant = this.player.variant;
   }
 
   setSquare(square) {
@@ -145,17 +159,19 @@ class Piece {
 
   toString() {
     return (
-      (this.color?.toString() ?? 'colorless') + ' ' + this.pieceName.toString()
+      (this.variant?.toString() ?? 'variantless') +
+      ' ' +
+      this.pieceName.toString()
     );
   }
 }
 class Square {
   @tracked isSelected = false;
-  @tracked color;
+  @tracked variant;
   @tracked piece = null;
   @tracked board;
-  constructor(color, board) {
-    this.color = color;
+  constructor(variant, board) {
+    this.variant = variant;
     this.board = board;
   }
 
@@ -165,7 +181,7 @@ class Square {
 
   toString() {
     return (
-      this.color.toString() + ' square ' + (this.piece?.toString() ?? 'empty')
+      this.variant.toString() + ' square ' + (this.piece?.toString() ?? 'empty')
     );
   }
   toggleSelected() {
