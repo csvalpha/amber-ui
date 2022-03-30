@@ -21,7 +21,7 @@ class Board {
     let darkPieces = [];
     for (let i = 0; i < 8; i++) {
       let pawn = new Piece(Pawn);
-      this.place(pawn, squares[squares.length - 1][i]);
+      this.place(pawn, squares[squares.length - 2][i]);
       lightPieces.push(pawn);
       pawn = new Piece(Pawn);
       this.place(pawn, squares[1][i]);
