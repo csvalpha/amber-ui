@@ -2,10 +2,11 @@
   <Input
     @type='text'
     class='form-control'
-    @name='question'
+    aria-label='Vraag'
+    name='question'
     placeholder='Vraag'
     @value={{question.question}}
-    @disabled={{question.form.hasResponses}}
+    disabled={{question.form.hasResponses}}
   />
 </div>
 
@@ -47,10 +48,11 @@
         <Input
           @type='text'
           class='form-control'
-          @name='option'
+          aria-label='Optie'
+          name='option'
           placeholder='Optie'
           @value={{opt.option}}
-          @disabled={{question.form.hasResponses}}
+          disabled={{question.form.hasResponses}}
         />
 
         {{#unless question.form.hasResponses}}
@@ -84,6 +86,7 @@
 {{/each}}
 
 {{#unless question.form.hasResponses}}
-  <button type='button' class='btn btn-secondary' {{action 'addOption'}}>Optie
-    toevoegen</button>
+  <button type='button' class='btn btn-secondary' {{action 'addOption'}}>
+    Optie toevoegen
+  </button>
 {{/unless}}

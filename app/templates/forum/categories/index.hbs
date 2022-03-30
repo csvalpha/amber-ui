@@ -4,9 +4,9 @@
 
 <div class='card'>
   <div class='row rtable-row header d-none d-md-flex'>
-    <span class='col'> Recente topics </span>
-    <span class='col-3'> Auteur </span>
-    <span class='col-1 rtable-ta-right'> # </span>
+    <span class='col'>Recente topics</span>
+    <span class='col-3'>Auteur</span>
+    <span class='col-1 rtable-ta-right'>#</span>
   </div>
 
   {{#each @model.recentThreads as |thread|}}
@@ -20,14 +20,13 @@
           {{thread.title}}
         </span>
         <span class='col-6 col-md-3 text-muted rtable-item'>
-          <LinkTo
-            @route='users.show'
-            @model={{thread.author.id}}
-          >{{thread.author.fullName}}</LinkTo>
+          <LinkTo @route='users.show' @model={{thread.author.id}}>
+            {{thread.author.fullName}}
+          </LinkTo>
         </span>
         <span class='col-6 col-md-1 text-muted rtable-item rtable-ta-right'>
           {{thread.amountOfPosts}}
-          <span class='d-inline d-md-none'> reacties </span>
+          <span class='d-inline d-md-none'>reacties</span>
         </span>
       </div>
     </LinkTo>
@@ -36,16 +35,14 @@
 
 <div class='card'>
   <div class='row rtable-row header'>
-    <span class='col'> Categorie </span>
-    <span class='col-1 rtable-ta-right'> # </span>
+    <span class='col'>Categorie</span>
+    <span class='col-1 rtable-ta-right'>#</span>
   </div>
   {{#each @model.categories as |category|}}
     <LinkTo @route='forum.categories.category' @model={{category.id}}>
       <div class='row rtable-row'>
-        <span class='col'> {{category.name}} </span>
-        <span class='col-1 rtable-ta-right'>
-          {{category.amountOfThreads}}
-        </span>
+        <span class='col'>{{category.name}}</span>
+        <span class='col-1 rtable-ta-right'>{{category.amountOfThreads}}</span>
       </div>
     </LinkTo>
   {{/each}}

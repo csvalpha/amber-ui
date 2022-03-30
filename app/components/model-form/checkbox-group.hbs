@@ -1,6 +1,6 @@
-<legend
-  class={{if (not-eq inputLayout 'vertical') 'col-form-legend col-sm-2'}}
->{{label}}{{if required ' *'}}</legend>
+<legend class={{if (not-eq inputLayout 'vertical') 'col-form-legend col-sm-2'}}>
+  {{label}}{{if required ' *'}}
+</legend>
 <div class={{if (not-eq inputLayout 'vertical') 'col-sm-10'}}>
   {{#each options as |opt|}}
     <div class='form-check'>
@@ -19,5 +19,6 @@
       </label>
     </div>
   {{/each}}
+
   {{form-control-feedback (get @model.errors property)}}
 </div>

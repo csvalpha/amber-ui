@@ -4,7 +4,7 @@
       <BreadCrumbs @crumbClass='breadcrumb-item' @outputStyle='bootstrap' />
     {{/unless}}
   </div>
-  {{#if (or pageActions hasBlock)}}
+  {{#if (or pageActions (has-block))}}
     {{#page-actions-buttons pageActions}}
       {{yield}}
     {{/page-actions-buttons}}

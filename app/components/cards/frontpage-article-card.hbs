@@ -1,8 +1,8 @@
 <LinkTo @route='articles.show' @model={{article.id}}>
   <article
-    class='{{if useMaxHeight "d-flex"}}'
+    class={{if useMaxHeight 'd-flex'}}
     itemscope
-    itemtype='http://schema.org/Article'
+    itemtype='https://schema.org/Article'
   >
     <div class='card border-0'>
       <div
@@ -18,10 +18,10 @@
         </div>
         <div class='card-title-bar gradient-overlay-rounded d-flex'>
           <div class='card-titles col pl-0'>
-            <h5 itemprop='name headline'>{{#if article.pinned}}
-                <FaIcon @icon='thumbtack' />
-              {{/if}}
-              {{article.title}}</h5>
+            <h5 itemprop='name headline'>
+              {{#if article.pinned}}<FaIcon @icon='thumbtack' />{{/if}}
+              {{article.title}}
+            </h5>
             {{#if article.group}}
               <LinkTo
                 @route='groups.show'
@@ -32,7 +32,7 @@
                   class='card-subtitle d-none d-sm-block'
                   itemprop='author'
                   itemscope
-                  itemtype='http://schema.org/Person'
+                  itemtype='https://schema.org/Person'
                 >
                   <span itemprop='name'>{{article.authorName}}</span>
                 </h5>
@@ -47,7 +47,7 @@
                   class='card-subtitle d-none d-sm-block'
                   itemprop='author'
                   itemscope
-                  itemtype='http://schema.org/Person'
+                  itemtype='https://schema.org/Person'
                 >
                   <span itemprop='name'>{{article.authorName}}</span>
                 </h5>
