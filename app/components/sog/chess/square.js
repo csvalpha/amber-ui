@@ -9,15 +9,13 @@ export default class Square extends Component {
   strokeColorMapping = { dark: 'white', light: 'black' };
 
   get color() {
-    return this.args.square.color
-      ? this.squareColorMapping[this.args.square.color.name]
-      : null;
+    return this.squareColorMapping[this.args.square.color?.name];
+  }
+  get pieceName() {
+    return this.args.square.piece?.pieceName;
   }
   get pieceIcon() {
-    return this.args.square.piece
-      ? `chess-${this.args.square.piece.pieceName}`
-      : null;
-    // return this.args.square.piece ? 'chess-bishop' : null;
+    return 'chess-' + this.pieceName;
   }
   get pieceColor() {
     return this.pieceColorMapping[this.args.square.piece?.player?.color?.name];

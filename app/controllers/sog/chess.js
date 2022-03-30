@@ -127,9 +127,7 @@ class Piece {
   }
   toString() {
     return (
-      (this.color ? this.color.toString() : 'colorless') +
-      ' ' +
-      this.pieceName.toString()
+      (this.color?.toString() ?? 'colorless') + ' ' + this.pieceName.toString()
     );
   }
 }
@@ -144,9 +142,7 @@ class Square {
   }
   toString() {
     return (
-      this.color.toString() +
-      ' square ' +
-      (this.piece ? this.piece.toString() : 'empty')
+      this.color.toString() + ' square ' + (this.piece?.toString() ?? 'empty')
     );
   }
 }
