@@ -1,6 +1,6 @@
 <div
   class='col p-0 chess-square {{this.bgColor}}'
-  onclick={{action this.onClick}}
+  onclick={{action @square.onClick}}
 >
   {{#if @square.piece}}
     <div class='w-100 h-100 chess-piece-container'>

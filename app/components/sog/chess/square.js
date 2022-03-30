@@ -33,8 +33,4 @@ export default class Square extends Component {
   get strokeColor() {
     return this.strokeColorMapping[this.color];
   }
-  @action
-  onClick() {
-    this.args.square.toggleSelect();
-  }
 }

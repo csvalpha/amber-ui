@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
 export default class SogChessController extends Controller {
   @tracked board = new Board();
@@ -13,7 +14,7 @@ class Board {
     for (let i = 0; i < 8; i++) {
       let row = [];
       for (let j = 0; j < 8; j++) {
-        row.push(new Square((i + j) % 2 === 0 ? lightColor : darkColor));
+        row.push(new Square((i + j) % 2 === 0 ? lightColor : darkColor, this));
       }
       squares.push(row);
     }
@@ -51,16 +52,21 @@ class Board {
   }
 
   get selectedPiece() {
-    return this.squares.flat().find((square) => square.piece?.isSelected);
+    return this.squares.flat().find((square) => square.isSelected)?.piece;
   }
 
-  makeMove(piece, destinationSquare) {
+  moveSelectedPieceTo(destinationSquare) {
     // todo: at some point, check move legality
-    // todo: animate moves?
+    // todo: animate moves
+    const piece = this.selectedPiece;
     const player = piece.player;
     if (destinationSquare.piece) {
       player.addCapture(destinationSquare.piece);
+      destinationSquare.piece.setSquare(null);
     }
+    const originSquare = piece.square;
+    originSquare.setPiece(null);
+    originSquare.toggleSelected();
     piece.setSquare(destinationSquare);
     destinationSquare.setPiece(piece);
   }
@@ -147,8 +153,10 @@ class Square {
   @tracked isSelected = false;
   @tracked color;
   @tracked piece = null;
-  constructor(color) {
+  @tracked board;
+  constructor(color, board) {
     this.color = color;
+    this.board = board;
   }
 
   setPiece(piece) {
@@ -160,8 +168,17 @@ class Square {
       this.color.toString() + ' square ' + (this.piece?.toString() ?? 'empty')
     );
   }
-
-  toggleSelect() {
+  toggleSelected() {
     this.isSelected = !this.isSelected;
+  }
+  @action
+  onClick() {
+    if (!this.board.selectedPiece || this.board.selectedPiece === this.piece) {
+      if (this.piece) {
+        this.toggleSelected();
+      }
+    } else {
+      this.board.moveSelectedPieceTo(this);
+    }
   }
 }
