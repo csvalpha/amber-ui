@@ -18,33 +18,15 @@ export default class PhotoCommentsIndexController extends FilterableAndSortableC
     },
   ];
 
-  commentContent = {};
-
   @action
-  submitPhotoComment(photo) {
-    return new Promise((resolve, reject) => {
-      const photoId = photo.get('id');
-      const content = this.commentContent[photoId].trim();
-
-      if (content.length > 0) {
-        const photoComment = this.store.createRecord('photoComment', {
-          content,
-          photo,
-        });
-
-        photoComment
-          .save()
-          .then(() => {
-            this.flashNotice.sendSuccess('Reactie opgeslagen!');
-            photo.reload(); // Reload for updated Photo#amountOfComments and updated_at
-            resolve();
-          })
-          .catch(reject);
-      } else {
-        reject();
-      }
-
-      this.commentContent[photoId] = '';
-    });
+  selectFirstItem() {
+    if (this.routeOnEnter && this.model.length > 0) {
+      const routeOnEnterParam = this.routeOnEnterParam || 'id';
+      this.transitionToRoute(
+        this.routeOnEnter,
+        this.model.firstObject.photoAlbum,
+        this.model.firstObject[routeOnEnterParam]
+      );
+    }
   }
 }

@@ -6,10 +6,12 @@ on:
   workflow_call:
     inputs:
       sha:
+        description: The commit SHA to run the workflow on
         required: false
         type: string
     secrets:
       sentry_auth_token:
+        description: The Sentry integration's token
         required: true
   workflow_dispatch:
 
@@ -32,19 +34,19 @@ jobs:
         env:
           INPUT_SHA: ${{ inputs.sha }}
         run: |
-          if [ $GITHUB_REF_NAME = 'master' ]; then
+          if [ "$GITHUB_REF_NAME" = 'master' ]; then
             echo '::set-output name=tag::latest'
           else
-            echo '::set-output name=tag::'$GITHUB_REF_NAME
+            echo '::set-output name=tag::'"$GITHUB_REF_NAME"
           fi
 
-          if [ $GITHUB_REF_NAME = 'staging' ] || [ $GITHUB_REF_NAME = 'master' ]; then
+          if [ "$GITHUB_REF_NAME" = 'staging' ] || [ "$GITHUB_REF_NAME" = 'master' ]; then
             BUILD_ARGS='BUILD_HASH='${INPUT_SHA:-$GITHUB_SHA}
-            if [ $GITHUB_REF_NAME = 'staging' ]; then
+            if [ "$GITHUB_REF_NAME" = 'staging' ]; then
               BUILD_ARGS+=$'\nDEPLOY_TARGET=staging'
             fi
             BUILD_ARGS=${BUILD_ARGS//$'\n'/'%0A'}
-            echo '::set-output name=build_args::'$BUILD_ARGS
+            echo '::set-output name=build_args::'"$BUILD_ARGS"
           fi
 
   publish:
@@ -70,7 +72,7 @@ jobs:
 
       - name: Build and push image
         id: build_push_image
-        uses: docker/build-push-action@7f9d37fa544684fb73bfe4835ed7214c255ce02b # tag=v2.9.0
+        uses: docker/build-push-action@ac9327eae2b366085ac7f6a2d02df8aa8ead720a # tag=v2.10.0
         with:
           push: true
           context: .
@@ -86,7 +88,7 @@ jobs:
         env:
           IMAGE_NAME: ${{ fromJSON(steps.build_push_image.outputs.metadata)['image.name'] }}
         run: |
-          docker cp $(docker create $IMAGE_NAME):/usr/share/nginx/html/assets/. sourcemaps
+          docker cp "$(docker create "$IMAGE_NAME")":/usr/share/nginx/html/assets/. sourcemaps
 
       - name: Create Sentry release
         if: ${{ !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image') }}
@@ -113,8 +115,8 @@ jobs:
         run: |
           echo '::set-output name=conclusion::success'
           for RESULT in $RESULTS; do
-            if [ $RESULT = 'cancelled' ] || [ $RESULT = 'failure' ]; then
-              echo '::set-output name=conclusion::'$RESULT
+            if [ "$RESULT" = 'cancelled' ] || [ "$RESULT" = 'failure' ]; then
+              echo '::set-output name=conclusion::'"$RESULT"
               break
             fi
           done
