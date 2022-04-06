@@ -23,5 +23,8 @@ export default Controller.extend({
     async newPostCreated() {
       await this.model.posts.reload();
     },
+    addquote: function (q) {
+      this.set('newContent', `${this.newContent}${q} \n\n`);
+    },
   },
 });

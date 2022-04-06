@@ -8,7 +8,11 @@
 
 {{#each @model.posts as |post|}}
   {{#unless post.isDeleted}}
-    {{forum/forum-post post newContent=newContent data-test-forum-post=post.id}}
+    {{forum/forum-post
+      post
+      addquote=(action 'addquote')
+      data-test-forum-post=post.id
+    }}
   {{/unless}}
 {{/each}}
 
