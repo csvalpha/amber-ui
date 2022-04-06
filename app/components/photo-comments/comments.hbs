@@ -33,9 +33,9 @@
             @value={{content}}
             class='form-control'
             placeholder='Typ hier je reactie'
-            aria-lable='Reactie'
-            @minlength='1'
-            @maxlength='500'
+            aria-label='Reactie'
+            minlength='1'
+            maxlength='500'
             @enter={{action 'submitPhotoComment'}}
           />
           <span class='input-group-btn'>
@@ -43,7 +43,9 @@
               class='btn btn-default'
               {{action 'submitPhotoComment'}}
               type='button'
-            >Reageren</button>
+            >
+              Reageren
+            </button>
           </span>
         </div>
       </div>
