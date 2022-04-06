@@ -32,10 +32,9 @@
                 <tr>
                   <td>Gebruiker</td>
                   <td>
-                    <LinkTo
-                      @route='users.show'
-                      @model={{@model.user.id}}
-                    >{{@model.user.fullName}}</LinkTo>
+                    <LinkTo @route='users.show' @model={{@model.user.id}}>
+                      {{@model.user.fullName}}
+                    </LinkTo>
                   </td>
                 </tr>
               </table>

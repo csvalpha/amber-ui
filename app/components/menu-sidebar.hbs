@@ -3,13 +3,13 @@
     {{if layoutManager.leftSideBarOpen "left-sidebar-open"}}
     {{if layoutManager.leftSideBarExpanded "expanded"}}'
 >
-
   <EmberWormhole @to='ember-wormhole-destination'>
     <div
       class='close-left-sidebar-panel
         {{if layoutManager.leftSideBarOpen "open"}}'
       {{on 'click' layoutManager.toggleLeftSidebar}}
-    > </div>
+    >
+    </div>
   </EmberWormhole>
 
   <div class='menu-items-holder'>
@@ -27,7 +27,9 @@
         <span
           class='menu-sidebar-item-text
             {{if layoutManager.leftSideBarExpanded "visible"}}'
-        > {{session.currentUser.firstName}}</span>
+        >
+          {{session.currentUser.firstName}}
+        </span>
 
         <FaIcon @icon='angle-down' class='ml-3 profile-menu-arrow' />
       </div>
@@ -185,7 +187,6 @@
       @icon='gamepad'
       @title={{t 'mixin.menuItems.sog'}}
     />
-
   </div>
 
   <div class='menu-sidebar-item d-none d-md-flex'>

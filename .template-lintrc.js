@@ -25,5 +25,8 @@ module.exports = {
     'no-quoteless-attributes': false,
     'no-negated-condition': false,
     'no-unused-block-params': false,
+    // We're using a few meta elements in the HTML body which is not allowed.
+    // TODO: use ember-meta?
+    'no-forbidden-elements': false,
   },
 };

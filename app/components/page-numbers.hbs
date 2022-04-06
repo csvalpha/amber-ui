@@ -19,8 +19,9 @@
       {{/if}}
       {{#if item.current}}
         <li class='page-item active'>
-          <a class='page-link'>{{item.page}}
-            <span class='sr-only'>(current)</span></a>
+          <a class='page-link'>
+            {{item.page}}<span class='sr-only'>(current)</span>
+          </a>
         </li>
       {{else}}
         <LinkTo @query={{hash page=item.page}} @replace={{replace}}>

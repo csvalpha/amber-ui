@@ -2,7 +2,7 @@
 
 {{#unless question.form.hasResponses}}
   <div class='float-md-right mb-3'>
-    <FaIcon @icon='xmark' @click={{action 'deleteQuestion'}} />
+    <FaIcon @icon='xmark' {{on 'click' (action 'deleteQuestion')}} />
   </div>
 {{/unless}}
 
@@ -10,10 +10,11 @@
   <Input
     @type='text'
     class='form-control'
-    @name='question'
+    aria-label='Vraag'
+    name='question'
     placeholder='Vraag'
     @value={{question.question}}
-    @disabled={{question.form.hasResponses}}
+    disabled={{question.form.hasResponses}}
   />
 </div>
 
@@ -31,14 +32,15 @@
           @disabled={{question.form.hasResponses}}
         />
       </div>
+
       <div class='form-group ml-2'>
         <label class='form-check-label pl-3'>
           <Input
             class='form-check-input'
             @type='checkbox'
-            @name='required'
+            name='required'
             @checked={{question.required}}
-            @disabled={{question.form.hasResponses}}
+            disabled={{question.form.hasResponses}}
           />
           Verplicht
           <div class='custom-checkmark'></div>
@@ -46,6 +48,7 @@
       </div>
     </div>
   </div>
+
   {{#unless question.form.hasResponses}}
     <div class='col-md-7 col-sm-12'>
       <div class='float-md-right'>
@@ -79,7 +82,7 @@
           class='input-group-addon d-flex justify-content-center align-items-center'
         >
           <label class='form-check-label' for='check-label'>
-            <input type={{question.fieldType}} disabled='disabled' />
+            <input type={{question.fieldType}} disabled={{true}} />
             {{#if (eq question.fieldType 'checkbox')}}
               <div class='custom-checkmark input-checkmark'></div>
             {{else}}
@@ -91,10 +94,11 @@
         <Input
           @type='text'
           class='form-control'
-          @name='option'
+          aria-label='Optie'
+          name='option'
           placeholder='Optie'
           @value={{opt.option}}
-          @disabled={{question.form.hasResponses}}
+          disabled={{question.form.hasResponses}}
         />
 
         {{#unless question.form.hasResponses}}
@@ -128,9 +132,7 @@
 {{/each}}
 
 {{#unless question.form.hasResponses}}
-  <button
-    type='button'
-    class='btn btn-default mb-3'
-    {{action 'addOption'}}
-  >Optie toevoegen</button>
+  <button type='button' class='btn btn-default mb-3' {{action 'addOption'}}>
+    Optie toevoegen
+  </button>
 {{/unless}}

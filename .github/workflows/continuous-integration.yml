@@ -7,6 +7,7 @@ on:
   workflow_call:
     inputs:
       sha:
+        description: The commit SHA to run the workflow on
         required: false
         type: string
 
@@ -39,13 +40,19 @@ jobs:
 
       - name: Add problem matchers
         run: |
+          echo '::add-matcher::.github/problem-matchers/actionlint.json'
+          echo '::add-matcher::.github/problem-matchers/ember-template-lint.json'
           echo '::add-matcher::.github/problem-matchers/eslint-stylish.json'
           echo '::add-matcher::.github/problem-matchers/stylelint.json'
 
+      - name: Download actionlint
+        run: |
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+
       - name: Set up Node.js
-        uses: actions/setup-node@9ced9a43a244f3ac94f13bfd896db8c8f30da67a # tag=v3.0.0
+        uses: actions/setup-node@5b52f097d36d4b0b2f94ed6de710023fbb8b2236 # tag=v3.1.0
         with:
-          node-version: '14'
+          node-version-file: .nvmrc
 
       - name: Load test image
         uses: guidojw/actions/load-docker-image@2b1dea8cbd9e44491c269e771b75636026caf8ca # tag=v1.1.0
@@ -56,6 +63,8 @@ jobs:
         # Convert output of stylelint so that the problem matcher can match it correctly.
         run: |
           EXIT_STATUS=0
+          ./actionlint -ignore 'property "app_private_key" is not defined' -ignore 'SC2153:' || EXIT_STATUS=$?
+          docker run app yarn lint:hbs || EXIT_STATUS=$?
           docker run app yarn lint:js || EXIT_STATUS=$?
           STYLELINT_OUTPUT="$(docker run app yarn lint:scss)" || EXIT_STATUS=$?
           node bin/convert-stylelint-output.js "$STYLELINT_OUTPUT"

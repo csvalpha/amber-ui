@@ -6,12 +6,16 @@
       </div>
       <div class='card-body'>
         <div class='alert alert-info'>
-          <p>Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst
+          <p>
+            Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst
             in je agenda-programma je oude Alpha-agenda te verwijderen voordat
-            je de nieuwe agenda-url toevoegt.</p>
-          <p>Hoe je de agenda in Google Calendar importeert staat
+            je de nieuwe agenda-url toevoegt.
+          </p>
+          <p>
+            Hoe je de agenda in Google Calendar importeert staat
             <a href='https://support.google.com/calendar/answer/37100'>hier</a>
-            uitgelegd.</p>
+            uitgelegd.
+          </p>
         </div>
         <form class='row' id='activityCategoryForm'>
           {{#each activityCategoryOptions as |opt|}}
@@ -19,7 +23,7 @@
               <label class='form-check-label'>
                 <Input
                   @type='checkbox'
-                  @name={{opt.value}}
+                  name={{opt.value}}
                   @checked={{opt.checked}}
                   class='form-check-input'
                 />
@@ -32,10 +36,12 @@
 
         <hr />
 
-        <p>Je persoonlijke iCal-link voor Alpha-activiteiten staat hier onder.
+        <p>
+          Je persoonlijke iCal-link voor Alpha-activiteiten staat hier onder.
           Voeg deze url toe aan je agenda om op de hoogte te blijven van
           Alpha-activiteiten. Wijzig hierboven eventueel welke agenda's je
-          allemaal wilt volgen."</p>
+          allemaal wilt volgen.
+        </p>
 
         <div class='alert alert-warning'>
           <b>
@@ -44,7 +50,6 @@
           </b>
         </div>
         <p><a href='{{webcalURL}}'><code>{{iCalURL}}</code></a> </p>
-
       </div>
     </div>
   </div>
