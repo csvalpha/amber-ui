@@ -14,6 +14,7 @@
   // These dependencies are handled by ember-cli-update.
   "ignoreDeps": [
     "@ember/optional-features",
+    "@ember/test-helpers",
     "@glimmer/component",
     "@glimmer/tracking",
     "babel-eslint",
@@ -35,8 +36,11 @@
     "ember-source",
     "ember-template-lint",
     "eslint",
+    "eslint-config-prettier",
     "eslint-plugin-ember",
     "eslint-plugin-node",
+    "eslint-plugin-prettier",
+    "eslint-plugin-qunit",
     // ember-cli's server blueprint is responsible for this.
     "glob",
     // ember-cli's http-proxy blueprint is responsible for this.
@@ -45,7 +49,10 @@
     // ember-cli's server blueprint is responsible for this.
     "morgan",
     "npm-run-all",
-    "qunit-dom"
+    "prettier",
+    "qunit",
+    "qunit-dom",
+    "webpack"
   ],
   "packageRules": [
     {
@@ -76,7 +83,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchDepTypes": ["engines"],
+      "matchDepTypes": ["engines", "resolutions"],
       "enabled": false
     },
     {
