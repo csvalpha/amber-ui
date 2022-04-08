@@ -1,4 +1,4 @@
-# Alpha AMBER UI
+# amber-ui
 
 [![Continuous Integration](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml)
 [![Continuous Delivery](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml)
