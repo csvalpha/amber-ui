@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import moment from 'moment';
 
 const ForumPostComponent = Component.extend({
   showMarkdown: false,

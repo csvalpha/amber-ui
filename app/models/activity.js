@@ -1,6 +1,7 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
-import { isNone } from '@ember/utils';
 import { CoverPhotoFallback } from 'alpha-amber/constants';
+import { isNone } from '@ember/utils';
+import moment from 'moment';
 
 export default class Activity extends Model {
   // Attributes
