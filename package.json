@@ -67,7 +67,7 @@
     "ember-linkify": "^4.1.2",
     "ember-load-initializers": "^2.1.2",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-moment": "^9.0.1",
+    "ember-moment": "^10.0.0",
     "ember-pikaday": "^3.0.0",
     "ember-power-select": "^5.0.2",
     "ember-promise-helpers": "^2.0.0",

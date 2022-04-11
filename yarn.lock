@@ -1680,6 +1680,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^0.50.2":
+  version: 0.50.2
+  resolution: "@embroider/addon-shim@npm:0.50.2"
+  dependencies:
+    "@embroider/shared-internals": ^0.50.2
+    semver: ^7.3.5
+  checksum: 14076ec7c1dd5b29c1450711c37986c70d72148cff42c8114a532473ee059257a4eec7bdb933bb774c16d98420e920112e8f4ed57b42af998103c0b802fe47de
+  languageName: node
+  linkType: hard
+
 "@embroider/macros@npm:^1.0.0":
   version: 1.5.0
   resolution: "@embroider/macros@npm:1.5.0"
@@ -1708,6 +1718,21 @@ __metadata:
     semver: ^7.3.5
     typescript-memoize: ^1.0.1
   checksum: 78f92e64f03f33a0d31489fe406ff58da8d5997b78156e3b8b73f6cd5ef14d8a810a7f65e3da96206a02a3c2277316ebdd5c6dae05abfe816eb9940d76e03004
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:^0.50.2":
+  version: 0.50.2
+  resolution: "@embroider/shared-internals@npm:0.50.2"
+  dependencies:
+    babel-import-util: ^1.1.0
+    ember-rfc176-data: ^0.3.17
+    fs-extra: ^9.1.0
+    lodash: ^4.17.21
+    resolve-package-path: ^4.0.1
+    semver: ^7.3.5
+    typescript-memoize: ^1.0.1
+  checksum: 340426b9bb8cd43caa0db2c9455c6443c71e6ea37509e5555a1ac50db619f0cf42aa094807769571a0f81d3625f592a8626a7438440b52684eccb4c026d94ccf
   languageName: node
   linkType: hard
 
@@ -3482,7 +3507,7 @@ __metadata:
     ember-linkify: ^4.1.2
     ember-load-initializers: ^2.1.2
     ember-maybe-import-regenerator: ^0.1.6
-    ember-moment: ^9.0.1
+    ember-moment: ^10.0.0
     ember-pikaday: ^3.0.0
     ember-power-select: ^5.0.2
     ember-promise-helpers: ^2.0.0
@@ -8062,7 +8087,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^1.10.1, ember-auto-import@npm:^1.11.2, ember-auto-import@npm:^1.11.3, ember-auto-import@npm:^1.12.0, ember-auto-import@npm:^1.5.3, ember-auto-import@npm:^1.6.0":
+"ember-auto-import@npm:^1.11.2, ember-auto-import@npm:^1.11.3, ember-auto-import@npm:^1.12.0, ember-auto-import@npm:^1.5.3, ember-auto-import@npm:^1.6.0":
   version: 1.12.1
   resolution: "ember-auto-import@npm:1.12.1"
   dependencies:
@@ -9360,16 +9385,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-moment@npm:^9.0.1":
-  version: 9.0.1
-  resolution: "ember-moment@npm:9.0.1"
+"ember-moment@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "ember-moment@npm:10.0.0"
   dependencies:
-    ember-auto-import: ^1.10.1
-    ember-cli-babel: ^7.23.0
-    ember-cli-htmlbars: ^5.3.1
-    moment: ^2.29.1
-    moment-timezone: ^0.5.33
-  checksum: 902a509c00383f798fa96b49c986d84d164c411861749561655627e1cd74c882b6776e8fa75efdd376ad1460234244fc8dcb7a58b694fad7340108b5d768dde0
+    "@embroider/addon-shim": ^0.50.2
+  peerDependencies:
+    moment: ^2
+    moment-timezone: ^0.5.34
+  peerDependenciesMeta:
+    moment:
+      optional: true
+    moment-timezone:
+      optional: true
+  checksum: f01fa430f71ed4cc1149d62ef9c9dd18303263f37ece62f27912c31332e253c353a5719b41d4c9fe0a1955f5b99aaceda4b647e6678e5f49ab8bbe6f572042ea
   languageName: node
   linkType: hard
 
@@ -15264,7 +15293,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment-timezone@npm:^0.5.13, moment-timezone@npm:^0.5.33":
+"moment-timezone@npm:^0.5.13":
   version: 0.5.34
   resolution: "moment-timezone@npm:0.5.34"
   dependencies:
@@ -15273,7 +15302,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment@npm:>= 2.9.0, moment@npm:^2.19.3, moment@npm:^2.29.1":
+"moment@npm:>= 2.9.0, moment@npm:^2.19.3":
   version: 2.29.1
   resolution: "moment@npm:2.29.1"
   checksum: 1e14d5f422a2687996be11dd2d50c8de3bd577c4a4ca79ba5d02c397242a933e5b941655de6c8cb90ac18f01cc4127e55b4a12ae3c527a6c0a274e455979345e
