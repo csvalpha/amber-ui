@@ -23,8 +23,18 @@ export default Controller.extend({
     async newPostCreated() {
       await this.model.posts.reload();
     },
-    addquote: function (q) {
+    addquote(q) {
       this.set('newContent', `${this.newContent}${q} \n\n`);
-    },
+      if (!this.currentPageIsLastPage) {
+        this.transitionToRoute({ queryParams: { page: this.model.posts.meta.totalPages }}).then(() => {
+          Ember.run.next(() => {
+            document.getElementById("newForumPostCard").scrollIntoView({behavior: "smooth", block: "center"});
+          });
+        });
+      } else {
+        document.getElementById("newForumPostCard").scrollIntoView({behavior: "smooth", block: "center"});
+      }
+    }
   },
+  
 });
