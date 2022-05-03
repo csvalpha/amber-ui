@@ -1,16 +1,6 @@
 {
-  "extends": [
-    "config:base",
-    ":disableDependencyDashboard",
-    ":semanticCommits",
-    ":semanticCommitTypeAll(chore)",
-    "helpers:pinGitHubActionDigests",
-    "docker:enableMajor"
-  ],
-  "labels": ["dependencies"],
-  "prConcurrentLimit": 0,
-  "rangeStrategy": "bump",
-  "timezone": "Europe/Amsterdam",
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>csvalpha/.github"],
   // These dependencies are handled by ember-cli-update.
   "ignoreDeps": [
     "@ember/optional-features",
@@ -56,15 +46,6 @@
   ],
   "packageRules": [
     {
-      "extends": ["schedule:weekly"],
-      "matchManagers": ["npm"],
-      "matchPackagePatterns": ["*"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "excludePackageNames": ["ember-cli", "yarn"],
-      "groupName": "all non-major dependencies",
-      "groupSlug": "all-minor-patch"
-    },
-    {
       "matchPackageNames": ["danlynn/ember-cli", "ember-cli"],
       "groupName": "ember-cli",
       "separateMinorPatch": true,
@@ -82,17 +63,9 @@
       "enabled": false
     },
     {
-      "matchManagers": ["npm"],
-      "matchDepTypes": ["engines", "resolutions"],
-      "enabled": false
-    },
-    {
       "matchManagers": ["nvm"],
       "matchUpdateTypes": ["major"],
       "enabled": false
     }
-  ],
-  "docker-compose": {
-    "enabled": false
-  }
+  ]
 }
