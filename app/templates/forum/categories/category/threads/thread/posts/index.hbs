@@ -11,7 +11,7 @@
     {{#unless post.isDeleted}}
       {{forum/forum-post
         post
-        addquote=(action 'addquote')
+        addQuote=(action 'addQuote')
         data-test-forum-post=post.id
       }}
     {{/unless}}
@@ -31,7 +31,7 @@
   {{/unless}}
 
   {{#if (can 'create post for forum/thread' @model.thread)}}
-    <div class='card' id="newForumPostCard">
+    <div class='card' id='newForumPostCard'>
       <div class='card-header'>
         <h5>Reageren</h5>
       </div>

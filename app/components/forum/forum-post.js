@@ -14,7 +14,7 @@ const ForumPostComponent = Component.extend({
       let { message } = this.post;
       message = `> ${message}`;
       message = message.split('\n').join('\n> ');
-      this.addquote(`${header}${message}`);
+      this.addQuote(`${header}${message}`);
     },
   },
 });
