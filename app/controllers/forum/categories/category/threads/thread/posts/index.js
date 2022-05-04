@@ -19,6 +19,13 @@ export default Controller.extend({
     }
   ),
 
+  advanceToPage(delta) {
+    const page = this.model.posts.meta.page;
+    const pages = this.model.posts.meta.totalPages;
+    this.replaceRoute({
+      queryParams: { page: ((page - 1 + delta + pages) % pages) + 1 },
+    });
+  },
   actions: {
     async newPostCreated() {
       await this.model.posts.reload();
@@ -34,7 +41,16 @@ export default Controller.extend({
       } else {
         document.getElementById("newForumPostCard").scrollIntoView({behavior: "smooth", block: "center"});
       }
-    }
+    },
+    goToPreviousPage() {
+      return this.advanceToPage(-1);
+    },
+    goToNextPage() {
+      return this.advanceToPage(1);
+    },
+    onSwipe(direction) {
+      return this.advanceToPage(-direction);
+    },
   },
   
 });

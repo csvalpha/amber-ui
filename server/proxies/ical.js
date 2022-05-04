@@ -1,6 +1,6 @@
 'use strict';
 
-const proxyPath = '/api';
+const proxyPath = '/ical';
 
 module.exports = function (app) {
   // For options, see:
@@ -14,6 +14,7 @@ module.exports = function (app) {
   });
 
   app.use(proxyPath, function (req, res) {
+    req.url = req.originalUrl;
     proxy.web(req, res, { target: 'http://localhost:3000' });
   });
 };
