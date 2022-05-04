@@ -3490,7 +3490,7 @@ __metadata:
     ember-promise-helpers: ^2.0.0
     ember-qunit: ^5.1.5
     ember-resolver: ^8.0.3
-    ember-responsive: ^4.0.2
+    ember-responsive: ^5.0.0
     ember-router-scroll: ^4.0.2
     ember-scanner: ^0.3.7
     ember-simple-auth: ^4.1.1
@@ -9512,12 +9512,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-responsive@npm:^4.0.2":
-  version: 4.0.2
-  resolution: "ember-responsive@npm:4.0.2"
+"ember-responsive@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-responsive@npm:5.0.0"
   dependencies:
-    ember-cli-babel: ^7.19.0
-  checksum: dccefd7c9928c93e2c87ab88053c7bb1b0c4f27644cc7069cb603b914e73adfa17684c9eff40f5290b2736e088cf284de201cac4e71d988eaa191c0b4631b11e
+    ember-cli-babel: ^7.26.11
+  checksum: 6d36a773e3a682ab8252a4f6416a95eb4c7fa76b72ac0cdc8ca6cd17adb764f59f39cba98f8227f52f42044a1c1073763e2689d34948b6207a0ca17f398b0a55
   languageName: node
   linkType: hard
 
