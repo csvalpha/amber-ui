@@ -1,6 +1,7 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { next } from '@ember/runloop';
 
 export default Controller.extend({
   session: service(),
@@ -33,13 +34,19 @@ export default Controller.extend({
     addquote(q) {
       this.set('newContent', `${this.newContent}${q} \n\n`);
       if (!this.currentPageIsLastPage) {
-        this.transitionToRoute({ queryParams: { page: this.model.posts.meta.totalPages }}).then(() => {
-          Ember.run.next(() => {
-            document.getElementById("newForumPostCard").scrollIntoView({behavior: "smooth", block: "center"});
+        this.transitionToRoute({
+          queryParams: { page: this.model.posts.meta.totalPages },
+        }).then(() => {
+          next(() => {
+            document
+              .getElementById('newForumPostCard')
+              .scrollIntoView({ behavior: 'smooth', block: 'center' });
           });
         });
       } else {
-        document.getElementById("newForumPostCard").scrollIntoView({behavior: "smooth", block: "center"});
+        document
+          .getElementById('newForumPostCard')
+          .scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     },
     goToPreviousPage() {
@@ -52,5 +59,4 @@ export default Controller.extend({
       return this.advanceToPage(-direction);
     },
   },
-  
 });
