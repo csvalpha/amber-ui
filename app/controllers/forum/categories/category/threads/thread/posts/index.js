@@ -31,7 +31,7 @@ export default Controller.extend({
     async newPostCreated() {
       await this.model.posts.reload();
     },
-    addquote(q) {
+    addQuote(q) {
       this.set('newContent', `${this.newContent}${q} \n\n`);
       function scrollToNewForumPost() {
         document
