@@ -33,20 +33,21 @@ export default Controller.extend({
     },
     addquote(q) {
       this.set('newContent', `${this.newContent}${q} \n\n`);
+      function scrollToNewForumPost() {
+        document
+          .getElementById('newForumPostCard')
+          .scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
       if (!this.currentPageIsLastPage) {
         this.transitionToRoute({
           queryParams: { page: this.model.posts.meta.totalPages },
         }).then(() => {
           next(() => {
-            document
-              .getElementById('newForumPostCard')
-              .scrollIntoView({ behavior: 'smooth', block: 'center' });
+            scrollToNewForumPost();
           });
         });
       } else {
-        document
-          .getElementById('newForumPostCard')
-          .scrollIntoView({ behavior: 'smooth', block: 'center' });
+        scrollToNewForumPost();
       }
     },
     goToPreviousPage() {
