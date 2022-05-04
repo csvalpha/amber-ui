@@ -24,7 +24,6 @@ module.exports = {
     camelcase: ['error', { properties: 'always' }],
     'ember/avoid-leaking-state-in-ember-objects': 0,
     'ember/use-brace-expansion': 0,
-    'object-curly-spacing': ['error', 'always'],
     'ember/no-controller-access-in-routes': 1,
     'ember/no-classic-classes': 1,
     'ember/no-actions-hash': 1,
@@ -36,11 +35,6 @@ module.exports = {
       'always',
       { exceptAfterSingleLine: true },
     ],
-    'no-multiple-empty-lines': [2, { max: 1, maxBOF: 0, maxEOF: 0 }],
-    'padded-blocks': [2, 'never', { allowSingleLineBlocks: true }],
-  },
-  globals: {
-    moment: true,
   },
   overrides: [
     // node files
@@ -79,4 +73,7 @@ module.exports = {
       extends: ['plugin:qunit/recommended'],
     },
   ],
+  globals: {
+    moment: true,
+  },
 };

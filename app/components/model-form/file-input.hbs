@@ -1,7 +1,6 @@
-<label class='col-form-label form-control-label {{labelClass}}'>{{label}}{{if
-    required
-    ' *'
-  }}</label>
+<label class='col-form-label form-control-label {{labelClass}}'>
+  {{label}}{{if required ' *'}}
+</label>
 <div class='{{inputWrapperClass}}'>
   <FileUpload
     @name='fileUpload'

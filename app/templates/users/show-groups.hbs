@@ -33,7 +33,9 @@
               {{unless oldMembershipsTabActive "active"}}
               {{if (eq currentMemberships.length 0) "disabled"}}'
             {{action 'hideOldMemberships'}}
-          > Huidige groepen</a>
+          >
+            Huidige groepen
+          </a>
         </li>
         <li class='nav-item'>
           <a
@@ -41,7 +43,9 @@
               {{if oldMembershipsTabActive "active"}}
               {{if (eq oldMemberships.length 0) "disabled"}}'
             {{action 'showOldMemberships'}}
-          > Voorheen</a>
+          >
+            Voorheen
+          </a>
         </li>
       </ul>
     </div>
@@ -77,5 +81,4 @@
       </div>
     {{/each}}
   </div>
-
 </TabbedView>

@@ -9,7 +9,9 @@
         <label
           class='col-sm-2'
           for='forum-post-form-message col-form-label form-control-label'
-        >Bericht</label>
+        >
+          Bericht
+        </label>
         <div class='col-sm-10'>
           <MdEditor @content={{@model.message}} />
         </div>
@@ -23,7 +25,9 @@
           @route='forum.categories.category.threads.thread.show'
           @model={{@model.thread}}
           class='btn btn-default'
-        >Annuleren</LinkTo>
+        >
+          Annuleren
+        </LinkTo>
       </ModelForm::FormActions>
     </form>
   </div>

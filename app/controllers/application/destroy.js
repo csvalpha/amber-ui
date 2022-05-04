@@ -12,8 +12,8 @@ export default EditController.extend({
       if (!isNone(this.model)) {
         this.model
           .destroyRecord()
-          .then(modelSaveUtil.onSuccess)
-          .catch(modelSaveUtil.onError);
+          .then(modelSaveUtil.onSuccess.bind(modelSaveUtil))
+          .catch(modelSaveUtil.onError.bind(modelSaveUtil));
       }
     },
     saveModel: undefined,
