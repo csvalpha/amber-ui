@@ -31,6 +31,7 @@ export default class IndexBookRoute extends AuthenticatedRoute {
   }
 
   model(params) {
+    params.perPage = 12;
     return this.store.queryPaged('book', params);
   }
 }
