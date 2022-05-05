@@ -9,6 +9,7 @@
     <MdEditor
       @content={{mut (get model property)}}
       @textareaId={{inputIdentifier}}
+      @setContent={{@setContent}}
     />
 
     {{form-control-feedback (get @model.errors property)}}

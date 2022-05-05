@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import itShouldRemoveNewModel from 'alpha-amber/tests/helpers/unit/it-should-remove-new-model';
+import itShouldRemoveNewModel from 'amber-ui/tests/helpers/unit/it-should-remove-new-model';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
 module('Unit | Route | users/new', function (hooks) {

@@ -1,7 +1,7 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
-import { OpenQuestionTypes } from 'alpha-amber/constants';
+import { OpenQuestionTypes } from 'amber-ui/constants';
 
 const OpenQuestionComponent = Component.extend({
   intl: service(),

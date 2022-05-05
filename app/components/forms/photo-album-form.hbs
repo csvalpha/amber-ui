@@ -73,9 +73,9 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo @route='photo-albums.index' class='btn btn-default'>
+        <button {{action @onCancel}} type="button" class='btn btn-default'>
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

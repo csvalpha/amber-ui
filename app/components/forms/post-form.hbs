@@ -13,7 +13,7 @@
           Bericht
         </label>
         <div class='col-sm-10'>
-          <MdEditor @content={{@model.message}} />
+          <MdEditor @content={{@model.message}} @textareaId='forum-post-form-message' @setContent={{@setContent}} />
         </div>
       </div>
 
@@ -21,13 +21,13 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo
-          @route='forum.categories.category.threads.thread.show'
-          @model={{@model.thread}}
+        <button
+          {{action @onCancel}}
+          type="button"
           class='btn btn-default'
         >
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

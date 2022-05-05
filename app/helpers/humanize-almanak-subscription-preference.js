@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import { AlmanakSubscriptionPreferenceTypes } from 'alpha-amber/constants';
+import { AlmanakSubscriptionPreferenceTypes } from 'amber-ui/constants';
 
 export function humanizeAlmanakSubscriptionPreference([option]) {
   return AlmanakSubscriptionPreferenceTypes[option];

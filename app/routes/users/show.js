@@ -1,4 +1,4 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class ShowUserRouter extends AuthenticatedRoute {
   get breadCrumb() {
@@ -14,13 +14,6 @@ export default class ShowUserRouter extends AuthenticatedRoute {
         icon: 'pencil',
         linkArgument: user,
         canAccess: this.abilities.can('edit user', user),
-      },
-      {
-        link: 'users.destroy',
-        title: 'Verwijderen',
-        icon: 'trash',
-        linkArgument: user,
-        canAccess: this.abilities.can('destroy user', user),
       },
       {
         link: 'users.resend_activation',

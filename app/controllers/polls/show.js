@@ -1,14 +1,14 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import EmberObject, { action, computed } from '@ember/object';
 import Controller from '@ember/controller';
-import FormLoadOrCreateUtil from 'alpha-amber/utils/form-load-or-create';
+import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 import { htmlSafe } from '@ember/template';
 import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
 export default class PollsShowController extends Controller {
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
   @service store;
 
   @tracked errorMessage = null;

@@ -2,11 +2,14 @@
   <PageActionsButtons @pageActions={{pageActions}}>
     <FilterBar
       @class='col-12 col-md mt-1'
-      @filter={{search}}
-      @sortedAttribute={{sortedAttribute}}
-      @sortableAttributes={{sortableAttributes}}
-      @sortedAscending={{sortedAscending}}
-      @enter={{action 'selectFirstItem'}}
+      @filter={{this.search}}
+      @setFilter={{this.setSearch}}
+      @sortedAttribute={{this.sortedAttribute}}
+      @setSortedAttribute={{this.setSortedAttribute}}
+      @sortableAttributes={{this.sortableAttributes}}
+      @sortedAscending={{this.sortedAscending}}
+      @setSortedAscending={{this.setSortedAscending}}
+      @enter={{this.selectFirstItem}}
     >
       <div class='form-check'>
         <label class='form-check-label'>
@@ -36,6 +39,26 @@
 
 <div class='card p-3 p-md-0'>
   <div class='row'>
+    <BsDropdown class='col d-block d-md-none' as |dd|>
+      <dd.toggle class='btn btn-default col'>
+        {{capitalize selectedGroupKind}}
+      </dd.toggle>
+      <dd.menu as |ddm|>
+        {{#each groupKinds as |item index|}}
+          <LinkTo
+            @route='groups'
+            @query={{hash kind=item}}
+            class='dropdown-item'
+            data-toggle='pill'
+            role='tab'
+            aria-controls={{concat 'v-pills-' item}}
+            aria-selected='true'
+          >
+            {{capitalize item}}
+          </LinkTo>
+        {{/each}}
+      </dd.menu>
+    </BsDropdown>
     <div class='col-12 col-md-3'>
       <div
         class='nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex'

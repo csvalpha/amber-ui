@@ -36,13 +36,13 @@
         @errors={{@combinedErrors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo
-          @route='polls.show'
-          @model={{@model.id}}
+        <button
+          {{action @onCancel}}
+          type="button"
           class='btn btn-default'
         >
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

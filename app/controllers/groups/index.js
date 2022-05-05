@@ -1,4 +1,4 @@
-import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import FilterableAndSortableController from 'amber-ui/controllers/application/filterable-and-sortable';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupsIndexController extends FilterableAndSortableController {
@@ -37,10 +37,11 @@ export default class GroupsIndexController extends FilterableAndSortableControll
       'genootschap',
       'groep',
       'huis',
-      'jaargroep',
+      'kiemgroep',
       'werkgroep',
       'kring',
       'lichting',
+      'curiositas',
     ];
   }
 
@@ -51,6 +52,8 @@ export default class GroupsIndexController extends FilterableAndSortableControll
   }
 
   set selectedGroupKind(value) {
-    this._selectedGroupKindOverride = value;
+    if (value !== 'zoekresultaten') {
+      this._selectedGroupKindOverride = value;
+    }
   }
 }

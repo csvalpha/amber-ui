@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'alpha-amber/config/environment';
+import config from 'amber-ui/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -210,6 +210,13 @@ Router.map(function () {
   this.route('sponsorkliks');
 
   this.route('books', function () {
+    this.route('show', { path: '/:id' });
+    this.route('new');
+    this.route('edit', { path: '/:id/edit' });
+    this.route('destroy', { path: '/:id/destroy' });
+  });
+
+  this.route('vacancies', function () {
     this.route('show', { path: '/:id' });
     this.route('new');
     this.route('edit', { path: '/:id/edit' });

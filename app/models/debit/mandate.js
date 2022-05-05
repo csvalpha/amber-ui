@@ -1,8 +1,8 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 
 export default class Mandate extends Model {
-  @attr('date') startDate;
-  @attr('date') endDate;
+  @attr('date-only') startDate;
+  @attr('date-only') endDate;
   @attr iban;
   @attr ibanHolder;
 

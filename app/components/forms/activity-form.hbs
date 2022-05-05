@@ -23,6 +23,7 @@
         @label='Omschrijving'
         @required={{true}}
         @inputIdentifier='activity-form-content'
+        @setContent={{@setContent}}
       />
       <ModelForm::SelectInput
         @model={{@model}}
@@ -140,13 +141,13 @@
         @errors={{@combinedErrors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo
-          @route='activities.show'
-          @model={{@model.id}}
+        <button
+          {{action @onCancel}}
+          type="button"
           class='btn btn-default'
         >
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

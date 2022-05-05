@@ -1,26 +1,32 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
+// todo: incorporate the model-save-util into components?
 export default class ForumPostNewComponent extends Component {
   @service store;
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
+
+  get content() {
+    return this.args.content;
+  }
+
+  set content(content) {
+    this.args.setContent(content);
+  }
 
   @action
-  save() {
-    let { content, thread } = this;
-
-    this.store
+  async save() {
+    let { content, thread } = this.args;
+    await this.store
       .createRecord('forum/post', {
         message: content,
         thread,
       })
-      .save()
-      .then(() => {
-        this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
-        this.set('content', '');
-        this.onSubmit();
-      });
+      .save();
+    this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
+    this.content = '';
+    this.args.onSubmit();
   }
 
   @action

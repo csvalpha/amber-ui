@@ -1,19 +1,18 @@
 import { Factory, trait } from 'ember-cli-mirage';
-
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 export default Factory.extend({
-  title: () => faker.lorem.sentence(),
-  description: () => faker.lorem.sentence(),
-  descriptionCamofied: () => faker.lorem.paragraph(),
-  price: () => faker.random.number(25000) / 100,
-  location: () => faker.address.streetAddress(),
+  title: faker.lorem.sentence,
+  description: faker.lorem.sentence,
+  descriptionCamofied: faker.lorem.paragraph,
+  price: () => faker.datatype.number(25000) / 100,
+  location: faker.address.streetAddress,
   coverPhotoUrl: null,
-  createdAt: () => faker.date.recent(),
-  startTime: () => faker.date.future(),
-  endTime: () => faker.date.future(),
+  createdAt: faker.date.recent,
+  startTime: faker.date.future,
+  endTime: faker.date.future,
   category: () =>
-    faker.helpers.randomize([
+    faker.helpers.arrayElement([
       'algemeen',
       'sociëteit',
       'vorming',
@@ -23,9 +22,10 @@ export default Factory.extend({
       'ifes',
       'ozon',
       'disputen',
-      'jaargroepen',
+      'kiemgroepen',
       'huizen',
       'extern',
+      'curiositates',
     ]),
 
   afterCreate(activity, server) {

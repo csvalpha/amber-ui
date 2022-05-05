@@ -4,12 +4,12 @@
 <button {{action 'submit'}} class='btn btn-danger' type='button'>Ja</button>
 <LinkTo
   @route='mail-moderations.show'
-  @model={{model.id}}
+  @model={{@model.id}}
   class='btn btn-default'
 >
   Nee
 </LinkTo>
 
-{{#if errorMessage}}
+{{#if this.errorMessage}}
   <div class='text-danger'>{{this.errorMessage}}</div>
 {{/if}}

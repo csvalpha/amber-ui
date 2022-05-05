@@ -5,8 +5,10 @@
 <Forms::ArticleForm
   @model={{@model}}
   @onSubmit={{action 'submit'}}
+  @onCancel={{action 'cancel'}}
   @onCoverPhotoLoaded={{action 'coverPhotoLoaded'}}
   @canPin={{this.canPin}}
   @groups={{this.groups}}
   @errorMessage={{this.errorMessage}}
+  @setContent={{action 'setContent'}}
 />

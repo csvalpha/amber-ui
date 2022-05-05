@@ -36,8 +36,8 @@
         @property='importFile'
         @label='Import file'
         @loadedCallback={{action 'fileLoaded'}}
-        @validExtensions={{validExtensions}}
-        @validMimetypes={{validMimetypes}}
+        @validExtensions={{this.validExtensions}}
+        @validMimetypes={{this.validMimetypes}}
       />
       <ModelForm::TextInput
         @model={{model}}

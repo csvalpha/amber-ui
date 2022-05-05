@@ -1,23 +1,25 @@
 import {
   PicturePublicationPreferenceTypes,
   UserDetailsPreferenceTypes,
-} from 'alpha-amber/constants';
+} from 'amber-ui/constants';
 import Component from '@glimmer/component';
-import ModelSaveUtil from 'alpha-amber/utils/model-save';
-import { action } from '@ember/object';
+import ModelSaveUtil from 'amber-ui/utils/model-save';
 import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
 export default class PrivacySettingsComponent extends Component {
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
   @service session;
 
   @tracked errorMessage = null;
 
   successMessage = 'Privacyinstellingen gewijzigd!';
   successTransitionTarget = null;
-  successTransitionModel = null;
+  get successTransitionModel() {
+    return null;
+  }
+
   formActionsVisible = true;
 
   constructor() {
@@ -47,10 +49,5 @@ export default class PrivacySettingsComponent extends Component {
       !isPresent(this.args.model.changedAttributes().allowTomatoSharing) &&
       this.args.model.allowTomatoSharing
     );
-  }
-
-  @action
-  submit() {
-    this.modelSaveUtil.saveModel(this.args.model);
   }
 }

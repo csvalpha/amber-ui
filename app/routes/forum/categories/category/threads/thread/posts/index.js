@@ -1,6 +1,5 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 import { inject as service } from '@ember/service';
-import { assign } from '@ember/polyfills';
 import { action } from '@ember/object';
 import {
   bindKeyboardShortcuts,
@@ -12,7 +11,7 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   @service fetch;
 
   get breadCrumb() {
-    return { title: this.controller.model.thread.title };
+    return { title: this.controller.model.title };
   }
 
   get pageActions() {
@@ -21,14 +20,14 @@ export default class PostIndexRoute extends AuthenticatedRoute {
         link: 'forum.categories.category.threads.thread.edit',
         title: 'Wijzigen',
         icon: 'pencil',
-        linkArgument: this.controller.model.thread,
+        linkArgument: this.controller.model,
         canAccess: this.abilities.can('edit forum/threads'),
       },
       {
         link: 'forum.categories.category.threads.thread.destroy',
         title: 'Verwijderen',
         icon: 'trash',
-        linkArgument: this.controller.model.thread,
+        linkArgument: this.controller.model,
         canAccess: this.abilities.can('destroy forum/threads'),
       },
     ];
@@ -39,19 +38,9 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   }
 
   async model(params) {
-    const category = this.modelFor('forum.categories.category');
-    const thread = this.modelFor('forum.categories.category.threads.thread');
-    assign(params, {
-      filter: { thread: thread.id },
-      sort: 'created_at',
-    });
-    const postsPromise = await this.store.queryPaged('forum/post', params);
-
-    return {
-      category,
-      thread,
-      posts: postsPromise,
-    };
+    const model = this.modelFor('forum.categories.category.threads.thread');
+    await model.queryPostsPaged(params);
+    return model;
   }
 
   activate() {
@@ -77,6 +66,13 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   @action
   goToNextPage() {
     this.controller.send('goToNextPage');
+  }
+
+  resetController(controller, isExiting, transition) {
+    super.resetController(controller, isExiting, transition);
+    if (isExiting) {
+      controller.send('resetNewContent');
+    }
   }
 
   constructor() {

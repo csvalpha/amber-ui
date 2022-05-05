@@ -12,10 +12,12 @@ module.exports = {
     './.stylelintrc.order.js',
   ],
   rules: {
+    'annotation-no-unknown': [true, { ignoreAnnotations: ['default'] }],
     'at-rule-no-unknown': null, // use scss/at-rule-no-unknown instead
-    'no-descending-specificity': null,
+    'import-notation': 'string',
     'max-nesting-depth': 3,
-    'scss/at-rule-no-unknown': true,
+    'no-descending-specificity': null,
+    'scss/at-rule-no-unknown': null,
     'scss/dollar-variable-colon-space-after': null,
     'selector-class-pattern': null,
   },

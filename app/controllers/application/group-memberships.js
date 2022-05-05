@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { isBlank } from '@ember/utils';
+import moment from 'moment';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupMembershipsController extends Controller {
@@ -74,5 +75,20 @@ export default class GroupMembershipsController extends Controller {
     if (this.currentMemberships.length > 0) {
       this.oldMembershipsAreVisible = false;
     }
+  }
+
+  @action
+  setFilter(value) {
+    this.filter = value;
+  }
+
+  @action
+  setSortedAttribute(value) {
+    this.sortedAttribute = value;
+  }
+
+  @action
+  setSortedAscending(value) {
+    this.sortedAscending = value;
   }
 }
