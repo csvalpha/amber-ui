@@ -3,30 +3,30 @@
     <div
       class='card-header
         {{if
-          activity.coverPhotoUrl
+          @activity.coverPhotoUrl
           "card-header--overlay"
           "card-header--no-overlay"
         }}'
     >
-      {{#if activity.coverPhotoUrl}}
-        <img class='card-img-top' src={{activity.coverPhotoUrl}} />
+      {{#if @activity.coverPhotoUrl}}
+        <img class='card-img-top' src={{@activity.coverPhotoUrl}} />
       {{/if}}
 
       <div class='card-title-bar gradient-overlay'>
         <div class='hidden-xs-down'>
-          {{#if activity.group}}
+          {{#if @activity.group}}
             <img
-              src='{{activity.group.avatarThumbUrlOrDefault}}'
+              src='{{@activity.group.avatarThumbUrlOrDefault}}'
               class='profile-picture-medium profile-picture-margin'
-              alt='{{activity.group.fullName}}'
+              alt='{{@activity.group.fullName}}'
               height='60px'
               style='display: inline;'
             />
           {{else}}
             <img
-              src='{{activity.author.avatarThumbUrlOrDefault}}'
+              src='{{@activity.author.avatarThumbUrlOrDefault}}'
               class='profile-picture-medium profile-picture-margin'
-              alt='{{activity.author.fullName}}'
+              alt='{{@activity.author.fullName}}'
               height='60px'
               style='display: inline;'
             />
@@ -35,25 +35,25 @@
 
         <div class='card-titles'>
           <h2 class='card-title' data-test-activity-title>
-            {{activity.title}}
+            {{@activity.title}}
           </h2>
           <h3 class='card-subtitle'>
             <span class='subtitle-author' data-test-activity-author>
-              {{#if activity.group}}
+              {{#if @activity.group}}
                 <LinkTo
                   @route='groups.show'
-                  @model={{activity.group.id}}
+                  @model={{@activity.group.id}}
                   class='link-to card-subtitle-link'
                 >
-                  {{activity.group.name}}
+                  {{@activity.group.name}}
                 </LinkTo>
               {{else}}
                 <LinkTo
                   @route='users.show'
-                  @model={{activity.author.id}}
+                  @model={{@activity.author.id}}
                   class='link-to card-subtitle-link'
                 >
-                  {{activity.author.fullName}}
+                  {{@activity.author.fullName}}
                 </LinkTo>
               {{/if}}
             </span>
@@ -63,17 +63,17 @@
     </div>
 
     <div class='row card-subheader-row ml-0 mr-0'>
-      {{#if moreInfo}}
+      {{#if @moreInfo}}
         <div class='col-12 col-md-6 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='clock' />
           <span data-test-activity-startTime>
-            {{moment-format activity.startTime 'dddd D MMMM HH:mm'}}
+            {{moment-format @activity.startTime 'dddd D MMMM HH:mm'}}
           </span>
           tot
           <span data-test-activity-endTime>
             {{moment-format
-              activity.endTime
-              (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')
+              @activity.endTime
+              (if @activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')
             }}
           </span>
         </div>
@@ -82,10 +82,10 @@
           <FaIcon @icon='location-dot' />
           <span data-test-activity-location>
             <a
-              href='https://maps.google.com/?q={{activity.location}}'
+              href='https://maps.google.com/?q={{@activity.location}}'
               target='_blank'
             >
-              {{activity.location}}
+              {{@activity.location}}
             </a>
           </span>
         </div>
@@ -93,23 +93,23 @@
         <div class='col-12 col-md-2 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='money-bill' />
           &plusmn; &euro;
-          <span data-test-activity-price>{{activity.formattedPrice}}</span>
+          <span data-test-activity-price>{{@activity.formattedPrice}}</span>
         </div>
 
         <div class='col-12 col-md-2 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='calendar-days' />
-          <span data-test-activity-category>{{activity.category}}</span>
+          <span data-test-activity-category>{{@activity.category}}</span>
         </div>
 
       {{else}}
         <div class='col-12 col-md-8 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='clock' />
-          <span>{{moment-format activity.startTime 'dddd D MMMM HH:mm'}}</span>
+          <span>{{moment-format @activity.startTime 'dddd D MMMM HH:mm'}}</span>
           tot
           <span>
             {{moment-format
-              activity.endTime
-              (if activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')
+              @activity.endTime
+              (if @activity.endsOnSameDate 'HH:mm' 'dddd D MMMM HH:mm')
             }}
           </span>
         </div>
@@ -118,10 +118,10 @@
           <FaIcon @icon='location-dot' />
           <span>
             <a
-              href='https://maps.google.com/?q={{activity.location}}'
+              href='https://maps.google.com/?q={{@activity.location}}'
               target='_blank'
             >
-              {{activity.location}}
+              {{@activity.location}}
             </a>
           </span>
         </div>
@@ -131,7 +131,7 @@
     <div class='card-body'>
       <p class='card-text' data-test-activity-description>
         {{markdown-to-html
-          activity.descriptionCamofied
+          @activity.descriptionCamofied
           extensions='youtubeEmbed bootstrapTable'
         }}
       </p>

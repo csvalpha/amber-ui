@@ -1,31 +1,34 @@
-{{#if activities}}
+{{#if this.activities}}
   <hr />
   <h2 class='pb-2'>{{t 'component.index.public.activities.title'}}</h2>
   <div class='row'>
-    {{#each activities as |activity index|}}
+    {{#each this.activities as |activity index|}}
       <div class='col-12 col-md-6 col-lg-4'>
-        {{cards/frontpage-activity-card-small
-          activity
-          class=(if (gt index 5) 'hidden-sm-down')
-          action=(action 'openModal' activity)
-        }}
+        <Cards::FrontpageActivityCardSmall
+          @activity={{activity}}
+          @action={{action 'openModal' activity}}
+          class={{if (gt index 5) 'hidden-sm-down'}}
+        />
       </div>
     {{/each}}
   </div>
 {{/if}}
 
-{{#if modalIsOpen}}
+{{#if this.modalIsOpen}}
   <EmberWormhole @to='ember-wormhole-destination'>
     <div class='modal d-block'>
       <div class='activity-modal-backdrop' {{action 'closeModal'}}></div>
       <div class='modal-dialog' role='document'>
         <div class='modal-content'>
           <div class='modal-body'>
-            <div class='modal-image-header' style={{modalImageStyle}}></div>
-            <h2 class='modal-title'>{{modalTitle}}</h2>
-            <p><i>{{modalLocation}}</i></p>
+            <div
+              class='modal-image-header'
+              style={{this.modalImageStyle}}
+            ></div>
+            <h2 class='modal-title'>{{this.modalTitle}}</h2>
+            <p><i>{{this.modalLocation}}</i></p>
             {{markdown-to-html
-              modalText
+              this.modalText
               extensions='youtubeEmbed bootstrapTable'
             }}
           </div>

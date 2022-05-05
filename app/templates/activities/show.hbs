@@ -1,14 +1,14 @@
 <EmberWormhole @to='navbar-wormhole'>
-  <PageActionsButtons @pageActions={{pageActions}} />
+  <PageActionsButtons @pageActions={{this.pageActions}} />
 </EmberWormhole>
 
-{{cards/activity-card @model.activity moreInfo=true}}
+<Cards::ActivityCard @activity={{@model.activity}} @moreInfo={{true}} />
 
 {{#if @model.form}}
   {{#if (can 'create form/responses')}}
     {{#if @model.currentUserResponse.completed}}
       {{form/response/response-completed-alert @model.form}}
-    {{else if canSubmitResponse}}
+    {{else if this.canSubmitResponse}}
       {{form/response/response-card
         @model.form
         @model.currentUserResponse

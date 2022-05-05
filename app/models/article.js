@@ -59,7 +59,7 @@ export default class Article extends Model {
     }
 
     return user.currentMemberships.some(
-      (membership) => membership.group.id === this.group.id
+      (membership) => membership.group.get('id') === this.group.id
     );
   }
 }

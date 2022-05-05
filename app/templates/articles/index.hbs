@@ -1,26 +1,30 @@
 <EmberWormhole @to='navbar-wormhole'>
-  <PageActionsButtons @pageActions={{pageActions}}>
+  <PageActionsButtons @pageActions={{this.pageActions}}>
     <FilterBar
       @class='col-12 col-md'
-      @filter={{search}}
-      @sortedAttribute={{sortedAttribute}}
-      @sortableAttributes={{sortableAttributes}}
-      @sortedAscending={{sortedAscending}}
+      @filter={{this.search}}
+      @sortedAttribute={{this.sortedAttribute}}
+      @sortableAttributes={{this.sortableAttributes}}
+      @sortedAscending={{this.sortedAscending}}
       @enter={{action 'selectFirstItem'}}
     />
   </PageActionsButtons>
 </EmberWormhole>
 
 <div class='row'>
-  {{#each model as |article|}}
+  {{#each @model as |article|}}
     <div class='article-col col-md-6'>
       <LinkTo @route='articles.show' @model={{article.id}}>
-        {{cards/article-card article showExcerpt=true useMaxHeight=true}}
+        <Cards::ArticleCard
+          @article={{article}}
+          @showExcerpt={{true}}
+          @useMaxHeight={{true}}
+        />
       </LinkTo>
     </div>
   {{/each}}
 </div>
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{model.meta}} />
+  <PageNumbers @info={{@model.meta}} />
 </div>

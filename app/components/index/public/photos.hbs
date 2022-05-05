@@ -1,14 +1,14 @@
-{{#if photoAlbums}}
+{{#if this.photoAlbums}}
   <div class='index-photo-albums'>
     <LinkTo @route='photo-albums'>
-      <h1> {{capitalize (t 'model.photoAlbum.name.other')}} </h1>
+      <h1>{{capitalize (t 'model.photoAlbum.name.other')}}</h1>
     </LinkTo>
     <div class='row'>
-      {{#each photoAlbums as |album index|}}
-        {{#if (lt index amountOfAlbumsToShow)}}
+      {{#each this.photoAlbums as |album index|}}
+        {{#if (lt index this.amountOfAlbumsToShow)}}
           <div class='col-md-6'>
-            <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
-              {{cards/photo-album-card album}}
+            <LinkTo @route='photo-albums.photo-album' @model={{album}}>
+              <Cards::PhotoAlbumCard @album={{album}} />
             </LinkTo>
           </div>
         {{/if}}
