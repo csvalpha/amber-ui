@@ -1,42 +1,44 @@
-{{#if (eq inputLayout 'vertical')}}
-  <label class='vertical-label' for={{inputIdentifier}}>
-    {{label}}{{if required ' *'}}
-  </label>
-  <Input
-    @type={{type}}
-    step={{step}}
-    id={{inputIdentifier}}
-    @value={{mut (get model property)}}
-    class={{concat 'form-control ' inputValidityClass}}
-    placeholder={{placeholder}}
-    required={{required}}
-    disabled={{disabled}}
-    maxlength={{maxlength}}
-  />
-
-  {{form-control-feedback (get @model.errors property)}}
-{{else}}
-  <label
-    class='col-form-label form-control-label {{labelClass}}'
-    for={{inputIdentifier}}
-  >
-    {{label}}{{if required ' *'}}
-  </label>
-  <div class='{{inputWrapperClass}}'>
+<div class='form-group {{if this.usesGrid "form-row"}}'>
+  {{#if (eq @inputLayout 'vertical')}}
+    <label class='vertical-label' for={{@inputIdentifier}}>
+      {{@label}}{{if @required ' *'}}
+    </label>
     <Input
-      @type={{type}}
-      step={{step}}
-      id={{inputIdentifier}}
-      @value={{mut (get model property)}}
-      class={{concat 'form-control ' inputValidityClass}}
+      @type={{this.type}}
+      step={{@step}}
+      id={{@inputIdentifier}}
+      @value={{mut (get @model @property)}}
+      class={{concat 'form-control ' @inputValidityClass}}
       placeholder={{placeholder}}
       required={{required}}
       disabled={{disabled}}
       maxlength={{maxlength}}
     />
 
-    {{yield}}
-
     {{form-control-feedback (get @model.errors property)}}
-  </div>
-{{/if}}
+  {{else}}
+    <label
+      class='col-form-label form-control-label {{labelClass}}'
+      for={{inputIdentifier}}
+    >
+      {{label}}{{if required ' *'}}
+    </label>
+    <div class='{{inputWrapperClass}}'>
+      <Input
+        @type={{type}}
+        step={{step}}
+        id={{inputIdentifier}}
+        @value={{mut (get model property)}}
+        class={{concat 'form-control ' inputValidityClass}}
+        placeholder={{this.placeholder}}
+        required={{required}}
+        disabled={{disabled}}
+        maxlength={{maxlength}}
+      />
+
+      {{yield}}
+
+      {{form-control-feedback (get @model.errors property)}}
+    </div>
+  {{/if}}
+</div>

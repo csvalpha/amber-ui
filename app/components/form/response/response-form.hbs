@@ -1,22 +1,19 @@
-{{#each form.sortedQuestions as |question|}}
+{{#each @form.sortedQuestions as |question|}}
   {{#if question.isOpenQuestion}}
-    {{form/response/open-question
-      question
-      question.linkedAnswer
-      data-test-open-question=question.id
-    }}
+    <Form::Response::OpenQuestion
+      @question={{question}}
+      @answer={{question.linkedAnswer}}
+    />
   {{else if question.isMultipleChoice}}
-    {{form/response/multiple-choice-question
-      question
-      question.linkedAnswers
-      updateAnswers=(action 'updateMultipleChoiceAnswers')
-      data-test-closed-question=question.id
-    }}
+    <Form::Response::MultipleChoiceQuestion
+      @question={{question}}
+      @answers={{question.linkedAnswers}}
+      @updateAnswers={{action 'updateMultipleChoiceAnswers'}}
+    />
   {{else}}
-    {{form/response/closed-question
-      question
-      question.linkedAnswer
-      data-test-closed-question=question.id
-    }}
+    <Form::Response::ClosedQuestion
+      @question={{question}}
+      @answer={{question.linkedAnswer}}
+    />
   {{/if}}
 {{/each}}

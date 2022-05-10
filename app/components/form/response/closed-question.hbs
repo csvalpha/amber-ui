@@ -1,9 +1,9 @@
 <ModelForm::RadioGroup
   @model={{this}}
   @property='selectedOptionId'
-  @options={{options}}
+  @options={{this.options}}
   @inputLayout='vertical'
-  @label={{question.question}}
-  @inputIdentifier={{inputIdentifier}}
-  @required={{question.required}}
+  @label={{@question.question}}
+  @inputIdentifier={{@inputIdentifier}}
+  @required={{@question.required}}
 />

@@ -1,6 +1,3 @@
-import ModelFormTextInputComponent from './text-input';
+import TextInputComponent from './text-input';
 
-export default ModelFormTextInputComponent.extend({
-  tagName: 'fieldset',
-  options: null,
-});
+export default class RadioGroupComponent extends TextInputComponent {}

@@ -1,21 +1,17 @@
-import { mapBy } from '@ember/object/computed';
-import { computed } from '@ember/object';
 import { ClosedQuestionBaseComponent } from './closed-question';
+import { action } from '@ember/object';
 
-const MultipleChoiceQuestionComponent = ClosedQuestionBaseComponent.extend({
-  answers: null,
-  selectedOptionIds: mapBy('answers', 'option.id'),
-  requiredAndNothingSelected: computed(
-    'question.required',
-    'selectedOptionIds.length',
-    function () {
-      return this.question.required && this.selectedOptionIds.length === 0;
-    }
-  ),
-});
+export default class MultipleChoiceQuestionComponent extends ClosedQuestionBaseComponent {
+  get selectedOptionIds() {
+    console.log(this.args.answers);
+    return this.args.answers.map((answer) => answer.option.id);
+  }
 
-MultipleChoiceQuestionComponent.reopenClass({
-  positionalParams: ['question', 'answers'],
-});
+  get requiredAndNothingSelected() {
+    console.log(this.selectedOptionIds);
+    return this.args.question.required && this.selectedOptionIds.length === 0;
+  }
 
-export default MultipleChoiceQuestionComponent;
+  @action
+  handleCheckboxChange() {}
+}

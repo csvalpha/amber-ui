@@ -1,3 +1,3 @@
-import ModelFormTextInputComponent from './text-input';
+import TextInputComponent from './text-input';
 
-export default ModelFormTextInputComponent.extend({});
+export default class CheckboxInputComponent extends TextInputComponent {}

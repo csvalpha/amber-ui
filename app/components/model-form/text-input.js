@@ -1,34 +1,29 @@
-import { none, alias } from '@ember/object/computed';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  classNames: ['form-group'],
-  classNameBindings: ['usesGrid:form-row'],
-  inputLayout: null,
-  usesGrid: none('inputLayout'),
-  labelClass: 'col-sm-2',
-  inputWrapperClass: 'col-sm-10',
-  inputValidityClass: computed('isInvalid', function () {
+export default class TextInputComponent extends Component {
+  get usesGrid() {
+    return typeof this.args.inputLayout === 'undefined';
+  }
+
+  get isInvalid() {
+    return this.args.model.errors[this.args.property].length > 0;
+  }
+
+  get inputValidityClass() {
     return this.isInvalid ? 'is-invalid' : '';
-  }),
-  type: 'text',
-  model: null,
-  label: null,
-  property: null,
-  disabled: false,
-  required: false,
-  isInvalid: computed('model.errors.[]', 'property', function () {
-    return this.get(`model.errors.${this.property}.length`) > 0;
-  }),
-  inputIdentifier: computed(
-    'model.constructor.modelName',
-    'property',
-    function () {
-      // See http://stackoverflow.com/questions/34864580/ember-data-model-getmodelname-is-undefined-but-model-internalmodel-works
-      // On why model.constructor.modelName is used instead of model.modelName
-      return `${this.model.constructor.modelName}-form-${this.property}`;
-    }
-  ),
-  placeholder: alias('label'),
-});
+  }
+
+  get type() {
+    return this.args.type ?? 'text';
+  }
+
+  get inputIdentifier() {
+    // See http://stackoverflow.com/questions/34864580/ember-data-model-getmodelname-is-undefined-but-model-internalmodel-works
+    // on why model.constructor.modelName is used instead of model.modelName.
+    return `${this.args.model.constructor.modelName}-form-${this.args.property}`;
+  }
+
+  get placeholder() {
+    return this.args.label;
+  }
+}

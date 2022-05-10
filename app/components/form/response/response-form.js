@@ -5,8 +5,11 @@ const FormResponseComponent = Component.extend({
   store: service(),
   actions: {
     updateMultipleChoiceAnswers(question, optionIds) {
+      console.log('here');
+      console.log(question);
       setTimeout(() => {
         const answers = question.get('linkedAnswers');
+        console.log(answers, optionIds);
         const previousOptionIds = answers
           .mapBy('option.id')
           .rejectBy('isDeleted');

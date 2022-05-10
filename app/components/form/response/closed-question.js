@@ -1,39 +1,32 @@
-import { alias } from '@ember/object/computed';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export const ClosedQuestionBaseComponent = Component.extend({
-  question: null,
-  options: computed('question.sortedOptions.@each.option', function () {
-    return this.question.sortedOptions.map((option) => {
+export class ClosedQuestionBaseComponent extends Component {
+  get options() {
+    return this.args.question.sortedOptions.map((option) => {
       return {
-        label: option.get('option'),
+        label: option.option,
         value: option.id,
       };
     });
-  }),
-  inputIdentifier: computed('question.id', function () {
-    return `question-${this.question.id}`;
-  }),
-});
+  }
 
-const ClosedQuestionComponent = ClosedQuestionBaseComponent.extend({
-  answer: null,
-  errors: alias('answer.errors'),
-  selectedOptionId: computed('answer.option.id', {
-    get() {
-      return this.answer.option.id;
-    },
-    set(key, value) {
-      const option = this.question.options.findBy('id', value);
-      this.answer.set('option', option);
-      return value;
-    },
-  }),
-});
+  get inputIdentifier() {
+    return `question-${this.args.question.get('id')}`;
+  }
+}
 
-ClosedQuestionComponent.reopenClass({
-  positionalParams: ['question', 'answer'],
-});
+export default class ClosedQuestionComponent extends ClosedQuestionBaseComponent {
+  get errors() {
+    return this.args.answer.errors;
+  }
 
-export default ClosedQuestionComponent;
+  get selectedOptionId() {
+    return this.args.answer.option.get('id');
+  }
+
+  set selectedOptionId(value) {
+    this.args.answer.option = this.args.question.options.find(
+      (option) => option.id === value
+    );
+  }
+}
