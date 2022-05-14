@@ -13,7 +13,7 @@
   "scripts": {
     "build": "ember build --environment=production",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:!(fix)\"",
-    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel lint:*:fix",
+    "lint:fix": "npm-run-all --aggregate-output --continue-on-error --parallel \"lint:*:fix\"",
     "lint:hbs": "ember-template-lint .",
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
@@ -39,7 +39,7 @@
     "broccoli-asset-rev": "^3.0.0",
     "ember-async-data": "^0.6.0",
     "ember-auto-import": "^2.2.4",
-    "ember-bootstrap": "^4.9.0",
+    "ember-bootstrap": "^5.1.0",
     "ember-can": "^4.1.0",
     "ember-cli": "~3.28.5",
     "ember-cli-babel": "^7.26.10",

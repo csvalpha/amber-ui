@@ -1,6 +1,7 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
+import { next } from '@ember/runloop';
 
 export default Controller.extend({
   session: service(),
@@ -29,6 +30,25 @@ export default Controller.extend({
   actions: {
     async newPostCreated() {
       await this.model.posts.reload();
+    },
+    addQuote(q) {
+      this.set('newContent', `${this.newContent}${q} \n\n`);
+      function scrollToNewForumPost() {
+        document
+          .getElementById('newForumPostCard')
+          .scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      if (!this.currentPageIsLastPage) {
+        this.transitionToRoute({
+          queryParams: { page: this.model.posts.meta.totalPages },
+        }).then(() => {
+          next(() => {
+            scrollToNewForumPost();
+          });
+        });
+      } else {
+        scrollToNewForumPost();
+      }
     },
     goToPreviousPage() {
       return this.advanceToPage(-1);
