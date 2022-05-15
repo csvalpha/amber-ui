@@ -10,8 +10,15 @@ export default class SwipeableComponent extends Component {
   yEnd = null;
   horizontally = !!this.args.onSwipeHorizontal;
   vertically = !!this.args.onSwipeVertical;
-
   onSwipe = this.args.onSwipeHorizontal ?? this.args.onSwipeVertical ?? null;
+  // pixel threshold. expects argument to be passed as percentage
+  threshold =
+    ((this.args.threshold ?? 25) / 100) *
+    (this.horizontally
+      ? window.screen.availWidth
+      : this.vertically
+      ? window.screen.availHeight
+      : null);
 
   reset() {
     this.touching = false;
@@ -60,8 +67,10 @@ export default class SwipeableComponent extends Component {
         if (this.horizontally) {
           // it is reasonable to assume that a swipe should be done mainly in the direction in which can be swiped.
           this.swiping = xDiff ** 2 > 4 * yDiff ** 2;
+          this.swiping &&= xDiff ** 2 > this.threshold ** 2;
         } else if (this.vertically) {
           this.swiping = yDiff ** 2 > 4 * xDiff ** 2;
+          this.swiping &&= yDiff ** 2 > this.threshold ** 2;
         } else {
           this.throwNoDirection();
           this.reset();
