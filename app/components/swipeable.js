@@ -8,11 +8,10 @@ export default class SwipeableComponent extends Component {
   yStart = null;
   xEnd = null;
   yEnd = null;
-  swipeDirection = this.args.onSwipeHorizontal
-    ? 'horizontal'
-    : this.args.onSwipeVertical
-    ? 'vertical'
-    : null;
+  horizontally = !!this.args.onSwipeHorizontal;
+  vertically = !!this.args.onSwipeVertical;
+
+  onSwipe = this.args.onSwipeHorizontal ?? this.args.onSwipeVertical ?? null;
 
   reset() {
     this.touching = false;
@@ -58,12 +57,13 @@ export default class SwipeableComponent extends Component {
         const touch = touchMoveEvent.targetTouches.item(0);
         const xDiff = touch.pageX - this.xStart;
         const yDiff = touch.pageY - this.yStart;
-        if (this.swipeDirection === 'horizontal') {
+        if (this.horizontally) {
           // it is reasonable to assume that a swipe should be done mainly in the direction in which can be swiped.
-          this.swiping = xDiff ** 2 > 4 * (yDiff ** 2);
-        } else if (this.swipeDirection === 'vertical') {
-          this.swiping = yDiff ** 2 > 4 * (xDiff ** 2);
+          this.swiping = xDiff ** 2 > 4 * yDiff ** 2;
+        } else if (this.vertically) {
+          this.swiping = yDiff ** 2 > 4 * xDiff ** 2;
         } else {
+          this.throwNoDirection();
           this.reset();
         }
       }
@@ -72,17 +72,24 @@ export default class SwipeableComponent extends Component {
 
   doSwipe() {
     if (this.swiping) {
-      if (this.swipeDirection === 'horizontal') {
-        let direction = this.xEnd - this.xStart;
-        direction = direction > 0 ? 1 : -1;
-        this.args.onSwipeHorizontal(direction);
-      } else if (this.swipeDirection === 'vertical') {
-        let direction = this.yEnd - this.yStart;
-        direction = direction > 0 ? 1 : -1;
-        this.args.onSwipeVertical(direction);
+      let direction = 0;
+      if (this.horizontally) {
+        direction = this.xEnd - this.xStart;
+      } else if (this.vertically) {
+        direction = this.yEnd - this.yStart;
       } else {
-        throw new Error('No swipe direction defined');
+        this.throwNoDirection();
       }
+      direction = this.sign(direction);
+      this.onSwipe(direction);
     }
+  }
+
+  sign(n) {
+    return n > 0 ? 1 : -1;
+  }
+
+  throwNoDirection() {
+    throw new Error('No swipe direction defined');
   }
 }
