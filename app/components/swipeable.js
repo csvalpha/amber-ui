@@ -60,9 +60,9 @@ export default class SwipeableComponent extends Component {
         const yDiff = touch.pageY - this.yStart;
         if (this.swipeDirection === 'horizontal') {
           // it is reasonable to assume that a swipe should be done mainly in the direction in which can be swiped.
-          this.swiping = xDiff ** 2 > yDiff ** 2;
+          this.swiping = xDiff ** 2 > 4 * (yDiff ** 2);
         } else if (this.swipeDirection === 'vertical') {
-          this.swiping = yDiff ** 2 > xDiff ** 2;
+          this.swiping = yDiff ** 2 > 4 * (xDiff ** 2);
         } else {
           this.reset();
         }
