@@ -89,13 +89,9 @@ export default class SwipeableComponent extends Component {
       } else {
         this.throwNoDirection();
       }
-      direction = this.sign(direction);
+      direction = Math.sign(direction);
       this.onSwipe(direction);
     }
-  }
-
-  sign(n) {
-    return n > 0 ? 1 : -1;
   }
 
   throwNoDirection() {
