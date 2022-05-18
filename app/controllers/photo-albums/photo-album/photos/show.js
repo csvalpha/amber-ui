@@ -4,7 +4,9 @@ import Controller from '@ember/controller';
 export default Controller.extend({
   session: service(),
   advanceToPhoto(delta) {
-    const photos = this.model.photoAlbum.get('photos').sortBy('exifDateTimeOriginal', 'createdAt');
+    const photos = this.model.photoAlbum
+      .get('photos')
+      .sortBy('exifDateTimeOriginal', 'createdAt');
     const length = photos.get('length');
     const index = (photos.indexOf(this.model) + delta + length) % length;
     this.route;
