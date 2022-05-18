@@ -3479,7 +3479,7 @@ __metadata:
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-mirage: ^2.2.0
     ember-cli-page-object: ^1.17.9
-    ember-cli-qrcode: ^1.0.0
+    ember-cli-qrcode: ^2.1.0
     ember-cli-sass: ^11.0.1
     ember-cli-showdown: ^6.0.1
     ember-cli-sri: ^2.1.1
@@ -8264,6 +8264,44 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-cli-babel@npm:7.26.11, ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.1.3, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.17.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.20.5, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.2, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.5, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.4.0, ember-cli-babel@npm:^7.7.3, ember-cli-babel@npm:~7.26.6":
+  version: 7.26.11
+  resolution: "ember-cli-babel@npm:7.26.11"
+  dependencies:
+    "@babel/core": ^7.12.0
+    "@babel/helper-compilation-targets": ^7.12.0
+    "@babel/plugin-proposal-class-properties": ^7.16.5
+    "@babel/plugin-proposal-decorators": ^7.13.5
+    "@babel/plugin-proposal-private-methods": ^7.16.5
+    "@babel/plugin-proposal-private-property-in-object": ^7.16.5
+    "@babel/plugin-transform-modules-amd": ^7.13.0
+    "@babel/plugin-transform-runtime": ^7.13.9
+    "@babel/plugin-transform-typescript": ^7.13.0
+    "@babel/polyfill": ^7.11.5
+    "@babel/preset-env": ^7.16.5
+    "@babel/runtime": 7.12.18
+    amd-name-resolver: ^1.3.1
+    babel-plugin-debug-macros: ^0.3.4
+    babel-plugin-ember-data-packages-polyfill: ^0.1.2
+    babel-plugin-ember-modules-api-polyfill: ^3.5.0
+    babel-plugin-module-resolver: ^3.2.0
+    broccoli-babel-transpiler: ^7.8.0
+    broccoli-debug: ^0.6.4
+    broccoli-funnel: ^2.0.2
+    broccoli-source: ^2.1.2
+    calculate-cache-key-for-tree: ^2.0.0
+    clone: ^2.1.2
+    ember-cli-babel-plugin-helpers: ^1.1.1
+    ember-cli-version-checker: ^4.1.0
+    ensure-posix-path: ^1.0.2
+    fixturify-project: ^1.10.0
+    resolve-package-path: ^3.1.0
+    rimraf: ^3.0.1
+    semver: ^5.5.0
+  checksum: 72b2819018d4d29b5250284cab5fa992a7fd6b0cf958a1fc4abed4a4f6394c0aca4ee32d4c8981d8643fef7280763fadf70ebd807f262967899f4898679bcb90
+  languageName: node
+  linkType: hard
+
 "ember-cli-babel@npm:7.26.5":
   version: 7.26.5
   resolution: "ember-cli-babel@npm:7.26.5"
@@ -8317,44 +8355,6 @@ __metadata:
     ember-cli-version-checker: ^2.1.2
     semver: ^5.5.0
   checksum: 01f216a964f03660ee1d95ef73a7c07b315d7407b553d01410854f9421638fee084cec50fb7464c7bace72a7cf07053f95b377fd8399f69c7e0bbcba77e9655d
-  languageName: node
-  linkType: hard
-
-"ember-cli-babel@npm:^7.0.0, ember-cli-babel@npm:^7.1.0, ember-cli-babel@npm:^7.1.2, ember-cli-babel@npm:^7.1.3, ember-cli-babel@npm:^7.10.0, ember-cli-babel@npm:^7.13.0, ember-cli-babel@npm:^7.13.2, ember-cli-babel@npm:^7.17.2, ember-cli-babel@npm:^7.19.0, ember-cli-babel@npm:^7.20.5, ember-cli-babel@npm:^7.21.0, ember-cli-babel@npm:^7.22.1, ember-cli-babel@npm:^7.23.0, ember-cli-babel@npm:^7.23.1, ember-cli-babel@npm:^7.26.0, ember-cli-babel@npm:^7.26.10, ember-cli-babel@npm:^7.26.11, ember-cli-babel@npm:^7.26.2, ember-cli-babel@npm:^7.26.3, ember-cli-babel@npm:^7.26.4, ember-cli-babel@npm:^7.26.5, ember-cli-babel@npm:^7.26.6, ember-cli-babel@npm:^7.4.0, ember-cli-babel@npm:^7.7.3, ember-cli-babel@npm:~7.26.6":
-  version: 7.26.11
-  resolution: "ember-cli-babel@npm:7.26.11"
-  dependencies:
-    "@babel/core": ^7.12.0
-    "@babel/helper-compilation-targets": ^7.12.0
-    "@babel/plugin-proposal-class-properties": ^7.16.5
-    "@babel/plugin-proposal-decorators": ^7.13.5
-    "@babel/plugin-proposal-private-methods": ^7.16.5
-    "@babel/plugin-proposal-private-property-in-object": ^7.16.5
-    "@babel/plugin-transform-modules-amd": ^7.13.0
-    "@babel/plugin-transform-runtime": ^7.13.9
-    "@babel/plugin-transform-typescript": ^7.13.0
-    "@babel/polyfill": ^7.11.5
-    "@babel/preset-env": ^7.16.5
-    "@babel/runtime": 7.12.18
-    amd-name-resolver: ^1.3.1
-    babel-plugin-debug-macros: ^0.3.4
-    babel-plugin-ember-data-packages-polyfill: ^0.1.2
-    babel-plugin-ember-modules-api-polyfill: ^3.5.0
-    babel-plugin-module-resolver: ^3.2.0
-    broccoli-babel-transpiler: ^7.8.0
-    broccoli-debug: ^0.6.4
-    broccoli-funnel: ^2.0.2
-    broccoli-source: ^2.1.2
-    calculate-cache-key-for-tree: ^2.0.0
-    clone: ^2.1.2
-    ember-cli-babel-plugin-helpers: ^1.1.1
-    ember-cli-version-checker: ^4.1.0
-    ensure-posix-path: ^1.0.2
-    fixturify-project: ^1.10.0
-    resolve-package-path: ^3.1.0
-    rimraf: ^3.0.1
-    semver: ^5.5.0
-  checksum: 72b2819018d4d29b5250284cab5fa992a7fd6b0cf958a1fc4abed4a4f6394c0aca4ee32d4c8981d8643fef7280763fadf70ebd807f262967899f4898679bcb90
   languageName: node
   linkType: hard
 
@@ -8436,6 +8436,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-cli-htmlbars@npm:6.0.1, ember-cli-htmlbars@npm:^5.7.1 || ^6.0.1, ember-cli-htmlbars@npm:^6.0.0, ember-cli-htmlbars@npm:^6.0.1":
+  version: 6.0.1
+  resolution: "ember-cli-htmlbars@npm:6.0.1"
+  dependencies:
+    "@ember/edition-utils": ^1.2.0
+    babel-plugin-ember-template-compilation: ^1.0.0
+    babel-plugin-htmlbars-inline-precompile: ^5.3.0
+    broccoli-debug: ^0.6.5
+    broccoli-persistent-filter: ^3.1.2
+    broccoli-plugin: ^4.0.3
+    ember-cli-version-checker: ^5.1.2
+    fs-tree-diff: ^2.0.1
+    hash-for-dep: ^1.5.1
+    heimdalljs-logger: ^0.1.10
+    json-stable-stringify: ^1.0.1
+    semver: ^7.3.4
+    silent-error: ^1.1.1
+    strip-bom: ^4.0.0
+    walk-sync: ^2.2.0
+  checksum: ba5593c7ce2db52ac7171a6e7a9ebbcf5b9d3dc0f4e357acbb59f1eca1a6b4d16c00be7f8370c6fa95f364f4f3863b81d9477cfd461e0fd9ba56abbc527b6a14
+  languageName: node
+  linkType: hard
+
 "ember-cli-htmlbars@npm:^2.0.1":
   version: 2.0.5
   resolution: "ember-cli-htmlbars@npm:2.0.5"
@@ -8445,18 +8468,6 @@ __metadata:
     json-stable-stringify: ^1.0.0
     strip-bom: ^3.0.0
   checksum: c9f2e1c9ea1de80ca9b4d6336798a724b3c4d3d0de7f5cd05b8b6b0bf3655a5d922ccef8b94769613d5d8531511a2292f5a505202c6976f36a7bf4305c324b34
-  languageName: node
-  linkType: hard
-
-"ember-cli-htmlbars@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "ember-cli-htmlbars@npm:3.1.0"
-  dependencies:
-    broccoli-persistent-filter: ^2.3.1
-    hash-for-dep: ^1.5.1
-    json-stable-stringify: ^1.0.1
-    strip-bom: ^3.0.0
-  checksum: dafbf4f1beab7c2257a6cdadb1e386e140a1073dcb5092c3914fb12584f407ec81b122c64f36edeb74b3181adf20fceb5b8fbe7b135b0f7704e17a5e816851e5
   languageName: node
   linkType: hard
 
@@ -8503,29 +8514,6 @@ __metadata:
     strip-bom: ^4.0.0
     walk-sync: ^2.2.0
   checksum: 57cfba7311969f2f6ae463cb7be153b10d1384469e7e61fc645bf6eca5c8bb7dbdf42cab757adf05299971b426a19ad6cc3f045d2cbf72304405eb93cc1af998
-  languageName: node
-  linkType: hard
-
-"ember-cli-htmlbars@npm:^5.7.1 || ^6.0.1, ember-cli-htmlbars@npm:^6.0.0, ember-cli-htmlbars@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "ember-cli-htmlbars@npm:6.0.1"
-  dependencies:
-    "@ember/edition-utils": ^1.2.0
-    babel-plugin-ember-template-compilation: ^1.0.0
-    babel-plugin-htmlbars-inline-precompile: ^5.3.0
-    broccoli-debug: ^0.6.5
-    broccoli-persistent-filter: ^3.1.2
-    broccoli-plugin: ^4.0.3
-    ember-cli-version-checker: ^5.1.2
-    fs-tree-diff: ^2.0.1
-    hash-for-dep: ^1.5.1
-    heimdalljs-logger: ^0.1.10
-    json-stable-stringify: ^1.0.1
-    semver: ^7.3.4
-    silent-error: ^1.1.1
-    strip-bom: ^4.0.0
-    walk-sync: ^2.2.0
-  checksum: ba5593c7ce2db52ac7171a6e7a9ebbcf5b9d3dc0f4e357acbb59f1eca1a6b4d16c00be7f8370c6fa95f364f4f3863b81d9477cfd461e0fd9ba56abbc527b6a14
   languageName: node
   linkType: hard
 
@@ -8667,13 +8655,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-qrcode@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "ember-cli-qrcode@npm:1.0.0"
+"ember-cli-qrcode@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "ember-cli-qrcode@npm:2.1.0"
   dependencies:
-    ember-cli-babel: ^7.1.2
-    ember-cli-htmlbars: ^3.0.0
-  checksum: 1c9b462c10332bac07d1fbc74b3952610299d69d73589d1d5361c0404dcf774a81cf65ab4a8a2785887bf7ad41b999a0d450fca0c9f4b6d7a82ed72878fc4dda
+    ember-cli-babel: 7.26.11
+    ember-cli-htmlbars: 6.0.1
+  checksum: df524730f8d5ec477bcd83b64c046dce9d60c03ae30698c50981bc79507db7a807d2fb0a48cac60b818100914f69d4f75d365176726def3c6575ff514fe5d8d2
   languageName: node
   linkType: hard
 
