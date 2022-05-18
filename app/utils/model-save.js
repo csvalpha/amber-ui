@@ -1,33 +1,44 @@
 import { isNone } from '@ember/utils';
-
 export default class ModelSaveUtil {
   constructor(entity) {
     this.entity = entity;
   }
 
+  sendSuccess() {
+    if (!isNone(this.entity?.successMessage)) {
+      this.entity?.flashNotice?.sendSuccess(this.entity.successMessage);
+    }
+  }
+
   onSuccess(model) {
     // Show notice
-    if (!isNone(this.entity.successMessage)) {
-      this.entity.flashNotice.sendSuccess(this.entity.successMessage);
-    }
-
-    // Redirect
-    if (!isNone(this.entity.successTransitionTarget)) {
-      if (isNone(model)) {
-        // In destroy routes, model is undefined
-        this.entity.transitionToRoute(this.entity.successTransitionTarget);
-      } else {
-        const targetModel = this.entity.successTransitionModel || model;
-        this.entity.transitionToRoute(
-          this.entity.successTransitionTarget,
-          targetModel
-        );
+    this.sendSuccess();
+    // todo: make sure that all subclasses of the edit controller correctly implement onsuccess, and don't call sendsuccess unnecessarily
+    if (this.entity?.onSuccess) {
+      this.entity.onSuccess();
+    } else {
+      // Redirect
+      const targetModel = this.entity?.successTransitionModel ?? model;
+      if (!isNone(this.entity?.successTransitionTarget)) {
+        if (isNone(targetModel)) {
+          // In destroy routes, targetModel is undefined
+          this.entity.transitionToRoute(this.entity.successTransitionTarget);
+        } else {
+          this.entity.transitionToRoute(
+            this.entity.successTransitionTarget,
+            targetModel,
+          );
+        }
       }
     }
   }
 
   onError(error) {
-    this.entity.errorMessage = error.errors.map((err) => err.detail).join(', ');
+    if (this.entity?.onError) {
+      this.entity.onError(error);
+    } else {
+      this.entity.errorMessage = error.errors.map((err) => err.detail).join(', ');
+    }
   }
 
   saveModel(model) {

@@ -5,7 +5,6 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class EditController extends Controller {
-  //todo: refactor to octane style
   @service('flash-notice') flashNotice;
 
   @tracked errorMessage = null;
