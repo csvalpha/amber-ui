@@ -6,7 +6,7 @@ export default class MdEditorComponent extends Component {
   classNames = ['md-editor-and-toolbar'];
   editMode = true;
 
-  content = '';
+  @tracked content = '';
   @tracked textareaId;
 
   @action
