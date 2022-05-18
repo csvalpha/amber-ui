@@ -3,6 +3,7 @@ import EditController from 'amber-ui/controllers/application/edit';
 import ModelSaveUtil from 'amber-ui/utils/model-save';
 
 export default EditController.extend({
+  //todo: refactor to octane style
   successMessage: 'Verwijderen gelukt!',
   actions: {
     destroy() {
