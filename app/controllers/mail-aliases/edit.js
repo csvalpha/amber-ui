@@ -1,7 +1,7 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { equal, reads } from '@ember/object/computed';
-import EditController from 'alpha-amber/controllers/application/edit';
-import { MailAliasModerationTypes } from 'alpha-amber/constants';
+import EditController from 'amber-ui/controllers/application/edit';
+import { MailAliasModerationTypes } from 'amber-ui/constants';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { computed } from '@ember/object';
 

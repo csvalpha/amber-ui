@@ -1,4 +1,4 @@
-import ApplicationAdapter from 'alpha-amber/adapters/application';
+import ApplicationAdapter from 'amber-ui/adapters/application';
 
 export default class UserAdapter extends ApplicationAdapter {
   urlForQuery(query) {

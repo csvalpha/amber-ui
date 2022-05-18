@@ -1,6 +1,6 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
-import EditController from 'alpha-amber/controllers/application/edit';
+import EditController from 'amber-ui/controllers/application/edit';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { alias } from '@ember/object/computed';
 

@@ -1,4 +1,4 @@
-import EditController from 'alpha-amber/controllers/application/edit';
+import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
