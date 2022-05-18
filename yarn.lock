@@ -3449,9 +3449,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"alpha-amber@workspace:.":
+"amber-ui@workspace:.":
   version: 0.0.0-use.local
-  resolution: "alpha-amber@workspace:."
+  resolution: "amber-ui@workspace:."
   dependencies:
     "@ember/optional-features": ^2.0.0
     "@ember/test-helpers": ^2.6.0
