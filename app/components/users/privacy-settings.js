@@ -1,9 +1,9 @@
 import {
   PicturePublicationPreferenceTypes,
   UserDetailsPreferenceTypes,
-} from 'alpha-amber/constants';
+} from 'amber-ui/constants';
 import Component from '@glimmer/component';
-import ModelSaveUtil from 'alpha-amber/utils/model-save';
+import ModelSaveUtil from 'amber-ui/utils/model-save';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';

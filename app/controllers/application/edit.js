@@ -1,5 +1,5 @@
 import Controller from '@ember/controller';
-import ModelSaveUtil from 'alpha-amber/utils/model-save';
+import ModelSaveUtil from 'amber-ui/utils/model-save';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';

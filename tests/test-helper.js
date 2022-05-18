@@ -1,5 +1,5 @@
-import Application from 'alpha-amber/app';
-import config from 'alpha-amber/config/environment';
+import Application from 'amber-ui/app';
+import config from 'amber-ui/config/environment';
 import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
 import { setup } from 'qunit-dom';

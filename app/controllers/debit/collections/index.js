@@ -1,4 +1,4 @@
-import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import FilterableAndSortableController from 'amber-ui/controllers/application/filterable-and-sortable';
 import { tracked } from '@glimmer/tracking';
 
 export default class CollectionsIndexController extends FilterableAndSortableController {

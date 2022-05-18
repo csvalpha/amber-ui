@@ -1,4 +1,4 @@
-import GroupMembershipsController from 'alpha-amber/controllers/application/group-memberships';
+import GroupMembershipsController from 'amber-ui/controllers/application/group-memberships';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 

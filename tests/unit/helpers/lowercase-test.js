@@ -1,4 +1,4 @@
-import { lowercase } from 'alpha-amber/helpers/lowercase';
+import { lowercase } from 'amber-ui/helpers/lowercase';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | lowercase', function () {

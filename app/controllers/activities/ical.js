@@ -2,7 +2,7 @@ import Controller from '@ember/controller';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { ActivityCategories } from 'alpha-amber/constants';
+import { ActivityCategories } from 'amber-ui/constants';
 import { tracked } from '@glimmer/tracking';
 
 export default class IcalController extends Controller {
