@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class SwipeableComponent extends Component {
-  touching = false;
-  swiping = false;
-  xStart = null;
-  yStart = null;
-  xEnd = null;
-  yEnd = null;
+  @tracked touching = false;
+  @tracked xStart = null;
+  @tracked yStart = null;
+  @tracked xEnd = null;
+  @tracked yEnd = null;
   horizontally = !!this.args.onSwipeHorizontal;
   vertically = !!this.args.onSwipeVertical;
   onSwipe = this.args.onSwipeHorizontal ?? this.args.onSwipeVertical ?? null;
@@ -22,7 +22,6 @@ export default class SwipeableComponent extends Component {
 
   reset() {
     this.touching = false;
-    this.swiping = false;
     this.xStart = null;
     this.yStart = null;
     this.xEnd = null;
@@ -34,8 +33,8 @@ export default class SwipeableComponent extends Component {
     if (touchStartEvent.targetTouches.length === 1) {
       this.touching = true;
       const touch = touchStartEvent.targetTouches.item(0);
-      this.xStart = touch.pageX;
-      this.yStart = touch.pageY;
+      this.xStart = touch.screenX;
+      this.yStart = touch.screenY;
     }
   }
 
@@ -43,40 +42,34 @@ export default class SwipeableComponent extends Component {
   onTouchEnd(touchEndEvent) {
     if (
       touchEndEvent.targetTouches.length === 0 &&
-      touchEndEvent.changedTouches.length === 1 &&
-      this.swiping
+      touchEndEvent.changedTouches.length === 1
     ) {
       const touch = touchEndEvent.changedTouches.item(0);
-      this.xEnd = touch.pageX;
-      this.yEnd = touch.pageY;
-      this.doSwipe();
+      this.xEnd = touch.screenX;
+      this.yEnd = touch.screenY;
+      if (this.swiping) {
+        this.doSwipe();
+      }
     }
-
     this.reset();
   }
 
-  @action
-  onTouchMove(touchMoveEvent) {
+  get swiping() {
+    let swiping = false;
     if (this.touching) {
-      if (touchMoveEvent.targetTouches.length === 1) {
-        // only do swiping if one finger touches
-        // you need to define the swipe actions, even if it's just an empty function
-        const touch = touchMoveEvent.targetTouches.item(0);
-        const xDiff = touch.pageX - this.xStart;
-        const yDiff = touch.pageY - this.yStart;
-        if (this.horizontally) {
-          // it is reasonable to assume that a swipe should be done mainly in the direction in which can be swiped.
-          this.swiping = xDiff ** 2 > 4 * yDiff ** 2;
-          this.swiping &&= xDiff ** 2 > this.threshold ** 2;
-        } else if (this.vertically) {
-          this.swiping = yDiff ** 2 > 4 * xDiff ** 2;
-          this.swiping &&= yDiff ** 2 > this.threshold ** 2;
-        } else {
-          this.throwNoDirection();
-          this.reset();
-        }
+      const xDiff = this.xEnd - this.xStart;
+      const yDiff = this.yEnd - this.yStart;
+      if (this.horizontally) {
+        swiping = xDiff ** 2 > (4 * yDiff) ** 2;
+        swiping &&= xDiff ** 2 > this.threshold ** 2;
+      } else if (this.vertically) {
+        swiping = yDiff ** 2 > (4 * xDiff) ** 2;
+        swiping &&= yDiff ** 2 > this.threshold ** 2;
+      } else {
+        this.throwNoDirection();
       }
     }
+    return swiping;
   }
 
   doSwipe() {
