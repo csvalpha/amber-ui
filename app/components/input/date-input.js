@@ -1,7 +1,8 @@
-import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-import { oneWay } from '@ember/object/computed';
 import TimeInputComponent from './time-input';
+import { computed } from '@ember/object';
+import moment from 'moment';
+import { oneWay } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
 
 export default TimeInputComponent.extend({
   media: service(),

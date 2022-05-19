@@ -73,7 +73,4 @@ module.exports = {
       extends: ['plugin:qunit/recommended'],
     },
   ],
-  globals: {
-    moment: true,
-  },
 };

@@ -1,6 +1,7 @@
-import { action } from '@ember/object';
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 import { dasherize } from '@ember/string';
+import moment from 'moment';
 import { inject as service } from '@ember/service';
 
 export default class PhotoAlbumPhotosIndexController extends Controller {
