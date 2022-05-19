@@ -1,7 +1,8 @@
+import { module, test } from 'qunit';
 import EmberObject from '@ember/object';
 import Service from '@ember/service';
 import formOpenedLabelHelper from 'amber-ui/helpers/form-opened-label';
-import { module, test } from 'qunit';
+import moment from 'moment';
 
 module('Unit | Helper | form opened label', function () {
   const i18nStub = Service.extend({
