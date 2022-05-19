@@ -1782,6 +1782,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@faker-js/faker@npm:^6.3.1":
+  version: 6.3.1
+  resolution: "@faker-js/faker@npm:6.3.1"
+  checksum: 05071e952248f4565218a95b089ef8f616130c6ff914bb416ba7c891f81d123b637c2abe8aa2eb7b207b5d4b8bd9c75c8c2133019d2d11db4176948737a95813
+  languageName: node
+  linkType: hard
+
 "@formatjs/ecma402-abstract@npm:1.5.2":
   version: 1.5.2
   resolution: "@formatjs/ecma402-abstract@npm:1.5.2"
@@ -3469,6 +3476,7 @@ __metadata:
   dependencies:
     "@ember/optional-features": ^2.0.0
     "@ember/test-helpers": ^2.6.0
+    "@faker-js/faker": ^6.3.1
     "@fortawesome/ember-fontawesome": ^0.3.2
     "@fortawesome/fontawesome-free": ^6.1.1
     "@fortawesome/free-brands-svg-icons": ^6.1.1
@@ -3532,7 +3540,6 @@ __metadata:
     eslint-plugin-node: ^11.1.0
     eslint-plugin-prettier: ^4.0.0
     eslint-plugin-qunit: ^6.2.0
-    faker: ^5.5.3
     file-saver: ^2.0.5
     glob: ^4.0.5
     http-proxy: ^1.1.6
@@ -10743,13 +10750,6 @@ __metadata:
   version: 2.1.2
   resolution: "fake-xml-http-request@npm:2.1.2"
   checksum: 7b1ebea1955c46cbda0e0c3308716cc82beca7bb6c549f1d1c2a8134203c9d6c5a21194e2c1e17650ff073ecbcd3e56cf1e21f248a86cbcb3567fd7a9ca4850e
-  languageName: node
-  linkType: hard
-
-"faker@npm:^5.5.3":
-  version: 5.5.3
-  resolution: "faker@npm:5.5.3"
-  checksum: 684fd64c8d3897e54248f95b4f6319f75d97691b8500cd13adf4af2c28f9204f766c1d1aaa6b41338f0beaaa87256c3132f8708a1a8f189d122b92f6b98081c3
   languageName: node
   linkType: hard
 

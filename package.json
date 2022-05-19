@@ -26,6 +26,7 @@
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
     "@ember/test-helpers": "^2.6.0",
+    "@faker-js/faker": "^6.3.1",
     "@fortawesome/ember-fontawesome": "^0.3.2",
     "@fortawesome/fontawesome-free": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
@@ -89,7 +90,6 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-qunit": "^6.2.0",
-    "faker": "^5.5.3",
     "file-saver": "^2.0.5",
     "glob": "^4.0.5",
     "http-proxy": "^1.1.6",
