@@ -1,6 +1,6 @@
 import { Factory } from 'ember-cli-mirage';
-
 import faker from '@faker-js/faker';
+import moment from 'moment';
 
 export default Factory.extend({
   activatedAt: () => faker.date.past(10),
