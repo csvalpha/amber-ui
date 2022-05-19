@@ -19,7 +19,6 @@ module.exports = function (defaults) {
     'ember-bootstrap': {
       blacklist: ['bs-accordion', 'bs-carousel'],
       bootstrapVersion: 4,
-      importBootstrapFont: false,
       importBootstrapCSS: false,
     },
 

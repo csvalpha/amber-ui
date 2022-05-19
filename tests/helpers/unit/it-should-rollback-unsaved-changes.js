@@ -1,6 +1,6 @@
 import { run } from '@ember/runloop';
 import EmberObject from '@ember/object';
-import createEmberModel from 'alpha-amber/tests/helpers/create-ember-model';
+import createEmberModel from 'amber-ui/tests/helpers/create-ember-model';
 import { getContext } from '@ember/test-helpers';
 
 export default function (assert, route, modelType, properties) {

@@ -1,4 +1,4 @@
-import NewController from 'alpha-amber/controllers/application/new';
+import NewController from 'amber-ui/controllers/application/new';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';

@@ -1,6 +1,6 @@
 import { alias } from '@ember/object/computed';
 import EmberArray from '@ember/array';
-import NewController from 'alpha-amber/controllers/application/new';
+import NewController from 'amber-ui/controllers/application/new';
 
 export default NewController.extend({
   successMessage: 'Incasso opgeslagen!',

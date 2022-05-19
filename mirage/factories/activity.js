@@ -1,6 +1,6 @@
 import { Factory, trait } from 'ember-cli-mirage';
 
-import faker from 'faker';
+import faker from '@faker-js/faker';
 
 export default Factory.extend({
   title: () => faker.lorem.sentence(),

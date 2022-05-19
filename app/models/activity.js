@@ -1,5 +1,5 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
-import { CoverPhotoFallback } from 'alpha-amber/constants';
+import { CoverPhotoFallback } from 'amber-ui/constants';
 import { isNone } from '@ember/utils';
 import moment from 'moment';
 

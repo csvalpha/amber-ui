@@ -1,4 +1,4 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyModerationRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Moderatieverzoek negeren' };

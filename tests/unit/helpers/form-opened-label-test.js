@@ -1,6 +1,6 @@
 import EmberObject from '@ember/object';
 import Service from '@ember/service';
-import formOpenedLabelHelper from 'alpha-amber/helpers/form-opened-label';
+import formOpenedLabelHelper from 'amber-ui/helpers/form-opened-label';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | form opened label', function () {

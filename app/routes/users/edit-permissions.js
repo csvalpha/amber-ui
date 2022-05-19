@@ -1,4 +1,4 @@
-import EditUserRoute from 'alpha-amber/routes/users/edit';
+import EditUserRoute from 'amber-ui/routes/users/edit';
 
 export default class EditUserPermissionsRoute extends EditUserRoute {
   canAccess() {

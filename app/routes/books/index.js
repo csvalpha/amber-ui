@@ -1,4 +1,4 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class IndexBookRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Boeken' };
@@ -31,6 +31,7 @@ export default class IndexBookRoute extends AuthenticatedRoute {
   }
 
   model(params) {
+    params.perPage = 12;
     return this.store.queryPaged('book', params);
   }
 }

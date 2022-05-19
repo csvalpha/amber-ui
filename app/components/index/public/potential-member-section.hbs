@@ -2,7 +2,9 @@
   <div class='container text-xl text-white'>
     <p>{{t 'component.index.public.potentialMember.title'}}</p>
     <div class='info-text'>
-      <p class='mb-0'>{{t 'component.index.public.potentialMember.info'}}</p>
+      <p class='mb-0'>
+        {{html-safe (t 'component.index.public.potentialMember.info')}}
+      </p>
       <br />
     </div>
   </div>

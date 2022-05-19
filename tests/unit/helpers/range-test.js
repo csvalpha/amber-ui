@@ -1,4 +1,4 @@
-import { range } from 'alpha-amber/helpers/range';
+import { range } from 'amber-ui/helpers/range';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | range', function () {
