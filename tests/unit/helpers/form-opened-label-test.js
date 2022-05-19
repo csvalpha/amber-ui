@@ -5,7 +5,7 @@ import formOpenedLabelHelper from 'amber-ui/helpers/form-opened-label';
 import moment from 'moment';
 
 module('Unit | Helper | form opened label', function () {
-  moment.setLocale('nl');
+  moment.locale('nl');
 
   const i18nStub = Service.extend({
     t: (text) => text,
