@@ -32,6 +32,11 @@ export default class Response extends DirtySaveModel {
             await this.closedQuestionAnswers
           ).map((closedQuestionAnswer) => closedQuestionAnswer.option)
         );
+        answers.sort((answer1, answer2) =>
+          answer1.option && answer2.option
+            ? answer1.option.get('position') - answer2.option.get('position')
+            : 0
+        );
         return answers;
       })
       .then(this.groupAnswers);
