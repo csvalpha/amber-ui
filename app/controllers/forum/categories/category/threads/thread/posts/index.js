@@ -59,5 +59,8 @@ export default Controller.extend({
     onSwipe(direction) {
       return this.advanceToPage(-direction);
     },
+    resetNewContent() {
+      this.set('newContent', '');
+    },
   },
 });
