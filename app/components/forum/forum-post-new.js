@@ -25,6 +25,6 @@ export default class ForumPostNewComponent extends Component {
 
   @action
   cancel() {
-    this.content = '';
+    this.set('content', '');
   }
 }
