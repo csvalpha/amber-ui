@@ -3,8 +3,8 @@ import { action, computed } from '@ember/object';
 import {
   DigtusSubscriptionPreferenceTypes,
   AlmanakSubscriptionPreferenceTypes,
-} from 'alpha-amber/constants';
-import EditController from 'alpha-amber/controllers/application/edit';
+} from 'amber-ui/constants';
+import EditController from 'amber-ui/controllers/application/edit';
 import { inject as service } from '@ember/service';
 
 export default class EditUserController extends EditController {

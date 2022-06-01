@@ -1,6 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { isBlank } from '@ember/utils';
+import moment from 'moment';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupMembershipsController extends Controller {

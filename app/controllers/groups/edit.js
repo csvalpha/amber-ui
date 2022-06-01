@@ -2,7 +2,7 @@
 import { action, computed } from '@ember/object';
 import { A } from '@ember/array';
 import Controller from '@ember/controller';
-import { GroupKinds } from 'alpha-amber/constants';
+import { GroupKinds } from 'amber-ui/constants';
 import { all } from 'rsvp';
 import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';

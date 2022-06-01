@@ -58,11 +58,6 @@
       "draftPR": false
     },
     {
-      "description": "faker v5.5.3 -> v6.6.6 update removed all its source.",
-      "matchPackageNames": ["faker"],
-      "enabled": false
-    },
-    {
       "matchManagers": ["nvm"],
       "matchUpdateTypes": ["major"],
       "enabled": false

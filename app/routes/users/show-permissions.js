@@ -1,4 +1,4 @@
-import ShowUserRouter from 'alpha-amber/routes/users/show';
+import ShowUserRouter from 'amber-ui/routes/users/show';
 
 export default class ShowUserPermissions extends ShowUserRouter {
   get pageActions() {

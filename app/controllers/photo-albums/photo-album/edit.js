@@ -1,6 +1,6 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
-import NewPhotoAlbumController from 'alpha-amber/controllers/photo-albums/new';
+import NewPhotoAlbumController from 'amber-ui/controllers/photo-albums/new';
 import { inject as service } from '@ember/service';
 
 export default class EditPhotoAlbumController extends NewPhotoAlbumController {

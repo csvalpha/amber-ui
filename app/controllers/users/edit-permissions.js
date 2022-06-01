@@ -1,4 +1,4 @@
-import UserEditController from 'alpha-amber/controllers/users/edit';
+import UserEditController from 'amber-ui/controllers/users/edit';
 
 export default UserEditController.extend({
   successMessage: 'Rechten gewijzigd!',

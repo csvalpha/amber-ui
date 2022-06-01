@@ -1,5 +1,5 @@
 import { helper } from '@ember/component/helper';
-import { DigtusSubscriptionPreferenceTypes } from 'alpha-amber/constants';
+import { DigtusSubscriptionPreferenceTypes } from 'amber-ui/constants';
 
 export function humanizeDigtusSubscriptionPreference([option]) {
   return DigtusSubscriptionPreferenceTypes[option];
