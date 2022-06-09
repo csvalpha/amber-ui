@@ -1,5 +1,5 @@
 import { hasMany, belongsTo, attr } from '@ember-data/model';
-import DirtySaveModel from 'alpha-amber/models/application/dirty-save';
+import DirtySaveModel from 'amber-ui/models/application/dirty-save';
 
 export default class Response extends DirtySaveModel {
   @attr('date') createdAt;
@@ -31,6 +31,11 @@ export default class Response extends DirtySaveModel {
           (
             await this.closedQuestionAnswers
           ).map((closedQuestionAnswer) => closedQuestionAnswer.option)
+        );
+        answers.sort((answer1, answer2) =>
+          answer1.option && answer2.option
+            ? answer1.option.get('position') - answer2.option.get('position')
+            : 0
         );
         return answers;
       })

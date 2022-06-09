@@ -1,4 +1,4 @@
-import { youtubeRegex } from 'alpha-amber/initializers/register-showdown-extensions';
+import { youtubeRegex } from 'amber-ui/initializers/register-showdown-extensions';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | youtube regex', function () {

@@ -1,6 +1,6 @@
 import { isNone } from '@ember/utils';
-import EditController from 'alpha-amber/controllers/application/edit';
-import ModelSaveUtil from 'alpha-amber/utils/model-save';
+import EditController from 'amber-ui/controllers/application/edit';
+import ModelSaveUtil from 'amber-ui/utils/model-save';
 
 export default EditController.extend({
   successMessage: 'Verwijderen gelukt!',
