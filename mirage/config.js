@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-statements
 export default function () {
   this.namespace = '/api/v1';
 

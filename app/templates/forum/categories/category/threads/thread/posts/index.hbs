@@ -3,14 +3,20 @@
 </EmberWormhole>
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{model.posts.meta}} />
+  <PageNumbers @info={{model.posts.meta}} @replace={{true}} />
 </div>
 
-{{#each @model.posts as |post|}}
-  {{#unless post.isDeleted}}
-    {{forum/forum-post post newContent=newContent data-test-forum-post=post.id}}
-  {{/unless}}
-{{/each}}
+<Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
+  {{#each @model.posts as |post|}}
+    {{#unless post.isDeleted}}
+      {{forum/forum-post
+        post
+        addQuote=(action 'addQuote')
+        data-test-forum-post=post.id
+      }}
+    {{/unless}}
+  {{/each}}
+</Swipeable>
 
 {{#if currentPageIsLastPage}}
   {{#unless @model.thread.isOpen}}
@@ -25,7 +31,7 @@
   {{/unless}}
 
   {{#if (can 'create post for forum/thread' @model.thread)}}
-    <div class='card'>
+    <div class='card' id='newForumPostCard'>
       <div class='card-header'>
         <h5>Reageren</h5>
       </div>
@@ -41,5 +47,5 @@
 {{/if}}
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{@model.posts.meta}} />
+  <PageNumbers @info={{@model.posts.meta}} @replace={{true}} />
 </div>

@@ -1,3 +1,3 @@
 import EditActivityController from './edit';
 
-export default EditActivityController.extend();
+export default class NewActivityController extends EditActivityController {}

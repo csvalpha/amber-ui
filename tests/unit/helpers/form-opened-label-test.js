@@ -1,9 +1,12 @@
+import { module, test } from 'qunit';
 import EmberObject from '@ember/object';
 import Service from '@ember/service';
-import formOpenedLabelHelper from 'alpha-amber/helpers/form-opened-label';
-import { module, test } from 'qunit';
+import formOpenedLabelHelper from 'amber-ui/helpers/form-opened-label';
+import moment from 'moment';
 
 module('Unit | Helper | form opened label', function () {
+  moment.locale('nl');
+
   const i18nStub = Service.extend({
     t: (text) => text,
   });
@@ -13,7 +16,7 @@ module('Unit | Helper | form opened label', function () {
     respondUntil: moment().add(7, 'days').toDate(),
   });
 
-  test('it computes a label indicating when the form opens or closes', (assert) => {
+  test('it computes a label indicating when the form opens or closes', function (assert) {
     const subject = formOpenedLabelHelper.create({
       i18n: i18nStub.create(),
     });

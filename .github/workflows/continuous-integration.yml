@@ -7,6 +7,7 @@ on:
   workflow_call:
     inputs:
       sha:
+        description: The commit SHA to run the workflow on
         required: false
         type: string
 
@@ -16,12 +17,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
         with:
           ref: ${{ inputs.sha }}
 
       - name: Build test image
-        uses: guidojw/actions/build-docker-image@2b1dea8cbd9e44491c269e771b75636026caf8ca # renovate: tag=v1.1.0
+        uses: guidojw/actions/build-docker-image@92f1fbb6058a84135e953d0d49462bccf3e6336a # tag=v1.2.0
         with:
           file: Dockerfile
           target: base
@@ -33,22 +34,28 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # renovate: tag=v2.4.0
+        uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
         with:
           ref: ${{ inputs.sha }}
 
       - name: Add problem matchers
         run: |
+          echo '::add-matcher::.github/problem-matchers/actionlint.json'
+          echo '::add-matcher::.github/problem-matchers/ember-template-lint.json'
           echo '::add-matcher::.github/problem-matchers/eslint-stylish.json'
           echo '::add-matcher::.github/problem-matchers/stylelint.json'
 
+      - name: Download actionlint
+        run: |
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+
       - name: Set up Node.js
-        uses: actions/setup-node@1f8c6b94b26d0feae1e387ca63ccbdc44d27b561 # renovate: tag=v2.5.1
+        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048 # tag=v3.2.0
         with:
-          node-version: '14'
+          node-version-file: .nvmrc
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@2b1dea8cbd9e44491c269e771b75636026caf8ca # renovate: tag=v1.1.0
+        uses: guidojw/actions/load-docker-image@92f1fbb6058a84135e953d0d49462bccf3e6336a # tag=v1.2.0
         with:
           name: app
 
@@ -56,8 +63,10 @@ jobs:
         # Convert output of stylelint so that the problem matcher can match it correctly.
         run: |
           EXIT_STATUS=0
-          docker run app yarn ci:eslint || EXIT_STATUS=$?
-          STYLELINT_OUTPUT="$(docker run app yarn ci:stylelint)" || EXIT_STATUS=$?
+          ./actionlint -ignore 'property "app_private_key" is not defined' -ignore 'SC2153:' || EXIT_STATUS=$?
+          docker run app yarn lint:hbs || EXIT_STATUS=$?
+          docker run app yarn lint:js || EXIT_STATUS=$?
+          STYLELINT_OUTPUT="$(docker run app yarn lint:scss)" || EXIT_STATUS=$?
           node bin/convert-stylelint-output.js "$STYLELINT_OUTPUT"
           exit $EXIT_STATUS
 
@@ -67,10 +76,10 @@ jobs:
     needs: build
     steps:
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@2b1dea8cbd9e44491c269e771b75636026caf8ca # renovate: tag=v1.1.0
+        uses: guidojw/actions/load-docker-image@92f1fbb6058a84135e953d0d49462bccf3e6336a # tag=v1.2.0
         with:
           name: app
 
       - name: Test
         run: |
-          docker run -e CI=true -t app yarn test
+          docker run -e CI=true -t app yarn test:ember

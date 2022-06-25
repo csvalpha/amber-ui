@@ -1,0 +1,55 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{search}}
+      @sortedAttribute={{sortedAttribute}}
+      @sortableAttributes={{sortableAttributes}}
+      @sortedAscending={{sortedAscending}}
+      @enter={{action 'selectFirstItem'}}
+    />
+  </PageActionsButtons>
+</EmberWormhole>
+
+<div class='row'>
+  <div class='col-12 mb-4'>
+    Op deze pagina kan je een overzicht vinden van de inhoud van de Alpha
+    bibliotheek in de bestuurskamer. Als je een boek wilt lenen, ga dan naar de
+    BK, of neem contact op met een bestuurder.
+  </div>
+  {{#each model as |book|}}
+    <div class='col-lg-3 col-md-4 col-6 mb-3'>
+      <LinkTo @route='books.show' @model={{book.id}}>
+        <article itemscope itemtype='https://schema.org/Book'>
+          <div class='card' data-test-article-card>
+            <div class='card-header card-header--overlay'>
+              <img
+                itemprop='image'
+                class='card-img-top'
+                src={{book.coverPhotoUrlOrDefault}}
+              />
+              <div class='card-title-bar gradient-overlay'>
+                <div class='card-titles'>
+                  <h2 class='card-title' itemprop='name'>{{book.title}}</h2>
+                  <h3 class='card-subtitle'>
+                    <span
+                      itemprop='author'
+                      itemscope
+                      itemtype='https://schema.org/Person'
+                    >
+                      <span itemprop='name'>{{book.author}}</span>
+                    </span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </LinkTo>
+    </div>
+  {{/each}}
+</div>
+
+<div class='row justify-content-center'>
+  <PageNumbers @info={{model.meta}} />
+</div>

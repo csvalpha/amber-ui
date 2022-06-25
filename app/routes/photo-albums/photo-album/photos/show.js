@@ -1,4 +1,4 @@
-import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import {
@@ -11,7 +11,7 @@ export default class ShowPhotosRoute extends ApplicationRoute {
 
   get breadCrumb() {
     const photo = this.controller.model;
-    const allAlbumPhotos = this.controller.model.photoAlbum.get('photos');
+    const allAlbumPhotos = this.controller.model.photoAlbum.get('sortedPhotos');
     const photoAlbumPhotosLength = allAlbumPhotos.get('length');
     const currentPhotoIndex = allAlbumPhotos.indexOf(photo) + 1;
 

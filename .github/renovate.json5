@@ -1,0 +1,66 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["github>csvalpha/.github"],
+  // These dependencies are handled by ember-cli-update.
+  "ignoreDeps": [
+    "@ember/optional-features",
+    "@ember/test-helpers",
+    "@glimmer/component",
+    "@glimmer/tracking",
+    "babel-eslint",
+    "broccoli-asset-rev",
+    "ember-auto-import",
+    "ember-cli-babel",
+    "ember-cli-dependency-checker",
+    "ember-cli-htmlbars",
+    "ember-cli-inject-live-reload",
+    "ember-cli-sri",
+    "ember-cli-uglify",
+    "ember-data",
+    "ember-fetch",
+    "ember-load-initializers",
+    "ember-maybe-import-regenerator",
+    "ember-page-title",
+    "ember-qunit",
+    "ember-resolver",
+    "ember-source",
+    "ember-template-lint",
+    "eslint",
+    "eslint-config-prettier",
+    "eslint-plugin-ember",
+    "eslint-plugin-node",
+    "eslint-plugin-prettier",
+    "eslint-plugin-qunit",
+    // ember-cli's server blueprint is responsible for this.
+    "glob",
+    // ember-cli's http-proxy blueprint is responsible for this.
+    "http-proxy",
+    "loader.js",
+    // ember-cli's server blueprint is responsible for this.
+    "morgan",
+    "npm-run-all",
+    "prettier",
+    "qunit",
+    "qunit-dom",
+    "webpack"
+  ],
+  "packageRules": [
+    {
+      "matchPackageNames": ["danlynn/ember-cli", "ember-cli"],
+      "groupName": "ember-cli",
+      "separateMinorPatch": true,
+      "draftPR": true,
+      "prBodyNotes": "{{#unless isPatch}}### Upgrade Instructions\n* Wait until both `danlynn/ember-cli` and `ember-cli` have the same update\n* Then follow this guide: https://cli.emberjs.com/release/basic-use/upgrading/#upgradinganemberappitself\n* Finally, make sure any package that was added to `package.json` by this process is added to `ignoreDeps` in [`renovate.json5`](https://github.com/csvalpha/amber-ui/blob/staging/.github/renovate.json5){{/unless}}"
+    },
+    {
+      "matchPackageNames": ["danlynn/ember-cli", "ember-cli"],
+      "matchUpdateTypes": ["patch"],
+      "draftPR": false
+    },
+    {
+      "matchManagers": ["nvm"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    }
+  ]
+}

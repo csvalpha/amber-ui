@@ -1,19 +1,38 @@
-/* eslint-env node */
 'use strict';
 
 module.exports = function (environment) {
   const deployTarget = process.env.DEPLOY_TARGET;
 
-  const ENV = {
-    modulePrefix: 'alpha-amber',
+  let ENV = {
+    modulePrefix: 'amber-ui',
     environment,
     rootURL: '/',
+    locationType: 'auto',
+    EmberENV: {
+      FEATURES: {
+        // Here you can enable experimental features on an ember canary build
+        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
+      },
+      EXTEND_PROTOTYPES: {
+        // Prevent Ember Data from overriding Date.parse.
+        Date: false,
+      },
+    },
+
+    APP: {
+      // Here you can pass flags/options to your application instance
+      // when it is created
+      flashNoticeDefaultDuration: 2000,
+    },
+
+    historySupportMiddleware: true,
+    maxFilesize: 8.5, // MB
+
     api: {
       hostname: '/api/v1',
     },
 
     moment: {
-      includeLocales: ['nl'],
       allowEmpty: true,
     },
 
@@ -44,28 +63,15 @@ module.exports = function (environment) {
       // Regular icons as default
       defaultPrefix: 'fas',
     },
-
-    locationType: 'auto',
-    historySupportMiddleware: true,
-    EmberENV: {
-      FEATURES: {
-        // Here you can enable experimental features on an ember canary build
-        // e.g. EMBER_NATIVE_DECORATOR_SUPPORT: true
-      },
-      EXTEND_PROTOTYPES: {
-        // Prevent Ember Data from overriding Date.parse.
-        Date: false,
-      },
-    },
-
-    APP: {
-      flashNoticeDefaultDuration: 2000,
-    },
-
-    maxFilesize: 8.5, // MB
   };
 
   if (environment === 'development') {
+    // ENV.APP.LOG_RESOLVER = true;
+    // ENV.APP.LOG_ACTIVE_GENERATION = true;
+    // ENV.APP.LOG_TRANSITIONS = true;
+    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
+    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
     ENV.clientId = '123456789';
 
     // Disable mirage in development
@@ -76,22 +82,19 @@ module.exports = function (environment) {
 
     // When true, log all access and permission lookups in the console.
     ENV.APP.LOG_ACCESS_CONTROL = true;
-    // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
-    // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
     // Testem prefers this...
     ENV.locationType = 'none';
 
-    // Keep test console output quieter
+    // keep test console output quieter
     ENV.APP.LOG_ACTIVE_GENERATION = false;
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    ENV.APP.autoboot = false;
+
     ENV.APP.flashNoticeDefaultDuration = 1;
   }
 
@@ -104,6 +107,7 @@ module.exports = function (environment) {
   };
 
   if (environment === 'production') {
+    // here you can enable a production-specific feature
     ENV['@sentry/ember'].sentry.dsn =
       'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
   }

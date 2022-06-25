@@ -1,9 +1,10 @@
-import { equal } from '@ember/object/computed';
-import Ember from 'ember';
-import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
 import { task, timeout } from 'ember-concurrency';
+import Component from '@ember/component';
+import Ember from 'ember';
+import { computed } from '@ember/object';
+import { equal } from '@ember/object/computed';
+import moment from 'moment';
+import { inject as service } from '@ember/service';
 
 const BoardRoomPresence = Component.extend({
   session: service(),
@@ -29,7 +30,6 @@ const BoardRoomPresence = Component.extend({
 
   // Periodically poll for new boardroom data
   poll: task(function* () {
-    // eslint-disable-next-line ember-suave/no-direct-property-access
     while (!Ember.testing) {
       this.fetchData.perform();
       yield timeout(1000 * 30); // Wait 30 seconds

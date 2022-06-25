@@ -1,5 +1,6 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 import { isNone } from '@ember/utils';
+import moment from 'moment';
 
 export default class Poll extends Model {
   // Properties

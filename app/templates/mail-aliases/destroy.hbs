@@ -1,12 +1,9 @@
 <p>Weet je zeker dat je dit mail-alias ({{@model.email}}) wil verwijderen?</p>
 
 <button {{action 'destroy'}} class='btn btn-danger' type='button'>Ja</button>
-<LinkTo
-  @route='mail-aliases.show'
-  @model={{model.id}}
-  class='btn btn-default'
-  @tagName='button'
->Nee</LinkTo>
+<LinkTo @route='mail-aliases.show' @model={{model.id}} class='btn btn-default'>
+  Nee
+</LinkTo>
 
 {{#if errorMessage}}
   <div class='text-danger'>{{this.errorMessage}}</div>

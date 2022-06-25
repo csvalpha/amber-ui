@@ -1,7 +1,7 @@
 import { computed } from '@ember/object';
 import { all } from 'rsvp';
 import { isNone } from '@ember/utils';
-import EditController from 'alpha-amber/controllers/application/edit';
+import EditController from 'amber-ui/controllers/application/edit';
 
 export default EditController.extend({
   successMessage: 'Incasso aangepast!',

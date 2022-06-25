@@ -1,8 +1,8 @@
-import { lowercase } from 'alpha-amber/helpers/lowercase';
+import { lowercase } from 'amber-ui/helpers/lowercase';
 import { module, test } from 'qunit';
 
 module('Unit | Helper | lowercase', function () {
-  test('it converts the given value to lowercase', (assert) => {
+  test('it converts the given value to lowercase', function (assert) {
     assert.equal(lowercase(['Test']), 'test');
     assert.equal(lowercase(['Test Test']), 'test test');
     assert.equal(lowercase(['123']), '123');

@@ -1,6 +1,11 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 import { inject as service } from '@ember/service';
 import { assign } from '@ember/polyfills';
+import { action } from '@ember/object';
+import {
+  bindKeyboardShortcuts,
+  unbindKeyboardShortcuts,
+} from 'ember-keyboard-shortcuts';
 
 export default class PostIndexRoute extends AuthenticatedRoute {
   @service router;
@@ -47,6 +52,31 @@ export default class PostIndexRoute extends AuthenticatedRoute {
       thread,
       posts: postsPromise,
     };
+  }
+
+  activate() {
+    bindKeyboardShortcuts(this);
+  }
+
+  deactivate() {
+    unbindKeyboardShortcuts(this);
+  }
+
+  keyboardShortcuts = {
+    left: 'goToPreviousPage',
+    up: 'goToPreviousPage',
+    right: 'goToNextPage',
+    down: 'goToNextPage',
+  };
+
+  @action
+  goToPreviousPage() {
+    this.controller.send('goToPreviousPage');
+  }
+
+  @action
+  goToNextPage() {
+    this.controller.send('goToNextPage');
   }
 
   constructor() {

@@ -1,8 +1,9 @@
 'use strict';
+/* eslint-disable camelcase */
+
 module.exports = {
   test_page: 'tests/index.html?hidepassed',
   disable_watching: true,
-  reporter: 'dot',
   launch_in_ci: ['Chrome'],
   launch_in_dev: ['Chrome'],
   browser_start_timeout: 120,

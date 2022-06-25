@@ -1,9 +1,8 @@
-import config from 'alpha-amber/config/environment';
 import EmberRouter from '@ember/routing/router';
+import config from 'amber-ui/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
-
   rootURL = config.rootURL;
 
   constructor() {
@@ -209,6 +208,13 @@ Router.map(function () {
   this.route('418-im-a-teapot', { path: '/coffee' });
 
   this.route('sponsorkliks');
+
+  this.route('books', function () {
+    this.route('show', { path: '/:id' });
+    this.route('new');
+    this.route('edit', { path: '/:id/edit' });
+    this.route('destroy', { path: '/:id/destroy' });
+  });
 
   return true;
 });

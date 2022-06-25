@@ -13,9 +13,9 @@
 
 <div class='card'>
   <div class='row rtable-row header d-none d-md-flex'>
-    <span class='col rtable-header-item'> Topic </span>
-    <span class='col-3 rtable-header-item'> Auteur </span>
-    <span class='col-1 rtable-header-item rtable-ta-right'> # </span>
+    <span class='col rtable-header-item'>Topic</span>
+    <span class='col-3 rtable-header-item'>Auteur</span>
+    <span class='col-1 rtable-header-item rtable-ta-right'>#</span>
   </div>
 
   {{#each @model.threads as |thread|}}
@@ -29,14 +29,13 @@
           {{thread.title}}
         </span>
         <span class='col-6 col-md-3 text-muted rtable-item'>
-          <LinkTo
-            @route='users.show'
-            @model={{thread.author.id}}
-          >{{thread.author.fullName}}</LinkTo>
+          <LinkTo @route='users.show' @model={{thread.author.id}}>
+            {{thread.author.fullName}}
+          </LinkTo>
         </span>
         <span class='col-6 col-md-1 text-muted rtable-item rtable-ta-right'>
           {{thread.amountOfPosts}}
-          <span class='d-inline d-md-none'> reacties </span>
+          <span class='d-inline d-md-none'>reacties</span>
         </span>
       </div>
     </LinkTo>

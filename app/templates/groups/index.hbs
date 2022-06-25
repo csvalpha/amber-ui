@@ -47,9 +47,9 @@
             @query={{hash kind=item}}
             class='dropdown-item'
             data-toggle='pill'
-            @role='tab'
-            @aria-controls={{concat 'v-pills-' item}}
-            @aria-selected='true'
+            role='tab'
+            aria-controls={{concat 'v-pills-' item}}
+            aria-selected='true'
           >
             {{capitalize item}}
           </LinkTo>
@@ -63,7 +63,7 @@
         role='tablist'
         aria-orientation='vertical'
       >
-        <h5 class='ml-3 mb-3'> Groepen</h5>
+        <h5 class='ml-3 mb-3'>Groepen</h5>
         {{#each groupKinds as |item index|}}
           <LinkTo
             @route='groups'
@@ -73,11 +73,11 @@
               'nav-link active'
               'nav-link'
             }}
-            @id={{concat 'v-pills-' item}}
+            id={{concat 'v-pills-' item}}
             data-toggle='pill'
-            @role='tab'
-            @aria-controls={{concat 'v-pills-' item}}
-            @aria-selected='true'
+            role='tab'
+            aria-controls={{concat 'v-pills-' item}}
+            aria-selected='{{eq item selectedGroupKind}}'
           >
             {{capitalize item}}
           </LinkTo>

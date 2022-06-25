@@ -1,4 +1,4 @@
-import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
 

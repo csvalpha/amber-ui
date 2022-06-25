@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import moment from 'moment';
 
 const ForumPostComponent = Component.extend({
   showMarkdown: false,
@@ -14,7 +15,7 @@ const ForumPostComponent = Component.extend({
       let { message } = this.post;
       message = `> ${message}`;
       message = message.split('\n').join('\n> ');
-      this.set('newContent', `${this.newContent}${header}${message} \n\n`);
+      this.addQuote(`${header}${message}`);
     },
   },
 });

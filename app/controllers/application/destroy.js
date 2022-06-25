@@ -1,6 +1,6 @@
 import { isNone } from '@ember/utils';
-import EditController from 'alpha-amber/controllers/application/edit';
-import ModelSaveUtil from 'alpha-amber/utils/model-save';
+import EditController from 'amber-ui/controllers/application/edit';
+import ModelSaveUtil from 'amber-ui/utils/model-save';
 
 export default EditController.extend({
   successMessage: 'Verwijderen gelukt!',
@@ -12,8 +12,8 @@ export default EditController.extend({
       if (!isNone(this.model)) {
         this.model
           .destroyRecord()
-          .then(modelSaveUtil.onSuccess)
-          .catch(modelSaveUtil.onError);
+          .then(modelSaveUtil.onSuccess.bind(modelSaveUtil))
+          .catch(modelSaveUtil.onError.bind(modelSaveUtil));
       }
     },
     saveModel: undefined,

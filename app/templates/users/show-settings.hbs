@@ -53,24 +53,21 @@
     </tr>
     <tr>
       <td>Activatiedatum</td>
-      <td data-test-activatedAt>{{moment-format
-          @model.activatedAt
-          'DD-MM-YYYY'
-        }}</td>
+      <td data-test-activatedAt>
+        {{moment-format @model.activatedAt 'DD-MM-YYYY'}}
+      </td>
     </tr>
     <tr>
       <td>Aangemaakt</td>
-      <td data-test-createdAt>{{moment-format
-          @model.createdAt
-          'DD-MM-YYYY'
-        }}</td>
+      <td data-test-createdAt>
+        {{moment-format @model.createdAt 'DD-MM-YYYY'}}
+      </td>
     </tr>
     <tr>
       <td>Laatst gewijzigd</td>
-      <td data-test-updatedAt>{{moment-format
-          @model.updatedAt
-          'DD-MM-YYYY'
-        }}</td>
+      <td data-test-updatedAt>
+        {{moment-format @model.updatedAt 'DD-MM-YYYY'}}
+      </td>
     </tr>
     <tr>
       <td>Two-Factor geactiveerd</td>

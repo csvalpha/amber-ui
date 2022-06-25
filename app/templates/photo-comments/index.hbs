@@ -14,48 +14,24 @@
 <div class='row'>
   <div class='col-12'>
     {{#each model as |photo|}}
-      <div
-        class='card photo-and-comments-card mb-2 mb-md-5'
-        data-test-photo-with-comments-card
-      >
-        <div class='d-flex'>
-          <LinkTo
-            @route='photo-albums.photo-album.photos.show'
-            @models={{array photo.photoAlbum photo}}
-            class='col-12 col-md-8 p-0'
-          >
-            <img
-              class='image'
-              src={{photo.imageUrl}}
-              style='height: 400px; width: 100%;'
-            />
-          </LinkTo>
-          <div
-            class='col-12 col-md-4 photo-comments-and-input-holder p-0 d-none d-md-flex'
-          >
-            <div class='photo-comment-scroll-container'>
-              <div class='photo-comments'>
-                {{#each photo.comments as |comment|}}
-                  {{user-comment comment data-test-user-comment=true}}
-                {{/each}}
+      <div class='card mb-5'>
+        <div class='col'>
+          <div class='card-body p-0'>
+            <div class='row row-cols-1 row-cols-md-2'>
+              <div class='col p-0'>
+                <LinkTo
+                  @route='photo-albums.photo-album.photos.show'
+                  @models={{array photo.photoAlbum photo.id}}
+                >
+                  <PhotoAlbums::Photo @model={{photo}} @showInfo={{false}} />
+                </LinkTo>
               </div>
-            </div>
-            <div class='input-group new-photo-comment bg-light p-3'>
-              <Input
-                @value={{mut (get commentContent (get photo 'id'))}}
-                class='form-control photo-comment-input'
-                placeholder='Typ hier je reactie'
-                @minlength='1'
-                @maxlength='500'
-                @enter={{action 'submitPhotoComment' photo}}
-              />
-              <span class='input-group-btn'>
-                <button
-                  class='btn btn-default submit-photo-comment-button'
-                  {{action 'submitPhotoComment' photo}}
-                  type='button'
-                >Reageren</button>
-              </span>
+              <div class='col p-0'>
+                <PhotoComments::Comments
+                  @model={{photo}}
+                  class='position-md-absolute d-md-flex d-none h-100 w-100 mb-0 shadow-none'
+                />
+              </div>
             </div>
           </div>
         </div>

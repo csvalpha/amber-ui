@@ -1,7 +1,12 @@
+import Application from 'amber-ui/app';
+import config from 'amber-ui/config/environment';
+import * as QUnit from 'qunit';
 import { setApplication } from '@ember/test-helpers';
+import { setup } from 'qunit-dom';
 import { start } from 'ember-qunit';
-import Application from 'alpha-amber/app';
 
-setApplication(Application.create({ autoboot: false }));
+setApplication(Application.create(config.APP));
+
+setup(QUnit.assert);
 
 start();

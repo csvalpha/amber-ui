@@ -1,0 +1,177 @@
+<form class='form' {{action @onSubmit on='submit'}}>
+  <h5>Publieke gegevens</h5>
+  <p>Deze gegevens zijn zichtbaar voor alle leden en oud-leden.</p>
+  <ModelForm::FileInput
+    @model={{@model}}
+    @property='avatar'
+    @label='Profielfoto'
+    @loadedCallback={{@onFileLoaded}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='firstName'
+    @label='Voornaam'
+    @required={{true}}
+    @disabled={{@canEditOnlyOwnProperties}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='lastNamePrefix'
+    @label='Tussenvoegsel'
+    @disabled={{@canEditOnlyOwnProperties}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='lastName'
+    @label='Achternaam'
+    @required={{true}}
+    @disabled={{@canEditOnlyOwnProperties}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+
+  <h5>Contactgegevens</h5>
+  <p>
+    Deze gegevens zijn alleen zichtbaar voor degene wie je toegang geeft dmv de
+    privacy instellingen. Deze gegevens zijn wel altijd zichtbaar voor het
+    Bestuur en de ICT-commissie
+  </p>
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='email'
+    @label='E-mail'
+    @required={{true}}
+    @type='email'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='address'
+    @label='Adres'
+    @required={{true}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='postcode'
+    @label='Postcode'
+    @required={{true}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='city'
+    @label='Stad'
+    @required={{true}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='phoneNumber'
+    @label='Telefoon'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='emergencyContact'
+    @label='Noodcontact'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='emergencyNumber'
+    @label='Noodnummer'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+
+  <h5>Overige gegevens</h5>
+  <ModelForm::DateInput
+    @model={{@model}}
+    @property='birthday'
+    @label='Geboortedatum'
+    @yearRange='1900,currentYear'
+    @disabled={{@canEditOnlyOwnProperties}}
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='foodPreferences'
+    @label='Dieetwensen'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::CheckboxInput
+    @model={{@model}}
+    @property='vegetarian'
+    @label='Vegetariër'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::TextInput
+    @model={{@model}}
+    @property='study'
+    @label='Studie'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::DateInput
+    @model={{@model}}
+    @property='startStudy'
+    @label='Startdatum studie'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+
+  <h5>Voorkeuren</h5>
+  <ModelForm::SelectInput
+    @model={{@model}}
+    @property='almanakSubscriptionPreference'
+    @options={{@almanakSubscriptionPreferenceTypes}}
+    @label='Almanakvoorkeur'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+  <ModelForm::SelectInput
+    @model={{@model}}
+    @property='digtusSubscriptionPreference'
+    @options={{@digtusSubscriptionPreferenceTypes}}
+    @label='Digtusvoorkeur'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
+
+  <h5>Technische gegevens</h5>
+  <ModelForm::CheckboxInput
+    @model={{@model}}
+    @property='loginEnabled'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+    @label='Gebruiker kan inloggen'
+    @disabled={{@canEditOnlyOwnProperties}}
+    @labelColspan={{5}}
+  />
+
+  <ModelForm::FormActions
+    @errors={{@model.errors}}
+    @errorMessage={{@errorMessage}}
+    @inputLayout='vertical'
+  >
+    <LinkTo @route='users.show' @model={{@model.id}} class='btn btn-default'>
+      Annuleren
+    </LinkTo>
+  </ModelForm::FormActions>
+</form>
