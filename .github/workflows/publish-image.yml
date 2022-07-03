@@ -32,7 +32,7 @@ jobs:
       - name: Get metadata
         id: get_metadata
         env:
-          INPUT_SHA: ${{ inputs.sha || github.sha }}
+          INPUT_SHA: ${{ inputs.sha }}
         run: |
           if [ "$GITHUB_REF_NAME" = 'master' ]; then
             echo '::set-output name=tag::latest'
@@ -57,7 +57,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # tag=v3.0.2
         with:
-          ref: ${{ inputs.sha || github.sha }}
+          ref: ${{ inputs.sha }}
           fetch-depth: 0
 
       - name: Set up Docker Buildx
@@ -99,7 +99,7 @@ jobs:
         with:
           finalize: false
           sourcemaps: sourcemaps
-          version: ${{ inputs.sha || github.sha }}
+          version: ${{ inputs.sha }}
           url_prefix: ~/assets/
 
   update_check_run:
