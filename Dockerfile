@@ -16,7 +16,7 @@ FROM base AS builder
 RUN DEPLOY_TARGET=$DEPLOY_TARGET BUILD_HASH=$BUILD_HASH ember build --environment=production
 
 
-FROM nginx:1.23.0-alpine@sha256:4a846cc240449c53c8ae24269ba6bcaee5167d8ad75cd2a8d8ba422b7c726979
+FROM nginx:1.23.1-alpine@sha256:87fb6f4040ffd52dd616f360b8520ed4482930ea75417182ad3f76c4aaadf24f
 LABEL maintainer="C.S.V. Alpha <ict@csvalpha.nl>"
 
 RUN rm /etc/nginx/conf.d/default.conf
