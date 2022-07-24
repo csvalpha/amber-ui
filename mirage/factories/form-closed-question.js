@@ -1,6 +1,5 @@
 import { Factory } from 'ember-cli-mirage';
-
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 export default Factory.extend({
   question: () => faker.lorem.sentence(),
