@@ -2,9 +2,9 @@ import { Factory } from 'ember-cli-mirage';
 import { faker } from '@faker-js/faker';
 
 export default Factory.extend({
-  message: () => faker.lorem.paragraph(),
-  messageCamofied: () => faker.lorem.paragraph(),
-  createdAt: () => faker.date.recent(),
+  message: faker.lorem.paragraph,
+  messageCamofied: faker.lorem.paragraph,
+  createdAt: faker.date.recent,
 
   afterCreate(post, server) {
     post.author = server.create('user');

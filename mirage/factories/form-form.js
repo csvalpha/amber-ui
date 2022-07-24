@@ -2,8 +2,8 @@ import { Factory, trait } from 'ember-cli-mirage';
 import { faker } from '@faker-js/faker';
 
 export default Factory.extend({
-  respondFrom: () => faker.date.recent(),
-  respondUntil: () => faker.date.future(),
+  respondFrom: faker.date.recent,
+  respondUntil: faker.date.future,
   currentUserResponseId: null,
   currentUserResponseCompleted: false,
   canRespond: true,
@@ -18,12 +18,12 @@ export default Factory.extend({
   }),
 
   closed: trait({
-    respondUntil: () => faker.date.recent(),
+    respondUntil: faker.date.recent,
     canRespond: false,
   }),
 
   opensLater: trait({
-    respondFrom: () => faker.date.future(),
+    respondFrom: faker.date.future,
     canRespond: false,
   }),
 });

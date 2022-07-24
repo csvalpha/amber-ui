@@ -4,9 +4,9 @@ import { faker } from '@faker-js/faker';
 export default Factory.extend({
   name: faker.name.firstName,
   description: faker.lorem.sentence,
-  descriptionCamofied: () => faker.lorem.paragraph(),
+  descriptionCamofied: faker.lorem.paragraph,
   kind: () =>
-    faker.helpers.randomize([
+    faker.helpers.arrayElement([
       'bestuur',
       'commissie',
       'dispuut',
