@@ -1,6 +1,5 @@
 import { Factory } from 'ember-cli-mirage';
 import { faker } from '@faker-js/faker';
-import moment from 'moment';
 
 export default Factory.extend({
   activatedAt: () => faker.date.past(10),
@@ -9,7 +8,10 @@ export default Factory.extend({
     faker.helpers.arrayElement([null, "pinda's", 'noten', 'lactose']),
   avatarThumbUrl: '/images/fallback/avatar_thumb_default.png',
   birthday: () =>
-    faker.date.past(20, moment().subtract(18, 'years').format('YYYY-MM-DD')),
+    faker.date
+      .birthdate({ min: 18, max: 38 })
+      .toLocaleDateString('nl')
+      .replace(/\//g, '-'),
   city: faker.address.city,
   email: faker.internet.email,
   emergencyContact: faker.name.firstName,
@@ -18,7 +20,7 @@ export default Factory.extend({
   firstName: faker.name.firstName,
   lastName: faker.name.lastName,
   lastNamePrefix: () =>
-    faker.random.arrayElement([null, 'van', 'der', 'van de']),
+    faker.helpers.arrayElement([null, 'van', 'der', 'van de']),
   phoneNumber: faker.phone.number,
   postcode: faker.address.zipCode,
   startStudy: () => faker.date.past(10),
