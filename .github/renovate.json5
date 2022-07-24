@@ -52,9 +52,9 @@
       "draftPR": true,
       "prBodyNotes": "{{#unless isPatch}}\
 ### Upgrade Instructions\
-  * Wait until both `danlynn/ember-cli` and `ember-cli` have the same update\
-  * Then follow this guide: https://cli.emberjs.com/release/basic-use/upgrading/#upgradinganemberappitself\
-  * Finally, make sure any package that was added to `package.json` by this process is added to `ignoreDeps` in [`renovate.json5`](https://github.com/csvalpha/amber-ui/blob/staging/.github/renovate.json5)\
+* Wait until both `danlynn/ember-cli` and `ember-cli` have the same update\
+* Then follow this guide: https://cli.emberjs.com/release/basic-use/upgrading/#upgradinganemberappitself\
+* Finally, make sure any package that was added to `package.json` by this process is added to `ignoreDeps` in [`renovate.json5`](https://github.com/csvalpha/amber-ui/blob/staging/.github/renovate.json5)\
 {{/unless}}"
     },
     {
