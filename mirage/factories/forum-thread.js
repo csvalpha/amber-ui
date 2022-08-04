@@ -1,12 +1,11 @@
 import { Factory, trait } from 'ember-cli-mirage';
-
-import faker from '@faker-js/faker';
+import { faker } from '@faker-js/faker';
 
 export default Factory.extend({
-  title: () => faker.lorem.sentence(),
+  title: faker.lorem.sentence,
   amountOfPosts: 0,
   createdAt: () => faker.date.recent(10),
-  updatedAt: () => faker.date.recent(),
+  updatedAt: faker.date.recent,
   closedAt: null,
 
   afterCreate(thread, server) {
