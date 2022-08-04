@@ -2,11 +2,11 @@
   {{label}}{{if required ' *'}}
 </label>
 <div class='{{inputWrapperClass}}'>
-    {{#let (file-queue name="fileUpload" onFileAdded=(action 'fileLoaded')) as |queue|}}
+  {{#let (file-queue name="fileUpload" onFileAdded=(action 'fileLoaded')) as |queue|}}
     <label for="upload-file">
       {{#if (get model property)}}
         <img id={{inputIdentifier}} src={{mut (get model property)}} alt={{label}} role="button" tabindex="0"
-          aria-controls="upload-file" />
+        aria-controls="upload-file" />
         <br />
       {{else}}
         <span class='image-upload-text' role="button" tabindex="0" aria-controls="upload-file">
