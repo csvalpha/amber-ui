@@ -22,7 +22,7 @@ $header-height: 75vh;
 
 .index-poster {
   position: absolute;
-  top: 0;
+  top: 56px;
   left: 50%;
   margin-top: -$navbar-height;
   margin-left: -50vw;
@@ -33,26 +33,47 @@ $header-height: 75vh;
   min-height: 400px;
 }
 
+.index-poster-overlay {
+  background-color: $black;
+  height: $header-height;
+  left: 50%;
+  margin-left: -50vw;
+  opacity: 0.3;
+  position: absolute;
+  width: 100vw;
+}
+
 .index-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: -20px;
-  height: $header-height;
+  height: calc($header-height);
   min-height: 400px;
+  color: $white;
 
   .image {
-    z-index: 1;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     width: 100%;
     max-width: 350px;
     max-height: 350px;
   }
+
+  .new-member-text {
+    font-size: $font-size-h3;
+    text-align: center;
+    width: min(95%, 700px);
+    margin-bottom: 1.5rem;
+  }
+
+  * {
+    z-index: 1;
+  }
 }
 
 .index-yellow-bar {
-  margin-top: -80px;
+  margin-top: 0px;
   background-color: $brand-primary;
   padding-top: 20px;
   padding-bottom: 20px;
