@@ -91,6 +91,10 @@ component:
       reactions: ' - {count, plural, =0 {no comments.} =1 {one comment.} other {# comments.}}'
   headerNav:
     changeLocale: Verander taal naar Nederlands
+    aboutUs: About us
+    sponsoring: Sponsoring
+    becomeMember: Become a member!
+    becomeOldMember: Become an old-member!
   footerNav:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
   index:

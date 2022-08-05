@@ -3554,6 +3554,7 @@ __metadata:
   resolution: "amber-ui@workspace:."
   dependencies:
     "@ember/optional-features": ^2.0.0
+    "@ember/render-modifiers": ^2.0.4
     "@ember/test-helpers": ^2.6.0
     "@faker-js/faker": ^7.3.0
     "@fortawesome/ember-fontawesome": ^0.4.0
