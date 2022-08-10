@@ -49,7 +49,7 @@ $header-height: 75vh;
   align-items: center;
   justify-content: center;
   margin-top: -20px;
-  height: calc($header-height);
+  height: $header-height;
   min-height: 400px;
   color: $white;
 
