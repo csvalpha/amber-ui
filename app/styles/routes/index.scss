@@ -54,7 +54,6 @@ $header-height: 75vh;
   color: $white;
 
   .image {
-    margin-bottom: 50px;
     width: 100%;
     max-width: 350px;
     max-height: 350px;
@@ -64,7 +63,7 @@ $header-height: 75vh;
     margin-bottom: 1.5rem;
     width: min(95%, 700px);
     text-align: center;
-    font-size: $font-size-h3;
+    font-size: $font-size-h4;
   }
 
   * {
