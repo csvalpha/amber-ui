@@ -34,13 +34,13 @@ $header-height: 75vh;
 }
 
 .index-poster-overlay {
-  background-color: $black;
-  height: $header-height;
-  left: 50%;
-  margin-left: -50vw;
-  opacity: 0.25;
   position: absolute;
+  left: 50%;
+  opacity: 0.25;
+  margin-left: -50vw;
+  background-color: $black;
   width: 100vw;
+  height: $header-height;
 }
 
 .index-header {
@@ -61,10 +61,10 @@ $header-height: 75vh;
   }
 
   .new-member-text {
-    font-size: $font-size-h3;
-    text-align: center;
-    width: min(95%, 700px);
     margin-bottom: 1.5rem;
+    width: min(95%, 700px);
+    text-align: center;
+    font-size: $font-size-h3;
   }
 
   * {
@@ -73,7 +73,7 @@ $header-height: 75vh;
 }
 
 .index-yellow-bar {
-  margin-top: 0px;
+  margin-top: 0;
   background-color: $brand-primary;
   padding-top: 20px;
   padding-bottom: 20px;

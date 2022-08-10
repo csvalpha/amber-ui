@@ -90,9 +90,9 @@
 }
 
 .dropdown-menu {
-  border: none;
-  padding: 0;
   top: 56px;
+  border-width: 0;
+  padding: 0;
 
   .dropdown-item,
   .dropdown-item.active {
