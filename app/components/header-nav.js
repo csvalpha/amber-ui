@@ -83,7 +83,10 @@ export default Component.extend({
       if (!this.session.isAuthenticated && !this.media.isMobile) {
         this.store.findAll('static-page').then((pages) => {
           // make key-value pairs for all found static pages
-          let newAvailableStaticPages = pages.reduce((obj, page) => Object.assign(obj, { [page.id]: page.title }), {});
+          let newAvailableStaticPages = pages.reduce(
+            (obj, page) => Object.assign(obj, { [page.id]: page.title }),
+            {}
+          );
           set(this, 'availableStaticPages', newAvailableStaticPages);
         });
       }
