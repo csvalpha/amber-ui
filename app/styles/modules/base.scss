@@ -47,6 +47,10 @@ p {
       transform: translateX(110px);
     }
   }
+
+  &.authenticated {
+    margin-top: 44px;
+  }
 }
 
 .main-content {
