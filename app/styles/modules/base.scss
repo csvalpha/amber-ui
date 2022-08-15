@@ -37,7 +37,7 @@ p {
 .main {
   transform: translateX(0);
   transition: all 0.3s ease-in-out;
-  padding-top: 56px;
+  padding-top: 100px;
   min-height: 100vh;
 
   &.left-sidebar-open {
@@ -46,10 +46,6 @@ p {
     &.left-sidebar-expanded {
       transform: translateX(110px);
     }
-  }
-
-  &.authenticated {
-    margin-top: 44px;
   }
 }
 
