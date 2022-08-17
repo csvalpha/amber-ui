@@ -46,7 +46,7 @@
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["danlynn/ember-cli", "ember-cli"],
+      "matchPackageNames": ["ember-cli", "danlynn/ember-cli"],
       "groupName": "ember-cli",
       "separateMinorPatch": true,
       "draftPR": true,
