@@ -21,8 +21,7 @@
     "start": "ember serve",
     "test": "npm-run-all lint test:*",
     "test:ember": "ember test",
-    "lint:scss": "stylelint 'app/**/*.scss'",
-    "lint:scss:ci": "stylelint 'app/**/*.scss' --formatter github"
+    "lint:scss": "stylelint 'app/**/*.scss'"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
