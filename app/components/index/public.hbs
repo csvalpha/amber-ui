@@ -1,7 +1,15 @@
-<Index::Public::BackgroundImage />
-
 <div class='container-fluid index-header'>
+  <Index::Public::BackgroundImage />
+  <div class="index-poster-overlay"></div>
   <img src='images/alphalogowhite-large.svg' class='image' />
+  <p class="new-member-text">Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier je mail achter en we nemen contact met je op!</p>
+  <a
+      class='btn btn-lg frontpage-button'
+      href='https://forms.gle/R4WYzbWameD6wN817'
+      target='_blank'
+    >
+    {{t 'component.index.public.actionButtons.memberButton'}}
+  </a>
 </div>
 
 <div class='index-yellow-bar full-width'>
@@ -12,8 +20,6 @@
 </div>
 
 <Index::Public::PotentialMemberSection />
-
-<Index::Public::StaticPages @class='full-width' />
 
 <div class='flex-items-xs-center index-promo-video'>
   <Index::Public::YoutubeVideos />

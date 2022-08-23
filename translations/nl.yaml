@@ -91,6 +91,10 @@ component:
       reactions: ' - {count, plural, =0 {geen reacties.} =1 {1 reactie.} other {# reacties.}}'
   headerNav:
     changeLocale: Change language to English
+    aboutUs: Over ons
+    sponsoring: Sponsoring
+    becomeMember: Word lid!
+    becomeOldMember: Word oud-lid!
   footerNav:
     by: 'Met trots gebrouwen door de ICT-commissie der C.S.V. Alpha | © '
   index:

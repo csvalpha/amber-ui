@@ -20,39 +20,69 @@ $header-height: 75vh;
   }
 }
 
-.index-poster {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  margin-top: -$navbar-height;
-  margin-left: -50vw;
-  background-position: center;
-  background-size: cover;
-  width: 100vw;
-  height: $header-height;
-  min-height: 400px;
-}
-
 .index-header {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: -20px;
+  margin-top: -44px;
   height: $header-height;
   min-height: 400px;
+  color: $white;
+
+  .index-poster, .index-poster-overlay {
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    margin-top: -$navbar-height;
+    margin-left: -50vw;
+    width: 100vw;
+    height: $header-height;
+    min-height: 400px;
+  }
+
+  .index-poster {
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .index-poster-overlay {
+    opacity: 0.25;
+    background-color: $black;
+  }
 
   .image {
-    z-index: 1;
-    margin-bottom: 100px;
     width: 100%;
-    max-width: 350px;
-    max-height: 350px;
+    max-width: min(350px, 70vw);
+  }
+
+  .new-member-text {
+    margin-bottom: 1.5rem;
+    width: min(95%, 700px);
+    text-align: center;
+    font-size: $font-size-h4;
+  }
+
+  * {
+    z-index: 1;
+  }
+}
+
+@include media-breakpoint-only(xs) {
+  .index-header {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    height: fit-content;
+
+    .index-poster, .index-poster-overlay {
+      height: 100%;
+    }
   }
 }
 
 .index-yellow-bar {
-  margin-top: -80px;
+  margin-top: 0;
   background-color: $brand-primary;
   padding-top: 20px;
   padding-bottom: 20px;
@@ -133,10 +163,6 @@ $header-height: 75vh;
 .flux-image-holder {
   margin-bottom: 10px;
   object-fit: cover;
-}
-
-.flux-image {
-  float: right;
 }
 
 .static-page-list {
