@@ -7,7 +7,7 @@
     <div class='header-logo'> </div>
   </span>
 
-  <div class='d-flex col pl-0 pr-0 navbar-contents-holder'>
+  <div class='d-flex col ps-0 pe-0 navbar-contents-holder'>
     <div class='navbar-overflow-wrapper'>
       <div class='navbar-nav col d-flex flex-row'>
         {{#if (or session.isAuthenticated media.isMobile)}}
@@ -31,8 +31,8 @@
     </div>
 
     {{#unless session.isAuthenticated}}
-      <LinkTo @route='login' class='nav-item d-none d-md-flex mr-2'>
-        <button class='btn btn-primary d-inline nav-link pl-2 pr-2' type='button'>
+      <LinkTo @route='login' class='nav-item d-none d-md-flex me-2'>
+        <button class='btn btn-primary d-inline nav-link ps-2 pe-2' type='button'>
           {{t 'tag.button.signin'}}
         </button>
       </LinkTo>

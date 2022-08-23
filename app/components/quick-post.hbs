@@ -15,7 +15,7 @@
       <div class='row pb-2'>
         <LinkTo @route='users.show' @model={{session.currentUser.id}}>
           <img
-            class='profile-picture profile-picture-md ml-3 p-0'
+            class='profile-picture profile-picture-md ms-3 p-0'
             alt='{{session.currentUser.fullName}}'
             src='{{session.currentUser.avatarThumbUrlOrDefault}}'
           />
@@ -24,7 +24,7 @@
           id='qp-inputfield'
           @value={{newQpMessage}}
           rows={{4}}
-          class='col form-control ml-3 mr-3 qp-inputfield'
+          class='col form-control ms-3 me-3 qp-inputfield'
           placeholder={{welcomeText}}
           minlength='1'
           maxlength={{maxCharacters}}
@@ -32,12 +32,12 @@
         />
       </div>
 
-      <div class='d-flex float-right'>
+      <div class='d-flex float-end'>
         <span
           class='qp-characters-indicator
             {{if tooMuchText "text-danger" "text-muted"}}
             {{unless currentCharacterCount "hidden"}}
-            pt-2 pr-3'
+            pt-2 pe-3'
         >
           {{currentCharacterCount}}
           /
@@ -46,7 +46,7 @@
 
         <QuickPostNotificationButton />
 
-        <BsDropdown @class='ml-1' @closeOnMenuClick={{true}} as |dd|>
+        <BsDropdown @class='ms-1' @closeOnMenuClick={{true}} as |dd|>
           <dd.toggle @class='open-smiley-pane-button btn btn-default'>
             <FaIcon @icon='face-smile' @prefix='far' />
           </dd.toggle>
@@ -62,7 +62,7 @@
         </BsDropdown>
 
         <button
-          class='btn btn-primary ml-1 mb-3 {{if tooMuchText "disabled"}}'
+          class='btn btn-primary ms-1 mb-3 {{if tooMuchText "disabled"}}'
           {{action 'saveMessage'}}
           type='button'
         >
@@ -76,13 +76,13 @@
       <div class='row qp-message p-3'>
         <LinkTo @route='users.show' @model={{message.author.id}}>
           <img
-            class='profile-picture profile-picture-md ml-3 p-0'
+            class='profile-picture profile-picture-md ms-3 p-0'
             alt='{{message.author.fullName}}'
             src='{{message.author.avatarThumbUrlOrDefault}}'
           />
         </LinkTo>
 
-        <div class='pl-3 col'>
+        <div class='ps-3 col'>
           <div class='row'>
             <LinkTo
               @route='users.show'
@@ -92,7 +92,7 @@
               <b class='text-sm text-muted'> {{message.author.fullName}} </b>
             </LinkTo>
 
-            <small class='text-muted pr-3'>
+            <small class='text-muted pe-3'>
               {{#if (can 'destroy quickpost-messages')}}
                 <FaIcon
                   @icon='trash'

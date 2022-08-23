@@ -1,7 +1,7 @@
 <div class='d-flex comment'>
   <LinkTo @route='users.show' @model={{comment.author.id}}>
     <img
-      class='profile-picture profile-picture-small mr-2'
+      class='profile-picture profile-picture-small me-2'
       src='{{comment.author.avatarThumbUrlOrDefault}}'
     />
   </LinkTo>
@@ -18,13 +18,13 @@
       {{#if comment.article}}
         {{#if (can 'destroy article-comments')}}
           <LinkTo @route='article-comments.destroy' @model={{comment.id}}>
-            <FaIcon @icon='trash' class='text-muted destroy-icon ml-2' />
+            <FaIcon @icon='trash' class='text-muted destroy-icon ms-2' />
           </LinkTo>
         {{/if}}
       {{else if comment.photo}}
         {{#if (can 'destroy photo-comments')}}
           <LinkTo @route='photo-comments.destroy' @model={{comment.id}}>
-            <FaIcon @icon='trash' class='text-muted destroy-icon ml-2' />
+            <FaIcon @icon='trash' class='text-muted destroy-icon ms-2' />
           </LinkTo>
         {{/if}}
       {{/if}}

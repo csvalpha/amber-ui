@@ -58,12 +58,12 @@
     </BsDropdown>
     <div class='col-12 col-md-3'>
       <div
-        class='nav flex-column nav-tabs vertical-tabs-md pl-md-3 pt-3 pb-md-3 d-none d-md-flex'
+        class='nav flex-column nav-tabs vertical-tabs-md ps-md-3 pt-3 pb-md-3 d-none d-md-flex'
         id='v-pills-tab-groups'
         role='tablist'
         aria-orientation='vertical'
       >
-        <h5 class='ml-3 mb-3'>Groepen</h5>
+        <h5 class='ms-3 mb-3'>Groepen</h5>
         {{#each groupKinds as |item index|}}
           <LinkTo
             @route='groups'
@@ -106,7 +106,7 @@
                 />
               </LinkTo>
             {{else}}
-              <div class='alert alert-warning col mr-4 mt-3'>
+              <div class='alert alert-warning col me-4 mt-3'>
                 Er zijn geen resultaten gevonden
               </div>
             {{/each}}

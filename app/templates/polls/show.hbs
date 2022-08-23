@@ -10,7 +10,7 @@
       </div>
     </div>
   </div>
-  <div class='row card-subheader-row ml-0 mr-0'>
+  <div class='row card-subheader-row ms-0 me-0'>
 
     <div class='col-12 col-md-7 card-subheader-item align-items-center p-3'>
       <FaIcon @icon='clock' />
@@ -96,11 +96,11 @@
       <div class='poll-horizontal-chart'>
         {{#each optionsWithResults as |bar|}}
           <div class='d-block w-100 mt-2'>
-            <span class='ml-2'> {{bar.label}} </span>
+            <span class='ms-2'> {{bar.label}} </span>
             <div class='d-flex'>
               <div class='bg-primary poll-horizontal-bar' style={{bar.style}}>
               </div>
-              <b class='ml-3'>
+              <b class='ms-3'>
                 {{concat bar.percentage '%'}}
                 ({{bar.value}})
               </b>
