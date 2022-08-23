@@ -1,4 +1,4 @@
-import EditController from 'alpha-amber/controllers/application/edit';
+import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
 
 export default class EditThreadController extends EditController {

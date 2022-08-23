@@ -1,4 +1,5 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
+import moment from 'moment';
 
 export default class Post extends Model {
   // Properties

@@ -1,4 +1,4 @@
-import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class PhotoCommentsIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Fotoreacties' };

@@ -1,4 +1,4 @@
-import EditController from 'alpha-amber/controllers/application/edit';
+import EditController from 'amber-ui/controllers/application/edit';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { computed } from '@ember/object';
 

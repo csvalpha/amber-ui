@@ -1,4 +1,4 @@
-import NewController from 'alpha-amber/controllers/application/new';
+import NewController from 'amber-ui/controllers/application/new';
 import { action } from '@ember/object';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';

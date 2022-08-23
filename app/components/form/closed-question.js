@@ -1,4 +1,4 @@
-import { ClosedQuestionTypes } from 'alpha-amber/constants';
+import { ClosedQuestionTypes } from 'amber-ui/constants';
 import { inject as service } from '@ember/service';
 import OpenQuestionComponent from './open-question';
 

@@ -23,7 +23,7 @@ export default Controller.extend({
       );
       popup.document.write('<link rel="stylesheet" href="/assets/vendor.css">');
       popup.document.write(
-        '<link rel="stylesheet" href="/assets/alpha-amber.css">'
+        '<link rel="stylesheet" href="/assets/amber-ui.css">'
       );
       popup.document.write(
         '</head><body onload="window.print()" onfocus="setTimeout(window.close, 500)">'

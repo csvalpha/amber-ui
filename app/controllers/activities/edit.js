@@ -1,6 +1,6 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
-import { ActivityCategories } from 'alpha-amber/constants';
+import { ActivityCategories } from 'amber-ui/constants';
 import Controller from '@ember/controller';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';

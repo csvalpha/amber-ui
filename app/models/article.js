@@ -3,7 +3,7 @@ import {
   CoverPhotoFallback,
   AvatarFallback,
   AvatarThumbFallback,
-} from 'alpha-amber/constants';
+} from 'amber-ui/constants';
 
 export default class Article extends Model {
   // Attributes
