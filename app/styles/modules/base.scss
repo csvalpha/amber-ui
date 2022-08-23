@@ -92,7 +92,7 @@ img {
   width: auto;
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .full-width-small-screens {
     position: relative;
     left: 50%;
