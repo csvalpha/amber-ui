@@ -10,27 +10,34 @@ export default class ModelSaveUtil {
     }
   }
 
+  transition(target, model) {
+    const transition_args = model ? [target, model] : [target]
+    if (this.entity.transition) {
+      this.entity.transition(...transition_args);
+    } else {
+      this.entity.transitionToRoute(...transition_args);
+    }
+  }
+
+  redirect(model) {
+    const targetModel = this.entity?.successTransitionModel ?? model;
+    if (!isNone(this.entity?.successTransitionTarget)) {
+      this.transition(
+        this.entity.successTransitionTarget,
+        targetModel,
+      );
+    }
+  }
 
   onSuccess(model) {
     // Show notice
     this.sendSuccess();
     // todo: make sure that all subclasses of the edit controller correctly implement onsuccess, and don't call sendsuccess unnecessarily
     if (this.entity?.onSuccess) {
-      this.entity.onSuccess();
+      this.entity.onSuccess(model);
     } else {
       // Redirect
-      const targetModel = this.entity?.successTransitionModel ?? model;
-      if (!isNone(this.entity?.successTransitionTarget)) {
-        if (isNone(targetModel)) {
-          // In destroy routes, targetModel is undefined
-          this.entity.transitionToRoute(this.entity.successTransitionTarget);
-        } else {
-          this.entity.transitionToRoute(
-            this.entity.successTransitionTarget,
-            targetModel,
-          );
-        }
-      }
+      this.redirect(model)
     }
   }
 
