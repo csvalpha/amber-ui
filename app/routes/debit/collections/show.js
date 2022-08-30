@@ -4,11 +4,11 @@ import { hash } from 'rsvp';
 
 export default class CollectionsIndexRoute extends AuthenticatedRoute {
   get breadCrumb() {
-    return { title: this.controller.model.collection.name };
+    return { title: this.model.collection.name };
   }
 
   get pageActions() {
-    const { collection } = this.controller.model;
+    const { collection } = this.model;
     return [
       {
         link: 'debit.collections.edit',

@@ -7,7 +7,6 @@ export default class DestroyController extends EditController {
 
   @action
   destroyModel() {
-    console.log('destroying shit')
     this.modelSaveUtil.destroyModel(this.model);
   }
 
