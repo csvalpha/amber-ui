@@ -2,7 +2,7 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default class DestroyFormResponseController extends DestroyController {
+export default class FormResponseDestroyController extends DestroyController {
   @service store;
   successMessage = 'Je inschrijving is verwijderd.';
   successTransitionTarget = 'activities.index';

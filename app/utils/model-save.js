@@ -32,7 +32,6 @@ export default class ModelSaveUtil {
   onSuccess(model) {
     // Show notice
     this.sendSuccess();
-    // todo: make sure that all subclasses of the edit controller correctly implement onsuccess, and don't call sendsuccess unnecessarily
     if (this.entity?.onSuccess) {
       this.entity.onSuccess(model);
     } else {
