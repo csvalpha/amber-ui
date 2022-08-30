@@ -1,15 +1,13 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
+import { action } from '@ember/object';
 
-export default DestroyController.extend({
-  successMessage: 'Artikelreactie verwijderd!',
-  actions: {
-    destroy() {
-      this.set('article', this.model.article);
-      this._super(...arguments);
-    },
-    onSuccess() {
-      this._super(...arguments);
-      this.transitionToRoute('articles.show', this.article);
-    },
-  },
-});
+export default class DestroyArticleCommentController extends DestroyController {
+  successMessage = 'Artikelreactie verwijderd!';
+  successTransitionTarget = 'articles.show';
+  @action
+  async destroyModel() {
+    this.successTransitionModel = await this.model.article;
+    super.destroyModel();
+  }
+
+}

@@ -11,7 +11,7 @@ export default class EditController extends Controller {
 
   successMessage = 'Wijzigen gelukt!';
   successTransitionTarget = null;
-  successTransitionModel = null;
+  @tracked successTransitionModel = null;
 
   constructor() {
     super(...arguments);

@@ -1,5 +1,6 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default DestroyController.extend({
-  successTransitionTarget: 'polls.index',
-});
+export default class DestroyPollController extends DestroyController {
+  successMessage = 'Poll verwijderd!';
+  successTransitionTarget = 'polls.index';
+}

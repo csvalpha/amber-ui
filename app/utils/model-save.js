@@ -10,6 +10,7 @@ export default class ModelSaveUtil {
     }
   }
 
+
   onSuccess(model) {
     // Show notice
     this.sendSuccess();

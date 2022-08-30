@@ -11,7 +11,7 @@
     verwijderen?
   </p>
 
-  <button {{action 'destroy'}} class='btn btn-danger' type='button'>Ja</button>
+  <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
   <LinkTo @route='polls.show' @model={{model.id}} class='btn btn-default'>
     Nee
   </LinkTo>

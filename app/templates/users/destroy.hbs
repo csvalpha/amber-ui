@@ -12,7 +12,7 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
     <LinkTo @route='users.show' @model={{model.id}} class='btn btn-default'>
