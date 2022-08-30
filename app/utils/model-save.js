@@ -54,4 +54,17 @@ export default class ModelSaveUtil {
         });
     }
   }
+
+  destroyModel(model) {
+    this.entity.errorMessage = null;
+    if (!isNone(model)) {
+      model.destroyRecord()
+        .then(() => {
+          this.onSuccess(null);
+        })
+        .catch((error) => {
+          this.onError(error);
+        });
+    }
+  }
 }

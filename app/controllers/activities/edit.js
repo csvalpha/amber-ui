@@ -7,6 +7,7 @@ import { inject as service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { union } from '@ember/object/computed';
 
+//todo: refactor below class to extend EditController
 export default class EditActivityController extends Controller {
   @service session;
   @service store;
