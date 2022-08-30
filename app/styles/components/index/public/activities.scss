@@ -1,0 +1,11 @@
+@include media-breakpoint-up(md) {
+    .activity-list {
+        column-count: 2;
+    }
+}
+
+@include media-breakpoint-up(lg) {
+    .activity-list {
+        column-count: 3;
+    }
+}

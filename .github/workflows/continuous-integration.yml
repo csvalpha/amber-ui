@@ -22,7 +22,7 @@ jobs:
           ref: ${{ inputs.sha }}
 
       - name: Build test image
-        uses: guidojw/actions/build-docker-image@92f1fbb6058a84135e953d0d49462bccf3e6336a # tag=v1.2.0
+        uses: guidojw/actions/build-docker-image@5faa9418b42a6a77f81e11ae935287900673f98b # tag=v1.3.2
         with:
           file: Dockerfile
           target: base
@@ -47,15 +47,15 @@ jobs:
 
       - name: Download actionlint
         run: |
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash)
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 1.6.15
 
       - name: Set up Node.js
-        uses: actions/setup-node@17f8bd926464a1afa4c6a11669539e9c1ba77048 # tag=v3.2.0
+        uses: actions/setup-node@2fddd8803e2f5c9604345a0b591c3020ee971a93 # tag=v3.4.1
         with:
           node-version-file: .nvmrc
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@92f1fbb6058a84135e953d0d49462bccf3e6336a # tag=v1.2.0
+        uses: guidojw/actions/load-docker-image@5faa9418b42a6a77f81e11ae935287900673f98b # tag=v1.3.2
         with:
           name: app
 
@@ -63,7 +63,8 @@ jobs:
         # Convert output of stylelint so that the problem matcher can match it correctly.
         run: |
           EXIT_STATUS=0
-          ./actionlint -ignore 'property "app_private_key" is not defined' -ignore 'SC2153:' || EXIT_STATUS=$?
+          ./actionlint -ignore 'property "app_private_key" is not defined' -ignore 'SC2153:' \
+            -ignore 'property "sha" is not defined in object type {}' || EXIT_STATUS=$?
           docker run app yarn lint:hbs || EXIT_STATUS=$?
           docker run app yarn lint:js || EXIT_STATUS=$?
           STYLELINT_OUTPUT="$(docker run app yarn lint:scss)" || EXIT_STATUS=$?
@@ -76,7 +77,7 @@ jobs:
     needs: build
     steps:
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@92f1fbb6058a84135e953d0d49462bccf3e6336a # tag=v1.2.0
+        uses: guidojw/actions/load-docker-image@5faa9418b42a6a77f81e11ae935287900673f98b # tag=v1.3.2
         with:
           name: app
 

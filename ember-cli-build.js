@@ -1,6 +1,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const MomentLocalesPlugin = require('moment-locales-webpack-plugin');
 
 module.exports = function (defaults) {
   let app = new EmberApp(defaults, {
@@ -23,6 +24,16 @@ module.exports = function (defaults) {
 
     'ember-simple-auth': {
       useSessionSetupMethod: true,
+    },
+
+    autoImport: {
+      webpack: {
+        plugins: [
+          new MomentLocalesPlugin({
+            localesToKeep: ['nl'],
+          }),
+        ],
+      },
     },
 
     babel: {
