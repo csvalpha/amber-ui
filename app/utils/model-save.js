@@ -24,7 +24,7 @@ export default class ModelSaveUtil {
     if (!isNone(this.entity?.successTransitionTarget)) {
       this.transition(
         this.entity.successTransitionTarget,
-        targetModel,
+        targetModel.id,
       );
     }
   }
@@ -53,6 +53,19 @@ export default class ModelSaveUtil {
     if (!isNone(model)) {
       model
         .save()
+        .then((savedModel) => {
+          this.onSuccess(savedModel);
+        })
+        .catch((error) => {
+          this.onError(error);
+        });
+    }
+  }
+
+  saveModelWithForm(model) {
+    this.entity.errorMessage = null;
+    if (!isNone(model)) {
+      model.saveWithForm()
         .then((savedModel) => {
           this.onSuccess(savedModel);
         })

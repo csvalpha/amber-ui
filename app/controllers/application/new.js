@@ -3,8 +3,8 @@ import { action } from '@ember/object';
 
 export default class NewController extends EditController {
   successMessage = 'Aanmaken gelukt!';
-  onSuccess(model) {
-    model.reload();
-    this.modelSaveUtil.redirect(model);
-  }
+  // onSuccess(model) {
+  //   model.reload();
+  //   this.modelSaveUtil.redirect(model);
+  // }
 }

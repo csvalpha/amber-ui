@@ -7,6 +7,6 @@ export default class EditThreadController extends EditController {
 
   @action
   submit() {
-    this.send('saveModel', this.model.thread);
+    this.modelSaveUtil.saveModel(this.model.thread);
   }
 }

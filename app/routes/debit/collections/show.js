@@ -4,11 +4,11 @@ import { hash } from 'rsvp';
 
 export default class CollectionsIndexRoute extends AuthenticatedRoute {
   get breadCrumb() {
-    return { title: this.model.collection.name };
+    return { title: this.controller.model.collection.name };
   }
 
   get pageActions() {
-    const { collection } = this.model;
+    const { collection } = this.controller.model;
     return [
       {
         link: 'debit.collections.edit',
@@ -38,22 +38,26 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
     return this.abilities.can('show debit/collections');
   }
 
-  model(params) {
-    const collectionPromise = this.store.findRecord(
+  async model(params) {
+    const collection = await this.store.findRecord(
       'debit/collection',
-      params.id
+      params.id,
     );
-    assign(params, {
-      paramMapping: this.paramMapping,
-      filter: { collection: params.id },
-      sort: 'created_at',
-    });
-    delete params.id;
-    const transactionsPromise = this.store.query('debit/transaction', params);
+    console.log(params.id);
+    console.log(collection);
+    console.log(await collection.transactions);
+    const transactions = collection.transactions;
+    // assign(params, {
+    //   paramMapping: this.paramMapping,
+    //   filter: { collection: params.id },
+    //   sort: 'created_at',
+    // });
+    // delete params.id;
+    // const transactionsPromise = this.store.query('debit/transaction', params);
 
-    return hash({
-      collection: collectionPromise,
-      transactions: transactionsPromise,
-    });
+    return {
+      collection: collection,
+      transactions: transactions,
+    };
   }
 }

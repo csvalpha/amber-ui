@@ -24,6 +24,6 @@ export default class EditController extends Controller {
 
   onError(error) {
     // todo: somehow incorporate the error into the message maybe? could be useful if users can show us the error message
-    this.errorMessage = 'Er ging iets fout bij het opslaan van je wijzigingen.'
+    this.errorMessage = 'Er ging iets fout bij het opslaan van je wijzigingen. ' + error
   }
 }
