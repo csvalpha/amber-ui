@@ -12,4 +12,6 @@ export default class EditPollController extends EditController {
   submit() {
     this.modelSaveUtil.saveModelWithForm(this.model);
   }
+  @union('model.errors', 'model.form.errors')
+  combinedErrors;
 }

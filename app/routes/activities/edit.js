@@ -7,10 +7,10 @@ export default class EdityActivityRoute extends AuthenticatedRoute {
     return this.abilities.can('edit activity', model);
   }
 
-  model(params) {
-    return this.store
-      .findRecord('activity', params.id, params)
-      .then((activity) => activity.get('form').then(() => activity));
+  async model(params) {
+    const activity = await this.store.findRecord('activity', params.id, params);
+    await activity.get('form');
+    return activity;
   }
 
   deactivate() {

@@ -19,13 +19,23 @@ export default class ModelSaveUtil {
     }
   }
 
-  redirect(model) {
+  redirectSuccess(model) {
     const targetModel = this.entity?.successTransitionModel ?? model;
     if (!isNone(this.entity?.successTransitionTarget)) {
       this.transition(
         this.entity.successTransitionTarget,
-        targetModel.id,
+        targetModel?.id,
       );
+    }
+  }
+
+  redirectCancel() {
+    const targetModel = this.entity?.cancelTransitionModel;
+    if (!isNone(this.entity?.cancelTransitionTarget)) {
+      this.transition(
+        this.entity.cancelTransitionTarget,
+        targetModel?.id,
+      )
     }
   }
 
@@ -36,7 +46,7 @@ export default class ModelSaveUtil {
       this.entity.onSuccess(model);
     } else {
       // Redirect
-      this.redirect(model)
+      this.redirectSuccess(model)
     }
   }
 
@@ -86,5 +96,10 @@ export default class ModelSaveUtil {
           this.onError(error);
         });
     }
+  }
+
+  cancelEdit() {
+    this.entity.errorMessage = null;
+    this.redirectCancel();
   }
 }

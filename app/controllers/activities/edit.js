@@ -6,13 +6,15 @@ import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { union } from '@ember/object/computed';
+import EditController from "../application/edit";
 
 //todo: refactor below class to extend EditController
-export default class EditActivityController extends Controller {
+export default class EditActivityController extends EditController {
   @service session;
-  @service store;
+  successTransitionTarget = 'activities.show';
+  successTransitionModel = this.model;
+  successMessage = 'Activiteit opgeslagen!';
   @service abilities;
-  @service('flash-notice') flashNotice;
 
   _activityCategoryToOption(activityCategory) {
     return {
@@ -21,9 +23,11 @@ export default class EditActivityController extends Controller {
     };
   }
 
+  // todo: do we want to get rid of @union ? idk how to octane this
   @union('model.errors', 'model.form.errors')
   combinedErrors;
 
+  // todo: refactor computed
   @computed('model.form.content', {
     get() {
       return !isNone(this.model.form.content);
@@ -47,31 +51,20 @@ export default class EditActivityController extends Controller {
   })
   activityHasForm;
 
-  @computed('session.currentUser', function () {
+  get groups() {
     if (this.abilities.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
-
     return this.session.currentUser.get('groups');
-  })
-  groups;
+  }
 
-  @computed('_activityCategoryToOption', function () {
+  get activityCategoryOptions() {
     return ActivityCategories.map(this._activityCategoryToOption);
-  })
-  activityCategoryOptions;
+  }
 
   @action
   submit() {
-    this.model
-      .saveWithForm()
-      .then((savedActivity) => {
-        this.transitionToRoute('activities.show', savedActivity.id);
-        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
-      })
-      .catch((error) => {
-        this.set('errorMessage', error.message);
-      });
+    this.modelSaveUtil.saveModelWithForm(this.model);
   }
 
   @action

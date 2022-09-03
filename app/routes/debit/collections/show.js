@@ -43,18 +43,8 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
       'debit/collection',
       params.id,
     );
-    console.log(params.id);
-    console.log(collection);
-    console.log(await collection.transactions);
     const transactions = collection.transactions;
-    // assign(params, {
-    //   paramMapping: this.paramMapping,
-    //   filter: { collection: params.id },
-    //   sort: 'created_at',
-    // });
-    // delete params.id;
-    // const transactionsPromise = this.store.query('debit/transaction', params);
-
+    // todo: simplify this to just returning collection, because transactions can be gotten from the collection, right?
     return {
       collection: collection,
       transactions: transactions,

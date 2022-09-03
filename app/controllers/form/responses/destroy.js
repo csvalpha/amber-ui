@@ -14,6 +14,6 @@ export default class FormResponseDestroyController extends DestroyController {
   }
   onSuccess(model) {
     this.form.reload();
-    this.modelSaveUtil.redirect(model);
+    this.modelSaveUtil.redirectSuccess(model);
   }
 }
