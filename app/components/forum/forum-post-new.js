@@ -2,9 +2,10 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { action } from '@ember/object';
 
+// todo: incorporate the model-save-util into components?
 export default class ForumPostNewComponent extends Component {
   @service store;
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
 
   @action
   save() {

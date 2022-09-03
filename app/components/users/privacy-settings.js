@@ -48,9 +48,4 @@ export default class PrivacySettingsComponent extends Component {
       this.args.model.allowTomatoSharing
     );
   }
-
-  @action
-  submit() {
-    this.modelSaveUtil.saveModel(this.args.model);
-  }
 }

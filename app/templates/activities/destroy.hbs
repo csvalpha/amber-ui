@@ -23,13 +23,13 @@
       <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
         Verwijderen
       </button>
-      <LinkTo
-        @route='activities.show'
-        @model={{model.id}}
+      <button
+        {{action 'cancel'}}
+        type="button"
         class='btn btn-default'
       >
         Annuleren
-      </LinkTo>
+      </button>
       {{#if errorMessage}}
         <div class='text-danger'>{{this.errorMessage}}</div>
       {{/if}}

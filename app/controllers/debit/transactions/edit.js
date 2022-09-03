@@ -1,20 +1,24 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { alias } from '@ember/object/computed';
+import { inject as service } from '@ember/service';
+
 
 export default class EditTransactionController extends EditController {
   successMessage = 'Transactie aangepast!';
   successTransitionTarget = 'debit.collections.show';
+  @service store;
 
-  @alias('model.collection.id')
-  successTransitionModel;
+  @action
+  async submit() {
+    // couldn't figure out how to do set the successTransitionModel reactively, so we fetch it manually here
+    this.successTransitionModel = await this.model.collection;
+    super.submit();
+  }
 
-  @computed('store', function () {
+  get users() {
     return this.store.findAll('user');
-  })
-  users;
+  }
 
   @action
   setUser(user) {

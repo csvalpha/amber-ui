@@ -13,7 +13,7 @@ export default class EditController extends Controller {
   @tracked successTransitionTarget = null;
   @tracked successTransitionModel = this.model;
   @tracked cancelTransitionTarget = this.successTransitionTarget; // sensible default
-  @tracked cancelTransitionModel = this.model;
+  @tracked cancelTransitionModel = this.successTransitionModel;
 
   constructor() {
     super(...arguments);

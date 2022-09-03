@@ -36,9 +36,9 @@
       </div>
 
       <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
-        <LinkTo @route='debit.collections' class='btn btn-default'>
+        <button {{action @onCancel}} type="button" class='btn btn-default'>
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

@@ -14,12 +14,12 @@
     <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <LinkTo
-      @route='articles.show'
-      @model={{@model.article}}
+    <button
+      {{action 'cancel'}}
+      type="button"
       class='btn btn-default'
     >
       Annuleren
-    </LinkTo>
+    </button>
   </div>
 </div>
