@@ -1,12 +1,11 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action, computed } from '@ember/object';
 import { ActivityCategories } from 'amber-ui/constants';
-import Controller from '@ember/controller';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { union } from '@ember/object/computed';
-import EditController from "../application/edit";
+import EditController from '../application/edit';
 
 //todo: refactor below class to extend EditController
 export default class EditActivityController extends EditController {

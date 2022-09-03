@@ -1,12 +1,11 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import {action, computed} from '@ember/object';
-import {A} from '@ember/array';
-import Controller from '@ember/controller';
-import {GroupKinds} from 'amber-ui/constants';
-import {all} from 'rsvp';
-import {capitalize} from '@ember/string';
-import {inject as service} from '@ember/service';
-import EditController from "../application/edit";
+import { action } from '@ember/object';
+import { A } from '@ember/array';
+import { GroupKinds } from 'amber-ui/constants';
+import { all } from 'rsvp';
+import { capitalize } from '@ember/string';
+import { inject as service } from '@ember/service';
+import EditController from '../application/edit';
 
 export default class EditGroupController extends EditController {
   @service session;
@@ -57,7 +56,7 @@ export default class EditGroupController extends EditController {
           this.model.get('memberships').map((membership) => {
             if (membership.get('hasDirtyAttributes')) {
               return membership.save().catch((error) => {
-                membershipErrors.push({membership, error});
+                membershipErrors.push({ membership, error });
                 failedMembershipSavings++;
               });
             }
@@ -81,7 +80,6 @@ export default class EditGroupController extends EditController {
         } else {
           this.modelSaveUtil.onSuccess(savedModel);
         }
-
       } catch (error) {
         this.errorMessage = error.message;
       }

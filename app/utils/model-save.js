@@ -18,31 +18,25 @@ export default class ModelSaveUtil {
 
   transition(target, model) {
     target = target ?? 'index';
-    const transition_args = model ? [target, model] : [target];
+    const transitionArgs = model ? [target, model] : [target];
     if (this.entity.transition) {
-      this.entity.transition(...transition_args);
+      this.entity.transition(...transitionArgs);
     } else {
-      this.entity.transitionToRoute(...transition_args);
+      this.entity.transitionToRoute(...transitionArgs);
     }
   }
 
   redirectSuccess(model) {
     const targetModel = this.entity?.successTransitionModel ?? model;
     if (!isNone(this.entity?.successTransitionTarget)) {
-      this.transition(
-        this.entity.successTransitionTarget,
-        targetModel?.id,
-      );
+      this.transition(this.entity.successTransitionTarget, targetModel?.id);
     }
   }
 
   redirectCancel() {
     const targetModel = this.entity?.cancelTransitionModel;
     if (!isNone(this.entity?.cancelTransitionTarget)) {
-      this.transition(
-        this.entity.cancelTransitionTarget,
-        targetModel?.id,
-      )
+      this.transition(this.entity.cancelTransitionTarget, targetModel?.id);
     }
   }
 
@@ -70,7 +64,9 @@ export default class ModelSaveUtil {
     if (this.entity?.onError) {
       this.entity.onError(error);
     } else {
-      this.entity.errorMessage = error.errors.map((err) => err.detail).join(', ');
+      this.entity.errorMessage = error.errors
+        .map((err) => err.detail)
+        .join(', ');
     }
   }
 
@@ -78,7 +74,7 @@ export default class ModelSaveUtil {
     this.entity.errorMessage = null;
     if (!isNone(model)) {
       try {
-        const savedModel = await model.save()
+        const savedModel = await model.save();
         this.onSuccess(savedModel);
       } catch (error) {
         this.onError(error);
@@ -101,7 +97,8 @@ export default class ModelSaveUtil {
   destroyModel(model) {
     this.entity.errorMessage = null;
     if (!isNone(model)) {
-      model.destroyRecord()
+      model
+        .destroyRecord()
         .then(() => {
           this.onSuccess(null);
         })

@@ -34,6 +34,6 @@ export default class Thread extends Model {
     this.rollbackAttributes();
     this.posts.forEach((post) => {
       post.rollbackAttributes();
-    })
+    });
   }
 }

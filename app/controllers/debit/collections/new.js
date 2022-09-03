@@ -1,4 +1,3 @@
-import { alias } from '@ember/object/computed';
 import EmberArray from '@ember/array';
 import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';

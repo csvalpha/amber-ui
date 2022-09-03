@@ -1,7 +1,6 @@
 import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
-import {tracked} from '@glimmer/tracking';
-
+import { tracked } from '@glimmer/tracking';
 
 export default class DestroyController extends EditController {
   successMessage = 'Verwijderen gelukt!';
@@ -17,14 +16,13 @@ export default class DestroyController extends EditController {
 
   onError(error) {
     // todo: somehow incorporate the error into the message maybe? could be useful if users can show us the error message
-    this.errorMessage = 'Er ging iets fout bij het verwijderen.'
-    this.errorMessage += error
+    this.errorMessage = 'Er ging iets fout bij het verwijderen.';
+    this.errorMessage += error;
   }
 
   transition() {
-    this.replaceRoute(...arguments)
+    this.replaceRoute(...arguments);
   }
 
   submit = undefined;
-
 }

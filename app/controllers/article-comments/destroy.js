@@ -9,5 +9,4 @@ export default class ArticleCommentDestroyController extends DestroyController {
     this.successTransitionModel = await this.model.article;
     super.destroyModel();
   }
-
 }

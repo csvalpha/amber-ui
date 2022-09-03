@@ -10,7 +10,6 @@ export default class NewThreadController extends NewController {
   cancelTransitionTarget = 'forum.categories.category.show';
   cancelTransitionModel = this.model?.thread?.category;
 
-
   content = '';
 
   @action

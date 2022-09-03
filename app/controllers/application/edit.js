@@ -12,7 +12,7 @@ export default class EditController extends Controller {
   cancelMessage = 'Wijzigen geannuleerd.';
   @tracked successTransitionTarget = null;
   @tracked successTransitionModel = this.model;
-  @tracked cancelTransitionTarget = this.successTransitionTarget;  // sensible default
+  @tracked cancelTransitionTarget = this.successTransitionTarget; // sensible default
   @tracked cancelTransitionModel = this.model;
 
   constructor() {
@@ -27,7 +27,8 @@ export default class EditController extends Controller {
 
   onError(error) {
     // todo: somehow incorporate the error into the message maybe? could be useful if users can show us the error message
-    this.errorMessage = 'Er ging iets fout bij het opslaan van je wijzigingen. ' + error
+    this.errorMessage =
+      'Er ging iets fout bij het opslaan van je wijzigingen. ' + error;
   }
 
   @action

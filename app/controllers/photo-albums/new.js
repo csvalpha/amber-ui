@@ -1,6 +1,5 @@
 import NewController from 'amber-ui/controllers/application/new';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class NewPhotoAlbumController extends NewController {
@@ -10,7 +9,6 @@ export default class NewPhotoAlbumController extends NewController {
 
   successTransitionTarget = 'photo-albums.photo-album.edit';
   cancelTransitionTarget = 'photo-albums.index';
-
 
   get groups() {
     if (this.abilities.can('select all groups for photo-albums')) {

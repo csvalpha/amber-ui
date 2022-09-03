@@ -8,7 +8,9 @@ export default class EditTopicRoute extends AuthenticatedRoute {
   }
 
   async model() {
-    const thread = await this.modelFor('forum.categories.category.threads.thread');
+    const thread = await this.modelFor(
+      'forum.categories.category.threads.thread'
+    );
     return thread;
   }
 

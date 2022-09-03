@@ -9,5 +9,4 @@ export default class PhotoCommentDestroyController extends DestroyController {
     this.successTransitionModel = await this.model.photo.get('photoAlbum');
     super.destroyModel();
   }
-
 }

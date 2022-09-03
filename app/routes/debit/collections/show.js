@@ -1,6 +1,4 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
-import { assign } from '@ember/polyfills';
-import { hash } from 'rsvp';
 
 export default class CollectionsIndexRoute extends AuthenticatedRoute {
   get breadCrumb() {
@@ -41,7 +39,7 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
   async model(params) {
     const collection = await this.store.findRecord(
       'debit/collection',
-      params.id,
+      params.id
     );
     const transactions = collection.transactions;
     // todo: simplify this to just returning collection, because transactions can be gotten from the collection, right?
