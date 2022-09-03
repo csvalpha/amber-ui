@@ -11,7 +11,7 @@
         @required={{true}}
       />
 
-      {{#if @model.firstPost }}
+      {{#if @model.isNew }}
         <label for='forumpost-message'>Bericht *</label>
         <MdEditor
           @content={{@model.firstPost.message}}
@@ -31,22 +31,13 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        {{#if @model.isNew}}
-          <LinkTo
-            @route='forum.categories.category.threads'
+          <button
+            {{action @onCancel}}
+            type="button"
             class='btn btn-default'
           >
             Annuleren
-          </LinkTo>
-        {{else}}
-          <LinkTo
-            @route='forum.categories.category.threads.thread'
-            @model={{@model}}
-            class='btn btn-default'
-          >
-            Annuleren
-          </LinkTo>
-        {{/if}}
+          </button>
       </ModelForm::FormActions>
     </form>
   </div>

@@ -10,8 +10,8 @@ export default class NewTopicRoute extends AuthenticatedRoute {
   async model() {
     const category = this.modelFor('forum.categories.category');
     const thread = await this.store.createRecord('forum/thread', { category });
-    const post = await this.store.createRecord('forum/post', { thread });
-    post.reload(); // hoping this updates thread.posts?
+    await this.store.createRecord('forum/post', { thread });
+    // the post created above can magically be accessed via the thread model
     return thread;
   }
 
