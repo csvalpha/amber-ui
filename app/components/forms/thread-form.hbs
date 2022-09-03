@@ -1,26 +1,26 @@
 <div class='card'>
   <div class='card-header'>
-    <h5>{{if @model.thread.isNew 'Topic aanmaken' 'Topic wijzigen'}}</h5>
+    <h5>{{if @model.isNew 'Topic aanmaken' 'Topic wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
-        @model={{@model.thread}}
+        @model={{@model}}
         @property='title'
         @label='Titel'
         @required={{true}}
       />
 
-      {{#if @model.post}}
+      {{#if @model.firstPost }}
         <label for='forumpost-message'>Bericht *</label>
         <MdEditor
-          @content={{@model.post.message}}
+          @content={{@model.firstPost.message}}
           @textareaId='forumpost-message'
         />
       {{else}}
         {{#if (can 'edit forum/threads')}}
           <ModelForm::CheckboxInput
-            @model={{@model.thread}}
+            @model={{@model}}
             @property='isOpen'
             @label='Open voor reacties'
           />
@@ -31,7 +31,7 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        {{#if @model.thread.isNew}}
+        {{#if @model.isNew}}
           <LinkTo
             @route='forum.categories.category.threads'
             class='btn btn-default'
@@ -41,7 +41,7 @@
         {{else}}
           <LinkTo
             @route='forum.categories.category.threads.thread'
-            @model={{@model.thread}}
+            @model={{@model}}
             class='btn btn-default'
           >
             Annuleren

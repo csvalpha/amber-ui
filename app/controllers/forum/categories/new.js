@@ -4,4 +4,5 @@ export default class NewCategoryController extends NewController {
   successMessage = 'Categorie toegevoegd!';
   successTransitionTarget = 'forum.categories';
   successTransitionTarget = null;
+  cancelTransitionTarget = 'forum.categories';
 }

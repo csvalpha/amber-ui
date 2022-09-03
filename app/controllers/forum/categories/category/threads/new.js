@@ -6,46 +6,42 @@ import { inject as service } from '@ember/service';
 export default class NewThreadController extends NewController {
   @service('flash-notice') flashNotice;
 
-  successTransitionTarget = 'forum.categories.category.threads.thread';
+  successTransitionTarget = 'forum.categories.category.threads.thread.show';
+  cancelTransitionTarget = 'forum.categories.category.show';
+  cancelTransitionModel = this.model?.thread?.category;
 
-  routeIsNew = true;
+
   content = '';
 
   @action
-  onSuccess() {
+  onSuccess(savedModel) {
     // Reload thread to update thread.amountOfPosts
-    this.model.thread.reload();
+    savedModel.reload();
     // Reload category to update category.amountOfThreads
-    this.model.category.reload();
+    savedModel.category.reload();
+    // redirect
+    this.modelSaveUtil.redirectSuccess(savedModel);
   }
 
   @action
-  submit() {
-    this.set('errorMessage', null);
-    const { thread } = this.model;
-    const { post } = this.model;
+  async submit() {
+    this.errorMessage = null;
+    const thread = await this.model;
+    const post = thread.firstPost;
 
-    if (isNone(post.get('message'))) {
+    if (isNone(post.message)) {
       this.set('errorMessage', 'Je moet eerst een bericht aanmaken');
       return;
     }
 
     if (!isNone(thread)) {
-      thread
-        .save()
-        .then((savedModel) => {
-          post
-            .save()
-            .then(() => {
-              this.send('onSuccess', savedModel);
-            })
-            .catch((error) => {
-              this.send('onError', error);
-            });
-        })
-        .catch((error) => {
-          this.send('onError', error);
-        });
+      try {
+        const savedModel = await thread.save();
+        await post.save();
+        this.onSuccess(savedModel);
+      } catch (error) {
+        this.modelSaveUtil.onError(error);
+      }
     }
   }
 }

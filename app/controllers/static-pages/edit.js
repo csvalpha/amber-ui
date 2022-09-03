@@ -8,13 +8,12 @@ export default class EditStaticPageController extends EditController {
   successMessage = 'Infopagina aangepast!';
   successTransitionTarget = 'static-pages.show';
 
-  @computed(function () {
+  get staticPageCategoryOptions() {
     return StaticPageCategories.map((pageCategory) => {
       return {
         value: pageCategory,
         label: capitalize(pageCategory),
       };
     });
-  })
-  staticPageCategoryOptions;
+  }
 }

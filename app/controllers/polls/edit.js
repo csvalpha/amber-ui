@@ -9,8 +9,8 @@ export default class EditPollController extends EditController {
   successTransitionTarget = 'polls.show';
 
   @action
-  submit() {
-    this.modelSaveUtil.saveModelWithForm(this.model);
+  async submit() {
+    await this.modelSaveUtil.saveModelWithForm(this.model);
   }
   @union('model.errors', 'model.form.errors')
   combinedErrors;

@@ -7,13 +7,13 @@ export default class EditTopicRoute extends AuthenticatedRoute {
     return this.abilities.can('edit forum/threads');
   }
 
-  model() {
-    const thread = this.modelFor('forum.categories.category.threads.thread');
-    return { thread };
+  async model() {
+    const thread = await this.modelFor('forum.categories.category.threads.thread');
+    return thread;
   }
 
   deactivate() {
     super.deactivate();
-    this.controller.model.thread?.rollbackAttributes();
+    this.controller.model.rollbackAttributesAndPosts();
   }
 }

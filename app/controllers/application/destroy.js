@@ -1,9 +1,14 @@
 import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
+import {tracked} from '@glimmer/tracking';
 
 
 export default class DestroyController extends EditController {
   successMessage = 'Verwijderen gelukt!';
+  cancelMessage = 'Verwijderen geannuleerd.';
+  @tracked successTransitionModel = null;
+  @tracked cancelTransitionTarget = null;
+  @tracked cancelTransitionModel = this.model;
 
   @action
   destroyModel() {

@@ -3,10 +3,6 @@ import { action } from '@ember/object';
 
 export default class EditThreadController extends EditController {
   successMessage = 'Topic aangepast!';
-  successTransitionTarget = 'forum.categories.category.threads.thread';
+  successTransitionTarget = 'forum.categories.category.threads.thread.show';
 
-  @action
-  submit() {
-    this.modelSaveUtil.saveModel(this.model.thread);
-  }
 }

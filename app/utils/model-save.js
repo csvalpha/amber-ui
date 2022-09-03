@@ -10,8 +10,15 @@ export default class ModelSaveUtil {
     }
   }
 
+  sendCancel() {
+    if (!isNone(this.entity?.cancelMessage)) {
+      this.entity?.flashNotice?.sendInfo(this.entity.cancelMessage);
+    }
+  }
+
   transition(target, model) {
-    const transition_args = model ? [target, model] : [target]
+    target = target ?? 'index';
+    const transition_args = model ? [target, model] : [target];
     if (this.entity.transition) {
       this.entity.transition(...transition_args);
     } else {
@@ -46,7 +53,16 @@ export default class ModelSaveUtil {
       this.entity.onSuccess(model);
     } else {
       // Redirect
-      this.redirectSuccess(model)
+      this.redirectSuccess(model);
+    }
+  }
+
+  onCancel() {
+    this.sendCancel();
+    if (this.entity?.onCancel) {
+      this.entity.onCancel();
+    } else {
+      this.redirectCancel();
     }
   }
 
@@ -58,30 +74,27 @@ export default class ModelSaveUtil {
     }
   }
 
-  saveModel(model) {
+  async saveModel(model) {
     this.entity.errorMessage = null;
     if (!isNone(model)) {
-      model
-        .save()
-        .then((savedModel) => {
-          this.onSuccess(savedModel);
-        })
-        .catch((error) => {
-          this.onError(error);
-        });
+      try {
+        const savedModel = await model.save()
+        this.onSuccess(savedModel);
+      } catch (error) {
+        this.onError(error);
+      }
     }
   }
 
-  saveModelWithForm(model) {
+  async saveModelWithForm(model) {
     this.entity.errorMessage = null;
     if (!isNone(model)) {
-      model.saveWithForm()
-        .then((savedModel) => {
-          this.onSuccess(savedModel);
-        })
-        .catch((error) => {
-          this.onError(error);
-        });
+      try {
+        const savedModel = await model.saveWithForm();
+        this.onSuccess(savedModel);
+      } catch (error) {
+        this.onError(error);
+      }
     }
   }
 
@@ -100,6 +113,6 @@ export default class ModelSaveUtil {
 
   cancelEdit() {
     this.entity.errorMessage = null;
-    this.redirectCancel();
+    this.onCancel();
   }
 }

@@ -5,6 +5,7 @@
 <Forms::ArticleForm
   @model={{@model}}
   @onSubmit={{action 'submit'}}
+  @onCancel={{action 'cancel'}}
   @onCoverPhotoLoaded={{action 'coverPhotoLoaded'}}
   @canPin={{this.canPin}}
   @groups={{this.groups}}

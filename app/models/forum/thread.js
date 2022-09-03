@@ -14,6 +14,10 @@ export default class Thread extends Model {
   @belongsTo('forum/category') category;
   @hasMany('forum/post') posts;
 
+  get firstPost() {
+    return this.posts.length > 0 ? this.posts[0] : null;
+  }
+
   get isOpen() {
     return this.closedAt === null;
   }
@@ -24,5 +28,12 @@ export default class Thread extends Model {
     } else {
       this.set('closedAt', new Date());
     }
+  }
+
+  rollbackAttributesAndPosts() {
+    this.rollbackAttributes();
+    this.posts.forEach((post) => {
+      post.rollbackAttributes();
+    })
   }
 }

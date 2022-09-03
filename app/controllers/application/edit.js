@@ -9,6 +9,7 @@ export default class EditController extends Controller {
 
   @tracked errorMessage = null;
   successMessage = 'Wijzigen gelukt!';
+  cancelMessage = 'Wijzigen geannuleerd.';
   @tracked successTransitionTarget = null;
   @tracked successTransitionModel = this.model;
   @tracked cancelTransitionTarget = this.successTransitionTarget;  // sensible default

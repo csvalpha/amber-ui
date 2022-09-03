@@ -7,17 +7,16 @@ export default class NewTopicRoute extends AuthenticatedRoute {
     return this.abilities.can('create forum/thread');
   }
 
-  model() {
+  async model() {
     const category = this.modelFor('forum.categories.category');
-    const thread = this.store.createRecord('forum/thread', { category });
-    const post = this.store.createRecord('forum/post', { thread });
-
-    return { category, thread, post };
+    const thread = await this.store.createRecord('forum/thread', { category });
+    const post = await this.store.createRecord('forum/post', { thread });
+    post.reload(); // hoping this updates thread.posts?
+    return thread;
   }
 
   deactivate() {
     super.deactivate();
-    this.controller.model.thread?.rollbackAttributes();
-    this.controller.model.post?.rollbackAttributes();
+    this.controller.model.rollbackAttributesAndPosts();
   }
 }
