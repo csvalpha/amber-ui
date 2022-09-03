@@ -4,8 +4,8 @@ import { ActivityCategories } from 'amber-ui/constants';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { union } from '@ember/object/computed';
 import EditController from '../application/edit';
+import { union } from '../../utils/array-operations';
 
 //todo: refactor below class to extend EditController
 export default class EditActivityController extends EditController {
@@ -21,10 +21,10 @@ export default class EditActivityController extends EditController {
       label: activityCategory,
     };
   }
-
-  // todo: do we want to get rid of @union ? idk how to octane this
-  @union('model.errors', 'model.form.errors')
-  combinedErrors;
+  get combinedErrors() {
+    const combined = union(this.model.errors.content, this.model.form?.get('errors')?.content);
+    return combined.length > 0 ? combined : null;
+  }
 
   // todo: refactor computed
   @computed('model.form.content', {

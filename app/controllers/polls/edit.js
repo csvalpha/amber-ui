@@ -1,7 +1,6 @@
 import EditController from '../application/edit';
 import { action } from '@ember/object';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { union } from '@ember/object/computed';
+import { union } from '../../utils/array-operations';
 
 export default class EditPollController extends EditController {
   successMessage = 'Poll opgeslagen!';
@@ -12,6 +11,8 @@ export default class EditPollController extends EditController {
     await this.modelSaveUtil.saveModelWithForm(this.model);
   }
 
-  @union('model.errors', 'model.form.errors')
-  combinedErrors;
+  get combinedErrors() {
+    const combined = union(this.model.errors.content, this.model.form?.get('errors')?.content);
+    return combined.length > 0 ? combined : null;
+  }
 }
