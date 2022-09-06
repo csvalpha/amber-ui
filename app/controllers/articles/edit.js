@@ -4,11 +4,11 @@ import { action, computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class EditArticleController extends EditController {
-  @service session;
-  @service abilities;
-
   successTransitionTarget = 'articles.show';
 
+  @service session;
+  @service abilities;
+  
   @computed('session.currentUser', function () {
     return this.session.hasPermission('article.update');
   })

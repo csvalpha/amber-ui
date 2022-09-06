@@ -9,10 +9,10 @@ import { union } from '../../utils/array-operations';
 
 //todo: refactor below class to extend EditController
 export default class EditActivityController extends EditController {
-  @service session;
-  successTransitionTarget = 'activities.show';
-  successTransitionModel = this.model;
   successMessage = 'Activiteit opgeslagen!';
+  successTransitionTarget = 'activities.show';
+
+  @service session;
   @service abilities;
 
   _activityCategoryToOption(activityCategory) {
@@ -26,29 +26,24 @@ export default class EditActivityController extends EditController {
     return combined.length > 0 ? combined : null;
   }
 
-  // todo: refactor computed
-  @computed('model.form.content', {
-    get() {
-      return !isNone(this.model.form.content);
-    },
-    set(_, value) {
-      if (value) {
-        const form = this.store.createRecord('form/form');
-        this.store.createRecord('form/open-question', {
-          form,
-          question: 'Opmerkingen',
-          fieldType: 'text',
-          position: 0,
-        });
-        this.set('model.form', form);
-      } else {
-        this.set('model.form', null);
-      }
-
-      return value;
-    },
-  })
-  activityHasForm;
+  get activityHasForm() {
+    return !isNone(this.model.form.content);
+  }
+  set activityHasForm(value) {
+    if (value) {
+      const form = this.store.createRecord('form/form');
+      this.store.createRecord('form/open-question', {
+        form,
+        question: 'Opmerkingen',
+        fieldType: 'text',
+        position: 0,
+      });
+      this.model.form = form;
+    } else {
+      this.model.form = null;
+    }
+    return value;
+  }
 
   get groups() {
     if (this.abilities.can('select all groups for activities')) {

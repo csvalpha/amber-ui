@@ -9,7 +9,7 @@ export default class EdityActivityRoute extends AuthenticatedRoute {
 
   async model(params) {
     const activity = await this.store.findRecord('activity', params.id, params);
-    await activity.get('form');
+    await activity.form;
     return activity;
   }
 
