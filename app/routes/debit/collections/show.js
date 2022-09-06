@@ -2,11 +2,11 @@ import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class CollectionsIndexRoute extends AuthenticatedRoute {
   get breadCrumb() {
-    return { title: this.controller.model.collection.name };
+    return { title: this.controller.model.name };
   }
 
   get pageActions() {
-    const { collection } = this.controller.model;
+    const collection =  this.controller.model
     return [
       {
         link: 'debit.collections.edit',
@@ -41,11 +41,8 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
       'debit/collection',
       params.id
     );
-    const transactions = collection.transactions;
+    await collection.transactions;
     // todo: simplify this to just returning collection, because transactions can be gotten from the collection, right?
-    return {
-      collection: collection,
-      transactions: transactions,
-    };
+    return collection;
   }
 }
