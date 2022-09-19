@@ -16,11 +16,13 @@ export default class DebitCollectionEditController extends EditController {
       .get('transactions')
       .pushObject(this.store.createRecord('debit/transaction', { user }));
   }
+
   @action
   removeTransaction(transaction) {
     // todo: refactor this to be more in accordance with how we do deletions (such as showing feedback with the flash notice)
     transaction.deleteRecord();
   }
+
   @action
   async submit() {
     this.errorMessage = null;

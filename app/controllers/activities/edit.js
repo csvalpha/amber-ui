@@ -1,5 +1,5 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { ActivityCategories } from 'amber-ui/constants';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
@@ -21,14 +21,19 @@ export default class EditActivityController extends EditController {
       label: activityCategory,
     };
   }
+
   get combinedErrors() {
-    const combined = union(this.model.errors.content, this.model.form?.get('errors')?.content);
+    const combined = union(
+      this.model.errors.content,
+      this.model.form?.get('errors')?.content
+    );
     return combined.length > 0 ? combined : null;
   }
 
   get activityHasForm() {
     return !isNone(this.model.form.content);
   }
+
   set activityHasForm(value) {
     if (value) {
       const form = this.store.createRecord('form/form');
@@ -42,7 +47,6 @@ export default class EditActivityController extends EditController {
     } else {
       this.model.form = null;
     }
-    return value;
   }
 
   get groups() {

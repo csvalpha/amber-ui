@@ -8,7 +8,11 @@ export default class DestroyArticleCommentRoute extends AuthenticatedRoute {
   }
 
   async model(params) {
-    const articleComment = this.store.findRecord('article-comment', params.id, params);
+    const articleComment = this.store.findRecord(
+      'article-comment',
+      params.id,
+      params
+    );
     await articleComment.get('article');
     return articleComment;
   }

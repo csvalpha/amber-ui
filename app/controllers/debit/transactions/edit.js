@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';
 import { inject as service } from '@ember/service';
 
-
 export default class EditTransactionController extends EditController {
   successMessage = 'Transactie aangepast!';
   cancelMessage = 'Transactie wijzigen geannuleerd.';

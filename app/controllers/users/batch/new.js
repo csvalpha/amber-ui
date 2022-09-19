@@ -3,7 +3,7 @@ import EmberArray, { A } from '@ember/array';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { isInvalidResponse } from 'ember-fetch/errors';
-import NewController from "../../application/new";
+import NewController from '../../application/new';
 
 export default class NewUserBatchController extends NewController {
   successMessage = 'Gebruikers aanmaken gelukt!';
@@ -11,7 +11,7 @@ export default class NewUserBatchController extends NewController {
   cancelTransitionTarget = 'users.index';
   successTransitionTarget = 'users.index';
   successTransitionModel = null;
-  
+
   @service fetch;
   @tracked importFile = null;
   @tracked addToGroup = null;
@@ -36,7 +36,6 @@ export default class NewUserBatchController extends NewController {
 
   @action
   async uploadFile() {
-
     const groupId = this.addToGroup ? this.addToGroup.id : null;
     let response = await this.fetch.post('/users/batch_import', {
       body: { file: this.importFile, group: groupId },

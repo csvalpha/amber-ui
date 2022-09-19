@@ -1,5 +1,5 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import {
   DigtusSubscriptionPreferenceTypes,
   AlmanakSubscriptionPreferenceTypes,

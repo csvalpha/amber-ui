@@ -6,7 +6,7 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
   }
 
   get pageActions() {
-    const collection =  this.controller.model
+    const collection = this.controller.model;
     return [
       {
         link: 'debit.collections.edit',

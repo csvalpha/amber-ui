@@ -1,4 +1,4 @@
-import Model, {attr, belongsTo, hasMany} from '@ember-data/model';
+import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class Collection extends Model {
   @attr name;
@@ -10,7 +10,6 @@ export default class Collection extends Model {
   // Relationships
   @hasMany('debit/transaction') transactions;
   @belongsTo('user') author;
-
 
   async saveWithTransactions() {
     const response = await this.save();
