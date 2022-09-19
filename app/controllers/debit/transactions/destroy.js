@@ -8,7 +8,6 @@ export default class DebitTransactionDestroyController extends DestroyController
   @action
   async cancel() {
     this.cancelTransitionModel = await this.model.collection;
-    console.log(this.cancelTransitionModel);
     super.cancel();
   }
 }

@@ -6,12 +6,12 @@ import { inject as service } from '@ember/service';
 
 export default class EditTransactionController extends EditController {
   successMessage = 'Transactie aangepast!';
+  cancelMessage = 'Transactie wijzigen geannuleerd.';
   successTransitionTarget = 'debit.collections.show';
   @service store;
 
   @action
   async submit() {
-    // couldn't figure out how to do set the successTransitionModel reactively, so we fetch it manually here
     this.successTransitionModel = await this.model.collection;
     super.submit();
   }
@@ -22,6 +22,6 @@ export default class EditTransactionController extends EditController {
 
   @action
   setUser(user) {
-    this.model.set('user', user);
+    this.model.user = user;
   }
 }

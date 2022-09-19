@@ -8,7 +8,7 @@ export default class EditArticleController extends EditController {
 
   @service session;
   @service abilities;
-  
+
   @computed('session.currentUser', function () {
     return this.session.hasPermission('article.update');
   })

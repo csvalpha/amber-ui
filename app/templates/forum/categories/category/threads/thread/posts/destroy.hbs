@@ -21,12 +21,11 @@
     <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <LinkTo
-      @route='forum.categories.category.threads.thread'
-      @model={{@model.thread}}
+    <button
+      {{action 'cancel'}}
       class='btn btn-default'
     >
       Annuleren
-    </LinkTo>
+    </button>
   </div>
 </div>
