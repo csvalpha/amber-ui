@@ -10,8 +10,8 @@ export default class NewThreadController extends NewController {
   async submit() {
     this.errorMessage = null;
     try {
-      const savedModel = await this.model.saveWithFirstPost();
-      this.modelSaveUtil.onSuccess(savedModel);
+      await this.model.saveWithFirstPost();
+      this.modelSaveUtil.onSuccess();
     } catch (error) {
       this.modelSaveUtil.onError(error);
     }

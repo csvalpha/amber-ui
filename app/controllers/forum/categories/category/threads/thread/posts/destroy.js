@@ -1,5 +1,5 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
-import { action } from '@ember/objects';
+import { action } from '@ember/object';
 
 export default class ForumPostDestroyController extends DestroyController {
   successMessage = 'Forumbericht verwijderd!';

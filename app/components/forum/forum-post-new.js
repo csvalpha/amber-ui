@@ -8,20 +8,18 @@ export default class ForumPostNewComponent extends Component {
   @service flashNotice;
 
   @action
-  save() {
+  async save() {
     let { content, thread } = this;
-
-    this.store
+    await this.store
       .createRecord('forum/post', {
         message: content,
         thread,
       })
       .save()
-      .then(() => {
-        this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
-        this.set('content', '');
-        this.onSubmit();
-      });
+    this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
+    this.set('content', '');
+    this.onSubmit();
+
   }
 
   @action

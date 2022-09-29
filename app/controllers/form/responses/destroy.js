@@ -6,6 +6,11 @@ export default class FormResponseDestroyController extends DestroyController {
   @service store;
   successMessage = 'Je inschrijving is verwijderd.';
   successTransitionTarget = 'activities.index';
+  cancelTransitionTarget = 'activities.index';
+  // important note: there is no way (currently) to redirect from a form response to the activity, since the models
+  // are not designed with this in mind.
+  // I would not mind this being enabled by a slight redesign in the future, though.
+  cancelTransitionModel = null;
 
   @action
   async destroyModel() {
@@ -13,8 +18,8 @@ export default class FormResponseDestroyController extends DestroyController {
     super.destroyModel();
   }
 
-  onSuccess(model) {
+  onSuccess() {
     this.form.reload();
-    this.modelSaveUtil.redirectSuccess(model);
+    this.modelSaveUtil.redirectSuccess();
   }
 }

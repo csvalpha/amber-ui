@@ -26,8 +26,9 @@ export default class ModelSaveUtil {
     }
   }
 
-  redirectSuccess(model) {
-    const targetModel = this.entity?.successTransitionModel ?? model;
+  redirectSuccess() {
+    const targetModel = this.entity?.successTransitionModel;
+    console.log(targetModel)
     if (!isNone(this.entity?.successTransitionTarget)) {
       this.transition(this.entity.successTransitionTarget, targetModel?.id);
     }
@@ -35,19 +36,20 @@ export default class ModelSaveUtil {
 
   redirectCancel() {
     const targetModel = this.entity?.cancelTransitionModel;
+    console.log(targetModel)
     if (!isNone(this.entity?.cancelTransitionTarget)) {
       this.transition(this.entity.cancelTransitionTarget, targetModel?.id);
     }
   }
 
-  onSuccess(model) {
+  onSuccess() {
     // Show notice
     this.sendSuccess();
     if (this.entity?.onSuccess) {
-      this.entity.onSuccess(model);
+      this.entity.onSuccess();
     } else {
       // Redirect
-      this.redirectSuccess(model);
+      this.redirectSuccess();
     }
   }
 

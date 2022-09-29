@@ -19,7 +19,9 @@ export default class DebitCollectionEditController extends EditController {
 
   @action
   removeTransaction(transaction) {
-    // todo: refactor this to be more in accordance with how we do deletions (such as showing feedback with the flash notice)
+    // note: this deletion only persists when calling .save() on the transaction,
+    // or by calling something like saveWithTransactions() on the collection.
+    // TLDR: deleteRecord is not the same as destroyRecord
     transaction.deleteRecord();
   }
 
@@ -27,8 +29,8 @@ export default class DebitCollectionEditController extends EditController {
   async submit() {
     this.errorMessage = null;
     try {
-      const savedModel = await this.model.saveWithTransactions();
-      this.modelSaveUtil.onSuccess(savedModel);
+      await this.model.saveWithTransactions();
+      this.modelSaveUtil.onSuccess();
     } catch (error) {
       this.modelSaveUtil.onError(error);
     }

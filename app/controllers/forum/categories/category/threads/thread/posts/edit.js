@@ -1,15 +1,9 @@
 import EditController from 'amber-ui/controllers/application/edit';
-import { action } from '@ember/object';
 
 export default class EditPostController extends EditController {
   successMessage = 'Forumbericht aangepast!';
-  successTransitionTarget = null; // Custom transition is used in onSuccess.
+  successTransitionTarget = 'forum.categories.category.threads.thread';
 
-  @action
-  onSuccess(model) {
-    this.transitionToRoute(
-      'forum.categories.category.threads.thread',
-      model.get('thread')
-    );
-  }
+  successTransitionModel = null;
+
 }

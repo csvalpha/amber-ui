@@ -51,7 +51,7 @@ export default class EditGroupController extends EditController {
     if (this.model !== undefined) {
       let failedMembershipSavings = 0;
       try {
-        const savedModel = await this.model.save();
+        await this.model.save();
         await all(
           this.model.get('memberships').map((membership) => {
             if (membership.get('hasDirtyAttributes')) {
@@ -78,7 +78,7 @@ export default class EditGroupController extends EditController {
           );
           this.errorMessage = `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`;
         } else {
-          this.modelSaveUtil.onSuccess(savedModel);
+          this.modelSaveUtil.onSuccess();
         }
       } catch (error) {
         this.errorMessage = error.message;
