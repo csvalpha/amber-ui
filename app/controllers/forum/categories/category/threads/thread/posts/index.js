@@ -37,31 +37,30 @@ export default class PostsIndexController extends Controller {
     this.postsPaged = await this.store.queryPaged('forum/post', params);
   }
 
+  scrollToNewForumPost() {
+    document
+      .getElementById('newForumPostCard')
+      .scrollIntoView({behavior: 'smooth', block: 'center'});
+  }
+
   @action
   async newPostCreated() {
     await this.model.posts.reload();
   }
 
   @action
-  addQuote(q) {
+  async addQuote(q) {
     this.set('newContent', `${this.newContent}${q} \n\n`);
 
-    function scrollToNewForumPost() {
-      document
-        .getElementById('newForumPostCard')
-        .scrollIntoView({behavior: 'smooth', block: 'center'});
-    }
-
     if (!this.currentPageIsLastPage) {
-      this.transitionToRoute({
+      await this.transitionToRoute({
         queryParams: {page: this.postsPaged.meta.totalPages},
-      }).then(() => {
-        next(() => {
-          scrollToNewForumPost();
-        });
+      })
+      next(() => {
+        this.scrollToNewForumPost();
       });
     } else {
-      scrollToNewForumPost();
+      this.scrollToNewForumPost();
     }
   }
 

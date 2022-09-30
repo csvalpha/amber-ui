@@ -1,4 +1,3 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { action } from '@ember/object';
 import { A } from '@ember/array';
 import { GroupKinds } from 'amber-ui/constants';
@@ -46,6 +45,7 @@ export default class EditGroupController extends EditController {
   async submit() {
     // todo: take a good look at this method, and see if its can be simplified to conform more to the
     //  EditController + model-save-utils pattern
+    // Especially the error handling has to be cleaned up heavily. It's hard to read and understand what's going on
     const membershipErrors = A();
 
     if (this.model !== undefined) {
@@ -76,12 +76,13 @@ export default class EditGroupController extends EditController {
             },
             ''
           );
+
           this.errorMessage = `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`;
         } else {
           this.modelSaveUtil.onSuccess();
         }
       } catch (error) {
-        this.errorMessage = error.message;
+        this.modelSaveUtil.onError(error);
       }
     }
   }

@@ -15,9 +15,8 @@ export default class DestroyController extends EditController {
   }
 
   onError(error) {
-    // todo: somehow incorporate the error into the message maybe? could be useful if users can show us the error message
-    this.errorMessage = 'Er ging iets fout bij het verwijderen.';
-    this.errorMessage += error;
+    // todo: somehow incorporate the error into the message in a more robust manner?
+    this.errorMessage = `Er ging iets fout bij het verwijderen: ${error}`;
   }
 
   transition() {

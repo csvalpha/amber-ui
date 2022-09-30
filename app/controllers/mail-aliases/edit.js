@@ -1,9 +1,5 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { equal, reads } from '@ember/object/computed';
 import EditController from 'amber-ui/controllers/application/edit';
 import { MailAliasModerationTypes } from 'amber-ui/constants';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { computed } from '@ember/object';
 
 export default class EditMailAliasController extends EditController {
   successTransitionTarget = 'mail-aliases.show';
@@ -15,27 +11,27 @@ export default class EditMailAliasController extends EditController {
     };
   }
 
-  @equal('model.moderationType', 'open')
-  moderationTypeOpen;
+  get moderationTypeOpen() {
+    return this.model.moderationsType === 'open';
+  }
 
-  @computed('store', function () {
+  get groups() {
     return this.store.findAll('group');
-  })
-  groups;
+  }
 
-  @computed('store', function () {
+  get users() {
     return this.store.findAll('user');
-  })
-  users;
+  }
 
-  @reads('model.user.id')
-  anyUser;
+  get anyUser() {
+    return this.model.user.id;
+  }
 
-  @reads('model.group.id')
-  anyGroup;
+  get anyGroup() {
+    return this.model.group.id;
+  }
 
-  @computed('_mailAliasModerationTypes', function () {
+  get mailAliasModerationTypes() {
     return MailAliasModerationTypes.map(this._mailAliasModerationTypes);
-  })
-  mailAliasModerationTypes;
+  }
 }
