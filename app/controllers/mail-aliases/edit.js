@@ -12,7 +12,7 @@ export default class EditMailAliasController extends EditController {
   }
 
   get moderationTypeOpen() {
-    return this.model.moderationsType === 'open';
+    return this.model.moderationType === 'open';
   }
 
   get groups() {
