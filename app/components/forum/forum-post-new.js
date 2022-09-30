@@ -15,11 +15,10 @@ export default class ForumPostNewComponent extends Component {
         message: content,
         thread,
       })
-      .save()
+      .save();
     this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
     this.set('content', '');
     this.onSubmit();
-
   }
 
   @action

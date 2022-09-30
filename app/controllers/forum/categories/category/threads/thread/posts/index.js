@@ -1,7 +1,7 @@
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import {action} from '@ember/object';
-import {next} from '@ember/runloop';
+import { action } from '@ember/object';
+import { next } from '@ember/runloop';
 import { tracked } from '@glimmer/tracking';
 
 export default class PostsIndexController extends Controller {
@@ -9,6 +9,7 @@ export default class PostsIndexController extends Controller {
   @service store;
   @tracked
   newContent = '';
+
   queryParams = ['page'];
 
   @tracked
@@ -29,7 +30,7 @@ export default class PostsIndexController extends Controller {
     const page = this.model.postsPaged.meta.page;
     const pages = this.model.postsPaged.meta.totalPages;
     this.replaceRoute({
-      queryParams: {page: ((page - 1 + delta + pages) % pages) + 1},
+      queryParams: { page: ((page - 1 + delta + pages) % pages) + 1 },
     });
   }
 
@@ -40,7 +41,7 @@ export default class PostsIndexController extends Controller {
   scrollToNewForumPost() {
     document
       .getElementById('newForumPostCard')
-      .scrollIntoView({behavior: 'smooth', block: 'center'});
+      .scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   @action
@@ -54,8 +55,8 @@ export default class PostsIndexController extends Controller {
 
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
-        queryParams: {page: this.postsPaged.meta.totalPages},
-      })
+        queryParams: { page: this.postsPaged.meta.totalPages },
+      });
       next(() => {
         this.scrollToNewForumPost();
       });

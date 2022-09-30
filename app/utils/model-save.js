@@ -69,7 +69,7 @@ export default class ModelSaveUtil {
           .map((err) => err.detail)
           .join(', ');
       } else {
-        this.entity.errorMessage = String(error)
+        this.entity.errorMessage = String(error);
       }
     }
   }

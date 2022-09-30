@@ -4,5 +4,4 @@ export default class EditPostController extends EditController {
   successMessage = 'Forumbericht aangepast!';
   successTransitionTarget = 'forum.categories.category.threads.thread';
   successTransitionModel = this.model?.thread;
-
 }

@@ -1,7 +1,10 @@
-import {AuthenticatedRoute} from 'amber-ui/routes/application/application';
-import {inject as service} from '@ember/service';
-import {action} from '@ember/object';
-import {bindKeyboardShortcuts, unbindKeyboardShortcuts,} from 'ember-keyboard-shortcuts';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import {
+  bindKeyboardShortcuts,
+  unbindKeyboardShortcuts,
+} from 'ember-keyboard-shortcuts';
 
 export default class PostIndexRoute extends AuthenticatedRoute {
   @service router;
@@ -35,9 +38,9 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   }
 
   async model(params) {
-    const model = this.modelFor('forum.categories.category.threads.thread')
+    const model = this.modelFor('forum.categories.category.threads.thread');
     await model.queryPostsPaged(params);
-    return model
+    return model;
   }
 
   activate() {
