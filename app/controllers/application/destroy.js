@@ -8,6 +8,7 @@ export default class DestroyController extends EditController {
   @tracked successTransitionModel = null;
   @tracked cancelTransitionTarget = null;
   @tracked cancelTransitionModel = this.model;
+  @tracked destroyed = false;
 
   @action
   destroyModel() {
@@ -20,7 +21,12 @@ export default class DestroyController extends EditController {
   }
 
   transition() {
-    this.replaceRoute(...arguments);
+    // todo: this does not quite work everywhere, because navigating back after the transition
+    if (this.destroyed) {
+      this.replaceRoute(...arguments);
+    } else {
+      this.transitionToRoute(...arguments);
+    }
   }
 
   submit = undefined;

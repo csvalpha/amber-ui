@@ -104,7 +104,8 @@ export default class ModelSaveUtil {
       model
         .destroyRecord()
         .then(() => {
-          this.onSuccess(null);
+          this.entity.destroyed = true;
+          this.onSuccess();
         })
         .catch((error) => {
           this.onError(error);

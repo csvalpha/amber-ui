@@ -1,5 +1,4 @@
 import NewController from 'amber-ui/controllers/application/new';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { inject as service } from '@ember/service';
 
 export default class NewPhotoAlbumController extends NewController {
