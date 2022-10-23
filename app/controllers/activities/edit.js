@@ -7,7 +7,6 @@ import { inject as service } from '@ember/service';
 import EditController from '../application/edit';
 import { union } from '../../utils/array-operations';
 
-//todo: refactor below class to extend EditController
 export default class EditActivityController extends EditController {
   successMessage = 'Activiteit opgeslagen!';
   successTransitionTarget = 'activities.show';
