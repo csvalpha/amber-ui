@@ -20,11 +20,11 @@
         verwijderen?
       </p>
 
-      <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
+      <button {{on "click" this.destroyModel}} class='btn btn-danger' type='button'>
         Verwijderen
       </button>
       <button
-        {{action 'cancel'}}
+        {{on "click" this.cancel}}
         type="button"
         class='btn btn-default'
       >

@@ -96,7 +96,7 @@
                 id='answer'
                 class={{inputClass}}
                 placeholder='Type hier de volledige naam'
-                @enter={{action 'checkAnswer'}}
+                @enter={{this.checkAnswer}}
               />
               <div class='input-group-append'>
                 <button
@@ -217,7 +217,7 @@
           <PowerSelect
             @options={{model}}
             @selected={{group}}
-            @onChange={{action 'setGroupId'}}
+            @onChange={{this.setGroupId}}
             @searchEnabled={{true}}
             @searchField='name'
             as |group|

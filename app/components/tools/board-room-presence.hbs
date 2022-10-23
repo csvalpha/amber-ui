@@ -47,8 +47,8 @@
   <EmberWormhole @to='ember-wormhole-destination'>
     <BasicModal
       @title='Bestuurskamer beschikbaarheid opgeven'
-      @closeModal={{action 'setPresenceModalState' 'closed'}}
-      @onSubmit={{action 'save'}}
+      @closeModal={{fn 'setPresenceModalState' 'closed'}}
+      @onSubmit={{this.save}}
       @submitText='Beschikbaarheid opslaan'
       @submitDisabled={{saveButtonDisabled}}
     >

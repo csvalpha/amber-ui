@@ -26,7 +26,10 @@ export default class DebitCollectionEditController extends EditController {
   }
 
   @action
-  async submit() {
+  async submit(event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.errorMessage = null;
     try {
       await this.model.saveWithTransactions();

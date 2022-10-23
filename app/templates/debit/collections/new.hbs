@@ -35,7 +35,7 @@
         @model={{model}}
         @property='importFile'
         @label='Import file'
-        @loadedCallback={{action 'fileLoaded'}}
+        @loadedCallback={{this.fileLoaded}}
         @validExtensions={{this.validExtensions}}
         @validMimetypes={{this.validMimetypes}}
       />

@@ -2,8 +2,8 @@
 
 <Forms::MandateForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
   @users={{this.users}}
   @errorMessage={{this.errorMessage}}
 />

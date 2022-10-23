@@ -21,7 +21,10 @@ export default class EditController extends Controller {
   }
 
   @action
-  submit() {
+  submit(event) {
+    if (event) {
+      event.preventDefault();
+    }
     this.modelSaveUtil.saveModel(this.model);
   }
 

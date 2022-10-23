@@ -6,7 +6,7 @@
   <PageNumbers @info={{@model.postsPaged.meta}} @replace={{true}} />
 </div>
 
-<Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
+<Swipeable @onSwipeHorizontal={{this.onSwipe}}>
   {{#each @model.postsPaged as |post|}}
     {{#unless post.isDeleted}}
       {{forum/forum-post
@@ -39,7 +39,7 @@
         <Forum::ForumPostNew
           @thread={{@model}}
           @content={{newContent}}
-          @onSubmit={{action 'newPostCreated'}}
+          @onSubmit={{this.newPostCreated}}
         />
       </div>
     </div>

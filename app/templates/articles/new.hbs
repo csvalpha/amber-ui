@@ -4,9 +4,9 @@
 
 <Forms::ArticleForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
-  @onCoverPhotoLoaded={{action 'coverPhotoLoaded'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
+  @onCoverPhotoLoaded={{this.coverPhotoLoaded}}
   @canPin={{this.canPin}}
   @groups={{this.groups}}
   @errorMessage={{this.errorMessage}}
