@@ -14,12 +14,8 @@
     <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Ja
     </button>
-    <LinkTo
-      @route='forum.categories.category.threads.thread.show'
-      @model={{model.id}}
-      class='btn btn-default'
-    >
+    <button {{on "click" this.cancel}} class="btn btn-default" type="button">
       Nee
-    </LinkTo>
+    </button>
   </div>
 </div>
