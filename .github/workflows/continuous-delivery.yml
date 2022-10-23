@@ -48,15 +48,15 @@ jobs:
             if [ "${INPUT_MERGE,,}" = 'y' ]; then
               git fetch origin staging
               if ! git diff origin/master origin/staging --exit-code; then
-                echo 'has_diff=true' >> $GITHUB_OUTPUT
+                echo 'has_diff=true' >> "$GITHUB_OUTPUT"
               else
-                echo 'has_diff=false' >> $GITHUB_OUTPUT
+                echo 'has_diff=false' >> "$GITHUB_OUTPUT"
               fi
             fi
 
-            echo 'stage=production' >> $GITHUB_OUTPUT
+            echo 'stage=production' >> "$GITHUB_OUTPUT"
           else
-            echo 'stage=staging' >> $GITHUB_OUTPUT
+            echo 'stage=staging' >> "$GITHUB_OUTPUT"
           fi
 
   merge:
@@ -98,7 +98,7 @@ jobs:
         if: fromJSON(needs.metadata.outputs.has_diff)
         run: |
           git fetch origin master
-          echo 'sha='"$(git rev-parse origin/master)" >> $GITHUB_OUTPUT
+          echo 'sha='"$(git rev-parse origin/master)" >> "$GITHUB_OUTPUT"
 
   continuous_integration:
     name: Continuous Integration
@@ -131,9 +131,9 @@ jobs:
         id: get_url
         run: |
           if [ "$GITHUB_REF_NAME" = 'master' ]; then
-            echo 'environment_url=https://csvalpha.nl' >> $GITHUB_OUTPUT
+            echo 'environment_url=https://csvalpha.nl' >> "$GITHUB_OUTPUT"
           else
-            echo 'environment_url=https://staging.csvalpha.nl' >> $GITHUB_OUTPUT
+            echo 'environment_url=https://staging.csvalpha.nl' >> "$GITHUB_OUTPUT"
           fi
 
       - name: Checkout code
@@ -201,10 +201,10 @@ jobs:
         env:
           RESULTS: ${{ join(needs.*.result, ' ') }}
         run: |
-          echo 'conclusion=success' >> $GITHUB_OUTPUT
+          echo 'conclusion=success' >> "$GITHUB_OUTPUT"
           for RESULT in $RESULTS; do
             if [ "$RESULT" = 'cancelled' ] || [ "$RESULT" = 'failure' ]; then
-              echo 'conclusion='"$RESULT" >> $GITHUB_OUTPUT
+              echo 'conclusion='"$RESULT" >> "$GITHUB_OUTPUT"
               break
             fi
           done
