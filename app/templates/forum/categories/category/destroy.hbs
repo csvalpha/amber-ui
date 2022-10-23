@@ -15,12 +15,8 @@
     <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <LinkTo
-      @route='forum.categories.category'
-      @model={{model.id}}
-      class='btn btn-default'
-    >
+    <button {{on "click" this.cancel}} class="btn btn-default" type="button">
       Annuleren
-    </LinkTo>
+    </button>
   </div>
 </div>
