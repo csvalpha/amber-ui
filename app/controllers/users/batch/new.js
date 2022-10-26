@@ -15,8 +15,13 @@ export default Controller.extend({
   importErrors: A(),
   properties: A(),
 
-  validMimetypes: 'text/csv',
-  validExtensions: EmberArray.apply(['csv']),
+  validMimetypes: EmberArray.apply([
+    'text/csv',
+    'application/vnd.oasis.opendocument.spreadsheet',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'application/vnd.ms-excel.sheet.macroenabled.12',
+  ]),
+  validExtensions: EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']),
 
   groups: computed('store', function () {
     return this.store.findAll('group');
