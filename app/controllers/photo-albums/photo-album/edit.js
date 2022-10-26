@@ -1,4 +1,5 @@
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
 import NewPhotoAlbumController from '../new';
 
 // todo: it would follow the pattern more if we let the NewPhotoAlbumController extend the EditPhotoAlbumController,
@@ -13,5 +14,11 @@ export default class EditPhotoAlbumController extends NewPhotoAlbumController {
 
   get dropzoneHeaders() {
     return { Authorization: this.fetch.authorizationHeader() };
+  }
+
+  @action
+  submit() {
+    super.submit();
+    this.model.photos.reload();
   }
 }
