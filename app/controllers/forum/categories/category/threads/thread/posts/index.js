@@ -40,8 +40,13 @@ export default class PostsIndexController extends Controller {
 
   @action
   async newPostCreated() {
-    await this.model.posts.reload();
-    await this.model.queryPostsPaged();
+    await Promise.all([this.model.posts.reload(), this.model.queryPostsPaged()]);
+    // navigate to the next page if we notice that we created a post that doesn't fit on the current page
+    if (!this.currentPageIsLastPage) {
+      await this.transitionToRoute({
+        queryParams: {page: this.model.postsPaged.meta.totalPages},
+      });
+    }
   }
 
   @action
