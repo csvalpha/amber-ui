@@ -40,7 +40,12 @@ export default class PostsIndexController extends Controller {
 
   @action
   async newPostCreated() {
-    await Promise.all([this.model.posts.reload(), this.model.queryPostsPaged()]);
+    // we don't need to await the posts reload. A thread can have a LOT of posts, so this is worth not awaiting.
+    // Not sure if we need the posts to be reloaded at all, but I suspect that if we don't reload them,
+    // then we will get bugs when performing any subsequent model.rollbackAttributesAndPosts()
+    // Minor concern, but better safe than sorry.
+    this.model.posts.reload()
+    await this.model.queryPostsPaged();
     // navigate to the next page if we notice that we created a post that doesn't fit on the current page
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
