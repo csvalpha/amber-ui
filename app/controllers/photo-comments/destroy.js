@@ -21,7 +21,7 @@ export default class PhotoCommentDestroyController extends DestroyController {
   }
 
   async transition(transitionTarget, transitionModelID) {
-    const photoAlbumModel = await this.photo.photoAlbum
+    const photoAlbumModel = await this.photo.photoAlbum;
     this.transitionToRoute(transitionTarget, photoAlbumModel.id, transitionModelID);
   }
 }
