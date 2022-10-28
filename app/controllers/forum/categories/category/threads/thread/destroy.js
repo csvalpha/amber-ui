@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 
 export default class ForumThreadDestroyController extends DestroyController {
   successTransitionTarget = 'forum.categories.category';
-  cancelTransitionTarget = 'forum.categories.category';
+  cancelTransitionTarget = 'forum.categories.category.threads.thread';
   successMessage = 'Topic verwijderd!';
 
   @action
