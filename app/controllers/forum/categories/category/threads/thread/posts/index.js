@@ -1,8 +1,8 @@
-import {inject as service} from '@ember/service';
+import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import {action} from '@ember/object';
-import {next} from '@ember/runloop';
-import {tracked} from '@glimmer/tracking';
+import { action } from '@ember/object';
+import { next } from '@ember/runloop';
+import { tracked } from '@glimmer/tracking';
 
 export default class PostsIndexController extends Controller {
   @service session;
@@ -11,7 +11,6 @@ export default class PostsIndexController extends Controller {
   newContent = '';
 
   queryParams = ['page'];
-
 
   get count() {
     return this.model.postsPaged.length;
@@ -28,14 +27,14 @@ export default class PostsIndexController extends Controller {
     const page = this.model.postsPaged.meta.page;
     const pages = this.model.postsPaged.meta.totalPages;
     this.replaceRoute({
-      queryParams: {page: ((page - 1 + delta + pages) % pages) + 1},
+      queryParams: { page: ((page - 1 + delta + pages) % pages) + 1 },
     });
   }
 
   scrollToNewForumPost() {
     document
       .getElementById('newForumPostCard')
-      .scrollIntoView({behavior: 'smooth', block: 'center'});
+      .scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
 
   @action
@@ -44,12 +43,12 @@ export default class PostsIndexController extends Controller {
     // Not sure if we need the posts to be reloaded at all, but I suspect that if we don't reload them,
     // then we will get bugs when performing any subsequent model.rollbackAttributesAndPosts()
     // Minor concern, but better safe than sorry.
-    this.model.posts.reload()
+    this.model.posts.reload();
     await this.model.queryPostsPaged();
     // navigate to the next page if we notice that we created a post that doesn't fit on the current page
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
-        queryParams: {page: this.model.postsPaged.meta.totalPages},
+        queryParams: { page: this.model.postsPaged.meta.totalPages },
       });
     }
   }
@@ -60,7 +59,7 @@ export default class PostsIndexController extends Controller {
 
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
-        queryParams: {page: this.model.postsPaged.meta.totalPages},
+        queryParams: { page: this.model.postsPaged.meta.totalPages },
       });
       next(() => {
         this.scrollToNewForumPost();

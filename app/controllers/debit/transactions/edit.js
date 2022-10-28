@@ -18,7 +18,7 @@ export default class EditTransactionController extends EditController {
   @action
   async cancel() {
     this.cancelTransitionModel = await this.model.collection;
-    super.cancel()
+    super.cancel();
   }
 
   get users() {

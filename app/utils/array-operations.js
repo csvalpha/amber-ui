@@ -1,3 +1,3 @@
 export function union() {
-  return Array.from(new Set([...arguments].flat()))
+  return Array.from(new Set([...arguments].flat()));
 }
