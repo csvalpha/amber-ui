@@ -13,7 +13,7 @@ export default class DestroyArticleCommentRoute extends AuthenticatedRoute {
       params.id,
       params
     );
-    await articleComment.get('article');
+    await articleComment.article;
     return articleComment;
   }
 }

@@ -6,15 +6,23 @@ export default class ArticleCommentDestroyController extends DestroyController {
   successTransitionTarget = 'articles.show';
   cancelTransitionTarget = 'articles.show';
 
+  get successTransitionModel() {
+    return this.article;
+  }
+
+  get cancelTransitionModel() {
+    return this.article;
+  }
+
   @action
   async destroyModel() {
-    this.successTransitionModel = await this.model.article;
+    this.article = await this.model.article;
     super.destroyModel();
   }
 
   @action
   async cancel() {
-    this.cancelTransitionModel = await this.model.article;
+    this.article = await this.model.article;
     super.cancel();
   }
 }
