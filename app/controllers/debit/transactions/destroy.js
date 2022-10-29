@@ -5,15 +5,23 @@ export default class DebitTransactionDestroyController extends DestroyController
   successTransitionTarget = 'debit.collections.show';
   cancelTransitionTarget = 'debit.collections.show';
 
+  get successTransitionModel() {
+    return this.collection;
+  }
+
+  get cancelTransitionModel() {
+    return this.collection;
+  }
+
   @action
   async destroyModel() {
-    this.successTransitionModel = await this.model.collection;
+    this.collection = await this.model.collection;
     super.destroyModel();
   }
 
   @action
   async cancel() {
-    this.cancelTransitionModel = await this.model.collection;
+    this.collection = await this.model.collection;
     super.cancel();
   }
 }
