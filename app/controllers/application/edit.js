@@ -11,9 +11,14 @@ export default class EditController extends Controller {
   successMessage = 'Wijzigen gelukt!';
   cancelMessage = 'Wijzigen geannuleerd.';
   @tracked successTransitionTarget = null;
-  @tracked successTransitionModel = this.model;
+  get successTransitionModel() {
+    return this.model;
+  }
+
   @tracked cancelTransitionTarget = this.successTransitionTarget; // sensible default
-  @tracked cancelTransitionModel = this.successTransitionModel;
+  get cancelTransitionModel() {
+    return this.successTransitionModel;
+  }
 
   constructor() {
     super(...arguments);
