@@ -1,15 +1,15 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { A } from '@ember/array';
-import Controller from '@ember/controller';
 import { GroupKinds } from 'amber-ui/constants';
 import { all } from 'rsvp';
 import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
+import EditController from '../application/edit';
 
-export default class EditGroupController extends Controller {
-  @service('flash-notice') flashNotice;
+export default class EditGroupController extends EditController {
   @service session;
+  successMessage = 'Groep aangepast!';
+  successTransitionTarget = 'groups.show';
 
   _groupKindToOption(groupKind) {
     return {
@@ -18,15 +18,13 @@ export default class EditGroupController extends Controller {
     };
   }
 
-  @computed('_groupKindToOption', function () {
+  get groupKindOptions() {
     return GroupKinds.map(this._groupKindToOption);
-  })
-  groupKindOptions;
+  }
 
-  @computed('store', function () {
+  get users() {
     return this.store.findAll('user');
-  })
-  users;
+  }
 
   @action
   addUser(user) {
@@ -44,52 +42,48 @@ export default class EditGroupController extends Controller {
   }
 
   @action
-  submit() {
+  async submit() {
+    // todo: take a good look at this method, and see if its can be simplified to conform more to the
+    //  EditController + model-save-utils pattern
+    // Especially the error handling has to be cleaned up heavily. It's hard to read and understand what's going on
     const membershipErrors = A();
 
     if (this.model !== undefined) {
       let failedMembershipSavings = 0;
-      this.model
-        .save()
-        .then(() => {
-          return all(
-            this.model.get('memberships').map((membership) => {
-              if (membership.get('hasDirtyAttributes')) {
-                return membership.save().catch((error) => {
-                  membershipErrors.push({ membership, error });
-                  failedMembershipSavings++;
-                });
-              }
-            })
-          );
-        })
-        .then(() => {
-          if (failedMembershipSavings) {
-            const prefix = failedMembershipSavings > 1 ? 'zijn' : 'is';
-            const suffix =
-              failedMembershipSavings > 1 ? 'lidmaatschappen' : 'lidmaatschap';
+      try {
+        await this.model.save();
+        await all(
+          this.model.get('memberships').map((membership) => {
+            if (membership.get('hasDirtyAttributes')) {
+              return membership.save().catch((error) => {
+                membershipErrors.push({ membership, error });
+                failedMembershipSavings++;
+              });
+            }
+          })
+        );
+        if (failedMembershipSavings) {
+          const prefix = failedMembershipSavings > 1 ? 'zijn' : 'is';
+          const suffix =
+            failedMembershipSavings > 1 ? 'lidmaatschappen' : 'lidmaatschap';
 
-            const membershipErrorText = membershipErrors.reduce(
-              (errorMessage, membershipError) => {
-                const singleError = `\t ${membershipError.membership.get(
-                  'user.fullName'
-                )} (${membershipError.error.errors[0].source.pointer}) \n`;
-                return errorMessage + singleError;
-              },
-              ''
-            );
-            this.set(
-              'errorMessage',
-              `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`
-            );
-          } else {
-            this.flashNotice.sendSuccess('Groep aangepast!');
-            this.transitionToRoute('groups.show', this.model.id);
-          }
-        })
-        .catch((error) => {
-          this.set('errorMessage', error.message);
-        });
+          const membershipErrorText = membershipErrors.reduce(
+            (errorMessage, membershipError) => {
+              const singleError = `\t ${membershipError.membership.get(
+                'user.fullName'
+              )} (${membershipError.error.errors[0].source.pointer}) \n`;
+              return errorMessage + singleError;
+            },
+            ''
+          );
+
+          this.errorMessage = `Er ${prefix} ${failedMembershipSavings} ${suffix} niet juist opgeslagen: \n ${membershipErrorText}`;
+        } else {
+          this.modelSaveUtil.onSuccess();
+        }
+      } catch (error) {
+        this.modelSaveUtil.onError(error);
+      }
     }
   }
 

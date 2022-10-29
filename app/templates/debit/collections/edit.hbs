@@ -21,9 +21,9 @@
         @model={{model}}
         @errorMessage={{this.errorMessage}}
       >
-        <LinkTo @route='debit.collections' class='btn btn-default'>
+        <button {{action 'cancel'}} type="button" class='btn btn-default'>
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

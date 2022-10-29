@@ -15,10 +15,8 @@
   </table>
 </div>
 
-<button {{action 'destroy'}} class='btn btn-danger' type='button'>Ja</button>
-<LinkTo @route='activities.index' class='btn btn-default'>
-  Nee
-</LinkTo>
+<button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
+<button {{action 'cancel'}} class="btn btn-default" type="button">Nee</button>
 
 {{#if errorMessage}}
   <div class='text-danger'>{{this.errorMessage}}</div>
