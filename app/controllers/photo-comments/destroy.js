@@ -5,18 +5,24 @@ export default class PhotoCommentDestroyController extends DestroyController {
   successMessage = 'Fotoreactie verwijderd!';
   successTransitionTarget = 'photo-albums.photo-album.photos.show';
   cancelTransitionTarget = 'photo-albums.photo-album.photos.show';
-  photo;
+
+  get successTransitionModel() {
+    return this.photo;
+  }
+
+  get cancelTransitionModel() {
+    return this.photo;
+  }
+
   @action
   async destroyModel() {
     this.photo = await this.model.photo;
-    this.successTransitionModel = this.photo;
     super.destroyModel();
   }
 
   @action
   async cancel() {
     this.photo = await this.model.photo;
-    this.cancelTransitionModel = this.photo;
     super.cancel();
   }
 

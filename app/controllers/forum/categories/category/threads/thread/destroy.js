@@ -6,15 +6,23 @@ export default class ForumThreadDestroyController extends DestroyController {
   cancelTransitionTarget = 'forum.categories.category.threads.thread';
   successMessage = 'Topic verwijderd!';
 
+  get successTransitionModel() {
+    return this.category;
+  }
+
+  get cancelTransitionModel() {
+    return this.thread;
+  }
+
   @action
   async destroyModel() {
-    this.successTransitionModel = await this.model.category;
+    this.category = await this.model.category;
     super.destroyModel();
   }
 
   @action
   async cancel() {
-    this.cancelTransitionModel = await this.model.category;
+    this.thread = await this.model.thread;
     super.cancel();
   }
 }

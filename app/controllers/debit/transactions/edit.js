@@ -6,18 +6,21 @@ export default class EditTransactionController extends EditController {
   successMessage = 'Transactie aangepast!';
   cancelMessage = 'Transactie wijzigen geannuleerd.';
   successTransitionTarget = 'debit.collections.show';
-  cancelTransitionTarget = 'debit.collections.show';
   @service store;
+
+  get successTransitionModel() {
+    return this.collection;
+  }
 
   @action
   async submit() {
-    this.successTransitionModel = await this.model.collection;
+    this.collection = await this.model.collection;
     super.submit();
   }
 
   @action
   async cancel() {
-    this.cancelTransitionModel = await this.model.collection;
+    this.collection = await this.model.collection;
     super.cancel();
   }
 

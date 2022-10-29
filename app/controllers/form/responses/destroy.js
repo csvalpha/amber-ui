@@ -10,7 +10,9 @@ export default class FormResponseDestroyController extends DestroyController {
   // important note: there is no way (currently) to redirect from a form response to the activity, since the models
   // are not designed with this in mind.
   // I would not mind this being enabled by a slight redesign in the future, though.
-  cancelTransitionModel = null;
+  get cancelTransitionModel() {
+    return null;
+  }
 
   @action
   async destroyModel() {

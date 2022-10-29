@@ -6,15 +6,23 @@ export default class ForumPostDestroyController extends DestroyController {
   successTransitionTarget = 'forum.categories.category.threads.thread.show';
   cancelTransitionTarget = 'forum.categories.category.threads.thread.show';
 
+  get successTransitionModel() {
+    return this.thread;
+  }
+
+  get cancelTransitionModel() {
+    return this.thread;
+  }
+
   @action
   async cancel() {
-    this.cancelTransitionModel = await this.model.thread;
+    this.thread = await this.model.thread;
     super.cancel();
   }
 
   @action
   async destroyModel() {
-    this.successTransitionModel = await this.model.thread;
+    this.thread = await this.model.thread;
     super.destroyModel();
   }
 }

@@ -9,7 +9,11 @@ export default class EditPhotoAlbumController extends NewPhotoAlbumController {
   cancelMessage = "Wijzigen en/of foto's toevoegen geannuleerd.";
   successTransitionTarget = 'photo-albums.photo-album.show';
   cancelTransitionTarget = this.successTransitionTarget;
-  cancelTransitionModel = this.model;
+
+  get cancelTransitionModel() {
+    return this.successTransitionModel;
+  }
+
   @service fetch;
 
   get dropzoneHeaders() {
