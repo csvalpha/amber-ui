@@ -1,5 +1,5 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 // todo: incorporate the model-save-util into components?
@@ -9,20 +9,19 @@ export default class ForumPostNewComponent extends Component {
 
   @action
   async save() {
-    let { content, thread } = this;
     await this.store
       .createRecord('forum/post', {
-        message: content,
-        thread,
+        message: this.args.content,
+        thread: this.args.thread,
       })
       .save();
     this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
-    this.set('content', '');
+    this.args.updateContent('');
     this.onSubmit();
   }
 
   @action
   cancel() {
-    this.set('content', '');
+    this.args.updateContent('');
   }
 }
