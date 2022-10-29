@@ -8,10 +8,8 @@ export default class PhotoAlbumPhotosIndexController extends Controller {
   @service fetch;
   @service('file-saver') fileSaver;
 
-  photoSorting = ['exifDateTimeOriginal', 'createdAt'];
-
   get sortedPhotos() {
-    return this.model.photos.sortBy(...this.photoSorting);
+    return this.model.get('sortedPhotos');
   }
 
   @action

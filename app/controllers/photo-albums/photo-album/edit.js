@@ -1,28 +1,28 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
-import NewPhotoAlbumController from 'amber-ui/controllers/photo-albums/new';
 import { inject as service } from '@ember/service';
+import { action } from '@ember/object';
+import NewPhotoAlbumController from '../new';
 
+// todo: it would follow the pattern more if we let the NewPhotoAlbumController extend the EditPhotoAlbumController,
+//  instead of vice versa
 export default class EditPhotoAlbumController extends NewPhotoAlbumController {
+  successMessage = "Wijzigen en/of foto's toevoegen gelukt!";
+  cancelMessage = "Wijzigen en/of foto's toevoegen geannuleerd.";
+  successTransitionTarget = 'photo-albums.photo-album.show';
+  cancelTransitionTarget = this.successTransitionTarget;
+
+  get cancelTransitionModel() {
+    return this.successTransitionModel;
+  }
+
   @service fetch;
+
+  get dropzoneHeaders() {
+    return { Authorization: this.fetch.authorizationHeader() };
+  }
 
   @action
   submit() {
-    const photoAlbum = this.model;
-    photoAlbum
-      .save()
-      .then(() => {
-        photoAlbum.photos.reload();
-        // Only pass id when force reload is required, see http://emberigniter.com/force-store-reload-data-api-backend/
-        this.transitionToRoute('photo-albums.photo-album', photoAlbum.id);
-      })
-      .catch((error) => {
-        this.set('errorMessage', error.message);
-      });
+    super.submit();
+    this.model.photos.reload();
   }
-
-  @computed(function () {
-    return { Authorization: this.fetch.authorizationHeader() };
-  })
-  dropzoneHeaders;
 }

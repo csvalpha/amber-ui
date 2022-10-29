@@ -21,13 +21,13 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo
-          @route='forum.categories.category.threads.thread.show'
-          @model={{@model.thread}}
+        <button
+          {{action @onCancel}}
+          type="button"
           class='btn btn-default'
         >
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

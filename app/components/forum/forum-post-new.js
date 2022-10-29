@@ -2,25 +2,23 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { action } from '@ember/object';
 
+// todo: incorporate the model-save-util into components?
 export default class ForumPostNewComponent extends Component {
   @service store;
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
 
   @action
-  save() {
+  async save() {
     let { content, thread } = this;
-
-    this.store
+    await this.store
       .createRecord('forum/post', {
         message: content,
         thread,
       })
-      .save()
-      .then(() => {
-        this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
-        this.set('content', '');
-        this.onSubmit();
-      });
+      .save();
+    this.flashNotice.sendSuccess('Forumbericht toegevoegd!');
+    this.set('content', '');
+    this.onSubmit();
   }
 
   @action

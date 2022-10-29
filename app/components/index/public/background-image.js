@@ -6,10 +6,12 @@ import { htmlSafe } from '@ember/template';
 @attributeBindings('style')
 export default class BackgroundImage extends Component {
   images = [
-    '/images/frontpage/serious.jpg',
-    '/images/frontpage/smile.jpg',
-    '/images/frontpage/dance.jpg',
-    '/images/frontpage/fire.jpg',
+    '/images/frontpage/feest.jpg',
+    '/images/frontpage/gala-diner.jpg',
+    '/images/frontpage/gala-groep.jpg',
+    '/images/frontpage/skireis.jpg',
+    '/images/frontpage/vereniging.jpg',
+    '/images/frontpage/vuur.jpg',
   ];
 
   get style() {

@@ -55,7 +55,7 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo @route='groups.index' class='btn btn-default'>Annuleren</LinkTo>
+        <button {{action @onCancel}} type="button" class='btn btn-default'>Annuleren</button>
       </ModelForm::FormActions>
     </div>
   </div>

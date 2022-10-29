@@ -1,12 +1,11 @@
 {{#if activities}}
   <hr />
   <h2 class='pb-2'>{{t 'component.index.public.activities.title'}}</h2>
-  <div class='row'>
+  <div class='activity-list'>
     {{#each activities as |activity index|}}
-      <div class='col-12 col-md-6 col-lg-4'>
+      <div>
         {{cards/frontpage-activity-card-small
           activity
-          class=(if (gt index 5) 'hidden-sm-down')
           action=(action 'openModal' activity)
         }}
       </div>
