@@ -10,7 +10,9 @@ export default class NewUserBatchController extends NewController {
   cancelMessage = 'Gebruikers aanmaken geannuleerd.';
   cancelTransitionTarget = 'users.index';
   successTransitionTarget = 'users.index';
-  successTransitionModel = null;
+  get successTransitionModel() {
+    return null;
+  }
 
   @service fetch;
   @tracked importFile = null;

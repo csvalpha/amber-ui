@@ -16,7 +16,10 @@ export default class PrivacySettingsComponent extends Component {
 
   successMessage = 'Privacyinstellingen gewijzigd!';
   successTransitionTarget = null;
-  successTransitionModel = null;
+  get successTransitionModel() {
+    return null;
+  }
+
   formActionsVisible = true;
 
   constructor() {

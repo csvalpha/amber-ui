@@ -7,7 +7,9 @@ export default class DebitCollectionNewController extends EditController {
   cancelMessage = 'Incasso aanmaken geannuleerd.';
   successTransitionTarget = 'debit.collections.show';
   cancelTransitionTarget = 'debit.collections.index';
-  cancelTransitionModel = null;
+  get cancelTransitionModel() {
+    return null;
+  }
 
   validMimetypes = 'text/csv';
   validExtensions = EmberArray.apply(['csv']);

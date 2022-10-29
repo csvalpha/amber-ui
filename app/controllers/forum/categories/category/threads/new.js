@@ -4,7 +4,9 @@ import { action } from '@ember/object';
 export default class NewThreadController extends NewController {
   successTransitionTarget = 'forum.categories.category.threads.thread.show';
   cancelTransitionTarget = 'forum.categories.category.show';
-  cancelTransitionModel = this.model?.category;
+  get cancelTransitionModel() {
+    return this.category;
+  }
 
   @action
   async submit() {
@@ -15,5 +17,10 @@ export default class NewThreadController extends NewController {
     } catch (error) {
       this.modelSaveUtil.onError(error);
     }
+  }
+
+  @action
+  async cancel() {
+    this.category = await this.model.category;
   }
 }
