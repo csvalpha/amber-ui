@@ -68,21 +68,10 @@ export default class PostIndexRoute extends AuthenticatedRoute {
     this.controller.send('goToNextPage');
   }
 
-  @action
-  beforeModel(transition) {
-    const routeName = 'forum.categories.category.threads.thread.posts.index';
-    // check that transition is not from the same thread
-    if (
-      !(
-        transition.from?.name === routeName &&
-        transition.from?.attributes?.thread?.id ===
-          this.modelFor('forum.categories.category.threads.thread')?.id
-      )
-    ) {
-      const controller = this.controllerFor(routeName);
-      if (controller) {
-        controller.send('resetNewContent');
-      }
+  resetController(controller, isExiting, transition) {
+    super.resetController(controller, isExiting, transition);
+    if (isExiting) {
+      controller.send('resetNewContent');
     }
   }
 
