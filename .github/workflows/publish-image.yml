@@ -41,14 +41,15 @@ jobs:
           fi
 
           if [ "$GITHUB_REF_NAME" = 'staging' ] || [ "$GITHUB_REF_NAME" = 'master' ]; then
-            delimiter="$(openssl rand -hex 8)"
-            echo "build_args<<${delimiter}" >> "$GITHUB_OUTPUT"
-            BUILD_ARGS="BUILD_HASH="${INPUT_SHA:-$GITHUB_SHA}
+            BUILD_ARGS='BUILD_HASH='${INPUT_SHA:-$GITHUB_SHA}
             if [ "$GITHUB_REF_NAME" = 'staging' ]; then
-              BUILD_ARGS+="\nDEPLOY_TARGET=staging"
+              BUILD_ARGS+=$'\nDEPLOY_TARGET=staging'
             fi
-            echo $BUILD_ARGS >> "$GITHUB_OUTPUT"
-            echo "${delimiter}" >> "$GITHUB_OUTPUT"
+            {
+              echo 'build_args<<EOF'
+              echo "$BUILD_ARGS"
+              echo 'EOF' 
+            } >> "$GITHUB_OUTPUT"
           fi
 
   publish:
