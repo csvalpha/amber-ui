@@ -1,46 +1,120 @@
 import { isNone } from '@ember/utils';
-
 export default class ModelSaveUtil {
   constructor(entity) {
     this.entity = entity;
   }
 
-  onSuccess(model) {
-    // Show notice
-    if (!isNone(this.entity.successMessage)) {
-      this.entity.flashNotice.sendSuccess(this.entity.successMessage);
+  sendSuccess() {
+    if (!isNone(this.entity?.successMessage)) {
+      this.entity.flashNotice?.sendSuccess(this.entity.successMessage);
     }
+  }
 
-    // Redirect
+  sendCancel() {
+    if (!isNone(this.entity?.cancelMessage)) {
+      this.entity.flashNotice?.sendInfo(this.entity.cancelMessage);
+    }
+  }
+
+  transition(target, model) {
+    target = target ?? 'index';
+    const transitionArgs = model ? [target, model.id] : [target];
+    if (this.entity.transition) {
+      this.entity.transition(...transitionArgs);
+    } else {
+      this.entity.transitionToRoute(...transitionArgs);
+    }
+  }
+
+  redirectSuccess() {
+    const targetModel = this.entity?.successTransitionModel;
     if (!isNone(this.entity.successTransitionTarget)) {
-      if (isNone(model)) {
-        // In destroy routes, model is undefined
-        this.entity.transitionToRoute(this.entity.successTransitionTarget);
-      } else {
-        const targetModel = this.entity.successTransitionModel || model;
-        this.entity.transitionToRoute(
-          this.entity.successTransitionTarget,
-          targetModel
-        );
-      }
+      this.transition(this.entity.successTransitionTarget, targetModel);
+    }
+  }
+
+  redirectCancel() {
+    const targetModel = this.entity?.cancelTransitionModel;
+    if (!isNone(this.entity.cancelTransitionTarget)) {
+      this.transition(this.entity.cancelTransitionTarget, targetModel);
+    }
+  }
+
+  onSuccess() {
+    // Show notice
+    this.sendSuccess();
+    if (this.entity?.onSuccess) {
+      this.entity.onSuccess();
+    } else {
+      // Redirect
+      this.redirectSuccess();
+    }
+  }
+
+  onCancel() {
+    this.sendCancel();
+    if (this.entity?.onCancel) {
+      this.entity.onCancel();
+    } else {
+      this.redirectCancel();
     }
   }
 
   onError(error) {
-    this.entity.errorMessage = error.errors.map((err) => err.detail).join(', ');
+    if (this.entity?.onError) {
+      this.entity.onError(error);
+    } else {
+      if (error.errors) {
+        this.entity.errorMessage = error.errors
+          .map((err) => err.detail)
+          .join(', ');
+      } else {
+        this.entity.errorMessage = String(error);
+      }
+    }
   }
 
-  saveModel(model) {
+  async saveModel(model) {
+    this.entity.errorMessage = null;
+    if (!isNone(model)) {
+      try {
+        const savedModel = await model.save();
+        this.onSuccess(savedModel);
+      } catch (error) {
+        this.onError(error);
+      }
+    }
+  }
+
+  async saveModelWithForm(model) {
+    this.entity.errorMessage = null;
+    if (!isNone(model)) {
+      try {
+        const savedModel = await model.saveWithForm();
+        this.onSuccess(savedModel);
+      } catch (error) {
+        this.onError(error);
+      }
+    }
+  }
+
+  destroyModel(model) {
     this.entity.errorMessage = null;
     if (!isNone(model)) {
       model
-        .save()
-        .then((savedModel) => {
-          this.onSuccess(savedModel);
+        .destroyRecord()
+        .then(() => {
+          this.entity.destroyed = true;
+          this.onSuccess();
         })
         .catch((error) => {
           this.onError(error);
         });
     }
+  }
+
+  cancelEdit() {
+    this.entity.errorMessage = null;
+    this.onCancel();
   }
 }

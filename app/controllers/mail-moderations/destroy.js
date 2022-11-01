@@ -1,6 +1,8 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default DestroyController.extend({
-  successTransitionTarget: 'mail-moderations.index',
-  successMessage: 'Mail is genegeerd',
-});
+export default class MailModerationDestroyController extends DestroyController {
+  successMessage = 'Mail is genegeerd.';
+  cancelMessage = 'Wijzigingen geannuleerd.';
+  successTransitionTarget = 'mail-moderations.index';
+  cancelTransitionTarget = 'mail-moderations.show';
+}
