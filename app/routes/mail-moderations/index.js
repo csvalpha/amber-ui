@@ -1,7 +1,7 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class ModerationIndexRoute extends ApplicationRoute {
-  breadCrumb = { title: 'Mailmoderatie' };
+  breadcrumb = { title: 'Mailmoderatie' };
 
   canAccess() {
     return this.abilities.can('show mail-moderations');

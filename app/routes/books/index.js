@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class IndexBookRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Boeken' };
+  breadcrumb = { title: 'Boeken' };
 
   queryParams = {
     search: {

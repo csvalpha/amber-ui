@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyTopicRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Topic verwijderen' };
+  breadcrumb = { title: 'Topic verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy forum/threads');

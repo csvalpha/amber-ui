@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditTopicRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Topic aanpassen' };
+  breadcrumb = { title: 'Topic aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit forum/threads');

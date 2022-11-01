@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class ShowMailAliasRoute extends AuthenticatedRoute {
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.email };
   }
 

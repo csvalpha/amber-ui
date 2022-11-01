@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class ActivityIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Activiteiten' };
+  breadcrumb = { title: 'Activiteiten' };
 
   queryParams = {
     search: {

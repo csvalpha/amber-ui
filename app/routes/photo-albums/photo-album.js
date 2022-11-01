@@ -2,7 +2,7 @@ import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class PhotoAlbumSubRoute extends ApplicationRoute {
   queryParams = {};
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.title };
   }
 

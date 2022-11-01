@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class RejectModerationRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Moderatieverzoek afwijzen' };
+  breadcrumb = { title: 'Moderatieverzoek afwijzen' };
 
   canAccess() {
     return this.abilities.can('reject mail-moderations');

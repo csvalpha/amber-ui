@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class GroupIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Groepen' };
+  breadcrumb = { title: 'Groepen' };
 
   queryParams = {
     search: {

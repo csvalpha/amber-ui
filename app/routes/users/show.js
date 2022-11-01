@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class ShowUserRouter extends AuthenticatedRoute {
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.fullName };
   }
 

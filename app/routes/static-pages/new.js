@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class NewStaticPageRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Informatie pagina aanmaken' };
+  breadcrumb = { title: 'Informatie pagina aanmaken' };
 
   canAccess() {
     return this.abilities.can('create static-pages');

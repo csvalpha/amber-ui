@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class PrintEnrolledRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Print inschrijvingen/streeplijst' };
+  breadcrumb = { title: 'Print inschrijvingen/streeplijst' };
 
   canAccess(model) {
     return this.abilities.can('edit activity', model);

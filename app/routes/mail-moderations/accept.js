@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class AcceptModerationRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Moderatieverzoek goedkeuren' };
+  breadcrumb = { title: 'Moderatieverzoek goedkeuren' };
 
   canAccess() {
     return this.abilities.can('accept mail-moderations');

@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyActivityRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Activiteit verwijderen' };
+  breadcrumb = { title: 'Activiteit verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy activities');

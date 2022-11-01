@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class NewGroupRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Groep aanpassen' };
+  breadcrumb = { title: 'Groep aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit group', model);

@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class ForumIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Forum' };
+  breadcrumb = { title: 'Forum' };
 
   get pageActions() {
     return [

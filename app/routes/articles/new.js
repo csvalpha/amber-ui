@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class NewArticleRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Artikel aanmaken' };
+  breadcrumb = { title: 'Artikel aanmaken' };
 
   canAccess() {
     return this.abilities.can('create articles');

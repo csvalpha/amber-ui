@@ -2,7 +2,7 @@ import { all } from 'rsvp';
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class ShowGroupRoute extends AuthenticatedRoute {
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.name };
   }
 

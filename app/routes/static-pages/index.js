@@ -5,7 +5,7 @@ import { capitalize } from '@ember/string';
 export default class StaticPagesIndexRoute extends ApplicationRoute {
   @service intl;
 
-  get breadCrumb() {
+  get breadcrumb() {
     return {
       title: capitalize(this.intl.t('model.staticPage.name.other').toString()),
     };

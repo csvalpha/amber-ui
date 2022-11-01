@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class GenerateAliasRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Creëer mailalias' };
+  breadcrumb = { title: 'Creëer mailalias' };
 
   canAccess(model) {
     return this.abilities.can('generate alias for activity', model);

@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyArticleCommentRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Artikel comment verwijderen' };
+  breadcrumb = { title: 'Artikel comment verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy article-comments');

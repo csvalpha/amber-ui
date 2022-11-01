@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 
 export default class MailAliasIndexRoute extends ApplicationRoute {
   @service intl;
-  breadCrumb = { title: 'Mail-aliassen' };
+  breadcrumb = { title: 'Mail-aliassen' };
 
   get pageActions() {
     return [

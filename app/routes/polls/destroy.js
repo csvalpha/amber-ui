@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyPollRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Poll verwijderen' };
+  breadcrumb = { title: 'Poll verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy polls');

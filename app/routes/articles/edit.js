@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditArticleRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Activiteit aanpassen' };
+  breadcrumb = { title: 'Activiteit aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit article', model);

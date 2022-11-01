@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditCollectionRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Incasso aanpassen' };
+  breadcrumb = { title: 'Incasso aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit debit/collections');

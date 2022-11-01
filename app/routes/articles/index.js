@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 export default class ArticlesIndexRoute extends ApplicationRoute {
   @service intl;
 
-  get breadCrumb() {
+  get breadcrumb() {
     return {
       title: capitalize(this.intl.t('model.article.name.other').toString()),
     };

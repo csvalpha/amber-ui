@@ -6,7 +6,7 @@ export default class SepaRoute extends AuthenticatedRoute {
   @service fetch;
   @service('file-saver') fileSaver;
 
-  breadCrumb = { title: 'Sepa downloaden' };
+  breadcrumb = { title: 'Sepa downloaden' };
 
   canAccess() {
     return this.abilities.can('download sepa debit/collections');

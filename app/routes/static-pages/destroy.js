@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyStaticPageRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Informatie pagina verwijderen' };
+  breadcrumb = { title: 'Informatie pagina verwijderen' };
 
   canAccess() {
     return this.abilities.can('destroy static-pages');

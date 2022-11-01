@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditMandateRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Mandaat aanpassen' };
+  breadcrumb = { title: 'Mandaat aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit debit/mandates');

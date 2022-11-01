@@ -2,7 +2,7 @@ import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 import { assign } from '@ember/polyfills';
 
 export default class ThreadIndexRoute extends AuthenticatedRoute {
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.name };
   }
 

@@ -11,7 +11,7 @@ export default class ShowPollsRoute extends AuthenticatedRoute {
     this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
   }
 
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.poll.question.question };
   }
 

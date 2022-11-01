@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditStaticPageRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Batch gebruikers uploaden' };
+  breadcrumb = { title: 'Batch gebruikers uploaden' };
 
   canAccess() {
     return this.abilities.can('batch upload users');

@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class MandatesRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Incasso mandaten' };
+  breadcrumb = { title: 'Incasso mandaten' };
 
   get pageActions() {
     return [

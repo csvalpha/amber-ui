@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyFormResponseRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Formulierantwoord verwijderen' };
+  breadcrumb = { title: 'Formulierantwoord verwijderen' };
 
   canAccess(model) {
     return this.abilities.can('destroy form/response', model);

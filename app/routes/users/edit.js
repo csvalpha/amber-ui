@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditUserRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Lid aanpassen' };
+  breadcrumb = { title: 'Lid aanpassen' };
 
   get tabItems() {
     const user = this.controller.model;

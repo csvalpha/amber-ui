@@ -10,7 +10,7 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   @service router;
   @service fetch;
 
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.title };
   }
 

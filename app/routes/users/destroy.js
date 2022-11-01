@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyUserRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Lid verwijderen' };
+  breadcrumb = { title: 'Lid verwijderen' };
 
   canAccess(model) {
     return this.abilities.can('destroy user', model);

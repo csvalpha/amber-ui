@@ -1,7 +1,7 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class PhotosIndexRoute extends ApplicationRoute {
-  get breadCrumb() {
+  get breadcrumb() {
     return { title: this.controller.model.title };
   }
 

@@ -9,7 +9,7 @@ import {
 export default class ShowPhotosRoute extends ApplicationRoute {
   @service intl;
 
-  get breadCrumb() {
+  get breadcrumb() {
     const photo = this.controller.model;
     const allAlbumPhotos = this.controller.model.photoAlbum.get('sortedPhotos');
     const photoAlbumPhotosLength = allAlbumPhotos.get('length');
