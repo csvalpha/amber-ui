@@ -95,7 +95,7 @@ export default Component.extend({
   addStaticPageOption: function (list, id, localeName) {
     if (this.availableStaticPages && this.availableStaticPages[id]) {
       list.push({
-        link: 'static-pages.show',
+        link: 'static-pages.static-page.show',
         linkArgument: id,
         title: this.intl.t('component.headerNav.' + localeName),
         icon: '',

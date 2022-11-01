@@ -1,4 +1,4 @@
-import EditStaticPageController from './edit';
+import EditStaticPageController from './static-page/edit';
 
 export default class NewStaticPageController extends EditStaticPageController {
   successMessage = 'Infopagina aangemaakt!';

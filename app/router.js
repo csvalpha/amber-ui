@@ -41,10 +41,13 @@ Router.map(function () {
   this.route('profile');
 
   this.route('static-pages', function () {
-    this.route('show', { path: '/:id' });
     this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('destroy', { path: '/:id/destroy' });
+
+    this.route('static-page', { path: ':id' }, function () {
+      this.route('show', { path: '/' });
+      this.route('edit');
+      this.route('destroy');
+    });
   });
 
   this.route('quickpost');

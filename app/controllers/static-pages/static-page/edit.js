@@ -4,7 +4,7 @@ import { capitalize } from '@ember/string';
 
 export default class EditStaticPageController extends EditController {
   successMessage = 'Infopagina aangepast!';
-  successTransitionTarget = 'static-pages.show';
+  successTransitionTarget = 'static-pages.static-page.show';
 
   get staticPageCategoryOptions() {
     return StaticPageCategories.map((pageCategory) => {

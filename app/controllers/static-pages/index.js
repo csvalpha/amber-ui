@@ -11,7 +11,7 @@ export default class StaticPagesIndexController extends FilterableAndSortableCon
   @tracked sortedAttribute = 'title';
 
   queryParams = ['search', 'sort'];
-  routeOnEnter = 'static-pages.show';
+  routeOnEnter = 'static-pages.static-page.show';
   sortableAttributes = [
     {
       value: 'title',
