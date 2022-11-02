@@ -1,5 +1,6 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default DestroyController.extend({
-  successTransitionTarget: 'mail-aliases.index',
-});
+export default class MailAliasDestroyController extends DestroyController {
+  successTransitionTarget = 'mail-aliases.index';
+  cancelTransitionTarget = 'mail-aliases.show';
+}

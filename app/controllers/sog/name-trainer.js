@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object';
 import { run } from '@ember/runloop';
-
+// todo: octane
 export default Controller.extend({
   queryParams: ['groupId', 'difficulty'],
   groupId: null,

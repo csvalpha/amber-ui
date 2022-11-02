@@ -1,20 +1,18 @@
 import EditController from 'amber-ui/controllers/application/edit';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 export default class EditArticleController extends EditController {
+  successTransitionTarget = 'articles.show';
+
   @service session;
   @service abilities;
 
-  successTransitionTarget = 'articles.show';
-
-  @computed('session.currentUser', function () {
+  get canPin() {
     return this.session.hasPermission('article.update');
-  })
-  canPin;
+  }
 
-  @computed('session.currentUser.{group,groups}', function () {
+  get groupOptions() {
     const optionArray = [
       {
         label: '',
@@ -29,17 +27,15 @@ export default class EditArticleController extends EditController {
       });
     });
     return optionArray;
-  })
-  groupOptions;
+  }
 
-  @computed('session.currentUser', 'store', function () {
+  get groups() {
     if (this.abilities.can('select all groups for articles')) {
       return this.store.findAll('group');
     }
 
     return this.session.currentUser.get('groups');
-  })
-  groups;
+  }
 
   @action
   coverPhotoLoaded(file) {

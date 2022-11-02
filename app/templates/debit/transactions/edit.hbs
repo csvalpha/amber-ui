@@ -3,6 +3,7 @@
 <Forms::TransactionForm
   @model={{@model}}
   @onSubmit={{action 'submit'}}
+  @onCancel={{action 'cancel'}}
   @users={{this.users}}
   @onSetUser={{action 'setUser'}}
   @errorMessage={{this.errorMessage}}

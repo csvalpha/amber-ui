@@ -11,11 +11,11 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+    <button {{action this.destroyModel}} class='btn btn-danger' type='button'>
       Boek verwijderen
     </button>
-    <LinkTo @route='books.show' @model={{model.id}} class='btn btn-default'>
+    <button {{action this.cancel}} type="button" class='btn btn-default'>
       Annuleren
-    </LinkTo>
+    </button>
   </div>
 </div>

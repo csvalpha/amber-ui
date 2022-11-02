@@ -11,13 +11,13 @@
       @errorMessage={{this.errorMessage}}
       @inputLayout='vertical'
     >
-      <LinkTo
-        @route='users.show-permissions'
-        @model={{model.id}}
+      <button
+        {{action 'cancel'}}
+        type="button"
         class='btn btn-default'
       >
         Annuleren
-      </LinkTo>
+      </button>
     </ModelForm::FormActions>
   </form>
 </TabbedView>

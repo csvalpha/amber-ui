@@ -1,6 +1,7 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default DestroyController.extend({
-  successMessage: 'Categorie verwijderd!',
-  successTransitionTarget: 'forum.index',
-});
+export default class ForumCategoryDestroyController extends DestroyController {
+  successMessage = 'Categorie verwijderd!';
+  successTransitionTarget = 'forum.index';
+  cancelTransitionTarget = 'forum.categories.category';
+}

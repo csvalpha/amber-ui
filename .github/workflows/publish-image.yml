@@ -45,8 +45,11 @@ jobs:
             if [ "$GITHUB_REF_NAME" = 'staging' ]; then
               BUILD_ARGS+=$'\nDEPLOY_TARGET=staging'
             fi
-            BUILD_ARGS=${BUILD_ARGS//$'\n'/'%0A'}
-            echo 'build_args='"$BUILD_ARGS" >> "$GITHUB_OUTPUT"
+            {
+              echo 'build_args<<EOF'
+              echo "$BUILD_ARGS"
+              echo 'EOF' 
+            } >> "$GITHUB_OUTPUT"
           fi
 
   publish:
