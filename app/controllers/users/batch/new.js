@@ -28,6 +28,7 @@ export default class NewUserBatchController extends NewController {
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     'application/vnd.ms-excel.sheet.macroenabled.12',
   ]);
+
   validExtensions = EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']);
 
   get groups() {

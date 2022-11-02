@@ -17,6 +17,7 @@ export default class DebitCollectionNewController extends EditController {
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
     'application/vnd.ms-excel.sheet.macroenabled.12',
   ]);
+
   validExtensions = EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']);
   @action
   fileLoaded(file) {
