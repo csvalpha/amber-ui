@@ -1,14 +1,10 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class EditStaticPageRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Informatie pagina aanpassen' };
+export default class StaticPageEditRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Infopagina aanpassen' };
 
   canAccess() {
     return this.abilities.can('edit static-pages');
-  }
-
-  model(params) {
-    return this.store.findRecord('static-page', params.id, params);
   }
 
   deactivate() {

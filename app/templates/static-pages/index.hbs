@@ -18,7 +18,7 @@
     </div>
 
     {{#each group.items as |staticPage|}}
-      <LinkTo @route='static-pages.static-page.show' @model={{staticPage.id}}>
+      <LinkTo @route='static-pages.static-page' @model={{staticPage.id}}>
         <div class='row rtable-row'>
           <span class='col'>{{staticPage.title}}</span>
         </div>

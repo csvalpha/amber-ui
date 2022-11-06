@@ -44,7 +44,6 @@ Router.map(function () {
     this.route('new');
 
     this.route('static-page', { path: ':id' }, function () {
-      this.route('show', { path: '/' });
       this.route('edit');
       this.route('destroy');
     });
