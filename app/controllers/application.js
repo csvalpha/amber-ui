@@ -12,7 +12,7 @@ export default class ApplicationController extends Controller {
     };
 
     return linkListToArray(this.router.currentRoute).filter(
-      (routeInfo) => routeInfo.metadata?.breadcrumb
+      (routeInfo) => routeInfo.metadata?.breadcrumb?.title
     );
   }
 }
