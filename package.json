@@ -113,8 +113,7 @@
     "webpack": "^5.65.0"
   },
   "resolutions": {
-    "@embroider/macros": "^1.0.0",
-    "workerpool@^2.3.0": "^2.3.4"
+    "@embroider/macros": "^1.0.0"
   },
   "engines": {
     "node": "14.* || >= 16"
