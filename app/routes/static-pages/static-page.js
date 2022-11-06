@@ -4,7 +4,7 @@ export default class StaticPageRoute extends ApplicationRoute {
   queryParams = {};
 
   get breadcrumb() {
-    return { title: this.controller.model.title };
+    return { title: this.controller?.model.title };
   }
 
   model(params) {
