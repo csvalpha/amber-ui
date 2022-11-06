@@ -2,7 +2,7 @@ import EditController from 'amber-ui/controllers/application/edit';
 import { StaticPageCategories } from 'amber-ui/constants';
 import { capitalize } from '@ember/string';
 
-export default class EditStaticPageController extends EditController {
+export default class StaticPageEditController extends EditController {
   successMessage = 'Infopagina aangepast!';
   successTransitionTarget = 'static-pages.static-page';
 
