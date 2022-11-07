@@ -158,13 +158,17 @@ Router.map(function () {
   });
 
   this.route('activities', function () {
-    this.route('show', { path: '/:id' });
-    this.route('ical');
     this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('destroy', { path: '/:id/destroy' });
-    this.route('generate-alias', { path: '/:id/generate-alias' });
-    this.route('print-enrolled', { path: '/:id/print-enrolled' });
+
+    this.route('ical');
+
+    this.route('activity', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+
+      this.route('generate-alias');
+      this.route('print-enrolled');
+    });
   });
 
   this.route('debit', function () {

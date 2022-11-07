@@ -1,6 +1,6 @@
 import EditController from '../application/edit';
 import { action } from '@ember/object';
-import { union } from '../../utils/array-operations';
+import { union } from 'amber-ui/utils/array-operations';
 
 export default class EditPollController extends EditController {
   successMessage = 'Poll opgeslagen!';

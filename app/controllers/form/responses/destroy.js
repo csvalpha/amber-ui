@@ -5,8 +5,8 @@ import DestroyController from 'amber-ui/controllers/application/destroy';
 export default class FormResponseDestroyController extends DestroyController {
   @service store;
   successMessage = 'Je inschrijving is verwijderd.';
-  successTransitionTarget = 'activities.index';
-  cancelTransitionTarget = 'activities.index';
+  successTransitionTarget = 'activities';
+  cancelTransitionTarget = 'activities';
   // important note: there is no way (currently) to redirect from a form response to the activity, since the models
   // are not designed with this in mind.
   // I would not mind this being enabled by a slight redesign in the future, though.

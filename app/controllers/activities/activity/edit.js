@@ -4,12 +4,12 @@ import { ActivityCategories } from 'amber-ui/constants';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import EditController from '../application/edit';
-import { union } from '../../utils/array-operations';
+import EditController from 'amber-ui/controllers/application/edit';
+import { union } from 'amber-ui/utils/array-operations';
 
-export default class EditActivityController extends EditController {
+export default class ActivityEditController extends EditController {
   successMessage = 'Activiteit opgeslagen!';
-  successTransitionTarget = 'activities.show';
+  successTransitionTarget = 'activities.activity';
 
   @service session;
   @service abilities;

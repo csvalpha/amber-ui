@@ -1,7 +1,7 @@
 <div class='card tool'>
   <div class='card-header'>
     <div class='d-flex justify-content-between'>
-      <LinkTo @route='activities.index'>
+      <LinkTo @route='activities'>
         <h5 class='card-text'>Komende activiteiten</h5>
       </LinkTo>
       <div class='col-xs-1 tool-actions'>
@@ -33,7 +33,7 @@
 
   <ul class='list-group list-group-flush'>
     {{#each activities as |activity|}}
-      <LinkTo @route='activities.show' @model={{activity.id}}>
+      <LinkTo @route='activities.activity' @model={{activity.id}}>
         <li class='list-group-item'>
           <span class='activity-tool-title'>{{activity.title}}</span>
           <br />

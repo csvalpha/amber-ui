@@ -8,7 +8,7 @@
         Je kunt deze activiteit niet verwijderen, omdat er al reacties zijn!
       </div>
       <LinkTo
-        @route='activities.show'
+        @route='activities.activity'
         @model={{model.id}}
         class='btn btn-default'
       >
@@ -23,11 +23,7 @@
       <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
         Verwijderen
       </button>
-      <button
-        {{action 'cancel'}}
-        type="button"
-        class='btn btn-default'
-      >
+      <button {{action 'cancel'}} type='button' class='btn btn-default'>
         Annuleren
       </button>
       {{#if errorMessage}}

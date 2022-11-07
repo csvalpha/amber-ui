@@ -3,7 +3,7 @@ import EmberArray, { A } from '@ember/array';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { isInvalidResponse } from 'ember-fetch/errors';
-import NewController from '../../application/new';
+import NewController from 'amber-ui/controllers//application/new';
 
 export default class NewUserBatchController extends NewController {
   successMessage = 'Gebruikers aanmaken gelukt!';

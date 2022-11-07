@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 
-export default class ShowActivityRoute extends AuthenticatedRoute {
+export default class ActivityIndexRoute extends AuthenticatedRoute {
   @service store;
 
   constructor() {
@@ -11,29 +11,25 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
     this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
   }
 
-  get breadcrumb() {
-    return { title: this.controller.model.activity.title };
-  }
-
   get pageActions() {
     const { activity } = this.controller.model;
     return [
       {
-        link: 'activities.edit',
+        link: 'activities.activity.edit',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: activity,
         canAccess: this.abilities.can('edit activity', activity),
       },
       {
-        link: 'activities.destroy',
+        link: 'activities.activity.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: activity,
         canAccess: this.abilities.can('destroy activities'),
       },
       {
-        link: 'activities.print-enrolled',
+        link: 'activities.activity.print-enrolled',
         title: 'Print ingeschrevenen',
         icon: 'print',
         linkArgument: activity,
@@ -43,7 +39,7 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
         ),
       },
       {
-        link: 'activities.generate-alias',
+        link: 'activities.activity.generate-alias',
         title: 'Mail ingeschrevenen',
         icon: 'paper-plane',
         linkArgument: activity,
@@ -57,19 +53,15 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
     return this.abilities.can('show activities');
   }
 
-  model(params) {
-    const activityPromise = this.store.findRecord(
-      'activity',
-      params.id,
-      params
-    );
+  model() {
+    const activity = this.modelFor('activities.activity');
     let formPromise, responsePromise;
 
     if (
       this.abilities.can('show form/forms') &&
       this.abilities.can('show form/responses')
     ) {
-      formPromise = activityPromise.then((activity) => activity.get('form'));
+      formPromise = activity.form;
       responsePromise = formPromise
         // Load or create the response
         .then((form) =>
@@ -86,7 +78,7 @@ export default class ShowActivityRoute extends AuthenticatedRoute {
     }
 
     return hash({
-      activity: activityPromise,
+      activity,
       form: formPromise,
       currentUserResponse: responsePromise,
     });
