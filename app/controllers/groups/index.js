@@ -3,11 +3,11 @@ import { tracked } from '@glimmer/tracking';
 
 export default class GroupsIndexController extends FilterableAndSortableController {
   @tracked sortedAttribute = 'name';
+
   @tracked showAdministrative = false;
   @tracked showInactive = false;
 
-  routeOnEnter = 'groups.show';
-
+  routeOnEnter = 'groups.group';
   queryParams = {
     selectedGroupKind: 'kind',
     search: 'search',

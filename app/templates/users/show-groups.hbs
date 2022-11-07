@@ -54,7 +54,7 @@
   <div class='card-body row'>
     {{#each filteredModelsWithAdministrative as |membership|}}
       <LinkTo
-        @route='groups.show'
+        @route='groups.group'
         @model={{membership.group.id}}
         class='col-sm-12 col-md-6 col-lg-4'
       >

@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewGroupRoute extends AuthenticatedRoute {
+export default class GroupsNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Groep aanmaken' };
 
   canAccess() {

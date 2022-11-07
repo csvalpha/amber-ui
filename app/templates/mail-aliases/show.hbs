@@ -28,7 +28,7 @@
                   <td>
                     {{#if @model.moderatorGroup}}
                       <LinkTo
-                        @route='groups.show'
+                        @route='groups.group'
                         @model={{@model.moderatorGroup.id}}
                       >
                         {{@model.moderatorGroup.name}}
@@ -50,7 +50,7 @@
                   <td>Groep</td>
                   <td>
                     {{#if @model.group}}
-                      <LinkTo @route='groups.show' @model={{@model.group.id}}>
+                      <LinkTo @route='groups.group' @model={{@model.group.id}}>
                         {{@model.group.name}}
                       </LinkTo>
                     {{else}}

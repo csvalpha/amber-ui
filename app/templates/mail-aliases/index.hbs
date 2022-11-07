@@ -47,7 +47,7 @@
         <span class='col-12 col-md-2 rtable-item'>
           <span class='d-inline d-md-none text-muted'> Groep/Gebruiker: </span>
           {{#if mailAlias.group}}
-            <LinkTo @route='groups.show' @model={{mailAlias.group.id}}>
+            <LinkTo @route='groups.group' @model={{mailAlias.group.id}}>
               <span class='text-muted'> <FaIcon @icon='users' /> </span>
               {{mailAlias.group.name}}
             </LinkTo>

@@ -1,23 +1,19 @@
 import { all } from 'rsvp';
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class ShowGroupRoute extends AuthenticatedRoute {
-  get breadcrumb() {
-    return { title: this.controller.model.name };
-  }
-
+export default class GroupIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     const group = this.controller.model;
     return [
       {
-        link: 'groups.edit',
+        link: 'groups.group.edit',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: group,
         canAccess: this.abilities.can('edit group', group),
       },
       {
-        link: 'groups.export',
+        link: 'groups.group.export',
         title: 'Gebruikers exporteren',
         icon: 'download',
         linkArgument: group,
@@ -28,10 +24,6 @@ export default class ShowGroupRoute extends AuthenticatedRoute {
 
   canAccess() {
     return this.abilities.can('show groups');
-  }
-
-  model(params) {
-    return this.store.findRecord('group', params.id, params);
   }
 
   afterModel(group) {

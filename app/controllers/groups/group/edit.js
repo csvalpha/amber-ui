@@ -6,10 +6,11 @@ import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
 import EditController from 'amber-ui/controllers/application/edit';
 
-export default class EditGroupController extends EditController {
+export default class GroupEditController extends EditController {
   @service session;
+
   successMessage = 'Groep aangepast!';
-  successTransitionTarget = 'groups.show';
+  successTransitionTarget = 'groups.group';
 
   _groupKindToOption(groupKind) {
     return {

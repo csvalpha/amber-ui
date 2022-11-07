@@ -1,10 +1,8 @@
-import EditGroupController from './edit';
+import GroupEditController from './group/edit';
 
-export default class NewGroupController extends EditGroupController {
+export default class GroupsNewController extends GroupEditController {
   successMessage = 'Groep aangemaakt!';
   cancelMessage = 'Groep aanmaken geannuleerd.';
-  cancelTransitionTarget = 'groups.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'groups';
+  cancelTransitionModel = null;
 }

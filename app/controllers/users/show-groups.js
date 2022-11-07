@@ -29,7 +29,7 @@ export default class UsersShowGroupsController extends GroupMembershipsControlle
   selectFirstItem() {
     if (this.filteredModels.length > 0) {
       this.transitionToRoute(
-        'groups.show',
+        'groups.group',
         this.filteredModels.firstObject.group.get('id')
       );
     }

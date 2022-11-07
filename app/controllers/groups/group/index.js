@@ -2,11 +2,10 @@ import GroupMembershipsController from 'amber-ui/controllers/application/group-m
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class GroupsShowController extends GroupMembershipsController {
+export default class GroupIndexController extends GroupMembershipsController {
   @tracked sortedAttribute = 'user.firstName';
 
   filterableAttributes = ['user.username', 'user.fullName', 'function'];
-
   sortableAttributes = [
     {
       value: 'user.firstName',

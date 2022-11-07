@@ -4,9 +4,9 @@ import { A } from '@ember/array';
 import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 
-export default class GroupsExportController extends Controller {
+export default class GroupExportController extends Controller {
   @service fetch;
-  @service('file-saver') fileSaver;
+  @service fileSaver;
 
   questions = [
     {
@@ -172,6 +172,6 @@ export default class GroupsExportController extends Controller {
       blob,
       'application/csv'
     );
-    this.transitionToRoute('groups.show', this.model);
+    this.transitionToRoute('groups.group', this.model);
   }
 }

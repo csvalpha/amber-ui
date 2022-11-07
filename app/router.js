@@ -201,10 +201,13 @@ Router.map(function () {
   });
 
   this.route('groups', function () {
-    this.route('show', { path: '/:id' });
-    this.route('export', { path: '/:id/export' });
     this.route('new');
-    this.route('edit', { path: '/:id/edit' });
+
+    this.route('group', { path: ':id' }, function () {
+      this.route('edit');
+
+      this.route('export');
+    });
   });
 
   this.route('sog', function () {

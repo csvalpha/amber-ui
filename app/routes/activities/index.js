@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class ActivityIndexRoute extends AuthenticatedRoute {
+export default class ActivitiesIndexRoute extends AuthenticatedRoute {
   queryParams = {
     search: {
       refreshModel: true,
