@@ -1,16 +1,6 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
-import { capitalize } from '@ember/string';
-import { inject as service } from '@ember/service';
 
 export default class ArticlesIndexRoute extends ApplicationRoute {
-  @service intl;
-
-  get breadcrumb() {
-    return {
-      title: capitalize(this.intl.t('model.article.name.other').toString()),
-    };
-  }
-
   get pageActions() {
     return [
       {
@@ -20,10 +10,6 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
         canAccess: this.abilities.can('create articles'),
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show articles');
   }
 
   model(params) {

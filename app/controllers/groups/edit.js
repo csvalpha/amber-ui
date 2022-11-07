@@ -4,7 +4,7 @@ import { GroupKinds } from 'amber-ui/constants';
 import { all } from 'rsvp';
 import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
-import EditController from '../application/edit';
+import EditController from 'amber-ui/controllers/application/edit';
 
 export default class EditGroupController extends EditController {
   @service session;

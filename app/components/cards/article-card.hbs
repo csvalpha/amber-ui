@@ -23,7 +23,7 @@
         </div>
 
         <div class='card-titles'>
-          <LinkTo @route='articles.show' @model={{article.id}}>
+          <LinkTo @route='articles.article' @model={{article.id}}>
             <h2 class='card-title' itemprop='name headline'>
               {{#if article.pinned}}<FaIcon @icon='thumbtack' />{{/if}}
               {{article.title}}
@@ -101,7 +101,7 @@
         }}
       </span>
       {{#if useMaxHeight}}
-        <LinkTo @route='articles.show' @model={{article.id}} itemprop='url'>
+        <LinkTo @route='articles.article' @model={{article.id}} itemprop='url'>
           <span class='float-md-right'> {{t 'tag.button.readMore'}} </span>
         </LinkTo>
       {{/if}}

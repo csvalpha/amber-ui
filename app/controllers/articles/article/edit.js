@@ -2,11 +2,11 @@ import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class EditArticleController extends EditController {
-  successTransitionTarget = 'articles.show';
-
-  @service session;
+export default class ArticleEditController extends EditController {
   @service abilities;
+  @service session;
+
+  successTransitionTarget = 'articles.article';
 
   get canPin() {
     return this.session.hasPermission('article.update');

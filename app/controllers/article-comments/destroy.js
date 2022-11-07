@@ -1,10 +1,10 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 import { action } from '@ember/object';
 
-export default class ArticleCommentDestroyController extends DestroyController {
+export default class ArticleCommentsDestroyController extends DestroyController {
   successMessage = 'Artikelreactie verwijderd!';
-  successTransitionTarget = 'articles.show';
-  cancelTransitionTarget = 'articles.show';
+  successTransitionTarget = 'articles.article';
+  cancelTransitionTarget = 'articles.article';
 
   get successTransitionModel() {
     return this.article;
