@@ -211,18 +211,20 @@ Router.map(function () {
     this.route('name-trainer');
   });
 
-  this.route('404-page-not-found', { path: '/*path' });
+  this.route('books', function () {
+    this.route('new');
 
-  this.route('418-im-a-teapot', { path: '/coffee' });
+    this.route('book', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
 
   this.route('sponsorkliks');
 
-  this.route('books', function () {
-    this.route('show', { path: '/:id' });
-    this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('destroy', { path: '/:id/destroy' });
-  });
+  this.route('404-page-not-found', { path: '/*path' });
+
+  this.route('418-im-a-teapot', { path: '/coffee' });
 
   return true;
 });

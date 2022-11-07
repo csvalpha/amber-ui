@@ -3,10 +3,11 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-export default class EditBookController extends EditController {
+export default class BookEditController extends EditController {
   @service fetch;
 
-  successTransitionTarget = 'books.show';
+  successTransitionTarget = 'books.book';
+
   @tracked showScanner = false;
   @tracked devices = [];
   @tracked device = null;

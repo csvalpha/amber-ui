@@ -19,7 +19,7 @@
   </div>
   {{#each model as |book|}}
     <div class='col-lg-3 col-md-4 col-6 mb-3'>
-      <LinkTo @route='books.show' @model={{book.id}}>
+      <LinkTo @route='books.book' @model={{book.id}}>
         <article itemscope itemtype='https://schema.org/Book'>
           <div class='card' data-test-article-card>
             <div class='card-header card-header--overlay'>
