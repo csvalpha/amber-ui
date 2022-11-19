@@ -1,16 +1,13 @@
 import Controller from '@ember/controller';
-import EmberObject, { computed } from '@ember/object';
 
 export default class DebitCollectionShowController extends Controller {
   get groupedTransactions() {
     const transactions = [];
-
     this.model.transactions.forEach((transaction) => {
       const user = transaction.get('user');
       let transactionGroup = transactions.find(
         (transactionGroup) => transactionGroup.user === user
       );
-
       if (!transactionGroup) {
         transactionGroup = {
           user: transaction.get('user'),
@@ -19,7 +16,6 @@ export default class DebitCollectionShowController extends Controller {
         };
         transactions.push(transactionGroup);
       }
-
       transactionGroup.transactions.push(transaction);
       transactionGroup.totalTransactionAmount += transaction.get('amount');
     });
