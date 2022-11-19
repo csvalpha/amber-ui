@@ -31,10 +31,6 @@ export default class Form extends Model {
     return this.questions.sortBy('position');
   }
 
-  // get sortedResponses() {
-  //   return this.responses.sortBy('')
-  // }
-
   get currentUserCanRespond() {
     return !this.currentUserResponseCompleted && this.canRespond;
   }
