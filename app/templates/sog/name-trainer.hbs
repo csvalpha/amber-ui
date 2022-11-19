@@ -1,43 +1,43 @@
 <div class='row justify-content-sm-center name-trainer'>
   <div class='card col-xl-6 col-lg-8 col-md-10'>
-    {{#if started}}
+    {{#if this.started}}
       <div class='card-header'>
-        <h1 class='card-title'>{{group.name}}</h1>
+        <h1 class='card-title'>{{this.group.name}}</h1>
         <p class='card-subtitle text-muted'>
           Moeilijkheidsgraad:
-          {{humanizedDifficulty}}
+          {{this.humanizedDifficulty}}
         </p>
       </div>
 
-      {{#if started}}
+      {{#if this.started}}
         <div class='progress'>
           <div
             class='progress-bar'
             role='progressbar'
-            style={{progressBarStyle}}
-            aria-valuenow='{{currentQuestionIndex}}'
+            style={{this.progressBarStyle}}
+            aria-valuenow='{{this.currentQuestionIndex}}'
             aria-valuemin='0'
-            aria-valuemax='{{questions.length}}'
+            aria-valuemax='{{this.questions.length}}'
           >
-            {{currentQuestionIndex}}/{{questions.length}}
+            {{this.currentQuestionIndex}}/{{this.questions.length}}
           </div>
         </div>
 
-        {{#if (eq difficulty 1)}}
+        {{#if (eq this.difficulty 1)}}
           <div class='card-body text-center trainer-question'>
             <h2 class='card-title'>
               Wie is
-              {{currentQuestion.question.fullName}}?
+              {{this.currentQuestion.question.fullName}}?
             </h2>
           </div>
           <ul
             class='list-group list-group-flush trainer-options trainer-images'
           >
-            {{#each currentQuestion.options as |opt|}}
+            {{#each this.currentQuestion.options as |opt|}}
               <li
                 class='list-group-item trainer-image
                   {{if
-                    (and answered (eq currentQuestion.question opt))
+                    (and answered (eq this.currentQuestion.question opt))
                     "bg-success"
                   }}'
                 {{action 'chooseOption' opt}}
@@ -50,20 +50,20 @@
             {{/each}}
           </ul>
 
-        {{else if (eq difficulty 2)}}
+        {{else if (eq this.difficulty 2)}}
           <div class='card-body text-center trainer-question'>
             <h2 class='card-title'>Wie is dit?</h2>
             <img
               class='card-img-rounded trainer-thumb-large'
-              src='{{currentQuestion.question.avatarThumbUrlOrDefault}}'
+              src='{{this.currentQuestion.question.avatarThumbUrlOrDefault}}'
             />
           </div>
           <ul class='list-group list-group-flush trainer-options'>
-            {{#each currentQuestion.options as |opt|}}
+            {{#each this.currentQuestion.options as |opt|}}
               <li
                 class='list-group-item trainer-option
                   {{if
-                    (and answered (eq currentQuestion.question opt))
+                    (and answered (eq this.currentQuestion.question opt))
                     "bg-success"
                   }}'
                 {{action 'chooseOption' opt}}
@@ -73,28 +73,28 @@
             {{/each}}
           </ul>
 
-        {{else if (eq difficulty 3)}}
+        {{else if (eq this.difficulty 3)}}
           <div class='card-body text-center trainer-question'>
-            {{#if answered}}
+            {{#if this.answered}}
               <h2 class='card-title'>
                 Dit is
-                {{currentQuestion.question.fullName}}
+                {{this.currentQuestion.question.fullName}}
               </h2>
             {{else}}
               <h2 class='card-title'>Wie is dit?</h2>
             {{/if}}
             <img
               class='card-img-rounded trainer-thumb-large'
-              src='{{currentQuestion.question.avatarThumbUrlOrDefault}}'
+              src='{{this.currentQuestion.question.avatarThumbUrlOrDefault}}'
             />
           </div>
           <div class='card-body'>
             <div class='input-group'>
               <Input
                 @type='text'
-                @value={{textInput}}
+                @value={{this.textInput}}
                 id='answer'
-                class={{inputClass}}
+                class={{this.inputClass}}
                 placeholder='Type hier de volledige naam'
                 @enter={{action 'checkAnswer'}}
               />
@@ -116,18 +116,18 @@
         </div>
       {{/if}}
 
-    {{else if finished}}
+    {{else if this.finished}}
       <div class='card-body text-center trainer-question'>
         <h2 class='card-title'>
           Je hebt
-          {{success}}
+          {{this.success}}
           van de
-          {{questions.length}}
+          {{this.questions.length}}
           vragen goed
         </h2>
         <p class='card-subtitle text-muted'>
           Dat is toch wel een
-          {{grade}}
+          {{this.grade}}
           waard
         </p>
       </div>
@@ -143,9 +143,9 @@
             </tr>
           </thead>
           <tbody>
-            {{#each questions as |item|}}
+            {{#each this.questions as |item|}}
               <tr class='{{unless item.success "table-danger"}}'>
-                {{#if (eq difficulty 1)}}
+                {{#if (eq this.difficulty 1)}}
                   <td>Wie is {{item.question.fullName}}?</td>
                   <td>
                     <img
@@ -161,7 +161,7 @@
                     {{item.answer.fullName}}
                   </td>
 
-                {{else if (eq difficulty 2)}}
+                {{else if (eq this.difficulty 2)}}
                   <td>
                     <img
                       class='card-img-rounded trainer-thumb-tiny'
@@ -180,7 +180,7 @@
                     {{item.answer.fullName}}
                   </td>
 
-                {{else if (eq difficulty 3)}}
+                {{else if (eq this.difficulty 3)}}
                   <td>
                     <img
                       class='card-img-rounded trainer-thumb-tiny'
@@ -215,8 +215,8 @@
         <div class='form-group'>
           <label>Groep</label>
           <PowerSelect
-            @options={{model}}
-            @selected={{group}}
+            @options={{@model}}
+            @selected={{this.group}}
             @onChange={{action 'setGroupId'}}
             @searchEnabled={{true}}
             @searchField='name'
@@ -230,9 +230,9 @@
           <label>Moeilijkheidsgraad</label>
           <Input::SelectInput
             @class='form-control'
-            @options={{difficultyOptions}}
-            @placeholder={{Moeilijkheidsgraad}}
-            @value={{difficulty}}
+            @options={{this.difficultyOptions}}
+            @placeholder='Moeilijkheidsgraad'
+            @value={{this.difficulty}}
           />
         </div>
       </div>

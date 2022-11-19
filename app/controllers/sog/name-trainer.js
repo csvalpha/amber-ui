@@ -33,14 +33,21 @@ export default class NameTrainerController extends Controller {
   @tracked answered = false;
 
   get users() {
-    return this.store.query('user', {
-      filter: { group: this.group.get('name') },
-    });
+    return this.getUsers();
+  }
+
+  async getUsers() {
+    const group = await this.group;
+    if (!group) {
+      return [];
+    }
+    const memberships = await group.get('memberships');
+    return await Promise.all(memberships.mapBy('user'));
   }
 
   get group() {
     if (!this.groupId) {
-      return;
+      return null;
     }
     return this.store.find('group', this.groupId);
   }
@@ -96,7 +103,7 @@ export default class NameTrainerController extends Controller {
   @action
   stopTrainer() {
     this.started = false;
-    this.finished = true;
+    this.finished = false;
   }
 
   @action
@@ -160,7 +167,7 @@ export default class NameTrainerController extends Controller {
         _this.textInput = '';
       } else {
         _this.answered = false;
-        _this.finished = false;
+        _this.finished = true;
         _this.started = false;
       }
     }, 2000);
