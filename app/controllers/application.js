@@ -4,5 +4,5 @@ import Controller from '@ember/controller';
 export default class ApplicationController extends Controller {
   @service session;
 
-  @service('layout-manager') layoutManager;
+  @service layoutManager;
 }
