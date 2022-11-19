@@ -211,6 +211,9 @@
       <div class='card-header'>
         <h1 class='card-title'>Namen leren</h1>
       </div>
+      {{#if this.errorMessage}}
+        <div class='text-danger'>{{this.errorMessage}}</div>
+      {{/if}}
       <div class='card-body'>
         <div class='form-group'>
           <label>Groep</label>
