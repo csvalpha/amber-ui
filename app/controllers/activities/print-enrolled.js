@@ -25,8 +25,10 @@ export default class PrintEnrolledController extends Controller {
     const popup = window.open('', 'PRINT', 'height=400,width=600');
 
     popup.document.write(`<html><head><title>Inschrijflijst ${title}</title>`);
-    popup.document.write('<link rel="stylesheet" href="/assets/vendor.css">');
-    popup.document.write('<link rel="stylesheet" href="/assets/amber-ui.css">');
+    popup.document.write('<link rel="stylesheet" href="/assets/vendor.css"/>');
+    popup.document.write(
+      '<link rel="stylesheet" href="/assets/amber-ui.css"/>'
+    );
     popup.document.write(
       '</head><body onload="window.print()" onfocus="setTimeout(window.close, 500)">'
     );
