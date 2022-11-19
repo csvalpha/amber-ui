@@ -7,8 +7,7 @@ import { tracked } from '@glimmer/tracking';
 export default class PostsIndexController extends Controller {
   @service session;
   @service store;
-  @tracked
-  newContent = '';
+  @tracked newContent = '';
 
   queryParams = ['page'];
 
@@ -55,8 +54,12 @@ export default class PostsIndexController extends Controller {
 
   @action
   async addQuote(q) {
-    this.set('newContent', `${this.newContent}${q} \n\n`);
-
+    if (!this.newContent?.endsWith('\n')) {
+      // insert a newline in between if necessary
+      this.newContent = `${this.newContent}\n${q} \n\n`;
+    } else {
+      this.newContent = `${this.newContent}${q} \n\n`;
+    }
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
         queryParams: { page: this.model.postsPaged.meta.totalPages },
@@ -67,6 +70,16 @@ export default class PostsIndexController extends Controller {
     } else {
       this.scrollToNewForumPost();
     }
+  }
+
+  @action
+  updateNewContent(newContent) {
+    this.newContent = newContent;
+  }
+
+  @action
+  resetNewContent() {
+    this.newContent = '';
   }
 
   @action
