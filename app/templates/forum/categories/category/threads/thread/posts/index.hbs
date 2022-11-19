@@ -38,9 +38,9 @@
       <div class='card-body'>
         <Forum::ForumPostNew
           @thread={{@model}}
-          @content={{newContent}}
+          @content={{this.newContent}}
           @updateContent={{this.updateNewContent}}
-          @onSubmit={{action 'newPostCreated'}}
+          @onSubmit={{this.newPostCreated}}
         />
       </div>
     </div>

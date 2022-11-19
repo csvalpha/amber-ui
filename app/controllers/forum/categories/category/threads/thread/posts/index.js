@@ -54,7 +54,12 @@ export default class PostsIndexController extends Controller {
 
   @action
   async addQuote(q) {
-    this.newContent = `${this.newContent}${q} \n\n`;
+    if (!this.newContent?.endsWith('\n')) {
+      // insert a newline in between if necessary
+      this.newContent = `${this.newContent}\n${q} \n\n`;
+    } else {
+      this.newContent = `${this.newContent}${q} \n\n`;
+    }
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
         queryParams: { page: this.model.postsPaged.meta.totalPages },
