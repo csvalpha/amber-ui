@@ -32,7 +32,7 @@ module.exports = function (environment) {
       hostname: '/api/v1',
     },
 
-    moment: {
+    'ember-moment': {
       allowEmpty: true,
     },
 
