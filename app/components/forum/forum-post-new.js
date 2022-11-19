@@ -12,7 +12,7 @@ export default class ForumPostNewComponent extends Component {
   }
 
   set content(content) {
-    this.args.onChangeContent(content);
+    this.args.updateContent(content);
   }
 
   @action

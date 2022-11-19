@@ -39,7 +39,7 @@
         <Forum::ForumPostNew
           @thread={{@model}}
           @content={{this.newContent}}
-          @onChangeContent={{this.setNewContent}}
+          @updateContent={{this.updateNewContent}}
           @onSubmit={{this.newPostCreated}}
         />
       </div>

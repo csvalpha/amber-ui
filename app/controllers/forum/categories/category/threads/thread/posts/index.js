@@ -73,8 +73,13 @@ export default class PostsIndexController extends Controller {
   }
 
   @action
-  setNewContent(content) {
-    this.newContent = content;
+  updateNewContent(newContent) {
+    this.newContent = newContent;
+  }
+
+  @action
+  resetNewContent() {
+    this.newContent = '';
   }
 
   @action
