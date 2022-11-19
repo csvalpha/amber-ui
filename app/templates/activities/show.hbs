@@ -1,25 +1,24 @@
 <EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
-
-{{cards/activity-card @model.activity moreInfo=true}}
+<Cards::ActivityCard @activity={{@model.activity}} @moreInfo={{true}} />
 
 {{#if @model.form}}
   {{#if (can 'create form/responses')}}
     {{#if @model.currentUserResponse.completed}}
-      {{form/response/response-completed-alert @model.form}}
-    {{else if canSubmitResponse}}
-      {{form/response/response-card
-        @model.form
-        @model.currentUserResponse
-        data-test-form-response-card=@model.form.id
-      }}
+      <Form::Response::ResponseCompletedAlert @form={{@model.form}} />
+    {{else if this.canSubmitResponse}}
+      <Form::Response::ResponseCard
+        @form={{@model.form}}
+        @response={{@model.currentUserResponse}}
+        @data-test-form-response-card={{@model.form.id}}
+      />
     {{else}}
-      {{form/response/form-closed-alert @model.form}}
+      <Form::Response::FormClosedAlert @form={{@model.form}} />
     {{/if}}
   {{/if}}
 
   {{#if (can 'show form/responses')}}
-    {{form/responses-table-card @model.form}}
+    <Form::ResponsesTableCard @form={{@model.form}} />
   {{/if}}
 {{/if}}
