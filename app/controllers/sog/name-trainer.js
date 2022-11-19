@@ -1,12 +1,15 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 import { run } from '@ember/runloop';
-// todo: octane
-export default Controller.extend({
-  queryParams: ['groupId', 'difficulty'],
-  groupId: null,
-  difficulty: 1,
-  difficultyOptions: [
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
+
+export default class NameTrainerController extends Controller {
+  @service store;
+  queryParams = ['groupId', 'difficulty'];
+  @tracked groupId = null;
+  @tracked difficulty = 1;
+  difficultyOptions = [
     {
       value: 1,
       label: 'Makkelijk',
@@ -19,41 +22,48 @@ export default Controller.extend({
       value: 3,
       label: 'Moeilijk',
     },
-  ],
-  currentQuestionIndex: 1,
-  success: 0,
-  questions: [],
-  textInput: '',
-  started: false,
-  finished: false,
-  answered: false,
-  users: computed('group.name', 'store', function () {
+  ];
+
+  @tracked currentQuestionIndex = 1;
+  @tracked success = 0;
+  @tracked questions = [];
+  @tracked textInput = '';
+  @tracked started = false;
+  @tracked finished = false;
+  @tracked answered = false;
+
+  get users() {
     return this.store.query('user', {
       filter: { group: this.group.get('name') },
     });
-  }),
-  group: computed('groupId', 'store', function () {
+  }
+
+  get group() {
     if (!this.groupId) {
       return;
     }
-
     return this.store.find('group', this.groupId);
-  }),
-  humanizedDifficulty: computed('difficulty', 'difficultyOptions', function () {
+  }
+
+  get humanizedDifficulty() {
     return this.difficultyOptions.find(
       (option) => option.value === this.difficulty
     ).label;
-  }),
-  progressBarStyle: computed('progress', function () {
+  }
+
+  get progressBarStyle() {
     return `width: ${this.progress}%`;
-  }),
-  currentQuestion: computed('currentQuestionIndex', 'questions', function () {
+  }
+
+  get currentQuestion() {
     return this.questions.objectAt(this.currentQuestionIndex - 1);
-  }),
-  progress: computed('currentQuestionIndex', 'questions.length', function () {
+  }
+
+  get progress() {
     return (this.currentQuestionIndex / this.questions.length) * 100;
-  }),
-  inputClass: computed('answered', 'currentQuestion.success', function () {
+  }
+
+  get inputClass() {
     if (this.answered) {
       if (this.currentQuestion.success) {
         return 'form-control is-valid';
@@ -61,53 +71,59 @@ export default Controller.extend({
         return 'form-control is-invalid';
       }
     }
-
     return 'form-control';
-  }),
-  grade: computed('questions.length', 'success', function () {
+  }
+
+  get grade() {
     return 1 + Math.round((90 / this.questions.length) * this.success) / 10;
-  }),
-  actions: {
-    setGroupId(model) {
-      this.set('groupId', model.id);
-    },
-    startTrainer() {
-      this.users.then((users) => {
-        this.generateQuestions(users.filter((user) => user.avatarThumbUrl));
-        this.set('started', true);
-        this.set('finished', false);
-        this.set('currentQuestionIndex', 1);
-        this.set('success', 0);
-      });
-    },
-    stopTrainer() {
-      this.set('started', false);
-      this.set('finished', false);
-    },
-    chooseOption(option) {
-      if (!this.answered) {
-        let { currentQuestion } = this;
-        currentQuestion.answer = option;
-        currentQuestion.success = option === currentQuestion.question;
-        if (currentQuestion.success) {
-          this.incrementProperty('success');
-        }
+  }
 
-        this.goToNextQuestion();
-      }
-    },
-    checkAnswer() {
+  @action
+  setGroupId(model) {
+    this.groupId = model.id;
+  }
+
+  @action
+  async startTrainer() {
+    const users = await this.users;
+    this.generateQuestions(users.filter((user) => user.avatarThumbUrl));
+    this.started = true;
+    this.finished = false;
+    this.currentQuestionIndex = 1;
+    this.success = 0;
+  }
+
+  @action
+  stopTrainer() {
+    this.started = false;
+    this.finished = true;
+  }
+
+  @action
+  chooseOption(option) {
+    if (!this.answered) {
       let { currentQuestion } = this;
-      currentQuestion.answer = this.textInput;
-      currentQuestion.success =
-        currentQuestion.answer === currentQuestion.question.get('fullName');
+      currentQuestion.answer = option;
+      currentQuestion.success = option === currentQuestion.question;
       if (currentQuestion.success) {
-        this.incrementProperty('success');
+        this.success++;
       }
-
       this.goToNextQuestion();
-    },
-  },
+    }
+  }
+
+  @action
+  checkAnswer() {
+    let { currentQuestion } = this;
+    currentQuestion.answer = this.textInput;
+    currentQuestion.success =
+      currentQuestion.answer === currentQuestion.question.get('fullName');
+    if (currentQuestion.success) {
+      this.success++;
+    }
+    this.goToNextQuestion();
+  }
+
   generateQuestions(people) {
     let shuffledPeople = this.shuffleArray(people);
     let questions = shuffledPeople.map((person) => ({
@@ -116,34 +132,37 @@ export default Controller.extend({
       answer: null,
       success: null,
     }));
-    this.set('questions', questions);
-  },
+    this.questions = questions;
+  }
+
   generateOptions(items, item) {
     let shuffledItems = this.shuffleArray(items);
     shuffledItems.splice(shuffledItems.indexOf(item), 1);
     let options = shuffledItems.slice(0, 4);
     options[Math.floor(Math.random() * options.length)] = item;
     return options;
-  },
+  }
+
   shuffleArray(array) {
     return array
       .map((a) => ({ sort: Math.random(), value: a }))
       .sort((a, b) => a.sort - b.sort)
       .map((a) => a.value);
-  },
+  }
+
   goToNextQuestion() {
-    this.set('answered', true);
+    this.answered = true;
     let _this = this;
     run.later(function () {
-      if (_this.get('currentQuestionIndex') < _this.get('questions.length')) {
-        _this.set('answered', false);
-        _this.incrementProperty('currentQuestionIndex');
-        _this.set('textInput', '');
+      if (_this.currentQuestionIndex < _this.questions.length) {
+        _this.answered = false;
+        _this.currentQuestionIndex++;
+        _this.textInput = '';
       } else {
-        _this.set('answered', false);
-        _this.set('finished', true);
-        _this.set('started', false);
+        _this.answered = false;
+        _this.finished = false;
+        _this.started = false;
       }
     }, 2000);
-  },
-});
+  }
+}
