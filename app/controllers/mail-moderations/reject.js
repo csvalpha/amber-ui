@@ -3,9 +3,10 @@ import Controller from '@ember/controller';
 import { isInvalidResponse } from 'ember-fetch/errors';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
-// todo: flash notice?
+
 export default class RejectController extends Controller {
   @service fetch;
+  @service flashNotice;
   @tracked errorMessage = null;
   @action
   async submit() {
@@ -15,6 +16,7 @@ export default class RejectController extends Controller {
     );
 
     if (response.ok) {
+      this.flashNotice.sendSuccess('Mail moderatie afgewezen!');
       this.model.unloadRecord();
       this.transitionToRoute('mail-moderations.index');
     } else if (isInvalidResponse(response)) {

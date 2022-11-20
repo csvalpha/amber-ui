@@ -4,7 +4,7 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class PhotoCommentsIndexController extends FilterableAndSortableController {
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
 
   @tracked sortedAscending = false;
   @tracked sortedAttribute = 'updated_at';
