@@ -4,24 +4,24 @@
       <form {{action 'resetPassword' on='submit'}}>
         <div class='card-body'>
           <h4 class='card-title'>Account activeren</h4>
-          {{#if successMessage}}
+          {{#if this.successMessage}}
             <div class='alert alert-success' role='alert'>
-              <strong>{{successMessage}}</strong>
+              <strong>{{this.successMessage}}</strong>
             </div>
-          {{else if errorMessage}}
+          {{else if this.errorMessage}}
             <div class='alert alert-danger' role='alert'>
               <strong>{{this.errorMessage}}</strong>
             </div>
-          {{else if infoMessage}}
+          {{else if this.infoMessage}}
             <div class='alert alert-info' role='alert'>
-              <span>{{infoMessage}}</span>
+              <span>{{this.infoMessage}}</span>
             </div>
           {{/if}}
 
           <div class='form-group'>
             <Input
               @type='password'
-              @value={{password}}
+              @value={{this.password}}
               placeholder='Wachtwoord (minimaal 12 tekens)'
               required={{true}}
               class='form-control'
@@ -31,7 +31,7 @@
           <div class='form-group'>
             <Input
               @type='password'
-              @value={{passwordConfirmation}}
+              @value={{this.passwordConfirmation}}
               placeholder='Wachtwoord herhalen'
               required={{true}}
               class='form-control'
@@ -41,7 +41,7 @@
           <button
             type='submit'
             class='btn btn-primary float-md-left reset-password-button'
-            disabled={{isSaveButtonDisabled}}
+            disabled={{this.isSaveButtonDisabled}}
           >
             Account activeren
           </button>

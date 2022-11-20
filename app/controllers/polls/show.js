@@ -8,7 +8,7 @@ import { isNone } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
 export default class PollsShowController extends Controller {
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
   @service store;
 
   @tracked errorMessage = null;
