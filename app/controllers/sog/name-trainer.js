@@ -94,15 +94,17 @@ export default class NameTrainerController extends Controller {
   @action
   async startTrainer() {
     const users = await this.users;
-    try {
-      this.generateQuestions(users.filter((user) => user.avatarThumbUrl));
-      this.started = true;
-      this.finished = false;
-      this.currentQuestionIndex = 1;
-      this.success = 0;
-    } catch (error) {
-      this.errorMessage = error.message;
+    const usersWithAvatar = users.filter((user) => user.avatarThumbUrl);
+    if (!usersWithAvatar.length) {
+      this.errorMessage =
+        'Namen trainen wordt een beetje onmogelijk, want niemand in deze groep heeft een profielfoto.';
+      return;
     }
+    this.generateQuestions(usersWithAvatar);
+    this.started = true;
+    this.finished = false;
+    this.currentQuestionIndex = 1;
+    this.success = 0;
   }
 
   @action
@@ -137,11 +139,6 @@ export default class NameTrainerController extends Controller {
   }
 
   generateQuestions(people) {
-    if (!people.length) {
-      throw new Error(
-        'Namen trainen wordt een beetje onmogelijk, want niemand in deze groep heeft een profielfoto.'
-      );
-    }
     let shuffledPeople = this.shuffleArray(people);
     let questions = shuffledPeople.map((person) => ({
       question: person,
