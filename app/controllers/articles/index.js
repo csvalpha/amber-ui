@@ -5,8 +5,9 @@ export default class ArticlesIndexController extends FilterableAndSortableContro
   @tracked sortedAttribute = 'created_at';
   @tracked sortedAscending = false;
 
-  routeOnEnter = 'articles.article';
   queryParams = ['search', 'sort', 'page'];
+
+  routeOnEnter = 'articles.article';
   sortableAttributes = [
     {
       value: 'title',

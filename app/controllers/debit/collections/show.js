@@ -1,6 +1,6 @@
 import Controller from '@ember/controller';
 
-export default class DebitCollectionShowController extends Controller {
+export default class CollectionIndexController extends Controller {
   get groupedTransactions() {
     const transactions = [];
     this.model.transactions.forEach((transaction) => {

@@ -9,8 +9,9 @@ export default class PhotoCommentsIndexController extends FilterableAndSortableC
   @tracked sortedAscending = false;
   @tracked sortedAttribute = 'updated_at';
 
-  routeOnEnter = 'photo-albums.photo-album.photos.show';
   queryParams = ['search', 'sort', 'page'];
+
+  routeOnEnter = 'photo-albums.photo-album.photos.show';
   sortableAttributes = [
     {
       value: 'updated_at',

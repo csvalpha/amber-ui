@@ -1,10 +1,11 @@
-import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-export default class WebdavController extends Controller {
-  @service session;
+export default class UserWebdavController extends Controller {
   @service fetch;
+  @service session;
+
   get webDavEnabled() {
     return this.session.currentUser.webdavSecretKey !== null;
   }
@@ -15,7 +16,7 @@ export default class WebdavController extends Controller {
 
   @action
   async generateWebdavSecret() {
-    let user = this.session.currentUser;
+    const user = this.session.currentUser;
 
     await this.fetch.fetch(`/users/${user.id}/activate_webdav`, {
       method: 'POST',

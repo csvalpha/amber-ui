@@ -3,11 +3,11 @@ import EmberObject, { action, computed } from '@ember/object';
 import Controller from '@ember/controller';
 import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 import { htmlSafe } from '@ember/template';
-import { inject as service } from '@ember/service';
 import { isNone } from '@ember/utils';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
-export default class PollsShowController extends Controller {
+export default class PollIndexController extends Controller {
   @service flashNotice;
   @service store;
 

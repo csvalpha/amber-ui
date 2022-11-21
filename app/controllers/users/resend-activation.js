@@ -1,12 +1,14 @@
-import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import { isNotFoundResponse } from 'ember-fetch/errors';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { isNotFoundResponse } from 'ember-fetch/errors';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default class ResendActivationController extends Controller {
+export default class UserResendActivationController extends Controller {
   @service fetch;
-  @tracked errorMessage;
+
+  @tracked errorMessage = null;
+
   @action
   async resendActivation() {
     this.errorMessage = null;

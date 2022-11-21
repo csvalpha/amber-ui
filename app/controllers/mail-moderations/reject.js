@@ -1,13 +1,15 @@
-import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import { isInvalidResponse } from 'ember-fetch/errors';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { isInvalidResponse } from 'ember-fetch/errors';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default class RejectController extends Controller {
+export default class MailModerationRejectController extends Controller {
   @service fetch;
   @service flashNotice;
+
   @tracked errorMessage = null;
+
   @action
   async submit() {
     this.errorMessage = null;

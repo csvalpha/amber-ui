@@ -1,14 +1,16 @@
-import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import { isInvalidResponse } from 'ember-fetch/errors';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { isInvalidResponse } from 'ember-fetch/errors';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default class GenerateAliasController extends Controller {
+export default class ActivityGenerateAliasController extends Controller {
   @service fetch;
+
   @tracked errorMessage = null;
   @tracked alias;
   @tracked expiresAt;
+
   @action
   async generateAlias() {
     this.errorMessage = null;
@@ -21,7 +23,7 @@ export default class GenerateAliasController extends Controller {
       this.expiresAt = json.data.expires_at;
     } else if (isInvalidResponse(response)) {
       const json = await response.json();
-      this.errorMessage = json.errors ? json.errors[0].detail : response;
+      this.errorMessage = json.errors?.[0].detail ?? response;
     }
   }
 }

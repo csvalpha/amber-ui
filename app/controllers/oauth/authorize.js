@@ -3,9 +3,11 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export default class AuthorizeController extends Controller {
+export default class OauthAuthorizeController extends Controller {
   @service fetch;
+
   @tracked clientName = null;
+
   queryParams = [
     'client_id',
     'redirect_uri',

@@ -1,10 +1,8 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action } from '@ember/object';
 import { ActivityCategories } from 'amber-ui/constants';
+import EditController from 'amber-ui/controllers/application/edit';
+import { action } from '@ember/object';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import EditController from 'amber-ui/controllers/application/edit';
 import { union } from 'amber-ui/utils/array-operations';
 
 export default class ActivityEditController extends EditController {
@@ -67,5 +65,14 @@ export default class ActivityEditController extends EditController {
   @action
   coverPhotoLoaded(file) {
     this.model.set('coverPhoto', file.data);
+  }
+
+  async getUsers() {
+    const group = await this.group;
+    if (!group) {
+      return [];
+    }
+    const memberships = await group.get('memberships');
+    return await Promise.all(memberships.mapBy('user'));
   }
 }

@@ -1,14 +1,25 @@
 import Controller from '@ember/controller';
-import { inject as service } from '@ember/service';
-import { run } from '@ember/runloop';
 import { action } from '@ember/object';
+import { run } from '@ember/runloop';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
-export default class NameTrainerController extends Controller {
+export default class SogNameTrainerController extends Controller {
   @service store;
-  queryParams = ['groupId', 'difficulty'];
+
+  @tracked errorMessage = null;
   @tracked groupId = null;
   @tracked difficulty = 1;
+  @tracked currentQuestionIndex = 1;
+  @tracked success = 0;
+  @tracked questions = [];
+  @tracked textInput = '';
+  @tracked started = false;
+  @tracked finished = false;
+  @tracked answered = false;
+
+  queryParams = ['groupId', 'difficulty'];
+
   difficultyOptions = [
     {
       value: 1,
@@ -24,26 +35,8 @@ export default class NameTrainerController extends Controller {
     },
   ];
 
-  @tracked currentQuestionIndex = 1;
-  @tracked success = 0;
-  @tracked questions = [];
-  @tracked textInput = '';
-  @tracked started = false;
-  @tracked finished = false;
-  @tracked answered = false;
-  @tracked errorMessage;
-
   get users() {
     return this.getUsers();
-  }
-
-  async getUsers() {
-    const group = await this.group;
-    if (!group) {
-      return [];
-    }
-    const memberships = await group.get('memberships');
-    return await Promise.all(memberships.mapBy('user'));
   }
 
   get group() {
@@ -84,6 +77,15 @@ export default class NameTrainerController extends Controller {
 
   get grade() {
     return 1 + Math.round((90 / this.questions.length) * this.success) / 10;
+  }
+
+  async getUsers() {
+    const group = await this.group;
+    if (!group) {
+      return [];
+    }
+    const memberships = await group.get('memberships');
+    return await Promise.all(memberships.mapBy('user'));
   }
 
   @action

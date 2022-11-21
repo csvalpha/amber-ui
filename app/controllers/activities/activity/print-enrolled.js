@@ -1,18 +1,19 @@
 import Controller from '@ember/controller';
-import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 const tabs = ['form', 'consumptionList'];
 const formTab = tabs[0];
 const consumptionListTab = tabs[1];
 
-export default class PrintEnrolledController extends Controller {
+export default class ActivityPrintEnrolledController extends Controller {
   @tracked showAllergyInfo = true;
   @tracked showCheckbox = true;
   @tracked currentTab = formTab;
   @tracked options = ['Bier', 'Fris'];
   @tracked newOption = '';
   @tracked showRobertHofstra = true;
+
   additionalEmptyRows = 5;
 
   get sortedResponses() {
