@@ -1,8 +1,25 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
+import { action } from '@ember/object';
 
-export default Controller.extend({
-  session: service(),
+export default class PhotoShowController extends Controller {
+  @service session;
+
+  @action
+  goToPreviousPhoto() {
+    return this.advanceToPhoto(-1);
+  }
+
+  @action
+  goToNextPhoto() {
+    return this.advanceToPhoto(1);
+  }
+
+  @action
+  onSwipe(direction) {
+    return this.advanceToPhoto(-direction);
+  }
+
   advanceToPhoto(delta) {
     const photos = this.model.photoAlbum.get('sortedPhotos');
     const length = photos.get('length');
@@ -12,16 +29,5 @@ export default Controller.extend({
       'photo-albums.photo-album.photos.show',
       photos.objectAt(index)
     );
-  },
-  actions: {
-    goToPreviousPhoto() {
-      return this.advanceToPhoto(-1);
-    },
-    goToNextPhoto() {
-      return this.advanceToPhoto(1);
-    },
-    onSwipe(direction) {
-      return this.advanceToPhoto(-direction);
-    },
-  },
-});
+  }
+}

@@ -18,7 +18,7 @@
         </p>
         <hr />
 
-        {{#if webDavEnabled}}
+        {{#if this.webDavEnabled}}
           <p>
             Je persoonlijke contactsynchronisatie link staat hier onder. Voeg
             deze url toe aan je contacten om automatisch alle leden in je
@@ -33,7 +33,7 @@
               anderen.
             </b>
           </div>
-          <p><code>{{webDavURL}}</code></p>
+          <p><code>{{this.webDavURL}}</code></p>
 
         {{else}}
           <div class='alert alert-danger'>

@@ -68,6 +68,13 @@ export default class PostIndexRoute extends AuthenticatedRoute {
     this.controller.send('goToNextPage');
   }
 
+  resetController(controller, isExiting, transition) {
+    super.resetController(controller, isExiting, transition);
+    if (isExiting) {
+      controller.send('resetNewContent');
+    }
+  }
+
   constructor() {
     super(...arguments);
 

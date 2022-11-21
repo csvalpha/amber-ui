@@ -29,7 +29,7 @@
 
 <Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
   <div class='col'>
-    <PhotoAlbums::Photo @model={{model}} />
-    <PhotoComments::Comments @model={{model}} />
+    <PhotoAlbums::Photo @model={{@model}} />
+    <PhotoComments::Comments @model={{@model}} />
   </div>
 </Swipeable>

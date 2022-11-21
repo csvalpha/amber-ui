@@ -1,4 +1,0 @@
-first_name,last_name_prefix,last_name,email,birthday,address,postcode,city,phone_number,food_preferences,vegetarian,study,start_study,picture_publication_preference,emergency_contact,emergency_number,ifes_data_sharing_preference,info_in_almanak,almanak_subscription_preference,digtus_subscription_preference
-Stijn,de,Ruiter,stijn@example.com,DD-MM-YYYY,Hengelosestraat 1,7514NB,Enschede, +31(0)612345678,"Noten, lactose",true,Technische Natuurkunde,DD-MM-YYYY,always_publish,M. de Ruiter,0622865255,true,false,no_subscription,no_subscription
-Jan,,Smit,muzieklovr@gmail.com,21-05-1984,Tulpenlaan 6,1450AA,Volendam,0900-8800,,false,,01-01-2019,always_ask,,,false,true,physical,physical
-,,,,,,,,,,,,,never_publish,,,,,digital,digital
