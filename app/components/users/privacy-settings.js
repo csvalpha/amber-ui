@@ -9,7 +9,7 @@ import { isPresent } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
 export default class PrivacySettingsComponent extends Component {
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
   @service session;
 
   @tracked errorMessage = null;

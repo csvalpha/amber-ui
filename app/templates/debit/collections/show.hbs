@@ -16,7 +16,7 @@
   </div>
 
   <div class='card-body'>
-    {{#each groupedTransactions as |transactionGroup|}}
+    {{#each this.groupedTransactions as |transactionGroup|}}
       <LinkTo @route='users.show' @model={{transactionGroup.user.id}}>
         <h5>{{transactionGroup.user.fullName}}</h5>
       </LinkTo>

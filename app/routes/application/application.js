@@ -1,6 +1,5 @@
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import Error from '@ember/error';
 
 export class ApplicationRoute extends Route {
   @service session;
