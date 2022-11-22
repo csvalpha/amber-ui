@@ -1,5 +1,6 @@
-import { computed } from '@ember/object';
 import TextField from '@ember/component/text-field';
+import { computed } from '@ember/object';
+import moment from 'moment';
 
 export default TextField.extend({
   tagName: 'span',

@@ -73,7 +73,7 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo @route='index' class='btn btn-default'>Annuleren</LinkTo>
+        <button {{action @onCancel}} type="button" class='btn btn-default'>Annuleren</button>
       </ModelForm::FormActions>
     </form>
   </div>

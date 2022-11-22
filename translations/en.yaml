@@ -91,6 +91,10 @@ component:
       reactions: ' - {count, plural, =0 {no comments.} =1 {one comment.} other {# comments.}}'
   headerNav:
     changeLocale: Verander taal naar Nederlands
+    aboutUs: About us
+    sponsoring: Sponsoring
+    becomeMember: Become a member!
+    becomeOldMember: Become an old-member!
   footerNav:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
   index:
@@ -98,7 +102,7 @@ component:
       potentialMember:
         title: Interested in Alpha?
         info:
-          Nice that you are interested in Alpha. Put the weekend of 23 to 25 September 2022 in your agenda. On that weekend you can get to know Alpha and its (interested) members with a campfire, games & more. If you like it, or if you can't wait to get to know Alpha, send us a <a href="https://api.whatsapp.com/send?phone=31623038845">message!</a> (0623038845)
+          Nice that you are interested in Alpha. Put the weekend of 23 to 25 September 2022 in your agenda. On that weekend you can get to know Alpha and its (interested) members with a campfire, games & more. If you like it, or if you can't wait to get to know Alpha, send us a <a href="https://api.whatsapp.com/send?phone=31618053999">message!</a> (06-18053999)
       aboutFlux:
         title: Our Pub
         info:

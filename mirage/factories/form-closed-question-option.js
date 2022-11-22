@@ -1,8 +1,7 @@
 import { Factory } from 'ember-cli-mirage';
-
-import faker from 'faker';
+import { faker } from '@faker-js/faker';
 
 export default Factory.extend({
-  option: () => faker.lorem.sentence(),
-  position: () => faker.random.number(),
+  option: faker.lorem.sentence,
+  position: faker.datatype.number,
 });

@@ -1,26 +1,27 @@
 import { action } from '@ember/object';
 import { htmlSafe } from '@ember/template';
+import { tracked } from '@glimmer/tracking';
 import UpcomingActivitiesToolComponent from 'amber-ui/components/tools/upcoming-activities';
 
 export default class Activities extends UpcomingActivitiesToolComponent {
-  modalTitle = '';
-  modalText = '';
-  modalLocation = '';
-  modalImage = '';
-  modalIsOpen = false;
+  @tracked modalTitle = '';
+  @tracked modalText = '';
+  @tracked modalLocation = '';
+  @tracked modalImage = '';
+  @tracked modalIsOpen = false;
 
   @action
   openModal(activity) {
-    this.set('modalTitle', activity.get('title'));
-    this.set('modalText', activity.get('description'));
-    this.set('modalLocation', activity.get('location'));
-    this.set('modalImage', activity.get('coverPhotoUrlOrDefault'));
-    this.set('modalIsOpen', true);
+    this.modalTitle = activity.get('title');
+    this.modalText = activity.get('description');
+    this.modalLocation = activity.get('location');
+    this.modalImage = activity.get('coverPhotoUrlOrDefault');
+    this.modalIsOpen = true;
   }
 
   @action
   closeModal() {
-    this.set('modalIsOpen', false);
+    this.modalIsOpen = false;
   }
 
   get modalImageStyle() {

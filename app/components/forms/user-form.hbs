@@ -170,8 +170,8 @@
     @errorMessage={{@errorMessage}}
     @inputLayout='vertical'
   >
-    <LinkTo @route='users.show' @model={{@model.id}} class='btn btn-default'>
+    <button {{action @onCancel}} type="button" class='btn btn-default'>
       Annuleren
-    </LinkTo>
+    </button>
   </ModelForm::FormActions>
 </form>

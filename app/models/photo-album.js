@@ -31,6 +31,10 @@ export default class PhotoAlbum extends Model {
     );
   }
 
+  get sortedPhotos() {
+    return this.photos?.sortBy('exifDateTimeOriginal', 'createdAt');
+  }
+
   // Methods
   isOwner(user) {
     if (user.get('id') === this.author.get('id')) {

@@ -37,8 +37,8 @@ export default class EditUserRoute extends AuthenticatedRoute {
     return this.abilities.can('edit user', model);
   }
 
-  model(params) {
-    return this.store.findRecord('user', params.id, params);
+  async model(params) {
+    return await this.store.findRecord('user', params.id, params);
   }
 
   deactivate() {
