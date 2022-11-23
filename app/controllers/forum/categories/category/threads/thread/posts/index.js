@@ -7,8 +7,7 @@ import { tracked } from '@glimmer/tracking';
 export default class PostsIndexController extends Controller {
   @service session;
   @service store;
-  @tracked
-  newContent = '';
+  @tracked newContent = '';
 
   queryParams = ['page'];
 
@@ -67,6 +66,11 @@ export default class PostsIndexController extends Controller {
     } else {
       this.scrollToNewForumPost();
     }
+  }
+
+  @action
+  setContent(content) {
+    this.newContent = content;
   }
 
   @action

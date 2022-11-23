@@ -1,17 +1,13 @@
-import Component from '@ember/component';
-import { action, set } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class MdEditorComponent extends Component {
   classNames = ['md-editor-and-toolbar'];
   editMode = true;
 
-  content = '';
-  @tracked textareaId;
-
   @action
   applyStyle(option, modalInput = null) {
-    const textarea = document.getElementById(`${this.textareaId}`);
+    const textarea = document.getElementById(`${this.args.textareaId}`);
 
     const { selectionStart, selectionEnd } = textarea;
     const selection = textarea.value.substring(selectionStart, selectionEnd);
@@ -22,10 +18,10 @@ export default class MdEditorComponent extends Component {
     }
 
     const styledContent =
-      this.content.substring(0, selectionStart) +
+      this.args.content.substring(0, selectionStart) +
       styledSelection +
-      this.content.substring(selectionStart + selection.length);
+      this.args.content.substring(selectionStart + selection.length);
 
-    set(this, 'content', styledContent);
+    this.args.setContent(styledContent);
   }
 }
