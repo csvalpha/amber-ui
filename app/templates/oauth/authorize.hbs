@@ -7,14 +7,14 @@
         </div>
 
         <div class='card-block p-4'>
-          {{#if clientName}}
+          {{#if this.clientName}}
             <p>
               Door op "Inloggen" te klikken log je met je C.S.V. Alpha account
               in bij de volgende applicatie:
             </p>
 
             <ul>
-              <li><strong>{{clientName}}</strong></li>
+              <li><strong>{{this.clientName}}</strong></li>
             </ul>
             <p>
               Deze applicatie krijgt daarmee nu en in de toekomst toegang tot
@@ -22,7 +22,7 @@
               adres en in welke groepen je zit.
             </p>
 
-            {{#if errorMessage}}
+            {{#if this.errorMessage}}
               <div class='alert alert-danger mt-3' role='alert' data-test-error>
                 <p>
                   Er ging iets mis met het inloggen. Probeer een keer opnieuw in

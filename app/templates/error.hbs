@@ -1,7 +1,7 @@
-{{#if showNotFound}}
+{{#if this.showNotFound}}
   <Index::PageNotFound />
 {{else}}
-  {{#if showStatic}}
+  {{#if this.showStatic}}
     <Index::Public />
   {{else}}
     <div class='row justify-content-center'>
@@ -12,7 +12,7 @@
           </div>
           <div class='card-body'>
             <p class='card-text' data-test-error-message>
-              {{message}}
+              {{this.message}}
             </p>
             <a href='.' align='center' class='btn btn-primary'>Herladen</a>
             <br />
@@ -23,7 +23,7 @@
             <hr />
             <p class='code'>
               <small>
-                {{model}}
+                {{@model}}
               </small>
             </p>
             <hr />

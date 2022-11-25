@@ -26,7 +26,9 @@ export default class Collection extends Model {
     });
     if (failedTransactions) {
       const prefix = failedTransactions > 1 ? 'zijn' : 'is';
-      throw `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`;
+      throw new Error(
+        `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`
+      );
     }
   }
 }
