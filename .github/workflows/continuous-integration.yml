@@ -47,7 +47,7 @@ jobs:
 
       - name: Download actionlint
         run: |
-          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 1.6.21
+          bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 1.6.22
 
       - name: Set up Node.js
         uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
