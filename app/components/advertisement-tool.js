@@ -14,8 +14,8 @@ export default Component.extend({
     }
   ),
 
-  // Don't forget to also increment the 'amountOfAdvertisements' variable in 
-  // styles/components/advertisement-tool.scss and the number of advertisements 
+  // Don't forget to also increment the 'amountOfAdvertisements' variable in
+  // styles/components/advertisement-tool.scss and the number of advertisements
   // in tests/rendering/components/advertisement-tool-test.js
   advertisementItems: [
     {
