@@ -18,6 +18,12 @@ export default Component.extend({
   // in styles/components/advertisement-tool.scss
   advertisementItems: [
     {
+      title: 'Qorting.nl',
+      link: 'https://qorting.nl/',
+      image: 'advertisements/qorting.png',
+      full: true,
+    },
+    {
       title: 'Knaek',
       alt: 'Onbeperkt geld besparen met de studentenkortingsapp op meer dan 1.000 locaties en online',
       link: 'https://www.knaek.nl/studentenkorting/Enschede',
