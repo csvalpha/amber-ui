@@ -22,7 +22,7 @@ jobs:
           ref: ${{ inputs.sha }}
 
       - name: Build test image
-        uses: guidojw/actions/build-docker-image@5faa9418b42a6a77f81e11ae935287900673f98b # tag=v1.3.2
+        uses: guidojw/actions/build-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
         with:
           file: Dockerfile
           target: base
@@ -55,7 +55,7 @@ jobs:
           node-version-file: .nvmrc
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@5faa9418b42a6a77f81e11ae935287900673f98b # tag=v1.3.2
+        uses: guidojw/actions/load-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
         with:
           name: app
 
@@ -77,7 +77,7 @@ jobs:
     needs: build
     steps:
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@5faa9418b42a6a77f81e11ae935287900673f98b # tag=v1.3.2
+        uses: guidojw/actions/load-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
         with:
           name: app
 
