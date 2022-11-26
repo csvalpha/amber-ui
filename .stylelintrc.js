@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     'annotation-no-unknown': [true, { ignoreAnnotations: ['default'] }],
     'at-rule-no-unknown': null, // use scss/at-rule-no-unknown instead
+    'import-notation': 'string',
     'max-nesting-depth': 3,
     'no-descending-specificity': null,
     'scss/at-rule-no-unknown': null,
