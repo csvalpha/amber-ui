@@ -3,10 +3,14 @@
     <FilterBar
       @class='col-12 col-md'
       @filter={{search}}
-      @sortedAttribute={{sortedAttribute}}
-      @sortableAttributes={{sortableAttributes}}
-      @sortedAscending={{sortedAscending}}
-      @enter={{action 'selectFirstItem'}}
+      @filter={{this.search}}
+      @setFilter={{this.setSearch}}
+      @sortedAttribute={{this.sortedAttribute}}
+      @setSortedAttribute={{this.setSortedAttribute}}
+      @sortableAttributes={{this.sortableAttributes}}
+      @sortedAscending={{this.sortedAscending}}
+      @setSortedAscending={{this.setSortedAscending}}
+      @enter={{this.selectFirstItem}}
     />
   </PageActionsButtons>
 </EmberWormhole>
