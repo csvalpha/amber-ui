@@ -54,7 +54,6 @@ jobs:
           name: app
 
       - name: Lint
-        # Convert output of stylelint so that the problem matcher can match it correctly.
         run: |
           EXIT_STATUS=0
           ./actionlint -ignore 'property "app_private_key" is not defined' -ignore 'SC2153:' \
