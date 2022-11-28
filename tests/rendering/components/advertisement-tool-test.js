@@ -13,7 +13,7 @@ module('Integration | Component | advertisement tool', function (hooks) {
 
     assert.equal(
       this.element.querySelectorAll('.advertisement-item').length,
-      50
+      52 // Number of advertisements times two
     );
   });
 });
