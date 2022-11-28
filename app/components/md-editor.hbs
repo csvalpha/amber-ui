@@ -16,6 +16,8 @@
       Heb je een foto ingevoegd in dit artikel? Deze worden pas getoond als je het
       artikel hebt opgeslagen.
     </div>
-    {{markdown-to-html content extensions='youtubeEmbed bootstrapTable'}}
+    <div class="px-2">
+      {{markdown-to-html @content extensions='youtubeEmbed bootstrapTable'}}
+    </div>
   {{/if}}
 </div>
