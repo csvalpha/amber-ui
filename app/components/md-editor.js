@@ -23,7 +23,10 @@ export default class MdEditorComponent extends Component {
 
     this.args.setContent(styledContent);
 
-    textarea.setSelectionRange(selectionStart, selectionEnd + styledSelection.length - selection.length);
+    textarea.setSelectionRange(
+      selectionStart,
+      selectionEnd + styledSelection.length - selection.length
+    );
     textarea.focus();
   }
 }
