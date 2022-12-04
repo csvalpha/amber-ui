@@ -4,6 +4,7 @@ import moment from 'moment';
 
 export default TextField.extend({
   tagName: 'span',
+  type: 'time',
   momentFieldsToUpdate: ['hour', 'minute'],
   // Format the time should be in for the time input value
   // This is, as specified in http://w3c.github.io/html-reference/input.time.html#input.time.attrs.value, the partial-time
@@ -25,7 +26,7 @@ export default TextField.extend({
   updateDateValue(updatedMomentValue) {
     let momentValue = moment(this.dateValue);
 
-    if (momentValue.isValid() && this.inputValueFormat != 'YYYY-MM-DD') {
+    if (momentValue.isValid() && this.type != 'date') {
       this.updateMomentDateValue(momentValue, updatedMomentValue);
     } else {
       momentValue = updatedMomentValue;

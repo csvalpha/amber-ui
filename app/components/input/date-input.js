@@ -6,6 +6,7 @@ import { inject as service } from '@ember/service';
 
 export default TimeInputComponent.extend({
   media: service(),
+  type: 'date',
   momentFieldsToUpdate: ['year', 'month', 'date'],
   showNativeDateInput: oneWay('media.isMobile'),
 
