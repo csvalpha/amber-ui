@@ -58,6 +58,7 @@ module.exports = function () {
       'right-from-bracket',
       'right-to-bracket',
       'sort',
+      'suitcase',
       'strikethrough',
       'thumbtack',
       'trash',

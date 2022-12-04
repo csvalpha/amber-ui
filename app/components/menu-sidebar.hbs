@@ -140,6 +140,12 @@
       @title={{t 'mixin.menuItems.activities'}}
     />
     <MenuSidebarItem
+      @link='vacancies'
+      @hasPermission={{can 'show vacancies'}}
+      @icon='suitcase'
+      @title={{t 'mixin.menuItems.vacancies'}}
+    />
+    <MenuSidebarItem
       @link='forum'
       @hasPermission={{can 'show forum/categories'}}
       @icon='comments'
