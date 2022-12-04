@@ -98,9 +98,24 @@
   <div class='card-body'>
     <p class='card-text' data-test-@model-description>
       {{markdown-to-html
-          @model.descriptionCamofied
-          extensions='youtubeEmbed bootstrapTable'
-        }}
+        @model.descriptionCamofied
+        extensions='youtubeEmbed bootstrapTable'
+      }}
+
+      {{#if @model.contact}}
+        <div class="mt-3 mb-2">
+          <b>Contact: </b>
+          {{#if (is-phone @model.contact)}}
+            <a href='tel:{{@model.contact}}'>{{@model.contact}}</a>
+          {{else if (is-email @model.contact)}}
+            <a href='mailto:{{@model.contact}}'>{{@model.contact}}</a>
+          {{else if (is-url @model.contact)}}
+            <a href="{{@model.contact}}" target='_blank'>{{@model.contact}}</a>
+          {{else}}
+            {{@model.contact}}
+          {{/if}}
+        </div>
+      {{/if}}
     </p>
   </div>
 </div>
