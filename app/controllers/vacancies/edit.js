@@ -10,7 +10,6 @@ export default class EditVacancyController extends EditController {
   @service abilities;
 
   get groups() {
-    console.log("Getting groups")
     if (this.abilities.can('select all groups for vacancies')) {
       return this.store.findAll('group');
     }

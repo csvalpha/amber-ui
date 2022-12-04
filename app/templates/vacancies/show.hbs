@@ -3,8 +3,8 @@
 </EmberWormhole>
 
 
-  <div class='card'>
-    <div
+<div class='card'>
+  <div
       class='card-header
         {{if
           @model.coverPhotoUrl
@@ -12,95 +12,95 @@
           "card-header--no-overlay"
         }}'
     >
-      {{#if @model.coverPhotoUrl}}
-        <img class='card-img-top' src={{@model.coverPhotoUrl}} />
-      {{/if}}
+    {{#if @model.coverPhotoUrl}}
+      <img class='card-img-top' src={{@model.coverPhotoUrl}} />
+    {{/if}}
 
-      <div class='card-title-bar gradient-overlay'>
-        <div class='hidden-xs-down'>
-          {{#if @model.group}}
-            <img
+    <div class='card-title-bar gradient-overlay'>
+      <div class='hidden-xs-down'>
+        {{#if @model.group}}
+          <img
               src='{{@model.group.avatarThumbUrlOrDefault}}'
               class='profile-picture-medium profile-picture-margin'
               alt='{{@model.group.fullName}}'
               height='60px'
               style='display: inline;'
             />
-          {{else}}
-            <img
+        {{else}}
+          <img
               src='{{@model.author.avatarThumbUrlOrDefault}}'
               class='profile-picture-medium profile-picture-margin'
               alt='{{@model.author.fullName}}'
               height='60px'
               style='display: inline;'
             />
-          {{/if}}
-        </div>
+        {{/if}}
+      </div>
 
-        <div class='card-titles'>
-          <h2 class='card-title' data-test-@model-title>
-            {{@model.title}}
-          </h2>
-          <h3 class='card-subtitle'>
-            <span class='subtitle-author' data-test-@model-author>
-              {{#if @model.group}}
-                <LinkTo
+      <div class='card-titles'>
+        <h2 class='card-title' data-test-@model-title>
+          {{@model.title}}
+        </h2>
+        <h3 class='card-subtitle'>
+          <span class='subtitle-author' data-test-@model-author>
+            {{#if @model.group}}
+              <LinkTo
                   @route='groups.show'
                   @model={{@model.group.id}}
                   class='link-to card-subtitle-link'
                 >
-                  {{@model.group.name}}
-                </LinkTo>
-              {{else}}
-                <LinkTo
+                {{@model.group.name}}
+              </LinkTo>
+            {{else}}
+              <LinkTo
                   @route='users.show'
                   @model={{@model.author.id}}
                   class='link-to card-subtitle-link'
                 >
-                  {{@model.author.fullName}}
-                </LinkTo>
-              {{/if}}
-            </span>
-          </h3>
-        </div>
+                {{@model.author.fullName}}
+              </LinkTo>
+            {{/if}}
+          </span>
+        </h3>
       </div>
     </div>
+  </div>
 
-    <div class='row card-subheader-row ml-0 mr-0'>
-      {{#if @model.deadline }}
-        <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
-          <b>Deadline: </b>
-          <span>
-            {{moment-format @model.deadline 'DD-MM-YYYY' }}
-          </span>
-        </div>
-      {{/if}}
+  <div class='row card-subheader-row ml-0 mr-0'>
+    {{#if @model.deadline }}
+      <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
+        <b>Deadline: </b>
+        <span>
+          {{moment-format @model.deadline 'DD-MM-YYYY' }}
+        </span>
+      </div>
+    {{/if}}
 
-      {{#if @model.workload }}
-        <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
-          <b>Werklast: </b>
-          <span>
-            {{@model.workload}}
-          </span>
-        </div>
-      {{/if}}
+    {{#if @model.workload }}
+      <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
+        <b>Werklast: </b>
+        <span>
+          {{@model.workload}}
+        </span>
+      </div>
+    {{/if}}
 
-      {{#if @model.workloadPeak }}
-        <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
-          <b>Piekmoment: </b>
-          <span>
-            {{@model.workloadPeak}}
-          </span>
-        </div>
-      {{/if}}
-    </div>
+    {{#if @model.workloadPeak }}
+      <div class='col-12 col-md-4 card-subheader-item align-items-center p-3'>
+        <b>Piekmoment: </b>
+        <span>
+          {{@model.workloadPeak}}
+        </span>
+      </div>
+    {{/if}}
+  </div>
 
-    <div class='card-body'>
-      <p class='card-text' data-test-@model-description>
-        {{markdown-to-html
+  <div class='card-body'>
+    <p class='card-text' data-test-@model-description>
+      {{markdown-to-html
           @model.descriptionCamofied
           extensions='youtubeEmbed bootstrapTable'
         }}
-      </p>
-    </div>
+    </p>
   </div>
+</div>
