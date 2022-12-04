@@ -28,7 +28,8 @@ export default TimeInputComponent.extend({
 
   actions: {
     onPikadaySelection(selectedDate) {
-      this.updateDateValue(moment(selectedDate));
+      let date = moment(selectedDate);
+      this.updateDateValue(date.add(date.utcOffset(), 'minutes'));
     },
   },
 });

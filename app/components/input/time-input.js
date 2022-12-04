@@ -25,7 +25,7 @@ export default TextField.extend({
   updateDateValue(updatedMomentValue) {
     let momentValue = moment(this.dateValue);
 
-    if (momentValue.isValid()) {
+    if (momentValue.isValid() && this.inputValueFormat != 'YYYY-MM-DD') {
       this.updateMomentDateValue(momentValue, updatedMomentValue);
     } else {
       momentValue = updatedMomentValue;
