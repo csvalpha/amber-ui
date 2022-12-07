@@ -27,7 +27,7 @@
           <div class='card-body text-center trainer-question'>
             <h2 class='card-title'>
               Wie is
-              {{this.currentQuestion.question.fullName}}?
+              {{this.currentQuestion.question.fullNameWithNickname}}?
             </h2>
           </div>
           <ul
@@ -68,7 +68,7 @@
                   }}'
                 {{action 'chooseOption' opt}}
               >
-                {{opt.fullName}}
+                {{opt.fullNameWithNickname}}
               </li>
             {{/each}}
           </ul>
@@ -78,7 +78,7 @@
             {{#if this.answered}}
               <h2 class='card-title'>
                 Dit is
-                {{this.currentQuestion.question.fullName}}
+                {{this.currentQuestion.question.fullNameWithNickname}}
               </h2>
             {{else}}
               <h2 class='card-title'>Wie is dit?</h2>
@@ -146,7 +146,7 @@
             {{#each this.questions as |item|}}
               <tr class='{{unless item.success "table-danger"}}'>
                 {{#if (eq this.difficulty 1)}}
-                  <td>Wie is {{item.question.fullName}}?</td>
+                  <td>Wie is {{item.question.fullNameWithNickname}}?</td>
                   <td>
                     <img
                       class='card-img-rounded trainer-thumb-tiny'
@@ -158,7 +158,7 @@
                       class='card-img-rounded trainer-thumb-tiny'
                       src='{{item.answer.avatarThumbUrlOrDefault}}'
                     />
-                    {{item.answer.fullName}}
+                    {{item.answer.fullNameWithNickname}}
                   </td>
 
                 {{else if (eq this.difficulty 2)}}
@@ -170,14 +170,14 @@
                     Wie is dit?
                   </td>
                   <td>
-                    {{item.question.fullName}}
+                    {{item.question.fullNameWithNickname}}
                   </td>
                   <td>
                     <img
                       class='card-img-rounded trainer-thumb-tiny'
                       src='{{item.answer.avatarThumbUrlOrDefault}}'
                     />
-                    {{item.answer.fullName}}
+                    {{item.answer.fullNameWithNickname}}
                   </td>
 
                 {{else if (eq this.difficulty 3)}}
@@ -189,7 +189,7 @@
                     Wie is dit?
                   </td>
                   <td>
-                    {{item.question.fullName}}
+                    {{item.question.fullNameWithNickname}}
                   </td>
                   <td>
                     {{item.answer}}
