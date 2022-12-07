@@ -94,13 +94,13 @@ export default class User extends Model {
     let escape = Ember.Handlebars.Utils.escapeExpression;
     let name = `${escape(this.firstName)}`;
 
-    if (this.lastNamePrefix !== null) {
-      name += ` ${escape(this.lastNamePrefix)}`;
-    }
-
     if (this.nickname !== null) {
       if (markdown) name += ` *${escape(this.nickname)}*`;
       else name += ` <i>${escape(this.nickname)}</i>`;
+    }
+
+    if (this.lastNamePrefix !== null) {
+      name += ` ${escape(this.lastNamePrefix)}`;
     }
 
     return htmlSafe(`${name} ${escape(this.lastName)}`);
