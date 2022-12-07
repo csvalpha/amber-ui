@@ -37,7 +37,7 @@
           Inhoud
         </label>
         <div class='col-sm-10'>
-          <MdEditor @content={{@model.content}} />
+          <MdEditor @content={{@model.content}} @textareaId='article-form-content' @setContent={{@setContent}}/>
         </div>
       </div>
 
