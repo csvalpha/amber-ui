@@ -21,6 +21,7 @@ export default Factory.extend({
   lastName: faker.name.lastName,
   lastNamePrefix: () =>
     faker.helpers.arrayElement([null, 'van', 'der', 'van de']),
+  nickname: faker.name.firstName,
   phoneNumber: faker.phone.number,
   postcode: faker.address.zipCode,
   startStudy: () => faker.date.past(10),

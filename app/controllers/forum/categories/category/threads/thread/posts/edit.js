@@ -19,4 +19,9 @@ export default class EditPostController extends EditController {
     this.thread = await this.model.thread;
     super.cancel();
   }
+
+  @action
+  setContent(content) {
+    this.model.message = content;
+  }
 }
