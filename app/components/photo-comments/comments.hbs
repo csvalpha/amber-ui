@@ -8,7 +8,9 @@
         <div>
           {{#each @model.comments as |comment|}}
             <div class='row'>
-              {{user-comment comment data-test-photo-comment=comment.id}}
+              <div data-test-photo-comment={{comment.id}}>
+                <UserComment @comment={{comment}} />
+              </div>
             </div>
           {{else}}
             <span class='text-muted no-comment-text'>

@@ -31,17 +31,19 @@
       streepsysteem
     </td>
     <td data-test-allow-tomato-sharing>
-      {{boolean-tag @model.allowTomatoSharing}}
+      <BooleanTag @value={{@model.allowTomatoSharing}} />
     </td>
   </tr>
   <tr>
     <td>Gegevens mogen gedeeld worden met IFES</td>
     <td data-test-ifes-sharing-preference>
-      {{boolean-tag @model.ifesDataSharingPreference}}
+      <BooleanTag @value={{@model.ifesDataSharingPreference}} />
     </td>
   </tr>
   <tr>
     <td>Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak</td>
-    <td data-test-info-in-almanak>{{boolean-tag @model.infoInAlmanak}}</td>
+    <td data-test-info-in-almanak>
+      <BooleanTag @value={{@model.infoInAlmanak}} />
+    </td>
   </tr>
 </table>

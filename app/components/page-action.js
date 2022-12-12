@@ -1,9 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-const PageActionComponent = Component.extend({});
-
-PageActionComponent.reopenClass({
-  positionalParams: ['pageAction'],
-});
-
-export default PageActionComponent;
+export default class PageAction extends Component {
+}

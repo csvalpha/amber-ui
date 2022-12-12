@@ -1,47 +1,49 @@
-{{#if (await pageAction.canAccess)}}
-  {{#if pageAction.linkArgument}}
-    <LinkTo
-      @route={{pageAction.link}}
-      @model={{pageAction.linkArgument}}
-      data-test-link={{pageAction.link}}
-    >
-      {{#if pageAction.icon}}
-        <button
-          type='button'
-          class='btn btn-primary'
-          title='{{pageAction.title}}'
-        >
-          <FaIcon @icon={{pageAction.icon}} />
-          <span class='d-none d-md-inline'> {{pageAction.title}} </span>
-        </button>
+<div class="col col-md-auto page-action">
+  {{#if (await @pageAction.canAccess)}}
+    {{#if @pageAction.linkArgument}}
+      <LinkTo
+        @route={{@pageAction.link}}
+        @model={{@pageAction.linkArgument}}
+        data-test-link={{@pageAction.link}}
+      >
+        {{#if @pageAction.icon}}
+          <button
+            type='button'
+            class='btn btn-primary'
+            title='{{@pageAction.title}}'
+          >
+            <FaIcon @icon={{@pageAction.icon}} />
+            <span class='d-none d-md-inline'> {{@pageAction.title}} </span>
+          </button>
 
-      {{else}}
+        {{else}}
 
-        <button type='button' class='btn btn-primary'>
-          {{pageAction.title}}
-        </button>
-      {{/if}}
-    </LinkTo>
+          <button type='button' class='btn btn-primary'>
+            {{@pageAction.title}}
+          </button>
+        {{/if}}
+      </LinkTo>
 
-  {{else}}
+    {{else}}
 
-    <LinkTo @route={{pageAction.link}} data-test-link={{pageAction.link}}>
-      {{#if pageAction.icon}}
-        <button
-          type='button'
-          class='btn btn-primary'
-          title='{{pageAction.title}}'
-        >
-          <FaIcon @icon={{pageAction.icon}} />
-          <span class='d-none d-md-inline'> {{pageAction.title}} </span>
-        </button>
+      <LinkTo @route={{@pageAction.link}} data-test-link={{@pageAction.link}}>
+        {{#if @pageAction.icon}}
+          <button
+            type='button'
+            class='btn btn-primary'
+            title='{{@pageAction.title}}'
+          >
+            <FaIcon @icon={{@pageAction.icon}} />
+            <span class='d-none d-md-inline'> {{@pageAction.title}} </span>
+          </button>
 
-      {{else}}
+        {{else}}
 
-        <button type='button' class='btn btn-primary'>
-          {{pageAction.title}}
-        </button>
-      {{/if}}
-    </LinkTo>
+          <button type='button' class='btn btn-primary'>
+            {{@pageAction.title}}
+          </button>
+        {{/if}}
+      </LinkTo>
+    {{/if}}
   {{/if}}
-{{/if}}
+</div>

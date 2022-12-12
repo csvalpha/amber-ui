@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action, set } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class SponsorkliksAlertComponent extends Component {
+export default class SponsorkliksAlert extends Component {
   localStorage = service();
 
   extensionInstalled =

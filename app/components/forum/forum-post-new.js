@@ -3,7 +3,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 // todo: incorporate the model-save-util into components?
-export default class ForumPostNewComponent extends Component {
+export default class ForumPostNew extends Component {
   @service store;
   @service flashNotice;
 

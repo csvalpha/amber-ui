@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class MdEditorComponent extends Component {
+export default class MdEditor extends Component {
   editMode = true;
 
   @action

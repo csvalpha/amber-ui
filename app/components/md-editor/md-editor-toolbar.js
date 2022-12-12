@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { action, set } from '@ember/object';
 
-export default class MdEditorToolbarComponent extends Component {
+export default class MdEditorToolbar extends Component {
   modalOpen = false;
   modalOption = null;
   modalInput = null;

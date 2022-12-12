@@ -1,23 +1,17 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 
-export default Component.extend({
-  classNames: ['advertisement-tool'],
-  media: service(),
-  advertisements: computed(
-    'advertisementItems',
-    'media.{isDesktop,isMobile,isTablet}',
-    function () {
-      // Double up the advertisement array to make an 'infinite loop' transition possible
-      return this.advertisementItems.concat(this.advertisementItems);
-    }
-  ),
+export default class AdvertisementTool extends Component {
+  @service media;
+
+  get advertisements() {
+    return this.advertisementItems.concat(this.advertisementItems);
+  }
 
   // Don't forget to also increment the 'amountOfAdvertisements' variable in
   // styles/components/advertisement-tool.scss and the number of advertisements
   // in tests/rendering/components/advertisement-tool-test.js
-  advertisementItems: [
+  advertisementItems = [
     {
       title: 'Qorting.nl',
       link: 'https://qorting.nl/',
@@ -172,5 +166,5 @@ export default Component.extend({
         },
       ],
     },
-  ],
-});
+  ];
+}

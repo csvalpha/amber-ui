@@ -20,13 +20,7 @@
       </div>
     </div>
   </div>
-  <FooterNav
-    @class={{concat
-      'footer-holder '
-      (concat
-        (if layoutManager.leftSideBarExpanded 'left-sidebar-expanded ')
-        (if layoutManager.leftSideBarOpen 'left-sidebar-open')
-      )
-    }}
-  />
+  <div class="footer-holder {{if layoutManager.leftSideBarExpanded 'left-sidebar-expanded'}} {{if layoutManager.leftSideBarOpen 'left-sidebar-open'}}">
+    <FooterNav />
+  </div>
 </div>

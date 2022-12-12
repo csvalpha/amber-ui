@@ -1,9 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-const UserCommentComponent = Component.extend({});
-
-UserCommentComponent.reopenClass({
-  positionalParams: ['comment'],
-});
-
-export default UserCommentComponent;
+export default class UserComment extends Component {
+}

@@ -1,4 +1,6 @@
-{{yield}}
-{{#each pageActions as |pageAction|}}
-  {{page-action pageAction class='col col-md-auto page-action'}}
-{{/each}}
+<span class="page-actions-buttons col col-md-auto row no-gutters flex-wrap justify-content-right p-0">
+  {{yield}}
+  {{#each @pageActions as |pageAction|}}
+    <PageAction @pageAction={{pageAction}} />
+  {{/each}}
+</span>
