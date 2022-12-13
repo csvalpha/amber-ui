@@ -1,14 +1,6 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-const ArticleCardComponent = Component.extend({
-  session: service('session'),
-  article: null,
-  showExcerpt: false,
-});
-
-ArticleCardComponent.reopenClass({
-  positionalParams: ['article'],
-});
-
-export default ArticleCardComponent;
+export default class ArticleCard extends Component {
+  @service session;
+}

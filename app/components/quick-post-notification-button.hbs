@@ -1,16 +1,16 @@
-{{#if notification.isSupported}}
-  {{#if notification.isEnabled}}
-    {{#if notification.isSoundEnabled}}
-      <button {{action 'disable'}} class='btn btn-default' type='button'>
+{{#if this.notification.isSupported}}
+  {{#if this.notification.isEnabled}}
+    {{#if this.notification.isSoundEnabled}}
+      <button {{on 'click' this.disable}} class='btn btn-default' type='button'>
         <FaIcon @icon='volume-high' />
       </button>
     {{else}}
-      <button {{action 'soundOn'}} class='btn btn-default' type='button'>
+      <button {{on 'click' this.soundOn}} class='btn btn-default' type='button'>
         <FaIcon @icon='bell' />
       </button>
     {{/if}}
   {{else}}
-    <button {{action 'activate'}} class='btn btn-default' type='button'>
+    <button {{on 'click' this.activate}} class='btn btn-default' type='button'>
       <FaIcon @icon='bell-slash' />
     </button>
   {{/if}}
