@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { action, set } from '@ember/object';
 
 export default class MdEditorToolbar extends Component {
