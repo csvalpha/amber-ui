@@ -108,7 +108,7 @@
                 {{group.name}}
               </PowerSelect>
 
-              {{form-control-feedback (get @model.errors 'group')}}
+              <FormControlFeedback @errors={{get @model.errors 'group'}} />
             </div>
           </div>
         </div>

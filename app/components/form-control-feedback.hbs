@@ -1,3 +1,5 @@
-{{#each errors as |error|}}
-  <div>{{error.message}}</div>
-{{/each}}
+<div class="invalid-feedback">
+  {{#each @errors as |error|}}
+    <div>{{error.message}}</div>
+  {{/each}}
+</div>

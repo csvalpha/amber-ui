@@ -14,7 +14,7 @@
       <div class='custom-checkmark'></div>
       {{label}}{{if required ' *'}}
 
-      {{form-control-feedback (get @model.errors property)}}
+      <FormControlFeedback @errors={{get @model.errors property}} />
     </label>
   </div>
 </div>

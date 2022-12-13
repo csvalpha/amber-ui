@@ -14,7 +14,7 @@
     maxlength={{maxlength}}
   />
 
-  {{form-control-feedback (get @model.errors property)}}
+  <FormControlFeedback @errors={{get @model.errors property}} />
 {{else}}
   <label
     class='col-form-label form-control-label {{labelClass}}'
@@ -37,6 +37,6 @@
 
     {{yield}}
 
-    {{form-control-feedback (get @model.errors property)}}
+    <FormControlFeedback @errors={{get @model.errors property}} />
   </div>
 {{/if}}
