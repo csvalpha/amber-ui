@@ -32,7 +32,7 @@
   </div>
 
   <ul class='list-group list-group-flush'>
-    {{#each activities as |activity|}}
+    {{#each this.activities as |activity|}}
       <LinkTo @route='activities.show' @model={{activity.id}}>
         <li class='list-group-item'>
           <span class='activity-tool-title'>{{activity.title}}</span>

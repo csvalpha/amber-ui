@@ -1,13 +1,17 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  store: service(),
-  polls: computed(function () {
-    return this.store.query('poll', {
+export default class RecentPolls extends Component {
+  @service store;
+
+  polls = [];
+
+  constructor() {
+    super(...arguments);
+    
+    this.polls = this.store.query('poll', {
       sort: '-created_at',
       page: { number: '1', size: 5 },
     });
-  }),
-});
+  }
+}

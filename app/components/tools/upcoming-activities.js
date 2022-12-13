@@ -1,25 +1,25 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  amountOfActivities: 5,
-  store: service(),
-  session: service(),
-  activities: computed(
-    'amountOfActivities',
-    'session.currentUser',
-    function () {
-      const params = {
-        filter: { upcoming: true },
-        sort: 'start_time',
-      };
+export default class UpcomingActivities extends Component {  
+  @service store;
+  @service session;
 
-      if (this.session.currentUser) {
-        params.page = { size: this.amountOfActivities };
-      }
+  amountOfActivities = 5;
+  activities = []
 
-      return this.store.query('activity', params);
+  constructor() {
+    super(...arguments);
+
+    const params = {
+      filter: { upcoming: true },
+      sort: 'start_time',
+    };
+
+    if (this.session.currentUser) {
+      params.page = { size: this.amountOfActivities };
     }
-  ),
-});
+
+    this.activities = this.store.query('activity', params);
+  }
+}

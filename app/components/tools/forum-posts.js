@@ -1,13 +1,17 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  store: service(),
-  threads: computed(function () {
-    return this.store.query('forum/thread', {
+export default class ForumPosts extends Component {
+  @service store;
+
+  threads = [];
+
+  constructor() {
+    super(...arguments);
+    
+    this.threads = this.store.query('forum/thread', {
       sort: '-updated_at',
       page: { number: '1', size: 7 },
     });
-  }),
-});
+  }
+}

@@ -6,7 +6,7 @@
   </div>
 
   <ul class='list-group list-group-flush'>
-    {{#each threads as |thread|}}
+    {{#each this.threads as |thread|}}
       <LinkTo
         @route='forum.categories.category.threads.thread.show'
         @models={{array thread.category.id thread.id}}
