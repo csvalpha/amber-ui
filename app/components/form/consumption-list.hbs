@@ -2,46 +2,46 @@
 
   <thead>
     <tr>
-      {{#if showCheckbox}}
+      {{#if @showCheckbox}}
         <th class='table-collumn-narrow'></th>
       {{/if}}
       <th>Naam</th>
-      {{#each options as |opt|}}
+      {{#each @options as |opt|}}
         <th>{{opt}}</th>
       {{/each}}
     </tr>
   </thead>
 
   <tbody>
-    {{#each responses as |response|}}
+    {{#each @responses as |response|}}
       <tr>
-        {{#if showCheckbox}}
+        {{#if @showCheckbox}}
           <td><FaIcon @icon='square' @prefix='far' /></td>
         {{/if}}
         <td>{{response.user.fullNameWithNickname}}</td>
-        {{#each options}}
+        {{#each @options}}
           <td></td>
         {{/each}}
       </tr>
     {{/each}}
-    {{#if showRobertHofstra}}
+    {{#if @showRobertHofstra}}
       <tr>
-        {{#if showCheckbox}}
+        {{#if @showCheckbox}}
           <td><FaIcon @icon='square' @prefix='far' /></td>
         {{/if}}
         <td>Robert Hofstra</td>
-        {{#each options}}
+        {{#each @options}}
           <td></td>
         {{/each}}
       </tr>
     {{/if}}
-    {{#each (range 0 additionalEmptyRows)}}
+    {{#each (range 0 @additionalEmptyRows)}}
       <tr>
-        {{#if showCheckbox}}
+        {{#if @showCheckbox}}
           <td><FaIcon @icon='square' @prefix='far' /></td>
         {{/if}}
         <td class='table-filler'></td>
-        {{#each options}}
+        {{#each @options}}
           <td></td>
         {{/each}}
       </tr>
