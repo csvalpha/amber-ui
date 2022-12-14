@@ -8,7 +8,7 @@ export default class ForumPosts extends Component {
 
   constructor() {
     super(...arguments);
-    
+
     this.threads = this.store.query('forum/thread', {
       sort: '-updated_at',
       page: { number: '1', size: 7 },

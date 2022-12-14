@@ -4,11 +4,11 @@ import Component from '@glimmer/component';
 export default class DailyVerse extends Component {
   @service store;
 
-  verses = []
+  verses = [];
 
   constructor() {
     super(...arguments);
-    
+
     this.verses = this.store.findAll('daily-verse');
   }
 }

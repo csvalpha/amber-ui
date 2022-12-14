@@ -1,12 +1,12 @@
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 
-export default class UpcomingActivities extends Component {  
+export default class UpcomingActivities extends Component {
   @service store;
   @service session;
 
   amountOfActivities = 5;
-  activities = []
+  activities = [];
 
   constructor() {
     super(...arguments);

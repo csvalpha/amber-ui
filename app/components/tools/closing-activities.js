@@ -4,7 +4,7 @@ import Component from '@glimmer/component';
 export default class ClosingActivities extends Component {
   @service store;
 
-  activities = []
+  activities = [];
 
   constructor() {
     super(...arguments);

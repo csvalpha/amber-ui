@@ -4,9 +4,8 @@ import Component from '@glimmer/component';
 export default class RecentPhotos extends Component {
   @service store;
 
-  photosWithComments = []
-  albums = []
-
+  photosWithComments = [];
+  albums = [];
 
   constructor() {
     super(...arguments);
@@ -18,7 +17,7 @@ export default class RecentPhotos extends Component {
       page: { number: '1', size: 4 },
     });
     /* eslint-enable camelcase */
-    
+
     this.albums = this.store.query('photo-album', {
       sort: '-date',
       page: { number: '1', size: 3 },

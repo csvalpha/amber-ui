@@ -8,7 +8,7 @@ export default class RecentPolls extends Component {
 
   constructor() {
     super(...arguments);
-    
+
     this.polls = this.store.query('poll', {
       sort: '-created_at',
       page: { number: '1', size: 5 },
