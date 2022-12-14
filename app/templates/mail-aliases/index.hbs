@@ -57,7 +57,7 @@
           {{else}}
             <LinkTo @route='users.show' @model={{mailAlias.user.id}}>
               <span class='text-muted'> <FaIcon @icon='user' /> </span>
-              {{mailAlias.user.fullName}}
+              {{mailAlias.user.fullNameWithNickname}}
             </LinkTo>
           {{/if}}
         </span>

@@ -68,4 +68,9 @@ export default class EditActivityController extends EditController {
   coverPhotoLoaded(file) {
     this.model.set('coverPhoto', file.data);
   }
+
+  @action
+  setContent(content) {
+    this.model.description = content;
+  }
 }
