@@ -39,7 +39,7 @@
             <span class='activity-tool-title'>{{activity.title}}</span>
             <br />
             <span class='activity-tool-start-time text-muted'>
-              {{form/status-dot activity.form}}
+              <Form::StatusDot @form={{activity.form}} />
               {{form-opened-label activity.form}}
             </span>
           </li>

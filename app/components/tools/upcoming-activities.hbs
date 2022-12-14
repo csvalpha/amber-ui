@@ -39,7 +39,7 @@
           <br />
           <span class='activity-tool-start-time text-muted'>
             {{#if (can 'show form/form')}}
-              {{form/status-dot activity.form}}
+              <Form::StatusDot @form={{activity.form}} />
             {{/if}}
             {{activity.formattedStartDate}}
           </span>

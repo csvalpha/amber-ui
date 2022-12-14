@@ -1,7 +1,19 @@
-import FormStatusTagComponent from 'amber-ui/components/form/status-tag';
+import Component from '@glimmer/component';
+import { isNone } from '@ember/utils';
 
-export default FormStatusTagComponent.extend({
-  tagName: 'div',
-  isTag: false,
-  classNames: ['status-dot'],
-});
+export default class FormStatusTag extends Component {
+  get colorIndicatorClass() {
+    if (isNone(this.form)) {
+      return 'badge-success';
+    }
+
+    const formIsOpen = this.form.get('canRespond');
+    const userHasResponded = this.form.get('currentUserResponseCompleted');
+
+    if (userHasResponded) {
+      return 'badge-success';
+    }
+
+    return formIsOpen ? 'badge-info' : 'badge-default';
+  }
+}
