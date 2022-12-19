@@ -230,6 +230,7 @@ mixin:
     home: Home
     articles: Artikelen
     activities: Activiteiten
+    vacancies: Vacatures
     forum: Forum
     photoAlbums: Foto-albums
     polls: Polls

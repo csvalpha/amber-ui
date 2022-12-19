@@ -24,7 +24,7 @@ export default class EditActivityController extends EditController {
   get combinedErrors() {
     const combined = union(
       this.model.errors.content,
-      this.model.form?.get('errors')?.content
+      this.model.form?.get('errors')?.content ?? []
     );
     return combined.length > 0 ? combined : null;
   }
