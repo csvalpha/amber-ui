@@ -1,10 +1,10 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 import { action } from '@ember/object';
 
-export default class ForumThreadDestroyController extends DestroyController {
+export default class ThreadDestroyController extends DestroyController {
+  successMessage = 'Topic verwijderd!';
   successTransitionTarget = 'forum.categories.category';
   cancelTransitionTarget = 'forum.categories.category.threads.thread';
-  successMessage = 'Topic verwijderd!';
 
   get successTransitionModel() {
     return this.category;

@@ -4,7 +4,7 @@ export default class ThreadRoute extends AuthenticatedRoute {
   queryParams = {};
 
   get breadcrumb() {
-    return { title: this.controller.model.title };
+    return { title: this.controller?.model.title };
   }
 
   canAccess() {

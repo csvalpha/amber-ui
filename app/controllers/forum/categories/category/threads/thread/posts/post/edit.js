@@ -1,9 +1,10 @@
-import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';
+import { action } from '@ember/object';
 
-export default class EditPostController extends EditController {
+export default class PostEditController extends EditController {
   successMessage = 'Forumbericht aangepast!';
   successTransitionTarget = 'forum.categories.category.threads.thread';
+
   get successTransitionModel() {
     return this.thread;
   }

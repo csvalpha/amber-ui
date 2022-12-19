@@ -1,17 +1,34 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
-import { inject as service } from '@ember/service';
-import { action } from '@ember/object';
 import {
   bindKeyboardShortcuts,
   unbindKeyboardShortcuts,
 } from 'ember-keyboard-shortcuts';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-export default class PostIndexRoute extends AuthenticatedRoute {
-  @service router;
+export default class PostsIndexRoute extends AuthenticatedRoute {
   @service fetch;
+  @service router;
 
-  get breadcrumb() {
-    return { title: this.controller.model.title };
+  keyboardShortcuts = {
+    left: 'goToPreviousPage',
+    up: 'goToPreviousPage',
+    right: 'goToNextPage',
+    down: 'goToNextPage',
+  };
+
+  constructor() {
+    super(...arguments);
+
+    this.router.on('routeDidChange', () => {
+      const thread = this.modelFor('forum.categories.category.threads.thread');
+      if (thread) {
+        // only mark as read if we are in a thread
+        this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, {
+          method: 'POST',
+        });
+      }
+    });
   }
 
   get pageActions() {
@@ -43,6 +60,13 @@ export default class PostIndexRoute extends AuthenticatedRoute {
     return model;
   }
 
+  resetController(controller, isExiting, transition) {
+    super.resetController(controller, isExiting, transition);
+    if (isExiting) {
+      controller.send('resetNewContent');
+    }
+  }
+
   activate() {
     bindKeyboardShortcuts(this);
   }
@@ -50,13 +74,6 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   deactivate() {
     unbindKeyboardShortcuts(this);
   }
-
-  keyboardShortcuts = {
-    left: 'goToPreviousPage',
-    up: 'goToPreviousPage',
-    right: 'goToNextPage',
-    down: 'goToNextPage',
-  };
 
   @action
   goToPreviousPage() {
@@ -66,26 +83,5 @@ export default class PostIndexRoute extends AuthenticatedRoute {
   @action
   goToNextPage() {
     this.controller.send('goToNextPage');
-  }
-
-  resetController(controller, isExiting, transition) {
-    super.resetController(controller, isExiting, transition);
-    if (isExiting) {
-      controller.send('resetNewContent');
-    }
-  }
-
-  constructor() {
-    super(...arguments);
-
-    this.router.on('routeDidChange', () => {
-      const thread = this.modelFor('forum.categories.category.threads.thread');
-      if (thread) {
-        // only mark as read if we are in a thread
-        this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, {
-          method: 'POST',
-        });
-      }
-    });
   }
 }

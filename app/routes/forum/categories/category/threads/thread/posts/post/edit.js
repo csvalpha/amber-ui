@@ -1,14 +1,10 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class EditPostRoute extends AuthenticatedRoute {
+export default class PostEditRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Forumbericht aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit forum/post', model);
-  }
-
-  model(params) {
-    return this.store.findRecord('forum/post', params.post_id, params);
   }
 
   deactivate() {

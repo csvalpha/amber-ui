@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewTopicRoute extends AuthenticatedRoute {
+export default class ThreadsNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Topic aanmaken' };
 
   canAccess() {

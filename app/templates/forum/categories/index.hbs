@@ -11,7 +11,7 @@
 
   {{#each @model.recentThreads as |thread|}}
     <LinkTo
-      @route='forum.categories.category.threads.thread.show'
+      @route='forum.categories.category.threads.thread'
       @models={{array thread.category thread}}
     >
       <div class='row rtable-row'>

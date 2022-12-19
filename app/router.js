@@ -56,7 +56,6 @@ Router.map(function () {
       this.route('new');
 
       this.route('category', { path: ':category_id' }, function () {
-        this.route('show', { path: '/' });
         this.route('edit');
         this.route('destroy');
 
@@ -64,13 +63,14 @@ Router.map(function () {
           this.route('new');
 
           this.route('thread', { path: ':thread_id' }, function () {
-            this.route('show', { path: '/' });
             this.route('edit');
             this.route('destroy');
 
             this.route('posts', function () {
-              this.route('edit', { path: ':post_id/edit' });
-              this.route('destroy', { path: ':post_id/destroy' });
+              this.route('post', { path: ':post_id' }, function () {
+                this.route('edit');
+                this.route('destroy');
+              });
             });
           });
         });

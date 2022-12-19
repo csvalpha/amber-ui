@@ -4,7 +4,7 @@ export default class CategoryRoute extends AuthenticatedRoute {
   queryParams = {};
 
   get breadcrumb() {
-    return { title: this.controller.model.name };
+    return { title: this.controller?.model.name };
   }
 
   canAccess() {
