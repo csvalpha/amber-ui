@@ -228,6 +228,7 @@ mixin:
     home: Home
     articles: Articles
     activities: Activities
+    vacancies: Vacancies
     forum: Forum
     photoAlbums: Photo-albums
     polls: Polls

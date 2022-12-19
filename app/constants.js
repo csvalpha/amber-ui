@@ -9,10 +9,11 @@ const GroupKinds = [
   'genootschap',
   'groep',
   'huis',
-  'jaargroep',
+  'kiemgroep',
   'lichting',
   'kring',
   'werkgroep',
+  'curiositas',
 ];
 
 const StaticPageCategories = ['vereniging', 'documenten', 'ict'];
@@ -27,10 +28,11 @@ const ActivityCategories = [
   'IFES',
   'OZON',
   'Disputen',
-  'Jaargroepen',
+  'Kiemgroepen',
   'Huizen',
   'Extern',
   'Eerstejaars',
+  'Curiositates',
 ];
 
 const OpenQuestionTypes = ['text', 'textarea', 'number'];

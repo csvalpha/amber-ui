@@ -6,7 +6,7 @@ export default class FilterableAndSortableController extends Controller {
   @tracked sortedAttribute = null;
   @tracked sortedAscending = true;
 
-  search = '';
+  @tracked search = '';
   sortableAttributes = [];
 
   get sort() {
@@ -27,6 +27,21 @@ export default class FilterableAndSortableController extends Controller {
         this.sortedAttribute = value;
       }
     }
+  }
+
+  @action
+  setSearch(value) {
+    this.search = value;
+  }
+
+  @action
+  setSortedAttribute(value) {
+    this.sortedAttribute = value;
+  }
+
+  @action
+  setSortedAscending(value) {
+    this.sortedAscending = value;
   }
 
   @action
