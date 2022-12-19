@@ -75,10 +75,10 @@
                 @options={{@users}}
                 @onChange={{@onAddUser}}
                 @searchEnabled={{true}}
-                @searchField='fullName'
+                @searchField='fullNameWithNickname'
                 as |user|
               >
-                {{user.fullName}}
+                {{user.fullNameWithNickname}}
               </PowerSelect>
 
               {{form-control-feedback (get @model.errors 'memberships')}}
@@ -102,7 +102,7 @@
                 {{#each @model.memberships as |membership|}}
                   {{#unless membership.isDeleted}}
                     <tr>
-                      <td>{{membership.user.fullName}}</td>
+                      <td>{{membership.user.fullNameWithNickname}}</td>
                       <td>
                         <Input::DateInput
                           @dateValue={{membership.startDate}}
