@@ -133,7 +133,8 @@ export default class SogNameTrainerController extends Controller {
     let { currentQuestion } = this;
     currentQuestion.answer = this.textInput;
     currentQuestion.success =
-      currentQuestion.answer === currentQuestion.question.get('fullName');
+      currentQuestion.answer === currentQuestion.question.get('fullName') ||
+      currentQuestion.answer === currentQuestion.question.get('fullNickname');
     if (currentQuestion.success) {
       this.success++;
     }

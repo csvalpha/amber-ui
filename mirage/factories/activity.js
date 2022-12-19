@@ -22,9 +22,10 @@ export default Factory.extend({
       'ifes',
       'ozon',
       'disputen',
-      'jaargroepen',
+      'kiemgroepen',
       'huizen',
       'extern',
+      'curiositates',
     ]),
 
   afterCreate(activity, server) {

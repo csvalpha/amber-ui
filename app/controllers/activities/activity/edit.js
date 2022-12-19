@@ -22,7 +22,7 @@ export default class ActivityEditController extends EditController {
   get combinedErrors() {
     const combined = union(
       this.model.errors.content,
-      this.model.form?.get('errors')?.content
+      this.model.form?.get('errors')?.content ?? []
     );
     return combined.length > 0 ? combined : null;
   }
@@ -67,12 +67,8 @@ export default class ActivityEditController extends EditController {
     this.model.set('coverPhoto', file.data);
   }
 
-  async getUsers() {
-    const group = await this.group;
-    if (!group) {
-      return [];
-    }
-    const memberships = await group.get('memberships');
-    return await Promise.all(memberships.mapBy('user'));
+  @action
+  setContent(content) {
+    this.model.description = content;
   }
 }

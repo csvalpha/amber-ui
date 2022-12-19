@@ -68,4 +68,9 @@ export default class BookEditController extends EditController {
         }
       });
   }
+
+  @action
+  setContent(content) {
+    this.model.description = content;
+  }
 }

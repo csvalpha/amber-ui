@@ -37,10 +37,11 @@ export default class GroupsIndexController extends FilterableAndSortableControll
       'genootschap',
       'groep',
       'huis',
-      'jaargroep',
+      'kiemgroep',
       'werkgroep',
       'kring',
       'lichting',
+      'curiositas',
     ];
   }
 

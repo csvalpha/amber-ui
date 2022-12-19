@@ -44,6 +44,10 @@ export default class GroupExportController extends Controller {
       label: 'Volledige naam',
     },
     {
+      value: 'nickname',
+      label: 'Bijnaam',
+    },
+    {
       value: 'email',
       label: 'Email',
     },

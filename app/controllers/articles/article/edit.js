@@ -42,4 +42,9 @@ export default class ArticleEditController extends EditController {
     const article = this.model;
     article.set('coverPhoto', file.data);
   }
+
+  @action
+  setContent(content) {
+    this.model.content = content;
+  }
 }
