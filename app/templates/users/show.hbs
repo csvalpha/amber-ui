@@ -9,6 +9,12 @@
         <h2 data-test-fullName>{{@model.fullName}}</h2>
         <table class='table table-sm'>
           <tr>
+            <td>Bijnaam</td>
+            <td data-test-nickname>
+              {{@model.nickname}}
+            </td>
+          </tr>
+          <tr>
             <td>Email</td>
             <td data-test-email>
               <a href='mailto:{{@model.email}}'>{{@model.email}}</a>
