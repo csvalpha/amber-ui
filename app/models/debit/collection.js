@@ -2,7 +2,7 @@ import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class Collection extends Model {
   @attr name;
-  @attr date;
+  @attr('date-only') date;
   @attr importFile;
   @attr('date') createdAt;
   @attr('date') updatedAt;

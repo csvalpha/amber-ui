@@ -3,8 +3,8 @@ import moment from 'moment';
 
 export default class Membership extends Model {
   // Attributes
-  @attr('date') startDate;
-  @attr('date') endDate;
+  @attr('date-only') startDate;
+  @attr('date-only') endDate;
   @attr function;
   @attr('date') createdAt;
   @attr('date') updatedAt;
