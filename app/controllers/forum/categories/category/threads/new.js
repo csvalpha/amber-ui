@@ -23,4 +23,9 @@ export default class NewThreadController extends NewController {
   async cancel() {
     this.category = await this.model.category;
   }
+
+  @action
+  setContent(content) {
+    this.model.firstPost.message = content;
+  }
 }

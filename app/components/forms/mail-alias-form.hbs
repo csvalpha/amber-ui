@@ -80,11 +80,11 @@
             @disabled={{@anyGroup}}
             @placeholder='Gebruiker'
             @searchEnabled={{true}}
-            @searchField='fullName'
+            @searchField='fullNameWithNickname'
             @allowClear={{true}}
             as |user|
           >
-            {{user.fullName}}
+            {{user.fullNameWithNickname}}
           </PowerSelect>
 
           {{form-control-feedback (get @model.errors 'user')}}
