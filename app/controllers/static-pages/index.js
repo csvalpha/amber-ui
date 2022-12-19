@@ -1,8 +1,8 @@
 import FilterableAndSortableController from 'amber-ui/controllers/application/filterable-and-sortable';
-import { inject as service } from '@ember/service';
-import { tracked } from '@glimmer/tracking';
 import { A } from '@ember/array';
 import { isPresent } from '@ember/utils';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
 export default class StaticPagesIndexController extends FilterableAndSortableController {
   @service session;

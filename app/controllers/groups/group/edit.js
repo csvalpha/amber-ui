@@ -1,10 +1,10 @@
-import { action } from '@ember/object';
 import { A } from '@ember/array';
+import EditController from 'amber-ui/controllers/application/edit';
 import { GroupKinds } from 'amber-ui/constants';
+import { action } from '@ember/object';
 import { all } from 'rsvp';
 import { capitalize } from '@ember/string';
 import { inject as service } from '@ember/service';
-import EditController from 'amber-ui/controllers/application/edit';
 
 export default class GroupEditController extends EditController {
   @service session;
