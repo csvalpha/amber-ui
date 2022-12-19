@@ -1,20 +1,27 @@
-<div class='{{labelClass}}'></div>
-<div class='{{inputWrapperClass}}'>
-  <div class='form-check'>
-    <label class='form-check-label'>
-      <Input
-        data-test-input={{property}}
-        @type='checkbox'
-        id={{inputIdentifier}}
-        @checked={{mut (get model property)}}
-        class={{concat 'form-input-checkbox ' inputValidityClass}}
-        required={{required}}
-        disabled={{disabled}}
-      />
-      <div class='custom-checkmark'></div>
-      {{label}}{{if required ' *'}}
+<div class="form-group {{if this.usesGrid 'form-row'}}">
+  <div class='{{this.labelClass}}'></div>
+  <div class='{{this.inputWrapperClass}}'>
+    <div class='form-check'>
+      <label class='form-check-label'>
+        <Input
+          data-test-input={{@property}}
+          @type='checkbox'
+          id={{this.inputIdentifier}}
+          @checked={{mut (get @model @property)}}
+          class={{concat 'form-input-checkbox ' this.inputValidityClass}}
+          required={{@required}}
+          disabled={{@disabled}}
+        />
+        <div class='custom-checkmark'></div>
+        {{@label}}{{if @required ' *'}}
 
+<<<<<<< Updated upstream
       {{form-control-feedback (get @model.errors property)}}
     </label>
+=======
+        <FormControlFeedback @errors={{get @model.errors @property}} />
+      </label>
+    </div>
+>>>>>>> Stashed changes
   </div>
 </div>

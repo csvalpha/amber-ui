@@ -1,17 +1,21 @@
 <div class='row form-group'>
   <label
     class='col-sm-2 col-form-label form-control-label'
-    for={{inputIdentifier}}
+    for={{@inputIdentifier}}
   >
-    {{label}}{{if required ' *'}}
+    {{@label}}{{if @required ' *'}}
   </label>
   <div class='col-sm-10'>
     <MdEditor
-      @content={{mut (get model property)}}
-      @textareaId={{inputIdentifier}}
+      @content={{mut (get @model @property)}}
+      @textareaId={{@inputIdentifier}}
       @setContent={{@setContent}}
     />
 
+<<<<<<< Updated upstream
     {{form-control-feedback (get @model.errors property)}}
+=======
+    <FormControlFeedback @errors={{get @model.errors @property}} />
+>>>>>>> Stashed changes
   </div>
 </div>

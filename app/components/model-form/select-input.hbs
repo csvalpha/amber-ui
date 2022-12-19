@@ -1,20 +1,26 @@
-<label
-  class='col-form-label form-control-label {{labelClass}}'
-  for={{inputIdentifier}}
->
-  {{label}}{{if required ' *'}}
-</label>
-<div class='{{inputWrapperClass}}'>
-  <Input::SelectInput
-    @data-test-input={{property}}
-    @class={{concat 'form-control ' inputValidityClass}}
-    @elementId={{inputIdentifier}}
-    @required={{required}}
-    @disabled={{disabled}}
-    @options={{options}}
-    @placeholder={{placeholder}}
-    @value={{mut (get model property)}}
-  />
+<div class="form-group {{if this.usesGrid 'form-row'}}">
+  <label
+    class='col-form-label form-control-label {{this.labelClass}}'
+    for={{this.inputIdentifier}}
+  >
+    {{@label}}{{if @required ' *'}}
+  </label>
+  <div class='{{this.inputWrapperClass}}'>
+    <Input::SelectInput
+      @data-test-input={{@property}}
+      @class={{concat 'form-control ' this.inputValidityClass}}
+      @elementId={{this.inputIdentifier}}
+      @required={{@required}}
+      @disabled={{@disabled}}
+      @options={{@options}}
+      @placeholder={{@placeholder}}
+      @value={{mut (get @model @property)}}
+    />
 
+<<<<<<< Updated upstream
   {{form-control-feedback (get @model.errors property)}}
+=======
+    <FormControlFeedback @errors={{get @model.errors @property}} />
+  </div>
+>>>>>>> Stashed changes
 </div>

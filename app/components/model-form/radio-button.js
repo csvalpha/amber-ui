@@ -1,24 +1,15 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  tagName: 'input',
-  type: 'radio',
-  groupValue: null,
-  attributeBindings: [
-    'checked',
-    'disabled',
-    'name',
-    'required',
-    'type',
-    'value',
-  ],
-  checked: computed('groupValue', 'value', function () {
-    return this.groupValue === this.value;
-  }).readOnly(),
+export default class RadioButton extends Component {
+  get checked() {
+    return this.args.groupValue === this.args.value;
+  }
+
+  @action
   change() {
     if (this.groupValue !== this.value) {
-      this.set('groupValue', this.value);
+      this.groupValue = this.value;
     }
-  },
-});
+  }
+}

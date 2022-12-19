@@ -1,19 +1,25 @@
-<label
-  class='col-form-label form-control-label {{labelClass}}'
-  for={{inputIdentifier}}
->
-  {{label}}{{if required ' *'}}
-</label>
-<div class='{{inputWrapperClass}}'>
-  <Input::DateInput
-    @inputId={{inputIdentifier}}
-    @dateValue={{mut (get model property)}}
-    @inputClass={{concat 'form-control ' inputValidityClass}}
-    @placeholder={{placeholder}}
-    @required={{required}}
-    @disabled={{disabled}}
-    @yearRange={{yearRange}}
-  />
+<div class="form-group {{if this.usesGrid 'form-row'}}">
+  <label
+    class='col-form-label form-control-label {{this.labelClass}}'
+    for={{this.inputIdentifier}}
+  >
+    {{@label}}{{if @required ' *'}}
+  </label>
+  <div class='{{this.inputWrapperClass}}'>
+    <Input::DateInput
+      @inputId={{this.inputIdentifier}}
+      @dateValue={{mut (get @model @property)}}
+      @inputClass={{concat 'form-control ' this.inputValidityClass}}
+      @placeholder={{this.placeholder}}
+      @required={{@required}}
+      @disabled={{@disabled}}
+      @yearRange={{@yearRange}}
+    />
 
+<<<<<<< Updated upstream
   {{form-control-feedback (get @model.errors property)}}
+=======
+    <FormControlFeedback @errors={{get @model.errors @property}} />
+  </div>
+>>>>>>> Stashed changes
 </div>

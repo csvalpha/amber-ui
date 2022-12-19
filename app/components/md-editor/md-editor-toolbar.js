@@ -1,27 +1,34 @@
+<<<<<<< Updated upstream
 import Component from '@ember/component';
 import { action, set } from '@ember/object';
+=======
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
+>>>>>>> Stashed changes
 
 export default class MdEditorToolbarComponent extends Component {
   modalOpen = false;
   modalOption = null;
   modalInput = null;
+  editMode = false;
 
   @action
   toggleEditMode() {
-    this.toggleProperty('editMode');
+    this.editMode = !this.editMode;
   }
 
   @action
   openModal(option) {
-    set(this, 'modalOpen', true);
-    set(this, 'modalOption', option);
+    this.modalOpen = true;
+    this.modalOption = option;
+    
   }
 
   @action
   submitModal() {
     this.applyStyleOption(this.modalOption, this.modalInput);
-    set(this, 'modalOpen', false);
-    set(this, 'modalInput', null);
+    this.modalOpen = false;
+    this.modalInput = null;
   }
 
   styleOptions = {

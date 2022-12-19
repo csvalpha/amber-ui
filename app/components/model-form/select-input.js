@@ -1,5 +1,3 @@
-import ModelFormTextInputComponent from './text-input';
+import ModelFormTextInput from './text-input';
 
-export default ModelFormTextInputComponent.extend({
-  options: null,
-});
+export default class SelectInput extends ModelFormTextInput {}

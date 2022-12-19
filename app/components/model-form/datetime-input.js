@@ -1,3 +1,3 @@
-import ModelFormTextInputComponent from './text-input';
+import ModelFormTextInput from './text-input';
 
-export default ModelFormTextInputComponent.extend({});
+export default class DatetimeInput extends ModelFormTextInput {}

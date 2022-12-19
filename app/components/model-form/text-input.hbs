@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 {{#if (eq inputLayout 'vertical')}}
   <label class='vertical-label' for={{inputIdentifier}}>
     {{label}}{{if required ' *'}}
@@ -23,20 +24,55 @@
     {{label}}{{if required ' *'}}
   </label>
   <div class='{{inputWrapperClass}}'>
+=======
+<div class="form-group {{if this.usesGrid 'form-row'}}">
+  {{#if (eq @inputLayout 'vertical')}}
+    <label class='vertical-label' for={{this.inputIdentifier}}>
+      {{@label}}{{if @required ' *'}}
+    </label>
+>>>>>>> Stashed changes
     <Input
-      @type={{type}}
-      step={{step}}
-      id={{inputIdentifier}}
-      @value={{mut (get model property)}}
-      class={{concat 'form-control ' inputValidityClass}}
-      placeholder={{placeholder}}
-      required={{required}}
-      disabled={{disabled}}
-      maxlength={{maxlength}}
+      @type={{@type}}
+      step={{@step}}
+      id={{this.inputIdentifier}}
+      @value={{mut (get @model @property)}}
+      class={{concat 'form-control ' this.inputValidityClass}}
+      placeholder={{this.placeholder}}
+      required={{@required}}
+      disabled={{@disabled}}
+      maxlength={{@maxlength}}
     />
 
-    {{yield}}
+    <FormControlFeedback @errors={{get @model.errors @property}} />
+  {{else}}
+    <label
+      class='col-form-label form-control-label {{this.labelClass}}'
+      for={{this.inputIdentifier}}
+    >
+      {{@label}}{{if @required ' *'}}
+    </label>
+    <div class='{{this.inputWrapperClass}}'>
+      <Input
+        @type={{@type}}
+        step={{@step}}
+        id={{this.inputIdentifier}}
+        @value={{mut (get @model @property)}}
+        class={{concat 'form-control ' this.inputValidityClass}}
+        placeholder={{this.placeholder}}
+        required={{@required}}
+        disabled={{@disabled}}
+        maxlength={{@maxlength}}
+      />
 
+<<<<<<< Updated upstream
     {{form-control-feedback (get @model.errors property)}}
   </div>
 {{/if}}
+=======
+      {{yield}}
+
+      <FormControlFeedback @errors={{get @model.errors @property}} />
+    </div>
+  {{/if}}
+</div>
+>>>>>>> Stashed changes

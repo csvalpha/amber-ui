@@ -1,23 +1,14 @@
 import { assert } from '@ember/debug';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 import { isArray } from '@ember/array';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  tagName: 'input',
-  type: 'checkbox',
-  groupValue: [],
-  attributeBindings: [
-    'checked',
-    'disabled',
-    'name',
-    'required',
-    'type',
-    'value',
-  ],
-  checked: computed('groupValue', 'value', function () {
-    return this.groupValue.includes(this.value);
-  }).readOnly(),
+export default class CheckboxButton extends Component {
+  get checked() {
+    return this.args.groupValue.includes(this.value);
+  }
+
+  @action
   change() {
     assert(
       `Group value of a checkbox group (name=${this.name}) should be an array!`,
@@ -30,5 +21,5 @@ export default Component.extend({
     }
 
     this.set('groupValue', this.groupValue);
-  },
-});
+  }
+}
