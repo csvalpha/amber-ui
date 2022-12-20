@@ -1,10 +1,14 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class ActivityRoute extends ApplicationRoute {
+export default class ActivityRoute extends AuthenticatedRoute {
   queryParams = {};
 
   get breadcrumb() {
     return { title: this.controller?.model.title };
+  }
+
+  canAccess() {
+    return this.abilities.can('show activities');
   }
 
   model(params) {

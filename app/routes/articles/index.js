@@ -12,6 +12,10 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
     ];
   }
 
+  canAccess() {
+    return this.abilities.can('show articles');
+  }
+
   model(params) {
     params.sort = `-pinned,${params.sort}`;
     return this.store.queryPaged('article', params);

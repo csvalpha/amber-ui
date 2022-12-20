@@ -1,10 +1,14 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class GroupRoute extends ApplicationRoute {
+export default class GroupRoute extends AuthenticatedRoute {
   queryParams = {};
 
   get breadcrumb() {
     return { title: this.controller?.model.name };
+  }
+
+  canAccess() {
+    return this.abilities.can('show groups');
   }
 
   model(params) {
