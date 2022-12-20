@@ -2,11 +2,14 @@
   <PageActionsButtons @pageActions={{pageActions}}>
     <FilterBar
       @class='col-12 col-md'
-      @filter={{search}}
-      @sortedAttribute={{sortedAttribute}}
-      @sortableAttributes={{sortableAttributes}}
-      @sortedAscending={{sortedAscending}}
-      @enter={{action 'selectFirstItem'}}
+      @filter={{this.search}}
+      @setFilter={{this.setSearch}}
+      @sortedAttribute={{this.sortedAttribute}}
+      @setSortedAttribute={{this.setSortedAttribute}}
+      @sortableAttributes={{this.sortableAttributes}}
+      @sortedAscending={{this.sortedAscending}}
+      @setSortedAscending={{this.setSortedAscending}}
+      @enter={{this.selectFirstItem}}
     />
   </PageActionsButtons>
 </EmberWormhole>
@@ -54,7 +57,7 @@
           {{else}}
             <LinkTo @route='users.show' @model={{mailAlias.user.id}}>
               <span class='text-muted'> <FaIcon @icon='user' /> </span>
-              {{mailAlias.user.fullName}}
+              {{mailAlias.user.fullNameWithNickname}}
             </LinkTo>
           {{/if}}
         </span>
