@@ -1,4 +1,6 @@
+import Ember from 'ember';
 import { inject as service } from '@ember/service';
+import { htmlSafe } from '@ember/template';
 import Model, { hasMany, attr } from '@ember-data/model';
 import { isEmpty } from '@ember/utils';
 import moment from 'moment';
@@ -11,7 +13,8 @@ export default class User extends Model {
   @attr firstName;
   @attr lastNamePrefix;
   @attr lastName;
-  @attr birthday;
+  @attr nickname;
+  @attr('date-only') birthday;
   @attr address;
   @attr postcode;
   @attr city;
@@ -23,7 +26,7 @@ export default class User extends Model {
   // Preferences / settings
   @attr foodPreferences;
   @attr vegetarian;
-  @attr startStudy;
+  @attr('date-only') startStudy;
   @attr emergencyContact;
   @attr emergencyNumber;
   @attr almanakSubscriptionPreference;
@@ -69,6 +72,38 @@ export default class User extends Model {
     }
 
     return `${this.firstName} ${this.lastNamePrefix} ${this.lastName}`;
+  }
+
+  get fullNickname() {
+    if (this.lastNamePrefix === null) {
+      return `${this.nickname} ${this.lastName}`;
+    }
+
+    return `${this.nickname} ${this.lastNamePrefix} ${this.lastName}`;
+  }
+
+  get fullNameWithNickname() {
+    return this._fullNameWithNickname();
+  }
+
+  get fullNameWithNicknameMd() {
+    return this._fullNameWithNickname(true);
+  }
+
+  _fullNameWithNickname(markdown = false) {
+    let escape = Ember.Handlebars.Utils.escapeExpression;
+    let name = `${escape(this.firstName)}`;
+
+    if (this.nickname !== null) {
+      if (markdown) name += ` *${escape(this.nickname)}*`;
+      else name += ` <i>${escape(this.nickname)}</i>`;
+    }
+
+    if (this.lastNamePrefix !== null) {
+      name += ` ${escape(this.lastNamePrefix)}`;
+    }
+
+    return htmlSafe(`${name} ${escape(this.lastName)}`);
   }
 
   get age() {

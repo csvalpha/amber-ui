@@ -16,6 +16,7 @@
         <MdEditor
           @content={{@model.firstPost.message}}
           @textareaId='forumpost-message'
+          @setContent={{@setContent}}
         />
       {{else}}
         {{#if (can 'edit forum/threads')}}

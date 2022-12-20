@@ -37,10 +37,11 @@ export default class GroupsIndexController extends FilterableAndSortableControll
       'genootschap',
       'groep',
       'huis',
-      'jaargroep',
+      'kiemgroep',
       'werkgroep',
       'kring',
       'lichting',
+      'curiositas',
     ];
   }
 
@@ -51,6 +52,8 @@ export default class GroupsIndexController extends FilterableAndSortableControll
   }
 
   set selectedGroupKind(value) {
-    this._selectedGroupKindOverride = value;
+    if (value !== 'zoekresultaten') {
+      this._selectedGroupKindOverride = value;
+    }
   }
 }

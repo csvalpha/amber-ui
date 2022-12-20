@@ -1,0 +1,116 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<div class='row'>
+  {{#each model as |vacancy|}}
+    <div class='article-col col-md-6 mb-3'>
+      <LinkTo @route='vacancies.show' @model={{vacancy.id}}>
+        <div class='article-card d-flex'>
+          <div class='card mb-0'>
+            <div class='card-header card-header--overlay'>
+              <img
+                itemprop='image'
+                class='card-img-top'
+                src={{vacancy.coverPhotoUrlOrDefault}}
+              />
+
+              <div class='card-title-bar gradient-overlay'>
+                <div class='hidden-xs-down'>
+                  <img
+                    src='{{vacancy.avatarThumbUrlOrDefault}}'
+                    class='profile-picture-medium profile-picture-margin'
+                    alt='{{vacancy.authorName}}'
+                    height='60px'
+                    style='display: inline;'
+                  />
+                </div>
+
+                <div class='card-titles'>
+                  <LinkTo @route='vacancies.show' @model={{vacancy.id}}>
+                    <h2 class='card-title' itemprop='name headline'>
+                      {{vacancy.title}}
+                    </h2>
+                  </LinkTo>
+                  <h3 class='card-subtitle'>
+                    {{#if vacancy.group}}
+                      <LinkTo
+                        @route='groups.show'
+                        @model={{vacancy.group.id}}
+                        class='link-to card-subtitle-link'
+                      >
+                        <span
+                          itemprop='author'
+                          itemscope
+                          itemtype='https://schema.org/Person'
+                        >
+                          <span itemprop='name'>{{vacancy.authorName}}</span>
+                        </span>
+                      </LinkTo>
+                    {{else}}
+                      <LinkTo
+                        @route='users.show'
+                        @model={{vacancy.author.id}}
+                        class='link-to card-subtitle-link'
+                      >
+                        <span
+                          itemprop='author'
+                          itemscope
+                          itemtype='https://schema.org/Person'
+                        >
+                          <span itemprop='name'>{{vacancy.authorName}}</span>
+                        </span>
+                      </LinkTo>
+                    {{/if}}
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div class='card-body'>
+              <div class='card-text' itemprop='articleBody'>
+                {{!-- Table without style --}}
+                <table class="mb-4">
+                  {{#if vacancy.deadline}}
+                    <tr>
+                      <th class="pr-3">Deadline:</th>
+                      <td>{{moment-format vacancy.deadline 'DD-MM-YYYY' }}</td>
+                    </tr>
+                  {{/if}}
+                  {{#if vacancy.workload}}
+                    <tr>
+                      <th class="pr-3">Werklast:</th>
+                      <td>{{vacancy.workload}}</td>
+                    </tr>
+                  {{/if}}
+                  {{#if vacancy.workloadPeak}}
+                    <tr>
+                      <th class="pr-3">Piekmoment:</th>
+                      <td>{{vacancy.workloadPeak}}</td>
+                    </tr>
+                  {{/if}}
+                </table>
+
+                <LinkTo @route='articles.show' @model={{article.id}} itemprop='url'>
+                  {{t 'tag.button.readMore'}}
+                </LinkTo>
+              </div>
+            </div>
+          </div>
+        </div>
+      </LinkTo>
+    </div>
+  {{/each}}
+
+  {{#if (eq model.length 0)}}
+    <div class='col-12'>
+      <div class='alert alert-warning' role='alert'>
+        Momenteel zijn er geen vacatures.
+      </div>
+    </div>
+  {{/if}}
+</div>
+
+<div class='row justify-content-center'>
+  <PageNumbers @info={{model.meta}} />
+</div>
