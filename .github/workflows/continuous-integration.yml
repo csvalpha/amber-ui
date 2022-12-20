@@ -60,8 +60,10 @@ jobs:
             -ignore 'property "sha" is not defined in object type {}' || EXIT_STATUS=$?
           docker run app yarn lint:hbs || EXIT_STATUS=$?
           docker run app yarn lint:js || EXIT_STATUS=$?
-          docker run app /bin/bash -c 'yarn lint:scss -f github | sed "s|$(pwd)/||g" ; exit ${PIPESTATUS[0]}' || \
-            EXIT_STATUS=$?
+          docker run app /bin/bash -c 'yarn lint:scss -f github' | sed "s|$(pwd)/||g"
+          if [ ${PIPESTATUS[0]} != '0' ]; then
+            EXIT_STATUS=${PIPESTATUS[0]}
+          fi
           exit $EXIT_STATUS
 
   test:
