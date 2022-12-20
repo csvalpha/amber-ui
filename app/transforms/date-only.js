@@ -3,10 +3,18 @@ import moment from 'moment';
 
 export default class DateOnly extends Transform {
   deserialize(serialized) {
-    return new Date(serialized);
+    if (serialized !== null) {
+      return new Date(serialized);
+    } else {
+      return null;
+    }
   }
 
   serialize(deserialized) {
-    return moment(deserialized).format('YYYY-MM-DD');
+    if (deserialized !== null) {
+      return moment(deserialized).format('YYYY-MM-DD');
+    } else {
+      return null;
+    }
   }
 }
