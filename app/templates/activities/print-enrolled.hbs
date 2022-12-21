@@ -6,7 +6,7 @@
         <ul class='nav nav-tabs'>
           <li class='nav-item'>
             <a
-              class='nav-link {{if (eq currentTab "form") "active"}}'
+              class='nav-link {{if (eq this.currentTab "form") "active"}}'
               {{on "click" this.selectForm}}
             >
               Inschrijflijst
@@ -14,7 +14,7 @@
           </li>
           <li class='nav-item'>
             <a
-              class='nav-link {{if (eq currentTab "consumptionList") "active"}}'
+              class='nav-link {{if (eq this.currentTab "consumptionList") "active"}}'
               {{on "click" this.selectConsumptionList}}
             >
               Streeplijst
@@ -28,12 +28,12 @@
   <div class='card-body'>
     <p class='card-text'>
       <form class='col-12'>
-        {{#if (eq currentTab 'form')}}
+        {{#if (eq this.currentTab 'form')}}
           <div class='form-check'>
             <label class='form-check-label'>
               <Input
                 @type='checkbox'
-                @checked={{showAllergyInfo}}
+                @checked={{this.showAllergyInfo}}
                 class='form-check-input'
               />
               Dieetwensen weergeven
@@ -41,7 +41,7 @@
             </label>
           </div>
 
-        {{else if (eq currentTab 'consumptionList')}}
+        {{else if (eq this.currentTab 'consumptionList')}}
           <div class='row'>
             <div class='col-12'>
               <b>Extra opties</b>
@@ -50,7 +50,7 @@
                 class='list-group'
                 {{sortable-group onChange=(action 'reorderItems')}}
               >
-                {{#each options as |option index|}}
+                {{#each this.options as |option index|}}
                   <li class='list-group-item' {{sortable-item model=option}}>
                     <div class='row'>
                       <span class='col'>{{option}}</span>
@@ -72,7 +72,7 @@
 
               <div class='input-group consumptionList-itemfield mt-2'>
                 <Input
-                  @value={{newOption}}
+                  @value={{this.newOption}}
                   class='form-control'
                   aria-label='Optie toevoegen'
                   placeholder='Optie toevoegen'
@@ -93,7 +93,7 @@
                 <label><b>Extra lege rijen</b></label>
                 <Input
                   @type='number'
-                  @value={{additionalEmptyRows}}
+                  @value={{this.additionalEmptyRows}}
                   class='form-control'
                   aria-label='Extra velden'
                   placeholder='Extra velden'
@@ -105,7 +105,7 @@
                 <label class='form-check-label'>
                   <Input
                     @type='checkbox'
-                    @checked={{showRobertHofstra}}
+                    @checked={{this.showRobertHofstra}}
                     class='form-check-input'
                   />
                   Robert Hofstra toevoegen
@@ -120,7 +120,7 @@
           <label class='form-check-label'>
             <Input
               @type='checkbox'
-              @checked={{showCheckbox}}
+              @checked={{this.showCheckbox}}
               class='form-check-input'
             />
             Aanvinkhokje weergeven
@@ -133,7 +133,7 @@
         </button>
         <LinkTo
           @route='activities.show'
-          @model={{model.id}}
+          @model={{@model.id}}
           class='btn btn-default'
         >
           Annuleren
@@ -153,24 +153,23 @@
 
   <div class='card-body'>
     <div id='printarea' class='printarea'>
-      {{#if (eq currentTab 'form')}}
+      {{#if (eq this.currentTab 'form')}}
         <h5>Inschrijvingen voor {{@model.title}}</h5>
-        {{form/responses-table
-          @model.form
-          sortedResponses
-          showAllergyInfo=showAllergyInfo
-          showCheckbox=showCheckbox
+        <Form::ResponsesTable
+          @form={{@model.form}}
+          @responses={{this.sortedResponses}}
+          @showAllergyInfo={{this.showAllergyInfo}}
+          @showCheckbox={{this.showCheckbox}}
           class='responses-table'
-        }}
-
-      {{else if (eq currentTab 'consumptionList')}}
+        />
+      {{else if (eq this.currentTab 'consumptionList')}}
         <h5>Streeplijst voor {{@model.title}}</h5>
         <Form::ConsumptionList
-          @responses={{sortedResponses}}
-          @showCheckbox={{showCheckbox}}
-          @options={{options}}
-          @showRobertHofstra={{showRobertHofstra}}
-          @additionalEmptyRows={{additionalEmptyRows}}
+          @responses={{this.sortedResponses}}
+          @showCheckbox={{this.showCheckbox}}
+          @options={{this.options}}
+          @showRobertHofstra={{this.showRobertHofstra}}
+          @additionalEmptyRows={{this.additionalEmptyRows}}
         />
       {{/if}}
     </div>

@@ -3,12 +3,17 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class DestroyController extends EditController {
+  @tracked destroyed = false;
   successMessage = 'Verwijderen gelukt!';
   cancelMessage = 'Verwijderen geannuleerd.';
-  @tracked successTransitionModel = null;
   @tracked cancelTransitionTarget = null;
-  @tracked cancelTransitionModel = this.model;
-  @tracked destroyed = false;
+  get successTransitionModel() {
+    return null;
+  }
+
+  get cancelTransitionModel() {
+    return this.model;
+  }
 
   @action
   destroyModel() {

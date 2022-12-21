@@ -2,7 +2,7 @@ import Model, { attr, belongsTo, hasMany } from '@ember-data/model';
 
 export default class Collection extends Model {
   @attr name;
-  @attr date;
+  @attr('date-only') date;
   @attr importFile;
   @attr('date') createdAt;
   @attr('date') updatedAt;
@@ -26,7 +26,9 @@ export default class Collection extends Model {
     });
     if (failedTransactions) {
       const prefix = failedTransactions > 1 ? 'zijn' : 'is';
-      throw `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`;
+      throw new Error(
+        `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`
+      );
     }
   }
 }

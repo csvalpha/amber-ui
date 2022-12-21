@@ -6,19 +6,19 @@ export default class ModelSaveUtil {
 
   sendSuccess() {
     if (!isNone(this.entity?.successMessage)) {
-      this.entity?.flashNotice?.sendSuccess(this.entity.successMessage);
+      this.entity.flashNotice?.sendSuccess(this.entity.successMessage);
     }
   }
 
   sendCancel() {
     if (!isNone(this.entity?.cancelMessage)) {
-      this.entity?.flashNotice?.sendInfo(this.entity.cancelMessage);
+      this.entity.flashNotice?.sendInfo(this.entity.cancelMessage);
     }
   }
 
   transition(target, model) {
     target = target ?? 'index';
-    const transitionArgs = model ? [target, model] : [target];
+    const transitionArgs = model ? [target, model.id] : [target];
     if (this.entity.transition) {
       this.entity.transition(...transitionArgs);
     } else {
@@ -28,15 +28,15 @@ export default class ModelSaveUtil {
 
   redirectSuccess() {
     const targetModel = this.entity?.successTransitionModel;
-    if (!isNone(this.entity?.successTransitionTarget)) {
-      this.transition(this.entity.successTransitionTarget, targetModel?.id);
+    if (!isNone(this.entity.successTransitionTarget)) {
+      this.transition(this.entity.successTransitionTarget, targetModel);
     }
   }
 
   redirectCancel() {
     const targetModel = this.entity?.cancelTransitionModel;
-    if (!isNone(this.entity?.cancelTransitionTarget)) {
-      this.transition(this.entity.cancelTransitionTarget, targetModel?.id);
+    if (!isNone(this.entity.cancelTransitionTarget)) {
+      this.transition(this.entity.cancelTransitionTarget, targetModel);
     }
   }
 

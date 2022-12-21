@@ -7,13 +7,9 @@ import { tracked } from '@glimmer/tracking';
 export default class PostsIndexController extends Controller {
   @service session;
   @service store;
-  @tracked
-  newContent = '';
+  @tracked newContent = '';
 
   queryParams = ['page'];
-
-  @tracked
-  postsPaged;
 
   get count() {
     return this.model.postsPaged.length;
@@ -34,10 +30,6 @@ export default class PostsIndexController extends Controller {
     });
   }
 
-  async queryPostsPaged(params) {
-    this.postsPaged = await this.store.queryPaged('forum/post', params);
-  }
-
   scrollToNewForumPost() {
     document
       .getElementById('newForumPostCard')
@@ -46,16 +38,31 @@ export default class PostsIndexController extends Controller {
 
   @action
   async newPostCreated() {
-    await this.model.posts.reload();
+    // we don't need to await the posts reload. A thread can have a LOT of posts, so this is worth not awaiting.
+    // Not sure if we need the posts to be reloaded at all, but I suspect that if we don't reload them,
+    // then we will get bugs when performing any subsequent model.rollbackAttributesAndPosts()
+    // Minor concern, but better safe than sorry.
+    this.model.posts.reload();
+    await this.model.queryPostsPaged();
+    // navigate to the next page if we notice that we created a post that doesn't fit on the current page
+    if (!this.currentPageIsLastPage) {
+      await this.transitionToRoute({
+        queryParams: { page: this.model.postsPaged.meta.totalPages },
+      });
+    }
   }
 
   @action
   async addQuote(q) {
-    this.set('newContent', `${this.newContent}${q} \n\n`);
-
+    if (!this.newContent?.endsWith('\n')) {
+      // insert a newline in between if necessary
+      this.newContent = `${this.newContent}\n${q} \n\n`;
+    } else {
+      this.newContent = `${this.newContent}${q} \n\n`;
+    }
     if (!this.currentPageIsLastPage) {
       await this.transitionToRoute({
-        queryParams: { page: this.postsPaged.meta.totalPages },
+        queryParams: { page: this.model.postsPaged.meta.totalPages },
       });
       next(() => {
         this.scrollToNewForumPost();
@@ -63,6 +70,16 @@ export default class PostsIndexController extends Controller {
     } else {
       this.scrollToNewForumPost();
     }
+  }
+
+  @action
+  setContent(content) {
+    this.newContent = content;
+  }
+
+  @action
+  resetNewContent() {
+    this.newContent = '';
   }
 
   @action

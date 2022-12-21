@@ -5,7 +5,7 @@ import { action } from '@ember/object';
 
 export default class Comments extends Component {
   @service store;
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
   @tracked
   content = null;
 

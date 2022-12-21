@@ -10,7 +10,9 @@ export default class NewUserBatchController extends NewController {
   cancelMessage = 'Gebruikers aanmaken geannuleerd.';
   cancelTransitionTarget = 'users.index';
   successTransitionTarget = 'users.index';
-  successTransitionModel = null;
+  get successTransitionModel() {
+    return null;
+  }
 
   @service fetch;
   @tracked importFile = null;
@@ -20,8 +22,14 @@ export default class NewUserBatchController extends NewController {
   @tracked importErrors = A();
   @tracked properties = A();
 
-  validMimetypes = 'text/csv';
-  validExtensions = EmberArray.apply(['csv']);
+  validMimetypes = EmberArray.apply([
+    'text/csv',
+    'application/vnd.oasis.opendocument.spreadsheet',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'application/vnd.ms-excel.sheet.macroenabled.12',
+  ]);
+
+  validExtensions = EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']);
 
   get groups() {
     return this.store.findAll('group');

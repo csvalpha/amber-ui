@@ -22,12 +22,21 @@ export default class Thread extends Model {
   @tracked
   postsPaged;
 
+  pagingParams;
+
   get firstPost() {
     return this.posts.get('firstObject');
   }
 
-  async queryPostsPaged(params) {
-    assign(params, { filter: { thread: this.id }, sort: 'created_at' });
+  async queryPostsPaged(params = null) {
+    if (params) {
+      assign(params, { filter: { thread: this.id }, sort: 'created_at' });
+      // eslint-disable-next-line no-undef
+      this.pagingParams = structuredClone(params);
+    } else {
+      // eslint-disable-next-line no-undef
+      params = structuredClone(this.pagingParams);
+    }
     this.postsPaged = await this.store.queryPaged('forum/post', params);
   }
 

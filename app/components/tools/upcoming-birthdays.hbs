@@ -15,7 +15,7 @@
               <h6 class='current-birthday-name'>
                 <strong>
                   <LinkTo @route='users.show' @model={{user.id}}>
-                    {{user.fullName}}
+                    {{user.fullNameWithNickname}}
                     is vandaag
                     {{user.age}}
                     geworden!
@@ -28,7 +28,7 @@
           <li class='list-group-item'>
             <LinkTo @route='users.show' @model={{user.id}}>
               <div class='upcoming-birthday-holder'>
-                <span class='upcoming-birthday-name'> {{user.fullName}} </span>
+                <span class='upcoming-birthday-name'> {{user.fullNameWithNickname}} </span>
                 <span class='upcoming-birthday-date'>
                   {{moment-format user.birthday 'DD-MMM'}}
                 </span>

@@ -6,10 +6,13 @@
   <div class='row flex-row-reverse tabs-with-filterbar-row'>
     <FilterBar
       @class='col-12 col-lg-5 mb-2 mb-lg-0'
-      @filter={{filter}}
-      @sortedAttribute={{sortedAttribute}}
-      @sortableAttributes={{sortableAttributes}}
-      @sortedAscending={{sortedAscending}}
+      @filter={{this.filter}}
+      @setFilter={{this.setFilter}}
+      @sortedAttribute={{this.sortedAttribute}}
+      @setSortedAttribute={{this.setSortedAttribute}}
+      @sortableAttributes={{this.sortableAttributes}}
+      @sortedAscending={{this.sortedAscending}}
+      @setSortedAscending={{this.setSortedAscending}}
       @enter={{this.selectFirstItem}}
     >
       <div class='form-check'>

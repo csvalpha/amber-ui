@@ -24,11 +24,11 @@ export default class EditMailAliasController extends EditController {
   }
 
   get anyUser() {
-    return this.model.user.id;
+    return this.model.user.get('id');
   }
 
   get anyGroup() {
-    return this.model.group.id;
+    return this.model.group.get('id');
   }
 
   get mailAliasModerationTypes() {

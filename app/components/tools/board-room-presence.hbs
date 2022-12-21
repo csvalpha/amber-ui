@@ -13,7 +13,7 @@
         <div class='py-1'>
           <div class='d-block'>
             <LinkTo @route='users.show' @model={{presence.user.id}}>
-              <small><b>{{presence.user.fullName}}</b></small>
+              <small><b>{{presence.user.fullNameWithNickname}}</b></small>
             </LinkTo>
           </div>
           <span class='presence-label label-{{presence.status}}'>
@@ -62,7 +62,7 @@
           </tr>
           {{#each sortedPresences as |presence|}}
             <tr>
-              <td>{{presence.user.fullName}}</td>
+              <td>{{presence.user.fullNameWithNickname}}</td>
               <td>
                 {{t
                   (concat 'component.tools.boardRoomPresence.' presence.status)

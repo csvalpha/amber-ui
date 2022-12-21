@@ -7,7 +7,7 @@
     <p class='text-right text-muted mt-2'>
       Foto geüpload door
       <LinkTo @route='users.show' @model={{@model.uploader.id}}>
-        {{@model.uploader.fullName}}
+        {{@model.uploader.fullNameWithNickname}}
       </LinkTo>
 
       {{#if @model.hasExif}}
