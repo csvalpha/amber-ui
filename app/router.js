@@ -175,11 +175,14 @@ Router.map(function () {
 
   this.route('debit', function () {
     this.route('collections', function () {
-      this.route('show', { path: '/:id' });
-      this.route('sepa', { path: '/:id/sepa' });
       this.route('new');
-      this.route('edit', { path: '/:id/edit' });
-      this.route('destroy', { path: '/:id/destroy' });
+
+      this.route('collection', { path: ':id' }, function () {
+        this.route('edit');
+        this.route('destroy');
+
+        this.route('sepa');
+      });
     });
 
     this.route('transactions', function () {

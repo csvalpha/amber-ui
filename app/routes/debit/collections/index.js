@@ -1,8 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class CollectionsIndexRoute extends AuthenticatedRoute {
-  breadcrumb = { title: "Incasso's" };
-
   get pageActions() {
     return [
       {

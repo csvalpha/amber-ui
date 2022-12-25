@@ -4,8 +4,8 @@ import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 export default class ShowVacancyRoute extends AuthenticatedRoute {
   @service store;
 
-  get breadCrumb() {
-    return { title: this.controller.model.title };
+  get breadcrumb() {
+    return { title: this.controller?.model.title };
   }
 
   get pageActions() {

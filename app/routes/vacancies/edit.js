@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditVacancyRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Vacature aanpassen' };
+  breadcrumb = { title: 'Vacature aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit vacancy', model);

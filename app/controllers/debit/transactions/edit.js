@@ -1,15 +1,20 @@
-import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class EditTransactionController extends EditController {
+export default class TransactionEditController extends EditController {
+  @service store;
+
   successMessage = 'Transactie aangepast!';
   cancelMessage = 'Transactie wijzigen geannuleerd.';
-  successTransitionTarget = 'debit.collections.show';
-  @service store;
+  successTransitionTarget = 'debit.collections.collection';
 
   get successTransitionModel() {
     return this.collection;
+  }
+
+  get users() {
+    return this.store.findAll('user');
   }
 
   @action
@@ -22,10 +27,6 @@ export default class EditTransactionController extends EditController {
   async cancel() {
     this.collection = await this.model.collection;
     super.cancel();
-  }
-
-  get users() {
-    return this.store.findAll('user');
   }
 
   @action

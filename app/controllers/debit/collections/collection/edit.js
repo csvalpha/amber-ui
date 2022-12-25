@@ -1,10 +1,10 @@
-import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';
+import { action } from '@ember/object';
 
-export default class DebitCollectionEditController extends EditController {
+export default class CollectionEditController extends EditController {
   successMessage = 'Incasso aangepast!';
   cancelMessage = 'Incasso aanpassen geannuleerd.';
-  successTransitionTarget = 'debit.collections.show';
+  successTransitionTarget = 'debit.collections.collection';
 
   get users() {
     return this.store.findAll('user');

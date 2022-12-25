@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewCollectionRoute extends AuthenticatedRoute {
+export default class CollectionsNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Incasso aanmaken' };
 
   canAccess() {

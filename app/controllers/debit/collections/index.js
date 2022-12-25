@@ -7,7 +7,7 @@ export default class CollectionsIndexController extends FilterableAndSortableCon
 
   queryParams = ['search', 'sort', 'page'];
 
-  routeOnEnter = 'debit.collections.show';
+  routeOnEnter = 'debit.collections.collection';
   sortableAttributes = [
     {
       value: 'name',

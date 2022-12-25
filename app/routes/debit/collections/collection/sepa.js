@@ -1,32 +1,32 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
-import { inject as service } from '@ember/service';
 import { isInvalidResponse } from 'ember-fetch/errors';
+import { inject as service } from '@ember/service';
 
-export default class SepaRoute extends AuthenticatedRoute {
+export default class CollectionSepaRoute extends AuthenticatedRoute {
   @service fetch;
-  @service('file-saver') fileSaver;
+  @service fileSaver;
 
-  breadcrumb = { title: 'Sepa downloaden' };
+  breadcrumb = { title: 'SEPA downloaden' };
 
   canAccess() {
     return this.abilities.can('download sepa debit/collections');
   }
 
-  async model(params) {
-    const model = await this.store.findRecord('debit/collection', params.id);
+  async model() {
+    const model = this.modelFor('debit.collections.collection');
     const response = await this.fetch.fetch(
       `/debit/collections/${model.id}/sepa`,
       { dataType: 'text' }
     );
 
     if (response.ok) {
-      let blob = await response.blob();
+      const blob = await response.blob();
       this.fileSaver.saveFileAs(
         `${model.get('name')}.xml`,
         blob,
         'application/xml'
       );
-      return this.transitionTo('debit.collections.show', model.id);
+      return this.transitionTo('debit.collections.collection', model.id);
     } else if (isInvalidResponse(response)) {
       const json = await response.json();
       return json.errors;
