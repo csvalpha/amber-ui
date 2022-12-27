@@ -1,11 +1,7 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class CollectionsRoute extends AuthenticatedRoute {
+export default class CollectionsRoute extends ApplicationRoute {
   queryParams = {};
 
   breadcrumb = { title: "Incasso's" };
-
-  canAccess() {
-    return this.abilities.can('show forum/categories');
-  }
 }

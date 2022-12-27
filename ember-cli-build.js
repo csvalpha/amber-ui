@@ -22,6 +22,10 @@ module.exports = function (defaults) {
       importBootstrapCSS: false,
     },
 
+    'ember-composable-helpers': {
+      only: ['has-next'],
+    },
+
     'ember-simple-auth': {
       useSessionSetupMethod: true,
     },
