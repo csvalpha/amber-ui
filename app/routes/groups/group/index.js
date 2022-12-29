@@ -1,5 +1,5 @@
-import { all } from 'rsvp';
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { all } from 'rsvp';
 
 export default class GroupIndexRoute extends AuthenticatedRoute {
   get pageActions() {

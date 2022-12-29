@@ -12,24 +12,6 @@ module.exports = function (defaults) {
       extensions: ['js'],
     },
 
-    emberCliDropzonejs: {
-      includeDropzoneCss: false,
-    },
-
-    'ember-bootstrap': {
-      blacklist: ['bs-accordion', 'bs-carousel'],
-      bootstrapVersion: 4,
-      importBootstrapCSS: false,
-    },
-
-    'ember-composable-helpers': {
-      only: ['has-next'],
-    },
-
-    'ember-simple-auth': {
-      useSessionSetupMethod: true,
-    },
-
     autoImport: {
       webpack: {
         plugins: [
@@ -42,6 +24,24 @@ module.exports = function (defaults) {
 
     babel: {
       sourceMaps: 'inline',
+    },
+
+    emberCliDropzonejs: {
+      includeDropzoneCss: false,
+    },
+
+    'ember-bootstrap': {
+      blacklist: ['bs-accordion', 'bs-carousel'],
+      bootstrapVersion: 4,
+      importBootstrapCSS: false,
+    },
+
+    'ember-composable-helpers': {
+      only: ['has-next', 'next'],
+    },
+
+    'ember-simple-auth': {
+      useSessionSetupMethod: true,
     },
 
     fingerprint: {
