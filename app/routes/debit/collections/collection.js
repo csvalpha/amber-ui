@@ -11,13 +11,7 @@ export default class CollectionRoute extends AuthenticatedRoute {
     return this.abilities.can('show debit/collections');
   }
 
-  async model(params) {
-    const collection = await this.store.findRecord(
-      'debit/collection',
-      params.id
-    );
-    await collection.transactions;
-    // todo: simplify this to just returning collection, because transactions can be gotten from the collection, right?
-    return collection;
+  model(params) {
+    return this.store.findRecord('debit/collection', params.id, params);
   }
 }

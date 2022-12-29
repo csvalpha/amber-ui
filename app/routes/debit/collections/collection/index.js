@@ -31,4 +31,11 @@ export default class CollectionIndexRoute extends AuthenticatedRoute {
   canAccess() {
     return this.abilities.can('show debit/collections');
   }
+
+  async model() {
+    const collection = this.modelFor('debit.collections.collection');
+    await collection.transactions;
+    // todo: simplify this to just returning collection, because transactions can be gotten from the collection, right?
+    return collection;
+  }
 }
