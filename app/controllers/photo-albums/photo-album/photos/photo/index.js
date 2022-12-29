@@ -26,7 +26,7 @@ export default class PhotoIndexController extends Controller {
     const index = (photos.indexOf(this.model) + delta + length) % length;
     this.route;
     return this.replaceRoute(
-      'photo-albums.photo-album.photos.show',
+      'photo-albums.photo-album.photos.photo',
       photos.objectAt(index)
     );
   }

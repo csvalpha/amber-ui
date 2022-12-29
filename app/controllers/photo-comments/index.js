@@ -6,12 +6,12 @@ import { tracked } from '@glimmer/tracking';
 export default class PhotoCommentsIndexController extends FilterableAndSortableController {
   @service flashNotice;
 
-  @tracked sortedAscending = false;
   @tracked sortedAttribute = 'updated_at';
+  @tracked sortedAscending = false;
 
   queryParams = ['search', 'sort', 'page'];
 
-  routeOnEnter = 'photo-albums.photo-album.photos.show';
+  routeOnEnter = 'photo-albums.photo-album.photos.photo';
   sortableAttributes = [
     {
       value: 'updated_at',

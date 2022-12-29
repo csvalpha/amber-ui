@@ -39,8 +39,8 @@ model:
       other: fora
   photoAlbum:
     name:
-      one: foto-album
-      other: foto-albums
+      one: fotoalbum
+      other: fotoalbums
   photoComment:
     name:
       one: foto reactie
@@ -232,7 +232,7 @@ mixin:
     activities: Activiteiten
     vacancies: Vacatures
     forum: Forum
-    photoAlbums: Foto-albums
+    photoAlbums: Fotoalbums
     polls: Polls
     groups: Groepen
     users: Gebruikers

@@ -3,8 +3,8 @@ import { action } from '@ember/object';
 
 export default class PhotoCommentDestroyController extends DestroyController {
   successMessage = 'Foto reactie verwijderd!';
-  successTransitionTarget = 'photo-albums.photo-album.photos.show';
-  cancelTransitionTarget = 'photo-albums.photo-album.photos.show';
+  successTransitionTarget = 'photo-albums.photo-album.photos.photo';
+  cancelTransitionTarget = 'photo-albums.photo-album.photos.photo';
 
   get successTransitionModel() {
     return this.photo;

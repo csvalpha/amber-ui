@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewPhotoAlbumRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Foto album aanmaken' };
+export default class PhotoAlbumsNewRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Fotoalbum aanmaken' };
 
   canAccess() {
     return this.abilities.can('create photo-album');

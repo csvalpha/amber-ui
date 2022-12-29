@@ -82,13 +82,13 @@ Router.map(function () {
     this.route('new');
 
     this.route('photo-album', { path: ':photo_album_id' }, function () {
-      this.route('show', { path: '/' });
       this.route('edit');
       this.route('destroy');
 
       this.route('photos', function () {
-        this.route('show', { path: '/:photo_id' });
-        this.route('destroy', { path: '/:photo_id/destroy' });
+        this.route('photo', { path: ':photo_id' }, function () {
+          this.route('destroy');
+        });
       });
     });
   });

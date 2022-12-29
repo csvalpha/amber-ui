@@ -4,9 +4,9 @@ import { dasherize } from '@ember/string';
 import moment from 'moment';
 import { inject as service } from '@ember/service';
 
-export default class PhotoAlbumPhotosIndexController extends Controller {
+export default class PhotosIndexController extends Controller {
   @service fetch;
-  @service('file-saver') fileSaver;
+  @service fileSaver;
 
   get sortedPhotos() {
     return this.model.get('sortedPhotos');

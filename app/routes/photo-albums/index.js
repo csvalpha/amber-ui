@@ -1,16 +1,6 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
-import { capitalize } from '@ember/string';
-import { inject as service } from '@ember/service';
 
-export default class ArticlesIndexRoute extends ApplicationRoute {
-  @service intl;
-
-  get breadcrumb() {
-    return {
-      title: capitalize(this.intl.t('model.photoAlbum.name.other').toString()),
-    };
-  }
-
+export default class PhotoAlbumsIndexRoute extends ApplicationRoute {
   get pageActions() {
     return [
       {
@@ -21,15 +11,11 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
       },
       {
         link: 'photo-albums.new',
-        title: 'Nieuw foto-album',
+        title: 'Nieuw fotoalbum',
         icon: 'plus',
         canAccess: this.abilities.can('create photo-albums'),
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show photo-albums');
   }
 
   model(params) {

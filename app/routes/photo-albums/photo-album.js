@@ -1,10 +1,10 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class PhotoAlbumSubRoute extends ApplicationRoute {
+export default class PhotoAlbumRoute extends ApplicationRoute {
   queryParams = {};
 
   get breadcrumb() {
-    return { title: this.controller.model.title };
+    return { title: this.controller?.model.title };
   }
 
   get pageActions() {
@@ -17,15 +17,11 @@ export default class PhotoAlbumSubRoute extends ApplicationRoute {
       },
       {
         link: 'photo-albums.new',
-        title: 'Nieuw foto-album',
+        title: 'Nieuw fotoalbum',
         icon: 'plus',
         canAccess: this.abilities.can('create photo-albums'),
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show photo-albums');
   }
 
   model(params) {

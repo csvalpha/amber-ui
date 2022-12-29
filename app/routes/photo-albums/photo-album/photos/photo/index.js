@@ -1,13 +1,20 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
-import { inject as service } from '@ember/service';
-import { action } from '@ember/object';
 import {
   bindKeyboardShortcuts,
   unbindKeyboardShortcuts,
 } from 'ember-keyboard-shortcuts';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 
-export default class ShowPhotosRoute extends ApplicationRoute {
+export default class PhotoIndexRoute extends ApplicationRoute {
   @service intl;
+
+  keyboardShortcuts = {
+    left: 'goToPreviousPhoto',
+    up: 'goToPreviousPhoto',
+    right: 'goToNextPhoto',
+    down: 'goToNextPhoto',
+  };
 
   get breadcrumb() {
     const photo = this.controller.model;
@@ -21,7 +28,7 @@ export default class ShowPhotosRoute extends ApplicationRoute {
   get pageActions() {
     return [
       {
-        link: 'photo-albums.photo-album.photos.destroy',
+        link: 'photo-albums.photo-album.photos.photo.destroy',
         linkArgument: this.controller.model,
         title: 'Foto verwijderen',
         icon: 'trash',
@@ -29,29 +36,6 @@ export default class ShowPhotosRoute extends ApplicationRoute {
       },
     ];
   }
-
-  canAccess() {
-    return this.abilities.can('show photo-albums');
-  }
-
-  model(params) {
-    return this.store.findRecord('photo', params.photo_id, params);
-  }
-
-  activate() {
-    bindKeyboardShortcuts(this);
-  }
-
-  deactivate() {
-    unbindKeyboardShortcuts(this);
-  }
-
-  keyboardShortcuts = {
-    left: 'goToPreviousPhoto',
-    up: 'goToPreviousPhoto',
-    right: 'goToNextPhoto',
-    down: 'goToNextPhoto',
-  };
 
   @action
   goToPreviousPhoto() {
@@ -61,5 +45,13 @@ export default class ShowPhotosRoute extends ApplicationRoute {
   @action
   goToNextPhoto() {
     this.controller.send('goToNextPhoto');
+  }
+
+  activate() {
+    bindKeyboardShortcuts(this);
+  }
+
+  deactivate() {
+    unbindKeyboardShortcuts(this);
   }
 }

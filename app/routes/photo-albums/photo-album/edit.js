@@ -1,14 +1,10 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class EditPhotoAlbumRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Foto album aanpassen' };
+export default class PhotoAlbumEditRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Fotoalbum aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit photo-albums', model);
-  }
-
-  model() {
-    return this.modelFor('photo-albums.photo-album');
   }
 
   deactivate() {
