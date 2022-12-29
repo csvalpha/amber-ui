@@ -1,14 +1,10 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class CollectionsIndexRoute extends AuthenticatedRoute {
-  get breadcrumb() {
-    return { title: this.controller.model.id };
-  }
-
+export default class MandateIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     return [
       {
-        link: 'debit.mandates.edit',
+        link: 'debit.mandates.mandate.edit',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: this.controller.model,
@@ -19,9 +15,5 @@ export default class CollectionsIndexRoute extends AuthenticatedRoute {
 
   canAccess() {
     return this.abilities.can('show debit/mandates');
-  }
-
-  model(params) {
-    return this.store.findRecord('debit/mandate', params.id, params);
   }
 }

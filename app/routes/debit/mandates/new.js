@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewMandateRoute extends AuthenticatedRoute {
+export default class MandatesNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Mandaat aanmaken' };
 
   canAccess() {

@@ -185,15 +185,17 @@ Router.map(function () {
       });
     });
 
+    this.route('mandates', function () {
+      this.route('new');
+
+      this.route('mandate', { path: ':id' }, function () {
+        this.route('edit');
+      });
+    });
+
     this.route('transactions', function () {
       this.route('edit', { path: '/:id/edit' });
       this.route('destroy', { path: '/:id/destroy' });
-    });
-
-    this.route('mandates', function () {
-      this.route('show', { path: '/:id' });
-      this.route('new');
-      this.route('edit', { path: '/:id/edit' });
     });
   });
 

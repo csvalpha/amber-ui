@@ -1,10 +1,8 @@
-import EditMandateController from './edit';
+import EditMandateController from './mandate/edit';
 
-export default class NewMandateController extends EditMandateController {
+export default class MandatesNewController extends EditMandateController {
   successMessage = 'Aanmaken gelukt!';
   cancelMessage = 'Aanmaken geannuleerd.';
-  cancelTransitionTarget = 'debit.mandates.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'debit.mandates';
+  cancelTransitionModel = null;
 }
