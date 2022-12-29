@@ -43,8 +43,8 @@ model:
       other: foto-albums
   photoComment:
     name:
-      one: fotoreactie
-      other: fotoreacties
+      one: foto reactie
+      other: foto reacties
   photo:
     name:
       one: foto

@@ -1,10 +1,10 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class DestroyArticleRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Fotoreactie verwijderen' };
+export default class PhotoCommentRoute extends AuthenticatedRoute {
+  queryParams = {};
 
   canAccess() {
-    return this.abilities.can('destroy photo-comments');
+    return this.abilities.can('show photo-comments');
   }
 
   model(params) {

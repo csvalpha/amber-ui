@@ -2,6 +2,7 @@ import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class PhotoAlbumSubRoute extends ApplicationRoute {
   queryParams = {};
+
   get breadcrumb() {
     return { title: this.controller.model.title };
   }
@@ -9,8 +10,8 @@ export default class PhotoAlbumSubRoute extends ApplicationRoute {
   get pageActions() {
     return [
       {
-        link: 'photo-comments.index',
-        title: 'Bekijk fotoreacties',
+        link: 'photo-comments',
+        title: 'Bekijk foto reacties',
         icon: 'comments',
         canAccess: this.abilities.can('show photo-comments'),
       },

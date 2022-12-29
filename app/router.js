@@ -94,7 +94,9 @@ Router.map(function () {
   });
 
   this.route('photo-comments', function () {
-    this.route('destroy', { path: '/:id/destroy' });
+    this.route('photo-comment', { path: ':id' }, function () {
+      this.route('destroy');
+    });
   });
 
   this.route('users', function () {
@@ -135,7 +137,9 @@ Router.map(function () {
   });
 
   this.route('article-comments', function () {
-    this.route('destroy', { path: '/:id/destroy' });
+    this.route('article-comment', { path: ':id' }, function () {
+      this.route('destroy');
+    });
   });
 
   this.route('polls', function () {

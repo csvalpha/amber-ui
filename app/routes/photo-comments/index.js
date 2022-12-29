@@ -1,8 +1,6 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class PhotoCommentsIndexRoute extends ApplicationRoute {
-  breadcrumb = { title: 'Fotoreacties' };
-
   canAccess() {
     return this.abilities.can('show photo-comments');
   }

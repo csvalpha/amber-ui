@@ -2,7 +2,7 @@ import DestroyController from 'amber-ui/controllers/application/destroy';
 import { action } from '@ember/object';
 
 export default class PhotoCommentDestroyController extends DestroyController {
-  successMessage = 'Fotoreactie verwijderd!';
+  successMessage = 'Foto reactie verwijderd!';
   successTransitionTarget = 'photo-albums.photo-album.photos.show';
   cancelTransitionTarget = 'photo-albums.photo-album.photos.show';
 
@@ -26,12 +26,14 @@ export default class PhotoCommentDestroyController extends DestroyController {
     super.cancel();
   }
 
-  async transition(transitionTarget, transitionModelID) {
+  // TODO: is this a supported method override? I can't find docs about this
+  //  anywhere.
+  async transition(transitionTarget, transitionModelId) {
     const photoAlbumModel = await this.photo.photoAlbum;
     this.transitionToRoute(
       transitionTarget,
       photoAlbumModel.id,
-      transitionModelID
+      transitionModelId
     );
   }
 }

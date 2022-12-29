@@ -14,8 +14,8 @@ export default class ArticlesIndexRoute extends ApplicationRoute {
   get pageActions() {
     return [
       {
-        link: 'photo-comments.index',
-        title: 'Bekijk fotoreacties',
+        link: 'photo-comments',
+        title: 'Bekijk foto reacties',
         icon: 'comments',
         canAccess: this.abilities.can('show photo-comments'),
       },
