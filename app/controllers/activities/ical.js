@@ -15,6 +15,11 @@ export default class ActivitiesIcalController extends Controller {
     this.activityCategoryOptions = ActivityCategories.map(
       this._activityCategoryToOption
     );
+    this.activityCategoryOptions.push({
+      value: 'birthdays',
+      label: 'Verjaardagen',
+      checked: false,
+    });
   }
 
   @computed('activityCategoryOptions.@each.checked')

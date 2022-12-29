@@ -16,13 +16,6 @@ export default class ShowUserRouter extends AuthenticatedRoute {
         canAccess: this.abilities.can('edit user', user),
       },
       {
-        link: 'users.destroy',
-        title: 'Verwijderen',
-        icon: 'trash',
-        linkArgument: user,
-        canAccess: this.abilities.can('destroy user', user),
-      },
-      {
         link: 'users.resend_activation',
         title: 'Verstuur activatie code',
         icon: 'paper-plane',

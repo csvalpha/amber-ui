@@ -14,7 +14,7 @@ export default class User extends Model {
   @attr lastNamePrefix;
   @attr lastName;
   @attr nickname;
-  @attr birthday;
+  @attr('date-only') birthday;
   @attr address;
   @attr postcode;
   @attr city;
@@ -26,7 +26,7 @@ export default class User extends Model {
   // Preferences / settings
   @attr foodPreferences;
   @attr vegetarian;
-  @attr startStudy;
+  @attr('date-only') startStudy;
   @attr emergencyContact;
   @attr emergencyNumber;
   @attr almanakSubscriptionPreference;
