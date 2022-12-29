@@ -1,7 +1,7 @@
 import DestroyController from 'amber-ui/controllers/application/destroy';
 import { action } from '@ember/object';
 
-export default class DebitTransactionDestroyController extends DestroyController {
+export default class TransactionDestroyController extends DestroyController {
   successTransitionTarget = 'debit.collections.collection';
   cancelTransitionTarget = 'debit.collections.collection';
 

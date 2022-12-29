@@ -41,7 +41,7 @@
           <div class='col-2'>
             {{#if (can 'destroy debit/transactions')}}
               <LinkTo
-                @route='debit.transactions.destroy'
+                @route='debit.transactions.transaction.destroy'
                 @model={{transaction.id}}
               >
                 <FaIcon @icon='trash' />
@@ -50,7 +50,7 @@
 
             {{#if (can 'edit debit/transactions')}}
               <LinkTo
-                @route='debit.transactions.edit'
+                @route='debit.transactions.transaction.edit'
                 @model={{transaction.id}}
               >
                 <FaIcon @icon='pencil' />

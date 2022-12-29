@@ -194,8 +194,10 @@ Router.map(function () {
     });
 
     this.route('transactions', function () {
-      this.route('edit', { path: '/:id/edit' });
-      this.route('destroy', { path: '/:id/destroy' });
+      this.route('transaction', { path: ':id' }, function () {
+        this.route('edit');
+        this.route('destroy');
+      });
     });
   });
 
