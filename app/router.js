@@ -32,6 +32,10 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
+  this.route('404-page-not-found', { path: '/*path' });
+
+  this.route('418-im-a-teapot', { path: '/coffee' });
+
   this.route('activities', function () {
     this.route('new');
 
@@ -254,10 +258,6 @@ Router.map(function () {
       this.route('destroy');
     });
   });
-
-  this.route('404-page-not-found', { path: '/*path' });
-
-  this.route('418-im-a-teapot', { path: '/coffee' });
 
   return true;
 });
