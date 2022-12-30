@@ -76,4 +76,19 @@ export default class GroupMembershipsController extends Controller {
       this.oldMembershipsAreVisible = false;
     }
   }
+
+  @action
+  setFilter(value) {
+    this.filter = value;
+  }
+
+  @action
+  setSortedAttribute(value) {
+    this.sortedAttribute = value;
+  }
+
+  @action
+  setSortedAscending(value) {
+    this.sortedAscending = value;
+  }
 }

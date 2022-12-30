@@ -14,27 +14,14 @@ export default Component.extend({
     }
   ),
 
-  // Don't forget to also increment the 'amountOfAdvertisements' variable
-  // in styles/components/advertisement-tool.scss
+  // Don't forget to also increment the 'amountOfAdvertisements' variable in
+  // styles/components/advertisement-tool.scss and the number of advertisements
+  // in tests/rendering/components/advertisement-tool-test.js
   advertisementItems: [
     {
-      title: 'Knaek',
-      alt: 'Onbeperkt geld besparen met de studentenkortingsapp op meer dan 1.000 locaties en online',
-      link: 'https://www.knaek.nl/studentenkorting/Enschede',
-      image: 'advertisements/knaek.png',
-      full: true,
-    },
-    {
-      title: 'EasySwitch',
-      alt: 'energie vergelijken',
-      link: 'https://www.easyswitch.nl/energie-vergelijken/',
-      image: 'advertisements/easyswitch.png',
-      full: true,
-    },
-    {
-      title: 'Maxilia',
-      link: 'https://www.maxilia.nl/',
-      image: 'advertisements/maxilia-relatiegeschenken.png',
+      title: 'Qorting.nl',
+      link: 'https://qorting.nl/',
+      image: 'advertisements/qorting.png',
       full: true,
     },
     {
@@ -44,40 +31,10 @@ export default Component.extend({
       full: true,
     },
     {
-      title: 'Wasmachine huren bij Meo Lease',
-      link: 'http://www.meolease.nl',
-      image: 'advertisements/meolease.gif',
-      full: true,
-    },
-    {
-      title: 'Bierglazen bedrukken met logo',
-      alt: 'Bierglazen bedrukken met logo',
-      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
-      image: 'advertisements/rike.png',
-      full: true,
-    },
-    {
       title: 'Cibdol - Swiss purity',
       link: 'https://www.cibdol.nl/',
       image: 'advertisements/cibdol.gif',
       full: true,
-    },
-    {
-      title: 'Student Wegwijzer',
-      link: 'https://www.studentenwegwijzer.nl/',
-      image: 'advertisements/studentwegwijzer.png',
-      full: true,
-    },
-    {
-      title: 'SKEPP B.V.',
-      link: 'https://skepp.nl/nl/',
-      image: 'advertisements/skepp.png',
-      full: true,
-    },
-    {
-      title: 'Parcelpro',
-      link: 'https://parcelpro.nl/',
-      image: 'advertisements/parcelpro.png',
     },
     {
       title: 'InShared',
@@ -149,21 +106,22 @@ export default Component.extend({
       link: 'https://www.zantmankliniek.nl/',
       image: 'advertisements/zantman.png',
     },
-    {
-      links: [
-        {
-          link: 'https://www.simonlydiscount.nl',
-          title: 'sim only vergelijken',
-        },
-        {
-          link: 'https://www.huurzone.nl/aanbod/nederland.html',
-          title: 'huurwoningen',
-        },
-        {
-          link: 'https://www.opzeggen24.nl/abonnement-opzeggen/telegraaf-opzeggen.html',
-          title: 'telegraaf opzeggen',
-        },
-      ],
-    },
+    // example of how we can simply use a list of urls, too:
+    // {
+    //   links: [
+    //     {
+    //       link: 'https://www.simonlydiscount.nl',
+    //       title: 'sim only vergelijken',
+    //     },
+    //     {
+    //       link: 'https://www.huurzone.nl/aanbod/nederland.html',
+    //       title: 'huurwoningen',
+    //     },
+    //     {
+    //       link: 'https://www.opzeggen24.nl/abonnement-opzeggen/telegraaf-opzeggen.html',
+    //       title: 'telegraaf opzeggen',
+    //     },
+    //   ],
+    // },
   ],
 });
