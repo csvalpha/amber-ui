@@ -1,8 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class IndexVacancyRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Vacatures' };
-
+export default class VacanciesIndexRoute extends AuthenticatedRoute {
   queryParams = {
     page: {
       refreshModel: true,

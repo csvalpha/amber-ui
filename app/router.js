@@ -32,100 +32,23 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  this.route('oauth', function () {
-    this.route('authorize');
-  });
-
-  this.route('login');
-
-  this.route('profile');
-
-  this.route('static-pages', function () {
+  this.route('activities', function () {
     this.route('new');
 
-    this.route('static-page', { path: ':id' }, function () {
-      this.route('edit');
-      this.route('destroy');
-    });
-  });
+    this.route('ical');
 
-  this.route('quickpost');
-
-  this.route('forum', function () {
-    this.route('categories', function () {
-      this.route('new');
-
-      this.route('category', { path: ':category_id' }, function () {
-        this.route('edit');
-        this.route('destroy');
-
-        this.route('threads', function () {
-          this.route('new');
-
-          this.route('thread', { path: ':thread_id' }, function () {
-            this.route('edit');
-            this.route('destroy');
-
-            this.route('posts', function () {
-              this.route('post', { path: ':post_id' }, function () {
-                this.route('edit');
-                this.route('destroy');
-              });
-            });
-          });
-        });
-      });
-    });
-  });
-
-  this.route('photo-albums', function () {
-    this.route('new');
-
-    this.route('photo-album', { path: ':photo_album_id' }, function () {
+    this.route('activity', { path: ':id' }, function () {
       this.route('edit');
       this.route('destroy');
 
-      this.route('photos', function () {
-        this.route('photo', { path: ':photo_id' }, function () {
-          this.route('destroy');
-        });
-      });
+      this.route('generate-alias');
+      this.route('print-enrolled');
     });
   });
 
-  this.route('photo-comments', function () {
-    this.route('photo-comment', { path: ':id' }, function () {
+  this.route('article-comments', function () {
+    this.route('article-comment', { path: ':id' }, function () {
       this.route('destroy');
-    });
-  });
-
-  this.route('users', function () {
-    this.route('new');
-
-    this.route('forgot-password');
-    this.route('members');
-    this.route('webdav');
-
-    this.route('user', { path: ':id' }, function () {
-      this.route('edit', function () {
-        this.route('permissions');
-        this.route('privacy');
-        this.route('security');
-      });
-      this.route('destroy');
-
-      this.route('groups');
-      this.route('mail');
-      this.route('mandates');
-      this.route('permissions');
-      this.route('settings');
-
-      this.route('activate-account');
-      this.route('resend-activation-code');
-    });
-
-    this.route('batch', function () {
-      this.route('new');
     });
   });
 
@@ -138,50 +61,12 @@ Router.map(function () {
     });
   });
 
-  this.route('article-comments', function () {
-    this.route('article-comment', { path: ':id' }, function () {
-      this.route('destroy');
-    });
-  });
-
-  this.route('polls', function () {
+  this.route('books', function () {
     this.route('new');
 
-    this.route('poll', { path: ':id' }, function () {
+    this.route('book', { path: ':id' }, function () {
       this.route('edit');
       this.route('destroy');
-    });
-  });
-
-  this.route('mail-aliases', function () {
-    this.route('new');
-
-    this.route('mail-alias', { path: ':id' }, function () {
-      this.route('edit');
-      this.route('destroy');
-    });
-  });
-
-  this.route('mail-moderations', function () {
-    this.route('mail-moderation', { path: ':id' }, function () {
-      this.route('destroy');
-
-      this.route('accept');
-      this.route('reject');
-    });
-  });
-
-  this.route('activities', function () {
-    this.route('new');
-
-    this.route('ical');
-
-    this.route('activity', { path: ':id' }, function () {
-      this.route('edit');
-      this.route('destroy');
-
-      this.route('generate-alias');
-      this.route('print-enrolled');
     });
   });
 
@@ -221,6 +106,33 @@ Router.map(function () {
     });
   });
 
+  this.route('forum', function () {
+    this.route('categories', function () {
+      this.route('new');
+
+      this.route('category', { path: ':category_id' }, function () {
+        this.route('edit');
+        this.route('destroy');
+
+        this.route('threads', function () {
+          this.route('new');
+
+          this.route('thread', { path: ':thread_id' }, function () {
+            this.route('edit');
+            this.route('destroy');
+
+            this.route('posts', function () {
+              this.route('post', { path: ':post_id' }, function () {
+                this.route('edit');
+                this.route('destroy');
+              });
+            });
+          });
+        });
+      });
+    });
+  });
+
   this.route('groups', function () {
     this.route('new');
 
@@ -231,31 +143,121 @@ Router.map(function () {
     });
   });
 
-  this.route('sog', function () {
-    this.route('name-trainer');
-  });
+  this.route('login');
 
-  this.route('books', function () {
+  this.route('mail-aliases', function () {
     this.route('new');
 
-    this.route('book', { path: ':id' }, function () {
+    this.route('mail-alias', { path: ':id' }, function () {
       this.route('edit');
       this.route('destroy');
     });
   });
 
+  this.route('mail-moderations', function () {
+    this.route('mail-moderation', { path: ':id' }, function () {
+      this.route('destroy');
+
+      this.route('accept');
+      this.route('reject');
+    });
+  });
+
+  this.route('oauth', function () {
+    this.route('authorize');
+  });
+
+  this.route('photo-albums', function () {
+    this.route('new');
+
+    this.route('photo-album', { path: ':photo_album_id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+
+      this.route('photos', function () {
+        this.route('photo', { path: ':photo_id' }, function () {
+          this.route('destroy');
+        });
+      });
+    });
+  });
+
+  this.route('photo-comments', function () {
+    this.route('photo-comment', { path: ':id' }, function () {
+      this.route('destroy');
+    });
+  });
+
+  this.route('polls', function () {
+    this.route('new');
+
+    this.route('poll', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
+
+  this.route('profile');
+
+  this.route('quickpost');
+
+  this.route('sog', function () {
+    this.route('name-trainer');
+  });
+
   this.route('sponsorkliks');
+
+  this.route('static-pages', function () {
+    this.route('new');
+
+    this.route('static-page', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
+
+  this.route('users', function () {
+    this.route('new');
+
+    this.route('forgot-password');
+    this.route('members');
+    this.route('webdav');
+
+    this.route('user', { path: ':id' }, function () {
+      this.route('edit', function () {
+        this.route('permissions');
+        this.route('privacy');
+        this.route('security');
+      });
+      this.route('destroy');
+
+      this.route('groups');
+      this.route('mail');
+      this.route('mandates');
+      this.route('permissions');
+      this.route('settings');
+
+      this.route('activate-account');
+      this.route('resend-activation-code');
+    });
+
+    this.route('batch', function () {
+      this.route('new');
+    });
+  });
+
+  this.route('vacancies', function () {
+    this.route('new');
+
+    this.route('vacancy', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
 
   this.route('404-page-not-found', { path: '/*path' });
 
   this.route('418-im-a-teapot', { path: '/coffee' });
-
-  this.route('vacancies', function () {
-    this.route('show', { path: '/:id' });
-    this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('destroy', { path: '/:id/destroy' });
-  });
 
   return true;
 });

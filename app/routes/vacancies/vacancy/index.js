@@ -1,25 +1,18 @@
-import { inject as service } from '@ember/service';
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class ShowVacancyRoute extends AuthenticatedRoute {
-  @service store;
-
-  get breadcrumb() {
-    return { title: this.controller?.model.title };
-  }
-
+export default class VacancyIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     const vacancy = this.controller.model;
     return [
       {
-        link: 'vacancies.edit',
+        link: 'vacancies.vacancy.edit',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: vacancy,
         canAccess: this.abilities.can('edit vacancy', vacancy),
       },
       {
-        link: 'vacancies.destroy',
+        link: 'vacancies.vacancy.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: vacancy,
@@ -30,9 +23,5 @@ export default class ShowVacancyRoute extends AuthenticatedRoute {
 
   canAccess() {
     return this.abilities.can('show vacancies');
-  }
-
-  model(params) {
-    return this.store.findRecord('vacancy', params.id, params);
   }
 }

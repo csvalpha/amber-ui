@@ -5,7 +5,7 @@
 <div class='row'>
   {{#each model as |vacancy|}}
     <div class='article-col col-md-6 mb-3'>
-      <LinkTo @route='vacancies.show' @model={{vacancy.id}}>
+      <LinkTo @route='vacancies.vacancy' @model={{vacancy.id}}>
         <div class='article-card d-flex'>
           <div class='card mb-0'>
             <div class='card-header card-header--overlay'>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class='card-titles'>
-                  <LinkTo @route='vacancies.show' @model={{vacancy.id}}>
+                  <LinkTo @route='vacancies.vacancy' @model={{vacancy.id}}>
                     <h2 class='card-title' itemprop='name headline'>
                       {{vacancy.title}}
                     </h2>

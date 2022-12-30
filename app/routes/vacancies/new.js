@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewVacancyRoute extends AuthenticatedRoute {
+export default class VacanciesNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Vacature aanmaken' };
 
   canAccess() {
