@@ -2412,72 +2412,86 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.21.1":
-  version: 7.21.1
-  resolution: "@sentry/browser@npm:7.21.1"
+"@sentry/browser@npm:7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/browser@npm:7.28.1"
   dependencies:
-    "@sentry/core": 7.21.1
-    "@sentry/types": 7.21.1
-    "@sentry/utils": 7.21.1
+    "@sentry/core": 7.28.1
+    "@sentry/replay": 7.28.1
+    "@sentry/types": 7.28.1
+    "@sentry/utils": 7.28.1
     tslib: ^1.9.3
-  checksum: 270448b4f99e9eb99a081c285ba454e06375fe7b3ff6c27f8064c174f46d8550a96696a3a6285c04a4cb0e3a93d84a3483f212335f8aaf546cdcba406f290fe3
+  checksum: 6cbafc58a08a47db078a56b41544cb483f3898a980db37449cf81553776ac2e1716d9006a9bdc08027ce1666a88eddf20e54ee65870cfcb16f22f61905af000a
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:7.21.1":
-  version: 7.21.1
-  resolution: "@sentry/core@npm:7.21.1"
+"@sentry/core@npm:7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/core@npm:7.28.1"
   dependencies:
-    "@sentry/types": 7.21.1
-    "@sentry/utils": 7.21.1
+    "@sentry/types": 7.28.1
+    "@sentry/utils": 7.28.1
     tslib: ^1.9.3
-  checksum: 96d493ddde5624cfd06146a72758eae979eee974e450f0748cca63973ffc1e0575467fbaa9df2e25e4291d5344845b9413a075390f37e89eea3f9a0cc2d95122
+  checksum: 8c9e89f8a4efe84a925b5e626828dd90a714b7c017503b04d7bf754fd7e402f0ed6449250d3c03a40493b6fc2323f804f172c6b792fe2003531afdc578f1587a
   languageName: node
   linkType: hard
 
-"@sentry/ember@npm:^7.21.1":
-  version: 7.21.1
-  resolution: "@sentry/ember@npm:7.21.1"
+"@sentry/ember@npm:^7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/ember@npm:7.28.1"
   dependencies:
     "@embroider/macros": ^1.9.0
-    "@sentry/browser": 7.21.1
-    "@sentry/tracing": 7.21.1
-    "@sentry/types": 7.21.1
-    "@sentry/utils": 7.21.1
+    "@sentry/browser": 7.28.1
+    "@sentry/tracing": 7.28.1
+    "@sentry/types": 7.28.1
+    "@sentry/utils": 7.28.1
     ember-auto-import: ^1.12.1 || ^2.4.3
     ember-cli-babel: ^7.26.11
     ember-cli-htmlbars: ^6.1.1
     ember-cli-typescript: ^5.1.1
-  checksum: 21d132be8629b2e71a880dffc69a493351be8ce72fd12719c438063237f14f89032fddd22da50fc84041e7ae2861ad419c091db7f5ec2e9ff7d118d1deef9c30
+  checksum: e406ddca218ca726dbc538150b6fc5b8910fb9c4aac9b568f6cae017c9430399ca3487af40e2b783aeab204efaad91aed1b0e18dee617e2e285a16ad8912e47d
   languageName: node
   linkType: hard
 
-"@sentry/tracing@npm:7.21.1":
-  version: 7.21.1
-  resolution: "@sentry/tracing@npm:7.21.1"
+"@sentry/replay@npm:7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/replay@npm:7.28.1"
   dependencies:
-    "@sentry/core": 7.21.1
-    "@sentry/types": 7.21.1
-    "@sentry/utils": 7.21.1
-    tslib: ^1.9.3
-  checksum: 5cfaace3416dcfd404f2468485e2819b5392536eb044bfcb330d2604f7e33182b30ff1571b3f54aea655b2762f9bc45124f2e680176a446facb3029e645235b7
+    "@sentry/core": 7.28.1
+    "@sentry/types": 7.28.1
+    "@sentry/utils": 7.28.1
+  peerDependencies:
+    "@sentry/browser": ">=7.24.0"
+  checksum: e47d40d5e6044b78aba3d0612dcf03240bb0d507106bb9e111c1beae60a1c972112c6ff442393cc2c47aed77079f645bd4614069315c4f44a1bb7514bb09b0dc
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:7.21.1":
-  version: 7.21.1
-  resolution: "@sentry/types@npm:7.21.1"
-  checksum: 0c89b3077aae599d4f4d918449c98b2da6be3820ec99036bb600c6e977ec0a6a906cc12bcb373ef42408b2e081163088c97f185cb349d1fdb2fc704a73de259b
-  languageName: node
-  linkType: hard
-
-"@sentry/utils@npm:7.21.1":
-  version: 7.21.1
-  resolution: "@sentry/utils@npm:7.21.1"
+"@sentry/tracing@npm:7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/tracing@npm:7.28.1"
   dependencies:
-    "@sentry/types": 7.21.1
+    "@sentry/core": 7.28.1
+    "@sentry/types": 7.28.1
+    "@sentry/utils": 7.28.1
     tslib: ^1.9.3
-  checksum: caf6d913c1dcd10b03aa1bb143dc2e3f5d681714b52ad8e83155f9db0be998fb4014251bfa4434975a42df74201f1a83cef06e2ad9ab35a15bbdd1fd5a1594bf
+  checksum: 74a0a7d64dc7aaa6cd85ad171cf44f299e7823634263594c1a7d7826ff4153442ae00b7099b5b36ec1b3d3a31b119c92ac190c9a59345007d4e0cd33a4e5a3c1
+  languageName: node
+  linkType: hard
+
+"@sentry/types@npm:7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/types@npm:7.28.1"
+  checksum: 57dcd5737e29990b15c1d723c47b125d325ead0766e2729c3bd0f499f6e034a9ff81b9474546ea6ecd2216b4956dbdcf342ecc13ef5a202468fd732ffb687cbf
+  languageName: node
+  linkType: hard
+
+"@sentry/utils@npm:7.28.1":
+  version: 7.28.1
+  resolution: "@sentry/utils@npm:7.28.1"
+  dependencies:
+    "@sentry/types": 7.28.1
+    tslib: ^1.9.3
+  checksum: 83a6b66b879a827f5656db02cdd23362f3158746a8da42c1683d8d5d0e5ff8ba8e74058ff8d3dea8924a9f307b74c3e021e26167b9296707f7afe08971c7f4ae
   languageName: node
   linkType: hard
 
@@ -3621,7 +3635,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": ^6.2.1
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@sentry/ember": ^7.21.1
+    "@sentry/ember": ^7.28.1
     babel-eslint: ^10.1.0
     bootstrap: ^4.6.2
     broccoli-asset-rev: ^3.0.0
@@ -3637,7 +3651,7 @@ __metadata:
     ember-cli-htmlbars: ^5.7.2
     ember-cli-inject-live-reload: ^2.1.0
     ember-cli-mirage: ^2.4.0
-    ember-cli-page-object: ^1.17.11
+    ember-cli-page-object: ^1.17.12
     ember-cli-qrcode: ^2.1.0
     ember-cli-sass: ^11.0.1
     ember-cli-showdown: ^6.0.1
@@ -3689,8 +3703,8 @@ __metadata:
     qunit: ^2.17.2
     qunit-dom: ^1.6.0
     remove-markdown: ^0.5.0
-    sass: ^1.56.1
-    stylelint: ^14.15.0
+    sass: ^1.57.1
+    stylelint: ^14.16.1
     stylelint-config-prettier: ^9.0.4
     stylelint-config-sass-guidelines: ^9.0.1
     stylelint-config-standard: ^29.0.0
@@ -8836,9 +8850,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-page-object@npm:^1.17.11":
-  version: 1.17.11
-  resolution: "ember-cli-page-object@npm:1.17.11"
+"ember-cli-page-object@npm:^1.17.12":
+  version: 1.17.12
+  resolution: "ember-cli-page-object@npm:1.17.12"
   dependencies:
     broccoli-file-creator: ^2.1.1
     broccoli-merge-trees: ^2.0.0
@@ -8848,7 +8862,7 @@ __metadata:
     ember-native-dom-helpers: ^0.7.0
     jquery: ^3.4.1
     rsvp: ^4.7.0
-  checksum: 1b2af5552e5db299c9ea6b8d26fa2f0790c1f7f489b2938425a3f93fa873530eb5f05992eb433071d6dd4aa22d384c86434eb0b5b043379ffe1c9d479e6a437f
+  checksum: e4d8d0e69a93e824653fe4917fd376dafac30fc314ba06887dc6925ef8f7a6e5d3f080261a1e956f06313f36d2eb19edaee7127198917f0ccd6a798668bd8f39
   languageName: node
   linkType: hard
 
@@ -12790,6 +12804,13 @@ __metadata:
   version: 5.2.0
   resolution: "ignore@npm:5.2.0"
   checksum: 6b1f926792d614f64c6c83da3a1f9c83f6196c2839aa41e1e32dd7b8d174cef2e329d75caabb62cb61ce9dc432f75e67d07d122a037312db7caa73166a1bdb77
+  languageName: node
+  linkType: hard
+
+"ignore@npm:^5.2.1":
+  version: 5.2.4
+  resolution: "ignore@npm:5.2.4"
+  checksum: 3d4c309c6006e2621659311783eaea7ebcd41fe4ca1d78c91c473157ad6666a57a2df790fe0d07a12300d9aac2888204d7be8d59f9aaf665b1c7fcdb432517ef
   languageName: node
   linkType: hard
 
@@ -17324,13 +17345,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-selector-parser@npm:^6.0.10":
-  version: 6.0.10
-  resolution: "postcss-selector-parser@npm:6.0.10"
+"postcss-selector-parser@npm:^6.0.11":
+  version: 6.0.11
+  resolution: "postcss-selector-parser@npm:6.0.11"
   dependencies:
     cssesc: ^3.0.0
     util-deprecate: ^1.0.2
-  checksum: 46afaa60e3d1998bd7adf6caa374baf857cc58d3ff944e29459c9a9e4680a7fe41597bd5b755fc81d7c388357e9bf67c0251d047c640a09f148e13606b8a8608
+  checksum: 0b01aa9c2d2c8dbeb51e9b204796b678284be9823abc8d6d40a8b16d4149514e922c264a8ed4deb4d6dbced564b9be390f5942c058582d8656351516d6c49cde
   languageName: node
   linkType: hard
 
@@ -18844,16 +18865,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.56.1":
-  version: 1.56.1
-  resolution: "sass@npm:1.56.1"
+"sass@npm:^1.57.1":
+  version: 1.57.1
+  resolution: "sass@npm:1.57.1"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 78e693e5992b149574c95d5adfe39ca3e5b97d80befa11191a20d1daa41fe201a98ac099beab726cd3095e2d2e7991a2c408ba0fcc3fa9f525879de7eee18dad
+  checksum: 734a08781bcbe0e8defb2d54864e7012014ed3e68ba5fcb766189b002929019fc37b2f83a18d4be0b5f69ad77317c92396ce6112447ab47a194ed600ae1afb27
   languageName: node
   linkType: hard
 
@@ -20062,9 +20083,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^14.15.0":
-  version: 14.15.0
-  resolution: "stylelint@npm:14.15.0"
+"stylelint@npm:^14.16.1":
+  version: 14.16.1
+  resolution: "stylelint@npm:14.16.1"
   dependencies:
     "@csstools/selector-specificity": ^2.0.2
     balanced-match: ^2.0.0
@@ -20079,7 +20100,7 @@ __metadata:
     globby: ^11.1.0
     globjoin: ^0.1.4
     html-tags: ^3.2.0
-    ignore: ^5.2.0
+    ignore: ^5.2.1
     import-lazy: ^4.0.0
     imurmurhash: ^0.1.4
     is-plain-object: ^5.0.0
@@ -20093,7 +20114,7 @@ __metadata:
     postcss-media-query-parser: ^0.2.3
     postcss-resolve-nested-selector: ^0.1.1
     postcss-safe-parser: ^6.0.0
-    postcss-selector-parser: ^6.0.10
+    postcss-selector-parser: ^6.0.11
     postcss-value-parser: ^4.2.0
     resolve-from: ^5.0.0
     string-width: ^4.2.3
@@ -20106,7 +20127,7 @@ __metadata:
     write-file-atomic: ^4.0.2
   bin:
     stylelint: bin/stylelint.js
-  checksum: a3b4593a35a2303987305ca5147ea31e92a47e1994d393be8d1a07a6dc8720b9eee1fed62aafaca618cd8f06e0b3ca601af4fa6618967f1f359ea36ade4c2550
+  checksum: bc24050415e3c357a76d8ca2799e74ce31f33c9158b4086462512b0191db5d6a161b81ef35b064039c6eacf98a5553e45fca4c5f21eb4d45e7f1d44b2d226e9b
   languageName: node
   linkType: hard
 
