@@ -1,13 +1,13 @@
 <div class='card tool'>
   <div class='card-header'>
-    <LinkTo @route='polls.index'>
+    <LinkTo @route='polls'>
       <h5 class='card-text'>Polls</h5>
     </LinkTo>
   </div>
 
   <ul class='list-group list-group-flush'>
     {{#each polls as |poll|}}
-      <LinkTo @route='polls.show' @model={{poll.id}}>
+      <LinkTo @route='polls.poll' @model={{poll.id}}>
         <li class='list-group-item'>
           <div class='d-flex justify-content-between'>
             <span>

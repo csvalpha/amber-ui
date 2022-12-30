@@ -1,9 +1,9 @@
-import { hash } from 'rsvp';
-import { inject as service } from '@ember/service';
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
+import { hash } from 'rsvp';
+import { inject as service } from '@ember/service';
 
-export default class ShowPollsRoute extends AuthenticatedRoute {
+export default class PollIndexRoute extends AuthenticatedRoute {
   @service store;
 
   constructor() {
@@ -11,22 +11,18 @@ export default class ShowPollsRoute extends AuthenticatedRoute {
     this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
   }
 
-  get breadcrumb() {
-    return { title: this.controller.model.poll.question.question };
-  }
-
   get pageActions() {
     const { poll } = this.controller.model;
     return [
       {
-        link: 'polls.edit',
+        link: 'polls.poll.edit',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: poll,
         canAccess: this.abilities.can('edit poll', poll),
       },
       {
-        link: 'polls.destroy',
+        link: 'polls.poll.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: poll,
@@ -39,9 +35,9 @@ export default class ShowPollsRoute extends AuthenticatedRoute {
     return this.abilities.can('show polls');
   }
 
-  model(params) {
-    const pollPromise = this.store.findRecord('poll', params.id, params);
-    const formPromise = pollPromise.then((poll) => poll.get('form'));
+  model() {
+    const poll = this.modelFor('polls.poll');
+    const formPromise = poll.form;
     const responsePromise = formPromise
       // Load or create the response
       .then((form) =>
@@ -57,7 +53,7 @@ export default class ShowPollsRoute extends AuthenticatedRoute {
       );
 
     return hash({
-      poll: pollPromise,
+      poll,
       form: formPromise,
       currentUserResponse: responsePromise,
     });

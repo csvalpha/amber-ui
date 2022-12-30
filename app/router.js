@@ -146,9 +146,11 @@ Router.map(function () {
 
   this.route('polls', function () {
     this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('show', { path: '/:id' });
-    this.route('destroy', { path: '/:id/destroy' });
+
+    this.route('poll', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
   });
 
   this.route('mail-aliases', function () {

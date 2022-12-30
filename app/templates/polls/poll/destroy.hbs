@@ -2,7 +2,7 @@
   <div class='alert alert-danger'>
     Je kunt deze poll niet verwijderen, omdat er al reacties zijn!
   </div>
-  <LinkTo @route='polls.show' @model={{model.id}} class='btn btn-default'>
+  <LinkTo @route='polls.poll' @model={{model.id}} class='btn btn-default'>
     Terug
   </LinkTo>
 {{else}}
@@ -11,8 +11,10 @@
     verwijderen?
   </p>
 
-  <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
-  <LinkTo @route='polls.show' @model={{model.id}} class='btn btn-default'>
+  <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
+    Ja
+  </button>
+  <LinkTo @route='polls.poll' @model={{model.id}} class='btn btn-default'>
     Nee
   </LinkTo>
 

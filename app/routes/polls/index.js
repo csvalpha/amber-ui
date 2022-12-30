@@ -1,8 +1,6 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class MailAliasIndexRoute extends ApplicationRoute {
-  breadcrumb = { title: 'Polls' };
-
+export default class PollsIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     return [
       {

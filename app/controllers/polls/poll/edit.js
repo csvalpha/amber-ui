@@ -2,9 +2,9 @@ import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
 import { union } from 'amber-ui/utils/array-operations';
 
-export default class EditPollController extends EditController {
+export default class PollEditController extends EditController {
   successMessage = 'Poll opgeslagen!';
-  successTransitionTarget = 'polls.show';
+  successTransitionTarget = 'polls.poll';
 
   @action
   async submit() {

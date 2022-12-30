@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewPollRoute extends AuthenticatedRoute {
+export default class PollsNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Poll aanmaken' };
 
   canAccess() {
