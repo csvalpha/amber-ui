@@ -9,6 +9,6 @@ export default class ProfileRoute extends AuthenticatedRoute {
   }
 
   redirect() {
-    this.router.transitionTo('users.show', this.session.currentUser.id);
+    this.router.transitionTo('users.user', this.session.currentUser.id);
   }
 }

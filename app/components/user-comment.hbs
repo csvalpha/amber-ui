@@ -1,5 +1,5 @@
 <div class='d-flex comment'>
-  <LinkTo @route='users.show' @model={{comment.author.id}}>
+  <LinkTo @route='users.user' @model={{comment.author.id}}>
     <img
       class='profile-picture profile-picture-small mr-2'
       src='{{comment.author.avatarThumbUrlOrDefault}}'
@@ -8,7 +8,7 @@
   <div class='comment-content'>
     <div class='d-flex'>
       {{#if (can 'show users')}}
-        <LinkTo @route='users.show' @model={{comment.author.id}}>
+        <LinkTo @route='users.user' @model={{comment.author.id}}>
           <strong>{{comment.author.fullNameWithNickname}}</strong>
         </LinkTo>
       {{else}}

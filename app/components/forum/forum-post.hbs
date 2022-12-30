@@ -2,14 +2,14 @@
   <div class='card-body'>
     <div class='row'>
       <div class='col-md-3 forum-post-author-info'>
-        <LinkTo @route='users.show' @model={{post.author.id}}>
+        <LinkTo @route='users.user' @model={{post.author.id}}>
           <img
             src='{{post.author.avatarThumbUrlOrDefault}}'
             alt='avatar'
             class='profile-picture profile-picture-large'
           />
         </LinkTo>
-        <LinkTo @route='users.show' @model={{post.author.id}}>
+        <LinkTo @route='users.user' @model={{post.author.id}}>
           <p> <strong> {{post.author.fullNameWithNickname}} </strong> </p>
         </LinkTo>
       </div>

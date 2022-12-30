@@ -55,7 +55,7 @@
               {{mailAlias.group.name}}
             </LinkTo>
           {{else}}
-            <LinkTo @route='users.show' @model={{mailAlias.user.id}}>
+            <LinkTo @route='users.user' @model={{mailAlias.user.id}}>
               <span class='text-muted'> <FaIcon @icon='user' /> </span>
               {{mailAlias.user.fullNameWithNickname}}
             </LinkTo>

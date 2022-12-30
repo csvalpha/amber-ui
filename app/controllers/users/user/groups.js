@@ -7,7 +7,6 @@ export default class UsersShowGroupsController extends GroupMembershipsControlle
   @tracked showAdministrativeGroups = false;
 
   filterableAttributes = ['group.name'];
-
   sortableAttributes = [
     {
       value: 'group.name',

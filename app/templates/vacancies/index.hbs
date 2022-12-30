@@ -49,7 +49,7 @@
                       </LinkTo>
                     {{else}}
                       <LinkTo
-                        @route='users.show'
+                        @route='users.user'
                         @model={{vacancy.author.id}}
                         class='link-to card-subtitle-link'
                       >
@@ -69,29 +69,33 @@
 
             <div class='card-body'>
               <div class='card-text' itemprop='articleBody'>
-                {{!-- Table without style --}}
-                <table class="mb-4">
+                {{! Table without style }}
+                <table class='mb-4'>
                   {{#if vacancy.deadline}}
                     <tr>
-                      <th class="pr-3">Deadline:</th>
-                      <td>{{moment-format vacancy.deadline 'DD-MM-YYYY' }}</td>
+                      <th class='pr-3'>Deadline:</th>
+                      <td>{{moment-format vacancy.deadline 'DD-MM-YYYY'}}</td>
                     </tr>
                   {{/if}}
                   {{#if vacancy.workload}}
                     <tr>
-                      <th class="pr-3">Werklast:</th>
+                      <th class='pr-3'>Werklast:</th>
                       <td>{{vacancy.workload}}</td>
                     </tr>
                   {{/if}}
                   {{#if vacancy.workloadPeak}}
                     <tr>
-                      <th class="pr-3">Piekmoment:</th>
+                      <th class='pr-3'>Piekmoment:</th>
                       <td>{{vacancy.workloadPeak}}</td>
                     </tr>
                   {{/if}}
                 </table>
 
-                <LinkTo @route='articles.show' @model={{article.id}} itemprop='url'>
+                <LinkTo
+                  @route='articles.show'
+                  @model={{article.id}}
+                  itemprop='url'
+                >
                   {{t 'tag.button.readMore'}}
                 </LinkTo>
               </div>

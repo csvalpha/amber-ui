@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class WebdavRoute extends AuthenticatedRoute {
+export default class UsersWebdavRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Contactsynchronisatie' };
 
   canAccess() {

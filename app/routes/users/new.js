@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewUserRoute extends AuthenticatedRoute {
+export default class UsersNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Gebruiker aanmaken' };
 
   canAccess() {

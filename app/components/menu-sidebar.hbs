@@ -44,7 +44,7 @@
 
     <div class='profile-menu {{if layoutManager.profileMenuOpen "open"}}'>
       <MenuSidebarItem
-        @link='users.show'
+        @link='users.user'
         @hasPermission={{can 'show activities'}}
         @icon='user'
         @title={{t 'mixin.menuItems.profile'}}

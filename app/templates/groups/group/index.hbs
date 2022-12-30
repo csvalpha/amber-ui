@@ -82,7 +82,7 @@
           <div class='row userlist'>
             {{#each filteredModels as |membership|}}
               <LinkTo
-                @route='users.show'
+                @route='users.user'
                 @model={{membership.user.id}}
                 class='col-6 col-sm-4 col-md-3'
               >

@@ -25,7 +25,7 @@ export default class GroupIndexController extends GroupMembershipsController {
   selectFirstItem() {
     if (this.filteredModels.length > 0) {
       this.transitionToRoute(
-        'users.show',
+        'users.user',
         this.filteredModels.firstObject.user.get('id')
       );
     }

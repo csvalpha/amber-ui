@@ -100,30 +100,32 @@ Router.map(function () {
   });
 
   this.route('users', function () {
-    this.route('members');
-
     this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('edit-permissions', { path: '/:id/edit/permissions' });
-    this.route('edit-privacy', { path: '/:id/edit/privacy' });
-    this.route('edit-security', { path: '/:id/edit/security' });
-    this.route('show', { path: '/:id' });
-    this.route('show-groups', { path: '/:id/groups' });
-    this.route('show-settings', { path: '/:id/settings' });
-    this.route('show-mail', { path: '/:id/mail' });
-    this.route('show-mandates', { path: '/:id/mandates' });
-    this.route('show-permissions', { path: '/:id/permissions' });
-    this.route('destroy', { path: '/:id/destroy' });
 
+    this.route('forgot-password');
+    this.route('members');
     this.route('webdav');
 
-    this.route('forgot_password');
-    this.route('activate_account', { path: '/:id/activate_account' });
-    this.route('resend_activation', { path: '/:id/resend_activation' });
+    this.route('user', { path: ':id' }, function () {
+      this.route('edit', function () {
+        this.route('permissions');
+        this.route('privacy');
+        this.route('security');
+      });
+      this.route('destroy');
+
+      this.route('groups');
+      this.route('mail');
+      this.route('mandates');
+      this.route('permissions');
+      this.route('settings');
+
+      this.route('activate-account');
+      this.route('resend-activation-code');
+    });
 
     this.route('batch', function () {
       this.route('new');
-      this.route('confirm');
     });
   });
 

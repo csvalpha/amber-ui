@@ -1,31 +1,29 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class EditUserRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Lid aanpassen' };
-
+export default class EditIndexRoute extends AuthenticatedRoute {
   get tabItems() {
     const user = this.controller.model;
     return [
       {
-        link: 'users.edit',
+        link: 'users.user.edit.index',
         title: 'Algemeen',
         linkArgument: user,
         canAccess: true,
       },
       {
-        link: 'users.edit-permissions',
+        link: 'users.user.edit.permissions',
         title: 'Rechten',
         linkArgument: user,
         canAccess: this.abilities.can('create permissions-users'),
       },
       {
-        link: 'users.edit-privacy',
+        link: 'users.user.edit.privacy',
         title: 'Privacy',
         linkArgument: user,
         canAccess: this.session.currentUser === user,
       },
       {
-        link: 'users.edit-security',
+        link: 'users.user.edit.security',
         title: 'Beveiliging',
         linkArgument: user,
         canAccess: this.session.currentUser === user,
@@ -35,10 +33,6 @@ export default class EditUserRoute extends AuthenticatedRoute {
 
   canAccess(model) {
     return this.abilities.can('edit user', model);
-  }
-
-  async model(params) {
-    return await this.store.findRecord('user', params.id, params);
   }
 
   deactivate() {

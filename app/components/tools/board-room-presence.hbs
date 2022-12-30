@@ -12,7 +12,7 @@
       {{#each sortedPresences as |presence|}}
         <div class='py-1'>
           <div class='d-block'>
-            <LinkTo @route='users.show' @model={{presence.user.id}}>
+            <LinkTo @route='users.user' @model={{presence.user.id}}>
               <small><b>{{presence.user.fullNameWithNickname}}</b></small>
             </LinkTo>
           </div>

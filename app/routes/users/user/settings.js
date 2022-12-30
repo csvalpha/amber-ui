@@ -1,11 +1,11 @@
-import ShowUserRouter from 'amber-ui/routes/users/show';
+import UserIndexRoute from './index';
 
-export default class ShowUserSettings extends ShowUserRouter {
+export default class UserSettingsRoute extends UserIndexRoute {
   get pageActions() {
     const user = this.controller.model;
     return [
       {
-        link: 'users.edit-privacy',
+        link: 'users.user.edit.privacy',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: user,

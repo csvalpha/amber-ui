@@ -13,7 +13,7 @@
   <div class='card-block'>
     <div class='p-3 pb-5'>
       <div class='row pb-2'>
-        <LinkTo @route='users.show' @model={{session.currentUser.id}}>
+        <LinkTo @route='users.user' @model={{session.currentUser.id}}>
           <img
             class='profile-picture profile-picture-md ml-3 p-0'
             alt='{{session.currentUser.fullName}}'
@@ -74,7 +74,7 @@
     {{#each sortedMessages as |message index|}}
       <hr />
       <div class='row qp-message p-3'>
-        <LinkTo @route='users.show' @model={{message.author.id}}>
+        <LinkTo @route='users.user' @model={{message.author.id}}>
           <img
             class='profile-picture profile-picture-md ml-3 p-0'
             alt='{{message.author.fullName}}'
@@ -85,11 +85,13 @@
         <div class='pl-3 col'>
           <div class='row'>
             <LinkTo
-              @route='users.show'
+              @route='users.user'
               @model={{message.author.id}}
               class='col'
             >
-              <b class='text-sm text-muted'> {{message.author.fullNameWithNickname}} </b>
+              <b class='text-sm text-muted'>
+                {{message.author.fullNameWithNickname}}
+              </b>
             </LinkTo>
 
             <small class='text-muted pr-3'>

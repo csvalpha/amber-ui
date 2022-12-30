@@ -1,7 +1,7 @@
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
-import { isNone } from '@ember/utils';
 import { isNotFoundResponse } from 'ember-fetch/errors';
+import { isNone } from '@ember/utils';
 import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';

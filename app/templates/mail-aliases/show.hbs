@@ -62,7 +62,7 @@
                   <td>Gebruiker</td>
                   <td>
                     {{#if @model.user}}
-                      <LinkTo @route='users.show' @model={{@model.user.id}}>
+                      <LinkTo @route='users.user' @model={{@model.user.id}}>
                         {{@model.user.fullNameWithNickname}}
                       </LinkTo>
                     {{else}}

@@ -1,16 +1,16 @@
-import { action } from '@ember/object';
 import {
   DigtusSubscriptionPreferenceTypes,
   AlmanakSubscriptionPreferenceTypes,
 } from 'amber-ui/constants';
 import EditController from 'amber-ui/controllers/application/edit';
+import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class EditUserController extends EditController {
+export default class EditIndexController extends EditController {
   @service session;
 
   successMessage = 'Gegevens gewijzigd!';
-  successTransitionTarget = 'users.show';
+  successTransitionTarget = 'users.user';
 
   get canEditOnlyOwnProperties() {
     return (
