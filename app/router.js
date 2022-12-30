@@ -215,7 +215,9 @@ Router.map(function () {
 
   this.route('form', function () {
     this.route('responses', function () {
-      this.route('destroy', { path: '/:id/destroy' });
+      this.route('response', { path: ':id' }, function () {
+        this.route('destroy');
+      });
     });
   });
 

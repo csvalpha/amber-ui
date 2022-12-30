@@ -20,8 +20,4 @@ export default class ArticleIndexRoute extends ApplicationRoute {
       },
     ];
   }
-
-  canAccess() {
-    return this.abilities.can('show articles');
-  }
 }
