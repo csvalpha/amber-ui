@@ -5,6 +5,7 @@ export default class MailAliasesIndexController extends FilterableAndSortableCon
   @tracked sortedAttribute = 'email';
 
   queryParams = ['search', 'sort'];
+
   routeOnEnter = 'users.user';
   sortableAttributes = [
     {

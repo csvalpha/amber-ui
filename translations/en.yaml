@@ -27,8 +27,8 @@ model:
       other: groups
   mailAlias:
     name:
-      one: mail-alias
-      other: mail-aliases
+      one: mail alias
+      other: mail aliases
   mailModeration:
     name:
       one: mail-moderation
@@ -219,7 +219,7 @@ mixin:
     sponsorkliks: Sponsorkliks
     profile: Profile
     settings: Settings
-    mailaliases: Mail aliases
+    mailAliases: Mail aliases
     collections: Collections
     mailModerations: Mail Moderations
     mandates: Mandates

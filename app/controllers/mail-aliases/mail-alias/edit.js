@@ -1,8 +1,8 @@
 import EditController from 'amber-ui/controllers/application/edit';
 import { MailAliasModerationTypes } from 'amber-ui/constants';
 
-export default class EditMailAliasController extends EditController {
-  successTransitionTarget = 'mail-aliases.show';
+export default class MailAliasEditController extends EditController {
+  successTransitionTarget = 'mail-aliases.mail-alias';
 
   _mailAliasModerationTypes(moderationType) {
     return {

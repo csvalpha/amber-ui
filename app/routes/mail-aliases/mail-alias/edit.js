@@ -1,14 +1,10 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class EditMailAliasRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Mail-alias aanpassen' };
+export default class MailAliasEditRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Mail alias aanpassen' };
 
   canAccess(model) {
     return this.abilities.can('edit mail-alias', model);
-  }
-
-  model(params) {
-    return this.store.findRecord('mail-alias', params.id, params);
   }
 
   deactivate() {

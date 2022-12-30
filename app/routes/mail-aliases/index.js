@@ -1,15 +1,11 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
-import { inject as service } from '@ember/service';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class MailAliasIndexRoute extends ApplicationRoute {
-  @service intl;
-  breadcrumb = { title: 'Mail-aliassen' };
-
+export default class MailAliasesIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     return [
       {
         link: 'mail-aliases.new',
-        title: 'Nieuw mailalias',
+        title: 'Nieuw mail alias',
         icon: 'plus',
         canAccess: this.abilities.can('create mail-aliases'),
       },

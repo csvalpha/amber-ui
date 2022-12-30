@@ -27,8 +27,8 @@ model:
       other: groepen
   mailAlias:
     name:
-      one: mail-alias
-      other: mail-aliassen
+      one: mail alias
+      other: mail aliassen
   mailModeration:
     name:
       one: mail-moderatie
@@ -221,7 +221,7 @@ mixin:
     sponsorkliks: Sponsorkliks
     profile: Profiel
     settings: Instellingen
-    mailaliases: Mail aliassen
+    mailAliases: Mail aliassen
     collections: Incasso's
     mailModerations: Mail moderaties
     mandates: Mandaten

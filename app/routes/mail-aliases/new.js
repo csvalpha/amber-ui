@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewMailAliasRoute extends AuthenticatedRoute {
-  breadcrumb = { title: 'Mail-alias aanmaken' };
+export default class MailAliasesNewRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Mail alias aanmaken' };
 
   canAccess() {
     return this.abilities.can('create mail-aliases');

@@ -155,9 +155,11 @@ Router.map(function () {
 
   this.route('mail-aliases', function () {
     this.route('new');
-    this.route('edit', { path: '/:id/edit' });
-    this.route('show', { path: '/:id' });
-    this.route('destroy', { path: '/:id/destroy' });
+
+    this.route('mail-alias', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
   });
 
   this.route('mail-moderations', function () {

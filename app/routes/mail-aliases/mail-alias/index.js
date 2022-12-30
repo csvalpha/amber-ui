@@ -1,22 +1,18 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class ShowMailAliasRoute extends AuthenticatedRoute {
-  get breadcrumb() {
-    return { title: this.controller.model.email };
-  }
-
+export default class MailAliasIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     const mailAlias = this.controller.model;
     return [
       {
-        link: 'mail-aliases.edit',
+        link: 'mail-aliases.mail-alias.edit',
         title: 'Wijzigen',
         icon: 'pencil',
         linkArgument: mailAlias,
         canAccess: this.abilities.can('edit mail-aliases'),
       },
       {
-        link: 'mail-aliases.destroy',
+        link: 'mail-aliases.mail-alias.destroy',
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: mailAlias,
@@ -27,9 +23,5 @@ export default class ShowMailAliasRoute extends AuthenticatedRoute {
 
   canAccess() {
     return this.abilities.can('show mail-aliases');
-  }
-
-  model(params) {
-    return this.store.findRecord('mail-alias', params.id, params);
   }
 }
