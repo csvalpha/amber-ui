@@ -1,28 +1,24 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class ShowModerationRoute extends AuthenticatedRoute {
-  get breadcrumb() {
-    return { title: this.controller.model.subject };
-  }
-
+export default class MailModerationIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     return [
       {
-        link: 'mail-moderations.accept',
+        link: 'mail-moderations.mail-moderation.accept',
         title: 'Goedkeuren',
         icon: 'check',
         linkArgument: this.controller.model,
         canAccess: this.abilities.can('accept mail-moderations'),
       },
       {
-        link: 'mail-moderations.reject',
+        link: 'mail-moderations.mail-moderation.reject',
         title: 'Afkeuren',
         icon: 'circle-minus',
         linkArgument: this.controller.model,
         canAccess: this.abilities.can('reject mail-moderations'),
       },
       {
-        link: 'mail-moderations.destroy',
+        link: 'mail-moderations.mail-moderation.destroy',
         title: 'Negeren',
         icon: 'trash',
         linkArgument: this.controller.model,
@@ -33,9 +29,5 @@ export default class ShowModerationRoute extends AuthenticatedRoute {
 
   canAccess() {
     return this.abilities.can('show mail-moderations');
-  }
-
-  model(params) {
-    return this.store.findRecord('stored-mail', params.id, params);
   }
 }

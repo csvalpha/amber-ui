@@ -163,10 +163,12 @@ Router.map(function () {
   });
 
   this.route('mail-moderations', function () {
-    this.route('show', { path: '/:id' });
-    this.route('destroy', { path: '/:id/destroy' });
-    this.route('accept', { path: '/:id/accept' });
-    this.route('reject', { path: '/:id/reject' });
+    this.route('mail-moderation', { path: ':id' }, function () {
+      this.route('destroy');
+
+      this.route('accept');
+      this.route('reject');
+    });
   });
 
   this.route('activities', function () {

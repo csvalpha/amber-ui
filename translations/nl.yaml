@@ -31,8 +31,8 @@ model:
       other: mail aliassen
   mailModeration:
     name:
-      one: mail-moderatie
-      other: mail-moderaties
+      one: mail moderatie
+      other: mail moderaties
   forum:
     name:
       one: forum

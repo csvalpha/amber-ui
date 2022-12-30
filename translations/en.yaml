@@ -31,8 +31,8 @@ model:
       other: mail aliases
   mailModeration:
     name:
-      one: mail-moderation
-      other: mail-moderations
+      one: mail moderation
+      other: mail moderations
   forum:
     name:
       one: forum
@@ -221,7 +221,7 @@ mixin:
     settings: Settings
     mailAliases: Mail aliases
     collections: Collections
-    mailModerations: Mail Moderations
+    mailModerations: Mail moderations
     mandates: Mandates
     tomato: S.O.F.I.A
     nextcloud: Nextcloud

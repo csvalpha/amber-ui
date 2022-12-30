@@ -4,9 +4,8 @@ import { isInvalidResponse } from 'ember-fetch/errors';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
-export default class MailModerationRejectController extends Controller {
+export default class MailModerationAcceptController extends Controller {
   @service fetch;
-  @service flashNotice;
 
   @tracked errorMessage = null;
 
@@ -14,16 +13,14 @@ export default class MailModerationRejectController extends Controller {
   async submit() {
     this.errorMessage = null;
     const response = await this.fetch.post(
-      `/stored_mails/${this.model.id}/reject`
+      `/stored_mails/${this.model.id}/accept`
     );
-
     if (response.ok) {
-      this.flashNotice.sendSuccess('Mail moderatie afgewezen!');
       this.model.unloadRecord();
-      this.transitionToRoute('mail-moderations.index');
+      this.transitionToRoute('mail-moderations');
     } else if (isInvalidResponse(response)) {
       const json = await response.json();
-      this.errorMessage = json.error;
+      this.errorMessage = json.errors[0].detail;
     }
   }
 }
