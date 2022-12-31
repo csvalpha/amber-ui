@@ -10,13 +10,14 @@
       @value={{@content}}
       class='form-control md-editor'
       rows='15'
+      data-test-md-editor-textarea
     />
   {{else}}
     <div class='alert alert-info' role='alert'>
-      Heb je een foto ingevoegd in dit artikel? Deze worden pas getoond als je het
-      artikel hebt opgeslagen.
+      Heb je een foto ingevoegd in dit artikel? Deze worden pas getoond als je
+      het artikel hebt opgeslagen.
     </div>
-    <div class="px-2">
+    <div class='px-2'>
       {{markdown-to-html @content extensions='youtubeEmbed bootstrapTable'}}
     </div>
   {{/if}}
