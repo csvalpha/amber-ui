@@ -9,11 +9,9 @@ module('Integration | Component | advertisement-tool', function (hooks) {
   test('should render all ads', async function (assert) {
     assert.expect(1);
 
-    await render(hbs`{{advertisement-tool}}`);
+    await render(hbs`<AdvertisementTool />`);
 
-    assert.equal(
-      this.element.querySelectorAll('.advertisement-item').length,
-      34 // Number of advertisements times two
-    );
+    // Number of advertisements times two
+    assert.dom('[data-test-advertisement-item]').exists({ count: 34 });
   });
 });
