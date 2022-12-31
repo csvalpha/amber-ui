@@ -19,6 +19,6 @@ module('Integration | Component | md-editor', function (hooks) {
       hbs`<MdEditor @content={{this.markdownContent}} @textareaId='new-forum-post' />`
     );
 
-    assert.dom('[data-test-md-editor-textarea]').hasText('This is some text.');
+    assert.dom('[data-test-md-editor-textarea]').hasValue('This is some text.');
   });
 });
