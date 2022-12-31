@@ -17,7 +17,7 @@
     <div class='navbar-overflow-wrapper'>
       <div class='navbar-nav col d-flex flex-row'>
         {{#if (or session.isAuthenticated media.isMobile)}}
-          <BreadCrumbs @routeInfos={{@routeInfos}} />
+          <Breadcrumbs @routeInfos={{@routeInfos}} />
         {{else}}
           <BsDropdown {{did-insert (action 'setAvailableStaticPages')}} as |dd|>
             <dd.button @type='primary'>

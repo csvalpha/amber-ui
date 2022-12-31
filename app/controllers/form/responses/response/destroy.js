@@ -4,6 +4,7 @@ import { inject as service } from '@ember/service';
 
 export default class ResponseDestroyController extends DestroyController {
   @service store;
+
   successMessage = 'Je inschrijving is verwijderd.';
   successTransitionTarget = 'activities';
   cancelTransitionTarget = 'activities';
