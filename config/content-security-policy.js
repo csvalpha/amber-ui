@@ -9,7 +9,16 @@ module.exports = function (environment) {
       'www.googletagmanager.com',
     ],
     'font-src': ["'self'", 'fonts.gstatic.com'],
-    'connect-src': ["'self'", 'sentry.io'],
+    'connect-src': [
+      "'self'",
+      'www.google-analytics.com',
+      'www.googletagmanager.com',
+      'sentry.io',
+      'camo.csvalpha.nl',
+      'www.google-analytics.com',
+      'img.youtube.com',
+      'fonts.googleapis.com/',
+    ],
     'img-src': [
       "'self'",
       'camo.csvalpha.nl',

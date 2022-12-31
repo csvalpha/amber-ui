@@ -1,15 +1,27 @@
-import EditController from 'alpha-amber/controllers/application/edit';
 import { action } from '@ember/object';
+import EditController from 'amber-ui/controllers/application/edit';
 
 export default class EditPostController extends EditController {
   successMessage = 'Forumbericht aangepast!';
-  successTransitionTarget = null; // Custom transition is used in onSuccess.
+  successTransitionTarget = 'forum.categories.category.threads.thread';
+  get successTransitionModel() {
+    return this.thread;
+  }
 
   @action
-  onSuccess(model) {
-    this.transitionToRoute(
-      'forum.categories.category.threads.thread',
-      model.get('thread')
-    );
+  async submit() {
+    this.thread = await this.model.thread;
+    super.submit();
+  }
+
+  @action
+  async cancel() {
+    this.thread = await this.model.thread;
+    super.cancel();
+  }
+
+  @action
+  setContent(content) {
+    this.model.message = content;
   }
 }

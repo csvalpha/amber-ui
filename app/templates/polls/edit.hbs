@@ -1,6 +1,7 @@
 <Forms::PollForm
   @model={{@model.form}}
   @onSubmit={{action 'submit'}}
+  @onCancel={{action 'cancel'}}
   @combinedErrors={{this.combinedErrors}}
   @errorMessage={{this.errorMessage}}
 />

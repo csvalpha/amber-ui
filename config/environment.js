@@ -4,7 +4,7 @@ module.exports = function (environment) {
   const deployTarget = process.env.DEPLOY_TARGET;
 
   let ENV = {
-    modulePrefix: 'alpha-amber',
+    modulePrefix: 'amber-ui',
     environment,
     rootURL: '/',
     locationType: 'auto',
@@ -32,8 +32,7 @@ module.exports = function (environment) {
       hostname: '/api/v1',
     },
 
-    moment: {
-      includeLocales: ['nl'],
+    'ember-moment': {
       allowEmpty: true,
     },
 

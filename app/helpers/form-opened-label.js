@@ -1,5 +1,6 @@
-import { inject as service } from '@ember/service';
 import Helper from '@ember/component/helper';
+import moment from 'moment';
+import { inject as service } from '@ember/service';
 
 export default class FormOpenedLabel extends Helper {
   @service intl;

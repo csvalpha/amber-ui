@@ -3,7 +3,7 @@ import Model, { hasMany, attr, belongsTo } from '@ember-data/model';
 export default class PhotoAlbum extends Model {
   // Properties
   @attr title;
-  @attr date;
+  @attr('date-only') date;
   @attr({ defaultValue: false }) publiclyVisible;
 
   // Relations
@@ -29,6 +29,10 @@ export default class PhotoAlbum extends Model {
       this.photos?.firstObject?.imageMediumUrl ||
       '/images/fallback/photo_album_thumb_default.png'
     );
+  }
+
+  get sortedPhotos() {
+    return this.photos?.sortBy('exifDateTimeOriginal', 'createdAt');
   }
 
   // Methods

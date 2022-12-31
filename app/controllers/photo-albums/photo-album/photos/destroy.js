@@ -1,5 +1,6 @@
-import DestroyController from 'alpha-amber/controllers/application/destroy';
+import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default DestroyController.extend({
-  successTransitionTarget: 'photo-albums.photo-album.photos.index',
-});
+export default class PhotoAlbumPhotoDestroyController extends DestroyController {
+  successTransitionTarget = 'photo-albums.photo-album.photos.index';
+  cancelTransitionTarget = 'photo-albums.photo-album.photos.show';
+}

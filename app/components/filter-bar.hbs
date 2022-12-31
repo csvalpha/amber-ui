@@ -1,66 +1,68 @@
-<div class='filter-bar w-100'>
-  <div class='form-group mb-0'>
-    <BsDropdown @class='w-100' as |dd|>
-      <div class='input-group'>
-        <div class='input-group-prepend'>
-          <div class='input-group-text'>
-            <FaIcon @icon='magnifying-glass' />
+<div class='d-none d-md-flex'>
+  <div class='filter-bar w-100'>
+    <div class='form-group mb-0'>
+      <BsDropdown @class='w-100' as |dd|>
+        <div class='input-group'>
+          <div class='input-group-prepend'>
+            <div class='input-group-text'>
+              <FaIcon @icon='magnifying-glass' />
+            </div>
+          </div>
+
+          <Input
+            @value={{this.filterDebounce}}
+            class='filter-bar-filter form-control'
+            aria-label='Zoeken'
+            placeholder='Zoeken'
+            @enter={{@enter}}
+          />
+
+          <div class='input-group-append'>
+            <dd.button @type='button'>
+              {{#if this.sortedAscending}}
+                <FaIcon @icon='arrow-up-wide-short' />
+              {{else}}
+                <FaIcon @icon='arrow-down-wide-short' />
+              {{/if}}
+            </dd.button>
+
+            <dd.menu as |ddm|>
+              <div class='ml-2 text-muted text-bold'>Sorteren</div>
+
+              <ddm.item>
+                <ModelForm::RadioGroup
+                  @model={{this}}
+                  @property='sortedAttribute'
+                  @options={{this.sortableAttributes}}
+                  @inputLayout='vertical'
+                  @label={{null}}
+                  @inputIdentifier='filter'
+                  @class='sort-radio-group'
+                />
+              </ddm.item>
+
+              {{menu.divider}}
+
+              <ddm.item>
+                <div class='form-check'>
+                  <label for='sort-order' class='form-check-label'>
+                    <Input
+                      @type='checkbox'
+                      id='sort-order'
+                      @checked={{this.sortedAscending}}
+                      class='filter-bar-sorted-ascending form-check-input'
+                    />
+                    Oplopend
+                    <div class='custom-checkmark'></div>
+                  </label>
+                </div>
+              </ddm.item>
+
+              {{yield}}
+            </dd.menu>
           </div>
         </div>
-
-        <Input
-          @value={{filterDebounce}}
-          class='filter-bar-filter form-control'
-          aria-label='Zoeken'
-          placeholder='Zoeken'
-          @enter={{enter}}
-        />
-
-        <div class='input-group-append'>
-          <dd.button @type='button'>
-            {{#if sortedAscending}}
-              <FaIcon @icon='arrow-up-wide-short' />
-            {{else}}
-              <FaIcon @icon='arrow-down-wide-short' />
-            {{/if}}
-          </dd.button>
-
-          <dd.menu as |ddm|>
-            <div class='ml-2 text-muted text-bold'>Sorteren</div>
-
-            <ddm.item>
-              <ModelForm::RadioGroup
-                @model={{this}}
-                @property='sortedAttribute'
-                @options={{sortableAttributes}}
-                @inputLayout='vertical'
-                @label={{null}}
-                @inputIdentifier='filter'
-                @class='sort-radio-group'
-              />
-            </ddm.item>
-
-            {{menu.divider}}
-
-            <ddm.item>
-              <div class='form-check'>
-                <label for='sort-order' class='form-check-label'>
-                  <Input
-                    @type='checkbox'
-                    id='sort-order'
-                    @checked={{sortedAscending}}
-                    class='filter-bar-sorted-ascending form-check-input'
-                  />
-                  Oplopend
-                  <div class='custom-checkmark'></div>
-                </label>
-              </div>
-            </ddm.item>
-
-            {{yield}}
-          </dd.menu>
-        </div>
-      </div>
-    </BsDropdown>
+      </BsDropdown>
+    </div>
   </div>
 </div>

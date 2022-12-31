@@ -1,23 +1,35 @@
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
-import EditController from 'alpha-amber/controllers/application/edit';
-// eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { alias } from '@ember/object/computed';
+import { action } from '@ember/object';
+import EditController from 'amber-ui/controllers/application/edit';
+import { inject as service } from '@ember/service';
 
 export default class EditTransactionController extends EditController {
   successMessage = 'Transactie aangepast!';
+  cancelMessage = 'Transactie wijzigen geannuleerd.';
   successTransitionTarget = 'debit.collections.show';
+  @service store;
 
-  @alias('model.collection.id')
-  successTransitionModel;
+  get successTransitionModel() {
+    return this.collection;
+  }
 
-  @computed('store', function () {
+  @action
+  async submit() {
+    this.collection = await this.model.collection;
+    super.submit();
+  }
+
+  @action
+  async cancel() {
+    this.collection = await this.model.collection;
+    super.cancel();
+  }
+
+  get users() {
     return this.store.findAll('user');
-  })
-  users;
+  }
 
   @action
   setUser(user) {
-    this.model.set('user', user);
+    this.model.user = user;
   }
 }

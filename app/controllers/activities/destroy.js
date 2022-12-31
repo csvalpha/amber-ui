@@ -1,5 +1,6 @@
-import DestroyController from 'alpha-amber/controllers/application/destroy';
+import DestroyController from 'amber-ui/controllers/application/destroy';
 
-export default DestroyController.extend({
-  successTransitionTarget: 'activities.index',
-});
+export default class ActivityDestroyController extends DestroyController {
+  successTransitionTarget = 'activities.index';
+  cancelTransitionTarget = 'activities.show';
+}

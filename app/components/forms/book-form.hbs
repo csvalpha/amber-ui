@@ -92,25 +92,20 @@
         @property='description'
         @label='Beschrijving'
         @inputIdentifier='article-form-content'
+        @setContent={{@setContent}}
       />
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        {{#if @model.isNew}}
-          <LinkTo @route='books.index' class='btn btn-default'>
-            Annuleren
-          </LinkTo>
-        {{else}}
-          <LinkTo
-            @route='books.show'
-            @model={{@model.id}}
-            class='btn btn-default'
-          >
-            Annuleren
-          </LinkTo>
-        {{/if}}
+        <button
+          {{action @onCancel}}
+          type="button"
+          class='btn btn-default'
+        >
+          Annuleren
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

@@ -3,7 +3,7 @@ import BaseSessionService from 'ember-simple-auth/services/session';
 import { tracked } from '@glimmer/tracking';
 import { isNone } from '@ember/utils';
 import { debug } from '@ember/debug';
-import ENV from 'alpha-amber/config/environment';
+import ENV from 'amber-ui/config/environment';
 import * as Sentry from '@sentry/browser';
 
 export default class SessionService extends BaseSessionService {
@@ -50,7 +50,7 @@ export default class SessionService extends BaseSessionService {
       debug(
         `Current user does not have permission '${permissionName}'`,
         !ENV.APP.LOG_ACCESS_CONTROL || hasPermission,
-        { id: 'alpha-amber.session.no-permission' }
+        { id: 'amber-ui.session.no-permission' }
       );
     }
 

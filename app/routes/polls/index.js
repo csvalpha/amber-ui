@@ -1,4 +1,4 @@
-import { ApplicationRoute } from 'alpha-amber/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class MailAliasIndexRoute extends ApplicationRoute {
   breadCrumb = { title: 'Polls' };

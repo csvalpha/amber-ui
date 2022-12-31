@@ -91,6 +91,10 @@ component:
       reactions: ' - {count, plural, =0 {geen reacties.} =1 {1 reactie.} other {# reacties.}}'
   headerNav:
     changeLocale: Change language to English
+    aboutUs: Over ons
+    sponsoring: Sponsoring
+    becomeMember: Word lid!
+    becomeOldMember: Word oud-lid!
   footerNav:
     by: 'Met trots gebrouwen door de ICT-commissie der C.S.V. Alpha | © '
   index:
@@ -98,7 +102,7 @@ component:
       potentialMember:
         title: Geïnteresseerd in Alpha?
         info:
-          Leuk dat je geïnteresseerd bent in Alpha. Zet alvast het weekend 23 t/m 25 september 2022 in je agenda. Op dit weekend kun je vrijblijvend Alpha en haar (geïnteresseerde) leden leren kennen met o.a. kampvuur, spelletjes & meer. Lijkt je dit wat, of kun je niet wachten Alpha al eerder te leren kennen, stuur dan een <a href="https://api.whatsapp.com/send?phone=31623038845&text=Hoi!%20Mijn%20naam%20is%20X%20en%20ben%20XX%20jaar%20oud.%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20Alpha%20en%20zou%20graag%20een%20keer%20willen%20kennis%20maken%20met%20Alpha.">berichtje!</a> (0623038845)
+          Leuk dat je geïnteresseerd bent in Alpha. Zet alvast het weekend 23 t/m 25 september 2022 in je agenda. Op dit weekend kun je vrijblijvend Alpha en haar (geïnteresseerde) leden leren kennen met o.a. kampvuur, spelletjes & meer. Lijkt je dit wat, of kun je niet wachten Alpha al eerder te leren kennen, stuur dan een <a href="https://api.whatsapp.com/send?phone=31618053999&text=Hoi!%20Mijn%20naam%20is%20X%20en%20ben%20XX%20jaar%20oud.%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20Alpha%20en%20zou%20graag%20een%20keer%20willen%20kennis%20maken%20met%20Alpha.">berichtje!</a> (06-18053999)
       aboutFlux:
         title: Onze Sociëteit
         info:
@@ -226,6 +230,7 @@ mixin:
     home: Home
     articles: Artikelen
     activities: Activiteiten
+    vacancies: Vacatures
     forum: Forum
     photoAlbums: Foto-albums
     polls: Polls

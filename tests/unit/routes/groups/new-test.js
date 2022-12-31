@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
-import itShouldRemoveRelationship from 'alpha-amber/tests/helpers/unit/it-should-remove-relationship';
-import itShouldRemoveNewModel from 'alpha-amber/tests/helpers/unit/it-should-remove-new-model';
+import itShouldRemoveRelationship from 'amber-ui/tests/helpers/unit/it-should-remove-relationship';
+import itShouldRemoveNewModel from 'amber-ui/tests/helpers/unit/it-should-remove-new-model';
 import { setupMirage } from 'ember-cli-mirage/test-support';
 
 module('Unit | Route | groups/new', function (hooks) {

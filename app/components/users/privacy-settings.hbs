@@ -1,5 +1,5 @@
 <h5>Privacyinstellingen</h5>
-<form class='form' {{action 'submit' on='submit'}}>
+<form class='form' {{action @onSubmit on='submit'}}>
   {{#if isOwnUser}}
     <div class='form-group row'>
       <label class='col-sm-6 col-form-label form-control-label'>
@@ -105,9 +105,9 @@
       @errorMessage={{this.errorMessage}}
       @inputLayout='vertical'
     >
-      <LinkTo @route='users.show' @model={{model.id}} class='btn btn-default'>
+      <button {{action @onCancel}} type="button" class='btn btn-default'>
         Annuleren
-      </LinkTo>
+      </button>
     </ModelForm::FormActions>
   {{/if}}
 </form>

@@ -1,4 +1,4 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class DestroyArticleCommentRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Artikel comment verwijderen' };
@@ -7,7 +7,13 @@ export default class DestroyArticleCommentRoute extends AuthenticatedRoute {
     return this.abilities.can('destroy article-comments');
   }
 
-  model(params) {
-    return this.store.findRecord('article-comment', params.id, params);
+  async model(params) {
+    const articleComment = this.store.findRecord(
+      'article-comment',
+      params.id,
+      params
+    );
+    await articleComment.article;
+    return articleComment;
   }
 }

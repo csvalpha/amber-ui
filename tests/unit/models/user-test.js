@@ -1,5 +1,6 @@
-import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
+import moment from 'moment';
+import { run } from '@ember/runloop';
 import { setupTest } from 'ember-qunit';
 
 let user;

@@ -5,7 +5,7 @@ import Component from '@ember/component';
 import {
   PicturePublicationPreferenceTypes,
   UserDetailsPreferenceTypes,
-} from 'alpha-amber/constants';
+} from 'amber-ui/constants';
 
 export default Component.extend({
   session: service(),

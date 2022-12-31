@@ -1,4 +1,4 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EditPostRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Forumbericht aanpassen' };
@@ -13,6 +13,6 @@ export default class EditPostRoute extends AuthenticatedRoute {
 
   deactivate() {
     super.deactivate();
-    this.controller.model.thread?.rollbackAttributes();
+    this.controller.model.rollbackAttributes();
   }
 }

@@ -1,10 +1,10 @@
-import FilterableAndSortableController from 'alpha-amber/controllers/application/filterable-and-sortable';
+import FilterableAndSortableController from 'amber-ui/controllers/application/filterable-and-sortable';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
 export default class PhotoCommentsIndexController extends FilterableAndSortableController {
-  @service('flash-notice') flashNotice;
+  @service flashNotice;
 
   @tracked sortedAscending = false;
   @tracked sortedAttribute = 'updated_at';

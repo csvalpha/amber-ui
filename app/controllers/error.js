@@ -1,28 +1,32 @@
 import { inject as service } from '@ember/service';
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
 import { run } from '@ember/runloop';
 
-export default Controller.extend({
-  flashNotice: service('flash-notice'),
-  showNotFound: computed(
-    'model.{isAdapterError,isAuthorizationError}',
-    'status',
-    function () {
-      return (
-        this.model.isAuthorizationError ||
-        (this.model.isAdapterError && ['403', '404'].includes(this.status))
-      );
-    }
-  ),
-  showStatic: computed('status', function () {
+export default class ErrorController extends Controller {
+  @service flashNotice;
+
+  constructor() {
+    super();
+    run.scheduleOnce('afterRender', this, this.checkBackend);
+  }
+
+  get showNotFound() {
+    return (
+      this.model.isAuthorizationError ||
+      (this.model.isAdapterError && ['403', '404'].includes(this.status))
+    );
+  }
+
+  get showStatic() {
     return ['502', '503'].includes(this.status);
-  }),
-  status: computed('model.errors.firstObject.status', function () {
+  }
+
+  get status() {
     const status = this.model.errors?.firstObject.status;
     return status ? String(status) : status;
-  }),
-  message: computed('status', function () {
+  }
+
+  get message() {
     switch (this.status) {
       case '400': // Bad Request
         return 'Er is iets mis met de request. Geef de ICT-commissie even de tijd om dit op te lossen.';
@@ -49,11 +53,8 @@ export default Controller.extend({
       default:
         return 'Er is iets mis gegaan. Probeer het later opnieuw.';
     }
-  }),
-  init() {
-    this._super();
-    run.scheduleOnce('afterRender', this, this.checkBackend);
-  },
+  }
+
   checkBackend() {
     if (this.showStatic) {
       this.flashNotice.sendWarning(
@@ -61,5 +62,5 @@ export default Controller.extend({
         true
       );
     }
-  },
-});
+  }
+}

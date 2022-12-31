@@ -1,5 +1,7 @@
 <Forms::ThreadForm
   @model={{@model}}
   @onSubmit={{action 'submit'}}
+  @onCancel={{action 'cancel'}}
   @errorMessage={{this.errorMessage}}
+  @setContent={{action 'setContent'}}
 />

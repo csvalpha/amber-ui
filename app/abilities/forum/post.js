@@ -1,5 +1,6 @@
-import { isNone } from '@ember/utils';
 import { Ability } from 'ember-can';
+import { isNone } from '@ember/utils';
+import moment from 'moment';
 
 export default class Post extends Ability {
   get canShow() {

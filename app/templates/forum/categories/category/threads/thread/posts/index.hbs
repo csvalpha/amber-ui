@@ -3,11 +3,11 @@
 </EmberWormhole>
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{model.posts.meta}} @replace={{true}} />
+  <PageNumbers @info={{@model.postsPaged.meta}} @replace={{true}} />
 </div>
 
 <Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
-  {{#each @model.posts as |post|}}
+  {{#each @model.postsPaged as |post|}}
     {{#unless post.isDeleted}}
       {{forum/forum-post
         post
@@ -19,10 +19,10 @@
 </Swipeable>
 
 {{#if currentPageIsLastPage}}
-  {{#unless @model.thread.isOpen}}
+  {{#unless @model.isOpen}}
     <div class='alert alert-danger' role='alert'>
       <strong>Dit topic is gesloten!</strong>
-      {{#if (can 'create post for forum/thread' @model.thread)}}
+      {{#if (can 'create post for forum/thread' @model)}}
         Jij kunt echter nog wel reageren omdat je moderatierechten hebt.
       {{else}}
         Je kunt niet meer reageren.
@@ -30,16 +30,17 @@
     </div>
   {{/unless}}
 
-  {{#if (can 'create post for forum/thread' @model.thread)}}
+  {{#if (can 'create post for forum/thread' @model)}}
     <div class='card' id='newForumPostCard'>
       <div class='card-header'>
         <h5>Reageren</h5>
       </div>
       <div class='card-body'>
         <Forum::ForumPostNew
-          @thread={{@model.thread}}
+          @thread={{@model}}
           @content={{newContent}}
           @onSubmit={{action 'newPostCreated'}}
+          @setContent={{action 'setContent'}}
         />
       </div>
     </div>
@@ -47,5 +48,5 @@
 {{/if}}
 
 <div class='row justify-content-center'>
-  <PageNumbers @info={{@model.posts.meta}} @replace={{true}} />
+  <PageNumbers @info={{@model.postsPaged.meta}} @replace={{true}} />
 </div>

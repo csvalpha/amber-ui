@@ -1,4 +1,4 @@
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class EdityActivityRoute extends AuthenticatedRoute {
   breadCrumb = { title: 'Activiteit aanpassen' };
@@ -7,10 +7,10 @@ export default class EdityActivityRoute extends AuthenticatedRoute {
     return this.abilities.can('edit activity', model);
   }
 
-  model(params) {
-    return this.store
-      .findRecord('activity', params.id, params)
-      .then((activity) => activity.get('form').then(() => activity));
+  async model(params) {
+    const activity = await this.store.findRecord('activity', params.id, params);
+    await activity.form;
+    return activity;
   }
 
   deactivate() {

@@ -1,7 +1,7 @@
 import { hash } from 'rsvp';
 import { inject as service } from '@ember/service';
-import { AuthenticatedRoute } from 'alpha-amber/routes/application/application';
-import FormLoadOrCreateUtil from 'alpha-amber/utils/form-load-or-create';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 
 export default class ShowActivityRoute extends AuthenticatedRoute {
   @service store;

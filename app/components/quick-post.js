@@ -3,8 +3,8 @@ import { htmlSafe } from '@ember/template';
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { sort, reads } from '@ember/object/computed';
-import { WelcomeTextLines, SuggestedEmojis } from 'alpha-amber/constants';
-import { convertToUnicode } from 'alpha-amber/helpers/convert-to-unicode';
+import { WelcomeTextLines, SuggestedEmojis } from 'amber-ui/constants';
+import { convertToUnicode } from 'amber-ui/helpers/convert-to-unicode';
 
 export default Component.extend({
   session: service(),
