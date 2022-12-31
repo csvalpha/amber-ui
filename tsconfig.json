@@ -66,13 +66,13 @@
     // work with TypeScript.
     "baseUrl": ".",
     "paths": {
-      "alpha-amber/tests/*": [
+      "amber-ui/tests/*": [
         "tests/*"
       ],
-      "alpha-amber/mirage/*": [
+      "amber-ui/mirage/*": [
         "mirage/*"
       ],
-      "alpha-amber/*": [
+      "amber-ui/*": [
         "app/*"
       ],
       "*": [
