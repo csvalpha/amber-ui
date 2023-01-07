@@ -35,7 +35,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@glimmer/component": "^1.0.4",
     "@glimmer/tracking": "^1.0.4",
-    "@sentry/ember": "^7.21.1",
+    "@sentry/ember": "^7.28.1",
     "babel-eslint": "^10.1.0",
     "bootstrap": "^4.6.2",
     "broccoli-asset-rev": "^3.0.0",
@@ -51,7 +51,7 @@
     "ember-cli-htmlbars": "^5.7.2",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-mirage": "^2.4.0",
-    "ember-cli-page-object": "^1.17.11",
+    "ember-cli-page-object": "^1.17.12",
     "ember-cli-qrcode": "^2.1.0",
     "ember-cli-sass": "^11.0.1",
     "ember-cli-showdown": "^6.0.1",
@@ -103,11 +103,11 @@
     "qunit": "^2.17.2",
     "qunit-dom": "^1.6.0",
     "remove-markdown": "^0.5.0",
-    "sass": "^1.56.1",
-    "stylelint": "^14.15.0",
+    "sass": "^1.57.1",
+    "stylelint": "^14.16.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-sass-guidelines": "^9.0.1",
-    "stylelint-config-standard": "^28.0.0",
+    "stylelint-config-standard": "^29.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-scss": "^4.3.0",
     "webpack": "^5.65.0"
@@ -121,5 +121,5 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.3.0"
+  "packageManager": "yarn@3.3.1"
 }
