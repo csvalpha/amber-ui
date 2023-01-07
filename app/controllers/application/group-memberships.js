@@ -5,10 +5,11 @@ import moment from 'moment';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupMembershipsController extends Controller {
-  @tracked filter = '';
-  @tracked oldMembershipsAreVisible = false;
   @tracked sortedAttribute = null;
   @tracked sortedAscending = true;
+
+  @tracked filter = '';
+  @tracked oldMembershipsAreVisible = false;
 
   get models() {
     return this.model.memberships;
@@ -19,28 +20,6 @@ export default class GroupMembershipsController extends Controller {
       ? this.oldMemberships
       : this.currentMemberships;
     return this.sortModels(this.filterModels(records));
-  }
-
-  filterModels(models) {
-    // Do not filter when no value is inserted
-    if (isBlank(this.filter)) {
-      return models;
-    }
-
-    return models.filter((model) => {
-      return this.filterableAttributes
-        .reduce((show, attribute) => {
-          const value = model.get(attribute);
-          return show + value;
-        }, '')
-        .toLowerCase()
-        .includes(this.filter.toLowerCase());
-    });
-  }
-
-  sortModels(models) {
-    const sortedModels = models.sortBy(this.sortedAttribute);
-    return this.sortedAscending ? sortedModels : sortedModels.reverse();
   }
 
   get oldMemberships() {
@@ -90,5 +69,27 @@ export default class GroupMembershipsController extends Controller {
   @action
   setSortedAscending(value) {
     this.sortedAscending = value;
+  }
+
+  filterModels(models) {
+    // Do not filter when no value is inserted
+    if (isBlank(this.filter)) {
+      return models;
+    }
+
+    return models.filter((model) => {
+      return this.filterableAttributes
+        .reduce((show, attribute) => {
+          const value = model.get(attribute);
+          return show + value;
+        }, '')
+        .toLowerCase()
+        .includes(this.filter.toLowerCase());
+    });
+  }
+
+  sortModels(models) {
+    const sortedModels = models.sortBy(this.sortedAttribute);
+    return this.sortedAscending ? sortedModels : sortedModels.reverse();
   }
 }

@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
 // TODO: it would follow the pattern more if we let the PhotoAlbumsNewController
-//  extend the EditPhotoAlbumController, instead of vice versa.
+//  extend the PhotoAlbumEditController, instead of vice versa.
 export default class PhotoAlbumEditController extends PhotoAlbumsNewController {
   @service fetch;
 

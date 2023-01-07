@@ -8,10 +8,17 @@ export default class EditController extends Controller {
   @service flashNotice;
 
   @tracked errorMessage = null;
-  successMessage = 'Wijzigen gelukt!';
-  cancelMessage = 'Wijzigen geannuleerd.';
   @tracked successTransitionTarget = null;
   @tracked cancelTransitionTarget = this.successTransitionTarget; // sensible default
+
+  successMessage = 'Wijzigen gelukt!';
+  cancelMessage = 'Wijzigen geannuleerd.';
+
+  constructor() {
+    super(...arguments);
+    this.modelSaveUtil = new ModelSaveUtil(this);
+  }
+
   get successTransitionModel() {
     return this.model;
   }
@@ -20,24 +27,20 @@ export default class EditController extends Controller {
     return this.successTransitionModel;
   }
 
-  constructor() {
-    super(...arguments);
-    this.modelSaveUtil = new ModelSaveUtil(this);
-  }
-
   @action
   submit() {
     this.modelSaveUtil.saveModel(this.model);
   }
 
-  onError(error) {
-    // todo: somehow incorporate the error into the message maybe? could be useful if users can show us the error message
-    this.errorMessage =
-      'Er ging iets fout bij het opslaan van je wijzigingen. ' + error;
-  }
-
   @action
   cancel() {
     this.modelSaveUtil.cancelEdit();
+  }
+
+  onError(error) {
+    // TODO: somehow incorporate the error into the message maybe? could be
+    //  useful if users can show us the error message
+    this.errorMessage =
+      'Er ging iets fout bij het opslaan van je wijzigingen. ' + error;
   }
 }
