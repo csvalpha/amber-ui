@@ -106,6 +106,20 @@ export default Component.extend({
       link: 'https://www.zantmankliniek.nl/',
       image: 'advertisements/zantman.png',
     },
+    {
+      title: 'Bierglazen bedrukken met logo',
+      alt: 'Bierglazen bedrukken met logo',
+      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
+      image: 'advertisements/rike.png',
+    },
+    {
+      links: [
+        {
+          link: 'https://www.huurzone.nl/aanbod/nederland.html',
+          title: 'huurwoningen',
+        },
+      ],
+    },
     // example of how we can simply use a list of urls, too:
     // {
     //   links: [
