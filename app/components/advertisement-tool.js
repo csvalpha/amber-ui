@@ -106,22 +106,19 @@ export default Component.extend({
       link: 'https://www.zantmankliniek.nl/',
       image: 'advertisements/zantman.png',
     },
-    // example of how we can simply use a list of urls, too:
-    // {
-    //   links: [
-    //     {
-    //       link: 'https://www.simonlydiscount.nl',
-    //       title: 'sim only vergelijken',
-    //     },
-    //     {
-    //       link: 'https://www.huurzone.nl/aanbod/nederland.html',
-    //       title: 'huurwoningen',
-    //     },
-    //     {
-    //       link: 'https://www.opzeggen24.nl/abonnement-opzeggen/telegraaf-opzeggen.html',
-    //       title: 'telegraaf opzeggen',
-    //     },
-    //   ],
-    // },
+    {
+      title: 'Bierglazen bedrukken met logo',
+      alt: 'Bierglazen bedrukken met logo',
+      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
+      image: 'advertisements/rike.png',
+    },
+    {
+      links: [
+        {
+          link: 'https://www.huurzone.nl/aanbod/nederland.html',
+          title: 'huurwoningen',
+        },
+      ],
+    },
   ],
 });
