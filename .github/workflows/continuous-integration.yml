@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
         with:
           ref: ${{ inputs.sha }}
 
@@ -34,7 +34,7 @@ jobs:
     needs: build
     steps:
       - name: Checkout code
-        uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # tag=v3.1.0
+        uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
         with:
           ref: ${{ inputs.sha }}
 
@@ -43,16 +43,10 @@ jobs:
           echo '::add-matcher::.github/problem-matchers/actionlint.json'
           echo '::add-matcher::.github/problem-matchers/ember-template-lint.json'
           echo '::add-matcher::.github/problem-matchers/eslint-stylish.json'
-          echo '::add-matcher::.github/problem-matchers/stylelint.json'
 
       - name: Download actionlint
         run: |
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 1.6.22
-
-      - name: Set up Node.js
-        uses: actions/setup-node@8c91899e586c5b171469028077307d293428b516 # tag=v3.5.1
-        with:
-          node-version-file: .nvmrc
 
       - name: Load test image
         uses: guidojw/actions/load-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
@@ -60,15 +54,14 @@ jobs:
           name: app
 
       - name: Lint
-        # Convert output of stylelint so that the problem matcher can match it correctly.
         run: |
           EXIT_STATUS=0
           ./actionlint -ignore 'property "app_private_key" is not defined' -ignore 'SC2153:' \
             -ignore 'property "sha" is not defined in object type {}' || EXIT_STATUS=$?
           docker run app yarn lint:hbs || EXIT_STATUS=$?
           docker run app yarn lint:js || EXIT_STATUS=$?
-          STYLELINT_OUTPUT="$(docker run app yarn lint:scss)" || EXIT_STATUS=$?
-          node bin/convert-stylelint-output.js "$STYLELINT_OUTPUT"
+          docker run app /bin/bash -c 'yarn lint:scss -f github | sed "s|$(pwd)/||g" ; exit ${PIPESTATUS[0]}' || \
+            EXIT_STATUS=$?
           exit $EXIT_STATUS
 
   test:
