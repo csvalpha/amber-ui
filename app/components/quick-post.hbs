@@ -1,10 +1,10 @@
 <div class='card quickpost'>
   <div class='progress bg-white'>
     <div
-      class='progress-bar bg-{{progressBarClass}}'
-      style={{progressBarStyle}}
+      class='progress-bar bg-{{this.progressBarClass}}'
+      style={{this.progressBarStyle}}
       role='progressbar'
-      aria-valuenow={{characterCountPercentage}}
+      aria-valuenow={{this.characterCountPercentage}}
       aria-valuemin='0'
       aria-valuemax='100'
     ></div>
@@ -13,21 +13,21 @@
   <div class='card-block'>
     <div class='p-3 pb-5'>
       <div class='row pb-2'>
-        <LinkTo @route='users.show' @model={{session.currentUser.id}}>
+        <LinkTo @route='users.show' @model={{this.session.currentUser.id}}>
           <img
             class='profile-picture profile-picture-md ml-3 p-0'
-            alt='{{session.currentUser.fullName}}'
-            src='{{session.currentUser.avatarThumbUrlOrDefault}}'
+            alt='{{this.session.currentUser.fullName}}'
+            src='{{this.session.currentUser.avatarThumbUrlOrDefault}}'
           />
         </LinkTo>
         <Textarea
           id='qp-inputfield'
-          @value={{newQpMessage}}
+          @value={{this.newQpMessage}}
           rows={{4}}
           class='col form-control ml-3 mr-3 qp-inputfield'
-          placeholder={{welcomeText}}
+          placeholder={{this.welcomeText}}
           minlength='1'
-          maxlength={{maxCharacters}}
+          maxlength={{this.maxCharacters}}
           @enter='saveMessage'
         />
       </div>
@@ -35,24 +35,26 @@
       <div class='d-flex float-right'>
         <span
           class='qp-characters-indicator
-            {{if tooMuchText "text-danger" "text-muted"}}
-            {{unless currentCharacterCount "hidden"}}
+            {{if this.tooMuchText "text-danger" "text-muted"}}
+            {{unless this.currentCharacterCount "hidden"}}
             pt-2 pr-3'
         >
-          {{currentCharacterCount}}
+          {{this.currentCharacterCount}}
           /
-          {{maxCharacters}}
+          {{this.maxCharacters}}
         </span>
 
         <QuickPostNotificationButton />
 
         <BsDropdown @class='ml-1' @closeOnMenuClick={{true}} as |dd|>
-          <dd.toggle @class='open-smiley-pane-button btn btn-default'>
-            <FaIcon @icon='face-smile' @prefix='far' />
-          </dd.toggle>
+          <button class='btn btn-default ml-1 mb-3'>
+            <dd.toggle @class='open-smiley-pane-button'>
+              <FaIcon @icon='face-smile' @prefix='far' />
+            </dd.toggle>
+          </button>
           <dd.menu @class='emoticon-holder' as |menu|>
             <div class='row'>
-              {{#each emoticons as |emoticon|}}
+              {{#each this.emoticons as |emoticon|}}
                 <div class='emoticon' {{action 'appendSmileyToText' emoticon}}>
                   {{emoticon}}
                 </div>
@@ -62,7 +64,7 @@
         </BsDropdown>
 
         <button
-          class='btn btn-primary ml-1 mb-3 {{if tooMuchText "disabled"}}'
+          class='btn btn-primary ml-1 mb-3 {{if this.tooMuchText "disabled"}}'
           {{action 'saveMessage'}}
           type='button'
         >
@@ -71,7 +73,7 @@
       </div>
     </div>
 
-    {{#each sortedMessages as |message index|}}
+    {{#each this.sortedMessages as |message index|}}
       <hr />
       <div class='row qp-message p-3'>
         <LinkTo @route='users.show' @model={{message.author.id}}>
@@ -89,7 +91,9 @@
               @model={{message.author.id}}
               class='col'
             >
-              <b class='text-sm text-muted'> {{message.author.fullNameWithNickname}} </b>
+              <b class='text-sm text-muted'>
+                {{message.author.fullNameWithNickname}}
+              </b>
             </LinkTo>
 
             <small class='text-muted pr-3'>
@@ -110,7 +114,7 @@
       </div>
     {{/each}}
 
-    {{#if showLoaderButton}}
+    {{#if this.showLoaderButton}}
       <button
         class='btn btn-sm btn-block btn-secondary btn-read-more'
         {{action 'loadMore'}}
