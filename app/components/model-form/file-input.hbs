@@ -32,5 +32,5 @@
     </div>
   {{/if}}
 
-  {{form-control-feedback (get @model.errors property)}}
+  <FormControlFeedback @errors={{get @model.errors property}} />
 </div>

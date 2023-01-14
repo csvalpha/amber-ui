@@ -1,18 +1,10 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 import { htmlSafe } from '@ember/template';
 
-const FrontpageActivityCardSmall = Component.extend({
-  classNames: ['card', 'frontpage-activity-card-small', 'border-0', 'p-0'],
-  style: computed('activity.coverPhotoUrlOrDefault', function () {
+export default class FrontpageActivityCardSmall extends Component {
+  get style() {
     return htmlSafe(
-      `background-image: url(${this.activity.coverPhotoUrlOrDefault})`
+      `background-image: url(${this.args.activity.coverPhotoUrlOrDefault})`
     );
-  }),
-});
-
-FrontpageActivityCardSmall.reopenClass({
-  positionalParams: ['activity'],
-});
-
-export default FrontpageActivityCardSmall;
+  }
+}

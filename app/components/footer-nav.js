@@ -1,6 +1,6 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  session: service('session'),
-});
+export default class FooterNav extends Component {
+  @service session;
+}

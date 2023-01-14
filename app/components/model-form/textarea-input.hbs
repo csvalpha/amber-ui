@@ -12,7 +12,7 @@
       disabled={{disabled}}
     />
 
-    {{form-control-feedback (get @model.errors property)}}
+    <FormControlFeedback @errors={{get @model.errors property}} />
   </div>
 {{else}}
   <label
@@ -31,6 +31,6 @@
       disabled={{disabled}}
     />
 
-    {{form-control-feedback (get @model.errors property)}}
+    <FormControlFeedback @errors={{get @model.errors property}} />
   </div>
 {{/if}}

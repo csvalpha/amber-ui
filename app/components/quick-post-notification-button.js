@@ -1,27 +1,34 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  session: service(),
-  notification: service(),
-  actions: {
-    sendTest() {
-      this.notification.new(
-        'Test',
-        'Dit is een test bericht',
-        '/images/alphalogonotext.png'
-      );
-    },
-    activate() {
-      this.notification.getPermission();
-    },
-    disable() {
-      this.notification.turnOff();
-      this.send('sendTest');
-    },
-    soundOn() {
-      this.notification.toggleSound();
-      this.send('sendTest');
-    },
-  },
-});
+export default class QuickPostNotificationButton extends Component {
+  @service session;
+  @service notification;
+
+  @action
+  sendTest() {
+    this.notification.new(
+      'Test',
+      'Dit is een test bericht',
+      '/images/alphalogonotext.png'
+    );
+  }
+
+  @action
+  activate() {
+    this.notification.getPermission();
+  }
+
+  @action
+  disable() {
+    this.notification.turnOff();
+    this.send('sendTest');
+  }
+
+  @action
+  soundOn() {
+    this.notification.toggleSound();
+    this.send('sendTest');
+  }
+}

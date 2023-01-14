@@ -7,7 +7,7 @@
           class='article-col col-lg-4 col-md-6
             {{if (eq index 2) "hidden-md-down"}}'
         >
-          {{cards/article-card article showExcerpt=true useMaxHeight=true}}
+          <Cards::ArticleCard @article={{article}} @showExcerpt=true @useMaxHeight=true />
         </div>
       {{/if}}
     {{/each}}

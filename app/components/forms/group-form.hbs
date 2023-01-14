@@ -81,7 +81,7 @@
                 {{user.fullNameWithNickname}}
               </PowerSelect>
 
-              {{form-control-feedback (get @model.errors 'memberships')}}
+              <FormControlFeedback @errors={{get @model.errors 'memberships'}} />
             </div>
           </div>
         {{/if}}

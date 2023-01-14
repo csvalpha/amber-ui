@@ -2,7 +2,7 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class SwipeableComponent extends Component {
+export default class Swipeable extends Component {
   @tracked touching = false;
   @tracked xStart = null;
   @tracked yStart = null;

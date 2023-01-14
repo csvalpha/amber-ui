@@ -1,4 +1,4 @@
-{{#if activities}}
+{{#if this.activities}}
   <div class='card tool'>
     <div class='card-header'>
       <div class='d-flex justify-content-between'>
@@ -33,13 +33,13 @@
     </div>
 
     <ul class='list-group list-group-flush'>
-      {{#each activities as |activity|}}
+      {{#each this.activities as |activity|}}
         <LinkTo @route='activities.show' @model={{activity.id}}>
           <li class='list-group-item'>
             <span class='activity-tool-title'>{{activity.title}}</span>
             <br />
             <span class='activity-tool-start-time text-muted'>
-              {{form/status-dot activity.form}}
+              <Form::StatusDot @form={{activity.form}} />
               {{form-opened-label activity.form}}
             </span>
           </li>

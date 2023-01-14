@@ -1,10 +1,14 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  store: service(),
-  verses: computed(function () {
-    return this.store.findAll('daily-verse');
-  }),
-});
+export default class DailyVerse extends Component {
+  @service store;
+
+  verses = [];
+
+  constructor() {
+    super(...arguments);
+
+    this.verses = this.store.findAll('daily-verse');
+  }
+}

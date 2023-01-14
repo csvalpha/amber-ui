@@ -3,7 +3,7 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class MenuSidebarItemComponent extends Component {
+export default class MenuSidebarItem extends Component {
   @service layoutManager;
 
   @tracked minor = false;

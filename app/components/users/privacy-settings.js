@@ -8,7 +8,7 @@ import { inject as service } from '@ember/service';
 import { isPresent } from '@ember/utils';
 import { tracked } from '@glimmer/tracking';
 
-export default class PrivacySettingsComponent extends Component {
+export default class PrivacySettings extends Component {
   @service flashNotice;
   @service session;
 

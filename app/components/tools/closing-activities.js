@@ -1,10 +1,14 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  store: service(),
-  activities: computed(function () {
+export default class ClosingActivities extends Component {
+  @service store;
+
+  activities = [];
+
+  constructor() {
+    super(...arguments);
+
     const params = {
       filter: { closing: true },
       // Include form for correct display of form-opened-label
@@ -12,6 +16,6 @@ export default Component.extend({
       sort: 'form.respond_until',
     };
 
-    return this.store.query('activity', params);
-  }),
-});
+    this.activities = this.store.query('activity', params);
+  }
+}

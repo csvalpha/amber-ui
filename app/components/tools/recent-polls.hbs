@@ -6,7 +6,7 @@
   </div>
 
   <ul class='list-group list-group-flush'>
-    {{#each polls as |poll|}}
+    {{#each this.polls as |poll|}}
       <LinkTo @route='polls.show' @model={{poll.id}}>
         <li class='list-group-item'>
           <div class='d-flex justify-content-between'>

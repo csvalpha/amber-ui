@@ -7,7 +7,7 @@
   {{#if (can 'show photo-comments')}}
     <div class='card-body'>
       <div class='d-flex'>
-        {{#each photosWithComments as |photo|}}
+        {{#each this.photosWithComments as |photo|}}
           <LinkTo
             @route='photo-albums.photo-album.photos.show'
             @models={{array photo.photoAlbum.id photo.id}}
@@ -21,7 +21,7 @@
           </div>
         {{/each}}
       </div>
-      {{#if photosWithComments}}
+      {{#if this.photosWithComments}}
         <LinkTo @route='photo-comments'>
           <button class='btn btn-primary col-12 mt-2 mb-1' type='button'>
             Bekijk alle reacties
@@ -31,7 +31,7 @@
     </div>
   {{/if}}
   <ul class='list-group list-group-flush'>
-    {{#each albums as |album|}}
+    {{#each this.albums as |album|}}
       <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
         <li class='list-group-item'>{{album.title}}</li>
       </LinkTo>

@@ -1,12 +1,8 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-const BooleanTagComponent = Component.extend({
-  tagName: 'span',
-  classNames: ['badge'],
-  classNameBindings: ['value:badge-success:badge-danger'],
-  label: computed('value', function () {
-    switch (this.value) {
+export default class BooleanTag extends Component {
+  get label() {
+    switch (this.args.value) {
       case null:
         return 'Niet ingevuld';
       case true:
@@ -15,11 +11,5 @@ const BooleanTagComponent = Component.extend({
       default:
         return 'Nee';
     }
-  }),
-});
-
-BooleanTagComponent.reopenClass({
-  positionalParams: ['value'],
-});
-
-export default BooleanTagComponent;
+  }
+}

@@ -1,29 +1,29 @@
 <div class='d-flex comment'>
-  <LinkTo @route='users.show' @model={{comment.author.id}}>
+  <LinkTo @route='users.show' @model={{@comment.author.id}}>
     <img
       class='profile-picture profile-picture-small mr-2'
-      src='{{comment.author.avatarThumbUrlOrDefault}}'
+      src='{{@comment.author.avatarThumbUrlOrDefault}}'
     />
   </LinkTo>
   <div class='comment-content'>
     <div class='d-flex'>
       {{#if (can 'show users')}}
-        <LinkTo @route='users.show' @model={{comment.author.id}}>
-          <strong>{{comment.author.fullNameWithNickname}}</strong>
+        <LinkTo @route='users.show' @model={{@comment.author.id}}>
+          <strong>{{@comment.author.fullNameWithNickname}}</strong>
         </LinkTo>
       {{else}}
         <strong>{{t 'component.userComment.anonymous'}}</strong>
       {{/if}}
 
-      {{#if comment.article}}
+      {{#if @comment.article}}
         {{#if (can 'destroy article-comments')}}
-          <LinkTo @route='article-comments.destroy' @model={{comment.id}}>
+          <LinkTo @route='article-comments.destroy' @model={{@comment.id}}>
             <FaIcon @icon='trash' class='text-muted destroy-icon ml-2' />
           </LinkTo>
         {{/if}}
-      {{else if comment.photo}}
+      {{else if @comment.photo}}
         {{#if (can 'destroy photo-comments')}}
-          <LinkTo @route='photo-comments.destroy' @model={{comment.id}}>
+          <LinkTo @route='photo-comments.destroy' @model={{@comment.id}}>
             <FaIcon @icon='trash' class='text-muted destroy-icon ml-2' />
           </LinkTo>
         {{/if}}
@@ -31,11 +31,11 @@
     </div>
 
     <div class='d-flex'>
-      <span> {{comment.content}} </span>
+      <span> {{@comment.content}} </span>
     </div>
 
     <div class='d-flex'>
-      <small class='text-muted'> {{moment-calendar comment.createdAt}} </small>
+      <small class='text-muted'> {{moment-calendar @comment.createdAt}} </small>
     </div>
   </div>
 </div>

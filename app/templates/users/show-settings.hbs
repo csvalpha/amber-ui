@@ -7,7 +7,7 @@
     Deze informatie is alleen voor jou, het bestuur en de ICT-commissie
     beschikbaar
   </p>
-  {{cards/privacy-preference model data-test-privacy-preference-card=true}}
+  <Cards::PrivacyPreference @model={{model}} />
 
   <h5>Afgeschermde informatie</h5>
   <table class='table table-sm'>
@@ -49,7 +49,7 @@
     </tr>
     <tr>
       <td>Ingeschakeld</td>
-      <td data-test-loginEnabled>{{boolean-tag @model.loginEnabled}}</td>
+      <td data-test-loginEnabled><BooleanTag @value={{@model.loginEnabled}} /></td>
     </tr>
     <tr>
       <td>Activatiedatum</td>
@@ -71,7 +71,7 @@
     </tr>
     <tr>
       <td>Two-Factor geactiveerd</td>
-      <td data-test-otpRequired>{{boolean-tag @model.otpRequired}}</td>
+      <td data-test-otpRequired><BooleanTag @value={{@model.otpRequired}} /></td>
     </tr>
   </table>
 </TabbedView>

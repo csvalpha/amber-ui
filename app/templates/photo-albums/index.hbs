@@ -18,7 +18,7 @@
   {{#each model as |album|}}
     <div class='col-md-6'>
       <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
-        {{cards/photo-album-card album}}
+        <Cards::PhotoAlbumCard @album={{album}} />
       </LinkTo>
     </div>
   {{else}}

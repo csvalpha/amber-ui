@@ -37,7 +37,7 @@
             {{group.name}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors 'moderatorGroup')}}
+          <FormControlFeedback @errors={{get @model.errors 'moderatorGroup'}} />
         </div>
       </div>
 
@@ -65,7 +65,7 @@
             {{group.name}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors 'group')}}
+          <FormControlFeedback @errors={{get @model.errors 'group'}} />
         </div>
       </div>
 
@@ -87,7 +87,7 @@
             {{user.fullNameWithNickname}}
           </PowerSelect>
 
-          {{form-control-feedback (get @model.errors 'user')}}
+          <FormControlFeedback @errors={{get @model.errors 'user'}} />
         </div>
       </div>
 

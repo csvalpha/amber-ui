@@ -1,10 +1,10 @@
-<div class='d-flex justify-content-between align-items-center pb-2'>
+<div class='d-flex justify-content-between align-items-center pb-2' data-test-privacy-preference-card>
   <h5 class='m-0'>Privacyinstellingen</h5>
 
-  {{#if (can 'edit user' model)}}
+  {{#if (can 'edit user' @model)}}
     <LinkTo
       @route='users.edit-privacy'
-      @model={{model.id}}
+      @model={{@model.id}}
       class='btn btn-outline-info'
     >
       Voorkeuren wijzigen
@@ -31,17 +31,19 @@
       streepsysteem
     </td>
     <td data-test-allow-tomato-sharing>
-      {{boolean-tag @model.allowTomatoSharing}}
+      <BooleanTag @value={{@model.allowTomatoSharing}} />
     </td>
   </tr>
   <tr>
     <td>Gegevens mogen gedeeld worden met IFES</td>
     <td data-test-ifes-sharing-preference>
-      {{boolean-tag @model.ifesDataSharingPreference}}
+      <BooleanTag @value={{@model.ifesDataSharingPreference}} />
     </td>
   </tr>
   <tr>
     <td>Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak</td>
-    <td data-test-info-in-almanak>{{boolean-tag @model.infoInAlmanak}}</td>
+    <td data-test-info-in-almanak>
+      <BooleanTag @value={{@model.infoInAlmanak}} />
+    </td>
   </tr>
 </table>
