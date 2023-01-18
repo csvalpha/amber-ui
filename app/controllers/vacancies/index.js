@@ -6,5 +6,5 @@ export default class VacancyIndexController extends FilterableAndSortableControl
   @tracked sortedAscending = false;
 
   routeOnEnter = 'vacancies.show';
-  queryParams = ['page'];
+  queryParams = ['sort' ,'page'];
 }
