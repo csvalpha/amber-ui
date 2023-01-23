@@ -5,7 +5,7 @@ export default class VacanciesIndexController extends FilterableAndSortableContr
   @tracked sortedAttribute = 'created_at';
   @tracked sortedAscending = false;
 
-  queryParams = ['page'];
+  queryParams = ['page', 'sort'];
 
   routeOnEnter = 'vacancies.vacancy';
 }
