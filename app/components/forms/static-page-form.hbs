@@ -37,14 +37,14 @@
           Inhoud
         </label>
         <div class='col-sm-10'>
-          <MdEditor @content={{@model.content}} />
+          <MdEditor @content={{@model.content}} @textareaId='article-form-content' @setContent={{@setContent}}/>
         </div>
       </div>
 
       <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
-        <LinkTo @route='static-pages.index' class='btn btn-default'>
+        <button {{action @onCancel}} type="button" class='btn btn-default'>
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

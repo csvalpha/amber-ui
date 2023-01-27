@@ -1,57 +1,38 @@
-import { computed } from '@ember/object';
-import { all } from 'rsvp';
-import { isNone } from '@ember/utils';
+import { action } from '@ember/object';
 import EditController from 'amber-ui/controllers/application/edit';
 
-export default EditController.extend({
-  successMessage: 'Incasso aangepast!',
-  users: computed('store', function () {
-    return this.store.findAll('user');
-  }),
-  actions: {
-    addUser(user) {
-      this.model
-        .get('transactions')
-        .pushObject(this.store.createRecord('debit/transaction', { user }));
-    },
-    removeTransaction(transaction) {
-      transaction.deleteRecord();
-    },
-    submit() {
-      const collection = this.model;
-      this.set('errorMessage', null);
+export default class DebitCollectionEditController extends EditController {
+  successMessage = 'Incasso aangepast!';
+  cancelMessage = 'Incasso aanpassen geannuleerd.';
+  successTransitionTarget = 'debit.collections.show';
 
-      if (!isNone(collection)) {
-        let failedTransactions = 0;
-        collection
-          .save()
-          .then(() => {
-            return all(
-              collection.get('transactions').map((transaction) => {
-                if (transaction.get('hasDirtyAttributes')) {
-                  return transaction.save().catch(() => {
-                    failedTransactions++;
-                  });
-                }
-              })
-            );
-          })
-          .then(() => {
-            if (failedTransactions) {
-              const prefix = failedTransactions > 1 ? 'zijn' : 'is';
-              this.set(
-                'errorMessage',
-                `Er ${prefix} ${failedTransactions} transacties niet juist opgeslagen`
-              );
-            } else {
-              this.flashNotice.sendSuccess('Incasso aangepast!');
-              this.transitionToRoute('debit.collections.show', collection.id);
-            }
-          })
-          .catch((error) => {
-            this.set('errorMessage', error.message);
-          });
-      }
-    },
-  },
-});
+  get users() {
+    return this.store.findAll('user');
+  }
+
+  @action
+  addUser(user) {
+    this.model
+      .get('transactions')
+      .pushObject(this.store.createRecord('debit/transaction', { user }));
+  }
+
+  @action
+  removeTransaction(transaction) {
+    // note: this deletion only persists when calling .save() on the transaction,
+    // or by calling something like saveWithTransactions() on the collection.
+    // TLDR: deleteRecord is not the same as destroyRecord
+    transaction.deleteRecord();
+  }
+
+  @action
+  async submit() {
+    this.errorMessage = null;
+    try {
+      await this.model.saveWithTransactions();
+      this.modelSaveUtil.onSuccess();
+    } catch (error) {
+      this.modelSaveUtil.onError(error);
+    }
+  }
+}

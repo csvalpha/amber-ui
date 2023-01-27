@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 import { inject as service } from '@ember/service';
 
-export default class BookEditController extends EditController {
+export default class EditBookController extends EditController {
   @service fetch;
 
   successTransitionTarget = 'books.show';
@@ -66,5 +66,10 @@ export default class BookEditController extends EditController {
           this.lookupIsbnError = true;
         }
       });
+  }
+
+  @action
+  setContent(content) {
+    this.model.description = content;
   }
 }

@@ -5,7 +5,7 @@
   <div class='card-body'>
     <p class='card-text'>
       Weet je zeker dat je dit forumbericht van
-      <b>{{@model.author.fullName}}</b>
+      <b>{{@model.author.fullNameWithNickname}}</b>
       wilt verwijderen?
     </p>
     <p class='card-text'>
@@ -18,15 +18,15 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <LinkTo
-      @route='forum.categories.category.threads.thread'
-      @model={{@model.thread}}
+    <button
+      {{action 'cancel'}}
       class='btn btn-default'
+      type='button'
     >
       Annuleren
-    </LinkTo>
+    </button>
   </div>
 </div>

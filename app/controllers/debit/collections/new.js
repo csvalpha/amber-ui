@@ -1,19 +1,27 @@
-import { alias } from '@ember/object/computed';
 import EmberArray from '@ember/array';
-import NewController from 'amber-ui/controllers/application/new';
+import { action } from '@ember/object';
+import EditController from 'amber-ui/controllers/application/edit';
 
-export default NewController.extend({
-  successMessage: 'Incasso opgeslagen!',
-  successTransitionTarget: 'debit.collections.show',
-  successTransitionModel: alias('model.id'),
+export default class DebitCollectionNewController extends EditController {
+  successMessage = 'Incasso aangemaakt!';
+  cancelMessage = 'Incasso aanmaken geannuleerd.';
+  successTransitionTarget = 'debit.collections.show';
+  cancelTransitionTarget = 'debit.collections.index';
+  get cancelTransitionModel() {
+    return null;
+  }
 
-  validMimetypes: 'text/csv',
-  validExtensions: EmberArray.apply(['csv']),
+  validMimetypes = EmberArray.apply([
+    'text/csv',
+    'application/vnd.oasis.opendocument.spreadsheet',
+    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'application/vnd.ms-excel.sheet.macroenabled.12',
+  ]);
 
-  actions: {
-    fileLoaded(file) {
-      const collection = this.model;
-      collection.set('importFile', file.data);
-    },
-  },
-});
+  validExtensions = EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']);
+  @action
+  fileLoaded(file) {
+    const collection = this.model;
+    collection.importFile = file.data;
+  }
+}

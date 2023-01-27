@@ -1,6 +1,7 @@
 <Forms::GroupForm
   @model={{@model}}
   @onSubmit={{action 'submit'}}
+  @onCancel={{action 'cancel'}}
   @onFileLoaded={{action 'fileLoaded'}}
   @groupKindOptions={{this.groupKindOptions}}
   @errorMessage={{this.errorMessage}}

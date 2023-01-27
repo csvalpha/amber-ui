@@ -88,7 +88,7 @@
       />
 
       {{! Link to alpha-tomato }}
-      <a class='link' href='https://streep.csvalpha.nl' target='_blank'>
+      <a class='link' href={{this.sofiaUrl}} target='_blank'>
         <MenuSidebarItem
           @link=''
           @hasPermission={{session.isAuthenticated}}
@@ -138,6 +138,12 @@
       @hasPermission={{can 'show activities'}}
       @icon='calendar-days'
       @title={{t 'mixin.menuItems.activities'}}
+    />
+    <MenuSidebarItem
+      @link='vacancies'
+      @hasPermission={{can 'show vacancies'}}
+      @icon='suitcase'
+      @title={{t 'mixin.menuItems.vacancies'}}
     />
     <MenuSidebarItem
       @link='forum'

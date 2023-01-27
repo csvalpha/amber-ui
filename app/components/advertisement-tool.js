@@ -14,27 +14,14 @@ export default Component.extend({
     }
   ),
 
-  // Don't forget to also increment the 'amountOfAdvertisements' variable
-  // in styles/components/advertisement-tool.scss
+  // Don't forget to also increment the 'amountOfAdvertisements' variable in
+  // styles/components/advertisement-tool.scss and the number of advertisements
+  // in tests/rendering/components/advertisement-tool-test.js
   advertisementItems: [
     {
-      title: 'Knaek',
-      alt: 'Onbeperkt geld besparen met de studentenkortingsapp op meer dan 1.000 locaties en online',
-      link: 'https://www.knaek.nl/studentenkorting/Enschede',
-      image: 'advertisements/knaek.png',
-      full: true,
-    },
-    {
-      title: 'EasySwitch',
-      alt: 'energie vergelijken',
-      link: 'https://www.easyswitch.nl/energie-vergelijken/',
-      image: 'advertisements/easyswitch.png',
-      full: true,
-    },
-    {
-      title: 'Maxilia',
-      link: 'https://www.maxilia.nl/',
-      image: 'advertisements/maxilia-relatiegeschenken.png',
+      title: 'Qorting.nl',
+      link: 'https://qorting.nl/',
+      image: 'advertisements/qorting.png',
       full: true,
     },
     {
@@ -44,50 +31,10 @@ export default Component.extend({
       full: true,
     },
     {
-      title: 'Wasmachine huren bij Meo Lease',
-      link: 'http://www.meolease.nl',
-      image: 'advertisements/meolease.gif',
-      full: true,
-    },
-    {
-      title: 'Bierglazen bedrukken met logo',
-      alt: 'Bierglazen bedrukken met logo',
-      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
-      image: 'advertisements/rike.png',
-      full: true,
-    },
-    {
       title: 'Cibdol - Swiss purity',
       link: 'https://www.cibdol.nl/',
       image: 'advertisements/cibdol.gif',
       full: true,
-    },
-    {
-      title: 'Student Wegwijzer',
-      link: 'https://www.studentenwegwijzer.nl/',
-      image: 'advertisements/studentwegwijzer.png',
-      full: true,
-    },
-    {
-      title: 'SKEPP B.V.',
-      link: 'https://skepp.nl/nl/',
-      image: 'advertisements/skepp.png',
-      full: true,
-    },
-    {
-      title: 'Sans Online',
-      link: 'https://www.sans-online.nl/dameskleding/jurken/',
-      image: 'advertisements/sans.png',
-    },
-    {
-      title: 'Boeketcadeau',
-      link: 'https://www.boeketcadeau.nl/',
-      image: 'advertisements/boeketcadeau.png',
-    },
-    {
-      title: 'Hekwerkonline',
-      link: 'https://www.hekwerkonline.nl/',
-      image: 'advertisements/hekwerkonline.png',
     },
     {
       title: 'InShared',
@@ -95,19 +42,39 @@ export default Component.extend({
       image: 'advertisements/inshared.png',
     },
     {
-      title: 'Sani4all',
-      link: 'https://www.sani4all.nl/',
-      image: 'advertisements/sani4all.png',
+      title: 'Led24',
+      link: 'https://www.led24.nl/led-verlichting/led-tl-buis/',
+      image: 'advertisements/led24.png',
     },
     {
-      title: 'Schattige babykleertjes',
-      link: 'https://www.schattigebabykleertjes.nl/',
-      image: 'advertisements/schattige-babykleertjes.png',
+      title: 'Noppies',
+      link: 'https://www.noppies.com/',
+      image: 'advertisements/noppies.png',
     },
     {
-      title: 'Sfeer.nl',
-      link: 'https://www.sfeer.nl/',
-      image: 'advertisements/sfeer.png',
+      title: 'Rotimshop',
+      link: 'https://www.rotimshop.nl/',
+      image: 'advertisements/rotim.png',
+    },
+    {
+      title: 'Sans Online',
+      link: 'https://www.sans-online.nl/herenkleding/jassen/',
+      image: 'advertisements/sans.png',
+    },
+    {
+      title: 'Sliponline',
+      link: 'https://www.sliponline.nl/kinderen/kinder-nachtkleding/kinder-pyjama/',
+      image: 'advertisements/sliponline.png',
+    },
+    {
+      title: 'Stellingstunt',
+      link: 'https://www.stellingstunt.nl/',
+      image: 'advertisements/stellingstunt.png',
+    },
+    {
+      title: 'Baktotaal Bouwhuis',
+      link: 'https://www.bouwhuis.com/',
+      image: 'advertisements/bouwhuis.png',
     },
     {
       title: 'Shops United',
@@ -115,53 +82,41 @@ export default Component.extend({
       image: 'advertisements/shops-united.png',
     },
     {
-      title: 'Sliponline',
-      link: 'https://www.sliponline.nl/',
-      image: 'advertisements/sliponline.png',
+      title: 'Urbansofa',
+      link: 'https://www.urbansofa.nl/',
+      image: 'advertisements/urbansofa.png',
     },
     {
-      title: 'Regiobloemist',
-      link: 'https://www.regiobloemist.nl',
-      image: 'advertisements/regiobloemist.png',
+      title: 'Prefixbroker',
+      link: 'https://www.prefixbroker.com/',
+      image: 'advertisements/prefixbroker.png',
     },
     {
-      title: 'BeBo Parket',
-      link: 'https://www.beboparket.nl/',
-      image: 'advertisements/bebo-parket.png',
+      title: 'Van Eyck Shutters',
+      link: 'https://www.vaneyckshutters.com/',
+      image: 'advertisements/van-eyck.png',
     },
     {
-      title: 'Superfoodies',
-      link: 'https://superfoodies.nl/',
-      image: 'advertisements/superfoodies.png',
+      title: 'Verzekering.nl',
+      link: 'https://www.verzekering.nl/',
+      image: 'advertisements/verzekering.png',
     },
     {
-      title: 'Wifimedia',
-      link: 'https://www.wifimedia.eu/',
-      image: 'advertisements/wifimedia.png',
+      title: 'Zantman Kliniek',
+      link: 'https://www.zantmankliniek.nl/',
+      image: 'advertisements/zantman.png',
     },
     {
-      title: 'Maxiaxi',
-      link: 'https://www.maxiaxi.com',
-      image: 'advertisements/maxiaxi.png',
-    },
-    {
-      title: 'Traffic Today',
-      link: 'https://www.traffictoday.nl/',
-      image: 'advertisements/traffic-today.png',
+      title: 'Bierglazen bedrukken met logo',
+      alt: 'Bierglazen bedrukken met logo',
+      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
+      image: 'advertisements/rike.png',
     },
     {
       links: [
         {
-          link: 'https://www.simonlydiscount.nl',
-          title: 'sim only vergelijken',
-        },
-        {
           link: 'https://www.huurzone.nl/aanbod/nederland.html',
           title: 'huurwoningen',
-        },
-        {
-          link: 'https://www.opzeggen24.nl/abonnement-opzeggen/telegraaf-opzeggen.html',
-          title: 'telegraaf opzeggen',
         },
       ],
     },

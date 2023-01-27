@@ -80,11 +80,11 @@
             @disabled={{@anyGroup}}
             @placeholder='Gebruiker'
             @searchEnabled={{true}}
-            @searchField='fullName'
+            @searchField='fullNameWithNickname'
             @allowClear={{true}}
             as |user|
           >
-            {{user.fullName}}
+            {{user.fullNameWithNickname}}
           </PowerSelect>
 
           {{form-control-feedback (get @model.errors 'user')}}
@@ -101,9 +101,9 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <LinkTo @route='mail-aliases.index' class='btn btn-default'>
+        <button {{action @onCancel}} type="button" class='btn btn-default'>
           Annuleren
-        </LinkTo>
+        </button>
       </ModelForm::FormActions>
     </form>
   </div>

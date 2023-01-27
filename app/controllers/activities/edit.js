@@ -1,17 +1,18 @@
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { action, computed } from '@ember/object';
+import { action } from '@ember/object';
 import { ActivityCategories } from 'amber-ui/constants';
-import Controller from '@ember/controller';
 import { isNone } from '@ember/utils';
 import { inject as service } from '@ember/service';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { union } from '@ember/object/computed';
+import EditController from '../application/edit';
+import { union } from '../../utils/array-operations';
 
-export default class EditActivityController extends Controller {
+export default class EditActivityController extends EditController {
+  successMessage = 'Activiteit opgeslagen!';
+  successTransitionTarget = 'activities.show';
+
   @service session;
-  @service store;
   @service abilities;
-  @service('flash-notice') flashNotice;
 
   _activityCategoryToOption(activityCategory) {
     return {
@@ -20,61 +21,56 @@ export default class EditActivityController extends Controller {
     };
   }
 
-  @union('model.errors', 'model.form.errors')
-  combinedErrors;
+  get combinedErrors() {
+    const combined = union(
+      this.model.errors.content,
+      this.model.form?.get('errors')?.content ?? []
+    );
+    return combined.length > 0 ? combined : null;
+  }
 
-  @computed('model.form.content', {
-    get() {
-      return !isNone(this.model.form.content);
-    },
-    set(_, value) {
-      if (value) {
-        const form = this.store.createRecord('form/form');
-        this.store.createRecord('form/open-question', {
-          form,
-          question: 'Opmerkingen',
-          fieldType: 'text',
-          position: 0,
-        });
-        this.set('model.form', form);
-      } else {
-        this.set('model.form', null);
-      }
+  get activityHasForm() {
+    return !isNone(this.model.form.content);
+  }
 
-      return value;
-    },
-  })
-  activityHasForm;
+  set activityHasForm(value) {
+    if (value) {
+      const form = this.store.createRecord('form/form');
+      this.store.createRecord('form/open-question', {
+        form,
+        question: 'Opmerkingen',
+        fieldType: 'text',
+        position: 0,
+      });
+      this.model.form = form;
+    } else {
+      this.model.form = null;
+    }
+  }
 
-  @computed('session.currentUser', function () {
+  get groups() {
     if (this.abilities.can('select all groups for activities')) {
       return this.store.findAll('group');
     }
-
     return this.session.currentUser.get('groups');
-  })
-  groups;
+  }
 
-  @computed('_activityCategoryToOption', function () {
+  get activityCategoryOptions() {
     return ActivityCategories.map(this._activityCategoryToOption);
-  })
-  activityCategoryOptions;
+  }
 
   @action
   submit() {
-    this.model
-      .saveWithForm()
-      .then((savedActivity) => {
-        this.transitionToRoute('activities.show', savedActivity.id);
-        this.flashNotice.sendSuccess('Activiteit opgeslagen!');
-      })
-      .catch((error) => {
-        this.set('errorMessage', error.message);
-      });
+    this.modelSaveUtil.saveModelWithForm(this.model);
   }
 
   @action
   coverPhotoLoaded(file) {
     this.model.set('coverPhoto', file.data);
+  }
+
+  @action
+  setContent(content) {
+    this.model.description = content;
   }
 }

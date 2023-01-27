@@ -1,13 +1,13 @@
 <article class='card'>
   <div class='card-body'>
     <div class='card-text'>
-      {{#if alias}}
+      {{#if this.alias}}
         <h3>Je mailalias is aangemaakt!</h3>
         <p>
           Je kunt alle ingeschrevenen mailen via
-          <b>{{alias}}</b>.<br />
+          <b>{{this.alias}}</b>.<br />
           Dit alias verloopt op
-          {{moment-format expires_at 'DD-MM-YYYY [om] HH:mm'}}.
+          {{moment-format this.expiresAt 'DD-MM-YYYY [om] HH:mm'}}.
         </p>
       {{else}}
         <p>
@@ -21,7 +21,7 @@
       {{/if}}
     </div>
 
-    {{#unless alias}}
+    {{#unless this.alias}}
       <button
         type='button'
         class='btn btn-danger mb-2'

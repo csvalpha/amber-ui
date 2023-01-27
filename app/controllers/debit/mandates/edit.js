@@ -1,12 +1,13 @@
 import EditController from 'amber-ui/controllers/application/edit';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
-import { computed } from '@ember/object';
+import { inject as service } from '@ember/service';
 
 export default class EditMandateController extends EditController {
   successTransitionTarget = 'debit.mandates.show';
 
-  @computed('store', function () {
+  @service store;
+
+  get users() {
     return this.store.findAll('user');
-  })
-  users;
+  }
 }

@@ -1,0 +1,88 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5>{{if @model.isNew 'Vacature aanmaken' 'Vacature wijzigen'}}</h5>
+  </div>
+  <div class='card-body'>
+    <form {{action @onSubmit on='submit'}}>
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='title'
+        @label='Titel'
+        @required={{true}}
+        @maxlength={{50}}
+      />
+      <ModelForm::FileInput
+        @model={{@model}}
+        @property='coverPhoto'
+        @label='Coverfoto'
+        @loadedCallback={{@onCoverPhotoLoaded}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='workload'
+        @label='Werklast'
+        @maxlength={{50}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='workloadPeak'
+        @label='Piekmoment'
+        @maxlength={{50}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='contact'
+        @label='Contact (e-mailadres, telefoonnummer of link)'
+      />
+      <ModelForm::DateInput
+        @model={{@model}}
+        @property='deadline'
+        @label='Deadline'
+      />
+
+      <div class='row'>
+        <div class='col-md-12'>
+          <div class='form-group row'>
+            <label class='col-md-2 form-control-label'>Namens groep of commissie</label>
+
+            <div class='col-sm-10'>
+              <PowerSelect
+                @options={{@groups}}
+                @onChange={{action (mut @model.group)}}
+                @selected={{@model.group}}
+                @searchEnabled={{true}}
+                @searchField='name'
+                @allowClear={{true}}
+                as |group|
+              >
+                {{group.name}}
+              </PowerSelect>
+
+              {{form-control-feedback (get @model.errors 'group')}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ModelForm::MdInput
+        @model={{@model}}
+        @property='description'
+        @label='Beschrijving'
+        @inputIdentifier='article-form-content'
+      />
+
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{@errorMessage}}
+      >
+        <button
+          {{action @onCancel}}
+          type="button"
+          class='btn btn-default'
+        >
+          Annuleren
+        </button>
+      </ModelForm::FormActions>
+    </form>
+  </div>
+</div>

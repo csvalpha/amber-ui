@@ -12,12 +12,10 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroy'}} class='btn btn-danger' type='button'>
+    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <LinkTo @route='users.show' @model={{model.id}} class='btn btn-default'>
-      Annuleren
-    </LinkTo>
+    <button {{action 'cancel'}} class="btn btn-default" type="button">Annuleren</button>
   </div>
 </div>
 
@@ -50,6 +48,10 @@
       <tr>
         <td>Achternaam</td>
         <td>{{@model.lastName}}</td>
+      </tr>
+      <tr>
+        <td>Bijnaam</td>
+        <td>{{@model.nickname}}</td>
       </tr>
       <tr>
         <td>Geboortedatum</td>
