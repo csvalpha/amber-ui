@@ -3637,7 +3637,7 @@ __metadata:
     "@glimmer/tracking": ^1.0.4
     "@sentry/ember": ^7.28.1
     babel-eslint: ^10.1.0
-    bootstrap: ^5.1.3
+    bootstrap: ^5.2.3
     broccoli-asset-rev: ^3.0.0
     ember-async-data: ^0.7.0
     ember-auto-import: ^2.2.4
@@ -5361,12 +5361,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap@npm:^5.1.3":
-  version: 5.1.3
-  resolution: "bootstrap@npm:5.1.3"
+"bootstrap@npm:^5.2.3":
+  version: 5.2.3
+  resolution: "bootstrap@npm:5.2.3"
   peerDependencies:
-    "@popperjs/core": ^2.10.2
-  checksum: 301b5ed872efba061104cf22ac93568e3837867fb5527ab9326a51510fb752bd4883e1d488225c8be72f86d9d3a55ef5b166aa7fa62c2fdd077c3f05b65752f8
+    "@popperjs/core": ^2.11.6
+  checksum: 0211805dec6a190c0911d142966df30fdb4b4139a04cc6c23dd83c6045ea3cb0a966b360ab2e701e7b3ad96ff01e05fdc0914be97b41bd876b11e457a8bdc6a3
   languageName: node
   linkType: hard
 
