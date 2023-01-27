@@ -120,5 +120,11 @@ export default Component.extend({
         },
       ],
     },
+    {
+      title: 'Top 5 Beste Kopen',
+      alt: 'Vergelijk de beste producten',
+      link: 'https://www.top5bestekopen.nl',
+      image: 'advertisements/trendiq.jpg',
+    },
   ],
 });
