@@ -46,8 +46,8 @@
                 type='button'
                 class='btn btn-secondary'
                 title='{{opt.name}}'
-                data-toggle='modal'
-                data-target='#insertModal'
+                data-bs-toggle='modal'
+                data-bs-target='#insertModal'
                 {{on 'click' (fn this.openModal opt)}}
               >
                 <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}} />

@@ -8,14 +8,12 @@
         <h5 class='modal-title'>{{@title}}</h5>
         {{#if @closeModal}}
           <button
-            class='close'
-            data-dismiss='modal'
+            class='btn-close'
+            data-bs-dismiss='modal'
             aria-label='Close'
             {{action @closeModal}}
             type='button'
-          >
-            <span aria-hidden='true'><FaIcon @icon='xmark' /></span>
-          </button>
+          ></button>
         {{/if}}
       </div>
 
