@@ -1,7 +1,7 @@
 <span class='font-weight-bold mb-3'>Open vraag</span>
 
 {{#unless question.form.hasResponses}}
-  <div class='float-md-right mb-3'>
+  <div class='float-md-end mb-3'>
     <FaIcon @icon='xmark' {{on 'click' (action 'deleteQuestion')}} />
   </div>
 {{/unless}}
@@ -51,7 +51,7 @@
 
   {{#unless question.form.hasResponses}}
     <div class='col-md-7 col-sm-12'>
-      <div class='float-md-right'>
+      <div class='float-md-end'>
         <button
           type='button'
           class='btn btn-default'
