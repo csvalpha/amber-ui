@@ -33,18 +33,15 @@
         />
       </div>
 
-      <div class='form-group ms-2'>
-        <label class='form-check-label ps-3'>
-          <Input
+      <div class='form-check'>
+        <Input
             class='form-check-input'
             @type='checkbox'
             name='required'
             @checked={{question.required}}
             disabled={{question.form.hasResponses}}
           />
-          Verplicht
-          <div class='custom-checkmark'></div>
-        </label>
+        <label class='form-check-label'>Verplicht</label>
       </div>
     </div>
   </div>
@@ -76,21 +73,12 @@
 
 {{#each question.sortedOptions as |opt|}}
   {{#unless opt.isDeleted}}
-    <div class='form-group'>
+    <div class='form-group d-flex mb-2'>
+      <span class='input-group-addon d-flex justify-content-center align-items-center me-3'>
+        <input class="form-check-input" type={{question.fieldType}} disabled={{true}} />
+      </span>
+      
       <div class='input-group'>
-        <span
-          class='input-group-addon d-flex justify-content-center align-items-center'
-        >
-          <label class='form-check-label' for='check-label'>
-            <input type={{question.fieldType}} disabled={{true}} />
-            {{#if (eq question.fieldType 'checkbox')}}
-              <div class='custom-checkmark input-checkmark'></div>
-            {{else}}
-              <div class='custom-radiobutton input-checkmark'></div>
-            {{/if}}
-          </label>
-        </span>
-
         <Input
           @type='text'
           class='form-control'
@@ -102,29 +90,27 @@
         />
 
         {{#unless question.form.hasResponses}}
-          <div class='input-group-append'>
-            <button
-              type='button'
-              class='btn btn-default'
-              {{action 'moveOptionUp' opt}}
-            >
-              <FaIcon @icon='arrow-up' />
-            </button>
-            <button
-              type='button'
-              class='btn btn-default'
-              {{action 'moveOptionDown' opt}}
-            >
-              <FaIcon @icon='arrow-down' />
-            </button>
-            <button
-              type='button'
-              class='btn btn-default'
-              {{action 'deleteOption' opt}}
-            >
-              <FaIcon @icon='trash' />
-            </button>
-          </div>
+          <button
+            type='button'
+            class='btn btn-default'
+            {{action 'moveOptionUp' opt}}
+          >
+            <FaIcon @icon='arrow-up' />
+          </button>
+          <button
+            type='button'
+            class='btn btn-default'
+            {{action 'moveOptionDown' opt}}
+          >
+            <FaIcon @icon='arrow-down' />
+          </button>
+          <button
+            type='button'
+            class='btn btn-default'
+            {{action 'deleteOption' opt}}
+          >
+            <FaIcon @icon='trash' />
+          </button>
         {{/unless}}
       </div>
     </div>

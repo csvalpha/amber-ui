@@ -1,7 +1,7 @@
 <h5>Privacyinstellingen</h5>
 <form class='form' {{action @onSubmit on='submit'}}>
   {{#if isOwnUser}}
-    <div class='form-group row'>
+    <div class='form-group row align-items-center'>
       <label class='col-sm-6 col-form-label form-control-label'>
         Profieldetails (contactgegevens, studie, geboortedatum en dieetwensen)
         delen
@@ -17,23 +17,18 @@
       </div>
     </div>
 
-    <div class='form-group row'>
+    <div class='form-group row align-items-center'>
       <label class='col-10 col-sm-6 col-form-label form-control-label'>
         Gegevens (naam, mailadres, geboortedatum) mogen gedeeld worden met het
         streepsysteem
       </label>
       <div class='col-2 col-sm-6'>
-        <div class='form-check'>
-          <label class='form-check-label'>
-            <Input
-              @type='checkbox'
-              @checked={{@model.allowTomatoSharing}}
-              disabled={{canChangeTomatoSettings}}
-              class='form-check-input'
-            />
-            <div class='custom-checkmark'></div>
-          </label>
-        </div>
+        <Input
+          @type='checkbox'
+          @checked={{@model.allowTomatoSharing}}
+          disabled={{canChangeTomatoSettings}}
+          class='form-check-input'
+        />
       </div>
     </div>
 
@@ -45,7 +40,7 @@
     {{/if}}
   {{/if}}
 
-  <div class='form-group row'>
+  <div class='form-group row align-items-center'>
     <label class='col-sm-6 col-form-label form-control-label'>
       Mediabeleidvoorkeur
     </label>
@@ -61,41 +56,31 @@
     </div>
   </div>
 
-  <div class='form-group row'>
+  <div class='form-group row align-items-center'>
     <label class='col-10 col-sm-6 col-form-label form-control-label'>
       Gegevens mogen gedeeld worden met IFES
     </label>
     <div class='col-2 col-sm-6'>
-      <div class='form-check'>
-        <label class='form-check-label'>
-          {{input
-            data-test-ifesDataSharingPreference=true
-            type='checkbox'
-            checked=@model.ifesDataSharingPreference
-            class='form-check-input'
-          }}
-          <div class='custom-checkmark'></div>
-        </label>
-      </div>
+      {{input
+        data-test-ifesDataSharingPreference=true
+        type='checkbox'
+        checked=@model.ifesDataSharingPreference
+        class='form-check-input'
+      }}
     </div>
   </div>
 
-  <div class='form-group row'>
+  <div class='form-group row align-items-center'>
     <label class='col-10 col-sm-6 col-form-label form-control-label'>
       Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak
     </label>
     <div class='col-2 col-sm-6'>
-      <div class='form-check'>
-        <label class='form-check-label'>
-          {{input
-            data-test-infoInAlmanak=true
-            type='checkbox'
-            checked=@model.infoInAlmanak
-            class='form-check-input'
-          }}
-          <div class='custom-checkmark'></div>
-        </label>
-      </div>
+      {{input
+        data-test-infoInAlmanak=true
+        type='checkbox'
+        checked=@model.infoInAlmanak
+        class='form-check-input'
+      }}
     </div>
   </div>
 

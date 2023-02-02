@@ -4,8 +4,7 @@
 <div class={{if (not-eq inputLayout 'vertical') 'col-sm-10'}}>
   {{#each options as |opt|}}
     <div class='form-check'>
-      <label class='form-check-label' for='{{inputIdentifier}}-{{opt.value}}'>
-        <ModelForm::CheckboxButton
+      <ModelForm::CheckboxButton
           @class={{concat 'form-check-input ' inputValidityClass}}
           @name={{inputIdentifier}}
           @id={{concat inputIdentifier '-' opt.value}}
@@ -14,9 +13,7 @@
           @required={{requiredAndNothingSelected}}
           @disabled={{disabled}}
         />
-        <div class='custom-checkmark'></div>
-        {{opt.label}}
-      </label>
+      <label class='form-check-label' for='{{inputIdentifier}}-{{opt.value}}'>{{opt.label}}</label>
     </div>
   {{/each}}
 

@@ -33,18 +33,15 @@
         />
       </div>
 
-      <div class='form-group ms-2'>
-        <label class='form-check-label ps-3'>
-          <Input
+      <div class='form-check'>
+        <Input
             class='form-check-input'
             @type='checkbox'
             name='required'
             @checked={{question.required}}
             disabled={{question.form.hasResponses}}
           />
-          Verplicht
-          <div class='custom-checkmark'></div>
-        </label>
+        <label class='form-check-label'>Verplicht</label>
       </div>
     </div>
   </div>

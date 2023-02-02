@@ -20,16 +20,17 @@
         <form class='row' id='activityCategoryForm'>
           {{#each activityCategoryOptions as |opt|}}
             <div class='col-sm-12 col-md-3'>
-              <label class='form-check-label'>
+              <div class='form-check'>
                 <Input
                   @type='checkbox'
                   name={{opt.value}}
                   @checked={{opt.checked}}
                   class='form-check-input'
                 />
-                {{opt.label}}
-                <div class='custom-checkmark'></div>
-              </label>
+                <label class='form-check-label'>
+                  {{opt.label}}
+                </label>
+              </div>
             </div>
           {{/each}}
         </form>

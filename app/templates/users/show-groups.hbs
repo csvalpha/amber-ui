@@ -16,14 +16,13 @@
       @enter={{this.selectFirstItem}}
     >
       <div class='form-check'>
+        <Input
+          @type='checkbox'
+          @checked={{showAdministrativeGroups}}
+          class='form-check-input'
+        />
         <label class='form-check-label'>
-          <Input
-            @type='checkbox'
-            @checked={{showAdministrativeGroups}}
-            class='form-check-input'
-          />
           Toon administratieve groepen
-          <div class='custom-checkmark'></div>
         </label>
       </div>
     </FilterBar>

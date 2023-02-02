@@ -1,13 +1,12 @@
 {{#if editable}}
+  <Input
+        @type='checkbox'
+        class='form-check-input'
+        name={{permission.name}}
+        @checked={{hasPermission}}
+      />
   <label class='form-check-label'>
-    <Input
-      @type='checkbox'
-      class='form-check-input'
-      name={{permission.name}}
-      @checked={{hasPermission}}
-    />
     {{permission.action}}
-    <div class='custom-checkmark'></div>
   </label>
 {{else}}
   {{#if (or hasPermission hasInheritedPermission)}}

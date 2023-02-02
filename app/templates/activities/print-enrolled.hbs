@@ -31,14 +31,13 @@
       <form class='col-12'>
         {{#if (eq this.currentTab 'form')}}
           <div class='form-check'>
-            <label class='form-check-label'>
-              <Input
+            <Input
                 @type='checkbox'
                 @checked={{this.showAllergyInfo}}
                 class='form-check-input'
               />
+            <label class='form-check-label'>
               Dieetwensen weergeven
-              <div class='custom-checkmark'></div>
             </label>
           </div>
 
@@ -103,14 +102,13 @@
               </div>
 
               <div class='form-check'>
+                <Input
+                  @type='checkbox'
+                  @checked={{this.showRobertHofstra}}
+                  class='form-check-input'
+                />
                 <label class='form-check-label'>
-                  <Input
-                    @type='checkbox'
-                    @checked={{this.showRobertHofstra}}
-                    class='form-check-input'
-                  />
                   Robert Hofstra toevoegen
-                  <div class='custom-checkmark'></div>
                 </label>
               </div>
             </div>
@@ -118,14 +116,13 @@
         {{/if}}
 
         <div class='form-check'>
+          <Input
+            @type='checkbox'
+            @checked={{this.showCheckbox}}
+            class='form-check-input'
+          />
           <label class='form-check-label'>
-            <Input
-              @type='checkbox'
-              @checked={{this.showCheckbox}}
-              class='form-check-input'
-            />
             Aanvinkhokje weergeven
-            <div class='custom-checkmark'></div>
           </label>
         </div>
 

@@ -1,19 +1,17 @@
 <div class='{{labelClass}}'></div>
 <div class='{{inputWrapperClass}}'>
   <div class='form-check'>
-    <label class='form-check-label'>
-      <Input
+    <Input
         data-test-input={{property}}
         @type='checkbox'
         id={{inputIdentifier}}
         @checked={{mut (get model property)}}
-        class={{concat 'form-input-checkbox ' inputValidityClass}}
+        class={{concat 'form-check-input ' inputValidityClass}}
         required={{required}}
         disabled={{disabled}}
-      />
-      <div class='custom-checkmark'></div>
+    />
+    <label class='form-check-label'>
       {{label}}{{if required ' *'}}
-
       {{form-control-feedback (get @model.errors property)}}
     </label>
   </div>
