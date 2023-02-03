@@ -11,15 +11,13 @@
         @maxlength={{20}}
         @inputWrapperClass='col-sm-10 input-group'
       >
-        <div class='input-group-append'>
-          <button
-            type='button'
-            class='btn btn-outline-dark'
-            {{on 'click' @onToggleScanner}}
-          >
-            <FaIcon @icon='barcode' />
-          </button>
-        </div>
+        <button
+          type='button'
+          class='btn btn-outline-dark rounded-end'
+          {{on 'click' @onToggleScanner}}
+        >
+          <FaIcon @icon='barcode' />
+        </button>
       </ModelForm::TextInput>
       {{#if @showScanner}}
         <div class='row'>

@@ -60,36 +60,23 @@ legend {
   align-items: center;
   height: $navbar-height;
 
-  .input-group-prepend {
-    border: 0;
-    padding-right: 1px;
-  }
-
-  .input-group-append {
-    border: 0;
-  }
-
   .input-group-text {
     border: 0;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: tint-color($brand-primary, 50%);
   }
 
   .filter-bar-filter {
-    margin-right: 1px;
+    // margin-right: 1px;
+    margin-left: 0;
     border: 0;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: tint-color($brand-primary, 50%);
     padding: 0;
     padding-left: 12px;
   }
 
-  .input-group-append button {
+  .input-group button {
     border: 0;
-    background-color: rgb(255 255 255 / 50%);
-  }
-
-  .input-group-prepend button {
-    border: 0;
-    background-color: rgb(255 255 255 / 50%);
+    background-color: tint-color($brand-primary, 50%);
   }
 
   .form-check {

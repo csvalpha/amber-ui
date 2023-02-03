@@ -22,7 +22,11 @@ a {
 
   &:hover {
     text-decoration: none;
-    color: shade-color($brand-primary-dark, 10%);
+    color: $brand-primary-dark;
+  }
+
+  .list-group-item:hover {
+    color: $brand-primary-dark;
   }
 }
 
