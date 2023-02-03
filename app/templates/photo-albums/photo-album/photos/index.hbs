@@ -16,7 +16,7 @@
     <div class='col-md-3 col-xs-6 photo-album-image-card'>
       <LinkTo @route='photo-albums.photo-album.photos.show' @model={{photo.id}}>
         {{#if photo.amountOfComments}}
-          <span class='comments-counter badge badge-info'>
+          <span class='comments-counter badge bg-info'>
             <FaIcon @icon='comments' />
             {{photo.amountOfComments}}
           </span>
