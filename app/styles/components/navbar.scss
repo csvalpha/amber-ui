@@ -70,7 +70,6 @@
 
 .btn-locale {
   transition: none;
-  margin-right: 24px;
   background-color: transparent;
   background-repeat: no-repeat;
   background-position: center;
@@ -103,13 +102,6 @@
   .dropdown-item:hover,
   .dropdown-item.active:hover {
     background-color: $brand-primary-dark;
-  }
-}
-
-@media all and (max-width: #{map-get($grid-breakpoints, md)}) {
-  .btn-locale {
-    margin-right: 10px;
-    margin-left: -20px;
   }
 }
 

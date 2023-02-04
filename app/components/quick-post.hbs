@@ -111,13 +111,15 @@
     {{/each}}
 
     {{#if showLoaderButton}}
-      <button
-        class='btn btn-sm btn-block btn-secondary btn-read-more'
-        {{action 'loadMore'}}
-        type='button'
-      >
-        Meer laden
-      </button>
+      <div class="d-grid">
+        <button
+          class='btn btn-sm btn-secondary btn-read-more'
+          {{action 'loadMore'}}
+          type='button'
+        >
+          Meer laden
+        </button>
+      </div>
     {{/if}}
   </div>
 </div>

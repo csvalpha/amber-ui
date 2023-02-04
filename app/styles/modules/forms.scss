@@ -60,13 +60,16 @@ legend {
   align-items: center;
   height: $navbar-height;
 
+  div {
+    width: fit-content;
+  }
+
   .input-group-text {
     border: 0;
     background-color: tint-color($brand-primary, 50%);
   }
 
   .filter-bar-filter {
-    // margin-right: 1px;
     margin-left: 0;
     border: 0;
     background-color: tint-color($brand-primary, 50%);
