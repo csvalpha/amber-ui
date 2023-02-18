@@ -3,8 +3,8 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  classNames: ['form-group'],
-  classNameBindings: ['usesGrid:form-row'],
+  classNames: ['mb-3'],
+  classNameBindings: ['usesGrid:d-flex'],
   inputLayout: null,
   usesGrid: none('inputLayout'),
   labelClass: 'col-sm-2',

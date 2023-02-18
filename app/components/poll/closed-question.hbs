@@ -1,4 +1,4 @@
-<div class='form-group'>
+<div class='mb-3'>
   <Input
     @type='text'
     class='form-control'
@@ -10,27 +10,23 @@
   />
 </div>
 
-<div class='form-group row'>
+<div class='mb-3 row'>
   <div class='col-md-5 col-sm-12'>
-    <div class='form-inline'>
-      <div class='form-group'>
-        <label class='sr-only'>Vraagtype</label>
-        <Input::SelectInput
-          @class='form-control'
-          @required={{required}}
-          @options={{questionTypeOptions}}
-          @placeholder={{Vraagtype}}
-          @value={{question.fieldType}}
-          @disabled={{question.form.hasResponses}}
-        />
-      </div>
-    </div>
+    <label class='sr-only'>Vraagtype</label>
+    <Input::SelectInput
+      @class='form-select'
+      @required={{required}}
+      @options={{questionTypeOptions}}
+      @placeholder={{Vraagtype}}
+      @value={{question.fieldType}}
+      @disabled={{question.form.hasResponses}}
+    />
   </div>
 </div>
 
 {{#each question.sortedOptions as |opt|}}
   {{#unless opt.isDeleted}}
-    <div class='form-group d-flex mb-2'>
+    <div class='mb-3 d-flex mb-2'>
       <span class='input-group-addon d-flex justify-content-center align-items-center me-3'>
         <input class="form-check-input" type={{question.fieldType}} disabled={{true}} />
       </span>
@@ -75,7 +71,7 @@
 {{/each}}
 
 {{#unless question.form.hasResponses}}
-  <button type='button' class='btn btn-secondary' {{action 'addOption'}}>
+  <button type='button' class='btn btn-default' {{action 'addOption'}}>
     Optie toevoegen
   </button>
 {{/unless}}

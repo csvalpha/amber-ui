@@ -20,7 +20,7 @@
             {{/if}}
 
             {{#if twoFactorRequired}}
-              <div class='form-group'>
+              <div class='mb-3'>
                 <Input
                   @type='text'
                   @value={{verificationCode}}
@@ -35,7 +35,7 @@
                 <p>{{t 'template.login.authcodeHint'}}</p>
               </div>
             {{else}}
-              <div class='form-group'>
+              <div class='mb-3'>
                 <Input
                   @type='text'
                   @value={{username}}
@@ -46,7 +46,7 @@
                   id='field-username'
                 />
               </div>
-              <div class='form-group password-textfield'>
+              <div class='password-textfield'>
                 <Input
                   @type='password'
                   @value={{password}}

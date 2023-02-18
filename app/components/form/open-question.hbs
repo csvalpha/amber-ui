@@ -1,4 +1,4 @@
-<span class='font-weight-bold mb-3'>Open vraag</span>
+<span class='fw-bold mb-3'>Open vraag</span>
 
 {{#unless question.form.hasResponses}}
   <div class='float-md-end mb-3'>
@@ -6,7 +6,7 @@
   </div>
 {{/unless}}
 
-<div class='form-group'>
+<div class='mb-3'>
   <Input
     @type='text'
     class='form-control'
@@ -18,13 +18,13 @@
   />
 </div>
 
-<div class='form-group row'>
+<div class='mb-3 row'>
   <div class='col-md-5 col-sm-12'>
-    <div class='form-inline'>
-      <div class='form-group'>
+    <div class='d-flex align-items-center flex-wrap'>
+      <div>
         <label class='sr-only'>Vraagtype</label>
         <Input::SelectInput
-          @class='form-control'
+          @class='form-select'
           @required={{required}}
           @options={{questionTypeOptions}}
           @placeholder={{Vraagtype}}
@@ -33,7 +33,7 @@
         />
       </div>
 
-      <div class='form-check'>
+      <div class='form-check ms-2'>
         <Input
             class='form-check-input'
             @type='checkbox'
