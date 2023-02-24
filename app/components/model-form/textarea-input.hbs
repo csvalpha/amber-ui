@@ -1,6 +1,6 @@
 {{#if (eq inputLayout 'vertical')}}
   <div class='mb-3'>
-    <label class='vertical-label' for={{inputIdentifier}}>
+    <label class='vertical-label form-label' for={{inputIdentifier}}>
       {{label}}{{if required ' *'}}
     </label>
     <Textarea
@@ -16,7 +16,7 @@
   </div>
 {{else}}
   <label
-    class='col-sm-2 col-form-label form-control-label'
+    class='col-sm-2 col-form-label form-label'
     for={{inputIdentifier}}
   >
     {{label}}{{if required ' *'}}

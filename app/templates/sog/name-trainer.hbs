@@ -214,7 +214,7 @@
       {{/if}}
       <div class='card-body'>
         <div class='mb-3'>
-          <label>Groep</label>
+          <label class="form-label">Groep</label>
           <PowerSelect
             @options={{@model}}
             @selected={{this.group}}
@@ -228,7 +228,7 @@
         </div>
 
         <div class='mb-3'>
-          <label>Moeilijkheidsgraad</label>
+          <label class="form-label">Moeilijkheidsgraad</label>
           <Input::SelectInput
             @class='form-control'
             @options={{this.difficultyOptions}}

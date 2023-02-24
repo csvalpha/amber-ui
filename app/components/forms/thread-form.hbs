@@ -12,7 +12,7 @@
       />
 
       {{#if @model.isNew }}
-        <label for='forumpost-message'>Bericht *</label>
+        <label for='forumpost-message' class="form-label">Bericht *</label>
         <MdEditor
           @content={{@model.firstPost.message}}
           @textareaId='forumpost-message'

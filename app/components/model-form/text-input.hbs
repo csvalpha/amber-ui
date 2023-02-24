@@ -1,5 +1,5 @@
 {{#if (eq inputLayout 'vertical')}}
-  <label class='vertical-label' for={{inputIdentifier}}>
+  <label class='vertical-label form-label' for={{inputIdentifier}}>
     {{label}}{{if required ' *'}}
   </label>
   <Input
@@ -17,7 +17,7 @@
   {{form-control-feedback (get @model.errors property)}}
 {{else}}
   <label
-    class='col-form-label form-control-label {{labelClass}}'
+    class='col-form-label form-label {{labelClass}}'
     for={{inputIdentifier}}
   >
     {{label}}{{if required ' *'}}
