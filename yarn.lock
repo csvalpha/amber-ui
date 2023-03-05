@@ -3643,7 +3643,7 @@ __metadata:
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
     ember-can: ^4.2.0
-    ember-cli: ~3.28.5
+    ember-cli: ~3.28.6
     ember-cli-babel: ^7.26.10
     ember-cli-content-security-policy: ^2.0.3
     ember-cli-dependency-checker: ^3.2.0
@@ -9145,9 +9145,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~3.28.5":
-  version: 3.28.5
-  resolution: "ember-cli@npm:3.28.5"
+"ember-cli@npm:~3.28.6":
+  version: 3.28.6
+  resolution: "ember-cli@npm:3.28.6"
   dependencies:
     "@babel/core": ^7.13.8
     "@babel/plugin-transform-modules-amd": ^7.12.1
@@ -9242,7 +9242,7 @@ __metadata:
     yam: ^1.0.0
   bin:
     ember: bin/ember
-  checksum: 01badab6239582566bfa66473fd9362557bebba739e893c7e82c47a4d98ea042e3f14a3973dca73bb1463d9b3fdebae98b0398aea3122d666f581a13ab1210c8
+  checksum: 72259548e44db86ba485f0f3e249205871b866ceb40d3fc51fded957f14efd5c445d3656f7c54c02a90610587c3ba94eb034d997c9d1b84529aed212d730f5f3
   languageName: node
   linkType: hard
 
