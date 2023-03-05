@@ -1721,18 +1721,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/test-waiters@npm:^3.0.1":
-  version: 3.0.2
-  resolution: "@ember/test-waiters@npm:3.0.2"
-  dependencies:
-    calculate-cache-key-for-tree: ^2.0.0
-    ember-cli-babel: ^7.26.6
-    ember-cli-version-checker: ^5.1.2
-    semver: ^7.3.5
-  checksum: 4ad673fd6c2edc45d7fe378c318dd7f86eabb74eabded5e36b073baa580e2fa2cbb74b52037a2af94a2de98777335129d236b9a33bd33efd30927b0f5e706eaf
-  languageName: node
-  linkType: hard
-
 "@embroider/addon-shim@npm:^0.50.2":
   version: 0.50.2
   resolution: "@embroider/addon-shim@npm:0.50.2"
@@ -1763,7 +1751,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.8.3":
+"@embroider/addon-shim@npm:^1.8.3, @embroider/addon-shim@npm:^1.8.4":
   version: 1.8.4
   resolution: "@embroider/addon-shim@npm:1.8.4"
   dependencies:
@@ -3679,7 +3667,7 @@ __metadata:
     ember-router-scroll: ^4.1.2
     ember-scanner: ^0.3.7
     ember-simple-auth: ^4.2.2
-    ember-sortable: ^4.0.3
+    ember-sortable: ^5.0.0
     ember-source: ~3.28.8
     ember-template-lint: ^3.6.0
     ember-test-selectors: ^6.0.0
@@ -9655,7 +9643,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^3.1.0, ember-modifier@npm:^3.2.0, ember-modifier@npm:^3.2.7":
+"ember-modifier@npm:^3.1.0, ember-modifier@npm:^3.2.7":
   version: 3.2.7
   resolution: "ember-modifier@npm:3.2.7"
   dependencies:
@@ -9902,15 +9890,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-sortable@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "ember-sortable@npm:4.0.3"
+"ember-sortable@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-sortable@npm:5.0.0"
   dependencies:
+    "@embroider/addon-shim": ^1.8.4
+  peerDependencies:
+    "@ember/test-helpers": ^2.6.0
     "@ember/test-waiters": ^3.0.1
-    "@embroider/macros": ^1.9.0
-    ember-cli-babel: ^7.26.11
-    ember-modifier: ^3.2.0
-  checksum: 26ff8739595f09e327825ba01ab56d16d87ffc639e650a34fedef3a84a54e2f5867ee43e681078877e15eb8701ccaa0e96fb6d5271513858abe9465b4acb6538
+    ember-modifier: ^3.2.0 || ^4.0.0
+    ember-source: ^3.28.0 || ^4.0.0
+  checksum: 4054230aa1027f72ed2f43250a1bd2fc0189904d537ac292b151d795978daf431e80aeb5c8eae86c137e6c21f9551131f2c7e4ba4e6c69a3e2745a08a0248a59
   languageName: node
   linkType: hard
 
