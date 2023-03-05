@@ -3724,7 +3724,6 @@ __metadata:
     remove-markdown: ^0.5.0
     sass: ^1.57.1
     stylelint: ^15.2.0
-    stylelint-config-prettier: ^9.0.4
     stylelint-config-sass-guidelines: ^9.0.1
     stylelint-config-standard: ^30.0.1
     stylelint-order: ^5.0.0
@@ -20038,18 +20037,6 @@ __metadata:
   version: 0.0.1
   resolution: "styled_string@npm:0.0.1"
   checksum: cc01e28ec5b7559e66cfb88b2a712beb3af91dc932df2bbe09e32d9bd5ae915bfe9dc1c1d3f5f9fcfe80acbe1ec2d741fa300a1a9032859c0f20856f5ef0e32a
-  languageName: node
-  linkType: hard
-
-"stylelint-config-prettier@npm:^9.0.4":
-  version: 9.0.4
-  resolution: "stylelint-config-prettier@npm:9.0.4"
-  peerDependencies:
-    stylelint: ">=11.0.0"
-  bin:
-    stylelint-config-prettier: bin/check.js
-    stylelint-config-prettier-check: bin/check.js
-  checksum: cf94f646f6b1756a9e41940524a8c276ec05be9a2a02907fee6cb4ebdc39e3a9049c96ec97e79cc3f3c0487f5870c81b3d68b0a65d1ee81cd9d7700420788cee
   languageName: node
   linkType: hard
 

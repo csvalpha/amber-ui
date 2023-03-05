@@ -6,8 +6,6 @@ module.exports = {
     'stylelint-config-standard',
     // Configuration based on https://sass-guidelin.es
     'stylelint-config-sass-guidelines',
-    // Configuration that turns off all Stylelint rules conflicting with prettier.
-    'stylelint-config-prettier',
     // Concentric order of declarations based on http://rhodesmill.org/brandon/2011/concentric-css/
     './.stylelintrc.order.js',
   ],
