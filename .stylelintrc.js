@@ -18,5 +18,27 @@ module.exports = {
     'scss/at-rule-no-unknown': null,
     'scss/dollar-variable-colon-space-after': null,
     'selector-class-pattern': null,
+
+    // All these disables are rules enabled by stylelint-config-sass-guidelines
+    // that are deprecated in stylelint v15, remove these when
+    // stylelint-config-sass-guidelines is upgraded to support v15.
+    'block-opening-brace-space-before': null,
+    'color-hex-case': null,
+    'declaration-bang-space-after': null,
+    'declaration-bang-space-before': null,
+    'declaration-block-semicolon-newline-after': null,
+    'declaration-block-semicolon-space-before': null,
+    'declaration-block-trailing-semicolon': null,
+    'declaration-colon-space-after': null,
+    'declaration-colon-space-before': null,
+    'function-comma-space-after': null,
+    'function-parentheses-space-inside': null,
+    indentation: null,
+    'media-feature-parentheses-space-inside': null,
+    'no-missing-end-of-source-newline': null,
+    'number-leading-zero': null,
+    'number-no-trailing-zeros': null,
+    'selector-list-comma-newline-after': null,
+    'string-quotes': null,
   },
 };
