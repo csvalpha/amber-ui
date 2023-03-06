@@ -51,7 +51,7 @@
     "ember-cli-htmlbars": "^5.7.2",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-mirage": "^2.4.0",
-    "ember-cli-page-object": "^1.17.12",
+    "ember-cli-page-object": "^2.0.0",
     "ember-cli-qrcode": "^2.1.0",
     "ember-cli-sass": "^11.0.1",
     "ember-cli-showdown": "^6.0.1",
@@ -79,7 +79,7 @@
     "ember-router-scroll": "^4.1.2",
     "ember-scanner": "^0.3.7",
     "ember-simple-auth": "^4.2.2",
-    "ember-sortable": "^4.0.3",
+    "ember-sortable": "^5.0.0",
     "ember-source": "~3.28.8",
     "ember-template-lint": "^3.6.0",
     "ember-test-selectors": "^6.0.0",
@@ -121,5 +121,5 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.3.1"
+  "packageManager": "yarn@3.4.1"
 }
