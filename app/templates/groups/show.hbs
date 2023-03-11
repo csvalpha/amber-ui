@@ -27,7 +27,7 @@
             </p>
           </div>
         </div>
-        <div class='col-md-5 col-xs-12 order-1 order-md-2'>
+        <div class='col-md-5 col-xs-12 order-1 order-md-2 p-md-2 pe-md-4'>
           <img class='card-img-rounded' src='{{@model.avatarUrlOrDefault}}' />
         </div>
       </div>
@@ -42,7 +42,7 @@
         <div class='card-header card-header-with-tabs'>
           <div class='row tabs-with-filterbar-row'>
             <div class='col order-2 order-md-1'>
-              <ul class='nav nav-tabs'>
+              <ul class='nav nav-tabs d-flex'>
                 <li class='nav-item'>
                   <a
                     class='nav-link
@@ -63,19 +63,21 @@
                     Oud-leden
                   </a>
                 </li>
+                <div class="flex-grow-1 d-flex justify-content-end">
+                  <FilterBar
+                    @filter={{this.filter}}
+                    @setFilter={{this.setFilter}}
+                    @sortedAttribute={{this.sortedAttribute}}
+                    @setSortedAttribute={{this.setSortedAttribute}}
+                    @sortableAttributes={{this.sortableAttributes}}
+                    @sortedAscending={{this.sortedAscending}}
+                    @setSortedAscending={{this.setSortedAscending}}
+                    @enter={{this.selectFirstItem}}
+                  />
+                </div>
               </ul>
             </div>
-            <FilterBar
-              @class='order-1 order-md-2 col-12 col-md-4 pb-1'
-              @filter={{this.filter}}
-              @setFilter={{this.setFilter}}
-              @sortedAttribute={{this.sortedAttribute}}
-              @setSortedAttribute={{this.setSortedAttribute}}
-              @sortableAttributes={{this.sortableAttributes}}
-              @sortedAscending={{this.sortedAscending}}
-              @setSortedAscending={{this.setSortedAscending}}
-              @enter={{this.selectFirstItem}}
-            />
+            
           </div>
         </div>
         <div class='card-body'>
@@ -142,12 +144,10 @@
                   {{alias.moderationType}}
                 </span>
                 {{#if (can 'edit mail-aliases')}}
-                  <LinkTo @route='mail-aliases.edit' @model={{alias.id}}>
-                    <span class='col-12 col-md-1 rtable-item'>
-                      <button type='button' class='btn btn-danger'>
-                        <FaIcon @icon='pencil' />
-                      </button>
-                    </span>
+                  <LinkTo @route='mail-aliases.edit' @model={{alias.id}} class="col-12 col-md-1 rtable-item">
+                    <button type='button' class='btn btn-danger py-1 px-2 '>
+                      <FaIcon @size="sm" @icon='pencil' />
+                    </button>
                   </LinkTo>
                 {{/if}}
               </div>

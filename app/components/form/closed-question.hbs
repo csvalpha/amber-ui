@@ -18,13 +18,13 @@
   />
 </div>
 
-<div class='mb-3 row'>
+<div class='row'>
   <div class='col-md-5 col-sm-12'>
     <div class='d-flex align-items-center flex-wrap'>
-      <div>
+      <div class="mb-3 me-2">
         <label class='visually-hidden form-label'>Vraagtype</label>
         <Input::SelectInput
-          @class='form-select'
+          @class='form-select w-auto'
           @required={{required}}
           @options={{questionTypeOptions}}
           @placeholder={{Vraagtype}}
@@ -33,7 +33,7 @@
         />
       </div>
 
-      <div class='form-check ms-2'>
+      <div class='form-check mb-3'>
         <Input
             class='form-check-input'
             @type='checkbox'

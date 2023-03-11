@@ -13,7 +13,7 @@
   <div class='card-block'>
     <div class='p-3 pb-5'>
       <div class='row pb-2'>
-        <LinkTo @route='users.show' @model={{session.currentUser.id}}>
+        <LinkTo class="p-0 w-auto" @route='users.show' @model={{session.currentUser.id}}>
           <img
             class='profile-picture profile-picture-md ms-3 p-0'
             alt='{{session.currentUser.fullName}}'
@@ -46,12 +46,12 @@
 
         <QuickPostNotificationButton />
 
-        <BsDropdown @class='ms-1' @closeOnMenuClick={{true}} as |dd|>
-          <dd.toggle @class='open-smiley-pane-button btn btn-default'>
+        <BsDropdown class='ms-1 d-block' @closeOnMenuClick={{true}} as |dd|>
+          <dd.button @type='button' class="btn-default">
             <FaIcon @icon='face-smile' @prefix='far' />
-          </dd.toggle>
-          <dd.menu @class='emoticon-holder' as |menu|>
-            <div class='row'>
+          </dd.button>
+          <dd.menu class='emoticon-holder card' as |menu|>
+            <div class='row gx-0'>
               {{#each emoticons as |emoticon|}}
                 <div class='emoticon' {{action 'appendSmileyToText' emoticon}}>
                   {{emoticon}}
@@ -74,7 +74,7 @@
     {{#each sortedMessages as |message index|}}
       <hr />
       <div class='row qp-message p-3'>
-        <LinkTo @route='users.show' @model={{message.author.id}}>
+        <LinkTo class="p-0 w-auto" @route='users.show' @model={{message.author.id}}>
           <img
             class='profile-picture profile-picture-md ms-3 p-0'
             alt='{{message.author.fullName}}'
@@ -87,12 +87,12 @@
             <LinkTo
               @route='users.show'
               @model={{message.author.id}}
-              class='col'
+              class='col w-auto'
             >
               <b class='text-sm text-muted'> {{message.author.fullNameWithNickname}} </b>
             </LinkTo>
 
-            <small class='text-muted pe-3'>
+            <small class='text-muted pe-3 w-auto'>
               {{#if (can 'destroy quickpost-messages')}}
                 <FaIcon
                   @icon='trash'

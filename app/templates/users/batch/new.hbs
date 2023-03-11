@@ -85,21 +85,22 @@
       <div class='row p-3'>
         <div class='col-sm-12'>
           <h5>Gevonden gebruikers</h5>
-
-          <table class='table table-striped table-sm table-responsive'>
-            <thead>
-              {{#each properties as |property|}}
-                <th scope='col'>{{property}}</th>
-              {{/each}}
-            </thead>
-            <tbody>
-              {{#each newUsers as |user|}}
-                <tr>
-                  {{#each-in user as |key value|}}<td>{{value}}</td>{{/each-in}}
-                </tr>
-              {{/each}}
-            </tbody>
-          </table>
+          <div class="table-responsive">
+            <table class='table table-striped table-sm'>
+              <thead>
+                {{#each properties as |property|}}
+                  <th scope='col'>{{property}}</th>
+                {{/each}}
+              </thead>
+              <tbody>
+                {{#each newUsers as |user|}}
+                  <tr>
+                    {{#each-in user as |key value|}}<td>{{value}}</td>{{/each-in}}
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 

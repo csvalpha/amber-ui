@@ -66,8 +66,7 @@ $card-border: 0 solid $gray-300;
 .card-header {
   border: 0;
   background-color: $white;
-  padding-right: 0.8rem;
-  padding-left: 0.8rem;
+  padding: 0.8rem;
 
   h5 {
     margin-bottom: 0;
@@ -153,6 +152,7 @@ $card-border: 0 solid $gray-300;
 
 .card-subheader-row {
   width: 100%;
+  border-bottom: 1px solid $gray-200;
 
   .card-subheader-item {
     border-right: 1px solid $gray-200;

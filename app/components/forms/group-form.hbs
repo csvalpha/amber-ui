@@ -157,11 +157,13 @@
     <div class='card-header'>
       <h5>Permissies</h5>
     </div>
-    {{#if (can 'create groups-permissions')}}
-      <Permissions::PermissionsTable
-        @modelPermissions={{@model.permissions}}
-        @editable={{true}}
-      />
-    {{/if}}
+    <div class="card-body">
+      {{#if (can 'create groups-permissions')}}
+        <Permissions::PermissionsTable
+          @modelPermissions={{@model.permissions}}
+          @editable={{true}}
+        />
+      {{/if}}
+    </div>
   </div>
 </form>

@@ -3,32 +3,9 @@
 </EmberWormhole>
 
 <TabbedView @tabItems={{tabItems}}>
-  <div class='row flex-row-reverse tabs-with-filterbar-row'>
-    <FilterBar
-      @class='col-12 col-lg-5 mb-2 mb-lg-0'
-      @filter={{this.filter}}
-      @setFilter={{this.setFilter}}
-      @sortedAttribute={{this.sortedAttribute}}
-      @setSortedAttribute={{this.setSortedAttribute}}
-      @sortableAttributes={{this.sortableAttributes}}
-      @sortedAscending={{this.sortedAscending}}
-      @setSortedAscending={{this.setSortedAscending}}
-      @enter={{this.selectFirstItem}}
-    >
-      <div class='form-check'>
-        <Input
-          @type='checkbox'
-          @checked={{showAdministrativeGroups}}
-          class='form-check-input'
-        />
-        <label class='form-check-label'>
-          Toon administratieve groepen
-        </label>
-      </div>
-    </FilterBar>
-
-    <div class='col-12 col-lg-7'>
-      <ul class='nav nav-tabs'>
+  <div class='row tabs-with-filterbar-row'>
+    <div class='col'>
+      <ul class='nav nav-tabs d-flex'>
         <li class='nav-item'>
           <a
             class='nav-link
@@ -49,6 +26,30 @@
             Voorheen
           </a>
         </li>
+        <div class="flex-grow-1 d-flex justify-content-end">
+          <FilterBar
+            @class='col-12 col-lg-5 mb-2 mb-lg-0'
+            @filter={{this.filter}}
+            @setFilter={{this.setFilter}}
+            @sortedAttribute={{this.sortedAttribute}}
+            @setSortedAttribute={{this.setSortedAttribute}}
+            @sortableAttributes={{this.sortableAttributes}}
+            @sortedAscending={{this.sortedAscending}}
+            @setSortedAscending={{this.setSortedAscending}}
+            @enter={{this.selectFirstItem}}
+          >
+            <div class='form-check'>
+              <Input
+                @type='checkbox'
+                @checked={{showAdministrativeGroups}}
+                class='form-check-input'
+              />
+              <label class='form-check-label'>
+                Toon administratieve groepen
+              </label>
+            </div>
+          </FilterBar>
+        </div>
       </ul>
     </div>
   </div>

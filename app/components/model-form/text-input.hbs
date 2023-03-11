@@ -23,20 +23,22 @@
     {{label}}{{if required ' *'}}
   </label>
   <div class='{{inputWrapperClass}}'>
-    <Input
-      @type={{type}}
-      step={{step}}
-      id={{inputIdentifier}}
-      @value={{mut (get model property)}}
-      class={{concat 'form-control ' inputValidityClass}}
-      placeholder={{placeholder}}
-      required={{required}}
-      disabled={{disabled}}
-      maxlength={{maxlength}}
-    />
+    <div class="{{if inputGroup "input-group"}}">
+      <Input
+        @type={{type}}
+        step={{step}}
+        id={{inputIdentifier}}
+        @value={{mut (get model property)}}
+        class={{concat 'form-control ' inputValidityClass}}
+        placeholder={{placeholder}}
+        required={{required}}
+        disabled={{disabled}}
+        maxlength={{maxlength}}
+      />
 
-    {{yield}}
+      {{yield}}
 
+    </div>
     {{form-control-feedback (get @model.errors property)}}
   </div>
 {{/if}}

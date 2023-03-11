@@ -3,7 +3,7 @@
 </legend>
 <div class={{if (not-eq inputLayout 'vertical') 'col-sm-10'}}>
   {{#each options as |opt|}}
-    <div class='form-check'>
+    <div class='form-check mb-2'>
       <ModelForm::CheckboxButton
           @class={{concat 'form-check-input ' inputValidityClass}}
           @name={{inputIdentifier}}
