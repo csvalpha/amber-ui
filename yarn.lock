@@ -1790,7 +1790,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.8.0, @embroider/addon-shim@npm:^1.8.3, @embroider/addon-shim@npm:^1.8.4":
+"@embroider/addon-shim@npm:^1.8.0, @embroider/addon-shim@npm:^1.8.4":
   version: 1.8.4
   resolution: "@embroider/addon-shim@npm:1.8.4"
   dependencies:
@@ -3677,7 +3677,7 @@ __metadata:
     babel-eslint: ^10.1.0
     bootstrap: ^4.6.2
     broccoli-asset-rev: ^3.0.0
-    ember-async-data: ^0.7.0
+    ember-async-data: ^1.0.1
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
     ember-can: ^4.2.0
@@ -8261,13 +8261,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-async-data@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "ember-async-data@npm:0.7.0"
+"ember-async-data@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "ember-async-data@npm:1.0.1"
   dependencies:
     "@ember/test-waiters": ^3.0.0
-    "@embroider/addon-shim": ^1.8.3
-  checksum: c6311efa90462c6c28c73c3babeda5afb4996b6af1496f06608f630fa69b117de1e6443ea56e19307102106e1e50fb6b57f23a22b1f4d73518289cc4ee125bb3
+    "@embroider/addon-shim": ^1.8.4
+  peerDependencies:
+    ember-source: ^4.8.4
+  checksum: 785b4d1eeab7d97d2e0034f640939caea61ca7f2066e462c8aebcd526367076df043d950695c32d331f2bdda391265a906ea5b65c64afea044a3839389b05a95
   languageName: node
   linkType: hard
 
