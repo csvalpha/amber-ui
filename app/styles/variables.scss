@@ -61,8 +61,8 @@ $table-striped-bg-factor: 0.03;
 // colors of ember-power-select
 $ember-power-select-border-color: #ced4da; // same as $gray-400
 $ember-power-select-trigger-icon-color: #ced4da;
-$ember-power-select-focus-border-color: mix($white, $component-active-bg, 50%);
-$ember-power-select-focus-box-shadow: 0 0 0 .2rem rgba(255, 210, 24, .25);
+$ember-power-select-focus-border-color: mix($white, $component-active-bg, 50%); /* stylelint-disable-line function-no-unknown */
+$ember-power-select-focus-box-shadow: 0 0 0 .2rem rgb(255 210 24 / 25%);
 
 // pixel value used to responsively scale all typography, applied to the `<html>` element.
 $font-size-root: 15px;

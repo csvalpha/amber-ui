@@ -26,8 +26,9 @@
                   name={{opt.value}}
                   @checked={{opt.checked}}
                   class='form-check-input'
+                  id="activity-category-{{opt.value}}-check"
                 />
-                <label class='form-check-label mb-2 text-break'>
+                <label class='form-check-label mb-2 text-break' for="activity-category-{{opt.value}}-check">
                   {{opt.label}}
                 </label>
               </div>

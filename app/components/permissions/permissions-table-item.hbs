@@ -4,8 +4,9 @@
         class='form-check-input'
         name={{permission.name}}
         @checked={{hasPermission}}
+        id="permission-{{permission.name}}-check"
       />
-  <label class='form-check-label'>
+  <label class='form-check-label' for="permission-{{permission.name}}-check">
     {{permission.action}}
   </label>
 {{else}}

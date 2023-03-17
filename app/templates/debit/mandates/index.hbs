@@ -39,11 +39,11 @@
           {{moment-format mandate.endDate 'DD-M-YYYY'}}
         </span>
         <span class='col-8 col-md-3 rtable-item'>
-        <LinkTo @route='users.show' @model={{mandate.user.id}}>
-          <span class='d-inline d-md-none text-muted'> Gebruiker: </span>
-          {{mandate.user.fullName}}
-        </LinkTo>
-         </span>
+          <LinkTo @route='users.show' @model={{mandate.user.id}}>
+            <span class='d-inline d-md-none text-muted'> Gebruiker: </span>
+            {{mandate.user.fullName}}
+          </LinkTo>
+        </span>
       </div>
     </LinkTo>
   {{/each}}

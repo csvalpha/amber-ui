@@ -95,13 +95,13 @@
 
   .dropdown-item,
   .dropdown-item.active {
-    padding: 0.375rem 0.75rem;
     border-radius: var(--bs-dropdown-border-radius);
+    padding: 0.375rem 0.75rem;
   }
 
   .dropdown-item:hover,
   .dropdown-item.active:hover {
-    background-color: tint-color($brand-primary, 25%);
+    background-color: tint-color($brand-primary, 25%); /* stylelint-disable-line function-no-unknown */
   }
 }
 

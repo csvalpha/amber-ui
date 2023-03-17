@@ -1,11 +1,11 @@
 .pagination {
+  margin-right: auto;
+  margin-left: auto;
   border: 1px solid $gray-300;
   border-radius: 0.25rem;
   background: $white;
-  height: inherit;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  height: inherit;
 }
 
 .page-item {

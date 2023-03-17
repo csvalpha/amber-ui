@@ -66,20 +66,20 @@ legend {
 
   .input-group-text {
     border: 0;
-    background-color: tint-color($brand-primary, 50%);
+    background-color: tint-color($brand-primary, 50%); /* stylelint-disable-line function-no-unknown */
   }
 
   .filter-bar-filter {
     margin-left: 0;
     border: 0;
-    background-color: tint-color($brand-primary, 50%);
+    background-color: tint-color($brand-primary, 50%); /* stylelint-disable-line function-no-unknown */
     padding: 0;
     padding-left: 12px;
   }
 
   .input-group button {
     border: 0;
-    background-color: tint-color($brand-primary, 50%);
+    background-color: tint-color($brand-primary, 50%); /* stylelint-disable-line function-no-unknown */
   }
 
   .form-check {
