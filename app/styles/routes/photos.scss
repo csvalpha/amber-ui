@@ -1,12 +1,13 @@
 // A photo in the overview of a photo album
 .photo-album-image-card {
   padding: 5px;
+  position: relative;
 
   .comments-counter {
     position: absolute;
     bottom: 0;
     margin-bottom: 1rem;
-    margin-left: 10px;
+    margin-left: 15px;
     padding-left: 5px;
   }
 
