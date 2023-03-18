@@ -40,8 +40,9 @@
             name='required'
             @checked={{question.required}}
             disabled={{question.form.hasResponses}}
+            id="question-{{question.position}}-required-check"
           />
-        <label class='form-check-label'>Verplicht</label>
+        <label class='form-check-label' for="question-{{question.position}}-required-check">Verplicht</label>
       </div>
     </div>
   </div>
@@ -75,7 +76,8 @@
   {{#unless opt.isDeleted}}
     <div class='d-flex mb-3'>
       <span class='input-group-addon d-flex justify-content-center align-items-center me-3'>
-        <input class="form-check-input" type={{question.fieldType}} disabled={{true}} />
+        <input id="question-{{question.position}}-option-{{opt.position}}-check" class="form-check-input" type={{question.fieldType}} disabled={{true}} />
+        <label for="question-{{question.position}}-option-{{opt.position}}-required-check"/>
       </span>
       
       <div class='input-group'>

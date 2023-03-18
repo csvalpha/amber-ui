@@ -40,8 +40,9 @@
             name='required'
             @checked={{question.required}}
             disabled={{question.form.hasResponses}}
+            id="question-{{question.position}}-required-check"
           />
-        <label class='form-check-label'>Verplicht</label>
+        <label class='form-check-label' for="question-{{question.position}}-required-check">Verplicht</label>
       </div>
     </div>
   </div>

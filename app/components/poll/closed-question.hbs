@@ -28,7 +28,8 @@
   {{#unless opt.isDeleted}}
     <div class='mb-3 d-flex mb-2'>
       <span class='input-group-addon d-flex justify-content-center align-items-center me-3'>
-        <input class="form-check-input" type={{question.fieldType}} disabled={{true}} />
+        <input id="question-{{question.position}}-option-{{opt.position}}-check" class="form-check-input" type={{question.fieldType}} disabled={{true}} />
+        <label for="question-{{question.position}}-option-{{opt.position}}-required-check"/>
       </span>
 
       <div class='input-group'>
