@@ -5,9 +5,10 @@
     <span class='status-dot label-{{overallStatus}}'></span>
 
     <BsPopover
-      @triggerEvents='focus'
+      {{!-- @triggerEvents='focus' --}}
       @placement='bottom'
       @title='Aanwezig in de BK'
+      @renderInPlace="{{true}}"
     >
       {{#each sortedPresences as |presence|}}
         <div class='py-1'>
