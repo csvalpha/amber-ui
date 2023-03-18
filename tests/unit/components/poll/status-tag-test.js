@@ -28,8 +28,8 @@ module('Unit | Component | poll/status tag', function (hooks) {
     assert.equal(component.get('content'), 'Open', 'can respond');
     assert.equal(
       component.get('colorIndicatorClass'),
-      'badge-info',
-      'can respond has badge-info class'
+      'bg-info',
+      'can respond has bg-info class'
     );
 
     const formOpensLater = EmberObject.create(
