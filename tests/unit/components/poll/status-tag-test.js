@@ -17,8 +17,8 @@ module('Unit | Component | poll/status tag', function (hooks) {
     );
     assert.equal(
       component.get('colorIndicatorClass'),
-      'badge-success',
-      'without form has badge-succes class'
+      'bg-success',
+      'without form has bg-succes class'
     );
 
     const formCanRespond = EmberObject.create(
@@ -62,8 +62,8 @@ module('Unit | Component | poll/status tag', function (hooks) {
     assert.equal(component.get('content'), 'Ingevuld', 'response completed');
     assert.equal(
       component.get('colorIndicatorClass'),
-      'badge-success',
-      'response completed has badge-success class'
+      'bg-success',
+      'response completed has bg-success class'
     );
   });
 });
