@@ -13,7 +13,22 @@
   }
 }
 
-.navbar-nav {
+.navbar-authenticated {
+  background-color: $dies-yellow;
+  color: $dies-blue;
+
+  .btn-primary {
+    border-color: $dies-blue;
+    background-color: $dies-blue;
+    color: $dies-yellow;
+  }
+
+  .header-logo {
+    background-image: url('/images/dies_logo.png');
+  }
+}
+
+.btn-primary .navbar-nav {
   height: calc(100% + 20px);
   min-height: calc(100% + 20px);
   overflow-x: scroll;
