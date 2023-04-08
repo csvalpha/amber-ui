@@ -11,18 +11,22 @@
         @required={{true}}
         @type='email'
         @placeholder='voorbeeld@csvalpha.nl'
+        @labelClass="col-sm-3"
+        @inputWrapperClass="col-sm-9"
       />
       <ModelForm::SelectInput
         @model={{@model}}
         @property='moderationType'
         @options={{@mailAliasModerationTypes}}
         @label='Moderatietype'
+        @labelClass="col-sm-3"
+        @inputWrapperClass="col-sm-9"
       />
 
       <div class='mb-3 row'>
-        <label class='col-md-2 form-label'>Moderator</label>
+        <label class='col-md-3 form-label'>Moderator</label>
 
-        <div class='col-sm-10'>
+        <div class='col-sm-9'>
           <PowerSelect
             @options={{@groups}}
             @onChange={{action (mut @model.moderatorGroup)}}
@@ -45,12 +49,14 @@
         @model={{@model}}
         @property='description'
         @label='Omschrijving'
+        @labelClass="col-sm-3"
+        @inputWrapperClass="col-sm-9"
       />
 
       <div class='mb-3 row'>
-        <label class='col-md-2 form-label'>Groep</label>
+        <label class='col-md-3 form-label'>Groep</label>
 
-        <div class='col-sm-10'>
+        <div class='col-sm-9'>
           <PowerSelect
             @options={{@groups}}
             @onChange={{action (mut @model.group)}}
@@ -70,9 +76,9 @@
       </div>
 
       <div class='mb-3 row'>
-        <label class='col-md-2 form-label'>Gebruiker</label>
+        <label class='col-md-3 form-label'>Gebruiker</label>
 
-        <div class='col-sm-10'>
+        <div class='col-sm-9'>
           <PowerSelect
             @options={{@users}}
             @onChange={{action (mut @model.user)}}
@@ -95,11 +101,14 @@
         @model={{@model}}
         @property='smtpEnabled'
         @label='SMTP inschakelen'
+        @labelClass="col-sm-3"
+        @inputWrapperClass="col-sm-9"
       />
 
       <ModelForm::FormActions
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
+        @formActionWrapperClass="col-sm-9"
       >
         <button {{action @onCancel}} type="button" class='btn btn-default'>
           Annuleren
