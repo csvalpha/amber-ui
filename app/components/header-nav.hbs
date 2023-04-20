@@ -1,5 +1,12 @@
-<nav class='navbar container-fluid pb-0 pt-0 d-flex justify-content-between' aria-label='breadcrumb'>
-  <span class='left-sidebar-toggle d-block d-md-none link' {{action 'toggleLeftSidebar'}}>
+<nav
+  class='navbar container-fluid pb-0 pt-0 d-flex justify-content-between
+    {{if session.isAuthenticated "navbar-authenticated"}}'
+  aria-label='breadcrumb'
+>
+  <span
+    class='left-sidebar-toggle d-block d-md-none link'
+    {{action 'toggleLeftSidebar'}}
+  >
     ☰
   </span>
 
