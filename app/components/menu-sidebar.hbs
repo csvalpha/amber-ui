@@ -1,8 +1,7 @@
 <div
   class='menu-sidebar
     {{if layoutManager.leftSideBarOpen "left-sidebar-open"}}
-    {{if layoutManager.leftSideBarExpanded "expanded"}}
-    {{if session.isAuthenticated "menu-sidebar-authenticated"}}'
+    {{if layoutManager.leftSideBarExpanded "expanded"}}'
 >
   <EmberWormhole @to='ember-wormhole-destination'>
     <div
