@@ -116,7 +116,7 @@
     "workerpool@^2.3.0": "^2.3.4"
   },
   "engines": {
-    "node": "14.* || >= 16"
+    "node": ">= 16"
   },
   "ember": {
     "edition": "octane"
