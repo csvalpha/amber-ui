@@ -108,7 +108,7 @@
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^30.0.1",
     "stylelint-order": "^6.0.2",
-    "stylelint-scss": "^4.4.0",
+    "stylelint-scss": "^5.0.0",
     "webpack": "^5.65.0"
   },
   "resolutions": {
@@ -121,5 +121,5 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.5.1"
 }
