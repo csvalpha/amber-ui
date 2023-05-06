@@ -6,7 +6,7 @@ export default class CollectionIndexController extends Controller {
     this.model.transactions.forEach((transaction) => {
       const user = transaction.get('user');
       let transactionGroup = transactions.find(
-        (transactionGroup) => transactionGroup.user === user
+        (transactionGroup) => transactionGroup.user.get('id') === user.get('id')
       );
       if (!transactionGroup) {
         transactionGroup = {
