@@ -3,8 +3,8 @@ import Component from '@ember/component';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  classNames: ['form-group'],
-  classNameBindings: ['usesGrid:form-row'],
+  classNames: ['mb-3'],
+  classNameBindings: ['usesGrid:row'],
   inputLayout: null,
   usesGrid: none('inputLayout'),
   labelClass: 'col-sm-2',
@@ -18,6 +18,7 @@ export default Component.extend({
   property: null,
   disabled: false,
   required: false,
+  inputGroup: false,
   isInvalid: computed('model.errors.[]', 'property', function () {
     return this.get(`model.errors.${this.property}.length`) > 0;
   }),

@@ -22,15 +22,19 @@
       />
 
       {{#if @model.publiclyVisible}}
-        <div class='alert alert-warning' role='alert'>
-          Een publiek foto-album verschijnt op de voorpagina, en is ook voor
-          externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg
-          dat je toestemming hebt. Zie het mediabeleid voor meer informatie.
+        <div class="row">
+          <div class="col-sm-10 offset-sm-2">
+            <div class='alert alert-warning' role='alert'>
+              Een publiek foto-album verschijnt op de voorpagina, en is ook voor
+              externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg
+              dat je toestemming hebt. Zie het mediabeleid voor meer informatie.
+            </div>
+          </div>
         </div>
       {{/if}}
 
-      <div class='form-group row'>
-        <label class='col-md-2 form-control-label'>Namens groep of commissie</label>
+      <div class='mb-3 row'>
+        <label class='col-md-2 form-label'>Namens groep of commissie</label>
 
         <div class='col-sm-10'>
           <PowerSelect
@@ -50,23 +54,32 @@
       </div>
 
       {{#if @model.isNew}}
-        <div class='alert alert-info'>
-          In de volgende stap kun je de foto's uploaden
+        <div class="row">
+          <div class="col-sm-10 offset-sm-2">
+            <div class='alert alert-info'>
+              In de volgende stap kun je de foto's uploaden
+            </div>
+          </div>
         </div>
       {{else}}
-        <div class='alert alert-info' role='alert'>
-          <p> Geplaatste afbeeldingen moeten aan de volgende eisen voldoen: </p>
-          <ul>
-            <li>Resolutie: Maximaal 8192 pixels breed en hoog</li>
-            <li>Bestandsgrootte: Maximaal 8 MB</li>
-            <li>Bestandsformaat: .jpg, .jpeg of .png</li>
-          </ul>
+        <div class="row">
+          <div class="col-sm-10 offset-sm-2">
+            <div class='alert alert-info' role='alert'>
+              <p> Geplaatste afbeeldingen moeten aan de volgende eisen voldoen: </p>
+              <ul>
+                <li>Resolutie: Maximaal 8192 pixels breed en hoog</li>
+                <li>Bestandsgrootte: Maximaal 8 MB</li>
+                <li>Bestandsformaat: .jpg, .jpeg of .png</li>
+              </ul>
+            </div>
+            <DropZone
+              @url={{@model.dropzoneEndpoint}}
+              @headers={{@dropzoneHeaders}}
+              @maxFilesize={{@model.maxFilesize}}
+              @dictDefaultMessage="Sleep hier een nieuwe bestand naartoe of klik om een bestand te kiezen"
+            />
+          </div>
         </div>
-        <DropZone
-          @url={{@model.dropzoneEndpoint}}
-          @headers={{@dropzoneHeaders}}
-          @maxFilesize={{@model.maxFilesize}}
-        />
       {{/if}}
 
       <ModelForm::FormActions

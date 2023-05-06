@@ -1,8 +1,8 @@
 <h5>Privacyinstellingen</h5>
 <form class='form' {{action @onSubmit on='submit'}}>
   {{#if isOwnUser}}
-    <div class='form-group row'>
-      <label class='col-sm-6 col-form-label form-control-label'>
+    <div class='mb-3 row align-items-center'>
+      <label class='col-sm-6 col-form-label form-label'>
         Profieldetails (contactgegevens, studie, geboortedatum en dieetwensen)
         delen
       </label>
@@ -17,36 +17,32 @@
       </div>
     </div>
 
-    <div class='form-group row'>
-      <label class='col-10 col-sm-6 col-form-label form-control-label'>
+    <div class='mb-1 row align-items-center'>
+      <label class='col-10 col-sm-6 col-form-label form-label' for="share-with-streep-check">
         Gegevens (naam, mailadres, geboortedatum) mogen gedeeld worden met het
         streepsysteem
       </label>
       <div class='col-2 col-sm-6'>
-        <div class='form-check'>
-          <label class='form-check-label'>
-            <Input
-              @type='checkbox'
-              @checked={{@model.allowTomatoSharing}}
-              disabled={{canChangeTomatoSettings}}
-              class='form-check-input'
-            />
-            <div class='custom-checkmark'></div>
-          </label>
-        </div>
+        <Input
+          @type='checkbox'
+          @checked={{@model.allowTomatoSharing}}
+          disabled={{canChangeTomatoSettings}}
+          class='form-check-input'
+          id="share-with-streep-check"
+        />
       </div>
     </div>
 
     {{#if @model.allowTomatoSharing}}
-      <div class='alert alert-info'>
+      <div class='alert alert-info mb-5'>
         Het is alleen mogelijk deze instelling uit te zetten via het bestuur. Om
         dit te deactiveren moet uw saldo namelijk eerst 0 zijn.
       </div>
     {{/if}}
   {{/if}}
 
-  <div class='form-group row'>
-    <label class='col-sm-6 col-form-label form-control-label'>
+  <div class='mb-3 row align-items-center'>
+    <label class='col-sm-6 col-form-label form-label'>
       Mediabeleidvoorkeur
     </label>
     <div class='col-sm-6'>
@@ -61,41 +57,33 @@
     </div>
   </div>
 
-  <div class='form-group row'>
-    <label class='col-10 col-sm-6 col-form-label form-control-label'>
+  <div class='mb-3 row align-items-center'>
+    <label class='col-10 col-sm-6 col-form-label form-label' for="share-with-ifes-check">
       Gegevens mogen gedeeld worden met IFES
     </label>
     <div class='col-2 col-sm-6'>
-      <div class='form-check'>
-        <label class='form-check-label'>
-          {{input
-            data-test-ifesDataSharingPreference=true
-            type='checkbox'
-            checked=@model.ifesDataSharingPreference
-            class='form-check-input'
-          }}
-          <div class='custom-checkmark'></div>
-        </label>
-      </div>
+      {{input
+        data-test-ifesDataSharingPreference=true
+        type='checkbox'
+        checked=@model.ifesDataSharingPreference
+        class='form-check-input'
+        id="share-with-ifes-check"
+      }}
     </div>
   </div>
 
-  <div class='form-group row'>
-    <label class='col-10 col-sm-6 col-form-label form-control-label'>
+  <div class='mb-3 row align-items-center'>
+    <label class='col-10 col-sm-6 col-form-label form-label' for="share-with-almanak-check">
       Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak
     </label>
     <div class='col-2 col-sm-6'>
-      <div class='form-check'>
-        <label class='form-check-label'>
-          {{input
-            data-test-infoInAlmanak=true
-            type='checkbox'
-            checked=@model.infoInAlmanak
-            class='form-check-input'
-          }}
-          <div class='custom-checkmark'></div>
-        </label>
-      </div>
+      {{input
+        data-test-infoInAlmanak=true
+        type='checkbox'
+        checked=@model.infoInAlmanak
+        class='form-check-input'
+        id="share-with-almanak-check"
+      }}
     </div>
   </div>
 

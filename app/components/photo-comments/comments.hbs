@@ -7,7 +7,7 @@
       <div class='col'>
         <div>
           {{#each @model.comments as |comment|}}
-            <div class='row'>
+            <div class='d-flex'>
               {{user-comment comment data-test-photo-comment=comment.id}}
             </div>
           {{else}}
@@ -28,25 +28,23 @@
             wat plaatst.
           </div>
         {{/if}}
-        <div class='input-group new-photo-comment'>
+        <div class='d-flex new-photo-comment'>
           <Input
             @value={{content}}
-            class='form-control'
+            class='form-control me-2'
             placeholder='Typ hier je reactie'
             aria-label='Reactie'
             minlength='1'
             maxlength='500'
             @enter={{action 'submitPhotoComment'}}
           />
-          <span class='input-group-btn'>
-            <button
-              class='btn btn-default'
-              {{action 'submitPhotoComment'}}
-              type='button'
-            >
-              Reageren
-            </button>
-          </span>
+          <button
+            class='btn btn-default'
+            {{action 'submitPhotoComment'}}
+            type='button'
+          >
+            Reageren
+          </button>
         </div>
       </div>
     {{/if}}

@@ -37,10 +37,32 @@ $theme-colors: (
   dark: #333,
 );
 
+// link colors for tabs
+$nav-link-color: $black;
+$nav-link-hover-color: $brand-primary;
+
+// color of active inputs
+$component-active-bg: $brand-primary;
+$btn-hover-bg-tint-amount: 25%;
+$btn-hover-border-tint-amount: 20%;
+
 // sizes
 $image-input-max-height: 100pt;
 $image-input-max-width: 600pt;
 $navbar-height: 56px;
+
+// padding of list-items
+$list-group-item-padding-x: 1.25rem;
+$list-group-item-padding-y: 0.75rem;
+
+// color of table stripes
+$table-striped-bg-factor: 0.03;
+
+// colors of ember-power-select
+$ember-power-select-border-color: #ced4da; // same as $gray-400
+$ember-power-select-trigger-icon-color: #ced4da;
+$ember-power-select-focus-border-color: mix($white, $component-active-bg, 50%); /* stylelint-disable-line function-no-unknown */
+$ember-power-select-focus-box-shadow: 0 0 0 .2rem rgb(255 210 24 / 25%);
 
 // pixel value used to responsively scale all typography, applied to the `<html>` element.
 $font-size-root: 15px;

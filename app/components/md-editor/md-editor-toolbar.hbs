@@ -46,8 +46,8 @@
                 type='button'
                 class='btn btn-secondary'
                 title='{{opt.name}}'
-                data-toggle='modal'
-                data-target='#insertModal'
+                data-bs-toggle='modal'
+                data-bs-target='#insertModal'
                 {{on 'click' (fn this.openModal opt)}}
               >
                 <FaIcon @icon={{opt.faIconName}} @prefix={{opt.faIconPrefix}} />
@@ -77,21 +77,27 @@
   </div>
 </div>
 
-<BsModalSimple
-  @open={{modalOpen}}
-  @fade={{true}}
-  @title={{modalOption.name}}
-  @submitTitle='Invoegen'
-  @closeTitle='Sluiten'
-  @onSubmit={{this.submitModal}}
-  @onHidden={{action (mut modalOpen) false}}
+<BsModal 
+  @onSubmit={{this.submitModal}} 
+  @onHidden={{action (mut modalOpen) false}} 
+  @fade={{true}} 
+  @open={{modalOpen}} as |Modal|
 >
-  {{modalOption.modal.question}}
-  <br />
-  <Input
-    @type='text'
-    class='form-control'
-    id='md-editor-modal-input'
-    @value={{modalInput}}
-  />
-</BsModalSimple>
+  <Modal.header>
+    <h4 class="modal-title">{{modalOption.name}}</h4>
+  </Modal.header>
+  <Modal.body>
+    {{modalOption.modal.question}}
+    <br />
+    <Input
+      @type='text'
+      class='form-control'
+      id='md-editor-modal-input'
+      @value={{modalInput}}
+    />
+  </Modal.body>
+  <Modal.footer as |footer|>
+    <BsButton @onClick={{action Modal.close}} @type="default">Sluiten</BsButton>
+    <BsButton @onClick={{action Modal.submit}} @type="primary">Invoegen</BsButton>
+  </Modal.footer>
+</BsModal>

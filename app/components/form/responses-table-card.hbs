@@ -1,19 +1,20 @@
 {{#if form.amountOfResponses}}
   <div class='card'>
-    <div class='card-header'>
+    <div class='card-header my-2'>
       <div class='row align-items-center'>
         <h5 class='card-title col'>Inschrijvingen</h5>
-        <div class='form-group checkbox-holder col col-md-auto'>
-          <label class='form-check-label' for='show-allergy-info'>
+        <div class='col col-md-auto'>
+          <div class="form-check">
             <Input
-              @type='checkbox'
-              id='show-allergy-info'
-              @checked={{showAllergyInfo}}
-              class='form-control filter-bar-dropdown-checkbox'
+                @type='checkbox'
+                id='show-allergy-info'
+                @checked={{showAllergyInfo}}
+                class='form-check-input'
             />
-            <div class='custom-checkmark'></div>
-            Toon dieetwensen
-          </label>
+            <label class='form-check-label' for='show-allergy-info'>
+              Toon dieetwensen
+            </label>
+          </div>
         </div>
       </div>
     </div>

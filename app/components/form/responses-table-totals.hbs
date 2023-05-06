@@ -2,10 +2,10 @@
   <th></th>
 {{/if}}
 
-<th><strong>{{form.amountOfResponses}}</strong></th>
+<th class="align-top"><strong>{{form.amountOfResponses}}</strong></th>
 
 {{#each form.sortedQuestions as |question|}}
-  <th>
+  <th class="align-top">
     {{#if question.isOpenQuestion}}
       <strong>{{question.sumOfAnswers}}</strong>
     {{else}}
@@ -19,5 +19,5 @@
 
 {{#if showAllergyInfo}}
   <th></th>
-  <th><strong>{{amountOfVegetarians}}</strong></th>
+  <th class="align-top"><strong>{{amountOfVegetarians}}</strong></th>
 {{/if}}
