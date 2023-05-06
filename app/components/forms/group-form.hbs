@@ -67,8 +67,8 @@
       </div>
       <div class='card-body'>
         {{#if (can 'create memberships')}}
-          <div class='form-group row'>
-            <span class='col-md-2 form-control-label'>Toevoegen</span>
+          <div class='mb-3 row'>
+            <span class='col-md-2 form-label'>Toevoegen</span>
 
             <div class='col-sm-10'>
               <PowerSelect
@@ -157,11 +157,13 @@
     <div class='card-header'>
       <h5>Permissies</h5>
     </div>
-    {{#if (can 'create groups-permissions')}}
-      <Permissions::PermissionsTable
-        @modelPermissions={{@model.permissions}}
-        @editable={{true}}
-      />
-    {{/if}}
+    <div class="card-body">
+      {{#if (can 'create groups-permissions')}}
+        <Permissions::PermissionsTable
+          @modelPermissions={{@model.permissions}}
+          @editable={{true}}
+        />
+      {{/if}}
+    </div>
   </div>
 </form>

@@ -6,8 +6,7 @@ import { action } from '@ember/object';
 export default class Comments extends Component {
   @service store;
   @service flashNotice;
-  @tracked
-  content = null;
+  @tracked content = null;
 
   @action
   async submitPhotoComment() {

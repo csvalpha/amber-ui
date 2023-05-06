@@ -37,9 +37,8 @@
     "@glimmer/tracking": "^1.0.4",
     "@sentry/ember": "^7.41.0",
     "babel-eslint": "^10.1.0",
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.2.3",
     "broccoli-asset-rev": "^3.0.0",
-    "ember-async-data": "^0.7.0",
     "ember-auto-import": "^2.2.4",
     "ember-bootstrap": "^5.1.1",
     "ember-can": "^4.2.0",
@@ -108,7 +107,7 @@
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^30.0.1",
     "stylelint-order": "^6.0.2",
-    "stylelint-scss": "^4.4.0",
+    "stylelint-scss": "^5.0.0",
     "webpack": "^5.65.0"
   },
   "resolutions": {
@@ -116,10 +115,10 @@
     "workerpool@^2.3.0": "^2.3.4"
   },
   "engines": {
-    "node": "14.* || >= 16"
+    "node": ">= 16"
   },
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.4.1"
+  "packageManager": "yarn@3.5.1"
 }

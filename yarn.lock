@@ -1790,7 +1790,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.8.0, @embroider/addon-shim@npm:^1.8.3, @embroider/addon-shim@npm:^1.8.4":
+"@embroider/addon-shim@npm:^1.8.0, @embroider/addon-shim@npm:^1.8.4":
   version: 1.8.4
   resolution: "@embroider/addon-shim@npm:1.8.4"
   dependencies:
@@ -3675,9 +3675,8 @@ __metadata:
     "@glimmer/tracking": ^1.0.4
     "@sentry/ember": ^7.41.0
     babel-eslint: ^10.1.0
-    bootstrap: ^4.6.2
+    bootstrap: ^5.2.3
     broccoli-asset-rev: ^3.0.0
-    ember-async-data: ^0.7.0
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
     ember-can: ^4.2.0
@@ -3746,7 +3745,7 @@ __metadata:
     stylelint-config-sass-guidelines: ^9.0.1
     stylelint-config-standard: ^30.0.1
     stylelint-order: ^6.0.2
-    stylelint-scss: ^4.4.0
+    stylelint-scss: ^5.0.0
     webpack: ^5.65.0
   languageName: unknown
   linkType: soft
@@ -5398,13 +5397,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bootstrap@npm:^4.6.2":
-  version: 4.6.2
-  resolution: "bootstrap@npm:4.6.2"
+"bootstrap@npm:^5.2.3":
+  version: 5.2.3
+  resolution: "bootstrap@npm:5.2.3"
   peerDependencies:
-    jquery: 1.9.1 - 3
-    popper.js: ^1.16.1
-  checksum: 3f4e7768ff7d618c49d4bf4f02aa54a9bfb679d4eecb0f3854fa4af1a17b9114b147009c435946432cdd1572efffc71d88ec385c55943a12fa66253cde0876b0
+    "@popperjs/core": ^2.11.6
+  checksum: 0211805dec6a190c0911d142966df30fdb4b4139a04cc6c23dd83c6045ea3cb0a966b360ab2e701e7b3ad96ff01e05fdc0914be97b41bd876b11e457a8bdc6a3
   languageName: node
   linkType: hard
 
@@ -6749,9 +6747,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30000844, caniuse-lite@npm:^1.0.30001313":
-  version: 1.0.30001316
-  resolution: "caniuse-lite@npm:1.0.30001316"
-  checksum: 8a96ee89f5e64f42f684475905c73c67f995abd6d9b111ab8a9d2e0a5d3b871f1a600ff42e4ffe7f7f3498d0243beeafc11cf7b4dbe3e022a2e5cdf639564152
+  version: 1.0.30001458
+  resolution: "caniuse-lite@npm:1.0.30001458"
+  checksum: 258cc5a25babbbfe483bf788c6f321a19400ff80b2bf156b360bac09a6f9f4da44516350d187a30395667cb142c682d9ea96577ea0df236d35f76234b07ccb41
   languageName: node
   linkType: hard
 
@@ -8258,16 +8256,6 @@ __metadata:
     "@glimmer/compiler": ^0.27.0
     "@glimmer/syntax": ^0.27.0
   checksum: 6d00342b1a90bca84fc6969186deb64452da7cafceb08a089c5a339571e4bda520039aecc64823f520ea2ffc4a128f62b1b7e24a5d16302b841dbf960c7e1b65
-  languageName: node
-  linkType: hard
-
-"ember-async-data@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "ember-async-data@npm:0.7.0"
-  dependencies:
-    "@ember/test-waiters": ^3.0.0
-    "@embroider/addon-shim": ^1.8.3
-  checksum: c6311efa90462c6c28c73c3babeda5afb4996b6af1496f06608f630fa69b117de1e6443ea56e19307102106e1e50fb6b57f23a22b1f4d73518289cc4ee125bb3
   languageName: node
   linkType: hard
 
@@ -15676,9 +15664,9 @@ __metadata:
   linkType: hard
 
 "moment@npm:^2.29.3":
-  version: 2.29.3
-  resolution: "moment@npm:2.29.3"
-  checksum: 2e780e36d9a1823c08a1b6313cbb08bd01ecbb2a9062095820a34f42c878991ccba53abaa6abb103fd5c01e763724f295162a8c50b7e95b4f1c992ef0772d3f0
+  version: 2.29.4
+  resolution: "moment@npm:2.29.4"
+  checksum: 0ec3f9c2bcba38dc2451b1daed5daded747f17610b92427bebe1d08d48d8b7bdd8d9197500b072d14e326dd0ccf3e326b9e3d07c5895d3d49e39b6803b76e80e
   languageName: node
   linkType: hard
 
@@ -20139,18 +20127,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "stylelint-scss@npm:4.4.0"
+"stylelint-scss@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "stylelint-scss@npm:5.0.0"
   dependencies:
-    lodash: ^4.17.21
     postcss-media-query-parser: ^0.2.3
     postcss-resolve-nested-selector: ^0.1.1
-    postcss-selector-parser: ^6.0.6
-    postcss-value-parser: ^4.1.0
+    postcss-selector-parser: ^6.0.11
+    postcss-value-parser: ^4.2.0
   peerDependencies:
     stylelint: ^14.5.1 || ^15.0.0
-  checksum: f206bb9014d59af5ccc16f7c0d81bc9126c908f09f3aba296695a200f31c354386d6e2d6177821af761bcfc10fe4be41f3d00d6b2057561710b06d0c30407cc0
+  checksum: 9e7b2d06bb933c187197d3e0424397d06b10d8840ee4387729690dfa0067a44e82114d8f04bfd46dcade73f58a406fa8da1aa8c3ca5ef32637e8a0c5578880f4
   languageName: node
   linkType: hard
 
