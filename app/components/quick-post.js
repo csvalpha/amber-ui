@@ -73,7 +73,7 @@ export default class QuickPost extends Component {
 
   @action
   loadMore() {
-    this.send('loadMessages', this.page + 1);
+    return this.loadMessages(this.page + 1);
   }
 
   @action
@@ -148,7 +148,7 @@ export default class QuickPost extends Component {
             id: json.id,
             attributes: {
               message: json.message,
-              createdAt: json.created_at,
+              createdAt: new Date(json.created_at),
             },
             relationships: {
               author: {
@@ -160,10 +160,7 @@ export default class QuickPost extends Component {
             },
           },
         };
-        console.debug(quickpostMessageData);
-        console.debug(this.store.peekAll('quickpost-message'));
         const quickpost = this.store.push(quickpostMessageData);
-        console.debug(this.store.peekAll('quickpost-message'));
         this.notify(quickpost);
       },
       null
