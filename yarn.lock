@@ -3694,7 +3694,7 @@ __metadata:
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
     ember-cli-update: ^1.0.1
-    ember-concurrency: ^2.3.7
+    ember-concurrency: ^3.0.0
     ember-crumbly: ^3.0.1
     ember-data: ~3.27.1
     ember-fetch: ^8.1.1
@@ -9297,7 +9297,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-concurrency@npm:>=1.0.0 <3, ember-concurrency@npm:^2.3.7":
+"ember-concurrency@npm:>=1.0.0 <3":
   version: 2.3.7
   resolution: "ember-concurrency@npm:2.3.7"
   dependencies:
@@ -9323,6 +9323,22 @@ __metadata:
     ember-compatibility-helpers: ^1.2.0
     ember-destroyable-polyfill: ^2.0.2
   checksum: 23627a12ecce3ffa8d9785bc75a9373915c1f08e93e548df2a654f5342e7477a3f2b195fdb1a8ee7d29cbb2aa9640b29d8b8f1723ee742ee797c1ac11d2e0477
+  languageName: node
+  linkType: hard
+
+"ember-concurrency@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "ember-concurrency@npm:3.0.0"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.12.13
+    "@babel/types": ^7.12.13
+    "@glimmer/tracking": ^1.0.4
+    ember-cli-babel: ^7.26.11
+    ember-cli-babel-plugin-helpers: ^1.1.1
+    ember-cli-htmlbars: ^5.7.1
+    ember-compatibility-helpers: ^1.2.0
+    ember-destroyable-polyfill: ^2.0.2
+  checksum: a0aa4457091ec304311a6eeb757594396cdf2a30f10620ef9baf22a8e71fd45ff98f7d46605e7402e55a5cf431b2fe97d93133134890f14122ac200578acec81
   languageName: node
   linkType: hard
 
