@@ -120,5 +120,8 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.5.1",
+  "dependencies": {
+    "tracked-built-ins": "^3.1.1"
+  }
 }

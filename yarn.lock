@@ -1772,7 +1772,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.8.0, @embroider/addon-shim@npm:^1.8.4":
+"@embroider/addon-shim@npm:^1.8.0, @embroider/addon-shim@npm:^1.8.3, @embroider/addon-shim@npm:^1.8.4":
   version: 1.8.4
   resolution: "@embroider/addon-shim@npm:1.8.4"
   dependencies:
@@ -3728,6 +3728,7 @@ __metadata:
     stylelint-config-standard: ^30.0.1
     stylelint-order: ^6.0.2
     stylelint-scss: ^5.0.0
+    tracked-built-ins: ^3.1.1
     webpack: ^5.65.0
   languageName: unknown
   linkType: soft
@@ -10031,6 +10032,16 @@ __metadata:
     ember-cli-babel: ^7.19.0
     ember-cli-htmlbars: ^4.3.1
   checksum: 27991766045bba77515ecf6e9609f580ee38b2e53026206d18155cbeac87e57979e613a73ca2fae51ed79e00ab6bf71aff7ce07e1e7a15851e2f013ff8c06c97
+  languageName: node
+  linkType: hard
+
+"ember-tracked-storage-polyfill@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "ember-tracked-storage-polyfill@npm:1.0.0"
+  dependencies:
+    ember-cli-babel: ^7.26.3
+    ember-cli-htmlbars: ^5.7.1
+  checksum: f0e1df126b17cd58a78e81cf73e6a3fa8b7052e3e7058537cce9f658463b0e7f5c3fa1baebff85e19617f5eab1fa762a9dd1f17738b7baca50ef5481dc20d672
   languageName: node
   linkType: hard
 
@@ -20725,6 +20736,16 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
+  languageName: node
+  linkType: hard
+
+"tracked-built-ins@npm:^3.1.1":
+  version: 3.2.0
+  resolution: "tracked-built-ins@npm:3.2.0"
+  dependencies:
+    "@embroider/addon-shim": ^1.8.3
+    ember-tracked-storage-polyfill: ^1.0.0
+  checksum: 262c8df5cfa2911a9b2288e1d34aa9b07b6e5673d0138531445e86426253176f51f4c96083f60e564a380df1f489cdd0bc522b75a9b04fdadfe374f543bbed85
   languageName: node
   linkType: hard
 
