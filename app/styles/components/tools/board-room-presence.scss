@@ -27,10 +27,12 @@
 }
 
 .edit-presence {
-  background-color: $gray-100;
-
   .edit-presence-row {
     margin: 5px;
+
+    .delete-presence-button {
+      padding: 0 5px;
+    }
   }
 
   .presence-time-input {

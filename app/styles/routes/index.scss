@@ -87,16 +87,6 @@ $header-height: 75vh;
   padding-top: 20px;
   padding-bottom: 20px;
   overflow: hidden;
-
-  .card-columns {
-    @include media-breakpoint-down(sm) {
-      column-count: 1;
-    }
-
-    @include media-breakpoint-only(md) {
-      column-count: 2;
-    }
-  }
 }
 
 .index-recent-news {
@@ -118,7 +108,7 @@ $header-height: 75vh;
   font-weight: 200;
 
   .info-holder {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(lg) {
       font-size: 1.1rem;
     }
 
@@ -130,24 +120,6 @@ $header-height: 75vh;
     p {
       flex: 1;
     }
-  }
-}
-
-.frontpage-button {
-  border-color: $brand-primary;
-  background-color: $brand-primary;
-  max-width: 230px;
-  color: $black;
-  font-weight: bold;
-
-  &:hover {
-    background-color: $brand-primary-dark;
-    color: $black;
-  }
-
-  &--light {
-    border-color: $gray-300;
-    background-color: $gray-300;
   }
 }
 
@@ -190,10 +162,7 @@ $header-height: 75vh;
 
 .activity-modal-backdrop {
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background-color: $opaque-black-halfly;
 }
 

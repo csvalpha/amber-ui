@@ -31,25 +31,23 @@
             <br />
           </div>
         {{/if}}
-        <div class='input-group'>
+        <div class='d-flex'>
           <Input
             @value={{this.newArticleComment}}
-            class='form-control'
+            class='form-control me-2'
             aria-label='Reactie'
             placeholder={{t 'template.articles.show.commentHint'}}
             minlength='1'
             maxlength='500'
             @enter={{this.submitArticleComment}}
           />
-          <span class='input-group-btn'>
-            <button
-              class='btn btn-default'
-              {{action 'submitArticleComment'}}
-              type='button'
-            >
-              {{t 'tag.button.react'}}
-            </button>
-          </span>
+          <button
+            class='btn btn-default'
+            {{action 'submitArticleComment'}}
+            type='button'
+          >
+            {{t 'tag.button.react'}}
+          </button>
         </div>
       </div>
     {{/if}}

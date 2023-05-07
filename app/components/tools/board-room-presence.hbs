@@ -5,9 +5,10 @@
     <span class='status-dot label-{{overallStatus}}'></span>
 
     <BsPopover
-      @triggerEvents='focus'
+      {{!-- @triggerEvents='focus' --}}
       @placement='bottom'
       @title='Aanwezig in de BK'
+      @renderInPlace="{{true}}"
     >
       {{#each sortedPresences as |presence|}}
         <div class='py-1'>
@@ -25,9 +26,9 @@
           </span>
         </div>
       {{else}}
-        <div class='pt-2'>Er is niemand aanwezig</div>
+        <div>Er is niemand aanwezig</div>
       {{/each}}
-
+      
       {{#if (can 'create board-room-presences')}}
         <span class='d-flex'>
           <button
@@ -53,65 +54,72 @@
       @submitDisabled={{saveButtonDisabled}}
     >
       {{#if sortedPresences}}
-        <table class='table'>
-          <tr>
-            <th>Persoon</th>
-            <th>Status</th>
-            <th>Tot</th>
-            <th></th>
-          </tr>
-          {{#each sortedPresences as |presence|}}
+        <table class='table edit-presence'>
+          <thead>
             <tr>
-              <td>{{presence.user.fullNameWithNickname}}</td>
-              <td>
-                {{t
-                  (concat 'component.tools.boardRoomPresence.' presence.status)
-                }}
-              </td>
-              <td> {{moment-format presence.endTime 'HH:mm'}} </td>
-              <td>
-                {{#if (can 'destroy board-room-presences')}}
-                  <button
-                    class='btn btn-danger'
-                    aria-hidden='true'
-                    {{action 'deletePresence'}}
-                    type='button'
-                  >
-                    <FaIcon @icon='trash' />
-                  </button>
-                {{/if}}
-              </td>
+              <th>Persoon</th>
+              <th>Status</th>
+              <th>Tot</th>
+              <th></th>
             </tr>
-          {{/each}}
+          </thead>
+          <tbody>
+            {{#each sortedPresences as |presence|}}
+              <tr class="edit-presence-row">
+                <td>{{presence.user.fullNameWithNickname}}</td>
+                <td>
+                  {{t
+                    (concat 'component.tools.boardRoomPresence.' presence.status)
+                  }}
+                </td>
+                <td> {{moment-format presence.endTime 'HH:mm'}} </td>
+                <td>
+                  {{#if (can 'destroy board-room-presences')}}
+                    <button
+                      class='btn btn-danger delete-presence-button float-end'
+                      aria-hidden='true'
+                      {{action 'deletePresence'}}
+                      type='button'
+                    >
+                      <FaIcon @icon='trash' @size="xs" />
+                    </button>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
         </table>
       {{else}}
         <div class='alert alert-info'>Er zijn geen bestuursleden aanwezig</div>
       {{/if}}
 
       {{#if currentUserPresence}}
-        Status
+        <label for="new-user-presence-status">Status</label>
         <Input::SelectInput
           @class='form-control col-xs-12 presence-select'
           @required={{true}}
           @options={{statusOptions}}
           @placeholder={{Status}}
           @value={{currentUserPresence.status}}
+          @id="new-user-presence-status"
         />
-        Van
+        <label for="new-user-presence-starttime" class="mt-2">Van</label>
         <Input::TimeInput
           @dateValue={{currentUserPresence.startTime}}
           @class='col-xs-12 presence-time-input'
           @inputClass='form-control'
           @placeholder={{currentUserPresence.startTime}}
           @required={{true}}
+          @id="new-user-presence-starttime"
         />
-        Tot
+        <label for="new-user-presence-endtime" class="mt-2">Tot</label>
         <Input::TimeInput
           @dateValue={{currentUserPresence.endTime}}
           @class='col-xs-12 presence-time-input'
           @inputClass='form-control'
           @placeholder={{currentUserPresence.endTime}}
           @required={{true}}
+          @id="new-user-presence-endtime"
         />
       {{else}}
         <button

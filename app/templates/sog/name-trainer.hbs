@@ -12,7 +12,7 @@
       {{#if this.started}}
         <div class='progress'>
           <div
-            class='progress-bar'
+            class='progress-bar bg-primary'
             role='progressbar'
             style={{this.progressBarStyle}}
             aria-valuenow='{{this.currentQuestionIndex}}'
@@ -98,20 +98,18 @@
                 placeholder='Type hier de volledige naam'
                 @enter={{this.checkAnswer}}
               />
-              <div class='input-group-append'>
-                <button
-                  type='button'
-                  class='btn btn-primary'
-                  {{action 'checkAnswer'}}
-                >
-                  Antwoord
-                </button>
-              </div>
+              <button
+                type='button'
+                class='btn btn-primary'
+                {{action 'checkAnswer'}}
+              >
+                Antwoord
+              </button>
             </div>
           </div>
         {{/if}}
 
-        <div class='card-footer text-right'>
+        <div class='card-footer text-end'>
           <a class='btn btn-default' {{action 'stopTrainer'}}>Stoppen</a>
         </div>
       {{/if}}
@@ -202,7 +200,7 @@
         </table>
       </div>
 
-      <div class='card-footer text-right'>
+      <div class='card-footer text-end'>
         <a class='btn btn-default' {{action 'stopTrainer'}}>
           Terug naar instellingen
         </a>
@@ -215,8 +213,8 @@
         <div class='text-danger'>{{this.errorMessage}}</div>
       {{/if}}
       <div class='card-body'>
-        <div class='form-group'>
-          <label>Groep</label>
+        <div class='mb-3'>
+          <label class="form-label">Groep</label>
           <PowerSelect
             @options={{@model}}
             @selected={{this.group}}
@@ -229,8 +227,8 @@
           </PowerSelect>
         </div>
 
-        <div class='form-group'>
-          <label>Moeilijkheidsgraad</label>
+        <div class='mb-3'>
+          <label class="form-label">Moeilijkheidsgraad</label>
           <Input::SelectInput
             @class='form-control'
             @options={{this.difficultyOptions}}
@@ -239,7 +237,7 @@
           />
         </div>
       </div>
-      <div class='card-footer text-right'>
+      <div class='card-footer text-end'>
         <a class='btn btn-primary' {{action 'startTrainer'}}>Starten</a>
       </div>
     {{/if}}
