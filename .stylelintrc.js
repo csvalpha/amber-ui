@@ -17,6 +17,6 @@ module.exports = {
     'no-descending-specificity': null,
     'scss/at-rule-no-unknown': null,
     'scss/dollar-variable-colon-space-after': null,
-    'selector-class-pattern': null
+    'selector-class-pattern': null,
   },
 };
