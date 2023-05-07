@@ -1730,24 +1730,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/test-helpers@npm:^2.9.3":
-  version: 2.9.3
-  resolution: "@ember/test-helpers@npm:2.9.3"
-  dependencies:
-    "@ember/test-waiters": ^3.0.0
-    "@embroider/macros": ^1.10.0
-    "@embroider/util": ^1.9.0
-    broccoli-debug: ^0.6.5
-    broccoli-funnel: ^3.0.8
-    ember-cli-babel: ^7.26.11
-    ember-cli-htmlbars: ^6.1.1
-    ember-destroyable-polyfill: ^2.0.3
-  peerDependencies:
-    ember-source: ">=3.8.0"
-  checksum: 4591d33275c6035d41aa95184200074a727cc660aa43e48e9ed63ba07881a12fa332360fe7e5ba3b7a466fd740d92aa9f97e5d3584e95e2337c9b57ee844da69
-  languageName: node
-  linkType: hard
-
 "@ember/test-waiters@npm:^3.0.0":
   version: 3.0.0
   resolution: "@ember/test-waiters@npm:3.0.0"
@@ -1908,7 +1890,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/util@npm:^1.2.0, @embroider/util@npm:^1.9.0":
+"@embroider/util@npm:^1.2.0":
   version: 1.10.0
   resolution: "@embroider/util@npm:1.10.0"
   dependencies:
@@ -3699,7 +3681,7 @@ __metadata:
     ember-crumbly: ^3.0.1
     ember-data: ~3.27.1
     ember-fetch: ^8.1.1
-    ember-file-upload: ^7.3.0
+    ember-file-upload: ^8.0.0
     ember-intl: ^5.7.2
     ember-keyboard-shortcuts: ^1.2.0
     ember-link-action: ^2.0.4
@@ -9060,7 +9042,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-typescript@npm:^5.0.0, ember-cli-typescript@npm:^5.1.0":
+"ember-cli-typescript@npm:^5.0.0":
   version: 5.1.0
   resolution: "ember-cli-typescript@npm:5.1.0"
   dependencies:
@@ -9446,28 +9428,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-file-upload@npm:^7.3.0":
-  version: 7.3.0
-  resolution: "ember-file-upload@npm:7.3.0"
+"ember-file-upload@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "ember-file-upload@npm:8.0.0"
   dependencies:
-    "@ember/test-helpers": ^2.9.3
     "@ember/test-waiters": ^3.0.0
     "@embroider/addon-shim": ^1.5.0
     "@embroider/macros": ^1.0.0
-    "@glimmer/component": ^1.0.4
-    "@glimmer/tracking": ^1.0.4
     ember-auto-import: ^2.0.0
-    ember-modifier: ^3.2.7 || ^4.0.0
-    tracked-built-ins: ^3.0.0
   peerDependencies:
+    "@ember/test-helpers": ^2.9.3
+    "@glimmer/component": ^1.1.2
+    "@glimmer/tracking": ^1.1.2
     ember-cli-mirage: "*"
+    ember-modifier: ^3.2.7 || ^4.1.0
     miragejs: "*"
+    tracked-built-ins: ^3.1.1
   peerDependenciesMeta:
     ember-cli-mirage:
       optional: true
     miragejs:
       optional: true
-  checksum: 34ccba2e5e2810573a797b8299041467d43da8da391dad1364683a450de8f3123aef058f1ed489ca6e7c5ea73a271b22736d2a8ed4f7d92b5fea891a468d13d5
+  checksum: 5177a40f7b8c242f5a83e6e1abb07735846e5024a07e57aafda961425812c2f103ccc836fafe5733b8ced105d8a4d6bf900897a2bf587cbc062e7afa96e996bd
   languageName: node
   linkType: hard
 
@@ -9679,22 +9661,6 @@ __metadata:
     ember-cli-typescript: ^5.0.0
     ember-compatibility-helpers: ^1.2.5
   checksum: 2e96d9ec3939de178a9ce704d5a9360fd73f0276ffa4a9cce9f100a4087fdc8fae4a8b28bf1be22b05a4d1c61e1bb1ab93ca60576810c6556bc4d9323864c66a
-  languageName: node
-  linkType: hard
-
-"ember-modifier@npm:^3.2.7 || ^4.0.0":
-  version: 4.1.0
-  resolution: "ember-modifier@npm:4.1.0"
-  dependencies:
-    "@embroider/addon-shim": ^1.8.4
-    ember-cli-normalize-entity-name: ^1.0.0
-    ember-cli-string-utils: ^1.1.0
-  peerDependencies:
-    ember-source: "*"
-  peerDependenciesMeta:
-    ember-source:
-      optional: true
-  checksum: 5e14a864de2184c07e59fb9bc76a09ae25d1bd37722a94751a3cef6165df22027007696c4dda03e1862cb3bbeefb046772810dda3104d05c7fe8476389c34a77
   languageName: node
   linkType: hard
 
@@ -10065,16 +10031,6 @@ __metadata:
     ember-cli-babel: ^7.19.0
     ember-cli-htmlbars: ^4.3.1
   checksum: 27991766045bba77515ecf6e9609f580ee38b2e53026206d18155cbeac87e57979e613a73ca2fae51ed79e00ab6bf71aff7ce07e1e7a15851e2f013ff8c06c97
-  languageName: node
-  linkType: hard
-
-"ember-tracked-storage-polyfill@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "ember-tracked-storage-polyfill@npm:1.0.0"
-  dependencies:
-    ember-cli-babel: ^7.26.3
-    ember-cli-htmlbars: ^5.7.1
-  checksum: f0e1df126b17cd58a78e81cf73e6a3fa8b7052e3e7058537cce9f658463b0e7f5c3fa1baebff85e19617f5eab1fa762a9dd1f17738b7baca50ef5481dc20d672
   languageName: node
   linkType: hard
 
@@ -20769,17 +20725,6 @@ __metadata:
   version: 0.0.3
   resolution: "tr46@npm:0.0.3"
   checksum: 726321c5eaf41b5002e17ffbd1fb7245999a073e8979085dacd47c4b4e8068ff5777142fc6726d6ca1fd2ff16921b48788b87225cbc57c72636f6efa8efbffe3
-  languageName: node
-  linkType: hard
-
-"tracked-built-ins@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "tracked-built-ins@npm:3.1.0"
-  dependencies:
-    ember-cli-babel: ^7.26.10
-    ember-cli-typescript: ^5.1.0
-    ember-tracked-storage-polyfill: ^1.0.0
-  checksum: ea04824f4dc61984389cf5d79f36dbaa01c57c64769a8687ab130b9629add62c12f17214ca3ffd2a147f6a770002e24adf4486083b424782b357f4282a36e885
   languageName: node
   linkType: hard
 
