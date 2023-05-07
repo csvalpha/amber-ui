@@ -166,11 +166,9 @@ $card-border: 0 solid $gray-300;
 }
 
 %gradient-overlay {
-  background: linear-gradient(
-    to bottom,
-    $transparent 0%,
-    $opaque-black-two-thirds 100%
-  );
+  background: linear-gradient(to bottom,
+  $transparent 0%,
+  $opaque-black-two-thirds 100%);
 }
 
 .gradient-overlay {

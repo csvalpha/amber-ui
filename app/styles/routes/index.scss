@@ -31,7 +31,8 @@ $header-height: 75vh;
   min-height: 400px;
   color: $white;
 
-  .index-poster, .index-poster-overlay {
+  .index-poster,
+  .index-poster-overlay {
     position: absolute;
     top: 56px;
     left: 50%;
@@ -75,7 +76,8 @@ $header-height: 75vh;
     padding-bottom: 2rem;
     height: fit-content;
 
-    .index-poster, .index-poster-overlay {
+    .index-poster,
+    .index-poster-overlay {
       height: 100%;
     }
   }
