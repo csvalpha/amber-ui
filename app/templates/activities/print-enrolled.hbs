@@ -7,16 +7,15 @@
           <li class='nav-item'>
             <a
               class='nav-link {{if (eq this.currentTab "form") "active"}}'
-              {{action 'selectForm'}}
+              {{on "click" this.selectForm}}
             >
               Inschrijflijst
             </a>
           </li>
           <li class='nav-item'>
             <a
-              class='nav-link
-                {{if (eq this.currentTab "consumptionList") "active"}}'
-              {{action 'selectConsumptionList'}}
+              class='nav-link {{if (eq this.currentTab "consumptionList") "active"}}'
+              {{on "click" this.selectConsumptionList}}
             >
               Streeplijst
             </a>
@@ -77,13 +76,13 @@
                   class='form-control'
                   aria-label='Optie toevoegen'
                   placeholder='Optie toevoegen'
-                  @enter={{action 'addOption'}}
+                  @enter={{this.addOption}}
                 />
                 <span class='input-group-btn'>
                   <button
                     class='btn btn-secondary'
                     type='button'
-                    {{action 'addOption'}}
+                    {{on "click" this.addOption}}
                   >
                     <FaIcon @icon='plus' />
                   </button>
@@ -129,7 +128,7 @@
           </label>
         </div>
 
-        <button type='button' class='btn btn-secondary' {{action 'print'}}>
+        <button type='button' class='btn btn-secondary' {{on "click" this.print}}>
           Afdrukken
         </button>
         <LinkTo

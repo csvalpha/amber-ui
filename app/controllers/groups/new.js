@@ -1,4 +1,4 @@
-import EditGroupController from './edit';
+import EditController from './edit';
 
 export default class NewGroupController extends EditGroupController {
   successMessage = 'Groep aangemaakt!';

@@ -1,8 +1,8 @@
 <Forms::StaticPageForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
   @staticPageCategoryOptions={{this.staticPageCategoryOptions}}
   @errorMessage={{this.errorMessage}}
-  @setContent={{action 'setContent'}}
+  @setContent={{this.setContent}}
 />
