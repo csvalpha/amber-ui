@@ -88,7 +88,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.16.10, @babel/core@npm:^7.21.0":
+"@babel/core@npm:^7.16.10, @babel/core@npm:^7.20.12":
   version: 7.21.8
   resolution: "@babel/core@npm:7.21.8"
   dependencies:
@@ -1268,7 +1268,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-modules-amd@npm:^7.20.11":
+"@babel/plugin-transform-modules-amd@npm:^7.19.6":
   version: 7.20.11
   resolution: "@babel/plugin-transform-modules-amd@npm:7.20.11"
   dependencies:
@@ -4101,7 +4101,7 @@ __metadata:
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
     ember-can: ^4.2.0
-    ember-cli: ~4.12.1
+    ember-cli: ~4.11.0
     ember-cli-babel: ^7.26.10
     ember-cli-content-security-policy: ^2.0.3
     ember-cli-dependency-checker: ^3.2.0
@@ -9725,12 +9725,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli@npm:~4.12.1":
-  version: 4.12.1
-  resolution: "ember-cli@npm:4.12.1"
+"ember-cli@npm:~4.11.0":
+  version: 4.11.0
+  resolution: "ember-cli@npm:4.11.0"
   dependencies:
-    "@babel/core": ^7.21.0
-    "@babel/plugin-transform-modules-amd": ^7.20.11
+    "@babel/core": ^7.20.12
+    "@babel/plugin-transform-modules-amd": ^7.19.6
     amd-name-resolver: ^1.3.1
     babel-plugin-module-resolver: ^4.1.0
     bower-config: ^1.4.3
@@ -9766,6 +9766,7 @@ __metadata:
     ember-cli-normalize-entity-name: ^1.0.0
     ember-cli-preprocess-registry: ^3.3.0
     ember-cli-string-utils: ^1.1.0
+    ember-source-channel-url: ^3.0.0
     ensure-posix-path: ^1.1.1
     execa: ^5.1.1
     exit: ^0.1.2
@@ -9774,11 +9775,11 @@ __metadata:
     find-up: ^5.0.0
     find-yarn-workspace-root: ^2.0.0
     fixturify-project: ^2.1.1
-    fs-extra: ^11.1.0
+    fs-extra: ^10.1.0
     fs-tree-diff: ^2.0.1
     get-caller-file: ^2.0.5
     git-repo-info: ^2.1.1
-    glob: ^8.1.0
+    glob: ^8.0.3
     heimdalljs: ^0.2.6
     heimdalljs-fs-monitor: ^1.1.1
     heimdalljs-graph: ^1.0.0
@@ -9794,7 +9795,7 @@ __metadata:
     lodash.template: ^4.5.0
     markdown-it: ^13.0.1
     markdown-it-terminal: ^0.4.0
-    minimatch: ^7.4.1
+    minimatch: ^5.1.0
     morgan: ^1.10.0
     nopt: ^3.0.6
     npm-package-arg: ^10.1.0
@@ -9807,7 +9808,7 @@ __metadata:
     remove-types: ^1.0.0
     resolve: ^1.22.1
     resolve-package-path: ^4.0.3
-    safe-stable-stringify: ^2.4.2
+    safe-stable-stringify: ^2.3.1
     sane: ^5.0.1
     semver: ^7.3.5
     silent-error: ^1.1.1
@@ -9817,14 +9818,14 @@ __metadata:
     testem: ^3.10.1
     tiny-lr: ^2.0.0
     tree-sync: ^2.1.0
-    uuid: ^9.0.0
+    uuid: ^8.3.2
     walk-sync: ^3.0.0
     watch-detector: ^1.0.2
-    workerpool: ^6.4.0
+    workerpool: ^6.3.1
     yam: ^1.0.0
   bin:
     ember: bin/ember
-  checksum: 3e6066637211d98994b44b85b33070cc4614f6f1500eebfdc64886880300602a49220b788c4359548d6f305c47844b18ef5bbe0b64d4d61d6865811a15a712b0
+  checksum: 172e9506cdedf3e36a0cec5e4ebd327967f94e5ffe0c840d1a926d426a95c66b5fcfd31d1ac5da6bbc76e312f07d1ffbb967893841c01e9819e285c7402ba4c0
   languageName: node
   linkType: hard
 
@@ -10512,6 +10513,17 @@ __metadata:
     ember-modifier: ^3.2.0 || ^4.0.0
     ember-source: ^3.28.0 || ^4.0.0
   checksum: 4054230aa1027f72ed2f43250a1bd2fc0189904d537ac292b151d795978daf431e80aeb5c8eae86c137e6c21f9551131f2c7e4ba4e6c69a3e2745a08a0248a59
+  languageName: node
+  linkType: hard
+
+"ember-source-channel-url@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "ember-source-channel-url@npm:3.0.0"
+  dependencies:
+    node-fetch: ^2.6.0
+  bin:
+    ember-source-channel-url: bin/ember-source-channel-url
+  checksum: 17f24d48b7264be0a17336a2efcdd8ef26a61683858bd398de2de32fc611e6ff13d22873924dfa97b67da0e4da2dd41444f9cb0408052f0faf31aa6dceb96dd1
   languageName: node
   linkType: hard
 
@@ -12172,14 +12184,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.1.0":
-  version: 11.1.1
-  resolution: "fs-extra@npm:11.1.1"
+"fs-extra@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "fs-extra@npm:10.1.0"
   dependencies:
     graceful-fs: ^4.2.0
     jsonfile: ^6.0.1
     universalify: ^2.0.0
-  checksum: fb883c68245b2d777fbc1f2082c9efb084eaa2bbf9fddaa366130d196c03608eebef7fb490541276429ee1ca99f317e2d73e96f5ca0999eefedf5a624ae1edfd
+  checksum: dc94ab37096f813cc3ca12f0f1b5ad6744dfed9ed21e953d72530d103cea193c2f81584a39e9dee1bea36de5ee66805678c0dddc048e8af1427ac19c00fffc50
   languageName: node
   linkType: hard
 
@@ -12680,7 +12692,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^8.1.0":
+"glob@npm:^8.0.3":
   version: 8.1.0
   resolution: "glob@npm:8.1.0"
   dependencies:
@@ -16127,21 +16139,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:^5.0.1":
+"minimatch@npm:^5.0.1, minimatch@npm:^5.1.0":
   version: 5.1.6
   resolution: "minimatch@npm:5.1.6"
   dependencies:
     brace-expansion: ^2.0.1
   checksum: 7564208ef81d7065a370f788d337cd80a689e981042cb9a1d0e6580b6c6a8c9279eba80010516e258835a988363f99f54a6f711a315089b8b42694f5da9d0d77
-  languageName: node
-  linkType: hard
-
-"minimatch@npm:^7.4.1":
-  version: 7.4.6
-  resolution: "minimatch@npm:7.4.6"
-  dependencies:
-    brace-expansion: ^2.0.1
-  checksum: 1a6c8d22618df9d2a88aabeef1de5622eb7b558e9f8010be791cb6b0fa6e102d39b11c28d75b855a1e377b12edc7db8ff12a99c20353441caa6a05e78deb5da9
   languageName: node
   linkType: hard
 
@@ -16644,6 +16647,20 @@ __metadata:
     json-parse-better-errors: ^1.0.0
     safe-buffer: ^5.1.1
   checksum: 601cf96bcfff04995bb484a55cc9f354657c041013d0d5d92a48765df29d36a0df8a0b3ba26b76ffbe3eb824df743996c5a1806cd8e45a11da352e2904c4aaab
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.0":
+  version: 2.6.9
+  resolution: "node-fetch@npm:2.6.9"
+  dependencies:
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: acb04f9ce7224965b2b59e71b33c639794d8991efd73855b0b250921382b38331ffc9d61bce502571f6cc6e11a8905ca9b1b6d4aeb586ab093e2756a1fd190d0
   languageName: node
   linkType: hard
 
@@ -19831,7 +19848,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"safe-stable-stringify@npm:^2.4.2":
+"safe-stable-stringify@npm:^2.3.1":
   version: 2.4.3
   resolution: "safe-stable-stringify@npm:2.4.3"
   checksum: 3aeb64449706ee1f5ad2459fc99648b131d48e7a1fbb608d7c628020177512dc9d94108a5cb61bbc953985d313d0afea6566d243237743e02870490afef04b43
@@ -22374,15 +22391,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:^9.0.0":
-  version: 9.0.0
-  resolution: "uuid@npm:9.0.0"
-  bin:
-    uuid: dist/bin/uuid
-  checksum: 8dd2c83c43ddc7e1c71e36b60aea40030a6505139af6bee0f382ebcd1a56f6cd3028f7f06ffb07f8cf6ced320b76aea275284b224b002b289f89fe89c389b028
-  languageName: node
-  linkType: hard
-
 "uuid@npm:~3.1.0":
   version: 3.1.0
   resolution: "uuid@npm:3.1.0"
@@ -22875,7 +22883,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workerpool@npm:^6.4.0":
+"workerpool@npm:^6.3.1":
   version: 6.4.0
   resolution: "workerpool@npm:6.4.0"
   checksum: 5fc010dbec44c69e1758cb2ccf924dfd286a86062a934f9e69a81cbad66f9be541441b2399debc2b024ae3dfc33a34a4c9ad61058af2ed8d53dcdeffb22b7b40
