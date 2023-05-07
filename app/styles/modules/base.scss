@@ -38,6 +38,11 @@ p {
 
 .app {
   overflow-x: hidden;
+  background-color: $brand-cream;
+
+  &.authenticated {
+    background-color: white;
+  }
 }
 
 .main {

@@ -1,40 +1,28 @@
-<div class='container-fluid index-header'>
-  <Index::Public::BackgroundImage />
-  <div class="index-poster-overlay"></div>
-  <img src='images/alphalogowhite-large.svg' class='image' />
-  <p class="new-member-text">{{t 'component.index.public.potentialMember.banner'}}</p>
-  <a
-      class='btn btn-lg btn-primary frontpage-button'
-      href='https://forms.gle/R4WYzbWameD6wN817'
-      target='_blank'
-    >
-    {{t 'component.index.public.actionButtons.memberButton'}}
-  </a>
-</div>
-
-<div class='index-yellow-bar full-width'>
-  <div class='container'>
-    <Index::Public::AboutAlpha />
-    <Index::Public::Activities />
+{{!-- <div class="vw-100 position-absolute cream-background"> --}}
+  <div class='container-fluid index-header'>
+    <Index::Public::BackgroundImage />
+    <div class="index-poster-overlay"></div>
+    <p class="new-member-text">
+      {{t 'component.index.public.potentialMember.banner-1'}}
+      <span>{{t 'component.index.public.potentialMember.banner-2'}}</span>
+      {{t 'component.index.public.potentialMember.banner-3'}}
+      <br/>
+      {{t 'component.index.public.potentialMember.banner-4'}}
+      <span>{{t 'component.index.public.potentialMember.banner-5'}}</span>
+    </p>
+    <div class="d-flex mt-3">
+      <LinkTo @route="index" @class="me-5">
+        <button class="btn btn-lg btn-primary frontpage-button">
+          {{t 'component.index.public.actionButtons.memberButton'}}
+        </button>
+      </LinkTo>
+      <LinkTo @route="index">
+        <button class="btn btn-lg btn-primary frontpage-button">
+          {{t 'component.index.public.actionButtons.memberNowButton'}}
+        </button>
+      </LinkTo>
+    </div>
   </div>
-</div>
 
-<Index::Public::PotentialMemberSection />
 
-<div class='flex-items-xs-center index-promo-video'>
-  <Index::Public::YoutubeVideos />
-</div>
-
-<Index::Public::ActionButtons />
-
-<div class='row'>
-  <div class='col-xs col-md-12'>
-    <Index::Public::Articles @articles={{@articles}} />
-    <Index::Public::Photos />
-
-    <AdvertisementTool @row={{true}} />
-
-    <Index::Public::MemberStories />
-    <Index::Public::AboutFlux />
-  </div>
-</div>
+<Index::Public::AboutAlpha />

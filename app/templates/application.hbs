@@ -6,7 +6,7 @@
   <MenuSidebar />
   <PrivacyModal />
 
-  <div class='app'>
+  <div class='app {{if session.isAuthenticated "authenticated "}}'>
     <div
       class='container main
         {{if session.isAuthenticated "authenticated "}}

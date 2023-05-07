@@ -1,19 +1,26 @@
-<nav class='navbar pb-0 pt-0' aria-label='breadcrumb'>
+<nav class='navbar pb-0 pt-0 {{if (not session.isAuthenticated) "unauthenticated"}}' aria-label='breadcrumb'>
   <div class="container-fluid d-flex justify-content-between">
-    <span class='left-sidebar-toggle d-block d-md-none link' {{action 'toggleLeftSidebar'}}>
+    <span class='{{if session.isAuthenticated "half-toggle"}} left-sidebar-toggle d-block d-md-none link' {{action 'toggleLeftSidebar'}}>
       ☰
     </span>
 
-    <span {{action 'handleLogoAction'}} class='navbar-brand'>
-      <div class='header-logo'> </div>
-    </span>
+    {{#if session.isAuthenticated }}
+      <span {{action 'handleLogoAction'}} class='navbar-brand'>
+        <div class='header-logo'> </div>
+      </span>
+    {{else}}
+      <div class='unauthenticated-header-logo'> </div>
+    {{/if}}
 
-    <div class='d-flex col ps-0 pe-0 navbar-contents-holder'>
+    <div class='d-flex col ps-0 pe-0 navbar-contents-holder {{if (not session.isAuthenticated) "unauthenticated"}}'>
       <div class='navbar-overflow-wrapper'>
         <div class='navbar-nav col d-flex flex-row'>
           {{#if (or session.isAuthenticated media.isMobile)}}
             <BreadCrumbs @crumbClass='breadcrumb-item' />
           {{else}}
+            <LinkTo @route='index' @class="page-actions-buttons">
+              <BsButton @type="primary">Home</BsButton>
+            </LinkTo>
             <BsDropdown as |dd| {{did-insert (action 'setAvailableStaticPages')}}>
               <dd.button @type="primary">{{t "component.headerNav.aboutUs"}}</dd.button>
               <dd.menu @renderInPlace={{false}} as |ddm|>
@@ -26,7 +33,12 @@
                 {{/each-in}}
               </dd.menu>
             </BsDropdown>
-            <PageActionsButtons @pageActions={{unAuthenticatedMenuOptions}} />
+            <LinkTo @route='index' @class="page-actions-buttons">
+              <BsButton @type="primary">Word lid</BsButton>
+            </LinkTo>
+            <LinkTo @route='index' @class="page-actions-buttons">
+              <BsButton @type="primary">Contact</BsButton>
+            </LinkTo>
           {{/if}}
         </div>
       </div>

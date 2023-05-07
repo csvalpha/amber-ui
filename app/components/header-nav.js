@@ -20,37 +20,13 @@ export default Component.extend({
     const result = {};
     if (this.availableStaticPages) {
       Object.entries(this.availableStaticPages).forEach(([id, title]) => {
-        if (!['word-lid', 'word-oud-lid', 'sponsoring'].includes(id)) {
+        if (!['word-lid'].includes(id)) {
           result[id] = title;
         }
       });
     }
     return result;
   }),
-  unAuthenticatedMenuOptions: computed(
-    'intl.locale',
-    'availableStaticPages',
-    function () {
-      let list = [];
-      list = this.addStaticPageOption(list, 'word-lid', 'becomeMember');
-      list = this.addStaticPageOption(list, 'word-oud-lid', 'becomeOldMember');
-      list.push(
-        {
-          link: 'articles',
-          title: this.intl.t('mixin.menuItems.articles'),
-          icon: '',
-          canAccess: this.abilities.can('show articles'),
-        },
-        {
-          link: 'photo-albums',
-          title: this.intl.t('mixin.menuItems.photoAlbums'),
-          icon: '',
-          canAccess: this.abilities.can('show photo-albums'),
-        }
-      );
-      return this.addStaticPageOption(list, 'sponsoring', 'sponsoring');
-    }
-  ),
 
   actions: {
     handleLogoAction() {
@@ -91,17 +67,5 @@ export default Component.extend({
         });
       }
     },
-  },
-  addStaticPageOption: function (list, id, localeName) {
-    if (this.availableStaticPages && this.availableStaticPages[id]) {
-      list.push({
-        link: 'static-pages.show',
-        linkArgument: id,
-        title: this.intl.t('component.headerNav.' + localeName),
-        icon: '',
-        canAccess: this.abilities.can('show static-pages'),
-      });
-    }
-    return list;
   },
 });

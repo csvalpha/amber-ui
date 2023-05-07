@@ -1,4 +1,4 @@
-$header-height: 75vh;
+$header-height: 450px;
 
 .text-xl {
   padding-top: 20px;
@@ -28,7 +28,6 @@ $header-height: 75vh;
   justify-content: center;
   margin-top: -44px;
   height: $header-height;
-  min-height: 400px;
   color: $white;
 
   .index-poster, .index-poster-overlay {
@@ -39,7 +38,6 @@ $header-height: 75vh;
     margin-left: -50vw;
     width: 100vw;
     height: $header-height;
-    min-height: 400px;
   }
 
   .index-poster {
@@ -58,10 +56,20 @@ $header-height: 75vh;
   }
 
   .new-member-text {
-    margin-bottom: 1.5rem;
-    width: min(95%, 700px);
+    font-family: 'Advent Pro';
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 7rem;
     text-align: center;
-    font-size: $font-size-h4;
+    font-size: 4rem;
+
+    span {
+      font-size: 6rem;
+    }
+  }
+
+  .frontpage-button {
+    width: 12rem;
   }
 
   * {
@@ -123,6 +131,15 @@ $header-height: 75vh;
   }
 }
 
+.index-title {
+  font-family: 'Oswald';
+  font-size: 3rem;
+}
+
+.index-title-border {
+  width: 40%;
+}
+
 .index-photo-albums {
   margin-bottom: 90px;
 }
@@ -181,4 +198,8 @@ $header-height: 75vh;
   overflow-x: scroll;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+.cream-background {
+  background-color: $brand-cream;
 }

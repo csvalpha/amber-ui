@@ -100,7 +100,11 @@ component:
   index:
     public:
       potentialMember:
-        banner: Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier je mail achter en we nemen contact met je op!
+        banner-1: Voor wie
+        banner-2: gelooft
+        banner-3: in 
+        banner-4: een
+        banner-5: studententijd!
         title: Geïnteresseerd in Alpha?
         info:
           Leuk dat je geïnteresseerd bent in Alpha. Stuur vooral een <a href="https://api.whatsapp.com/send?phone=31618053999&text=Hoi!%20Mijn%20naam%20is%20X%20en%20ben%20XX%20jaar%20oud.%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20Alpha%20en%20zou%20graag%20een%20keer%20willen%20kennis%20maken%20met%20Alpha.">berichtje</a> naar 06-18053999, dan kan je een keertje vrijblijvend Alpha leren kennen op een van haar activiteiten!
@@ -122,17 +126,15 @@ component:
           Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier
           je mail achter en we nemen contact met je op! Of word nu lid door je online
           in te schrijven!
-        memberButton: Ik heb interesse!
-        memberNowButton: Ik word lid!
+        memberButton: Geïnteresseerd
+        memberNowButton: Word lid
       aboutAlpha:
-        slogan: Voor wie gelooft in een studententijd!
+        slogan: Dé christelijke gezelligheidsvereniging van Enschede
         info:
-          Alpha is een christelijke studentenvereniging. Onze open sfeer zorgt ervoor
-          dat je je snel welkom voelt. We worden met ruim 100 leden vaak dé christelijke
-          gezelligheidsvereniging van Enschede genoemd. In onze eigen sociëteit Flux
-          in de Pakkerij aan de Oude Markt houden we van goede gesprekken onder het
-          genot van een biertje. Je bent ook van harte uitgenodigd om een keertje langs
-          te komen.
+          C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging in Enschede 
+          waar gezelligheid en christelijke vorming gecombineerd worden tot één unieke studentenvereniging. 
+          De grondslag van Alpha is "de boodschap van de Bijbel als richtsnoer voor het leven". 
+          Deze grondslag uit zich in de aspecten vriendschap, vorming en verantwoordelijkheid, de kern van de vereniging.
         button: Lees meer over de vereniging
         studiegids: Bekijk op Studiegids
         studentenWegwijzer: Bekijk op StudentenWegwijzer
