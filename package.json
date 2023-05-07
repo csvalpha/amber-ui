@@ -18,10 +18,11 @@
     "lint:hbs:fix": "ember-template-lint . --fix",
     "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
+    "lint:scss": "stylelint 'app/**/*.scss'",
+    "lint:scss:fix": "stylelint --fix 'app/**/*.scss'",
     "start": "ember serve",
     "test": "npm-run-all --print-name \"lint\" \"test:*\"",
-    "test:ember": "ember test",
-    "lint:scss": "stylelint 'app/**/*.scss'"
+    "test:ember": "ember test"
   },
   "devDependencies": {
     "@ember/optional-features": "^2.0.0",
@@ -37,7 +38,7 @@
     "@glimmer/tracking": "^1.0.4",
     "@sentry/ember": "^7.51.0",
     "babel-eslint": "^10.1.0",
-    "bootstrap": "^5.2.3",
+    "bootstrap": "^4.6.2",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^2.2.4",
     "ember-bootstrap": "^5.1.1",
