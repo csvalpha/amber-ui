@@ -100,9 +100,10 @@ component:
   index:
     public:
       potentialMember:
+        banner: Want to become a member of Alpha? That is possible during our activities! Enter your emailadres here and we will contact you!
         title: Interested in Alpha?
         info:
-          Nice that you are interested in Alpha. Put the weekend of 23 to 25 September 2022 in your agenda. On that weekend you can get to know Alpha and its (interested) members with a campfire, games & more. If you like it, or if you can't wait to get to know Alpha, send us a <a href="https://api.whatsapp.com/send?phone=31618053999">message!</a> (06-18053999)
+          Nice that you are interested in Alpha. Send a <a href="https://api.whatsapp.com/send?phone=31618053999">message</a> to 06-18053999, so you can get to know Alpha better on one of its activities! 
       aboutFlux:
         title: Our Pub
         info:
@@ -134,6 +135,7 @@ component:
           Markt. Feel welcome to come by anytime!
         button: Read more about the association
         studiegids: View on Studiegids
+        studentenWegwijzer: View on StudentenWegwijzer
       activities:
         title: Upcoming activities
       photos:

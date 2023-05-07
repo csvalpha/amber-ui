@@ -31,6 +31,12 @@ export default Component.extend({
       full: true,
     },
     {
+      title: 'StudentenWegwijzer',
+      link: 'https://www.studentenwegwijzer.nl/enschede/studentenverenigingen/alpha/',
+      image: 'advertisements/studenten-wegwijzer.png',
+      full: true,
+    },
+    {
       title: 'Cibdol - Swiss purity',
       link: 'https://www.cibdol.nl/',
       image: 'advertisements/cibdol.gif',
@@ -119,6 +125,12 @@ export default Component.extend({
           title: 'huurwoningen',
         },
       ],
+    },
+    {
+      title: 'Top 5 Beste Kopen',
+      alt: 'Vergelijk de beste producten',
+      link: 'https://www.top5bestekopen.nl',
+      image: 'advertisements/trendiq.jpg',
     },
   ],
 });

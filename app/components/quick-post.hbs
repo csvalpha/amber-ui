@@ -13,9 +13,9 @@
   <div class='card-block'>
     <div class='p-3 pb-5'>
       <div class='row pb-2'>
-        <LinkTo @route='users.show' @model={{this.session.currentUser.id}}>
+        <LinkTo class="p-0 w-auto" @route='users.show' @model={{this.session.currentUser.id}}>
           <img
-            class='profile-picture profile-picture-md ml-3 p-0'
+            class='profile-picture profile-picture-md ms-3 p-0'
             alt='{{this.session.currentUser.fullName}}'
             src='{{this.session.currentUser.avatarThumbUrlOrDefault}}'
           />
@@ -24,7 +24,7 @@
           id='qp-inputfield'
           @value={{this.newQpMessage}}
           rows={{4}}
-          class='col form-control ml-3 mr-3 qp-inputfield'
+          class='col form-control ms-3 me-3 qp-inputfield'
           placeholder={{this.welcomeText}}
           minlength='1'
           maxlength={{this.maxCharacters}}
@@ -32,12 +32,12 @@
         />
       </div>
 
-      <div class='d-flex float-right'>
+      <div class='d-flex float-end'>
         <span
           class='qp-characters-indicator
             {{if this.tooMuchText "text-danger" "text-muted"}}
             {{unless this.currentCharacterCount "hidden"}}
-            pt-2 pr-3'
+            pt-2 pe-3'
         >
           {{this.currentCharacterCount}}
           /
@@ -46,14 +46,12 @@
 
         <QuickPostNotificationButton />
 
-        <BsDropdown @class='ml-1' @closeOnMenuClick={{true}} as |dd|>
-          <button class='btn btn-default ml-1 mb-3'>
-            <dd.toggle @class='open-smiley-pane-button'>
-              <FaIcon @icon='face-smile' @prefix='far' />
-            </dd.toggle>
-          </button>
-          <dd.menu @class='emoticon-holder' as |menu|>
-            <div class='row'>
+        <BsDropdown class='ms-1 d-block' @closeOnMenuClick={{true}} as |dd|>
+          <dd.button @type='button' class='btn-default'>
+            <FaIcon @icon='face-smile' @prefix='far' />
+          </dd.button>
+          <dd.menu class='emoticon-holder card' as |menu|>
+            <div class='row gx-0'>
               {{#each this.emoticons as |emoticon|}}
                 <div class='emoticon' {{action 'appendSmileyToText' emoticon}}>
                   {{emoticon}}
@@ -64,7 +62,7 @@
         </BsDropdown>
 
         <button
-          class='btn btn-primary ml-1 mb-3 {{if this.tooMuchText "disabled"}}'
+          class='btn btn-primary ms-1 mb-3 {{if this.tooMuchText "disabled"}}'
           {{action 'saveMessage'}}
           type='button'
         >
@@ -76,27 +74,27 @@
     {{#each this.sortedMessages as |message index|}}
       <hr />
       <div class='row qp-message p-3'>
-        <LinkTo @route='users.show' @model={{message.author.id}}>
+        <LinkTo class="p-0 w-auto" @route='users.show' @model={{message.author.id}}>
           <img
-            class='profile-picture profile-picture-md ml-3 p-0'
+            class='profile-picture profile-picture-md ms-3 p-0'
             alt='{{message.author.fullName}}'
             src='{{message.author.avatarThumbUrlOrDefault}}'
           />
         </LinkTo>
 
-        <div class='pl-3 col'>
+        <div class='ps-3 col'>
           <div class='row'>
             <LinkTo
               @route='users.show'
               @model={{message.author.id}}
-              class='col'
+              class='col w-auto'
             >
               <b class='text-sm text-muted'>
                 {{message.author.fullNameWithNickname}}
               </b>
             </LinkTo>
 
-            <small class='text-muted pr-3'>
+            <small class='text-muted pe-3 w-auto'>
               {{#if (can 'destroy quickpost-messages')}}
                 <FaIcon
                   @icon='trash'
@@ -115,13 +113,15 @@
     {{/each}}
 
     {{#if this.showLoaderButton}}
-      <button
-        class='btn btn-sm btn-block btn-secondary btn-read-more'
-        {{action 'loadMore'}}
-        type='button'
-      >
-        Meer laden
-      </button>
+      <div class='d-grid'>
+        <button
+          class='btn btn-sm btn-secondary btn-read-more mx-2'
+          {{action 'loadMore'}}
+          type='button'
+        >
+          Meer laden
+        </button>
+      </div>
     {{/if}}
   </div>
 </div>

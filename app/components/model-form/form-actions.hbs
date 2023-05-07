@@ -1,11 +1,11 @@
 <div
   class={{if
     (not-eq inputLayout 'vertical')
-    'form-actions form-group row justify-content-end'
-    'form-actions form-group'
+    'form-actions mb-3 row justify-content-end'
+    'form-actions mb-3'
   }}
 >
-  <div class={{if (not-eq inputLayout 'vertical') 'col-sm-10'}}>
+  <div class={{if (not-eq inputLayout 'vertical') formActionWrapperClass}}>
     {{#if (or errors errorMessage)}}
       <div class='alert alert-danger form-submit-error'>
         Er zijn nog fouten in de invoer

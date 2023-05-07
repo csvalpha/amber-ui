@@ -18,7 +18,7 @@
             </div>
           {{/if}}
 
-          <div class='form-group'>
+          <div class='mb-3'>
             <Input
               @type='password'
               @value={{this.password}}
@@ -28,7 +28,7 @@
               id='field-password'
             />
           </div>
-          <div class='form-group'>
+          <div class='mb-3'>
             <Input
               @type='password'
               @value={{this.passwordConfirmation}}
@@ -40,7 +40,7 @@
           </div>
           <button
             type='submit'
-            class='btn btn-primary float-md-left reset-password-button'
+            class='btn btn-primary float-md-start reset-password-button'
             disabled={{this.isSaveButtonDisabled}}
           >
             Account activeren

@@ -4,7 +4,7 @@
 
 {{#if (can 'show individual users')}}
   {{#if this.showInfo}}
-    <p class='text-right text-muted mt-2'>
+    <p class='text-end text-muted mt-2'>
       Foto geüpload door
       <LinkTo @route='users.show' @model={{@model.uploader.id}}>
         {{@model.uploader.fullNameWithNickname}}
@@ -12,14 +12,14 @@
 
       {{#if @model.hasExif}}
         <button
-          class='ml-1 btn btn-sm btn-outline-info'
+          class='ms-1 btn btn-sm btn-outline-info'
           {{action 'toggleShowExif'}}
           type='button'
         >
           Toon Exif data
         </button>
       {{else}}
-        <button class='ml-1 btn btn-sm btn-outline-info disabled' type='button'>
+        <button class='ms-1 btn btn-sm btn-outline-info disabled' type='button'>
           Geen Exif data
         </button>
       {{/if}}

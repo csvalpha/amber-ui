@@ -23,19 +23,20 @@
         <div class='row mb-2'>
           {{#each userPropertyOptions as |opt|}}
             <div class='col-md-6'>
-              <label class='form-check-label'>
-                <Input @type='checkbox' @checked={{opt.isChecked}} />
-                {{opt.label}}
-                <div class='custom-checkmark'></div>
-              </label>
+              <div class="form-check mb-2">
+                <Input id="group-export-option-{{opt.value}}-check" class="form-check-input" @type='checkbox' @checked={{opt.isChecked}} />
+                <label class='form-check-label' for="group-export-option-{{opt.value}}-check">
+                  {{opt.label}}
+                </label>
+              </div>
             </div>
           {{/each}}
         </div>
         {{#each questions as |question|}}
           <div class='row'>
             <div class='col'>
-              <div class='form-group'>
-                <label>{{question.question}}*</label>
+              <div class='mb-3'>
+                <label class="form-label">{{question.question}}*</label>
                 <Textarea
                   @value={{question.answer}}
                   class='form-control'
