@@ -11653,7 +11653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-fast-sourcemap-concat@ef4/fast-sourcemap-concat:
+"fast-sourcemap-concat@ef4/fast-sourcemap-concat#ec9dc9981503f2e56d2233430681866741bc170c":
   version: 2.1.0
   resolution: "fast-sourcemap-concat@https://github.com/ef4/fast-sourcemap-concat.git#commit=ec9dc9981503f2e56d2233430681866741bc170c"
   dependencies:
