@@ -18925,8 +18925,8 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.58.3":
-  version: 1.62.1
-  resolution: "sass@npm:1.62.1"
+  version: 1.58.3
+  resolution: "sass@npm:1.58.3"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
