@@ -1,5 +1,7 @@
 html {
+  word-wrap: break-word;
   font-size: $font-size-root;
+  hyphens: auto;
 }
 
 body {
@@ -41,13 +43,14 @@ p {
   background-color: $brand-cream;
 
   &.authenticated {
-    background-color: white;
+    background-color: $white;
   }
 }
 
 .main {
   transform: translateX(0);
   transition: all 0.3s ease-in-out;
+  margin-bottom: 50px;
   padding-top: 100px;
   min-height: 100vh;
 

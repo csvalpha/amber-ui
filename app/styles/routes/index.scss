@@ -41,12 +41,12 @@ $header-height: 450px;
   }
 
   .index-poster {
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
   }
   
   .index-poster-overlay {
-    opacity: 0.25;
+    opacity: 0.45;
     background-color: $black;
   }
 
@@ -55,13 +55,13 @@ $header-height: 450px;
     max-width: min(350px, 70vw);
   }
 
-  .new-member-text {
-    font-family: 'Advent Pro';
-    text-transform: uppercase;
-    font-weight: 500;
-    line-height: 7rem;
+  .banner-slogan {
     text-align: center;
+    text-transform: uppercase;
+    line-height: 6rem;
+    font-family: 'Advent Pro', sans-serif;
     font-size: 4rem;
+    font-weight: 500;
 
     span {
       font-size: 6rem;
@@ -69,7 +69,8 @@ $header-height: 450px;
   }
 
   .frontpage-button {
-    width: 12rem;
+    width: 14rem;
+    text-transform: uppercase;
   }
 
   * {
@@ -129,15 +130,6 @@ $header-height: 450px;
       flex: 1;
     }
   }
-}
-
-.index-title {
-  font-family: 'Oswald';
-  font-size: 3rem;
-}
-
-.index-title-border {
-  width: 40%;
 }
 
 .index-photo-albums {
@@ -202,4 +194,53 @@ $header-height: 450px;
 
 .cream-background {
   background-color: $brand-cream;
+}
+
+.index-title {
+  text-align: center;
+  font-family: Oswald, sans-serif;
+  font-size: 3rem;
+}
+
+.index-title-border {
+  margin-top: 1rem;
+  width: 30vw;
+}
+
+.index-about-alpha {
+  .about-text {
+    font-size: 1.5rem;
+    hyphens: none;
+  }
+
+  .about-v {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5%;
+
+    .about-v-image {
+      width: 100%;
+      clip-path: circle();
+      object-fit: cover;
+      max-width: 25rem;
+    }
+
+    .about-v-title {
+      margin-top: 1rem;
+      text-align: center;
+      color: $brand-secondary;
+      font-family: Oswald, sans-serif;
+    }
+
+    .about-v-text {
+      text-align: justify;
+      line-height: 1.6rem;
+      font-size: 1.3rem;
+    }
+  }
+}
+
+.index-videos-section {
+  background: linear-gradient(90deg, rgba(0 0 0 / 50%) 0%, $brand-secondary 100%), $brand-secondary;
 }

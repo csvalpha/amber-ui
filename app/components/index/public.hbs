@@ -1,8 +1,8 @@
-{{!-- <div class="vw-100 position-absolute cream-background"> --}}
+<div>
   <div class='container-fluid index-header'>
     <Index::Public::BackgroundImage />
     <div class="index-poster-overlay"></div>
-    <p class="new-member-text">
+    <p class="banner-slogan">
       {{t 'component.index.public.potentialMember.banner-1'}}
       <span>{{t 'component.index.public.potentialMember.banner-2'}}</span>
       {{t 'component.index.public.potentialMember.banner-3'}}
@@ -11,18 +11,20 @@
       <span>{{t 'component.index.public.potentialMember.banner-5'}}</span>
     </p>
     <div class="d-flex mt-3">
-      <LinkTo @route="index" @class="me-5">
-        <button class="btn btn-lg btn-primary frontpage-button">
+      <LinkTo @route="index" class="me-5">
+        <button class="btn btn-lg btn-primary frontpage-button" type="button">
           {{t 'component.index.public.actionButtons.memberButton'}}
         </button>
       </LinkTo>
       <LinkTo @route="index">
-        <button class="btn btn-lg btn-primary frontpage-button">
+        <button class="btn btn-lg btn-primary frontpage-button" type="button">
           {{t 'component.index.public.actionButtons.memberNowButton'}}
         </button>
       </LinkTo>
     </div>
   </div>
 
+  <Index::Public::AboutAlpha />
 
-<Index::Public::AboutAlpha />
+  <Index::Public::YoutubeVideos />
+</div>
