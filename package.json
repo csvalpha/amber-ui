@@ -115,6 +115,7 @@
   },
   "resolutions": {
     "@embroider/macros": "^1.0.0",
+    "fast-sourcemap-concat": "ef4/fast-sourcemap-concat",
     "workerpool@^2.3.0": "^2.3.4"
   },
   "engines": {
