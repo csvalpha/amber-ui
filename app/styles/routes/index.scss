@@ -178,6 +178,11 @@ $header-height: 450px;
   background-color: $opaque-black-halfly;
 }
 
+.social-icon {
+  width: 3rem;
+  height: 3rem;
+}
+
 .article-cards-wrapper {
   overflow: hidden;
 }
@@ -200,10 +205,15 @@ $header-height: 450px;
   text-align: center;
   font-family: Oswald, sans-serif;
   font-size: 3rem;
+  margin-bottom: 1rem;
+
+  &.index-title-smaller {
+    font-size: 2.5rem;
+    margin-bottom: 0.8rem;
+  }
 }
 
 .index-title-border {
-  margin-top: 1rem;
   width: 30vw;
 }
 

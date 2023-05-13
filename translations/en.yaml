@@ -137,9 +137,9 @@ component:
         studiegids: View on Studiegids
         studentenWegwijzer: View on StudentenWegwijzer
       activities:
-        title: Upcoming activities
+        title: Calendar
       photos:
-        more: View more photos »
+        more: More photos
       articles:
         title: Recent news
         more: More recent news »

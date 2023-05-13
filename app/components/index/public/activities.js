@@ -1,9 +1,12 @@
-import { action } from '@ember/object';
+import { action, computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import { tracked } from '@glimmer/tracking';
 import UpcomingActivitiesToolComponent from 'amber-ui/components/tools/upcoming-activities';
 
 export default class Activities extends UpcomingActivitiesToolComponent {
+  //TODO make this work
+  amountOfActivities = 3;
+
   @tracked modalTitle = '';
   @tracked modalText = '';
   @tracked modalLocation = '';

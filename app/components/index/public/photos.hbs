@@ -1,23 +1,30 @@
-{{#if photoAlbums}}
-  <div class='index-photo-albums'>
-    <LinkTo @route='photo-albums'>
-      <h1> {{capitalize (t 'model.photoAlbum.name.other')}} </h1>
-    </LinkTo>
-    <div class='row'>
-      {{#each photoAlbums as |album index|}}
-        {{#if (lt index amountOfAlbumsToShow)}}
-          <div class='col-md-6'>
-            <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
-              {{cards/photo-album-card album}}
-            </LinkTo>
-          </div>
-        {{/if}}
-      {{/each}}
-    </div>
-    <LinkTo @route='photo-albums'>
-      <span class='float-end btn frontpage-button'>
+<div class="index-photo-albums row p-5 d-flex flex-column align-items-center">
+  <LinkTo @route='photo-albums'>
+    <h2 class="index-title index-title-smaller">{{capitalize (t 'model.photoAlbum.name.other')}}</h2>
+  </LinkTo>
+  <hr class="index-title-border border border-secondary border-3 opacity-100" />
+  <div class='row p-0 mt-4'>
+    {{#each photoAlbums as |album index|}}
+      {{#if (lt index amountOfAlbumsToShow)}}
+        <div class='col-md-6'>
+          <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
+            {{cards/photo-album-card album}}
+          </LinkTo>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+  <div class="d-flex align-items-end mt-2">
+    <a href="https://www.instagram.com/csvAlpha" class="w-auto me-2">
+      <img class="social-icon" src="/images/icons/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/csvAlpha" class="flex-grow-1">
+      <img class="social-icon" src="/images/icons/facebook.png" alt="Facebook">
+    </a>
+    <LinkTo @route='photo-albums' @class="w-auto">
+      <button class='btn btn-primary frontpage-button'>
         {{t 'component.index.public.photos.more'}}
-      </span>
+      </button>
     </LinkTo>
   </div>
-{{/if}}
+</div>

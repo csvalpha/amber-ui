@@ -139,9 +139,9 @@ component:
         studiegids: Bekijk op Studiegids
         studentenWegwijzer: Bekijk op StudentenWegwijzer
       activities:
-        title: Activiteiten
+        title: Agenda
       photos:
-        more: Bekijk meer foto's »
+        more: Meer foto's
       articles:
         title: Recent nieuws
         more: Meer recent nieuws »

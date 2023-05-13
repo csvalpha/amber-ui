@@ -1,8 +1,9 @@
-{{#if activities}}
-  <hr />
-  <h2 class='pb-2'>{{t 'component.index.public.activities.title'}}</h2>
-  <div class='activity-list'>
-    {{#each activities as |activity index|}}
+{{!-- {{#if activities}} --}}
+<div class="row p-5 d-flex flex-column align-items-center">
+  <h2 class="index-title index-title-smaller">{{t 'component.index.public.activities.title'}}</h2>
+  <hr class="index-title-border border border-secondary border-3 opacity-100" />
+  <div class='activity-list p-0 mt-4'>
+    {{#each activities as |activity|}}
       <div>
         {{cards/frontpage-activity-card-small
           activity
@@ -11,7 +12,8 @@
       </div>
     {{/each}}
   </div>
-{{/if}}
+</div>
+{{!-- {{/if}} --}}
 
 {{#if modalIsOpen}}
   <EmberWormhole @to='ember-wormhole-destination'>
