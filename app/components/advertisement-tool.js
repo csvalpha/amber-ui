@@ -37,12 +37,6 @@ export default Component.extend({
       full: true,
     },
     {
-      title: 'Cibdol - Swiss purity',
-      link: 'https://www.cibdol.nl/',
-      image: 'advertisements/cibdol.gif',
-      full: true,
-    },
-    {
       title: 'InShared',
       link: 'https://www.inshared.nl/',
       image: 'advertisements/inshared.png',
