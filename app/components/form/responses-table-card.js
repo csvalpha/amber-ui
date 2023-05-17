@@ -9,12 +9,12 @@ const FormResponsesTableCardComponent = Component.extend({
         .join('\n');
 
       navigator.clipboard.writeText(usernames);
-    }
-  }
+    },
+  },
 });
 
 FormResponsesTableCardComponent.reopenClass({
-  positionalParams: ['form']
+  positionalParams: ['form'],
 });
 
 export default FormResponsesTableCardComponent;
