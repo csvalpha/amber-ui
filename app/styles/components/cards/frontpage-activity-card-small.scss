@@ -1,16 +1,19 @@
+$frontpage-activity-card-height: calc(((2 * ($photo-card-height * 0.8)) + 3.5rem) / 3);
+
 .frontpage-activity-card-small {
   box-shadow: none;
   background-color: $white;
   cursor: pointer;
   overflow: hidden;
   color: $white;
+  height: $frontpage-activity-card-height;
 
   .frontpage-card-image {
     transition: background-color 0.3s ease-in-out;
-    background-color: $gray-800;
+    background-color: $gray-700;
     background-position: center;
     background-size: cover;
-    height: 120px;
+    height: $frontpage-activity-card-height;
     background-blend-mode: overlay;
   }
 

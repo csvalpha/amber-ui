@@ -6,9 +6,9 @@
   <div class='row p-0 mt-4'>
     {{#each photoAlbums as |album index|}}
       {{#if (lt index amountOfAlbumsToShow)}}
-        <div class='col-md-6'>
+        <div class='{{if doubleActivityColumns "col-md-12" "col-md-6"}}'>
           <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
-            {{cards/photo-album-card album}}
+            {{cards/photo-album-card album true}}
           </LinkTo>
         </div>
       {{/if}}

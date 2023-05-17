@@ -1,11 +1,10 @@
 import { action, computed } from '@ember/object';
 import { htmlSafe } from '@ember/template';
 import { tracked } from '@glimmer/tracking';
-import UpcomingActivitiesToolComponent from 'amber-ui/components/tools/upcoming-activities';
+import Component from '@ember/component';
 
-export default class Activities extends UpcomingActivitiesToolComponent {
-  //TODO make this work
-  amountOfActivities = 3;
+export default class Activities extends Component {
+  @tracked activities;
 
   @tracked modalTitle = '';
   @tracked modalText = '';
@@ -18,7 +17,7 @@ export default class Activities extends UpcomingActivitiesToolComponent {
     this.modalTitle = activity.get('title');
     this.modalText = activity.get('description');
     this.modalLocation = activity.get('location');
-    this.modalImage = activity.get('coverPhotoUrlOrDefault');
+    this.modalImage = activity.get('coverPhotoUrl');
     this.modalIsOpen = true;
   }
 
@@ -28,8 +27,28 @@ export default class Activities extends UpcomingActivitiesToolComponent {
   }
 
   get modalImageStyle() {
+    if (this.modalImage) {
+      return htmlSafe(
+        `background-image: url(${this.activity.coverPhotoUrl}); background-size: cover; background-position: center;"`
+      );
+    }
     return htmlSafe(
-      `background: url('${this.modalImage}'); background-size: cover; background-position: center;"`
+      'background: no-repeat center/40% url(/images/alphalogowhite-large.svg), #ffd218;"'
     );
+  }
+
+  get activitiesMatrix() {
+    if (this.activities) {
+      const matrix = [];
+      for (let index = 0; index < this.activities.length; index += (this.doubleActivityColumns ? 2 : 1)) {
+        const pair = [this.activities.objectAt(index)];
+        if (this.doubleActivityColumns && index+1 < this.activities.length) {
+          pair.push(this.activities.objectAt(index+1));
+        }
+        matrix.push(pair);
+      }
+      return matrix;
+    } 
+    return [];
   }
 }

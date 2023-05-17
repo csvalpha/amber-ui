@@ -3,12 +3,16 @@
   <h2 class="index-title index-title-smaller">{{t 'component.index.public.activities.title'}}</h2>
   <hr class="index-title-border border border-secondary border-3 opacity-100" />
   <div class='activity-list p-0 mt-4'>
-    {{#each activities as |activity|}}
-      <div>
+    {{#each activitiesMatrix as |activityPair|}}
+      <div class="row">
+      {{#each activityPair as |activity|}}
+      <div class="{{if doubleActivityColumns "col-md-6" "col-md-12"}}">
         {{cards/frontpage-activity-card-small
           activity
           action=(action 'openModal' activity)
         }}
+      </div>
+      {{/each}}
       </div>
     {{/each}}
   </div>
@@ -22,7 +26,7 @@
       <div class='modal-dialog' role='document'>
         <div class='modal-content'>
           <div class='modal-body'>
-            <div class='modal-image-header' style={{modalImageStyle}}></div>
+            <div class='modal-image-header rounded-top' style={{modalImageStyle}}></div>
             <h2 class='modal-title'>{{modalTitle}}</h2>
             <p><i>{{modalLocation}}</i></p>
             {{markdown-to-html

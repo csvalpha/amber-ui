@@ -29,7 +29,7 @@
   <Index::Public::YoutubeVideos />
 
   <div class="row">
-    <Index::Public::Activities @class="col-12 col-lg-5" />
-    <Index::Public::Photos @class="col-12 col-lg-7" />
+    <Index::Public::Activities @doubleActivityColumns={{doubleActivityColumns}} @activities={{activities}} @class="col-12 {{if doubleActivityColumns 'col-lg-8' 'col-lg-5'}}" />
+    <Index::Public::Photos @doubleActivityColumns={{doubleActivityColumns}} @class="col-12 {{if doubleActivityColumns 'col-lg-4' 'col-lg-7'}}" />
   </div>
 </div>

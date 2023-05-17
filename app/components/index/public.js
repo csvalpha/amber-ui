@@ -1,26 +1,24 @@
-import { action, computed } from '@ember/object';
-import { htmlSafe } from '@ember/template';
+import { inject as service } from '@ember/service';
+import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
-import UpcomingActivitiesToolComponent from 'amber-ui/components/tools/upcoming-activities';
 
 export default Component.extend({
-    amountOfActivities: 6,
     store: service(),
     session: service(),
-    activities: computed(
-      'amountOfActivities',
-      'session.currentUser',
-      function () {
+    doubleActivityColumns: tracked(),
+    activities: tracked(),
+
+    willInsertElement() {
         const params = {
-          filter: { upcoming: true },
-          sort: 'start_time',
+            filter: { upcoming: true },
+            sort: 'start_time',
+            page: { size: 6 }
         };
-  
-        if (this.session.currentUser) {
-          params.page = { size: this.amountOfActivities };
-        }
-  
-        return this.store.query('activity', params);
-      }
-    ),
+    
+        this.store.query('activity', params).then(retrievedActivities => { 
+            this.activities = retrievedActivities; 
+            this.doubleActivityColumns = retrievedActivities.length > 3
+        });
+    }
+    
   });

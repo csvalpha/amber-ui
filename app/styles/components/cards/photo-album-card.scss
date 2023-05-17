@@ -5,6 +5,14 @@
     height: $photo-card-height;
   }
 
+  &.frontpage {
+    height: calc($photo-card-height * 0.8);
+
+    img {
+      height: calc($photo-card-height * 0.8);
+    }
+  }
+
   .card-title {
     font-size: 1.5rem;
   }
