@@ -2309,15 +2309,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/ember-fontawesome@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@fortawesome/ember-fontawesome@npm:0.4.1"
+"@fortawesome/ember-fontawesome@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "@fortawesome/ember-fontawesome@npm:1.0.0"
   dependencies:
     "@fortawesome/fontawesome-svg-core": ^6.2.0
+    "@rollup/plugin-node-resolve": ^15.0.2
     broccoli-file-creator: ^2.1.1
     broccoli-merge-trees: ^4.2.0
     broccoli-plugin: ^4.0.3
-    broccoli-rollup: ^4.1.1
+    broccoli-rollup: ^5.0.0
     broccoli-source: ^3.0.0
     camel-case: ^4.1.1
     ember-ast-helpers: 0.3.5
@@ -2326,8 +2327,7 @@ __metadata:
     ember-get-config: ^2.0.0
     find-yarn-workspace-root: ^2.0.0
     glob: ^7.1.2
-    rollup-plugin-node-resolve: ^5.2.0
-  checksum: 6ab27098e95aa48995e911f6135051023012295d7de4956363953f193cfd02a08403a89166114dd84ae3cc02ed45c474e8023556c18f0008d2baf1c7901ecc18
+  checksum: dd5b206bca0bea1473f318a83d63c31895cf2838a35637051eb34416bc88d0d60db08dfd097aa362cdc9bd6983b0e5e9ce8f6e5cd70d5c0c0d6826b232194f32
   languageName: node
   linkType: hard
 
@@ -2852,6 +2852,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-node-resolve@npm:^15.0.2":
+  version: 15.0.2
+  resolution: "@rollup/plugin-node-resolve@npm:15.0.2"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    "@types/resolve": 1.20.2
+    deepmerge: ^4.2.2
+    is-builtin-module: ^3.2.1
+    is-module: ^1.0.0
+    resolve: ^1.22.1
+  peerDependencies:
+    rollup: ^2.78.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 328eafee06ff967a36441b55e77fbd0d4f599d256e5d1977800ee71915846c46bc1b6185df35c7b512ad2b4023b05b65a332be77b8b00b9d8a20f87d056b8166
+  languageName: node
+  linkType: hard
+
+"@rollup/pluginutils@npm:^5.0.1":
+  version: 5.0.2
+  resolution: "@rollup/pluginutils@npm:5.0.2"
+  dependencies:
+    "@types/estree": ^1.0.0
+    estree-walker: ^2.0.2
+    picomatch: ^2.3.1
+  peerDependencies:
+    rollup: ^1.20.0||^2.0.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: edea15e543bebc7dcac3b0ac8bc7b8e8e6dbd46e2864dbe5dd28072de1fbd5b0e10d545a610c0edaa178e8a7ac432e2a2a52e547ece1308471412caba47db8ce
+  languageName: node
+  linkType: hard
+
 "@sentry-internal/tracing@npm:7.51.0":
   version: 7.51.0
   resolution: "@sentry-internal/tracing@npm:7.51.0"
@@ -2993,6 +3028,15 @@ __metadata:
   version: 1.3.0
   resolution: "@types/broccoli-plugin@npm:1.3.0"
   checksum: f8d798cbf838900d6b54d75d38f1e9dcd4779a4d7f467352353e094d21bf4f84610633af975878ea6536d18068e1b2ad2abe62aac7a8063de6aeb9f98e8429f6
+  languageName: node
+  linkType: hard
+
+"@types/broccoli-plugin@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@types/broccoli-plugin@npm:3.0.0"
+  dependencies:
+    broccoli-plugin: "*"
+  checksum: c5daf3b3ff689a00fa18c90c08e2998c373b7ee11235fcd63ad5ad03ff5d9b844f2b84fca966682490853a443714db4d2f0b389208478a0c1d4e7666f85ca04f
   languageName: node
   linkType: hard
 
@@ -3256,6 +3300,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/estree@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "@types/estree@npm:1.0.1"
+  checksum: e9aa175eacb797216fafce4d41e8202c7a75555bc55232dee0f9903d7171f8f19f0ae7d5191bb1a88cb90e65468be508c0df850a9fb81b4433b293a5a749899d
+  languageName: node
+  linkType: hard
+
 "@types/express-serve-static-core@npm:^4.17.18":
   version: 4.17.18
   resolution: "@types/express-serve-static-core@npm:4.17.18"
@@ -3404,12 +3455,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/resolve@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@types/resolve@npm:0.0.8"
-  dependencies:
-    "@types/node": "*"
-  checksum: f241bb773ab14b14500623ac3b57c52006ce32b20426b6d8bf2fe5fdc0344f42c77ac0f94ff57b443ae1d320a1a86c62b4e47239f0321699404402fbeb24bad6
+"@types/resolve@npm:1.20.2":
+  version: 1.20.2
+  resolution: "@types/resolve@npm:1.20.2"
+  checksum: 61c2cad2499ffc8eab36e3b773945d337d848d3ac6b7b0a87c805ba814bc838ef2f262fc0f109bfd8d2e0898ff8bd80ad1025f9ff64f1f71d3d4294c9f14e5f6
   languageName: node
   linkType: hard
 
@@ -4078,7 +4127,7 @@ __metadata:
     "@ember/render-modifiers": ^2.0.5
     "@ember/test-helpers": ^2.6.0
     "@faker-js/faker": ^7.6.0
-    "@fortawesome/ember-fontawesome": ^0.4.1
+    "@fortawesome/ember-fontawesome": ^1.0.0
     "@fortawesome/fontawesome-free": ^6.4.0
     "@fortawesome/free-brands-svg-icons": ^6.4.0
     "@fortawesome/free-regular-svg-icons": ^6.4.0
@@ -6445,6 +6494,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"broccoli-plugin@npm:*, broccoli-plugin@npm:^4.0.0, broccoli-plugin@npm:^4.0.2, broccoli-plugin@npm:^4.0.3, broccoli-plugin@npm:^4.0.7":
+  version: 4.0.7
+  resolution: "broccoli-plugin@npm:4.0.7"
+  dependencies:
+    broccoli-node-api: ^1.7.0
+    broccoli-output-wrapper: ^3.2.5
+    fs-merger: ^3.2.1
+    promise-map-series: ^0.3.0
+    quick-temp: ^0.1.8
+    rimraf: ^3.0.2
+    symlink-or-copy: ^1.3.1
+  checksum: 49d6a55ebfe1880e73956dc8bf23104ad81c1272d4a06755823e6e1eec5255583d2913de99427b3e0a620e3b56178fdd8ea03c832b7452f0440c166044aa555c
+  languageName: node
+  linkType: hard
+
 "broccoli-plugin@npm:1.1.0":
   version: 1.1.0
   resolution: "broccoli-plugin@npm:1.1.0"
@@ -6496,21 +6560,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"broccoli-plugin@npm:^4.0.0, broccoli-plugin@npm:^4.0.2, broccoli-plugin@npm:^4.0.3, broccoli-plugin@npm:^4.0.7":
-  version: 4.0.7
-  resolution: "broccoli-plugin@npm:4.0.7"
-  dependencies:
-    broccoli-node-api: ^1.7.0
-    broccoli-output-wrapper: ^3.2.5
-    fs-merger: ^3.2.1
-    promise-map-series: ^0.3.0
-    quick-temp: ^0.1.8
-    rimraf: ^3.0.2
-    symlink-or-copy: ^1.3.1
-  checksum: 49d6a55ebfe1880e73956dc8bf23104ad81c1272d4a06755823e6e1eec5255583d2913de99427b3e0a620e3b56178fdd8ea03c832b7452f0440c166044aa555c
-  languageName: node
-  linkType: hard
-
 "broccoli-rollup@npm:^2.1.1":
   version: 2.1.1
   resolution: "broccoli-rollup@npm:2.1.1"
@@ -6544,6 +6593,23 @@ __metadata:
     symlink-or-copy: ^1.2.0
     walk-sync: ^1.1.3
   checksum: 3d5218eb8d57f2ea2c6b276b11fbca5189b3d3b7eef04947f9ec4b570ce6cf49ff0d936e8f9c059fbb73febceff186ba11fd215fb20ccc4f337fa6b4254db3c4
+  languageName: node
+  linkType: hard
+
+"broccoli-rollup@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "broccoli-rollup@npm:5.0.0"
+  dependencies:
+    "@types/broccoli-plugin": ^3.0.0
+    broccoli-plugin: ^4.0.7
+    fs-tree-diff: ^2.0.1
+    heimdalljs: ^0.2.6
+    node-modules-path: ^1.0.1
+    rollup: ^2.50.0
+    rollup-pluginutils: ^2.8.1
+    symlink-or-copy: ^1.2.0
+    walk-sync: ^2.2.0
+  checksum: 752725e1b78b8dc6b228b0156b44e293feb948c00bf3b505254ba1f9a706a14334727eb1505c8e01ee22500387cc3059f8cb0ecf7857935346768bdcf1939b1e
   languageName: node
   linkType: hard
 
@@ -6927,10 +6993,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"builtin-modules@npm:^3.1.0":
-  version: 3.2.0
-  resolution: "builtin-modules@npm:3.2.0"
-  checksum: 0265aa1ba78e1a16f4e18668d815cb43fb364e6a6b8aa9189c6f44c7b894a551a43b323c40206959d2d4b2568c1f2805607ad6c88adc306a776ce6904cca6715
+"builtin-modules@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "builtin-modules@npm:3.3.0"
+  checksum: db021755d7ed8be048f25668fe2117620861ef6703ea2c65ed2779c9e3636d5c3b82325bd912244293959ff3ae303afa3471f6a15bf5060c103e4cc3a839749d
   languageName: node
   linkType: hard
 
@@ -8446,6 +8512,13 @@ __metadata:
   version: 0.1.3
   resolution: "deep-is@npm:0.1.3"
   checksum: c15b04c3848a89880c94e25b077c19b47d9a30dd99048e70e5f95d943e7b246bee1da0c1376b56b01bc045be2cae7d9b1c856e68e47e9805634327de7c6cb6d5
+  languageName: node
+  linkType: hard
+
+"deepmerge@npm:^4.2.2":
+  version: 4.3.1
+  resolution: "deepmerge@npm:4.3.1"
+  checksum: 2024c6a980a1b7128084170c4cf56b0fd58a63f2da1660dcfe977415f27b17dbe5888668b59d0b063753f3220719d5e400b7f113609489c90160bb9a5518d052
   languageName: node
   linkType: hard
 
@@ -11214,6 +11287,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"estree-walker@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "estree-walker@npm:2.0.2"
+  checksum: 6151e6f9828abe2259e57f5fd3761335bb0d2ebd76dc1a01048ccee22fabcfef3c0859300f6d83ff0d1927849368775ec5a6d265dde2f6de5a1be1721cd94efc
+  languageName: node
+  linkType: hard
+
 "esutils@npm:^2.0.2":
   version: 2.0.3
   resolution: "esutils@npm:2.0.3"
@@ -13923,6 +14003,15 @@ __metadata:
   dependencies:
     builtin-modules: ^1.0.0
   checksum: a9b4e790479a27e2e439b655e5e5aa27fd10efe35ca7f741106702f33ca8a65e079964caa2adc3343348467446cc1d4d93307c85e3b7ae63297d901c76494110
+  languageName: node
+  linkType: hard
+
+"is-builtin-module@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
+  dependencies:
+    builtin-modules: ^3.3.0
+  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
   languageName: node
   linkType: hard
 
@@ -19676,21 +19765,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-node-resolve@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "rollup-plugin-node-resolve@npm:5.2.0"
-  dependencies:
-    "@types/resolve": 0.0.8
-    builtin-modules: ^3.1.0
-    is-module: ^1.0.0
-    resolve: ^1.11.1
-    rollup-pluginutils: ^2.8.1
-  peerDependencies:
-    rollup: ">=1.11.0"
-  checksum: 29687721d2d4332d29042bf6a2d349ba44135dd28e242150b7c4ea02c3207e152f11022f40ede5b3722b32cfab9782c14000d5e2370f45bb2411a769a7c5eee1
-  languageName: node
-  linkType: hard
-
 "rollup-pluginutils@npm:^2.0.1, rollup-pluginutils@npm:^2.8.1":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
@@ -19731,6 +19805,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: 3a02731c20c71321fae647c9c9cab0febee0580c6af029fdcd5dd6f424b8c85119d92c8554c6837327fd323c2458e92d955bbebc90ca6bed87cc626695e7c31f
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^2.50.0":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 
