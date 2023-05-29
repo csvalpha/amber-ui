@@ -26,8 +26,10 @@ $header-height: 450px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: -44px;
-  height: $header-height;
+  margin-top: calc(-100px + $navbar-height);
+  height: fit-content;
+  padding-top: 80px;
+  padding-bottom: 60px;
   color: $white;
 
   .index-poster, .index-poster-overlay {
@@ -37,7 +39,7 @@ $header-height: 450px;
     margin-top: -$navbar-height;
     margin-left: -50vw;
     width: 100vw;
-    height: $header-height;
+    height: 100%;
   }
 
   .index-poster {
@@ -58,13 +60,13 @@ $header-height: 450px;
   .banner-slogan {
     text-align: center;
     text-transform: uppercase;
-    line-height: 6rem;
+    line-height: min(6rem, 11vw);
     font-family: 'Advent Pro', sans-serif;
-    font-size: 4rem;
+    font-size: min(4rem, 8vw);
     font-weight: 500;
 
     span {
-      font-size: 6rem;
+      font-size: min(6rem, 11vw);
     }
   }
 
@@ -75,18 +77,6 @@ $header-height: 450px;
 
   * {
     z-index: 1;
-  }
-}
-
-@include media-breakpoint-only(xs) {
-  .index-header {
-    padding-top: 1rem;
-    padding-bottom: 2rem;
-    height: fit-content;
-
-    .index-poster, .index-poster-overlay {
-      height: 100%;
-    }
   }
 }
 
@@ -133,7 +123,14 @@ $header-height: 450px;
 }
 
 .index-photo-albums {
-  margin-bottom: 90px;
+  // margin-bottom: 90px;
+  
+
+  .index-photo-albums-wrapper {
+    min-height: calc($public-activity-and-photo-holders-height - 3rem);
+  //   // twice the height of a photo-card + its bottom-margin
+  //   height: calc(2 * ($public-photo-card-height + 1rem));
+  }
 }
 
 .index-promo-video {
@@ -248,6 +245,55 @@ $header-height: 450px;
   }
 }
 
-.index-videos-section {
+.index-videos-section, .index-sponsors-section {
   background: linear-gradient(90deg, rgba(0 0 0 / 50%) 0%, $brand-secondary 100%), $brand-secondary;
+}
+
+// twice the height of a photo-card + its bottom-margin + height of the social-icons / more photos button
+.activity-list {
+  min-height: calc($public-activity-and-photo-holders-height + 1rem);
+}
+
+.public-no-items-text {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.public-row {
+  width: 90vw;
+  position: relative;
+  left: 50%;
+  margin-left: -45vw;
+}
+
+.index-sponsors-section {
+  height: fit-content;
+
+  & > :first-child {
+    padding: 5px 0;
+
+    .advertisement-item {
+      background-color: $white;
+      border-radius: 0.375rem;
+      height: 100%;
+      padding: 3px;
+
+      & > * {
+        height: calc(100% - 6px);
+        width: calc(100% - 6px);
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+
+  .potential-sponsor-text {
+    color: $brand-cream;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+.public {
+  // margin-bottom: -50px;
 }

@@ -1,4 +1,4 @@
-<div>
+<div class="public">
   <div class='container-fluid index-header'>
     <Index::Public::BackgroundImage />
     <div class="index-poster-overlay"></div>
@@ -10,13 +10,13 @@
       {{t 'component.index.public.potentialMember.banner-4'}}
       <span>{{t 'component.index.public.potentialMember.banner-5'}}</span>
     </p>
-    <div class="d-flex mt-3">
-      <LinkTo @route="index" class="me-5">
+    <div class="d-flex mt-4">
+      <a href='https://forms.gle/R4WYzbWameD6wN817' target='_blank' class="me-5">
         <button class="btn btn-lg btn-primary frontpage-button" type="button">
           {{t 'component.index.public.actionButtons.memberButton'}}
         </button>
-      </LinkTo>
-      <LinkTo @route="index">
+      </a>
+      <LinkTo @route='static-pages.show' @model='word-lid'>
         <button class="btn btn-lg btn-primary frontpage-button" type="button">
           {{t 'component.index.public.actionButtons.memberNowButton'}}
         </button>
@@ -28,8 +28,15 @@
 
   <Index::Public::YoutubeVideos />
 
-  <div class="row">
+  <div class="row public-row">
     <Index::Public::Activities @doubleActivityColumns={{doubleActivityColumns}} @activities={{activities}} @class="col-12 {{if doubleActivityColumns 'col-lg-8' 'col-lg-5'}}" />
     <Index::Public::Photos @doubleActivityColumns={{doubleActivityColumns}} @class="col-12 {{if doubleActivityColumns 'col-lg-4' 'col-lg-7'}}" />
+  </div>
+
+  <div class="index-sponsors-section full-width p-4 pb-2 d-flex flex-column align-items-center">
+    <AdvertisementTool />
+    <LinkTo @route='static-pages.show' @model='sponsoring' class="potential-sponsor-text mt-2">
+      Ook sponsor worden? Klik hier
+    </LinkTo>
   </div>
 </div>

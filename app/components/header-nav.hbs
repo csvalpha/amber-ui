@@ -19,25 +19,28 @@
             <BreadCrumbs @crumbClass='breadcrumb-item' />
           {{else}}
             <LinkTo @route='index' class="page-actions-buttons">
-              <BsButton @type="primary">Home</BsButton>
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentRouteName 'index') 'selected'}}">Home</BsButton>
             </LinkTo>
-            <BsDropdown as |dd| {{did-insert (action 'setAvailableStaticPages')}}>
-              <dd.button @type="primary">{{t "component.headerNav.aboutUs"}}</dd.button>
-              <dd.menu @renderInPlace={{false}} as |ddm|>
+            <BsDropdown class="position-static" as |dd| {{did-insert (action 'setAvailableStaticPages')}}>
+              <dd.button @type="primary" class="public-navbar-button {{if (and 
+                (and (not-eq router.currentURL '/static-pages/word-lid') (not-eq router.currentURL '/static-pages/sponsoring')) 
+                (eq router.currentRouteName 'static-pages.show')) 'selected'
+              }}">{{t "component.headerNav.aboutUs"}}</dd.button>
+              <dd.menu @renderInPlace={{true}} as |ddm|>
                 {{#each-in staticPagesForDropdown as |id title|}}
                   <ddm.item>
-                    <ddm.linkTo @route='static-pages.show' @model={{id}}>
+                    <ddm.linkTo @route='static-pages.show' @model={{id}} class="btn btn-primary">
                       {{title}}
                     </ddm.linkTo>
                   </ddm.item>
                 {{/each-in}}
               </dd.menu>
             </BsDropdown>
-            <LinkTo @route='index' class="page-actions-buttons">
-              <BsButton @type="primary">Word lid</BsButton>
+            <LinkTo @route='static-pages.show' @model='word-lid' class="page-actions-buttons">
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/word-lid') 'selected'}}">Word lid</BsButton>
             </LinkTo>
-            <LinkTo @route='index' class="page-actions-buttons">
-              <BsButton @type="primary">Contact</BsButton>
+            <LinkTo @route='static-pages.show' @model='sponsoring' class="page-actions-buttons">
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/sponsoring') 'selected'}}">Sponsoring</BsButton>
             </LinkTo>
           {{/if}}
         </div>
@@ -45,7 +48,7 @@
 
       {{#unless session.isAuthenticated}}
         <LinkTo @route='login' class='d-none d-md-flex me-2'>
-          <button class='btn btn-primary' type='button'>
+          <button class='btn btn-primary public-navbar-button {{if (eq router.currentRouteName 'login') 'selected'}}' type='button'>
             {{t 'tag.button.signin'}}
           </button>
         </LinkTo>

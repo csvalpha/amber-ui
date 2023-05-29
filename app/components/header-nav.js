@@ -20,7 +20,7 @@ export default Component.extend({
     const result = {};
     if (this.availableStaticPages) {
       Object.entries(this.availableStaticPages).forEach(([id, title]) => {
-        if (!['word-lid'].includes(id)) {
+        if (!['word-lid', 'sponsoring'].includes(id)) {
           result[id] = title;
         }
       });
@@ -54,6 +54,7 @@ export default Component.extend({
         this.set('intl.locale', 'nl');
         localStorage.setItem('locale', 'nl');
       }
+      console.log(this.router)
     },
     setAvailableStaticPages() {
       if (!this.session.isAuthenticated && !this.media.isMobile) {

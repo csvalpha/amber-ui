@@ -140,8 +140,10 @@ component:
         studentenWegwijzer: Bekijk op StudentenWegwijzer
       activities:
         title: Agenda
+        none: Er zijn geen open activiteiten de komende tijd.
       photos:
         more: Meer foto's
+        none: Er zijn op dit moment geen foto-albums om weer te geven.
       articles:
         title: Recent nieuws
         more: Meer recent nieuws »

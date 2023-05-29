@@ -6,10 +6,13 @@
   }
 
   &.frontpage {
-    height: calc($photo-card-height * 0.8);
+    margin-bottom: 1rem;
+    // half of the allowed height - the social-buttons row
+    // and that minus the bottom-margin
+    height: calc(($public-activity-and-photo-holders-height - 3rem) / 2 - 1rem);
 
     img {
-      height: calc($photo-card-height * 0.8);
+      height: calc(($public-activity-and-photo-holders-height - 3rem) / 2 - 1rem);
     }
   }
 

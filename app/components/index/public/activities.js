@@ -5,6 +5,7 @@ import Component from '@ember/component';
 
 export default class Activities extends Component {
   @tracked activities;
+  @tracked doubleActivityColumns;
 
   @tracked modalTitle = '';
   @tracked modalText = '';

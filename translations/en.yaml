@@ -138,8 +138,10 @@ component:
         studentenWegwijzer: View on StudentenWegwijzer
       activities:
         title: Calendar
+        none: There are no upcoming open activities.
       photos:
         more: More photos
+        none: At this moment there are no photoalbums to display.
       articles:
         title: Recent news
         more: More recent news »

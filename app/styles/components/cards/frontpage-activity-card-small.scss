@@ -1,4 +1,6 @@
-$frontpage-activity-card-height: calc(((2 * ($photo-card-height * 0.8)) + 3.5rem) / 3);
+// allowed total height - the height of bottom-margins of top two activity cards
+// and that all divided by 3, for 3 article cards
+$frontpage-activity-card-height: calc(($public-activity-and-photo-holders-height - 2rem) / 3);
 
 .frontpage-activity-card-small {
   box-shadow: none;
@@ -6,7 +8,9 @@ $frontpage-activity-card-height: calc(((2 * ($photo-card-height * 0.8)) + 3.5rem
   cursor: pointer;
   overflow: hidden;
   color: $white;
+  // subtract bottom-margin
   height: $frontpage-activity-card-height;
+  margin-bottom: 1rem;
 
   .frontpage-card-image {
     transition: background-color 0.3s ease-in-out;
