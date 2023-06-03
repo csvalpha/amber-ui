@@ -48,6 +48,12 @@ p {
 }
 
 .main {
+  @include media-breakpoint-up(xl) {
+    &:not(.authenticated) {
+      max-width: 1600px;
+    }
+  }
+
   transform: translateX(0);
   transition: all 0.3s ease-in-out;
   margin-bottom: 50px;
@@ -59,12 +65,6 @@ p {
 
     &.left-sidebar-expanded {
       transform: translateX(110px);
-    }
-  }
-
-  @include media-breakpoint-up(xl) {
-    &:not(.authenticated) {
-      max-width: 1600px;
     }
   }
 }

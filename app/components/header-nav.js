@@ -54,7 +54,7 @@ export default Component.extend({
         this.set('intl.locale', 'nl');
         localStorage.setItem('locale', 'nl');
       }
-      console.log(this.router)
+      console.log(this.router);
     },
     setAvailableStaticPages() {
       if (!this.session.isAuthenticated && !this.media.isMobile) {

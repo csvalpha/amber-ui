@@ -4,14 +4,14 @@
   <div class='activity-list p-0 mt-4'>
     {{#each activitiesMatrix as |activityPair|}}
       <div class="row">
-      {{#each activityPair as |activity|}}
-      <div class="{{if doubleActivityColumns "col-md-6" "col-md-12"}}">
-        {{cards/frontpage-activity-card-small
+        {{#each activityPair as |activity|}}
+          <div class="{{if doubleActivityColumns "col-md-6" "col-md-12"}}">
+            {{cards/frontpage-activity-card-small
           activity
           action=(action 'openModal' activity)
         }}
-      </div>
-      {{/each}}
+          </div>
+        {{/each}}
       </div>
     {{else}}
       <p class="public-no-items-text"><i>{{t 'component.index.public.activities.none'}}</i></p>

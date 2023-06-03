@@ -5,10 +5,10 @@
   align-items: center;
   justify-content: center;
   margin-top: calc(-100px + $navbar-height);
-  height: fit-content;
-  min-height: 22vw;
   padding-top: 80px;
   padding-bottom: 60px;
+  height: fit-content;
+  min-height: 22vw;
   color: $white;
 
   .header-background {
@@ -33,13 +33,13 @@
   }
 
   .header-slogan {
+    z-index: 1;
     text-align: center;
     text-transform: uppercase;
     line-height: min(7rem, 11vw);
     font-family: 'Advent Pro', sans-serif;
     font-size: min(5.5rem, 8vw);
     font-weight: 500;
-    z-index: 1;
 
     span {
       font-size: min(7rem, 11vw);

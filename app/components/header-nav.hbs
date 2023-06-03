@@ -25,7 +25,9 @@
               <dd.button @type="primary" class="public-navbar-button {{if (and 
                 (and (not-eq router.currentURL '/static-pages/word-lid') (not-eq router.currentURL '/static-pages/sponsoring')) 
                 (eq router.currentRouteName 'static-pages.show')) 'selected'
-              }}">{{t "component.headerNav.aboutUs"}}</dd.button>
+              }}">
+                {{t "component.headerNav.aboutUs"}}
+              </dd.button>
               <dd.menu @renderInPlace={{true}} as |ddm|>
                 {{#each-in staticPagesForDropdown as |id title|}}
                   <ddm.item>

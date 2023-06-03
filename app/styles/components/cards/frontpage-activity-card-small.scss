@@ -3,14 +3,14 @@
 $frontpage-activity-card-height: calc(($public-activity-and-photo-holders-height - 2rem) / 3);
 
 .frontpage-activity-card-small {
+  margin-bottom: 1rem;
   box-shadow: none;
   background-color: $white;
   cursor: pointer;
-  overflow: hidden;
-  color: $white;
   // subtract bottom-margin
   height: $frontpage-activity-card-height;
-  margin-bottom: 1rem;
+  overflow: hidden;
+  color: $white;
 
   .frontpage-card-image {
     transition: background-color 0.3s ease-in-out;
