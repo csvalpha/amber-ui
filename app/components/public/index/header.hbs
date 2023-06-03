@@ -1,0 +1,24 @@
+<div class='container-fluid public-index-header'>
+  <img src="{{headerImageUrl}}" class="header-background" />
+  <div class="header-overlay"></div>
+  <p class="header-slogan">
+      {{t 'component.index.public.potentialMember.banner-1'}}
+      <span>{{t 'component.index.public.potentialMember.banner-2'}}</span>
+      {{t 'component.index.public.potentialMember.banner-3'}}
+      <br/>
+      {{t 'component.index.public.potentialMember.banner-4'}}
+      <span>{{t 'component.index.public.potentialMember.banner-5'}}</span>
+  </p>
+  <div class="header-buttons d-flex flex-wrap justify-content-center">
+      <a href='https://forms.gle/R4WYzbWameD6wN817' target='_blank' class="mt-4 mx-3">
+      <button class="btn btn-lg btn-primary header-button" type="button">
+          {{t 'component.index.public.actionButtons.memberButton'}}
+      </button>
+      </a>
+      <LinkTo @route='static-pages.show' @model='word-lid' class="mt-4 mx-3">
+      <button class="btn btn-lg btn-primary header-button" type="button">
+          {{t 'component.index.public.actionButtons.memberNowButton'}}
+      </button>
+      </LinkTo>
+  </div>
+</div>

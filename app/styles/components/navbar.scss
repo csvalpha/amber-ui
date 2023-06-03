@@ -77,6 +77,7 @@
   padding: 0;
   width: 80px;
   height: 80px;
+  z-index: 1;
 }
 
 .nav-item {
@@ -141,7 +142,8 @@
   }
 
   .dropdown-item:hover,
-  .dropdown-item.active:hover {
+  .dropdown-item.active:hover,
+  .dropdown-item.active {
     background-color: tint-color($brand-primary, $btn-hover-bg-tint-amount); /* stylelint-disable-line function-no-unknown */
   }
 }

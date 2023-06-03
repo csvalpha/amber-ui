@@ -1,0 +1,34 @@
+<div class="public-index-videos-section full-width py-5">
+  <div class="container videos-section-wrapper row d-flex flex-column align-items-center">
+    <h1 class="public-title text-white">C.S.V. Alpha in het kort</h1>
+    <hr class="public-title-border border border-primary bg-primary border-3 opacity-100" />
+
+    <div class='row mt-4 px-4'>
+      <div class='col-xs col-lg-9'>
+        <YoutubeVideo
+          @youtubeId='{{mainVideo.videoId}}'
+          @title='{{mainVideo.title}}'
+        />
+      </div>
+      <div class='col-xs col-lg-3'>
+        <div class='public-index-videos'>
+          <div class='public-index-videos__container'>
+            {{#each sideVideos as |video|}}
+              <div
+                class='public-index-videos__video'
+                title='{{video.title}}'
+                {{action 'changeVideo' video}}
+              >
+                <img
+                  src='https://img.youtube.com/vi/{{video.videoId}}/maxresdefault.jpg'
+                  class='public-index-videos__thumbnail'
+                  alt='{{video.title}}'
+                />
+              </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

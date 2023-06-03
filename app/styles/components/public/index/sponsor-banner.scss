@@ -1,0 +1,28 @@
+.public-index-sponsors-banner {
+  height: fit-content;
+  background: linear-gradient(90deg, rgba(0 0 0 / 40%) 0%, $brand-secondary 100%), $brand-secondary;
+
+  & > :first-child {
+    padding: 5px 0;
+
+    .advertisement-item {
+      background-color: $white;
+      border-radius: 0.375rem;
+      height: 100%;
+      padding: 3px;
+
+      & > * {
+        height: calc(100% - 6px);
+        width: calc(100% - 6px);
+        object-fit: contain;
+        object-position: center;
+      }
+    }
+  }
+
+  .potential-sponsor-text {
+    color: $brand-cream;
+    text-align: center;
+    font-weight: bold;
+  }
+}

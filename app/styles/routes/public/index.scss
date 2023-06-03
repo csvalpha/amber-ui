@@ -1,0 +1,22 @@
+.public-index {
+  .public-title {
+    text-align: center;
+    font-family: Oswald, sans-serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  
+    &.public-title-smaller {
+      font-size: 2.5rem;
+      margin-bottom: 0.8rem;
+    }
+  }
+  
+  .public-title-border {
+    width: 30vw;
+  }
+
+  .public-no-items-text {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

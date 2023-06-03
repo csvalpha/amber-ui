@@ -61,6 +61,12 @@ p {
       transform: translateX(110px);
     }
   }
+
+  @include media-breakpoint-up(xl) {
+    &:not(.authenticated) {
+      max-width: 1600px;
+    }
+  }
 }
 
 .main-content {

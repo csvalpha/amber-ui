@@ -46,6 +46,8 @@
         </div>
       </div>
 
+      <div id='navbar-wormhole'></div>
+
       {{#unless session.isAuthenticated}}
         <LinkTo @route='login' class='d-none d-md-flex me-2'>
           <button class='btn btn-primary public-navbar-button {{if (eq router.currentRouteName 'login') 'selected'}}' type='button'>
@@ -53,7 +55,6 @@
           </button>
         </LinkTo>
       {{/unless}}
-      <div id='navbar-wormhole'></div>
     </div>
 
     {{#unless session.isAuthenticated}}

@@ -1,9 +1,9 @@
-<div class="index-photo-albums row p-5 d-flex flex-column align-items-center">
+<div class="public-index-photo-albums row p-5 d-flex flex-column align-items-center">
   <LinkTo @route='photo-albums'>
-    <h2 class="index-title index-title-smaller">{{capitalize (t 'model.photoAlbum.name.other')}}</h2>
+    <h2 class="public-title public-title-smaller index-title-smaller">{{capitalize (t 'model.photoAlbum.name.other')}}</h2>
   </LinkTo>
-  <hr class="index-title-border border border-secondary border-3 opacity-100" />
-  <div class='row p-0 mt-4 index-photo-albums-wrapper'>
+  <hr class="public-title-border border border-secondary bg-secondary border-3 opacity-100" />
+  <div class='row p-0 mt-4 photo-albums-wrapper'>
     {{#each photoAlbums as |album index|}}
       {{#if (lt index amountOfAlbumsToShow)}}
         <div class='{{if doubleActivityColumns "col-md-12" "col-md-6"}}'>

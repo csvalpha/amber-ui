@@ -1,0 +1,57 @@
+.public-index-header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: calc(-100px + $navbar-height);
+  height: fit-content;
+  min-height: 22vw;
+  padding-top: 80px;
+  padding-bottom: 60px;
+  color: $white;
+
+  .header-background {
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  .header-overlay {
+    opacity: 0.45;
+    background-color: $black;
+  }
+
+  .header-background, .header-overlay {
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    margin-top: -$navbar-height;
+    margin-left: -50vw;
+    width: 100vw;
+    max-width: 100vw;
+    height: 100%;
+  }
+
+  .header-slogan {
+    text-align: center;
+    text-transform: uppercase;
+    line-height: min(7rem, 11vw);
+    font-family: 'Advent Pro', sans-serif;
+    font-size: min(5.5rem, 8vw);
+    font-weight: 500;
+    z-index: 1;
+
+    span {
+      font-size: min(7rem, 11vw);
+    }
+  }
+
+  .header-buttons {
+    z-index: 1;
+
+    .header-button {
+      width: 14rem;
+      text-transform: uppercase;
+    }
+  }
+}
