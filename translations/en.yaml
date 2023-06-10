@@ -94,115 +94,168 @@ component:
     aboutUs: About us
     sponsoring: Sponsoring
     becomeMember: Become a member!
-    becomeOldMember: Become an old-member!
   footerNav:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
-  index:
-    public:
-      potentialMember:
-        banner-1: For those who
-        banner-2: believe
-        banner-3: ''
-        banner-4: in a
-        banner-5: student time!
-        title: Interested in Alpha?
-        info:
-          Nice that you are interested in Alpha. Send a <a href="https://api.whatsapp.com/send?phone=31618053999">message</a> to 06-18053999, so you can get to know Alpha better on one of its activities! 
-      aboutFlux:
-        title: Our Pub
-        info:
-          The Pakkerij is located on the Oude Markt. This impressive white building
-          houses four student associations. Located on the top floor is 'Flux', the
-          pub of C.S.V. Alpha.  Every Thursday-night drinks will take place here, but
-          Flux is also used for Sing-Ins, theme-nights and sometimes will be hired by
-          others.
-        more: Go to the Flux website »
-      actionButtons:
-        room:
-          Are you looking for a room in Enschede? Or are you looking for a place
-          to stay during the Kick-In? Leave your contact info and we will try to help
-          you find a place to stay!
-        roomButton: I am looking for a room!
-        member:
-          Do you want to become a member of Alpha? Leave your email address with
-          us at one of our activities and we will contact you. Or become a member immediately
-          by signing up online!
-        memberButton: Interested
-        memberNowButton: Join
+    flux-contact: Contact us
+  public:
+    index:
+      header:
+        slogan-1: For who
+        slogan-2: believes
+        slogan-3: in
+        slogan-4: a
+        slogan-5: student time!
+        interested: Interested
+        becomeMember: Join
       aboutAlpha:
-        slogan: THE Christian student association of Enschede
-        info:
-          TODO component.index.public.aboutAlpha.info
-        button: Read more about the association
-        studiegids: View on Studiegids
-        studentenWegwijzer: View on StudentenWegwijzer
+        intro-title: THE Christian student association of Enschede
+        intro: LANG-TODO
+        vriendschap-title: LANG-TODO
+        vriendschap-text: LANG-TODO
+        vorming-title: LANG-TODO
+        vorming-text: LANG-TODO
+        verantwoordelijkheid-title: LANG-TODO
+        verantwoordelijkheid-text: LANG-TODO
       activities:
         title: Calendar
         none: There are no upcoming open activities.
       photos:
+        title: Photo albums
         more: More photos
         none: At this moment there are no photoalbums to display.
-      articles:
-        title: Recent news
-        more: More recent news »
-      memberStories:
-        title: Stories of members
-        of: Story of {name}
-        laurens1:
-          'Heyhey! I am Laurens. In my first year as student, I joined Alpha.
-          During the Kick-In I came in touch with the association. In the beginning,
-          I doubted whether I wanted to join a student association, but I wanted to
-          make new (Christian) friends in my new surroundings. I never regretted this
-          decision. In my first year, I made many new contacts and enjoyed the activities.
-          From studying, doing sports and drinking some beers with each other, to epic
-          weekends in and out of the country. '
-        laurens2:
-          Results after the first year? New friendships, deep and good conversations
-          about religion and I have gained many new experiences in committees. After
-          half a year I started living in an Alpha house. Living together with Christian
-          students is really cool and fulfilling. As a house we also organise epic activities
-          and everyone is always welcome! In short, are you looking for a fun time,
-          friendship and a challenge in your religious life, then Alpha is something
-          for you!
-        luuk1:
-          'Hey, I am Luuk. When I came to Enschede I did not join a student association
-          immediately, because I didn’t think it would be something for me. After studying
-          for a year a friend of me brought me along to a drink of Alpha. I had such
-          a great evening there, that I seriously started thinking about joining an
-          association. After a few introduction activities, I knew it for sure, I was
-          joining Alpha. '
-        luuk2:
-          Up until this day I definitely have not regretted my decision. At Alpha
-          I made friends, participated in committees and started thinking about religion
-          more in-depth. From serious conversations to fun drinks and every now and
-          then a nice party, that is exactly the combination that I like about Alpha.
-          Are you interested? Drop by sometime!
-        susan:
-          'Hi hi, my name is Susan. When I came to Enschede two years ago I never
-          planned on joining a student association. Nevertheless, some of my housemates
-          dragged me to Alpha and I was sold immediately. Due to the large diversity
-          of the association, there is always something new to experience. Sometimes
-          that is an awesome committee and another time that is a good long conversation
-          in the pub. Also regarding religion there is something for everyone, with
-          very diverse bible study groups, which you can choose, you can decide what
-          you want to study for that year. This way, I believe, that Alpha gives you
-          a lot of space to grow and discover in your religion. I have to thank Alpha
-          regarding a lot of my personal development, and I would make the decision
-          to join again in a split second. Does it seem like fun? Drop by sometime and
-          taste the atmosphere for yourself! '
-        afke1:
-          Heyhey! Even before moving to Enschede, I had already heard great stories
-          about Alpha. During the introduction period, I joined a lot of activities
-          and got to know Alpha even better and I decided to become a member. Meanwhile,
-          a year has past and I still enjoy it a lot!
-        afke2:
-          What really speaks to me is that everyone is always welcome in the association.
-          There are members from different churches and also those without religion,
-          but everyone hangs out with everyone and everyone has fun with each other.
-          I, myself, am not religious, but I definitely feel me at home within Alpha.
-          The good conversations, the friendships and epic drinks and parties in our
-          pub make sure that Alpha is a great completion of my time as a student in
-          Enschede!
+      sponsors:
+        potential-sponsor: LANG-TODO
+      youtube-videos:
+        title: LANG-TODO
+    board:
+      header: LANG-TODO
+      intro-title: LANG-TODO
+      intro: LANG-TODO
+      slogan: LANG-TODO
+      senaat: Board
+      old-boards: Oud Besturen
+      board-member-stories:
+        member-1: LANG-TODO
+        member-2: LANG-TODO
+        member-3: LANG-TODO
+        member-4: LANG-TODO
+        member-5: LANG-TODO
+    contact:
+      header: LANG-TODO
+      intro: LANG-TODO
+      form:
+        name: Name
+        email: E-mail
+        message: Message
+        submit: Send
+    externalRelations:
+      header: LANG-TODO
+      intro: LANG-TODO
+      choose-text: LANG-TODO
+      fact-text: LANG-TODO
+      ozon-text: LANG-TODO
+    flux:
+      header: LANG-TODO
+      intro: LANG-TODO
+      board:
+        title: LANG-TODO
+        intro: LANG-TODO
+        president: President
+        secretary: Secretary
+        treasurer: Treasurer
+        renting: Renting
+        logistics: Logistics
+        vice-president: Vice President
+    history:
+      header: LANG-TODO
+      event-1980: LANG-TODO
+      event-1981: LANG-TODO
+      event-1982: LANG-TODO
+    identity:
+      header: LANG-TODO
+      intro: LANG-TODO
+      three-vs:
+        title: LANG-TODO
+        intro: LANG-TODO
+        vriendschap: LANG-TODO
+        vorming: LANG-TODO
+        verantwoordelijkheid: LANG-TODO
+    interested:
+      header: LANG-TODO
+      intro: LANG-TODO
+      fill-out-form: LANG-TODO
+    memberStories:
+      header: Stories of members
+      intro-title: LANG-TODO
+      intro: LANG-TODO
+      laurens1:
+        'Heyhey! I am Laurens. In my first year as student, I joined Alpha.
+        During the Kick-In I came in touch with the association. In the beginning,
+        I doubted whether I wanted to join a student association, but I wanted to
+        make new (Christian) friends in my new surroundings. I never regretted this
+        decision. In my first year, I made many new contacts and enjoyed the activities.
+        From studying, doing sports and drinking some beers with each other, to epic
+        weekends in and out of the country. '
+      laurens2:
+        Results after the first year? New friendships, deep and good conversations
+        about religion and I have gained many new experiences in committees. After
+        half a year I started living in an Alpha house. Living together with Christian
+        students is really cool and fulfilling. As a house we also organise epic activities
+        and everyone is always welcome! In short, are you looking for a fun time,
+        friendship and a challenge in your religious life, then Alpha is something
+        for you!
+      luuk1:
+        'Hey, I am Luuk. When I came to Enschede I did not join a student association
+        immediately, because I didn’t think it would be something for me. After studying
+        for a year a friend of me brought me along to a drink of Alpha. I had such
+        a great evening there, that I seriously started thinking about joining an
+        association. After a few introduction activities, I knew it for sure, I was
+        joining Alpha. '
+      luuk2:
+        Up until this day I definitely have not regretted my decision. At Alpha
+        I made friends, participated in committees and started thinking about religion
+        more in-depth. From serious conversations to fun drinks and every now and
+        then a nice party, that is exactly the combination that I like about Alpha.
+        Are you interested? Drop by sometime!
+      susan:
+        'Hi hi, my name is Susan. When I came to Enschede two years ago I never
+        planned on joining a student association. Nevertheless, some of my housemates
+        dragged me to Alpha and I was sold immediately. Due to the large diversity
+        of the association, there is always something new to experience. Sometimes
+        that is an awesome committee and another time that is a good long conversation
+        in the pub. Also regarding religion there is something for everyone, with
+        very diverse bible study groups, which you can choose, you can decide what
+        you want to study for that year. This way, I believe, that Alpha gives you
+        a lot of space to grow and discover in your religion. I have to thank Alpha
+        regarding a lot of my personal development, and I would make the decision
+        to join again in a split second. Does it seem like fun? Drop by sometime and
+        taste the atmosphere for yourself! '
+      afke1:
+        Heyhey! Even before moving to Enschede, I had already heard great stories
+        about Alpha. During the introduction period, I joined a lot of activities
+        and got to know Alpha even better and I decided to become a member. Meanwhile,
+        a year has past and I still enjoy it a lot!
+      afke2:
+        What really speaks to me is that everyone is always welcome in the association.
+        There are members from different churches and also those without religion,
+        but everyone hangs out with everyone and everyone has fun with each other.
+        I, myself, am not religious, but I definitely feel me at home within Alpha.
+        The good conversations, the friendships and epic drinks and parties in our
+        pub make sure that Alpha is a great completion of my time as a student in
+        Enschede!
+    partners:
+      header: LANG-TODO
+      intro: LANG-TODO
+      our-partners:
+        title: Our partners
+        partner-1: LANG-TODO
+        partner-2: LANG-TODO
+        partner-3: LANG-TODO
+    rooms:
+      header: LANG-TODO
+      intro-title: LANG-TODO
+      intro: LANG-TODO
+      locatie: Location
   socialMediaButtons:
     facebook: Like us on Facebook
     instagram: Follow us on Instagram

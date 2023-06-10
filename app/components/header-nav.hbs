@@ -39,10 +39,10 @@
               </dd.menu>
             </BsDropdown>
             <LinkTo @route='static-pages.show' @model='word-lid' class="page-actions-buttons">
-              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/word-lid') 'selected'}}">Word lid</BsButton>
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/word-lid') 'selected'}}">{{t "component.headerNav.becomeMember"}}</BsButton>
             </LinkTo>
             <LinkTo @route='static-pages.show' @model='sponsoring' class="page-actions-buttons">
-              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/sponsoring') 'selected'}}">Sponsoring</BsButton>
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/sponsoring') 'selected'}}">{{t "component.headerNav.sponsoring"}}</BsButton>
             </LinkTo>
           {{/if}}
         </div>
