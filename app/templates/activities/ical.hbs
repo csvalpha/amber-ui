@@ -11,7 +11,7 @@
             in je agenda-programma je oude Alpha-agenda te verwijderen voordat
             je de nieuwe agenda-url toevoegt.
           </p>
-          <p>
+          <p class="mb-0">
             Hoe je de agenda in Google Calendar importeert staat
             <a href='https://support.google.com/calendar/answer/37100'>hier</a>
             uitgelegd.
@@ -20,16 +20,18 @@
         <form class='row' id='activityCategoryForm'>
           {{#each activityCategoryOptions as |opt|}}
             <div class='col-sm-12 col-md-3'>
-              <label class='form-check-label'>
+              <div class='form-check'>
                 <Input
                   @type='checkbox'
                   name={{opt.value}}
                   @checked={{opt.checked}}
                   class='form-check-input'
+                  id="activity-category-{{opt.value}}-check"
                 />
-                {{opt.label}}
-                <div class='custom-checkmark'></div>
-              </label>
+                <label class='form-check-label mb-2 text-break' for="activity-category-{{opt.value}}-check">
+                  {{opt.label}}
+                </label>
+              </div>
             </div>
           {{/each}}
         </form>

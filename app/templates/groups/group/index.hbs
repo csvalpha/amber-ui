@@ -16,7 +16,7 @@
         </h5>
       </div>
       <div class='row'>
-        <div class='col-md order-12 order-md-1'>
+        <div class='col-md order-2 order-md-1'>
           <div class='card-body'>
             <i class='card-subtitle'>{{@model.recognitionPeriod}}</i>
             <p class='card-text'>
@@ -27,8 +27,8 @@
             </p>
           </div>
         </div>
-        <div class='col-md-5 col-xs-12 order-1 order-md-12'>
-          <img class='card-img-rounded' src='{{@model.avatarUrlOrDefault}}' />
+        <div class='col-md-5 col-xs-12 order-1 order-md-2 p-md-2 pe-md-4'>
+          <img class='card-img-rounded groups-avatar' src='{{@model.avatarUrlOrDefault}}' />
         </div>
       </div>
     </div>
@@ -41,8 +41,8 @@
       <div class='card'>
         <div class='card-header card-header-with-tabs'>
           <div class='row tabs-with-filterbar-row'>
-            <div class='col order-12 order-md-1'>
-              <ul class='nav nav-tabs'>
+            <div class='col order-2 order-md-1'>
+              <ul class='nav nav-tabs d-flex'>
                 <li class='nav-item'>
                   <a
                     class='nav-link
@@ -63,19 +63,21 @@
                     Oud-leden
                   </a>
                 </li>
+                <div class="flex-grow-1 d-flex justify-content-end">
+                  <FilterBar
+                    @filter={{this.filter}}
+                    @setFilter={{this.setFilter}}
+                    @sortedAttribute={{this.sortedAttribute}}
+                    @setSortedAttribute={{this.setSortedAttribute}}
+                    @sortableAttributes={{this.sortableAttributes}}
+                    @sortedAscending={{this.sortedAscending}}
+                    @setSortedAscending={{this.setSortedAscending}}
+                    @enter={{this.selectFirstItem}}
+                  />
+                </div>
               </ul>
             </div>
-            <FilterBar
-              @class='order-1 order-md-12 col-12 col-md-4 pb-1'
-              @filter={{this.filter}}
-              @setFilter={{this.setFilter}}
-              @sortedAttribute={{this.sortedAttribute}}
-              @setSortedAttribute={{this.setSortedAttribute}}
-              @sortableAttributes={{this.sortableAttributes}}
-              @sortedAscending={{this.sortedAscending}}
-              @setSortedAscending={{this.setSortedAscending}}
-              @enter={{this.selectFirstItem}}
-            />
+
           </div>
         </div>
         <div class='card-body'>
@@ -145,12 +147,11 @@
                   <LinkTo
                     @route='mail-aliases.mail-alias.edit'
                     @model={{alias.id}}
+                    class="col-12 col-md-1 rtable-item"
                   >
-                    <span class='col-12 col-md-1 rtable-item'>
-                      <button type='button' class='btn btn-danger'>
-                        <FaIcon @icon='pencil' />
-                      </button>
-                    </span>
+                    <button type='button' class='btn btn-danger py-1 px-2 '>
+                      <FaIcon @size="sm" @icon='pencil' />
+                    </button>
                   </LinkTo>
                 {{/if}}
               </div>

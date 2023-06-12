@@ -1,9 +1,9 @@
-<label class='col-form-label form-control-label {{labelClass}}'>
+<label class='col-form-label form-label {{labelClass}}'>
   {{label}}{{if required ' *'}}
 </label>
 <div class='{{inputWrapperClass}}'>
   {{#let (file-queue name="fileUpload" onFileAdded=(action 'fileLoaded')) as |queue|}}
-    <label for="upload-file">
+    <label for="upload-file" class="form-label {{if not (get model property) "border rounded p-2 w-100"}}">
       {{#if (get model property)}}
         <img id={{inputIdentifier}} src={{mut (get model property)}} alt={{label}} role="button" tabindex="0"
         aria-controls="upload-file" />

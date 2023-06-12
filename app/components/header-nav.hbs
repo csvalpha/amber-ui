@@ -1,63 +1,58 @@
-<nav
-  class='navbar container-fluid pb-0 pt-0 d-flex justify-content-between'
-  aria-label='breadcrumb'
->
-  <span
-    class='left-sidebar-toggle d-block d-md-none link'
-    {{action 'toggleLeftSidebar'}}
-  >
-    ☰
-  </span>
+<nav class='navbar pb-0 pt-0' aria-label='breadcrumb'>
+  <div class="container-fluid d-flex justify-content-between">
+    <span
+      class='left-sidebar-toggle d-block d-md-none link'
+      {{action 'toggleLeftSidebar'}}
+    >
+      ☰
+    </span>
 
-  <span {{action 'handleLogoAction'}} class='navbar-brand'>
-    <div class='header-logo'> </div>
-  </span>
+    <span {{action 'handleLogoAction'}} class='navbar-brand'>
+      <div class='header-logo'> </div>
+    </span>
 
-  <div class='d-flex col pl-0 pr-0 navbar-contents-holder'>
-    <div class='navbar-overflow-wrapper'>
-      <div class='navbar-nav col d-flex flex-row'>
-        {{#if (or session.isAuthenticated media.isMobile)}}
-          <Breadcrumbs @routeInfos={{@routeInfos}} />
-        {{else}}
-          <BsDropdown {{did-insert (action 'setAvailableStaticPages')}} as |dd|>
-            <dd.button @type='primary'>
-              {{t 'component.headerNav.aboutUs'}}
-            </dd.button>
-            <dd.menu @renderInPlace={{false}} as |ddm|>
-              {{#each-in staticPagesForDropdown as |id title|}}
-                <ddm.item>
-                  <ddm.linkTo @route='static-pages.static-page' @model={{id}}>
-                    {{title}}
-                  </ddm.linkTo>
-                </ddm.item>
-              {{/each-in}}
-            </dd.menu>
-          </BsDropdown>
-          <PageActionsButtons @pageActions={{unAuthenticatedMenuOptions}} />
-        {{/if}}
+    <div class='d-flex col ps-0 pe-0 navbar-contents-holder'>
+      <div class='navbar-overflow-wrapper'>
+        <div class='navbar-nav col d-flex flex-row'>
+          {{#if (or session.isAuthenticated media.isMobile)}}
+            <Breadcrumbs @routeInfos={{@routeInfos}} />
+          {{else}}
+            <BsDropdown {{did-insert (action 'setAvailableStaticPages')}} as |dd|>
+              <dd.button @type="primary">
+                {{t "component.headerNav.aboutUs"}}
+              </dd.button>
+              <dd.menu @renderInPlace={{false}} as |ddm|>
+                {{#each-in staticPagesForDropdown as |id title|}}
+                  <ddm.item>
+                    <ddm.linkTo @route='static-pages.static-page' @model={{id}}>
+                      {{title}}
+                    </ddm.linkTo>
+                  </ddm.item>
+                {{/each-in}}
+              </dd.menu>
+            </BsDropdown>
+            <PageActionsButtons @pageActions={{unAuthenticatedMenuOptions}} />
+          {{/if}}
+        </div>
       </div>
+
+      {{#unless session.isAuthenticated}}
+        <LinkTo @route='login' class='d-none d-md-flex me-2'>
+          <button class='btn btn-primary' type='button'>
+            {{t 'tag.button.signin'}}
+          </button>
+        </LinkTo>
+      {{/unless}}
+      <div id='navbar-wormhole'></div>
     </div>
 
     {{#unless session.isAuthenticated}}
-      <LinkTo @route='login' class='nav-item d-none d-md-flex mr-2'>
-        <button
-          class='btn btn-primary d-inline nav-link pl-2 pr-2'
-          type='button'
-        >
-          {{t 'tag.button.signin'}}
-        </button>
-      </LinkTo>
+      <button
+        class='btn btn-locale btn-inverse-locale-{{intl.locale}}'
+        title='{{t "component.headerNav.changeLocale"}}'
+        {{action 'toggleLocale'}}
+        type='button'>
+      </button>
     {{/unless}}
-    <div id='navbar-wormhole'></div>
   </div>
-
-  {{#unless session.isAuthenticated}}
-    <button
-      class='btn btn-locale btn-inverse-locale-{{intl.locale}}'
-      title='{{t "component.headerNav.changeLocale"}}'
-      {{action 'toggleLocale'}}
-      type='button'
-    >
-    </button>
-  {{/unless}}
 </nav>

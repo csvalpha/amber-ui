@@ -10,7 +10,7 @@
           />
         </LinkTo>
         <LinkTo @route='users.user' @model={{post.author.id}}>
-          <p> <strong> {{post.author.fullNameWithNickname}} </strong> </p>
+          <p class="mt-1"> <strong> {{post.author.fullNameWithNickname}} </strong> </p>
         </LinkTo>
       </div>
       <div class='col-md-9'>
@@ -49,7 +49,7 @@
         {{/if}}
       </p>
 
-      <span class='text-muted pr-1'>
+      <span class='text-muted pe-1 w-auto'>
         {{#if (can 'destroy forum/posts')}}
           <LinkTo
             @route='forum.categories.category.threads.thread.posts.post.destroy'

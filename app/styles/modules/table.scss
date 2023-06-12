@@ -3,6 +3,12 @@
   overflow: hidden;
   overflow-x: scroll;
 
+  thead {
+    tr {
+      border-bottom: 2px solid $gray-400;
+    }
+  }
+
   th {
     background-color: $gray-100;
 

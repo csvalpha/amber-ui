@@ -3,32 +3,19 @@
     <h5>Activiteit verwijderen</h5>
   </div>
   <div class='card-block p-3'>
-    {{#if @model.hasResponses}}
-      <div class='alert alert-danger'>
-        Je kunt deze activiteit niet verwijderen, omdat er al reacties zijn!
-      </div>
-      <LinkTo
-        @route='activities.activity'
-        @model={{model.id}}
-        class='btn btn-default'
-      >
-        Terug
-      </LinkTo>
-    {{else}}
-      <p>
-        Weet je zeker dat je deze activiteit ({{@model.title}}) wilt
-        verwijderen?
-      </p>
+    <p>
+      Weet je zeker dat je deze activiteit ({{@model.title}}) wilt
+      verwijderen?
+    </p>
 
-      <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
-        Verwijderen
-      </button>
-      <button {{action 'cancel'}} type='button' class='btn btn-default'>
-        Annuleren
-      </button>
-      {{#if errorMessage}}
-        <div class='text-danger'>{{this.errorMessage}}</div>
-      {{/if}}
+    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
+      Verwijderen
+    </button>
+    <button {{action 'cancel'}} type="button" class='btn btn-default'>
+      Annuleren
+    </button>
+    {{#if errorMessage}}
+      <div class='text-danger'>{{this.errorMessage}}</div>
     {{/if}}
   </div>
 </div>

@@ -8,7 +8,7 @@
       >
         <span class='page-link previous' href='#' aria-label='Vorige'>
           <FaIcon @icon='chevron-left' />
-          <span class='sr-only'>Vorige</span>
+          <span class='visually-hidden'>Vorige</span>
         </span>
       </LinkTo>
     </li>
@@ -20,7 +20,7 @@
       {{#if item.current}}
         <li class='page-item active'>
           <a class='page-link'>
-            {{item.page}}<span class='sr-only'>(current)</span>
+            {{item.page}}<span class='visually-hidden'>(current)</span>
           </a>
         </li>
       {{else}}
@@ -40,7 +40,7 @@
       >
         <span class='page-link next' href='#' aria-label='Volgende'>
           <FaIcon @icon='chevron-right' />
-          <span class='sr-only'>Volgende</span>
+          <span class='visually-hidden'>Volgende</span>
         </span>
       </LinkTo>
     </li>

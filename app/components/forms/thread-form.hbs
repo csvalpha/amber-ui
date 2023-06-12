@@ -12,12 +12,16 @@
       />
 
       {{#if @model.isNew }}
-        <label for='forumpost-message'>Bericht *</label>
-        <MdEditor
-          @content={{@model.firstPost.message}}
-          @textareaId='forumpost-message'
-          @setContent={{@setContent}}
-        />
+        <div class='row mb-3'>
+          <label for='forumpost-message' class="form-label col-sm-2">Bericht *</label>
+          <div class='col-sm-10'>
+            <MdEditor
+              @content={{@model.firstPost.message}}
+              @textareaId='forumpost-message'
+              @setContent={{@setContent}}
+            />
+          </div>
+        </div>
       {{else}}
         {{#if (can 'edit forum/threads')}}
           <ModelForm::CheckboxInput

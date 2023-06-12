@@ -9,7 +9,8 @@
   {{/page-actions-buttons}}
 </EmberWormhole>
 
-{{model.group.name}}
+<h3 class="row ps-1">{{model.title}}</h3>
+<p class="row ps-1">{{model.group.name}}</p>
 
 <div class='row'>
   {{#each sortedPhotos as |photo|}}
@@ -19,7 +20,7 @@
         @model={{photo.id}}
       >
         {{#if photo.amountOfComments}}
-          <span class='comments-counter badge badge-info'>
+          <span class='comments-counter badge bg-info bottom-0 start-0'>
             <FaIcon @icon='comments' />
             {{photo.amountOfComments}}
           </span>
