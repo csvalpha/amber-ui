@@ -16,14 +16,14 @@
 
 <div class='card'>
   <div class='row rtable-row header d-none d-md-flex'>
-    <span class='col'> Naam </span>
-    <span class='col-3'> Datum </span>
+    <span class='col'>Naam</span>
+    <span class='col-3'>Datum</span>
   </div>
 
   {{#each model as |collection|}}
-    <LinkTo @route='debit.collections.show' @model={{collection.id}}>
+    <LinkTo @route='debit.collections.collection' @model={{collection.id}}>
       <div class='row rtable-row'>
-        <span class='col-12 col-md-9 rtable-item'> {{collection.name}} </span>
+        <span class='col-12 col-md-9 rtable-item'>{{collection.name}}</span>
         <span class='col-8 col-md-3 text-muted rtable-item'>
           {{moment-format collection.date 'DD-M-YYYY'}}
         </span>

@@ -1,6 +1,10 @@
 import { Ability } from 'ember-can';
 
 export default class Transaction extends Ability {
+  get canShow() {
+    return this.session.hasPermission('debit/transaction.read');
+  }
+
   get canEdit() {
     return this.session.hasPermission('debit/transaction.update');
   }

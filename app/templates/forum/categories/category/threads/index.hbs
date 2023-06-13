@@ -23,7 +23,7 @@
 
   {{#each @model.threads as |thread|}}
     <LinkTo
-      @route='forum.categories.category.threads.thread.show'
+      @route='forum.categories.category.threads.thread'
       @model={{thread.id}}
     >
       <div class='row rtable-row'>
@@ -32,7 +32,7 @@
           {{thread.title}}
         </span>
         <span class='col-6 col-md-3 text-muted rtable-item'>
-          <LinkTo @route='users.show' @model={{thread.author.id}}>
+          <LinkTo @route='users.user' @model={{thread.author.id}}>
             {{thread.author.fullNameWithNickname}}
           </LinkTo>
         </span>

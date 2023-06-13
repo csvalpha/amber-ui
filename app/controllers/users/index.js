@@ -5,7 +5,8 @@ export default class UsersIndexController extends FilterableAndSortableControlle
   @tracked sortedAttribute = 'first_name';
 
   queryParams = ['search', 'sort', 'page'];
-  routeOnEnter = 'users.show';
+
+  routeOnEnter = 'users.user';
   sortableAttributes = [
     {
       value: 'username',

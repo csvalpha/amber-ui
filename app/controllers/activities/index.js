@@ -5,7 +5,8 @@ export default class ActivitiesIndexController extends FilterableAndSortableCont
   @tracked sortedAttribute = 'start_time';
 
   queryParams = ['search', 'sort', 'page'];
-  routeOnEnter = 'activities.show';
+
+  routeOnEnter = 'activities.activity';
   sortableAttributes = [
     {
       value: 'title',

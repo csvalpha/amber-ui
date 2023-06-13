@@ -1,26 +1,25 @@
-import { inject as service } from '@ember/service';
 import EmberArray, { A } from '@ember/array';
+import NewController from 'amber-ui/controllers/application/new';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { isInvalidResponse } from 'ember-fetch/errors';
-import NewController from '../../application/new';
+import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
 
-export default class NewUserBatchController extends NewController {
-  successMessage = 'Gebruikers aanmaken gelukt!';
-  cancelMessage = 'Gebruikers aanmaken geannuleerd.';
-  cancelTransitionTarget = 'users.index';
-  successTransitionTarget = 'users.index';
-  get successTransitionModel() {
-    return null;
-  }
-
+export default class BatchNewController extends NewController {
   @service fetch;
+
   @tracked importFile = null;
   @tracked addToGroup = null;
   @tracked reviewing = false;
   @tracked newUsers = A();
   @tracked importErrors = A();
   @tracked properties = A();
+
+  successMessage = 'Gebruikers aanmaken gelukt!';
+  cancelMessage = 'Gebruikers aanmaken geannuleerd.';
+  cancelTransitionTarget = 'users';
+  successTransitionTarget = 'users';
+  successTransitionModel = null;
 
   validMimetypes = EmberArray.apply([
     'text/csv',
@@ -92,7 +91,7 @@ export default class NewUserBatchController extends NewController {
 
     if (response.ok) {
       this.flashNotice.sendSuccess('Gebruikers opgeslagen');
-      this.transitionToRoute('users.index');
+      this.transitionToRoute('users');
     } else {
       this.flashNotice.sendError('Gebruikers niet opgeslagen');
       this.transitionToRoute('users.batch.new');

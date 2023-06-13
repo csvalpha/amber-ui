@@ -1,4 +1,4 @@
-<LinkTo @route='articles.show' @model={{article.id}}>
+<LinkTo @route='articles.article' @model={{article.id}}>
   <article
     class={{if useMaxHeight 'd-flex'}}
     itemscope
@@ -24,7 +24,7 @@
             </h5>
             {{#if article.group}}
               <LinkTo
-                @route='groups.show'
+                @route='groups.group'
                 @model={{article.group.id}}
                 class='link-to card-subtitle-link'
               >
@@ -39,7 +39,7 @@
               </LinkTo>
             {{else}}
               <LinkTo
-                @route='users.show'
+                @route='users.user'
                 @model={{article.author.id}}
                 class='link-to card-subtitle-link'
               >

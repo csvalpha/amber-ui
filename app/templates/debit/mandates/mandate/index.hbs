@@ -1,0 +1,53 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<div class='row'>
+  <div class='col'>
+    <div class='card'>
+      <div class='row'>
+        <div class='col-md'>
+          <div class='card-header'>
+            <h2>Mandaat {{@model.id}}</h2>
+          </div>
+          <div class='card-body'>
+            <p class='card-text'>
+              <table class='table table-sm'>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Start datum</td>
+                    <td>{{moment-format @model.startDate 'DD-M-YYYY'}}</td>
+                  </tr>
+                  <tr>
+                    <td>Eind datum</td>
+                    <td>{{moment-format @model.endDate 'DD-M-YYYY'}}</td>
+                  </tr>
+                  <tr>
+                    <td>IBAN</td>
+                    <td>{{@model.iban}}</td>
+                  </tr>
+                  <tr>
+                    <td>IBAN houder</td>
+                    <td>{{@model.ibanHolder}}</td>
+                  </tr>
+                  <tr>
+                    <td>Gebruiker</td>
+                    <td>
+                      <LinkTo @route='users.user' @model={{@model.user.id}}>
+                        {{@model.user.fullName}}
+                      </LinkTo>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

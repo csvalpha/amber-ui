@@ -22,7 +22,7 @@
   </div>
 
   {{#each model as |poll|}}
-    <LinkTo @route='polls.show' @model={{poll.id}} data-test-poll-item={{true}}>
+    <LinkTo @route='polls.poll' @model={{poll.id}} data-test-poll-item={{true}}>
       <div class='row rtable-row'>
         <span class='col-12 col-md rtable-item'>
           {{form/status-icon poll.form}}
