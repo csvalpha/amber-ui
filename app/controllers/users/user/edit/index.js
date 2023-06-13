@@ -1,6 +1,6 @@
 import {
-  DigtusSubscriptionPreferenceTypes,
   AlmanakSubscriptionPreferenceTypes,
+  DigtusSubscriptionPreferenceTypes,
 } from 'amber-ui/constants';
 import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
