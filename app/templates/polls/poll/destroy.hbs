@@ -10,9 +10,9 @@
 
     <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
     <LinkTo
-      class='btn btn-default'
       @route='polls.poll'
       @model={{model.id}}
+      class='btn btn-default'
     >
       Nee
     </LinkTo>
