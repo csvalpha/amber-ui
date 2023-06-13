@@ -6,10 +6,6 @@ export default class OauthAuthorizeRoute extends AuthenticatedRoute {
   @service router;
   @service session;
 
-  canAccess() {
-    return this.session.isAuthenticated;
-  }
-
   constructor() {
     super(...arguments);
 
@@ -40,5 +36,9 @@ export default class OauthAuthorizeRoute extends AuthenticatedRoute {
           });
         });
     });
+  }
+
+  canAccess() {
+    return this.session.isAuthenticated;
   }
 }

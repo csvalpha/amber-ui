@@ -1,10 +1,6 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
 export default class PhotosIndexRoute extends ApplicationRoute {
-  get breadCrumb() {
-    return { title: this.controller.model.title };
-  }
-
   get pageActions() {
     const photoAlbum = this.controller.model;
     return [
@@ -23,13 +19,5 @@ export default class PhotosIndexRoute extends ApplicationRoute {
         canAccess: this.abilities.can('destroy photo-albums'),
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show photo-albums');
-  }
-
-  model() {
-    return this.modelFor('photo-albums.photo-album');
   }
 }

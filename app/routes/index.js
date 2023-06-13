@@ -12,10 +12,6 @@ export default class IndexRoute extends ApplicationRoute {
     ];
   }
 
-  canAccess() {
-    return true;
-  }
-
   model(params) {
     params.sort = '-pinned,-created_at';
     return this.store.queryPaged('article', params);

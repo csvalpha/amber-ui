@@ -65,6 +65,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/core@npm:^7.0.0, @babel/core@npm:^7.16.10, @babel/core@npm:^7.20.12":
+  version: 7.21.8
+  resolution: "@babel/core@npm:7.21.8"
+  dependencies:
+    "@ampproject/remapping": ^2.2.0
+    "@babel/code-frame": ^7.21.4
+    "@babel/generator": ^7.21.5
+    "@babel/helper-compilation-targets": ^7.21.5
+    "@babel/helper-module-transforms": ^7.21.5
+    "@babel/helpers": ^7.21.5
+    "@babel/parser": ^7.21.8
+    "@babel/template": ^7.20.7
+    "@babel/traverse": ^7.21.5
+    "@babel/types": ^7.21.5
+    convert-source-map: ^1.7.0
+    debug: ^4.1.0
+    gensync: ^1.0.0-beta.2
+    json5: ^2.2.2
+    semver: ^6.3.0
+  checksum: f28118447355af2a90bd340e2e60699f94c8020517eba9b71bf8ebff62fa9e00d63f076e033f9dfb97548053ad62ada45fafb0d96584b1a90e8aef5a3b8241b1
+  languageName: node
+  linkType: hard
+
 "@babel/core@npm:^7.1.6, @babel/core@npm:^7.12.0, @babel/core@npm:^7.16.7, @babel/core@npm:^7.3.4":
   version: 7.17.7
   resolution: "@babel/core@npm:7.17.7"
@@ -85,29 +108,6 @@ __metadata:
     json5: ^2.1.2
     semver: ^6.3.0
   checksum: 467838313f8c84037d08d051238005c48f6b3da6fbaed38cd2dac5fcbe3706df2857365b8a9291402b3b888c24edb9707dc6c93f0127fecc7fe49b700c35c057
-  languageName: node
-  linkType: hard
-
-"@babel/core@npm:^7.16.10, @babel/core@npm:^7.20.12":
-  version: 7.21.8
-  resolution: "@babel/core@npm:7.21.8"
-  dependencies:
-    "@ampproject/remapping": ^2.2.0
-    "@babel/code-frame": ^7.21.4
-    "@babel/generator": ^7.21.5
-    "@babel/helper-compilation-targets": ^7.21.5
-    "@babel/helper-module-transforms": ^7.21.5
-    "@babel/helpers": ^7.21.5
-    "@babel/parser": ^7.21.8
-    "@babel/template": ^7.20.7
-    "@babel/traverse": ^7.21.5
-    "@babel/types": ^7.21.5
-    convert-source-map: ^1.7.0
-    debug: ^4.1.0
-    gensync: ^1.0.0-beta.2
-    json5: ^2.2.2
-    semver: ^6.3.0
-  checksum: f28118447355af2a90bd340e2e60699f94c8020517eba9b71bf8ebff62fa9e00d63f076e033f9dfb97548053ad62ada45fafb0d96584b1a90e8aef5a3b8241b1
   languageName: node
   linkType: hard
 
@@ -4108,8 +4108,8 @@ __metadata:
     ember-cli-sri: ^2.1.1
     ember-cli-terser: ^4.0.2
     ember-cli-update: ^1.0.1
+    ember-composable-helpers: ^5.0.0
     ember-concurrency: ^3.0.0
-    ember-crumbly: ^3.0.1
     ember-data: ~3.27.1
     ember-fetch: ^8.1.1
     ember-file-upload: ^8.0.0
@@ -6194,6 +6194,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"broccoli-funnel@npm:2.0.1":
+  version: 2.0.1
+  resolution: "broccoli-funnel@npm:2.0.1"
+  dependencies:
+    array-equal: ^1.0.0
+    blank-object: ^1.0.1
+    broccoli-plugin: ^1.3.0
+    debug: ^2.2.0
+    fast-ordered-set: ^1.0.0
+    fs-tree-diff: ^0.5.3
+    heimdalljs: ^0.2.0
+    minimatch: ^3.0.0
+    mkdirp: ^0.5.0
+    path-posix: ^1.0.0
+    rimraf: ^2.4.3
+    symlink-or-copy: ^1.0.0
+    walk-sync: ^0.3.1
+  checksum: 415257006360c6015835a513c7946f1bc356ea5ed6bd960382bad1f511d81758539690ccbd7cecdc740b7e91f1719088b5bb8f5c024ca4dda089efec229ce0b7
+  languageName: node
+  linkType: hard
+
 "broccoli-funnel@npm:^1.0.1, broccoli-funnel@npm:^1.2.0":
   version: 1.2.0
   resolution: "broccoli-funnel@npm:1.2.0"
@@ -7268,9 +7289,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001449":
-  version: 1.0.30001486
-  resolution: "caniuse-lite@npm:1.0.30001486"
-  checksum: 5e8c2ba2679e4ad17dea6d2761a6449b814441bfeac81af6cc9d58af187df6af4b79b27befcbfc4a557e720b21c0399a7d1911c8705922e38938dcc0f40b5d4b
+  version: 1.0.30001485
+  resolution: "caniuse-lite@npm:1.0.30001485"
+  checksum: 2db8a9e5facf8df5275c96e44714a6caf3b9485813be1fe0aa5a72a7ced974137adeeed806a9a97f713d2f6d1b5c342949b88355ee0323ba35656bfa00d57fea
   languageName: node
   linkType: hard
 
@@ -9266,18 +9287,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-cli-htmlbars@npm:^2.0.1":
-  version: 2.0.5
-  resolution: "ember-cli-htmlbars@npm:2.0.5"
-  dependencies:
-    broccoli-persistent-filter: ^1.4.3
-    hash-for-dep: ^1.2.3
-    json-stable-stringify: ^1.0.0
-    strip-bom: ^3.0.0
-  checksum: c9f2e1c9ea1de80ca9b4d6336798a724b3c4d3d0de7f5cd05b8b6b0bf3655a5d922ccef8b94769613d5d8531511a2292f5a505202c6976f36a7bf4305c324b34
-  languageName: node
-  linkType: hard
-
 "ember-cli-htmlbars@npm:^4.3.1":
   version: 4.4.1
   resolution: "ember-cli-htmlbars@npm:4.4.1"
@@ -9857,6 +9866,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-composable-helpers@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-composable-helpers@npm:5.0.0"
+  dependencies:
+    "@babel/core": ^7.0.0
+    broccoli-funnel: 2.0.1
+    ember-cli-babel: ^7.26.3
+    resolve: ^1.10.0
+  checksum: 8fdceade42f025cb75cb3718de4a6f3836b1a74eca8d30ca7a8c0313fccdce6663ce6fa5e5bd14fd905ecac2a330d55c169f21f559f092a5900d08ddc290fff6
+  languageName: node
+  linkType: hard
+
 "ember-concurrency-decorators@npm:^2.0.0":
   version: 2.0.3
   resolution: "ember-concurrency-decorators@npm:2.0.3"
@@ -9921,26 +9942,6 @@ __metadata:
     ember-cli-babel: ^7.1.0
     ember-getowner-polyfill: ^1.1.0 || ^2.0.0
   checksum: f046692a6d421a1077aed0a11c25303f48860919f256c0d1618043d117f2fb331a9529fab385826f207cb2d5fa83415b844fe09c1cf88383022f349cfb2f8eff
-  languageName: node
-  linkType: hard
-
-"ember-copy@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "ember-copy@npm:1.0.0"
-  dependencies:
-    ember-cli-babel: ^6.6.0
-  checksum: 41da1aa03148e7de299013f7db3d6356bf28a35a40c14af445149d864baa9e48f1227e0e6a281fd457748ea07047afb6f377db45ea88123e045ba773e93c06f9
-  languageName: node
-  linkType: hard
-
-"ember-crumbly@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "ember-crumbly@npm:3.0.1"
-  dependencies:
-    ember-cli-babel: ^6.6.0
-    ember-cli-htmlbars: ^2.0.1
-    ember-copy: ^1.0.0
-  checksum: 2a87c3a36502f0f173c12ebaa8f3aaedd363118c6ecc7df936896cdd135775a32983854ee3e46aed225638bda906f76bcd09b344b9276ad08878e11676f1d8e7
   languageName: node
   linkType: hard
 
@@ -22868,7 +22869,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"workerpool@npm:^2.3.4":
+"workerpool@npm:^2.3.0":
   version: 2.3.4
   resolution: "workerpool@npm:2.3.4"
   dependencies:

@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5>{{if @model.isNew 'Foto-album aanmaken' 'Foto-album wijzigen'}}</h5>
+    <h5>{{if @model.isNew 'Fotoalbum aanmaken' 'Fotoalbum wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-sm-10 offset-sm-2">
             <div class='alert alert-warning' role='alert'>
-              Een publiek foto-album verschijnt op de voorpagina, en is ook voor
+              Een publiek fotoalbum verschijnt op de voorpagina, en is ook voor
               externen zichtbaar. Wees dus voorzichtig met wat je plaatst en zorg
               dat je toestemming hebt. Zie het mediabeleid voor meer informatie.
             </div>
@@ -86,7 +86,7 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <button {{action @onCancel}} type="button" class='btn btn-default'>
+        <button {{action @onCancel}} type='button' class='btn btn-default'>
           Annuleren
         </button>
       </ModelForm::FormActions>

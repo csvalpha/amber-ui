@@ -5,7 +5,7 @@ import { inject as service } from '@ember/service';
 import { ActivityCategories } from 'amber-ui/constants';
 import { tracked } from '@glimmer/tracking';
 
-export default class IcalController extends Controller {
+export default class ActivitiesIcalController extends Controller {
   @service session;
 
   @tracked activityCategoryOptions;

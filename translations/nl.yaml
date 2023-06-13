@@ -27,24 +27,24 @@ model:
       other: groepen
   mailAlias:
     name:
-      one: mail-alias
-      other: mail-aliassen
+      one: mail alias
+      other: mail aliassen
   mailModeration:
     name:
-      one: mail-moderatie
-      other: mail-moderaties
+      one: mail moderatie
+      other: mail moderaties
   forum:
     name:
       one: forum
       other: fora
   photoAlbum:
     name:
-      one: foto-album
-      other: foto-albums
+      one: fotoalbum
+      other: fotoalbums
   photoComment:
     name:
-      one: fotoreactie
-      other: fotoreacties
+      one: foto reactie
+      other: foto reacties
   photo:
     name:
       one: foto
@@ -282,7 +282,7 @@ mixin:
     sponsorkliks: Sponsorkliks
     profile: Profiel
     settings: Instellingen
-    mailaliases: Mail aliassen
+    mailAliases: Mail aliassen
     collections: Incasso's
     mailModerations: Mail moderaties
     mandates: Mandaten
@@ -293,7 +293,7 @@ mixin:
     activities: Activiteiten
     vacancies: Vacatures
     forum: Forum
-    photoAlbums: Foto-albums
+    photoAlbums: Fotoalbums
     polls: Polls
     groups: Groepen
     users: Gebruikers

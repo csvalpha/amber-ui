@@ -1,6 +1,6 @@
 import { computed } from '@ember/object';
 import EmberArray from '@ember/array';
-import ENV from '../../config/environment';
+import ENV from 'amber-ui/config/environment';
 import ModelFormTextInputComponent from './text-input';
 
 export default ModelFormTextInputComponent.extend({
