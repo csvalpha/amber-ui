@@ -1,6 +1,6 @@
 import Service, { inject as service } from '@ember/service';
 import { run } from '@ember/runloop';
-import ENV from '../config/environment';
+import ENV from 'amber-ui/config/environment';
 import { tracked } from '@glimmer/tracking';
 
 export default class FlashNoticeService extends Service {

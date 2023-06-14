@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5>Transactie aanmaken</h5>
+    <h5>{{if @model.isNew 'Transactie aanmaken' 'Transactie wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>

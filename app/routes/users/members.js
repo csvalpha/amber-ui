@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class MembersRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Leden' };
+export default class UsersMembersRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Leden' };
 
   get pageActions() {
     return [

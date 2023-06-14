@@ -1,0 +1,14 @@
+<div class='card'>
+  <div class='card-header d-flex justify-content-between'>
+    <h5>SEPA bestand ophalen mislukt!</h5>
+  </div>
+  <div class='card-body'>
+    Het ophalen van het SEPA bestand is mislukt! De volgende errors zijn
+    opgetreden:
+    <ul>
+      {{#each model as |error|}}
+        <li>{{error.title}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

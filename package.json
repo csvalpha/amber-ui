@@ -59,8 +59,8 @@
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-cli-update": "^1.0.1",
+    "ember-composable-helpers": "^5.0.0",
     "ember-concurrency": "^3.0.0",
-    "ember-crumbly": "^3.0.1",
     "ember-data": "~3.27.1",
     "ember-fetch": "^8.1.1",
     "ember-file-upload": "^8.0.0",
@@ -115,8 +115,7 @@
   },
   "resolutions": {
     "@embroider/macros": "^1.0.0",
-    "fast-sourcemap-concat": "ef4/fast-sourcemap-concat#ec9dc9981503f2e56d2233430681866741bc170c",
-    "workerpool@^2.3.0": "^2.3.4"
+    "fast-sourcemap-concat": "ef4/fast-sourcemap-concat#ec9dc9981503f2e56d2233430681866741bc170c"
   },
   "engines": {
     "node": ">= 16"

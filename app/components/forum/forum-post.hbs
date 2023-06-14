@@ -2,14 +2,14 @@
   <div class='card-body'>
     <div class='row'>
       <div class='col-md-3 forum-post-author-info'>
-        <LinkTo @route='users.show' @model={{post.author.id}}>
+        <LinkTo @route='users.user' @model={{post.author.id}}>
           <img
             src='{{post.author.avatarThumbUrlOrDefault}}'
             alt='avatar'
             class='profile-picture profile-picture-large'
           />
         </LinkTo>
-        <LinkTo @route='users.show' @model={{post.author.id}}>
+        <LinkTo @route='users.user' @model={{post.author.id}}>
           <p class="mt-1"> <strong> {{post.author.fullNameWithNickname}} </strong> </p>
         </LinkTo>
       </div>
@@ -52,7 +52,7 @@
       <span class='text-muted pe-1 w-auto'>
         {{#if (can 'destroy forum/posts')}}
           <LinkTo
-            @route='forum.categories.category.threads.thread.posts.destroy'
+            @route='forum.categories.category.threads.thread.posts.post.destroy'
             @model={{post.id}}
             class='link-highlight px-2'
           >
@@ -62,7 +62,7 @@
 
         {{#if (can 'edit forum/post' post)}}
           <LinkTo
-            @route='forum.categories.category.threads.thread.posts.edit'
+            @route='forum.categories.category.threads.thread.posts.post.edit'
             @model={{post.id}}
             class='link-highlight px-2'
           >

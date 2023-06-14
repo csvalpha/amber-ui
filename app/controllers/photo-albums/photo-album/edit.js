@@ -1,20 +1,20 @@
-import { inject as service } from '@ember/service';
+import PhotoAlbumsNewController from '../new';
 import { action } from '@ember/object';
-import NewPhotoAlbumController from '../new';
+import { inject as service } from '@ember/service';
 
-// todo: it would follow the pattern more if we let the NewPhotoAlbumController extend the EditPhotoAlbumController,
-//  instead of vice versa
-export default class EditPhotoAlbumController extends NewPhotoAlbumController {
+// TODO: it would follow the pattern more if we let the PhotoAlbumsNewController
+//  extend the PhotoAlbumEditController, instead of vice versa.
+export default class PhotoAlbumEditController extends PhotoAlbumsNewController {
+  @service fetch;
+
   successMessage = "Wijzigen en/of foto's toevoegen gelukt!";
   cancelMessage = "Wijzigen en/of foto's toevoegen geannuleerd.";
-  successTransitionTarget = 'photo-albums.photo-album.show';
+  successTransitionTarget = 'photo-albums.photo-album';
   cancelTransitionTarget = this.successTransitionTarget;
 
   get cancelTransitionModel() {
     return this.successTransitionModel;
   }
-
-  @service fetch;
 
   get dropzoneHeaders() {
     return { Authorization: this.fetch.authorizationHeader() };

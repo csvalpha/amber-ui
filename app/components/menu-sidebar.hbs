@@ -44,7 +44,7 @@
 
     <div class='profile-menu {{if layoutManager.profileMenuOpen "open"}}'>
       <MenuSidebarItem
-        @link='users.show'
+        @link='users.user'
         @hasPermission={{can 'show activities'}}
         @icon='user'
         @title={{t 'mixin.menuItems.profile'}}
@@ -55,7 +55,7 @@
         @link='mail-aliases'
         @hasPermission={{can 'show mail-aliases'}}
         @icon='envelope'
-        @title={{t 'mixin.menuItems.mailaliases'}}
+        @title={{t 'mixin.menuItems.mailAliases'}}
         @minor={{true}}
       />
       <MenuSidebarItem

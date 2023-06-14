@@ -1,8 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class GroupIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Groepen' };
-
+export default class GroupsIndexRoute extends AuthenticatedRoute {
   queryParams = {
     search: {
       refreshModel: true,

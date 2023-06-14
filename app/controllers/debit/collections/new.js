@@ -1,15 +1,13 @@
+import EditController from 'amber-ui/controllers/application/edit';
 import EmberArray from '@ember/array';
 import { action } from '@ember/object';
-import EditController from 'amber-ui/controllers/application/edit';
 
-export default class DebitCollectionNewController extends EditController {
+export default class CollectionsNewController extends EditController {
   successMessage = 'Incasso aangemaakt!';
   cancelMessage = 'Incasso aanmaken geannuleerd.';
-  successTransitionTarget = 'debit.collections.show';
-  cancelTransitionTarget = 'debit.collections.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  successTransitionTarget = 'debit.collections.collection';
+  cancelTransitionTarget = 'debit.collections';
+  cancelTransitionModel = null;
 
   validMimetypes = EmberArray.apply([
     'text/csv',
@@ -19,6 +17,7 @@ export default class DebitCollectionNewController extends EditController {
   ]);
 
   validExtensions = EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']);
+
   @action
   fileLoaded(file) {
     const collection = this.model;

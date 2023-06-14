@@ -1,0 +1,40 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<TabbedView @tabItems={{tabItems}}>
+  <h5>Incasso mandaten</h5>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <td>Mandaat nummer</td>
+        <td>IBAN nummer</td>
+        <td>Start datum</td>
+        <td>Eind datum</td>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @model.mandates as |mandate|}}
+        <tr>
+          <td>
+            <LinkTo @route='debit.mandates.mandate' @model={{mandate.id}}>
+              {{mandate.id}}
+            </LinkTo>
+          </td>
+          <td>{{mandate.iban}}</td>
+          <td>{{moment-format mandate.startDate 'DD-M-YYYY'}}</td>
+          <td>{{moment-format mandate.endDate 'DD-M-YYYY'}}</td>
+        </tr>
+      {{else}}
+        <tr>
+          <td colspan='4'>
+            <p class='text-center text-muted'>
+              Geen mandaten gevonden
+            </p>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</TabbedView>

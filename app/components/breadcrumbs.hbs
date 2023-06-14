@@ -1,0 +1,15 @@
+<ol class='breadcrumb'>
+  <li class='breadcrumb-item'><LinkTo @route='index'>C.S.V. Alpha</LinkTo></li>
+
+  {{#each @routeInfos as |routeInfo|}}
+    <li class='breadcrumb-item'>
+      {{#if (has-next routeInfo @routeInfos)}}
+        <LinkTo @route={{routeInfo.name}}>
+          {{routeInfo.metadata.breadcrumb.title}}
+        </LinkTo>
+      {{else}}
+        {{routeInfo.metadata.breadcrumb.title}}
+      {{/if}}
+    </li>
+  {{/each}}
+</ol>

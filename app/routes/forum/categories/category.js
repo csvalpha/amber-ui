@@ -3,8 +3,8 @@ import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 export default class CategoryRoute extends AuthenticatedRoute {
   queryParams = {};
 
-  get breadCrumb() {
-    return { title: this.controller.model.name };
+  get breadcrumb() {
+    return { title: this.controller?.model.name };
   }
 
   canAccess() {

@@ -1,0 +1,65 @@
+<div class='row'>
+  <div class='col'>
+    <div class='card'>
+      <div class='card-header'>
+        <h5>{{@model.name}} - Exporteren</h5>
+      </div>
+      <div class='card-body'>
+        <div class='alert alert-warning'>
+          Selecteer hier de gegevens die je wilt exporteren. Wees voorzichtig
+          met het bestand dat je krijgt, er staan persoonsgegevens in.
+          <br />
+          Zorg dat je het bestand niet laat slingeren en weer helemaal
+          verwijderd zodra je het niet meer nodig hebt voor het doel dat je
+          hieronder aangeeft.
+          <br />
+          <br />
+          <strong>
+            Van het ingevulde formulier wordt een kopie verstuurd aan
+            privacy@csvalpha.nl.
+          </strong>
+        </div>
+
+        <div class='row mb-2'>
+          {{#each userPropertyOptions as |opt|}}
+            <div class='col-md-6'>
+              <div class="form-check mb-2">
+                <Input id="group-export-option-{{opt.value}}-check" class="form-check-input" @type='checkbox' @checked={{opt.isChecked}} />
+                <label class='form-check-label' for="group-export-option-{{opt.value}}-check">
+                  {{opt.label}}
+                </label>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+        {{#each questions as |question|}}
+          <div class='row'>
+            <div class='col'>
+              <div class='mb-3'>
+                <label class="form-label">{{question.question}}*</label>
+                <Textarea
+                  @value={{question.answer}}
+                  class='form-control'
+                  aria-label='Vraag'
+                  required={{true}}
+                />
+              </div>
+            </div>
+          </div>
+        {{/each}}
+
+        <button
+          type='button'
+          class='btn btn-primary mb-3'
+          {{action 'exportUsers'}}
+          disabled={{exportButtonDisabled}}
+        >
+          Exporteren
+        </button>
+        <LinkTo @route='groups.group' @model={{model.id}}>
+          <button type='button' class='btn btn-default mb-3'>Annuleren</button>
+        </LinkTo>
+      </div>
+    </div>
+  </div>
+</div>

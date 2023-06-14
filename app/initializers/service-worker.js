@@ -1,4 +1,4 @@
-import ENV from '../config/environment';
+import ENV from 'amber-ui/config/environment';
 
 export default {
   name: 'service-worker',

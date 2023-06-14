@@ -9,7 +9,7 @@
       <div class='d-flex'>
         {{#each photosWithComments as |photo|}}
           <LinkTo
-            @route='photo-albums.photo-album.photos.show'
+            @route='photo-albums.photo-album.photos.photo'
             @models={{array photo.photoAlbum.id photo.id}}
             class='picture-link col-xs'
           >
@@ -37,7 +37,7 @@
       </LinkTo>
     {{else}}
       <li class='list-group-item'>
-        Er zijn helaas geen recente foto-albums!
+        Er zijn helaas geen recente fotoalbums!
       </li>
     {{/each}}
   </ul>
