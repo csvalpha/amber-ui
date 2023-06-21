@@ -110,16 +110,26 @@ component:
       aboutAlpha:
         intro-title: Dé christelijke gezelligheidsvereniging van Enschede
         intro:
-          C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging in Enschede
-          waar gezelligheid en christelijke vorming gecombineerd worden tot één unieke studentenvereniging.
-          De grondslag van Alpha is "de boodschap van de Bijbel als richtsnoer voor het leven".
-          Deze grondslag uit zich in de aspecten vriendschap, vorming en verantwoordelijkheid, de kern van de vereniging.
+          C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging 
+          in Enschede, waar gezelligheid en christelijke vorming gecombineerd worden tot één unieke 
+          studentenvereniging. De grondslag van Alpha is "de boodschap van de Bijbel als 
+          richtsnoer voor het leven". Deze grondslag uit zich in de aspecten vriendschap, 
+          vorming en verantwoordelijkheid, de kern van de vereniging.
         vriendschap-title: Vriendschap
-        vriendschap-text: LANG-TODO
+        vriendschap-text: 
+          Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en 
+          te onderhouden. Elke donderdag ontmoeten we elkaar hier, het is de plek waar 
+          een drankje en een goed gesprek hand in hand gaan.
         vorming-title: Vorming
-        vorming-text: LANG-TODO
-        verantwoordelijkheid-title: VerantWwoordelijkheid
-        verantwoordelijkheid-text: LANG-TODO
+        vorming-text: 
+          Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. 
+          Deze vorming uit zich in activiteiten als verenigingsavonden, 
+          sing-ins en natuurlijk de twee wekelijkse kring.
+        verantwoordelijkheid-title: Verantwoordelijkheid
+        verantwoordelijkheid-text: 
+          Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord 
+          zich in te zetten voor de vereniging, maar ook voor hun omgeving. Dit kan 
+          bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
       activities:
         title: Agenda
         none: Er zijn geen open activiteiten de komende tijd.
@@ -130,7 +140,7 @@ component:
       sponsors:
         potential-sponsor: Ook sponsor worden? Klik hier
       youtube-videos:
-        title: LANG-TODO
+        title: Videos
     board:
       header: LANG-TODO
       intro-title: LANG-TODO

@@ -108,14 +108,25 @@ component:
         interested: Interested
         becomeMember: Join
       aboutAlpha:
-        intro-title: THE Christian student association of Enschede
-        intro: LANG-TODO
-        vriendschap-title: LANG-TODO
-        vriendschap-text: LANG-TODO
-        vorming-title: LANG-TODO
-        vorming-text: LANG-TODO
-        verantwoordelijkheid-title: LANG-TODO
-        verantwoordelijkheid-text: LANG-TODO
+        intro-title: The Christian student association of Enschede
+        intro: 
+          C.S.V. Alpha was founded in 1980 and is the Christian social student association 
+          in Enschede, where socializing and Christian formation are combined into one unique 
+          student association. Alpha's core principle is "the message of the Bible as a 
+          guideline for life". This principle is expressed in the aspects of friendship, 
+          personal development and responsibility, the essence of the association.
+        vriendschap-title: Friendship
+        vriendschap-text:
+          Our own bar Flux is the ideal place to build and maintain friendships. 
+          Every Thursday we meet here, it is the place where drinks and good conversation go hand in hand.
+        vorming-title: Personal development
+        vorming-text: At Alpha, we value personal development. This development expresses itself 
+          in activities such as association evenings, sing-ins and, of course, the biweekly (bible) study.
+        verantwoordelijkheid-title: Responsibility
+        verantwoordelijkheid-text:
+          Alpha is an association for and by its members. That is why members are encouraged to be 
+          committed to the association, but also to their environment. This can be done, 
+          for example, through committees, boards or volunteer actions.
       activities:
         title: Calendar
         none: There are no upcoming open activities.
@@ -124,9 +135,9 @@ component:
         more: More photos
         none: At this moment there are no photoalbums to display.
       sponsors:
-        potential-sponsor: LANG-TODO
+        potential-sponsor: Also want to sponsor us? Click here
       youtube-videos:
-        title: LANG-TODO
+        title: Videos
     board:
       header: LANG-TODO
       intro-title: LANG-TODO
