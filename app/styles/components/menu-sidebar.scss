@@ -35,9 +35,9 @@ $profile-menu-height: 360px;
     width: 40px;
     text-align: center;
     line-height: 40px;
-    white-space: nowrap;
     font-size: 1.2rem;
     overflow-y: hidden;
+    flex-shrink: 0;
   }
 
   .profile-menu {
@@ -50,17 +50,30 @@ $profile-menu-height: 360px;
     }
   }
 
+  .static-pages-menu {
+    transition: height $animation-duration $animation-behaviour;
+    height: 0;
+    overflow: hidden;
+
+    &.open {
+      height: 200px;
+    }
+  }
+
   .menu-sidebar-item-text {
-    transform: translateX(-40px);
+    // transform: translateX(-40px);
     transition: transform $animation-duration $animation-behaviour,
       opacity $animation-duration $animation-behaviour;
     opacity: 0;
     margin-left: 10px;
-    line-height: 40px;
+    margin-right: 5px;
+    line-height: 25px;
+    margin-top: 7px;
     white-space: nowrap;
     pointer-events: none;
 
     &.visible {
+      white-space: normal;
       transform: translateX(0);
       opacity: 1;
       pointer-events: all;
@@ -146,14 +159,15 @@ $profile-menu-height: 360px;
   height: 100%;
 }
 
-.profile-menu-arrow {
+.profile-menu-arrow, .static-pages-menu-arrow {
   align-self: center;
   transform: rotate(0deg) translateX(0);
   transition: transform $animation-duration $animation-behaviour,
     $animation-duration $animation-behaviour;
 }
 
-.profile-menu-open .profile-menu-arrow {
+.profile-menu-open .profile-menu-arrow,
+.static-pages-menu-open .static-pages-menu-arrow {
   transform: rotate(180deg) translateX(0);
 }
 

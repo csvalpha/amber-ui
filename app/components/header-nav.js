@@ -1,6 +1,4 @@
-import { set } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
 import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
 
@@ -15,18 +13,7 @@ export default Component.extend({
   store: service(),
   router: service(),
   abilities: service(),
-  availableStaticPages: tracked(),
-  staticPagesForDropdown: computed('availableStaticPages', function () {
-    const result = {};
-    if (this.availableStaticPages) {
-      Object.entries(this.availableStaticPages).forEach(([id, title]) => {
-        if (!['word-lid', 'sponsoring'].includes(id)) {
-          result[id] = title;
-        }
-      });
-    }
-    return result;
-  }),
+  staticPages: tracked(),
 
   actions: {
     handleLogoAction() {
@@ -56,15 +43,17 @@ export default Component.extend({
       }
       console.log(this.router);
     },
-    setAvailableStaticPages() {
+    setStaticPages() {
       if (!this.session.isAuthenticated && !this.media.isMobile) {
         this.store.findAll('static-page').then((pages) => {
-          // make key-value pairs for all found static pages
-          let newAvailableStaticPages = pages.reduce(
-            (obj, page) => Object.assign(obj, { [page.id]: page.title }),
-            {}
-          );
-          set(this, 'availableStaticPages', newAvailableStaticPages);
+          // make key-value pairs for all found static pages that do not appear by itself
+          let staticPages = {}
+          pages.forEach(page => {
+            if (!['word-lid', 'sponsoring'].includes(page.id)) {
+              staticPages[page.id] = page.title
+            }
+          });
+          this.staticPages = staticPages;
         });
       }
     },

@@ -24,15 +24,15 @@
             <LinkTo @route='index' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentRouteName 'index') 'selected'}}">Home</BsButton>
             </LinkTo>
-            <BsDropdown class="position-static" as |dd| {{did-insert (action 'setAvailableStaticPages')}}>
-              <dd.button @type="primary" class="public-navbar-button {{if (and
-                (and (not-eq router.currentURL '/static-pages/word-lid') (not-eq router.currentURL '/static-pages/sponsoring'))
-                (eq router.currentRouteName 'static-pages.static-page')) 'selected'
+            <BsDropdown class="position-static" as |dd| {{did-insert (action 'setStaticPages')}}>
+              <dd.button @type="primary" class="public-navbar-button {{if (and 
+                (and (not-eq router.currentURL '/static-pages/word-lid') (not-eq router.currentURL '/static-pages/sponsoring')) 
+                (eq router.currentRouteName 'static-pages.static-page.index')) 'selected'
               }}">
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
               <dd.menu @renderInPlace={{true}} as |ddm|>
-                {{#each-in staticPagesForDropdown as |id title|}}
+                {{#each-in staticPages as |id title|}}
                   <ddm.item>
                     <ddm.linkTo @route='static-pages.static-page' @model={{id}} class="btn btn-primary">
                       {{title}}
