@@ -30,6 +30,7 @@ $profile-menu-height: 360px;
   }
 
   .menu-sidebar-item-icon {
+    flex-shrink: 0;
     margin-left: 15px;
     outline: 0;
     width: 40px;
@@ -37,7 +38,6 @@ $profile-menu-height: 360px;
     line-height: 40px;
     font-size: 1.2rem;
     overflow-y: hidden;
-    flex-shrink: 0;
   }
 
   .profile-menu {
@@ -65,10 +65,10 @@ $profile-menu-height: 360px;
     transition: transform $animation-duration $animation-behaviour,
       opacity $animation-duration $animation-behaviour;
     opacity: 0;
-    margin-left: 10px;
-    margin-right: 5px;
-    line-height: 25px;
     margin-top: 7px;
+    margin-right: 5px;
+    margin-left: 10px;
+    line-height: 25px;
     white-space: nowrap;
     pointer-events: none;
 

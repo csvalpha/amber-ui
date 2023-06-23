@@ -47,10 +47,10 @@ export default Component.extend({
       if (!this.session.isAuthenticated && !this.media.isMobile) {
         this.store.findAll('static-page').then((pages) => {
           // make key-value pairs for all found static pages that do not appear by itself
-          let staticPages = {}
-          pages.forEach(page => {
+          let staticPages = {};
+          pages.forEach((page) => {
             if (!['word-lid', 'sponsoring'].includes(page.id)) {
-              staticPages[page.id] = page.title
+              staticPages[page.id] = page.title;
             }
           });
           this.staticPages = staticPages;

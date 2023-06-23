@@ -186,33 +186,33 @@
         @icon='gamepad'
         @title={{t 'mixin.menuItems.sog'}}
       />
-  {{else}}
-    <MenuSidebarItem
+    {{else}}
+      <MenuSidebarItem
       @link='login'
       @hasPermission={{true}}
       @icon='right-to-bracket'
       @title={{t 'tag.button.signin'}}
     />
-    <MenuSidebarItem
+      <MenuSidebarItem
       @link='index'
       @hasPermission={{true}}
       @icon='house'
       @title={{t 'mixin.menuItems.home'}}
     />
-    <div {{did-insert (action 'setStaticPages')}}
+      <div {{did-insert (action 'setStaticPages')}}
       class='menu-sidebar-item link
         {{if layoutManager.staticPagesMenuOpen "static-pages-menu-open"}}'
       {{on 'click' layoutManager.toggleStaticPagesMenu}}
     >
-      <span class='menu-sidebar-item-icon'>
-        <FaIcon @icon='people-group' @fixedWidth={{true}} />
-      </span>
-      <span
+        <span class='menu-sidebar-item-icon'>
+          <FaIcon @icon='people-group' @fixedWidth={{true}} />
+        </span>
+        <span
         class='menu-sidebar-item-text
           {{if layoutManager.leftSideBarExpanded "visible"}}'
       >
-        {{t "component.headerNav.aboutUs"}}
-      </span>
+          {{t "component.headerNav.aboutUs"}}
+        </span>
 
       <FaIcon @icon='angle-down' class='ms-3 static-pages-menu-arrow' />
     </div>
@@ -225,8 +225,8 @@
           @icon='circle-info'
           @title={{title}}
         />
-      {{/each-in}}
-    </div>
+        {{/each-in}}
+      </div>
 
     <MenuSidebarItem
       @link='static-pages.static-page'
@@ -242,7 +242,7 @@
       @icon='comments-dollar'
       @title={{t "component.headerNav.sponsoring"}}
     />
-  {{/if}}
+    {{/if}}
   </div>
 
   <div class='menu-sidebar-item d-none d-md-flex'>
