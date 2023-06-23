@@ -73,9 +73,9 @@ $profile-menu-height: 360px;
     pointer-events: none;
 
     &.visible {
-      white-space: normal;
       transform: translateX(0);
       opacity: 1;
+      white-space: normal;
       pointer-events: all;
     }
   }
