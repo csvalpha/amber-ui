@@ -1,4 +1,4 @@
-<nav class='navbar pb-0 pt-0 {{if (not session.isAuthenticated) "unauthenticated"}}' aria-label='breadcrumb'>
+<nav class='navbar pb-0 pt-0 {{if (not session.isAuthenticated) "public"}}' aria-label='breadcrumb'>
   <div class="container-fluid d-flex justify-content-between">
     <span
       class='{{if session.isAuthenticated "half-toggle"}} left-sidebar-toggle d-block d-md-none link'
@@ -12,10 +12,10 @@
         <div class='header-logo'> </div>
       </span>
     {{else}}
-      <div class='unauthenticated-header-logo'> </div>
+      <div class='public-header-logo'> </div>
     {{/if}}
 
-    <div class='d-flex col ps-0 pe-0 navbar-contents-holder {{if (not session.isAuthenticated) "unauthenticated"}}'>
+    <div class='d-flex col ps-0 pe-0 navbar-contents-holder {{if (not session.isAuthenticated) "public"}}'>
       <div class='navbar-overflow-wrapper'>
         <div class='navbar-nav col d-flex flex-row'>
           {{#if (or session.isAuthenticated media.isMobile)}}

@@ -9,7 +9,7 @@
   .navbar {
     flex-wrap: nowrap;
 
-    &.unauthenticated {
+    &.public {
       border-bottom: 4px solid $brand-secondary;
     }
   }
@@ -65,7 +65,7 @@
   height: 40px;
 }
 
-.unauthenticated-header-logo {
+.public-header-logo {
   position: absolute;
   top: 10px;
   right: calc(50% - 40px);
