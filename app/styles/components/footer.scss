@@ -16,6 +16,15 @@
 
   &.authenticated {
     background-color: $black;
+
+    .footer-bottom-text, .footer-header, .footer-text {
+      color: $gray-200;
+    }
+    
+    .footer-table-cell {
+      border-top: 0;
+      color: $gray-200;
+    }
   }
 }
 
@@ -48,19 +57,11 @@
 
 .footer-header, .footer-text {
   color: $black;
-
-  &.authenticated {
-    color: $gray-200;
-  }
 }
 
 .footer-table-cell {
   border-top: 0;
   color: $black;
-
-  &.authenticated {
-    color: $gray-200;
-  }
 }
 
 .footer-bottom {
@@ -70,8 +71,4 @@
 
 .footer-bottom-text {
   color: $gray-900;
-
-  &.authenticated {
-    color: $gray-500;
-  }
 }
