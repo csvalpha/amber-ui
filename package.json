@@ -55,7 +55,7 @@
     "ember-cli-page-object": "^2.0.0",
     "ember-cli-qrcode": "^2.1.0",
     "ember-cli-sass": "^11.0.1",
-    "ember-cli-showdown": "^6.0.1",
+    "ember-cli-showdown": "^7.0.0",
     "ember-cli-sri": "^2.1.1",
     "ember-cli-terser": "^4.0.2",
     "ember-cli-update": "^1.0.1",
