@@ -8,7 +8,6 @@ export default class LayoutManager extends Service {
   @service localStorage;
 
   @tracked profileMenuOpen;
-  @tracked staticPagesMenuOpen;
   @tracked _leftSideBarOverride;
   @tracked _leftSideBarExpandedTick;
 
@@ -48,16 +47,6 @@ export default class LayoutManager extends Service {
 
   @action
   closeProfileMenu() {
-    this.profileMenuOpen = false;
-  }
-
-  @action
-  toggleStaticPagesMenu() {
-    this.profileMenuOpen = !this.profileMenuOpen;
-  }
-
-  @action
-  closeStaticPagesMenu() {
     this.profileMenuOpen = false;
   }
 

@@ -50,18 +50,7 @@ $profile-menu-height: 360px;
     }
   }
 
-  .static-pages-menu {
-    transition: height $animation-duration $animation-behaviour;
-    height: 0;
-    overflow: hidden;
-
-    &.open {
-      height: 200px;
-    }
-  }
-
   .menu-sidebar-item-text {
-    // transform: translateX(-40px);
     transition: transform $animation-duration $animation-behaviour,
       opacity $animation-duration $animation-behaviour;
     opacity: 0;
@@ -85,6 +74,14 @@ $profile-menu-height: 360px;
 
     &:hover {
       color: $brand-primary;
+    }
+  }
+
+  .sidebar-item-static {
+    color: $gray-500;
+
+    &:hover {
+      color: $gray-500;
     }
   }
 
@@ -159,15 +156,14 @@ $profile-menu-height: 360px;
   height: 100%;
 }
 
-.profile-menu-arrow, .static-pages-menu-arrow {
+.profile-menu-arrow {
   align-self: center;
   transform: rotate(0deg) translateX(0);
   transition: transform $animation-duration $animation-behaviour,
     $animation-duration $animation-behaviour;
 }
 
-.profile-menu-open .profile-menu-arrow,
-.static-pages-menu-open .static-pages-menu-arrow {
+.profile-menu-open .profile-menu-arrow {
   transform: rotate(180deg) translateX(0);
 }
 

@@ -1,7 +1,7 @@
 <nav class='navbar pb-0 pt-0 {{if (not session.isAuthenticated) "public"}}' aria-label='breadcrumb'>
   <div class="container-fluid d-flex justify-content-between">
     <span
-      class='{{if session.isAuthenticated "half-toggle"}} left-sidebar-toggle d-block d-md-none link'
+      class='{{if session.isAuthenticated "half-toggle" "pe-2"}} left-sidebar-toggle d-block d-md-none link'
       {{action 'toggleLeftSidebar'}}
     >
       ☰
@@ -18,8 +18,9 @@
     <div class='d-flex col ps-0 pe-0 navbar-contents-holder {{if (not session.isAuthenticated) "public"}}'>
       <div class='navbar-overflow-wrapper'>
         <div class='navbar-nav col d-flex flex-row'>
-          {{#if (or session.isAuthenticated media.isMobile)}}
+          {{#if session.isAuthenticated}}
             <Breadcrumbs @routeInfos={{@routeInfos}} />
+          {{else if media.isMobile}}
           {{else}}
             <LinkTo @route='index' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentRouteName 'index') 'selected'}}">Home</BsButton>
@@ -31,7 +32,7 @@
               }}">
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
-              <dd.menu @renderInPlace={{true}} as |ddm|>
+              <dd.menu class="public-about-us-dropdown" @renderInPlace={{true}} as |ddm|>
                 {{#each-in staticPages as |id title|}}
                   <ddm.item>
                     <ddm.linkTo @route='static-pages.static-page' @model={{id}} class="btn btn-primary">
@@ -64,7 +65,7 @@
 
     {{#unless session.isAuthenticated}}
       <button
-        class='btn btn-locale btn-inverse-locale-{{intl.locale}}'
+        class='btn btn-locale btn-inverse-locale-{{intl.locale}} me-2'
         title='{{t "component.headerNav.changeLocale"}}'
         {{action 'toggleLocale'}}
         type='button'>

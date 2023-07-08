@@ -199,24 +199,15 @@
       @icon='house'
       @title={{t 'mixin.menuItems.home'}}
     />
-      <div {{did-insert (action 'setStaticPages')}}
-      class='menu-sidebar-item link
-        {{if layoutManager.staticPagesMenuOpen "static-pages-menu-open"}}'
-      {{on 'click' layoutManager.toggleStaticPagesMenu}}
-    >
+      <div {{did-insert (action 'setStaticPages')}} class='menu-sidebar-item sidebar-item-static link'>
         <span class='menu-sidebar-item-icon'>
           <FaIcon @icon='people-group' @fixedWidth={{true}} />
         </span>
-        <span
-        class='menu-sidebar-item-text
-          {{if layoutManager.leftSideBarExpanded "visible"}}'
-      >
+        <span class='menu-sidebar-item-text {{if layoutManager.leftSideBarExpanded "visible"}}'>
           {{t "component.headerNav.aboutUs"}}
         </span>
-
-        <FaIcon @icon='angle-down' class='ms-3 static-pages-menu-arrow' />
       </div>
-      <div class='static-pages-menu ms-2 {{if layoutManager.profileMenuOpen "open"}}'>
+      <div class='static-pages-menu ms-2'>
         {{#each-in staticPages as |id title|}}
           <MenuSidebarItem
           @link='static-pages.static-page'

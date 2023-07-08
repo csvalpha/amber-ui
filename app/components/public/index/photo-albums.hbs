@@ -1,12 +1,12 @@
-<div class="public-index-photo-albums row p-5 d-flex flex-column align-items-center">
+<div class="public-index-photo-albums row p-2 px-sm-5 pt-3 pt-md-5 pb-5 d-flex flex-column align-items-center">
   <LinkTo @route='photo-albums'>
     <h2 class="public-title public-title-smaller index-title-smaller">{{t 'component.public.index.photos.title'}}</h2>
   </LinkTo>
   <hr class="public-title-border border border-secondary bg-secondary border-3 opacity-100" />
-  <div class='row p-0 mt-4 photo-albums-wrapper'>
+  <div class='row p-0 mt-2 mt-md-4 photo-albums-wrapper'>
     {{#each photoAlbums as |album index|}}
       {{#if (lt index amountOfAlbumsToShow)}}
-        <div class='{{if doubleActivityColumns "col-md-12" "col-md-6"}}'>
+        <div class='px-0 px-md-2 {{if doubleActivityColumns "col-md-12" "col-md-6"}}'>
           <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
             {{cards/photo-album-card album true}}
           </LinkTo>
@@ -16,7 +16,7 @@
       <p class="public-no-items-text"><i>{{t 'component.public.index.photos.none'}}</i></p>
     {{/each}}
   </div>
-  <div class="d-flex align-items-end">
+  <div class="d-flex align-items-end px-0 px-md-2">
     <a href="https://www.instagram.com/csvAlpha" class="me-2">
       <img class="social-icon" src="/images/icons/instagram.png" alt="Instagram">
     </a>
