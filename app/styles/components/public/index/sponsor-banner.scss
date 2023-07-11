@@ -3,20 +3,29 @@
   height: fit-content;
 
   .advertisement-tool {
-    padding: 5px 0;
+    padding: 0;
 
-    .advertisement-item {
-      border-radius: 0.375rem;
-      background-color: $white;
-      padding: 3px;
-      height: 100%;
+    .adv-row {
+      height: 130px;
 
       // stylelint-disable selector-max-compound-selectors
-       > * {
-        width: calc(100% - 6px);
-        height: calc(100% - 6px);
-        object-fit: contain;
-        object-position: center;
+      .advertisement-item {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        border-radius: 0.375rem;
+        background-color: $white;
+        padding: 5px;
+        max-height: 100%;
+        font-size: 1.5rem;
+
+        // stylelint-disable max-nesting-depth
+        > * {
+          max-width: calc(100% - 10px);
+          max-height: 100%;
+          object-position: center;
+        }
+        // stylelint-enable max-nesting-depth
       }
       // stylelint-enable selector-max-compound-selectors
     }
