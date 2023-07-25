@@ -22,7 +22,7 @@
   }
 }
 
-.about-alpha {
+.public-index-videos {
   position: relative;
   height: 100%;
 
@@ -46,7 +46,7 @@
 }
 
 @media (max-width: #{map-get($grid-breakpoints, lg)}) {
-  .about-alpha {
+  .public-index-videos {
     &__container {
       display: flex;
       position: static;
@@ -66,7 +66,7 @@
 }
 
 @media (max-width: #{map-get($grid-breakpoints, sm)}) {
-  .about-alpha {
+  .public-index-videos {
     &__video {
       flex-basis: 50%;
       max-width: 50%;

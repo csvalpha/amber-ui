@@ -1,16 +1,23 @@
-.frontpage-activity-card-small {
+// allowed total height - the height of bottom-margins of top two activity cards
+// and that all divided by 3, for 3 article cards
+$public-activity-card-height: calc(($public-activity-and-photo-holders-height - 2rem) / 3);
+
+.public-activity-card-small {
+  margin-bottom: 1rem;
   box-shadow: none;
   background-color: $white;
   cursor: pointer;
+  // subtract bottom-margin
+  height: $public-activity-card-height;
   overflow: hidden;
   color: $white;
 
-  .frontpage-card-image {
+  .public-card-image {
     transition: background-color 0.3s ease-in-out;
-    background-color: $gray-800;
+    background-color: $gray-700;
     background-position: center;
     background-size: cover;
-    height: 120px;
+    height: $public-activity-card-height;
     background-blend-mode: overlay;
   }
 
@@ -23,7 +30,7 @@
   }
 
   &:hover {
-    .frontpage-card-image {
+    .public-card-image {
       background-color: $gray-900;
     }
 

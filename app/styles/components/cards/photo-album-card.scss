@@ -5,6 +5,17 @@
     height: $photo-card-height;
   }
 
+  &.public {
+    margin-bottom: 1rem;
+    // half of the allowed height - the social-buttons row
+    // and that minus the bottom-margin
+    height: calc(($public-activity-and-photo-holders-height - 3rem) / 2 - 1rem);
+
+    img {
+      height: calc(($public-activity-and-photo-holders-height - 3rem) / 2 - 1rem);
+    }
+  }
+
   .card-title {
     font-size: 1.5rem;
   }
