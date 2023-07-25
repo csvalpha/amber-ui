@@ -10,7 +10,9 @@
 </EmberWormhole>
 
 <h3 class="row ps-1">{{model.title}}</h3>
-<p class="row ps-1">{{model.group.name}}</p>
+{{#if (can 'show group')}}
+  <p class="row ps-1">{{model.group.name}}</p>
+{{/if}}
 
 <div class='row'>
   {{#each sortedPhotos as |photo|}}

@@ -1,6 +1,7 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
+import { computed } from '@ember/object';
 
 export default Component.extend({
   tagName: 'nav',
@@ -14,6 +15,14 @@ export default Component.extend({
   router: service(),
   abilities: service(),
   staticPages: tracked(),
+
+  onAboutUsPage: computed('router.{currentRouteName,currentURL}', function () {
+    return (
+      this.router.currentRouteName === 'static-pages.static-page.index' &&
+      this.router.currentURL !== '/static-pages/word-lid' &&
+      this.router.currentURL !== '/static-pages/sponsoring'
+    );
+  }),
 
   actions: {
     handleLogoAction() {

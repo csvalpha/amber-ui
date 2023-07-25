@@ -291,7 +291,7 @@ mixin:
     collections: Collections
     mailModerations: Mail moderations
     mandates: Mandates
-    tomato: S.O.F.I.A
+    sofia: S.O.F.I.A
     nextcloud: Nextcloud
     home: Home
     articles: Articles

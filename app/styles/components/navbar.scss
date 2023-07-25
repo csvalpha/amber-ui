@@ -119,14 +119,12 @@
 }
 
 .public-navbar-button.dropdown-toggle[aria-expanded='true'] {
-  z-index: 2;
   border: 2px solid $brand-secondary;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 .public-about-us-dropdown {
-  z-index: 1;
   border: 2px solid $brand-secondary;
   border-top-left-radius: 0;
   background-color: $brand-primary;

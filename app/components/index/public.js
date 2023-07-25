@@ -2,14 +2,15 @@ import { inject as service } from '@ember/service';
 import Component from '@ember/component';
 import { tracked } from '@glimmer/tracking';
 
-export default Component.extend({
-  store: service(),
-  session: service(),
-  doubleActivityColumns: tracked(),
-  activities: tracked(),
+export default class PublicComponent extends Component {
+  @service store;
+  @service session;
 
-  init() {
-    this._super(...arguments);
+  @tracked doubleActivityColumns;
+  @tracked activities;
+
+  constructor() {
+    super(...arguments);
     const params = {
       filter: { upcoming: true },
       sort: 'start_time',
@@ -20,5 +21,5 @@ export default Component.extend({
       this.activities = retrievedActivities;
       this.doubleActivityColumns = retrievedActivities.length > 3;
     });
-  },
-});
+  }
+}

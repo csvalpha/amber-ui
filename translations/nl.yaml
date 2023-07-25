@@ -296,7 +296,7 @@ mixin:
     collections: Incasso's
     mailModerations: Mail moderaties
     mandates: Mandaten
-    tomato: Streepsysteem
+    sofia: Streepsysteem
     nextcloud: Nextcloud
     home: Home
     articles: Artikelen

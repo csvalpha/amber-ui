@@ -21,15 +21,12 @@
           {{#if session.isAuthenticated}}
             <Breadcrumbs @routeInfos={{@routeInfos}} />
           {{else if media.isMobile}}
-          {{else}}
+          {{else if (not media.isMobile)}}
             <LinkTo @route='index' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentRouteName 'index') 'selected'}}">Home</BsButton>
             </LinkTo>
             <BsDropdown class="position-static" as |dd| {{did-insert (action 'setStaticPages')}}>
-              <dd.button @type="primary" class="public-navbar-button {{if (and 
-                (and (not-eq router.currentURL '/static-pages/word-lid') (not-eq router.currentURL '/static-pages/sponsoring')) 
-                (eq router.currentRouteName 'static-pages.static-page.index')) 'selected'
-              }}">
+              <dd.button @type="primary" class="public-navbar-button {{if this.onAboutUsPage 'selected'}}">
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
               <dd.menu class="public-about-us-dropdown" @renderInPlace={{true}} as |ddm|>
