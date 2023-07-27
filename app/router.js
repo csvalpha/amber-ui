@@ -205,6 +205,15 @@ Router.map(function () {
 
   this.route('quickpost');
 
+  this.route('rooms', function () {
+    this.route('new');
+
+    this.route('room', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
+
   this.route('sog', function () {
     this.route('name-trainer');
   });
