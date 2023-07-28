@@ -1,4 +1,8 @@
-<Forms::RoomForm
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<Forms::RoomAdvertForm
   @model={{@model}}
   @errorMessage={{this.errorMessage}}
   @onSubmit={{action 'submit'}}

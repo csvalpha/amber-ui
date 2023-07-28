@@ -1,14 +1,14 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class RoomsNewRoute extends AuthenticatedRoute {
+export default class RoomAdvertsNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Kamer advertentie aanmaken' };
 
   canAccess() {
-    return this.abilities.can('create rooms');
+    return this.abilities.can('create room-adverts');
   }
 
   model() {
-    return this.store.createRecord('room');
+    return this.store.createRecord('room-advert');
   }
 
   deactivate() {

@@ -1,6 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class RoomsIndexRoute extends AuthenticatedRoute {
+export default class RoomAdvertsIndexRoute extends AuthenticatedRoute {
   queryParams = {
     page: {
       refreshModel: true,
@@ -10,20 +10,20 @@ export default class RoomsIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     return [
       {
-        link: 'rooms.new',
+        link: 'room-adverts.new',
         title: 'Nieuwe kamer advertentie',
         icon: 'plus',
-        canAccess: this.abilities.can('create rooms'),
+        canAccess: this.abilities.can('create room-adverts'),
       },
     ];
   }
 
   canAccess() {
-    return this.abilities.can('show rooms');
+    return this.abilities.can('show room-adverts');
   }
 
   model(params) {
     params.perPage = 6;
-    return this.store.queryPaged('room', params);
+    return this.store.queryPaged('room-advert', params);
   }
 }

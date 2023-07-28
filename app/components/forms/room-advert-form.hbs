@@ -6,7 +6,7 @@
     <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
         @model={{@model}}
-        @property='house_name'
+        @property='houseName'
         @label='Huisnaam'
         @required={{true}}
         @maxlength={{50}}
@@ -19,16 +19,22 @@
       />
       <ModelForm::TextInput
         @model={{@model}}
+        @property='contact'
+        @label='Contact (e-mailadres, telefoonnummer of link)'
+        @required={{true}}
+        @maxlength={{50}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
         @property='location'
         @label='Locatie'
         @maxlength={{100}}
       />
       <ModelForm::TextInput
         @model={{@model}}
-        @property='contact'
-        @label='Contact (e-mailadres, telefoonnummer of link)'
-        @required={{true}}
-        @maxlength={{50}}
+        @property='availableFrom'
+        @label='Beschikbaar vanaf'
+        @maxlength={{100}}
       />
       <ModelForm::CheckboxInput
         @model={{@model}}

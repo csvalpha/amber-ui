@@ -297,6 +297,7 @@ mixin:
     articles: Articles
     activities: Activities
     vacancies: Vacancies
+    roomAdverts: Rooms
     forum: Forum
     photoAlbums: Photo-albums
     polls: Polls

@@ -302,6 +302,7 @@ mixin:
     articles: Artikelen
     activities: Activiteiten
     vacancies: Vacatures
+    roomAdverts: Kamers
     forum: Forum
     photoAlbums: Fotoalbums
     polls: Polls

@@ -1,6 +1,6 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class RoomsRoute extends ApplicationRoute {
+export default class RoomAdvertsRoute extends ApplicationRoute {
   queryParams = {};
 
   breadcrumb = { title: 'Kamer advertenties' };

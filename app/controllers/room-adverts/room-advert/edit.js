@@ -2,16 +2,16 @@ import EditController from 'amber-ui/controllers/application/edit';
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 
-export default class RoomEditController extends EditController {
+export default class RoomAdvertEditController extends EditController {
   @service abilities;
   @service session;
 
   successMessage = 'Kamer advertentie opgeslagen!';
-  successTransitionTarget = 'rooms.room';
+  successTransitionTarget = 'room-adverts.room-advert';
 
   @action
   coverPhotoLoaded(file) {
-    const room = this.model;
-    room.set('coverPhoto', file.data);
+    const room_advert = this.model;
+    room_advert.set('coverPhoto', file.data);
   }
 }

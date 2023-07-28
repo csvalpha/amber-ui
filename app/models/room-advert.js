@@ -1,11 +1,12 @@
 import Model, { belongsTo, attr } from '@ember-data/model';
 import { CoverPhotoFallback } from 'amber-ui/constants';
 
-export default class Room extends Model {
+export default class RoomAdvert extends Model {
   // Attributes
-  @attr house_name;
-  @attr location;
+  @attr houseName;
   @attr contact;
+  @attr location;
+  @attr availableFrom;
   @attr description;
   @attr descriptionCamofied;
   @attr('date') createdAt;

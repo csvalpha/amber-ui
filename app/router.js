@@ -205,10 +205,10 @@ Router.map(function () {
 
   this.route('quickpost');
 
-  this.route('rooms', function () {
+  this.route('room-adverts', function () {
     this.route('new');
 
-    this.route('room', { path: ':id' }, function () {
+    this.route('room-advert', { path: ':id' }, function () {
       this.route('edit');
       this.route('destroy');
     });
