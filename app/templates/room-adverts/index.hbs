@@ -4,64 +4,54 @@
 
 <div class='row'>
   {{#each model as |roomAdvert|}}
-    <div class='article-col col-md-6 mb-3'>
-      <LinkTo @route='room-adverts.room-advert' @model={{roomAdvert.id}}>
-        <div class='article-card d-flex'>
+    <div class='d-flex col-md-6 mb-3'>
+        <div class='d-flex'>
           <div class='card mb-0'>
-            <div class='card-header card-header--overlay'>
-              <img
-                itemprop='image'
-                class='card-img-top'
-                src={{roomAdvert.coverPhotoUrlOrDefault}}
-              />
+            <LinkTo @route='room-adverts.room-advert' @model={{roomAdvert.id}}>
+              <div class='card-header card-header--overlay'>
+                <img
+                  itemprop='image'
+                  class='card-img-top'
+                  src={{roomAdvert.coverPhotoUrlOrDefault}}
+                />
 
-              <div class='card-title-bar gradient-overlay'>
-
-                <div class='card-titles'>
-                  <LinkTo @route='room-adverts.room-advert' @model={{roomAdvert.id}}>
-                    <h2 class='card-title' itemprop='name headline'>
-                      {{roomAdvert.houseName}}
-                    </h2>
-                  </LinkTo>
-                  {{#if roomAdvert.location}}
-                  <h3 class='card-subtitle'>
-                    <span>
-                      {{roomAdvert.location}}
-                    </span>
-                  </h3>
-                  {{/if}}
+                <div class='card-title-bar gradient-overlay without-subtitle'>
+                  <div class='card-titles'>
+                    <LinkTo @route='room-adverts.room-advert' @model={{roomAdvert.id}}>
+                      <h2 class='card-title' itemprop='name headline'>
+                        {{roomAdvert.houseName}}
+                      </h2>
+                    </LinkTo>
+                  </div>
                 </div>
               </div>
-            </div>
+            </LinkTo>
 
             <div class='card-body'>
-              <div class='card-text pb-2 h-100 d-flex flex-column' itemprop='roomAdvertBody'>
-                {{! Table without style }}
-                <table class='mb-4'>
-                  {{#if roomAdvert.contact}}
-                    <tr>
-                      <th class="pe-3">Contact:</th>
-                      <td>
-                        {{#if (is-phone roomAdvert.contact)}}
-                          <a href='tel:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-                        {{else if (is-email roomAdvert.contact)}}
-                          <a href='mailto:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-                        {{else if (is-url roomAdvert.contact)}}
-                          <a href='{{roomAdvert.contact}}' target='_blank'>{{roomAdvert.contact}}</a>
-                        {{else}}
-                          {{roomAdvert.contact}}
-                        {{/if}}
-                      </td>
-                    </tr>
-                  {{/if}}
-                  {{#if roomAdvert.availableFrom}}
-                    <tr>
-                      <th class="pe-3">Beschikbaar vanaf: </th>
-                      <td>{{roomAdvert.availableFrom}}</td>
-                    </tr>
-                  {{/if}}
-                </table>
-                <div class="flex-grow-1" />
+            <div class='card-text pb-2 h-100 d-flex flex-column' itemprop='roomAdvertBody'>
+              {{! Table without style }}
+              <table class='mb-4'>
+                {{#if roomAdvert.location}}
+                  <tr>
+                    <th class="pe-3">Locatie: </th>
+                    <td>
+                      <a
+                        href='https://maps.google.com/?q={{roomAdvert.location}}'
+                        target='_blank'
+                      >
+                        {{roomAdvert.location}}
+                      </a>
+                    </td>
+                  </tr>
+                {{/if}}
+                {{#if roomAdvert.availableFrom}}
+                  <tr>
+                    <th class="pe-3">Beschikbaar vanaf: </th>
+                    <td>{{roomAdvert.availableFrom}}</td>
+                  </tr>
+                {{/if}}
+              </table>
+              <div class="flex-grow-1" />
                 <LinkTo
                   @route='room-adverts.room-advert'
                   @model={{roomAdvert.id}}
@@ -73,7 +63,6 @@
             </div>
           </div>
         </div>
-      </LinkTo>
     </div>
   {{/each}}
 

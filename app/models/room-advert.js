@@ -9,6 +9,7 @@ export default class RoomAdvert extends Model {
   @attr availableFrom;
   @attr description;
   @attr descriptionCamofied;
+  @attr authorName;
   @attr('date') createdAt;
   @attr('date') updatedAt;
   @attr coverPhoto;
