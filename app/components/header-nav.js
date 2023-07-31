@@ -17,7 +17,8 @@ export default Component.extend({
   staticPages: tracked(),
 
   onAboutUsPage: computed('router.{currentRouteName,currentURL}', function () {
-    return (
+    return (this.router.currentRouteName === 'public.room-forum') || 
+    (
       this.router.currentRouteName === 'static-pages.static-page.index' &&
       this.router.currentURL !== '/static-pages/word-lid' &&
       this.router.currentURL !== '/static-pages/sponsoring'

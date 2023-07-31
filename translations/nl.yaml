@@ -267,11 +267,15 @@ component:
         partner-1: LANG-TODO
         partner-2: LANG-TODO
         partner-3: LANG-TODO
-    rooms:
-      header: LANG-TODO
-      intro-title: LANG-TODO
-      intro: LANG-TODO
-      locatie: Locatie
+    roomForum:
+      header: Kamer forum
+      intro-title: Check hier de beschikbare kamers bij Alphanen in huis!
+      intro: 
+        Alphanen wonen verspreidt over vele studentenhuizen, zowel in Alphahuizen als gewone studentenhuizen. 
+        Als er een kamer vrijkomt op een Alphahuis of bij een Alphaan, vind je dat hier!
+      location: Locatie
+      contact: Contact
+      availableFrom: Beschikbaar vanaf
   socialMediaButtons:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
@@ -303,6 +307,7 @@ mixin:
     activities: Activiteiten
     vacancies: Vacatures
     roomAdverts: Kamers
+    roomForum: Kamerforum
     forum: Forum
     photoAlbums: Fotoalbums
     polls: Polls

@@ -1,4 +1,4 @@
-.public-index-header {
+.public-header {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -8,7 +8,7 @@
   padding-top: 80px;
   padding-bottom: 60px;
   height: fit-content;
-  min-height: 22vw;
+  min-height: 25vw;
   color: $white;
 
   .header-background {
@@ -44,6 +44,16 @@
     span {
       font-size: min(7rem, 11vw);
     }
+  }
+
+  .header-title {
+    z-index: 1;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: min(7rem, 11vw);
+    font-family: 'Advent Pro', sans-serif;
+    font-size: min(5.5rem, 8vw);
+    font-weight: 500;
   }
 
   .header-buttons {

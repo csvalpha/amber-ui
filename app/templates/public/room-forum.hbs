@@ -1,0 +1,26 @@
+<div class="public">
+  <Public::Header 
+    @imageUrl="/images/public/room-forum/banner.jpg" 
+    @title="{{t 'component.public.roomForum.header'}}" 
+    @introTitle="{{t 'component.public.roomForum.intro-title'}}"  
+    @intro="{{t 'component.public.roomForum.intro'}}"
+  />
+
+  {{#each model as |roomAdvert|}}
+    <Cards::PublicRoomAdvertCard @roomAdvert={{roomAdvert}} />
+  {{/each}}
+
+  {{#if (eq model.length 0)}}
+    <div class='col-12'>
+      <div class='alert alert-warning' role='alert'>
+        Momenteel zijn er geen kamer advertenties.
+      </div>
+    </div>
+  {{/if}}
+
+{{#if (gt model.meta.page_count 1)}}
+  <div class='row justify-content-center'>
+    <PageNumbers @info={{model.meta}} />
+  </div>
+{{/if}}
+</div>
