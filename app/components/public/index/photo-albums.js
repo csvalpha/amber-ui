@@ -1,9 +1,10 @@
 import { inject as service } from '@ember/service';
 import Component from '@ember/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class Photos extends Component {
-  amountOfAlbumsToShow = 4;
   @service store;
+  @tracked doubleActivityColumns;
   photoAlbums = [];
 
   constructor() {
@@ -14,5 +15,9 @@ export default class Photos extends Component {
       page: { number: '1', size: this.amountOfAlbumsToShow },
     });
     this.set('photoAlbums', albums);
+  }
+
+  get amountOfAlbumsToShow() {
+    return this.doubleActivityColumns ? 2 : 4;
   }
 }
