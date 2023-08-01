@@ -32,7 +32,7 @@
     height: 100%;
   }
 
-  .header-slogan {
+  .header-slogan, .header-title {
     z-index: 1;
     text-align: center;
     text-transform: uppercase;
@@ -47,13 +47,7 @@
   }
 
   .header-title {
-    z-index: 1;
-    text-align: center;
-    text-transform: uppercase;
-    line-height: min(7rem, 11vw);
-    font-family: 'Advent Pro', sans-serif;
-    font-size: min(5.5rem, 8vw);
-    font-weight: 500;
+    font-size: min(7rem, 11vw);
   }
 
   .header-buttons {
