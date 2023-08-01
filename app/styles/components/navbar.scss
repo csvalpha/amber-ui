@@ -26,12 +26,12 @@
   }
 
   .public-about-us-dropdown {
+    display: flex;
+    flex-direction: column;
     border: 2px solid $brand-secondary;
     border-top-left-radius: 0;
     background-color: $brand-primary;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     min-width: auto;
   
     .dropdown-item,
