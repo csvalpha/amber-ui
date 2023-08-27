@@ -6,7 +6,7 @@ import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 
-export default class UserActivateAccountController extends Controller {
+export default class ActivateAccountController extends Controller {
   @service fetch;
 
   @tracked errorMessage = null;
