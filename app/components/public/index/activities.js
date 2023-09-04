@@ -30,7 +30,7 @@ export default class Activities extends Component {
   get modalImageStyle() {
     if (this.modalImage) {
       return htmlSafe(
-        `background-image: url(${this.activity.coverPhotoUrl}); background-size: cover; background-position: center;"`
+        `background-image: url(${this.modalImage}); background-size: cover; background-position: center;"`
       );
     }
     return htmlSafe(
