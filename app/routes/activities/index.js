@@ -1,6 +1,6 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class ActivitiesIndexRoute extends AuthenticatedRoute {
+export default class ActivitiesIndexRoute extends ApplicationRoute {
   queryParams = {
     search: {
       refreshModel: true,
@@ -31,10 +31,6 @@ export default class ActivitiesIndexRoute extends AuthenticatedRoute {
         canAccess: this.abilities.can('show ical activities'),
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show activities');
   }
 
   model(params) {
