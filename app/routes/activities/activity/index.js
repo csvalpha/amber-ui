@@ -3,6 +3,8 @@ import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 import { hash } from 'rsvp';
 
 export default class ActivityIndexRoute extends ApplicationRoute {
+  // eslint-disable-next-line no-undef
+  @service store;
   constructor() {
     super(...arguments);
     this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
