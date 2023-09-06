@@ -1,9 +1,9 @@
 import { ApplicationRoute } from 'amber-ui/routes/application/application';
 import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 import { hash } from 'rsvp';
+import { inject as service } from '@ember/service';
 
 export default class ActivityIndexRoute extends ApplicationRoute {
-  // eslint-disable-next-line no-undef
   @service store;
   constructor() {
     super(...arguments);
