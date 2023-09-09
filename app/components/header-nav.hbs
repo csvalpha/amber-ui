@@ -20,7 +20,6 @@
         <div class='navbar-nav col d-flex flex-row'>
           {{#if session.isAuthenticated}}
             <Breadcrumbs @routeInfos={{@routeInfos}} />
-          {{else if media.isMobile}}
           {{else if (not media.isMobile)}}
             <LinkTo @route='index' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentRouteName 'index') 'selected'}}">Home</BsButton>
