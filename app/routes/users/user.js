@@ -8,7 +8,7 @@ export default class UserRoute extends AuthenticatedRoute {
   }
 
   canAccess() {
-    return this.abilities.can('show users');
+    return this.abilities.can('show individual users');
   }
 
   model(params) {
