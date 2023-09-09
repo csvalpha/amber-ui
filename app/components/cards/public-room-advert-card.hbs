@@ -28,20 +28,20 @@
                   <td>{{roomAdvert.availableFrom}}</td>
                 </tr>
               {{/if}}
-                <tr>
-                  <th class="pe-3 text-secondary">{{t 'component.public.roomForum.contact'}}</th>
-                  <td>
-                    {{#if (is-phone roomAdvert.contact)}}
-                      <a href='tel:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-                    {{else if (is-email roomAdvert.contact)}}
-                      <a href='mailto:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-                    {{else if (is-url roomAdvert.contact)}}
-                      <a href='{{roomAdvert.contact}}' target='_blank'>{{roomAdvert.contact}}</a>
-                    {{else}}
-                      {{roomAdvert.contact}}
-                    {{/if}}
-                  </td>
-                </tr>
+              <tr>
+                <th class="pe-3 text-secondary">{{t 'component.public.roomForum.contact'}}</th>
+                <td>
+                  {{#if (is-phone roomAdvert.contact)}}
+                    <a href='tel:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
+                  {{else if (is-email roomAdvert.contact)}}
+                    <a href='mailto:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
+                  {{else if (is-url roomAdvert.contact)}}
+                    <a href='{{roomAdvert.contact}}' target='_blank'>{{roomAdvert.contact}}</a>
+                  {{else}}
+                    {{roomAdvert.contact}}
+                  {{/if}}
+                </td>
+              </tr>
             </table>
           </div>
           {{#if roomAdvert.coverPhotoUrl}}

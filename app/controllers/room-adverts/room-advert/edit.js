@@ -11,7 +11,7 @@ export default class RoomAdvertEditController extends EditController {
 
   @action
   coverPhotoLoaded(file) {
-    const room_advert = this.model;
-    room_advert.set('coverPhoto', file.data);
+    const roomAdvert = this.model;
+    roomAdvert.set('coverPhoto', file.data);
   }
 }

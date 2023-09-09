@@ -24,8 +24,8 @@ export default class RoomAdvert extends Ability {
     );
   }
 
-  isRoomAdvertOwner(room_advert) {
+  isRoomAdvertOwner(roomAdvert) {
     const { currentUser } = this.session;
-    return !isNone(currentUser) && room_advert.isOwner(currentUser);
+    return !isNone(currentUser) && roomAdvert.isOwner(currentUser);
   }
 }

@@ -215,7 +215,7 @@
       </div>
       <div class='static-pages-menu ms-2'>
         {{#each-in staticPages as |id title|}}
-        <MenuSidebarItem
+          <MenuSidebarItem
           @link='static-pages.static-page'
           @linkArgument={{id}}
           @hasPermission={{can 'show static-pages'}}

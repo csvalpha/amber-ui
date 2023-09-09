@@ -18,9 +18,9 @@
     </div>
   {{/if}}
 
-{{#if (gt model.meta.page_count 1)}}
-  <div class='row justify-content-center'>
-    <PageNumbers @info={{model.meta}} />
-  </div>
-{{/if}}
+  {{#if (gt model.meta.page_count 1)}}
+    <div class='row justify-content-center'>
+      <PageNumbers @info={{model.meta}} />
+    </div>
+  {{/if}}
 </div>
