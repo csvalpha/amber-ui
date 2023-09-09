@@ -1,11 +1,10 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 import FormLoadOrCreateUtil from 'amber-ui/utils/form-load-or-create';
 import { hash } from 'rsvp';
 import { inject as service } from '@ember/service';
 
-export default class ActivityIndexRoute extends AuthenticatedRoute {
+export default class ActivityIndexRoute extends ApplicationRoute {
   @service store;
-
   constructor() {
     super(...arguments);
     this.formLoadOrCreateUtil = new FormLoadOrCreateUtil(this);
@@ -47,10 +46,6 @@ export default class ActivityIndexRoute extends AuthenticatedRoute {
         // canAccess: true
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show activities');
   }
 
   model() {

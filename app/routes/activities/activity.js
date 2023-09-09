@@ -1,6 +1,6 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class ActivityRoute extends AuthenticatedRoute {
+export default class ActivityRoute extends ApplicationRoute {
   queryParams = {};
 
   get breadcrumb() {

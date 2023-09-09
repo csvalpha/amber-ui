@@ -235,6 +235,7 @@ Router.map(function () {
     this.route('forgot-password');
     this.route('members');
     this.route('webdav');
+    this.route('activate-account', { path: ':id/activate-account' });
 
     this.route('user', { path: ':id' }, function () {
       this.route('edit', function () {
@@ -250,7 +251,6 @@ Router.map(function () {
       this.route('permissions');
       this.route('settings');
 
-      this.route('activate-account');
       this.route('resend-activation-code');
     });
 
