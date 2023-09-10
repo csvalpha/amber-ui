@@ -28,7 +28,7 @@ export default class UserIndexRoute extends AuthenticatedRoute {
         link: 'users.user.index',
         title: 'Algemeen',
         linkArgument: user,
-        canAccess: this.abilities.can('show users'),
+        canAccess: this.abilities.can('show individual users'),
       },
       {
         link: 'users.user.groups',
