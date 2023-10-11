@@ -123,6 +123,9 @@ $container-max-widths: (
 $grid-columns: 12 !default;
 $grid-gutter-width: 1.875rem; // 30px
 
+// Allow negative margins
+$enable-negative-margins: true;
+
 // fonts
 $font-family-sans-serif: 'nunito sans', 'Arial', sans-serif;
 $font-family-serif: 'Georgia', 'Times New Roman', 'Times', serif;
