@@ -77,4 +77,12 @@ jobs:
 
       - name: Test
         run: |
-          docker run -e CI=true -t app yarn test:ember
+          docker run -e CI=true -e COVERAGE=true -t app yarn test:ember
+          docker cp app:/opt/app/coverage/coverage-summary.json coverage-summary.json
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage-summary.json
+          fail_ci_if_error: true
