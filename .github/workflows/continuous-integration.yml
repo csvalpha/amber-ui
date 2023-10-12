@@ -78,7 +78,7 @@ jobs:
       - name: Test
         run: |
           mkdir coverage
-          docker run -e CI=true -e COVERAGE=true -v $(pwd):/opt/app/coverage -t app yarn test:ember
+          docker run -e CI=true -e COVERAGE=true -v $(pwd)/coverage:/opt/app/coverage -t app yarn test:ember
 
       - name: Upload coverage report to Codecov
         if: ${{ !cancelled() }}
