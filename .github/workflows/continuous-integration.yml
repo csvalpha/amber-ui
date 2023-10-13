@@ -87,8 +87,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
           files: coverage/lcov.info
-          functionalities:
-            search: false
+          functionalities: network
 
       - name: Upload coverage report artifact
         if: ${{ !cancelled() }}
