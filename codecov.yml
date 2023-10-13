@@ -1,2 +1,2 @@
 fixes:
-  - ::amber-ui/
+  - 'coverage/lcov-report/::'
