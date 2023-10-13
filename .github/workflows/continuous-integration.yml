@@ -79,13 +79,14 @@ jobs:
         run: |
           mkdir coverage
           docker run -e CI=true -e COVERAGE=true -v "$(pwd)"'/coverage:/opt/app/coverage' -t app yarn test:ember
+          rm coverage/coverage-summary.json
 
       - name: Upload coverage report to Codecov
         if: ${{ !cancelled() }}
         uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/lcov.info
+          files: coverage/lcov.info
           fail_ci_if_error: true
 
       - name: Upload coverage report artifact
