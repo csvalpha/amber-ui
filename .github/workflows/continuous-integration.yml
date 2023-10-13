@@ -84,7 +84,6 @@ jobs:
         uses: codecov/codecov-action@eaaf4bedf32dbdc6b720b63067d99c4d77d6047d # v3.1.4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/lcov.info
 
       - name: Upload coverage report artifact
         uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
