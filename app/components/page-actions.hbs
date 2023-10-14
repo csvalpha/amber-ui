@@ -1,9 +1,4 @@
 <div class='row justify-content-md-between flex-wrap page-actions'>
-  <div class='col-12 col-md pl-0'>
-    {{#unless hideBreadCrumbs}}
-      <BreadCrumbs @crumbClass='breadcrumb-item' @outputStyle='bootstrap' />
-    {{/unless}}
-  </div>
   {{#if (or pageActions (has-block))}}
     {{#page-actions-buttons pageActions}}
       {{yield}}

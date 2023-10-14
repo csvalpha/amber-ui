@@ -1,8 +1,6 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class UserIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Gebruikers' };
-
+export default class UsersIndexRoute extends AuthenticatedRoute {
   get pageActions() {
     return [
       {

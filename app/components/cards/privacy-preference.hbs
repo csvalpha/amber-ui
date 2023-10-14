@@ -3,45 +3,51 @@
 
   {{#if (can 'edit user' model)}}
     <LinkTo
-      @route='users.edit-privacy'
+      @route='users.user.edit.privacy'
       @model={{model.id}}
       class='btn btn-outline-info'
     >
       Voorkeuren wijzigen
-      <FaIcon @icon='pen-to-square' class='pl-1' />
+      <FaIcon @icon='pen-to-square' class='ps-1' />
     </LinkTo>
   {{/if}}
 </div>
 
 <table class='table table-sm'>
-  <tr>
-    <td>
-      Ik wil profieldetails (contactgegevens, studie, geboortedatum en
-      dieetwensen) delen met:
-    </td>
-    <td data-test-user-details-sharing-preference>
-      {{humanize-user-details-sharing-preference
-        @model.userDetailsSharingPreference
-      }}
-    </td>
-  </tr>
-  <tr>
-    <td>
-      Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het
-      streepsysteem
-    </td>
-    <td data-test-allow-tomato-sharing>
-      {{boolean-tag @model.allowTomatoSharing}}
-    </td>
-  </tr>
-  <tr>
-    <td>Gegevens mogen gedeeld worden met IFES</td>
-    <td data-test-ifes-sharing-preference>
-      {{boolean-tag @model.ifesDataSharingPreference}}
-    </td>
-  </tr>
-  <tr>
-    <td>Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak</td>
-    <td data-test-info-in-almanak>{{boolean-tag @model.infoInAlmanak}}</td>
-  </tr>
+  <tbody>
+    <tr>
+      <td/>
+      <td/>
+    </tr>
+    <tr>
+      <td>
+        Ik wil profieldetails (contactgegevens, studie, geboortedatum en
+        dieetwensen) delen met:
+      </td>
+      <td data-test-user-details-sharing-preference>
+        {{humanize-user-details-sharing-preference
+          @model.userDetailsSharingPreference
+        }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het
+        streepsysteem
+      </td>
+      <td data-test-allow-tomato-sharing>
+        {{boolean-tag @model.allowTomatoSharing}}
+      </td>
+    </tr>
+    <tr>
+      <td>Gegevens mogen gedeeld worden met IFES</td>
+      <td data-test-ifes-sharing-preference>
+        {{boolean-tag @model.ifesDataSharingPreference}}
+      </td>
+    </tr>
+    <tr>
+      <td>Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak</td>
+      <td data-test-info-in-almanak>{{boolean-tag @model.infoInAlmanak}}</td>
+    </tr>
+  </tbody>
 </table>

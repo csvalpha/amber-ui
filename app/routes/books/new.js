@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class NewBookRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Boek aanmaken' };
+export default class BooksNewRoute extends AuthenticatedRoute {
+  breadcrumb = { title: 'Boek aanmaken' };
 
   canAccess() {
     return this.abilities.can('create books');

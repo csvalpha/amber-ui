@@ -13,25 +13,27 @@
       {{/if}}
 
       <div class='card-title-bar gradient-overlay'>
-        <div class='hidden-xs-down'>
-          {{#if activity.group}}
-            <img
-              src='{{activity.group.avatarThumbUrlOrDefault}}'
-              class='profile-picture-medium profile-picture-margin'
-              alt='{{activity.group.fullName}}'
-              height='60px'
-              style='display: inline;'
-            />
-          {{else}}
-            <img
-              src='{{activity.author.avatarThumbUrlOrDefault}}'
-              class='profile-picture-medium profile-picture-margin'
-              alt='{{activity.author.fullName}}'
-              height='60px'
-              style='display: inline;'
-            />
-          {{/if}}
-        </div>
+        {{#if (or (can 'show group') (can 'show user'))}}
+          <div class='hidden-xs-down'>
+            {{#if activity.group}}
+              <img
+                src='{{activity.group.avatarThumbUrlOrDefault}}'
+                class='profile-picture-medium profile-picture-margin'
+                alt='{{activity.group.fullName}}'
+                height='60px'
+                style='display: inline;'
+              />
+            {{else}}
+              <img
+                src='{{activity.author.avatarThumbUrlOrDefault}}'
+                class='profile-picture-medium profile-picture-margin'
+                alt='{{activity.author.fullName}}'
+                height='60px'
+                style='display: inline;'
+              />
+            {{/if}}
+          </div>
+        {{/if}}
 
         <div class='card-titles'>
           <h2 class='card-title' data-test-activity-title>
@@ -41,7 +43,7 @@
             <span class='subtitle-author' data-test-activity-author>
               {{#if activity.group}}
                 <LinkTo
-                  @route='groups.show'
+                  @route='groups.group'
                   @model={{activity.group.id}}
                   class='link-to card-subtitle-link'
                 >
@@ -49,7 +51,7 @@
                 </LinkTo>
               {{else}}
                 <LinkTo
-                  @route='users.show'
+                  @route='users.user'
                   @model={{activity.author.id}}
                   class='link-to card-subtitle-link'
                 >
@@ -62,7 +64,7 @@
       </div>
     </div>
 
-    <div class='row card-subheader-row ml-0 mr-0'>
+    <div class='row card-subheader-row ms-0 me-0'>
       {{#if moreInfo}}
         <div class='col-12 col-md-6 card-subheader-item align-items-center p-3'>
           <FaIcon @icon='clock' />

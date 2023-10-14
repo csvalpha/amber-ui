@@ -12,6 +12,6 @@ module('Integration | Component | advertisement-tool', function (hooks) {
     await render(hbs`<AdvertisementTool />`);
 
     // Number of advertisements times two
-    assert.dom('[data-test-advertisement-item]').exists({ count: 34 });
+    assert.dom('[data-test-advertisement-item]').exists({ count: 40 });
   });
 });

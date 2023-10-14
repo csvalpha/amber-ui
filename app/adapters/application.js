@@ -1,7 +1,7 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { underscore } from '@ember/string';
 import { inject as service } from '@ember/service';
-import ENV from '../config/environment';
+import ENV from 'amber-ui/config/environment';
 
 import { pluralize } from 'ember-inflector';
 

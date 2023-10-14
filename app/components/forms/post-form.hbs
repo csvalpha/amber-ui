@@ -1,14 +1,14 @@
 <div class='card'>
   <div class='card-header'>
-    <h5>Forumpost bewerken</h5>
+    <h5>{{if @model.isNew 'Forumbericht aanmaken' 'Forumbericht wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
 
       <div class='row'>
         <label
-          class='col-sm-2'
-          for='forum-post-form-message col-form-label form-control-label'
+          class='col-sm-2 col-form-label form-label'
+          for='forum-post-form-message'
         >
           Bericht
         </label>

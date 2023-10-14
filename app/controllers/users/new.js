@@ -1,10 +1,8 @@
-import EditUserController from './edit';
+import EditIndexController from './user/edit';
 
-export default class NewUserController extends EditUserController {
+export default class UsersNewController extends EditIndexController {
   successMessage = 'Gebruiker aangemaakt!';
   cancelMessage = 'Gebruiker aanmaken geannuleerd.';
-  cancelTransitionTarget = 'users.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'users';
+  cancelTransitionModel = null;
 }

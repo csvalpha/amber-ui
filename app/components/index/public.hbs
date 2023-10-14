@@ -1,40 +1,14 @@
-<div class='container-fluid index-header'>
-  <Index::Public::BackgroundImage />
-  <div class="index-poster-overlay"></div>
-  <img src='images/alphalogowhite-large.svg' class='image' />
-  <p class="new-member-text">Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier je mail achter en we nemen contact met je op!</p>
-  <a
-      class='btn btn-lg frontpage-button'
-      href='https://forms.gle/R4WYzbWameD6wN817'
-      target='_blank'
-    >
-    {{t 'component.index.public.actionButtons.memberButton'}}
-  </a>
-</div>
+<div class="public-index">
+  <Public::Index::Header/>
 
-<div class='index-yellow-bar full-width'>
-  <div class='container'>
-    <Index::Public::AboutAlpha />
-    <Index::Public::Activities />
+  <Public::Index::AboutAlpha />
+
+  <Public::Index::YoutubeVideos />
+
+  <div class="row">
+    <Public::Index::Activities @doubleActivityColumns={{doubleActivityColumns}} @activities={{activities}} @class="col-12 {{if doubleActivityColumns 'col-lg-8' 'col-lg-5'}}" />
+    <Public::Index::PhotoAlbums @doubleActivityColumns={{doubleActivityColumns}} @class="col-12 {{if doubleActivityColumns 'col-lg-4' 'col-lg-7'}}" />
   </div>
-</div>
 
-<Index::Public::PotentialMemberSection />
-
-<div class='flex-items-xs-center index-promo-video'>
-  <Index::Public::YoutubeVideos />
-</div>
-
-<Index::Public::ActionButtons />
-
-<div class='row'>
-  <div class='col-xs col-md-12'>
-    <Index::Public::Articles @articles={{@articles}} />
-    <Index::Public::Photos />
-
-    <AdvertisementTool @row={{true}} />
-
-    <Index::Public::MemberStories />
-    <Index::Public::AboutFlux />
-  </div>
+  <Public::Index::SponsorBanner />
 </div>

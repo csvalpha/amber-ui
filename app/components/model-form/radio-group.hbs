@@ -3,18 +3,17 @@
 </legend>
 <div class={{if (not-eq inputLayout 'vertical') 'col-sm-10'}}>
   {{#each options as |opt|}}
-    <div class='form-check'>
+    <div class='form-check mb-2'>
+      <ModelForm::RadioButton
+        @class={{concat 'form-check-input ' inputValidityClass}}
+        @name={{inputIdentifier}}
+        @id={{concat inputIdentifier '-' opt.value}}
+        @value={{opt.value}}
+        @groupValue={{mut (get model property)}}
+        @required={{required}}
+        @disabled={{disabled}}
+      />
       <label class='form-check-label' for='{{inputIdentifier}}-{{opt.value}}'>
-        <ModelForm::RadioButton
-          @class={{concat 'form-control ' inputValidityClass}}
-          @name={{inputIdentifier}}
-          @id={{concat inputIdentifier '-' opt.value}}
-          @value={{opt.value}}
-          @groupValue={{mut (get model property)}}
-          @required={{required}}
-          @disabled={{disabled}}
-        />
-        <div class='custom-radiobutton'></div>
         {{opt.label}}
       </label>
     </div>

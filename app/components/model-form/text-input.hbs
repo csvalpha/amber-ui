@@ -1,5 +1,5 @@
 {{#if (eq inputLayout 'vertical')}}
-  <label class='vertical-label' for={{inputIdentifier}}>
+  <label class='vertical-label form-label' for={{inputIdentifier}}>
     {{label}}{{if required ' *'}}
   </label>
   <Input
@@ -17,26 +17,28 @@
   {{form-control-feedback (get @model.errors property)}}
 {{else}}
   <label
-    class='col-form-label form-control-label {{labelClass}}'
+    class='col-form-label form-label {{labelClass}}'
     for={{inputIdentifier}}
   >
     {{label}}{{if required ' *'}}
   </label>
   <div class='{{inputWrapperClass}}'>
-    <Input
-      @type={{type}}
-      step={{step}}
-      id={{inputIdentifier}}
-      @value={{mut (get model property)}}
-      class={{concat 'form-control ' inputValidityClass}}
-      placeholder={{placeholder}}
-      required={{required}}
-      disabled={{disabled}}
-      maxlength={{maxlength}}
-    />
+    <div class="{{if inputGroup "input-group"}}">
+      <Input
+        @type={{type}}
+        step={{step}}
+        id={{inputIdentifier}}
+        @value={{mut (get model property)}}
+        class={{concat 'form-control ' inputValidityClass}}
+        placeholder={{placeholder}}
+        required={{required}}
+        disabled={{disabled}}
+        maxlength={{maxlength}}
+      />
 
-    {{yield}}
+      {{yield}}
 
+    </div>
     {{form-control-feedback (get @model.errors property)}}
   </div>
 {{/if}}

@@ -5,7 +5,7 @@
 <div class='row'>
   {{#each model as |vacancy|}}
     <div class='article-col col-md-6 mb-3'>
-      <LinkTo @route='vacancies.show' @model={{vacancy.id}}>
+      <LinkTo @route='vacancies.vacancy' @model={{vacancy.id}}>
         <div class='article-card d-flex'>
           <div class='card mb-0'>
             <div class='card-header card-header--overlay'>
@@ -27,7 +27,7 @@
                 </div>
 
                 <div class='card-titles'>
-                  <LinkTo @route='vacancies.show' @model={{vacancy.id}}>
+                  <LinkTo @route='vacancies.vacancy' @model={{vacancy.id}}>
                     <h2 class='card-title' itemprop='name headline'>
                       {{vacancy.title}}
                     </h2>
@@ -35,7 +35,7 @@
                   <h3 class='card-subtitle'>
                     {{#if vacancy.group}}
                       <LinkTo
-                        @route='groups.show'
+                        @route='groups.group'
                         @model={{vacancy.group.id}}
                         class='link-to card-subtitle-link'
                       >
@@ -49,7 +49,7 @@
                       </LinkTo>
                     {{else}}
                       <LinkTo
-                        @route='users.show'
+                        @route='users.user'
                         @model={{vacancy.author.id}}
                         class='link-to card-subtitle-link'
                       >
@@ -69,29 +69,33 @@
 
             <div class='card-body'>
               <div class='card-text' itemprop='articleBody'>
-                {{!-- Table without style --}}
-                <table class="mb-4">
+                {{! Table without style }}
+                <table class='mb-4'>
                   {{#if vacancy.deadline}}
                     <tr>
-                      <th class="pr-3">Deadline:</th>
-                      <td>{{moment-format vacancy.deadline 'DD-MM-YYYY' }}</td>
+                      <th class="pe-3">Deadline:</th>
+                      <td>{{moment-format vacancy.deadline 'DD-MM-YYYY'}}</td>
                     </tr>
                   {{/if}}
                   {{#if vacancy.workload}}
                     <tr>
-                      <th class="pr-3">Werklast:</th>
+                      <th class="pe-3">Werklast:</th>
                       <td>{{vacancy.workload}}</td>
                     </tr>
                   {{/if}}
                   {{#if vacancy.workloadPeak}}
                     <tr>
-                      <th class="pr-3">Piekmoment:</th>
+                      <th class="pe-3">Piekmoment:</th>
                       <td>{{vacancy.workloadPeak}}</td>
                     </tr>
                   {{/if}}
                 </table>
 
-                <LinkTo @route='articles.show' @model={{article.id}} itemprop='url'>
+                <LinkTo
+                  @route='articles.article'
+                  @model={{article.id}}
+                  itemprop='url'
+                >
                   {{t 'tag.button.readMore'}}
                 </LinkTo>
               </div>

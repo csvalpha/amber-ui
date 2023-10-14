@@ -1,10 +1,8 @@
-import EditActivityController from './edit';
+import ActivityEditController from './activity/edit';
 
-export default class NewActivityController extends EditActivityController {
+export default class ActivitiesNewController extends ActivityEditController {
   successMessage = 'Aanmaken gelukt!';
   cancelMessage = 'Aanmaken geannuleerd.';
-  cancelTransitionTarget = 'activities.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'activities';
+  cancelTransitionModel = null;
 }

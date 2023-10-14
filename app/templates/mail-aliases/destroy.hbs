@@ -1,8 +1,0 @@
-<p>Weet je zeker dat je dit mail-alias ({{@model.email}}) wil verwijderen?</p>
-
-<button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
-<button {{action 'cancel'}} class='btn btn-default' type="button">Nee</button>
-
-{{#if errorMessage}}
-  <div class='text-danger'>{{this.errorMessage}}</div>
-{{/if}}

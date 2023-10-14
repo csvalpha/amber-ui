@@ -1,5 +1,7 @@
 html {
+  word-wrap: break-word;
   font-size: $font-size-root;
+  hyphens: auto;
 }
 
 body {
@@ -17,10 +19,16 @@ h5 {
 }
 
 a {
+  text-decoration: none;
   color: inherit;
 
   &:hover {
     text-decoration: none;
+    color: $brand-primary-dark;
+  }
+
+  .list-group-item:hover {
+    color: $brand-primary-dark;
   }
 }
 
@@ -32,11 +40,23 @@ p {
 
 .app {
   overflow-x: hidden;
+  background-color: $brand-cream;
+
+  &.authenticated {
+    background-color: $white;
+  }
 }
 
 .main {
+  @include media-breakpoint-up(xl) {
+    &:not(.authenticated) {
+      max-width: 1600px;
+    }
+  }
+
   transform: translateX(0);
   transition: all 0.3s ease-in-out;
+  margin-bottom: 50px;
   padding-top: 100px;
   min-height: 100vh;
 
@@ -91,7 +111,7 @@ img {
   width: auto;
 }
 
-@include media-breakpoint-down(sm) {
+@include media-breakpoint-down(md) {
   .full-width-small-screens {
     position: relative;
     left: 50%;

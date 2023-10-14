@@ -1,7 +1,7 @@
 <div class='card tool'>
   <div class='card-header'>
     <div class='d-flex justify-content-between'>
-      <LinkTo @route='activities.index'>
+      <LinkTo @route='activities'>
         <h5 class='card-text'>Komende activiteiten</h5>
       </LinkTo>
       <div class='col-xs-1 tool-actions'>
@@ -10,15 +10,15 @@
 
           <BsPopover @triggerEvents='focus' @placement='bottom'>
             <div class='d-block'>
-              <div class='status-dot badge-info'></div>
+              <div class='status-dot bg-info'></div>
               Inschrijving open
             </div>
             <div class='d-block'>
-              <div class='status-dot badge-success'></div>
+              <div class='status-dot bg-success'></div>
               Ingeschreven / vrij toegankelijk
             </div>
             <div class='d-block'>
-              <div class='status-dot badge-danger'></div>
+              <div class='status-dot bg-danger'></div>
               Niet ingeschreven
             </div>
             <div class='d-block'>
@@ -33,7 +33,7 @@
 
   <ul class='list-group list-group-flush'>
     {{#each activities as |activity|}}
-      <LinkTo @route='activities.show' @model={{activity.id}}>
+      <LinkTo @route='activities.activity' @model={{activity.id}}>
         <li class='list-group-item'>
           <span class='activity-tool-title'>{{activity.title}}</span>
           <br />

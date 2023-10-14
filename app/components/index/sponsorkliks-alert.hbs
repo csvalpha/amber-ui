@@ -2,13 +2,11 @@
   <div class='col-12 alert alert-info'>
     <button
       type='button'
-      class='close'
-      data-dismiss='alert'
+      class='btn-close float-end small'
+      data-bs-dismiss='alert'
       aria-label='Close'
       {{on 'click' this.closePopup}}
-    >
-      <span aria-hidden='true'>&times;</span>
-    </button>
+    ></button>
 
     We hebben een supertoffe chrome/firefox extensie voor onze C.S.V. Alpha
     Sponsorkliks.
@@ -17,7 +15,9 @@
     bij verschillende webshops verdient Alpha er ook nog wat aan. De uitgebreide
     uitleg vind je
     <b>
-      <LinkTo @route='static-pages.show' @model='alpha-deals'>hier</LinkTo>
+      <LinkTo @route='static-pages.static-page' @model='alpha-deals'>
+        hier
+      </LinkTo>
     </b>.
 
     <br />

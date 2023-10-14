@@ -25,7 +25,7 @@
   </div>
 
   {{#each model as |mailAlias|}}
-    <LinkTo @route='mail-aliases.show' @model={{mailAlias.id}}>
+    <LinkTo @route='mail-aliases.mail-alias' @model={{mailAlias.id}}>
       <div class='row rtable-row'>
         <span class='col-12 col-md-3 rtable-item'> {{mailAlias.email}} </span>
         <span class='col-12 col-md-1 rtable-item'>
@@ -50,12 +50,12 @@
         <span class='col-12 col-md-2 rtable-item'>
           <span class='d-inline d-md-none text-muted'> Groep/Gebruiker: </span>
           {{#if mailAlias.group}}
-            <LinkTo @route='groups.show' @model={{mailAlias.group.id}}>
+            <LinkTo @route='groups.group' @model={{mailAlias.group.id}}>
               <span class='text-muted'> <FaIcon @icon='users' /> </span>
               {{mailAlias.group.name}}
             </LinkTo>
           {{else}}
-            <LinkTo @route='users.show' @model={{mailAlias.user.id}}>
+            <LinkTo @route='users.user' @model={{mailAlias.user.id}}>
               <span class='text-muted'> <FaIcon @icon='user' /> </span>
               {{mailAlias.user.fullNameWithNickname}}
             </LinkTo>

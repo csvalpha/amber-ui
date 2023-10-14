@@ -42,6 +42,7 @@ testem.log
 # IDE Folders #
 ###############
 /.idea/*
+/.vscode/*
 
 # ember-try
 /.node_modules.ember-try/

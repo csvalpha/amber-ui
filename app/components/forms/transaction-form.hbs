@@ -1,6 +1,6 @@
 <div class='card'>
   <div class='card-header'>
-    <h5>Transactie aanmaken</h5>
+    <h5>{{if @model.isNew 'Transactie aanmaken' 'Transactie wijzigen'}}</h5>
   </div>
   <div class='card-body'>
     <form {{action @onSubmit on='submit'}}>
@@ -19,8 +19,8 @@
         @step='0.01'
       />
 
-      <div class='form-group row'>
-        <span class='col-md-2 form-control-label'>Gebruiker</span>
+      <div class='mb-3 row'>
+        <span class='col-md-2 form-label'>Gebruiker</span>
 
         <div class='col-md-10'>
           <PowerSelect

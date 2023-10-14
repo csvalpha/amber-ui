@@ -40,17 +40,17 @@ export const FormStatusTagComponent = Component.extend({
     'form.currentUserResponseCompleted',
     function () {
       if (isNone(this.form)) {
-        return 'badge-success';
+        return 'bg-success';
       }
 
       const formIsOpen = this.form.get('canRespond');
       const userHasResponded = this.form.get('currentUserResponseCompleted');
 
       if (userHasResponded) {
-        return 'badge-success';
+        return 'bg-success';
       }
 
-      return formIsOpen ? 'badge-info' : 'badge-default';
+      return formIsOpen ? 'bg-info' : 'badge-default';
     }
   ),
 });

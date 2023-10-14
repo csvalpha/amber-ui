@@ -1,8 +1,6 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class ActivityIndexRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Activiteiten' };
-
+export default class ActivitiesIndexRoute extends ApplicationRoute {
   queryParams = {
     search: {
       refreshModel: true,
@@ -28,15 +26,11 @@ export default class ActivityIndexRoute extends AuthenticatedRoute {
       },
       {
         link: 'activities.ical',
-        title: 'Ical link',
+        title: 'iCal link',
         icon: 'calendar-days',
         canAccess: this.abilities.can('show ical activities'),
       },
     ];
-  }
-
-  canAccess() {
-    return this.abilities.can('show activities');
   }
 
   model(params) {

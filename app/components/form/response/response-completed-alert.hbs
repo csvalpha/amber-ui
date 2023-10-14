@@ -3,22 +3,20 @@
   role='alert'
   data-test-response-completed-alert
 >
-  <div class='container'>
-    <div class='row'>
-      <strong class='col alert-text'>Je bent ingeschreven!</strong>
-      <span class='alert-text'>
-        Deze inschrijflijst
-        {{lowercase (form-opened-label form)}}
-      </span>
-      {{#if form.canRespond}}
-        <LinkTo
-          @route='form.responses.destroy'
-          @model={{form.currentUserResponseId}}
-          class='btn btn-secondary'
-        >
-          Uitschrijven
-        </LinkTo>
-      {{/if}}
-    </div>
+  <div class='d-flex'>
+    <strong class='flex-grow-1 alert-text'>Je bent ingeschreven!</strong>
+    <span class='alert-text'>
+      Deze inschrijflijst
+      {{lowercase (form-opened-label form)}}
+    </span>
+    {{#if form.canRespond}}
+      <LinkTo
+        @route='form.responses.response.destroy'
+        @model={{form.currentUserResponseId}}
+        class='btn btn-secondary'
+      >
+        Uitschrijven
+      </LinkTo>
+    {{/if}}
   </div>
 </div>

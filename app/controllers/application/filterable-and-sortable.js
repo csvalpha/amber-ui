@@ -7,6 +7,7 @@ export default class FilterableAndSortableController extends Controller {
   @tracked sortedAscending = true;
 
   @tracked search = '';
+
   sortableAttributes = [];
 
   get sort() {

@@ -1,10 +1,8 @@
-import EditVacancyController from './edit';
+import VacancyEditController from './vacancy/edit';
 
-export default class NewVacancyController extends EditVacancyController {
+export default class VacanciesNewController extends VacancyEditController {
   successMessage = 'Vacature aangemaakt!';
   cancelMessage = 'Vacature aanmaken geannuleerd.';
-  cancelTransitionTarget = 'vacancies.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'vacancies';
+  cancelTransitionModel = null;
 }

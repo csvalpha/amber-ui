@@ -31,9 +31,9 @@ export default Component.extend({
       full: true,
     },
     {
-      title: 'Cibdol - Swiss purity',
-      link: 'https://www.cibdol.nl/',
-      image: 'advertisements/cibdol.gif',
+      title: 'StudentenWegwijzer',
+      link: 'https://www.studentenwegwijzer.nl/enschede/studentenverenigingen/alpha/',
+      image: 'advertisements/studenten-wegwijzer.png',
       full: true,
     },
     {
@@ -106,22 +106,25 @@ export default Component.extend({
       link: 'https://www.zantmankliniek.nl/',
       image: 'advertisements/zantman.png',
     },
-    // example of how we can simply use a list of urls, too:
-    // {
-    //   links: [
-    //     {
-    //       link: 'https://www.simonlydiscount.nl',
-    //       title: 'sim only vergelijken',
-    //     },
-    //     {
-    //       link: 'https://www.huurzone.nl/aanbod/nederland.html',
-    //       title: 'huurwoningen',
-    //     },
-    //     {
-    //       link: 'https://www.opzeggen24.nl/abonnement-opzeggen/telegraaf-opzeggen.html',
-    //       title: 'telegraaf opzeggen',
-    //     },
-    //   ],
-    // },
+    {
+      title: 'Bierglazen bedrukken met logo',
+      alt: 'Bierglazen bedrukken met logo',
+      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
+      image: 'advertisements/rike.png',
+    },
+    {
+      links: [
+        {
+          link: 'https://www.huurzone.nl/aanbod/nederland.html',
+          title: 'huurwoningen',
+        },
+      ],
+    },
+    {
+      title: 'Top 5 Beste Kopen',
+      alt: 'Vergelijk de beste producten',
+      link: 'https://www.top5bestekopen.nl',
+      image: 'advertisements/trendiq.jpg',
+    },
   ],
 });

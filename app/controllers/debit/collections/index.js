@@ -5,8 +5,9 @@ export default class CollectionsIndexController extends FilterableAndSortableCon
   @tracked sortedAttribute = 'date';
   @tracked sortedAscending = false;
 
-  routeOnEnter = 'debit.collections.show';
   queryParams = ['search', 'sort', 'page'];
+
+  routeOnEnter = 'debit.collections.collection';
   sortableAttributes = [
     {
       value: 'name',
