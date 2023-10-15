@@ -36,8 +36,8 @@ export default class EditIndexController extends EditController {
   }
 
   @action
-  fileLoaded(file) {
+  fileLoaded(_file, data) {
     const user = this.model;
-    user.set('avatar', file.data);
+    user.set('avatar', data);
   }
 }

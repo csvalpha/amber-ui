@@ -15,9 +15,9 @@ export default class BookEditController extends EditController {
   @tracked lookupIsbnError = false;
 
   @action
-  coverPhotoLoaded(file) {
+  coverPhotoLoaded(_file, data) {
     const book = this.model;
-    book.set('coverPhoto', file.data);
+    book.set('coverPhoto', data);
   }
 
   @action

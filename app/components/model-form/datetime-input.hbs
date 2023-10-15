@@ -1,19 +1,21 @@
-<label
-  class='col-sm-2 col-form-label form-label'
-  for={{inputIdentifier}}
->
-  {{label}}{{if required ' *'}}
-</label>
-<div class='col-sm-10'>
-  <Input::DatetimeInput
-    @inputId={{inputIdentifier}}
-    @dateValue={{mut (get model property)}}
-    @inputClass={{concat 'form-control ' inputValidityClass}}
-    @placeholder={{placeholder}}
-    @required={{required}}
-    @disabled={{disabled}}
-    @yearRange={{yearRange}}
-  />
+<div class='mb-3 {{if this.usesGrid 'row'}}'>
+  <label
+    class='col-sm-2 col-form-label form-label'
+    for={{this.inputIdentifier}}
+  >
+    {{@label}}{{if @required ' *'}}
+  </label>
+  <div class='col-sm-10'>
+    <Input::DatetimeInput
+      @inputId={{this.inputIdentifier}}
+      @dateValue={{mut (get @model @property)}}
+      @inputClass={{concat 'form-control ' this.inputValidityClass}}
+      @placeholder={{this.placeholder}}
+      @required={{@required}}
+      @disabled={{@disabled}}
+      @yearRange={{@yearRange}}
+    />
 
-  {{form-control-feedback (get @model.errors property)}}
+    {{form-control-feedback (get @model.errors @property)}}
+  </div>
 </div>
