@@ -2,12 +2,14 @@ import Component from '@glimmer/component';
 import type Model from '@ember-data/model';
 
 export interface TextInputSignature<T extends Model = Model> {
-  inputLayout?: string;
-  labelClass?: string;
-  inputWrapperClass?: string;
-  model: T;
-  property: keyof T;
-  label: string;
+  Args: {
+    inputLayout?: string;
+    labelClass?: string;
+    inputWrapperClass?: string;
+    model: T;
+    property: keyof T;
+    label: string;
+  };
 }
 
 export default class TextInput<

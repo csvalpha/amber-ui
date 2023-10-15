@@ -4,13 +4,15 @@ import type { UploadFile } from 'ember-file-upload';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export interface FileInputSignature extends TextInputSignature {
-  validMimeTypes?: string[];
-  validExtensions?: string[];
-  loadedCallback: (
-    file: UploadFile,
-    data: Awaited<ReturnType<UploadFile['readAsDataURL']>>
-  ) => void;
+export interface FileInputSignature {
+  Args: TextInputSignature['Args'] & {
+    validMimeTypes?: string[];
+    validExtensions?: string[];
+    loadedCallback: (
+      file: UploadFile,
+      data: Awaited<ReturnType<UploadFile['readAsDataURL']>>
+    ) => void;
+  };
 }
 
 export default class FileInput extends TextInput<FileInputSignature> {
