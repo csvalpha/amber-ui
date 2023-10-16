@@ -30,7 +30,8 @@ export default class TextInput<
   get isInvalid() {
     return (
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      this.args.model.get('errors')?.get(this.args.property as any)?.length > 0
+      this.args.model.get?.('errors')?.get(this.args.property as any)?.length >
+      0
     );
   }
 

@@ -4,7 +4,7 @@ import type { UploadFile } from 'ember-file-upload';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export interface FileInputSignature {
+export interface FileInputSignature extends TextInputSignature {
   Args: TextInputSignature['Args'] & {
     validMimeTypes?: string[];
     validExtensions?: string[];
