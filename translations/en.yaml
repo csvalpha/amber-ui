@@ -266,8 +266,8 @@ component:
       header: Room forum
       intro-title: Check the available rooms in homes of our members here!
       intro: 
-        Members of Alpha mainly live in student-housing, either in Alpha-houses or other student-houses. 
-        If a room becomes available in an Alpha-house or in a student-house of a member, you will find it here!
+        Members of Alpha mainly live in student housing, either in "Alpha houses" or other student houses.
+        If a room becomes available in an Alpha house or in a student house of a member, you will find it here!
       location: Location
       contact: Contact
       availableFrom: Available from
@@ -302,7 +302,7 @@ mixin:
     activities: Activities
     vacancies: Vacancies
     roomAdverts: Rooms
-    roomForum: Roomforum
+    roomForum: Room forum
     forum: Forum
     photoAlbums: Photo-albums
     polls: Polls

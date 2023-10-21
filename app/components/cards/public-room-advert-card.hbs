@@ -5,52 +5,52 @@
         <div class="row">
           <div class="pe-4 col-12 col-md-6 mb-3">
             <div class="width-fit-content">
-              <h2 class="text-secondary me-5">{{roomAdvert.houseName}}</h2>
+              <h2 class="text-secondary me-5">{{@roomAdvert.houseName}}</h2>
               <hr class="border border-secondary bg-secondary border-3 opacity-100 mt-0" />
             </div>
             <table>
-              {{#if roomAdvert.location}}
+              {{#if @roomAdvert.location}}
                 <tr>
                   <th class="pe-3 text-secondary">{{t 'component.public.roomForum.location'}}</th>
                   <td>
                     <a
-                      href='https://maps.google.com/?q={{roomAdvert.location}}'
+                      href='https://maps.google.com/?q={{@roomAdvert.location}}'
                       target='_blank'
                     >
-                      {{roomAdvert.location}}
+                      {{@roomAdvert.location}}
                     </a>
                   </td>
                 </tr>
               {{/if}}
-              {{#if roomAdvert.availableFrom}}
+              {{#if @roomAdvert.availableFrom}}
                 <tr>
                   <th class="pe-3 text-secondary">{{t 'component.public.roomForum.availableFrom'}}</th>
-                  <td>{{roomAdvert.availableFrom}}</td>
+                  <td>{{@roomAdvert.availableFrom}}</td>
                 </tr>
               {{/if}}
               <tr>
                 <th class="pe-3 text-secondary">{{t 'component.public.roomForum.contact'}}</th>
                 <td>
-                  {{#if (is-phone roomAdvert.contact)}}
-                    <a href='tel:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-                  {{else if (is-email roomAdvert.contact)}}
-                    <a href='mailto:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-                  {{else if (is-url roomAdvert.contact)}}
-                    <a href='{{roomAdvert.contact}}' target='_blank'>{{roomAdvert.contact}}</a>
+                  {{#if (is-phone @roomAdvert.contact)}}
+                    <a href='tel:{{@roomAdvert.contact}}'>{{@roomAdvert.contact}}</a>
+                  {{else if (is-email @roomAdvert.contact)}}
+                    <a href='mailto:{{@roomAdvert.contact}}'>{{@roomAdvert.contact}}</a>
+                  {{else if (is-url @roomAdvert.contact)}}
+                    <a href='{{@roomAdvert.contact}}' target='_blank'>{{@roomAdvert.contact}}</a>
                   {{else}}
-                    {{roomAdvert.contact}}
+                    {{@roomAdvert.contact}}
                   {{/if}}
                 </td>
               </tr>
             </table>
           </div>
-          {{#if roomAdvert.coverPhotoUrl}}
-            <img src={{roomAdvert.coverPhotoUrl}} class='col-12 col-md-6 mb-3 object-fit-cover'/> 
+          {{#if @roomAdvert.coverPhotoUrl}}
+            <img src={{@roomAdvert.coverPhotoUrl}} class='col-12 col-md-6 mb-3 object-fit-cover'/> 
           {{/if}}
         </div>
         <p class='card-text' data-test-room-advert-description>
           {{markdown-to-html
-            roomAdvert.descriptionCamofied
+            @roomAdvert.descriptionCamofied
             extensions='youtubeEmbed bootstrapTable'
           }}
         </p>

@@ -1,21 +1,21 @@
 <div class='card'>
   <div class='card-header card-header--overlay'>
-    <img class='card-img-top' src={{roomAdvert.coverPhotoUrlOrDefault}} />
+    <img class='card-img-top' src={{@roomAdvert.coverPhotoUrlOrDefault}} />
 
     <div class='card-title-bar gradient-overlay'>
 
       <div class='card-titles'>
         <h2 class='card-title' data-test-room-advert-house-name>
-          {{roomAdvert.houseName}}
+          {{@roomAdvert.houseName}}
         </h2>
         <h3 class='card-subtitle'>
           <span class='subtitle-author' data-test-room-advert-author>
             <LinkTo
               @route='users.user'
-              roomAdvert={{roomAdvert.author.id}}
+              @model={{@roomAdvert.author.id}}
               class='link-to card-subtitle-link'
             >
-              {{roomAdvert.author.fullName}}
+              {{@roomAdvert.author.fullName}}
             </LinkTo>
           </span>
         </h3>
@@ -24,22 +24,22 @@
   </div>
 
   <div class='row card-subheader-row ms-0 me-0'>
-    {{#if roomAdvert.location}}
+    {{#if @roomAdvert.location}}
       <div class='col-12 col-md-6 card-subheader-item align-items-center p-3'>
         <b>Locatie: </b>
         <a
-          href='https://maps.google.com/?q={{roomAdvert.location}}'
+          href='https://maps.google.com/?q={{@roomAdvert.location}}'
           target='_blank'
         >
-          {{roomAdvert.location}}
+          {{@roomAdvert.location}}
         </a>
       </div>
     {{/if}}
 
-    {{#if roomAdvert.availableFrom}}
+    {{#if @roomAdvert.availableFrom}}
       <div class='col-12 col-md-6 card-subheader-item align-items-center p-3'>
         <b>Beschikbaar vanaf: </b>
-        {{roomAdvert.availableFrom}}
+        {{@roomAdvert.availableFrom}}
       </div>
     {{/if}}
   </div>
@@ -47,24 +47,24 @@
   <div class='card-body'>
     <p class='card-text' data-test-room-advert-description>
       {{markdown-to-html
-        roomAdvert.descriptionCamofied
+        @roomAdvert.descriptionCamofied
         extensions='youtubeEmbed bootstrapTable'
       }}
     </p>
   </div>
 
-  {{#if roomAdvert.contact}}
+  {{#if @roomAdvert.contact}}
     <div class='row card-sub-bottom-row ms-0 me-0'>
       <div class='col-12 card-sub-item align-items-center p-3'>
         <b>Contact: </b>
-        {{#if (is-phone roomAdvert.contact)}}
-          <a href='tel:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-        {{else if (is-email roomAdvert.contact)}}
-          <a href='mailto:{{roomAdvert.contact}}'>{{roomAdvert.contact}}</a>
-        {{else if (is-url roomAdvert.contact)}}
-          <a href='{{roomAdvert.contact}}' target='_blank'>{{roomAdvert.contact}}</a>
+        {{#if (is-phone @roomAdvert.contact)}}
+          <a href='tel:{{@roomAdvert.contact}}'>{{@roomAdvert.contact}}</a>
+        {{else if (is-email @roomAdvert.contact)}}
+          <a href='mailto:{{@roomAdvert.contact}}'>{{@roomAdvert.contact}}</a>
+        {{else if (is-url @roomAdvert.contact)}}
+          <a href='{{@roomAdvert.contact}}' target='_blank'>{{@roomAdvert.contact}}</a>
         {{else}}
-          {{roomAdvert.contact}}
+          {{@roomAdvert.contact}}
         {{/if}}
       </div>
     </div>
