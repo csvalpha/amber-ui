@@ -2152,6 +2152,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.6":
+  version: 1.8.6
+  resolution: "@embroider/addon-shim@npm:1.8.6"
+  dependencies:
+    "@embroider/shared-internals": ^2.2.3
+    broccoli-funnel: ^3.0.8
+    semver: ^7.3.8
+  checksum: 63214fbc1b3f333b052791cdfc0c278c348dd6ca4ec2b53c96183150e3d5fe9882cdd3065853e3d6a2c964c962d718b87f2fd8a17414b53fc3a3997d5eedb30e
+  languageName: node
+  linkType: hard
+
 "@embroider/macros@npm:^1.0.0":
   version: 1.5.0
   resolution: "@embroider/macros@npm:1.5.0"
@@ -2243,6 +2254,23 @@ __metadata:
     semver: ^7.3.5
     typescript-memoize: ^1.0.1
   checksum: 19d2754182b9e1373177843a354852c82b35d71af66edcdf0662597442062e5f5f51adbdf7a63a263ee0052064c222ff33ddb983ec3f17b68b7275de8de3680e
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:^2.2.3":
+  version: 2.5.0
+  resolution: "@embroider/shared-internals@npm:2.5.0"
+  dependencies:
+    babel-import-util: ^2.0.0
+    debug: ^4.3.2
+    ember-rfc176-data: ^0.3.17
+    fs-extra: ^9.1.0
+    js-string-escape: ^1.0.1
+    lodash: ^4.17.21
+    resolve-package-path: ^4.0.1
+    semver: ^7.3.5
+    typescript-memoize: ^1.0.1
+  checksum: 4e887156a88638cacf2a1538f12e2055a65f28063081eb6fbc7075f5f7725fe317264dadbf05907734eba21086c217641865d9b473acf6015a76255c48a213e3
   languageName: node
   linkType: hard
 
@@ -4089,7 +4117,7 @@ __metadata:
     babel-eslint: ^10.1.0
     bootstrap: ^5.2.3
     broccoli-asset-rev: ^3.0.0
-    ember-async-data: ^0.7.0
+    ember-async-data: ^1.0.3
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
     ember-can: ^4.2.0
@@ -4912,6 +4940,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^2.0.0":
+  version: 2.0.1
+  resolution: "babel-import-util@npm:2.0.1"
+  checksum: ca4070648b562d56b31287911aef962aae08f505678038c4fa51f1c11ef7106ebf985a449f83c83b9a3f928dc66fca2f6157861420a1c309dfb17edd18f7c42e
   languageName: node
   linkType: hard
 
@@ -8404,7 +8439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.3.4":
+"debug@npm:^4.3.2, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -8838,13 +8873,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-async-data@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "ember-async-data@npm:0.7.0"
+"ember-async-data@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "ember-async-data@npm:1.0.3"
   dependencies:
     "@ember/test-waiters": ^3.0.0
-    "@embroider/addon-shim": ^1.8.3
-  checksum: c6311efa90462c6c28c73c3babeda5afb4996b6af1496f06608f630fa69b117de1e6443ea56e19307102106e1e50fb6b57f23a22b1f4d73518289cc4ee125bb3
+    "@embroider/addon-shim": ^1.8.6
+  peerDependencies:
+    ember-source: ">=4.8.4"
+  checksum: 0484ce4fd539700e48dd04adefdead83d058aec4facfb79b30dbee4206b7eab650eea1e657b5172d391ee16e522d9e96b5a76137465e31385841c31b3a6a52e6
   languageName: node
   linkType: hard
 
