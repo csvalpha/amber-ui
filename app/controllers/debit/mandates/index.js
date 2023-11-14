@@ -5,8 +5,9 @@ export default class MandatesIndexController extends FilterableAndSortableContro
   @tracked sortedAttribute = 'start_date';
   @tracked sortedAscending = false;
 
-  routeOnEnter = 'debit.mandates.show';
   queryParams = ['search', 'sort', 'page'];
+
+  routeOnEnter = 'debit.mandates.mandate';
   sortableAttributes = [
     {
       value: 'start_date',

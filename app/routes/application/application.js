@@ -25,6 +25,12 @@ export class ApplicationRoute extends Route {
     controller.pageActions = this.pageActions;
     controller.tabItems = this.tabItems;
   }
+
+  buildRouteInfoMetadata() {
+    return {
+      breadcrumb: this.breadcrumb,
+    };
+  }
 }
 
 export class AuthenticatedRoute extends ApplicationRoute {

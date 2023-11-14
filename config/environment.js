@@ -114,7 +114,7 @@ module.exports = function (environment) {
 
   if (deployTarget === 'production') {
     ENV.clientId = 'IIeYVVbdNhiSiSCxKP5eUgS5Vs1-9ccZEvISdCVqe5g';
-    ENV.googleAnalytics = { webPropertyId: 'UA-8136462-4' };
+    ENV.googleAnalytics = { webPropertyId: 'G-8XNQMRFWPZ' };
   }
 
   if (deployTarget === 'staging') {

@@ -5,8 +5,9 @@ export default class ThreadsIndexController extends FilterableAndSortableControl
   @tracked sortedAttribute = 'updated_at';
   @tracked sortedAscending = false;
 
-  routeOnEnter = 'forum.categories.category.threads.thread.show';
   queryParams = ['search', 'sort'];
+
+  routeOnEnter = 'forum.categories.category.threads.thread';
   sortableAttributes = [
     {
       value: 'updated_at',

@@ -1,10 +1,8 @@
-import EditPollController from './edit';
+import PollEditController from './poll/edit';
 
-export default class NewPollController extends EditPollController {
+export default class PollsNewController extends PollEditController {
   successMessage = 'Aanmaken gelukt!';
   cancelMessage = 'Aanmaken geannuleerd.';
-  cancelTransitionTarget = 'polls.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'polls';
+  cancelTransitionModel = null;
 }

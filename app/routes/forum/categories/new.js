@@ -1,7 +1,7 @@
 import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
 export default class NewCategoryRoute extends AuthenticatedRoute {
-  breadCrumb = { title: 'Categorie aanmaken' };
+  breadcrumb = { title: 'Categorie aanmaken' };
 
   canAccess() {
     return this.abilities.can('create forum/categories');

@@ -1,21 +1,13 @@
 <EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
     <Tools::BoardRoomPresence />
-    <div class='col col-md-auto page-action d-md-none'>
-      <LinkTo @route='quickpost'>
-        <button type='button' class='btn btn-primary' title='quickpost'>
-          <FaIcon @icon='comments' />
-          <span class='d-none d-md-inline'> Quickpost </span>
-        </button>
-      </LinkTo>
-    </div>
   </PageActionsButtons>
 </EmberWormhole>
 
 <div class='article-cards-wrapper full-width-small-screens ps-3 ps-md-0'>
   <div class='row pb-3 horizontal-scroll-container'>
     {{#each @articles as |article|}}
-      {{cards/frontpage-article-card article class='col-10 col-sm-8 col-lg-4'}}
+      {{cards/public-article-card article class='col-10 col-sm-8 col-lg-4'}}
     {{/each}}
   </div>
 </div>
@@ -24,14 +16,20 @@
   <AdvertisementTool />
 </div>
 
-<div class='row pt-4'>
-  <div class='col-7 d-none d-md-block'>
-    <div class='article-cards-wrapper full-width-small-screens ps-3 ps-md-0'>
-      <Index::SponsorkliksAlert />
-    </div>
-    <QuickPost />
+{{!-- Desktop version --}}
+<div class="row pt-4 mx-n2 d-none d-md-flex">
+  <div class="col-12 col-md-6 px-2">
+    <Index::SponsorkliksAlert />
+    <Tools::DailyVerse />
+    {{#if (can 'show photo-albums')}}
+      <Tools::RecentPhotos />
+    {{/if}}
+    {{#if (can 'show polls')}}
+      <Tools::RecentPolls />
+    {{/if}}
   </div>
-  <div class='col-12 col-md-5'>
+  
+  <div class="col-12 col-md-6 px-2">
     {{#if (can 'show activities')}}
       {{#if (can 'create form/responses')}}
         <Tools::ClosingActivities />
@@ -44,12 +42,29 @@
     {{#if (can 'show forum/posts')}}
       <Tools::ForumPosts />
     {{/if}}
-    {{#if (can 'show polls')}}
-      <Tools::RecentPolls />
-    {{/if}}
-    {{#if (can 'show photo-albums')}}
-      <Tools::RecentPhotos />
-    {{/if}}
-    <Tools::DailyVerse />
   </div>
+</div>
+
+{{!-- Mobile version --}}
+<div class="row pt-4 mx-n2 d-flex d-md-none">
+  <Index::SponsorkliksAlert />
+  <Tools::DailyVerse />
+  {{#if (can 'show activities')}}
+    {{#if (can 'create form/responses')}}
+      <Tools::ClosingActivities />
+    {{/if}}
+    <Tools::UpcomingActivities />
+  {{/if}}
+  {{#if (can 'show users')}}
+    <Tools::UpcomingBirthdays />
+  {{/if}}
+  {{#if (can 'show forum/posts')}}
+    <Tools::ForumPosts />
+  {{/if}}
+  {{#if (can 'show polls')}}
+    <Tools::RecentPolls />
+  {{/if}}
+  {{#if (can 'show photo-albums')}}
+    <Tools::RecentPhotos />
+  {{/if}}
 </div>

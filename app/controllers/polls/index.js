@@ -5,8 +5,9 @@ export default class PollsIndexController extends FilterableAndSortableControlle
   @tracked sortedAttribute = 'created_at';
   @tracked sortedAscending = false;
 
-  routeOnEnter = 'polls.show';
   queryParams = ['search', 'sort', 'page'];
+
+  routeOnEnter = 'polls.poll';
   sortableAttributes = [
     {
       value: 'created_at',

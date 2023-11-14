@@ -46,7 +46,7 @@ export default Component.extend({
         this.set('password', '');
         this.set('passwordConfirmation', '');
         this.flashNotice.sendSuccess('Wachtwoord succesvol aangepast!');
-        this.transitionToRoute('users.show-security', userId);
+        this.transitionToRoute('users.user.security', userId);
       } else if (isInvalidResponse(response)) {
         let json = await response.json();
         this.set(

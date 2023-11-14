@@ -30,12 +30,12 @@ $profile-menu-height: 360px;
   }
 
   .menu-sidebar-item-icon {
+    flex-shrink: 0;
     margin-left: 15px;
     outline: 0;
     width: 40px;
     text-align: center;
     line-height: 40px;
-    white-space: nowrap;
     font-size: 1.2rem;
     overflow-y: hidden;
   }
@@ -51,18 +51,20 @@ $profile-menu-height: 360px;
   }
 
   .menu-sidebar-item-text {
-    transform: translateX(-40px);
     transition: transform $animation-duration $animation-behaviour,
       opacity $animation-duration $animation-behaviour;
     opacity: 0;
+    margin-top: 7px;
+    margin-right: 5px;
     margin-left: 10px;
-    line-height: 40px;
+    line-height: 25px;
     white-space: nowrap;
     pointer-events: none;
 
     &.visible {
       transform: translateX(0);
       opacity: 1;
+      white-space: normal;
       pointer-events: all;
     }
   }
@@ -72,6 +74,14 @@ $profile-menu-height: 360px;
 
     &:hover {
       color: $brand-primary;
+    }
+  }
+
+  .sidebar-item-static {
+    color: $gray-500;
+
+    &:hover {
+      color: $gray-500;
     }
   }
 

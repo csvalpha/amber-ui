@@ -1,49 +1,71 @@
-<nav class='navbar pb-0 pt-0' aria-label='breadcrumb'>
+<nav class='navbar pb-0 pt-0 {{if (not session.isAuthenticated) "public"}}' aria-label='breadcrumb'>
   <div class="container-fluid d-flex justify-content-between">
-    <span class='left-sidebar-toggle d-block d-md-none link' {{action 'toggleLeftSidebar'}}>
+    <span
+      class='{{if session.isAuthenticated "half-toggle" "pe-2"}} left-sidebar-toggle d-block d-md-none link'
+      {{action 'toggleLeftSidebar'}}
+    >
       ☰
     </span>
 
-    <span {{action 'handleLogoAction'}} class='navbar-brand'>
-      <div class='header-logo'> </div>
-    </span>
+    {{#if session.isAuthenticated }}
+      <span {{action 'handleLogoAction'}} class='navbar-brand'>
+        <div class='header-logo'> </div>
+      </span>
+    {{else}}
+      <div class='public-header-logo'> </div>
+    {{/if}}
 
-    <div class='d-flex col ps-0 pe-0 navbar-contents-holder'>
+    <div class='d-flex col ps-0 pe-0 navbar-contents-holder {{if (not session.isAuthenticated) "public"}}'>
       <div class='navbar-overflow-wrapper'>
         <div class='navbar-nav col d-flex flex-row'>
-          {{#if (or session.isAuthenticated media.isMobile)}}
-            <BreadCrumbs @crumbClass='breadcrumb-item' />
-          {{else}}
-            <BsDropdown as |dd| {{did-insert (action 'setAvailableStaticPages')}}>
-              <dd.button @type="primary">{{t "component.headerNav.aboutUs"}}</dd.button>
-              <dd.menu @renderInPlace={{false}} as |ddm|>
-                {{#each-in staticPagesForDropdown as |id title|}}
+          {{#if session.isAuthenticated}}
+            <Breadcrumbs @routeInfos={{@routeInfos}} />
+          {{else if media.isMobile}}
+          {{else if (not media.isMobile)}}
+            <LinkTo @route='index' class="page-actions-buttons">
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentRouteName 'index') 'selected'}}">Home</BsButton>
+            </LinkTo>
+            <BsDropdown class="position-static" as |dd| {{did-insert (action 'setStaticPages')}}>
+              <dd.button @type="primary" class="public-navbar-button {{if this.onAboutUsPage 'selected'}}">
+                {{t "component.headerNav.aboutUs"}}
+              </dd.button>
+              <dd.menu class="public-about-us-dropdown" @renderInPlace={{true}} as |ddm|>
+                {{#each-in staticPages as |id title|}}
                   <ddm.item>
-                    <ddm.linkTo @route='static-pages.show' @model={{id}}>
+                    <ddm.linkTo @route='static-pages.static-page' @model={{id}} class="btn btn-primary">
                       {{title}}
                     </ddm.linkTo>
                   </ddm.item>
                 {{/each-in}}
               </dd.menu>
             </BsDropdown>
-            <PageActionsButtons @pageActions={{unAuthenticatedMenuOptions}} />
+            <LinkTo @route='static-pages.static-page' @model='word-lid' class="page-actions-buttons">
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/word-lid') 'selected'}}">{{t "component.headerNav.becomeMember"}}</BsButton>
+            </LinkTo>
+            <LinkTo @route='static-pages.static-page' @model='sponsoring' class="page-actions-buttons">
+              <BsButton @type="primary" class="public-navbar-button {{if (eq router.currentURL '/static-pages/sponsoring') 'selected'}}">{{t "component.headerNav.sponsoring"}}</BsButton>
+            </LinkTo>
           {{/if}}
         </div>
       </div>
 
+      <div id='navbar-wormhole'></div>
+
       {{#unless session.isAuthenticated}}
         <LinkTo @route='login' class='d-none d-md-flex me-2'>
-          <button class='btn btn-primary' type='button'>
+          <button class='btn btn-primary public-navbar-button {{if (eq router.currentRouteName 'login') 'selected'}}' type='button'>
             {{t 'tag.button.signin'}}
           </button>
         </LinkTo>
       {{/unless}}
-      <div id='navbar-wormhole'></div>
     </div>
 
     {{#unless session.isAuthenticated}}
-      <button class='btn btn-locale btn-inverse-locale-{{intl.locale}}' title='{{t "component.headerNav.changeLocale"}}'
-        {{action 'toggleLocale'}} type='button'>
+      <button
+        class='btn btn-locale btn-inverse-locale-{{intl.locale}} me-2'
+        title='{{t "component.headerNav.changeLocale"}}'
+        {{action 'toggleLocale'}}
+        type='button'>
       </button>
     {{/unless}}
   </div>

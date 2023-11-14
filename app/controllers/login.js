@@ -1,13 +1,13 @@
 import Controller from '@ember/controller';
-import { typeOf } from '@ember/utils';
-import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import { typeOf } from '@ember/utils';
 
 export default class LoginController extends Controller {
-  @tracked errorMessage;
   @service session;
 
+  @tracked errorMessage = null;
   @tracked username;
   @tracked password;
   @tracked verificationCode;

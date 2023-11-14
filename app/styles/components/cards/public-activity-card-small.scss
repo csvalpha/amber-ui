@@ -1,0 +1,63 @@
+// allowed total height - the height of bottom-margins of top two activity cards
+// and that all divided by 3, for 3 article cards
+$public-activity-card-height: calc(($public-activity-and-photo-holders-height - 2rem) / 3);
+
+.public-activity-card-small {
+  margin-bottom: 1rem;
+  box-shadow: none;
+  background-color: $white;
+  cursor: pointer;
+  // subtract bottom-margin
+  height: $public-activity-card-height;
+  overflow: hidden;
+  color: $white;
+
+  .public-card-image {
+    transition: background-color 0.3s ease-in-out;
+    background-color: $gray-700;
+    background-position: center;
+    background-size: cover;
+    height: $public-activity-card-height;
+    background-blend-mode: overlay;
+  }
+
+  .activity-card-title {
+    transition: color 0.3s ease-in-out;
+    margin-top: 8px;
+    color: $white;
+    font-size: 0.8rem;
+    font-style: normal;
+  }
+
+  &:hover {
+    .public-card-image {
+      background-color: $gray-900;
+    }
+
+    .card-title {
+      color: $brand-primary-dark;
+    }
+  }
+
+  .date-holder {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    vertical-align: middle;
+    text-align: center;
+    color: $black;
+
+    .day-of-month {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .month-abbrev {
+      margin-top: -15px;
+    }
+
+    .time {
+      color: $gray-600;
+    }
+  }
+}

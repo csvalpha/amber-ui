@@ -1,10 +1,8 @@
-import EditStaticPageController from './edit';
+import StaticPageEditController from './static-page/edit';
 
-export default class NewStaticPageController extends EditStaticPageController {
+export default class StaticPagesNewController extends StaticPageEditController {
   successMessage = 'Infopagina aangemaakt!';
   cancelMessage = 'Aanmaken geannuleerd.';
-  cancelTransitionTarget = 'static-pages.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'static-pages';
+  cancelTransitionModel = null;
 }

@@ -6,7 +6,7 @@
   {{#if this.showInfo}}
     <p class='text-end text-muted mt-2'>
       Foto geüpload door
-      <LinkTo @route='users.show' @model={{@model.uploader.id}}>
+      <LinkTo @route='users.user' @model={{@model.uploader.id}}>
         {{@model.uploader.fullNameWithNickname}}
       </LinkTo>
 
@@ -64,4 +64,6 @@
       </div>
     {{/if}}
   {{/if}}
+{{else}}
+  <div class="mt-3"></div>
 {{/if}}

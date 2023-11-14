@@ -1,0 +1,38 @@
+.public-index-sponsors-banner {
+  background: linear-gradient(90deg, rgba(0 0 0 / 40%) 0%, $brand-secondary 100%), $brand-secondary;
+  height: fit-content;
+
+  .advertisement-tool {
+    background-color: $white;
+    padding: 0;
+
+    .adv-row {
+      height: 130px;
+
+      // stylelint-disable selector-max-compound-selectors
+      .advertisement-item {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        padding: 5px;
+        max-height: 100%;
+        font-size: 1.5rem;
+
+        // stylelint-disable max-nesting-depth
+        > * {
+          max-width: calc(100% - 10px);
+          max-height: 100%;
+          object-position: center;
+        }
+        // stylelint-enable max-nesting-depth
+      }
+      // stylelint-enable selector-max-compound-selectors
+    }
+  }
+
+  .potential-sponsor-text {
+    text-align: center;
+    color: $brand-cream;
+    font-weight: bold;
+  }
+}

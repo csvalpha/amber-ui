@@ -1,10 +1,8 @@
-import EditBookController from './edit';
+import BookEditController from './book/edit';
 
-export default class NewBookController extends EditBookController {
+export default class BooksNewController extends BookEditController {
   successMessage = 'Aanmaken gelukt!';
   cancelMessage = 'Aanmaken geannuleerd.';
-  cancelTransitionTarget = 'books.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'books';
+  cancelTransitionModel = null;
 }
