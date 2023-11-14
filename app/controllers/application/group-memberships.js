@@ -5,21 +5,30 @@ import moment from 'moment';
 import { tracked } from '@glimmer/tracking';
 
 export default class GroupMembershipsController extends Controller {
+  currentMembershipsTab = 'currentMemberships';
+  oldMembershipsTab = 'oldMemberships';
   @tracked sortedAttribute = null;
   @tracked sortedAscending = true;
 
   @tracked filter = '';
-  @tracked oldMembershipsAreVisible = false;
+  @tracked selectedTab = this.currentMembershipsTab;
 
   get models() {
     return this.model.memberships;
   }
 
+  get selectedModels() {
+    if (this.currentMembershipsSelected) {
+      return this.currentMemberships;
+    }
+    if (this.oldMembershipsSelected) {
+      return this.oldMemberships;
+    }
+    return [];
+  }
+
   get filteredModels() {
-    const records = this.oldMembershipsAreVisible
-      ? this.oldMemberships
-      : this.currentMemberships;
-    return this.sortModels(this.filterModels(records));
+    return this.sortModels(this.filterModels(this.selectedModels));
   }
 
   get oldMemberships() {
@@ -34,26 +43,30 @@ export default class GroupMembershipsController extends Controller {
     );
   }
 
-  get oldMembershipsTabActive() {
-    return this.oldMembershipsAreVisible
-      ? !(
-          this.oldMemberships.length === 0 && this.currentMemberships.length > 0
-        )
-      : this.currentMemberships.length === 0 && this.oldMemberships.length > 0;
+  get currentMembershipsExist() {
+    return this.currentMemberships.length > 0;
+  }
+
+  get oldMembershipsExist() {
+    return this.oldMemberships.length > 0;
+  }
+
+  get currentMembershipsSelected() {
+    return this.selectedTab === this.currentMembershipsTab;
+  }
+
+  get oldMembershipsSelected() {
+    return this.selectedTab === this.oldMembershipsTab;
   }
 
   @action
-  showOldMemberships() {
-    if (this.oldMemberships.length > 0) {
-      this.oldMembershipsAreVisible = true;
-    }
+  selectOldMemberships() {
+    this.selectedTab = this.oldMembershipsTab;
   }
 
   @action
-  hideOldMemberships() {
-    if (this.currentMemberships.length > 0) {
-      this.oldMembershipsAreVisible = false;
-    }
+  selectCurrentMemberships() {
+    this.selectedTab = this.currentMembershipsTab;
   }
 
   @action
