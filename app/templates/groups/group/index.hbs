@@ -81,7 +81,7 @@
           </div>
         </div>
         <div class='card-body'>
-          <div class='row userlist'>
+          <div class='row'>
             {{#each filteredModels as |membership|}}
               <LinkTo
                 @route='users.user'
@@ -108,6 +108,35 @@
               <div class='alert alert-warning col-xs'>
                 Geen leden of oud-leden gevonden
               </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{#if (and (can 'show articles') @model.articles)}}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h5>Artikelen gepubliceerd door {{@model.name}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            {{#each @model.articles as |article|}}
+              <LinkTo
+                @route='articles.article'
+                @model="{{article.id}}"
+                class="col-6 col-sm-4 col-md-3"
+              >
+                <Cards::ArticleCard @article={{article}} @showExcerpt={{true}}/>
+              </LinkTo>
             {{/each}}
           </div>
         </div>

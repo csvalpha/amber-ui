@@ -8,8 +8,8 @@ export default class GroupMembershipsController extends Controller {
   currentMembershipsTab = 'currentMemberships';
   oldMembershipsTab = 'oldMemberships';
   @tracked sortedAttribute = null;
+  @tracked filterableAttributes = null;
   @tracked sortedAscending = true;
-
   @tracked filter = '';
   @tracked selectedTab = this.currentMembershipsTab;
 
