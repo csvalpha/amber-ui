@@ -17,6 +17,7 @@ export default class Group extends Model {
   // Relations
   @hasMany memberships;
   @hasMany permissions;
+  @hasMany articles;
   @hasMany({ inverse: 'group' }) mailAliases;
   @hasMany('mail-alias', { inverse: 'moderatorGroup' }) moderatorForMailAliases;
 
