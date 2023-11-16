@@ -72,7 +72,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-moment": "^10.0.0",
     "ember-pikaday": "^4.0.0",
-    "ember-power-select": "^6.0.1",
+    "ember-power-select": "^7.2.0",
     "ember-promise-helpers": "^2.0.0",
     "ember-qunit": "^5.1.5",
     "ember-resolver": "^8.0.3",
