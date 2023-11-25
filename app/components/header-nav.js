@@ -4,8 +4,6 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
 export default class HeaderNav extends Component {
-  tagName = 'nav';
-  classNames = 'header-nav';
   @service session;
   @service('layout-manager') layoutManager;
   @service media;
@@ -16,7 +14,6 @@ export default class HeaderNav extends Component {
   @service abilities;
   @tracked staticPages;
 
-  // computed('router.{currentRouteName,currentURL}'
   get onAboutUsPage() {
     return (
       this.router.currentRouteName === 'public.room-forum' ||

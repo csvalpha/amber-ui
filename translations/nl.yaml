@@ -276,6 +276,7 @@ component:
       location: Locatie
       contact: Contact
       availableFrom: Beschikbaar vanaf
+      noAds:  Momenteel zijn er geen kamers beschikbaar.
   socialMediaButtons:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram

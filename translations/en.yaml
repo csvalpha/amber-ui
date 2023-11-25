@@ -271,6 +271,7 @@ component:
       location: Location
       contact: Contact
       availableFrom: Available from
+      noAds: There are no available rooms at the moment.
   socialMediaButtons:
     facebook: Like us on Facebook
     instagram: Follow us on Instagram
