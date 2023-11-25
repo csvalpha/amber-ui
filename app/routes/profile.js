@@ -5,7 +5,7 @@ export default class ProfileRoute extends AuthenticatedRoute {
   @service router;
 
   canAccess() {
-    return this.abilities.can('show users');
+    return this.abilities.can('show own users');
   }
 
   redirect() {
