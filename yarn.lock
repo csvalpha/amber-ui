@@ -4112,7 +4112,7 @@ __metadata:
     ember-concurrency: ^3.0.0
     ember-data: ~3.27.1
     ember-fetch: ^8.1.1
-    ember-file-upload: ^8.0.0
+    ember-file-upload: ^9.0.0
     ember-intl: ^5.7.2
     ember-keyboard-shortcuts: ^1.2.0
     ember-link-action: ^2.0.4
@@ -10034,16 +10034,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-file-upload@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "ember-file-upload@npm:8.0.0"
+"ember-file-upload@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "ember-file-upload@npm:9.0.0"
   dependencies:
     "@ember/test-waiters": ^3.0.0
     "@embroider/addon-shim": ^1.5.0
     "@embroider/macros": ^1.0.0
     ember-auto-import: ^2.0.0
   peerDependencies:
-    "@ember/test-helpers": ^2.9.3
+    "@ember/test-helpers": ^2.9.3 || ^3.0.3
     "@glimmer/component": ^1.1.2
     "@glimmer/tracking": ^1.1.2
     ember-cli-mirage: "*"
@@ -10055,7 +10055,7 @@ __metadata:
       optional: true
     miragejs:
       optional: true
-  checksum: 5177a40f7b8c242f5a83e6e1abb07735846e5024a07e57aafda961425812c2f103ccc836fafe5733b8ced105d8a4d6bf900897a2bf587cbc062e7afa96e996bd
+  checksum: 84f74bd9689e89e17e584b8f2c924977e9eb4785d62370cdd4ddc519497c1f4c28d4d58a1ea88b723b85e54a21905f8726681c618cb02bbde8f5ebe85f798b29
   languageName: node
   linkType: hard
 
