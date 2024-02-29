@@ -37,7 +37,7 @@ module.exports = function (defaults) {
     },
 
     'ember-composable-helpers': {
-      only: ['has-next', 'next'],
+      only: ['has-next', 'join', 'next'],
     },
 
     'ember-simple-auth': {

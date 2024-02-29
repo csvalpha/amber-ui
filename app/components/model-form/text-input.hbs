@@ -1,44 +1,46 @@
-{{#if (eq inputLayout 'vertical')}}
-  <label class='vertical-label form-label' for={{inputIdentifier}}>
-    {{label}}{{if required ' *'}}
-  </label>
-  <Input
-    @type={{type}}
-    step={{step}}
-    id={{inputIdentifier}}
-    @value={{mut (get model property)}}
-    class={{concat 'form-control ' inputValidityClass}}
-    placeholder={{placeholder}}
-    required={{required}}
-    disabled={{disabled}}
-    maxlength={{maxlength}}
-  />
+<div class='mb-3 {{if this.usesGrid 'row'}}'>
+  {{#if (eq @inputLayout 'vertical')}}
+    <label class='vertical-label form-label' for={{this.inputIdentifier}}>
+      {{@label}}{{if @required ' *'}}
+    </label>
+    <Input
+      @type={{@type}}
+      step={{@step}}
+      id={{this.inputIdentifier}}
+      @value={{mut (get @model @property)}}
+      class={{concat 'form-control ' this.inputValidityClass}}
+      placeholder={{this.placeholder}}
+      required={{@required}}
+      disabled={{@disabled}}
+      maxlength={{@maxlength}}
+    />
 
-  {{form-control-feedback (get @model.errors property)}}
-{{else}}
-  <label
-    class='col-form-label form-label {{labelClass}}'
-    for={{inputIdentifier}}
-  >
-    {{label}}{{if required ' *'}}
-  </label>
-  <div class='{{inputWrapperClass}}'>
-    <div class="{{if inputGroup "input-group"}}">
-      <Input
-        @type={{type}}
-        step={{step}}
-        id={{inputIdentifier}}
-        @value={{mut (get model property)}}
-        class={{concat 'form-control ' inputValidityClass}}
-        placeholder={{placeholder}}
-        required={{required}}
-        disabled={{disabled}}
-        maxlength={{maxlength}}
-      />
+    {{form-control-feedback (get @model.errors @property)}}
+  {{else}}
+    <label
+      class='col-form-label form-label {{this.labelClass}}'
+      for={{this.inputIdentifier}}
+    >
+      {{@label}}{{if @required ' *'}}
+    </label>
+    <div class='{{this.inputWrapperClass}}'>
+      <div class="{{if @inputGroup "input-group"}}">
+        <Input
+          @type={{@type}}
+          step={{@step}}
+          id={{this.inputIdentifier}}
+          @value={{mut (get @model @property)}}
+          class={{concat 'form-control ' this.inputValidityClass}}
+          placeholder={{this.placeholder}}
+          required={{@required}}
+          disabled={{@disabled}}
+          maxlength={{@maxlength}}
+        />
 
-      {{yield}}
+        {{yield}}
+      </div>
 
+      {{form-control-feedback (get @model.errors property)}}
     </div>
-    {{form-control-feedback (get @model.errors property)}}
-  </div>
-{{/if}}
+  {{/if}}
+</div>

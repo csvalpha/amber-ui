@@ -21,7 +21,7 @@ export default class BatchNewController extends NewController {
   successTransitionTarget = 'users';
   successTransitionModel = null;
 
-  validMimetypes = EmberArray.apply([
+  validMimeTypes = EmberArray.apply([
     'text/csv',
     'application/vnd.oasis.opendocument.spreadsheet',
     'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -35,10 +35,10 @@ export default class BatchNewController extends NewController {
   }
 
   @action
-  fileLoaded(file) {
+  fileLoaded(_file, data) {
     this.newUsers.clear();
     this.importErrors.clear();
-    this.set('importFile', file.data);
+    this.set('importFile', data);
   }
 
   @action

@@ -19,8 +19,8 @@ export default class CollectionsNewController extends EditController {
   validExtensions = EmberArray.apply(['csv', 'ods', 'xlsx', 'xlsm']);
 
   @action
-  fileLoaded(file) {
+  fileLoaded(_file, data) {
     const collection = this.model;
-    collection.importFile = file.data;
+    collection.importFile = data;
   }
 }

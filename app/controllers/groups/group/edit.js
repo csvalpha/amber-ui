@@ -89,7 +89,7 @@ export default class GroupEditController extends EditController {
   }
 
   @action
-  fileLoaded(file) {
-    this.model.set('avatar', file.data);
+  fileLoaded(_file, data) {
+    this.model.set('avatar', data);
   }
 }

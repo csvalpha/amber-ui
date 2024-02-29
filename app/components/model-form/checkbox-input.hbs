@@ -1,18 +1,20 @@
-<div class='{{labelClass}}'></div>
-<div class='{{inputWrapperClass}}'>
-  <div class='form-check'>
-    <Input
-        data-test-input={{property}}
-        @type='checkbox'
-        id={{inputIdentifier}}
-        @checked={{mut (get model property)}}
-        class={{concat 'form-check-input ' inputValidityClass}}
-        required={{required}}
-        disabled={{disabled}}
-    />
-    <label class='form-check-label'>
-      {{label}}{{if required ' *'}}
-      {{form-control-feedback (get @model.errors property)}}
-    </label>
+<div class='mb-3 {{if this.usesGrid 'row'}}'>
+  <div class='{{this.labelClass}}'></div>
+  <div class='{{this.inputWrapperClass}}'>
+    <div class='form-check'>
+      <Input
+          data-test-input={{@property}}
+          @type='checkbox'
+          id={{this.inputIdentifier}}
+          @checked={{mut (get @model @property)}}
+          class={{concat 'form-check-input ' this.inputValidityClass}}
+          required={{@required}}
+          disabled={{@disabled}}
+      />
+      <label class='form-check-label'>
+        {{@label}}{{if @required ' *'}}
+        {{form-control-feedback (get @model.errors @property)}}
+      </label>
+    </div>
   </div>
 </div>

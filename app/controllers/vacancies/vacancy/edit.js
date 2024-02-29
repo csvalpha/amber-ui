@@ -17,8 +17,8 @@ export default class VacancyEditController extends EditController {
   }
 
   @action
-  coverPhotoLoaded(file) {
+  coverPhotoLoaded(_file, data) {
     const vacancy = this.model;
-    vacancy.set('coverPhoto', file.data);
+    vacancy.set('coverPhoto', data);
   }
 }

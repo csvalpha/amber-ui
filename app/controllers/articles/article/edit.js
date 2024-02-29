@@ -38,9 +38,9 @@ export default class ArticleEditController extends EditController {
   }
 
   @action
-  coverPhotoLoaded(file) {
+  coverPhotoLoaded(_file, data) {
     const article = this.model;
-    article.set('coverPhoto', file.data);
+    article.set('coverPhoto', data);
   }
 
   @action

@@ -1,36 +1,63 @@
-<label class='col-form-label form-label {{labelClass}}'>
-  {{label}}{{if required ' *'}}
-</label>
-<div class='{{inputWrapperClass}}'>
-  {{#let (file-queue name="fileUpload" onFileAdded=(action 'fileLoaded')) as |queue|}}
-    <label for="upload-file" class="form-label {{if not (get model property) "border rounded p-2 w-100"}}">
-      {{#if (get model property)}}
-        <img id={{inputIdentifier}} src={{mut (get model property)}} alt={{label}} role="button" tabindex="0"
-        aria-controls="upload-file" />
-        <br />
-      {{else}}
-        <span class='image-upload-text' role="button" tabindex="0" aria-controls="upload-file">
-          Sleep hier een nieuwe bestand naartoe of klik om een bestand te kiezen
-        </span>
-      {{/if}}
-    </label>
-    <input type="file" id="upload-file" class="" hidden accept={{validMimetypes}} {{queue.selectFile}}>
-  {{/let}}
-  {{#if fileToBig}}
-    <br />
-    <div class='alert alert-danger'>
-      Dit bestand is te groot om te uploaden, gebruik een bestand kleiner dan
-      {{maxFileSize}}MB
-    </div>
-  {{/if}}
-  {{#if extensionNotPermitted}}
-    <br />
-    <div class='alert alert-danger'>
-      Deze bestandsextensie wordt niet ondersteund. Geaccepteerde extensies
-      zijn:
-      <b>{{validExtensionsString}}</b>
-    </div>
-  {{/if}}
+<div class='mb-3 {{if this.usesGrid "row"}}'>
+  <label class='col-form-label form-label {{this.labelClass}}'>
+    {{@label}}{{if @required ' *'}}
+  </label>
+  <div class={{this.inputWrapperClass}}>
+    {{#let
+      (file-queue name='fileUpload' onFileAdded=this.fileLoaded)
+      as |queue|
+    }}
+      <label
+        for='upload-file'
+        class='form-label
+          {{if not (get @model @property) "border rounded p-2 w-100"}}'
+      >
+        {{#if (get @model @property)}}
+          <img
+            id={{this.inputIdentifier}}
+            src={{mut (get @model @property)}}
+            alt={{@label}}
+            role='button'
+            tabindex='0'
+            aria-controls='upload-file'
+          />
+          <br />
+        {{else}}
+          <span
+            class='image-upload-text'
+            role='button'
+            tabindex='0'
+            aria-controls='upload-file'
+          >
+            Sleep hier een nieuwe bestand naartoe of klik om een bestand te
+            kiezen
+          </span>
+        {{/if}}
+      </label>
+      <input
+        type='file'
+        id='upload-file'
+        hidden
+        accept={{this.validMimeTypes}}
+        {{queue.selectFile}}
+      />
+    {{/let}}
+    {{#if this.fileTooBig}}
+      <br />
+      <div class='alert alert-danger'>
+        Dit bestand is te groot om te uploaden, gebruik een bestand kleiner dan
+        {{this.maxFilesize}}
+      </div>
+    {{/if}}
+    {{#if this.extensionNotPermitted}}
+      <br />
+      <div class='alert alert-danger'>
+        Deze bestandsextensie wordt niet ondersteund. Geaccepteerde extensies
+        zijn:
+        <b>{{join ', ' this.validExtensions}}</b>
+      </div>
+    {{/if}}
 
-  {{form-control-feedback (get @model.errors property)}}
+    {{form-control-feedback (get @model.errors @property)}}
+  </div>
 </div>

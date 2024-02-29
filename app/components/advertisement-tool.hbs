@@ -3,7 +3,10 @@
     <div class='d-flex adv-row flex-column flex-wrap justify-content-center'>
       {{#each advertisements as |advertisement index|}}
         {{#if advertisement.links}}
-          <div class='advertisement-item advertisement-item--full col-auto'>
+          <div
+            class='advertisement-item advertisement-item--full col-auto'
+            data-test-advertisement-item
+          >
             {{#each advertisement.links as |link|}}
               <a
                 class='d-block text-primary'
@@ -22,6 +25,7 @@
             href={{advertisement.link}}
             title={{advertisement.title}}
             target='_blank'
+            data-test-advertisement-item
           >
             <img
               src={{advertisement.image}}
