@@ -1,4 +1,4 @@
-.public-index {
+.public {
   .public-title {
     margin-bottom: 1rem;
     text-align: center;
@@ -9,10 +9,23 @@
       margin-bottom: 0.8rem;
       font-size: 2.5rem;
     }
+
+    &.left-align {
+      text-align: left;
+    }
+  }
+
+  .public-text {
+    font-size: 1.5rem;
+    hyphens: none;
   }
   
   .public-title-border {
     width: 30vw;
+  }
+
+  .public-title-border-short {
+    width: 15vw;
   }
 
   .public-no-items-text {

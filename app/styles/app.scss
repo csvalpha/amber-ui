@@ -22,10 +22,9 @@
 @import 'components/navbar';
 @import 'components/page-actions';
 @import 'components/pagination';
-// @import 'components/public/identity';
+@import 'components/public/header';
 @import 'components/public/index/about-alpha';
 @import 'components/public/index/activities';
-@import 'components/public/index/header';
 @import 'components/public/index/photo-albums';
 @import 'components/public/index/sponsor-banner';
 @import 'components/public/index/youtube-videos';
@@ -69,7 +68,8 @@
 @import 'routes/login';
 @import 'routes/photos';
 @import 'routes/polls';
-@import 'routes/public/index';
+@import 'routes/public';
+@import 'routes/public/identity';
 @import 'routes/sog/name-trainer';
 
 // Import package style

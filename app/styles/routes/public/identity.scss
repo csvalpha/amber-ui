@@ -1,0 +1,28 @@
+.public-identity {
+  .about-text {
+    font-size: 1.5rem;
+    hyphens: none;
+  }
+
+  .about-v {
+    .about-v-image {
+      margin: 1rem auto;
+      max-width: 25rem;
+      clip-path: circle();
+      object-fit: cover;
+    }
+
+    .about-v-title {
+      margin-top: 1rem;
+      text-align: center;
+      color: $brand-secondary;
+      font-family: "Libre Franklin", sans-serif;
+    }
+
+    .about-v-text {
+      text-align: justify;
+      line-height: 1.6rem;
+      font-size: 1.3rem;
+    }
+  }
+}
