@@ -22,10 +22,10 @@
   }
 
   .header-background {
+    border-bottom: 4px solid $brand-secondary;
+    height: 100%;
     object-fit: cover;
     object-position: bottom;
-    height: 100%;
-    border-bottom: 4px solid $brand-secondary;
   }
 
   .header-overlay {
