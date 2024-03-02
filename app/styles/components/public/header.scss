@@ -11,16 +11,6 @@
   min-height: 25vw;
   color: $white;
 
-  .header-background {
-    object-fit: cover;
-    object-position: bottom;
-  }
-
-  .header-overlay {
-    opacity: 0.45;
-    background-color: $black;
-  }
-
   .header-background, .header-overlay {
     position: absolute;
     top: 56px;
@@ -29,7 +19,19 @@
     margin-left: -50vw;
     width: 100vw;
     max-width: 100vw;
+  }
+
+  .header-background {
+    border-bottom: 4px solid $brand-secondary;
     height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  .header-overlay {
+    opacity: 0.35;
+    background-color: $black;
+    height: calc(100% - 4px);
   }
 
   .header-slogan, .header-title {
