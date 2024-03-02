@@ -37,6 +37,9 @@
                     </ddm.linkTo>
                   </ddm.item>
                 {{/each-in}}
+                <LinkTo @route='public.identity' class="dropdown-item btn btn-primary">
+                  {{t 'mixin.menuItems.identity'}}
+                </LinkTo>
               </dd.menu>
             </BsDropdown>
             <LinkTo @route='static-pages.static-page' @model='word-lid' class="page-actions-buttons">

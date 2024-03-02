@@ -16,6 +16,7 @@ module.exports = function () {
       'bell-slash',
       'book',
       'bold',
+      'book-open',
       'building',
       'calendar-days',
       'check',

@@ -116,20 +116,8 @@ component:
           richtsnoer voor het leven". Deze grondslag uit zich in de aspecten vriendschap, 
           vorming en verantwoordelijkheid, de kern van de vereniging.
         vriendschap-title: Vriendschap
-        vriendschap-text: 
-          Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en 
-          te onderhouden. Elke donderdag ontmoeten we elkaar hier, het is de plek waar 
-          een drankje en een goed gesprek hand in hand gaan.
         vorming-title: Vorming
-        vorming-text: 
-          Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. 
-          Deze vorming uit zich in activiteiten als verenigingsavonden, 
-          sing-ins en natuurlijk de twee wekelijkse kring.
         verantwoordelijkheid-title: Verantwoordelijkheid
-        verantwoordelijkheid-text: 
-          Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord 
-          zich in te zetten voor de vereniging, maar ook voor hun omgeving. Dit kan 
-          bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
       activities:
         title: Agenda
         none: Er zijn geen open activiteiten de komende tijd.
@@ -186,14 +174,21 @@ component:
       event-1981: LANG-TODO
       event-1982: LANG-TODO
     identity:
-      header: LANG-TODO
+      header: Identiteit
       intro: LANG-TODO
       three-vs:
-        title: LANG-TODO
-        intro: LANG-TODO
-        vriendschap: LANG-TODO
-        vorming: LANG-TODO
-        verantwoordelijkheid: LANG-TODO
+        title: De 3 V's
+        intro: Deze grondslag uit zich in de aspecten vriendschap, 
+          vorming en verantwoordelijkheid, de kern van de vereniging.
+        vriendschap: Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en 
+          te onderhouden. Elke donderdag ontmoeten we elkaar hier, het is de plek waar 
+          een drankje en een goed gesprek hand in hand gaan.
+        vorming: Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. 
+          Deze vorming uit zich in activiteiten als verenigingsavonden, 
+          sing-ins en natuurlijk de twee wekelijkse kring.
+        verantwoordelijkheid: Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord 
+          zich in te zetten voor de vereniging, maar ook voor hun omgeving. Dit kan 
+          bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
     interested:
       header: LANG-TODO
       intro: LANG-TODO
@@ -302,6 +297,7 @@ mixin:
     articles: Artikelen
     activities: Activiteiten
     vacancies: Vacatures
+    identity: Identiteit
     forum: Forum
     photoAlbums: Fotoalbums
     polls: Polls
