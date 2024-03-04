@@ -116,8 +116,15 @@ component:
           guideline for life". This principle is expressed in the aspects of friendship, 
           personal development and responsibility, the essence of the association.
         vriendschap-title: Friendship
+        vriendschap-text: Our own bar Flux is the ideal place to build and maintain friendships. 
+          Every Thursday we meet here, it is the place where drinks and good conversation go hand in hand.
         vorming-title: Personal development
+        vorming-text: At Alpha, we value personal development. This development expresses itself 
+          in activities such as association evenings, sing-ins and, of course, the biweekly (bible) study.
         verantwoordelijkheid-title: Responsibility
+        verantwoordelijkheid-text: Alpha is an association for and by its members. That is why members are encouraged to be 
+          committed to the association, but also to their environment. This can be done, 
+          for example, through committees, boards or volunteer actions.
       activities:
         title: Calendar
         none: There are no upcoming open activities.
@@ -175,18 +182,23 @@ component:
       event-1982: LANG-TODO
     identity:
       header: Identity
-      intro: LANG-TODO
+      intro-1: C.S.V. Alpha was founded in 1980 and is the Christian social student association 
+          in Enschede, where socializing and Christian formation are combined into one unique 
+          student association.
+      intro-2: LANG-TODO
       three-vs:
         title: The 3 V's
         intro: This principle is expressed in the aspects of friendship, 
           personal development and responsibility, the essence of the association.
-        vriendschap: Our own bar Flux is the ideal place to build and maintain friendships. 
-          Every Thursday we meet here, it is the place where drinks and good conversation go hand in hand.
-        vorming: At Alpha, we value personal development. This development expresses itself 
-          in activities such as association evenings, sing-ins and, of course, the biweekly (bible) study.
-        verantwoordelijkheid: Alpha is an association for and by its members. That is why members are encouraged to be 
-          committed to the association, but also to their environment. This can be done, 
-          for example, through committees, boards or volunteer actions.
+        vriendschap-1: LANG-TODO
+        vriendschap-2: LANG-TODO
+        vriendschap-3: LANG-TODO
+        vorming-1: LANG-TODO
+        vorming-2: LANG-TODO
+        vorming-3: LANG-TODO
+        verantwoordelijkheid-1: LANG-TODO
+        verantwoordelijkheid-2: LANG-TODO
+        verantwoordelijkheid-3: LANG-TODO
     interested:
       header: LANG-TODO
       intro: LANG-TODO

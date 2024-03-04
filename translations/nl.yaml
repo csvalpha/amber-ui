@@ -116,8 +116,17 @@ component:
           richtsnoer voor het leven". Deze grondslag uit zich in de aspecten vriendschap, 
           vorming en verantwoordelijkheid, de kern van de vereniging.
         vriendschap-title: Vriendschap
+        vriendschap-text: Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en 
+          te onderhouden. Elke donderdag ontmoeten we elkaar hier, het is de plek waar 
+          een drankje en een goed gesprek hand in hand gaan.
         vorming-title: Vorming
+        vorming-text: Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. 
+          Deze vorming uit zich in activiteiten als verenigingsavonden, 
+          sing-ins en natuurlijk de twee wekelijkse kring.
         verantwoordelijkheid-title: Verantwoordelijkheid
+        verantwoordelijkheid-text: Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord 
+          zich in te zetten voor de vereniging, maar ook voor hun omgeving. Dit kan 
+          bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
       activities:
         title: Agenda
         none: Er zijn geen open activiteiten de komende tijd.
@@ -175,20 +184,50 @@ component:
       event-1982: LANG-TODO
     identity:
       header: Identiteit
-      intro: LANG-TODO
+      intro-1: C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging 
+        in Enschede waar gezelligheid en christelijke vorming gecombineerd worden tot één 
+        unieke studentenvereniging.
+      intro-2: De grondslag van Alpha is "de boodschap van de Bijbel als richtsnoer voor 
+        het leven". Als je lid wordt kan je kiezen of je deze grondslag onderschrijft 
+        of respecteert. We staan hiermee niet alleen open voor christenen, maar ook voor 
+        iedereen die respect heeft voor het christelijk geloof. Met deze grondslag blijft 
+        het christelijk karakter van Alpha gewaarborgd, maar is Alpha tegelijkertijd voor 
+        allerlei soorten mensen een geschikte vereniging.
       three-vs:
         title: De 3 V's
         intro: Deze grondslag uit zich in de aspecten vriendschap, 
           vorming en verantwoordelijkheid, de kern van de vereniging.
-        vriendschap: Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en 
-          te onderhouden. Elke donderdag ontmoeten we elkaar hier, het is de plek waar 
-          een drankje en een goed gesprek hand in hand gaan.
-        vorming: Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. 
-          Deze vorming uit zich in activiteiten als verenigingsavonden, 
-          sing-ins en natuurlijk de twee wekelijkse kring.
-        verantwoordelijkheid: Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord 
-          zich in te zetten voor de vereniging, maar ook voor hun omgeving. Dit kan 
-          bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
+        vriendschap-1: Onze eigen Sociëteit Flux is de ideale plek om
+        vriendschap-2: vriendschappen
+        vriendschap-3: op te bouwen en te onderhouden. Elke donderdag ontmoeten we elkaar hier, 
+          het is de plek waar een drankje en een goed gesprek hand in hand gaan. 
+          Naast dat we elke donderdag bij elkaar komen om elkaar te spreken op een laagdrempelige 
+          borrel, vinden er jaarlijks ook meerdere (thema) feesten plaats in Flux. 
+          Hier is menig Alphaan wel voor te porren, en dat uit zich in de leukste outfits. 
+          Activiteiten op de kroeg lenen zich perfect voor het opbouwen van vriendschappen, 
+          maar ook hierbuiten zijn er genoeg mogelijkheden. Samen lunchen in de bestuurskamer 
+          op de uni, je innodigen bij een Alpha huis om mee te eten of een potje volleybal 
+          in het volkspark; het kan allemaal!
+        vorming-1: Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. Deze
+        vorming-2: vorming
+        vorming-3: uit zich in activiteiten als verenigingsavonden, sing-ins en natuurlijk de twee 
+          wekelijkse kring. Aan het begin van elk jaar kies je een kring uit die bij jou past, 
+          waarmee je één keer in de twee weken samenkomt. Na een goede maaltijd snijden we hier 
+          serieuze thema's aan die ons bezighouden, zowel op geloofsgebied als maatschappelijk 
+          gebied. Daarnaast komen we meerdere keren per jaar met de hele vereniging samen op de 
+          verenigingsavond, waar we luisteren naar een spreker en God aanbidden met de band van 
+          Alpha. Door de diversiteit aan christelijke achtergronden binnen de vereniging is er 
+          altijd de mogelijkheid tot een interessante discussie waarbij elke mening telt! 
+        verantwoordelijkheid-1: Alpha is een vereniging voor en door de leden. Daarom worden 
+          leden aangespoord zich in te zetten voor de vereniging, maar ook voor hun omgeving. 
+          Dit kan bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties. Deze
+        verantwoordelijkheid-2: verantwoordelijkheid
+        verantwoordelijkheid-3: nemen draagt bij aan je persoonlijke groei en stoomt je klaar 
+          voor het “volwassen” leven. Alles wat Alpha aan activiteiten aanbiedt, wordt 
+          georganiseerd door de leden van Alpha, aan de hand van verschillende commissies. 
+          Denk hierbij aan het organiseren van grotere activiteiten zoals het gala, een skireis 
+          en weekenden weg. Maar ook het organiseren van “slechts” avondvullende activiteiten, 
+          zoals een vormingsavond of een sportactiviteit, er is voor ieder wat wils! 
     interested:
       header: LANG-TODO
       intro: LANG-TODO
