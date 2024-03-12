@@ -52,7 +52,7 @@ export default Component.extend({
     },
     {
       title: 'Huurzone',
-      link: 'https://www.huurzone.nl/',
+      link: 'https://www.huurzone.nl/aanbod/nederland.html',
       image: 'advertisements/Huurzone.png',
     },
     {
@@ -71,8 +71,9 @@ export default Component.extend({
       image: 'advertisements/ParcelPro.png',
     },
     {
-      title: 'Riké',
-      link: 'https://www.rikegroup.com/',
+      title: 'Bierglazen bedrukken met logo',
+      alt: 'Bierglazen bedrukken met logo',
+      link: 'https://www.rikegroup.com/glazen-bedrukken/bierglazen-bedrukken',
       image: 'advertisements/Rike_2022.png',
     },
     {
@@ -92,7 +93,7 @@ export default Component.extend({
     },
     {
       title: 'Sliponline',
-      link: 'https://www.sliponline.nl',
+      link: 'https://www.sliponline.nl/kinderen/kinder-nachtkleding/kinder-pyjama/',
       image: 'advertisements/Sliponline.png',
     },
     {
@@ -114,6 +115,5 @@ export default Component.extend({
       title: 'Visser & Visser',
       link: 'https://www.visserenvisser.nl/',
       image: 'advertisements/Visser&Visser.png',
-    }
-  ],
+    }  ],
 });
