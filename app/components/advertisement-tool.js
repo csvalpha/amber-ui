@@ -115,5 +115,6 @@ export default Component.extend({
       title: 'Visser & Visser',
       link: 'https://www.visserenvisser.nl/',
       image: 'advertisements/Visser&Visser.png',
-    }  ],
+    },
+  ],
 });
