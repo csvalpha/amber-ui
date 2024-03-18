@@ -21,13 +21,13 @@ export default Component.extend({
     {
       title: 'Qorting.nl',
       link: 'https://qorting.nl/',
-      image: 'advertisements/qorting.png',
+      image: 'advertisements/Qorting.png',
       full: true,
     },
     {
       title: 'Sponsorkliks',
       link: 'https://www.sponsorkliks.com/products/shops.php?club=4509',
-      image: 'advertisements/sponsorkliks.png',
+      image: 'advertisements/SponsorKliks.png',
       full: true,
     },
     {
@@ -38,17 +38,17 @@ export default Component.extend({
     {
       title: 'Boeketcadeau',
       link: 'https://www.boeketcadeau.nl/',
-      image: 'advertisements/Boeketcadeau.png',
+      image: 'advertisements/BoeketCadeau.png',
     },
     {
       title: 'Baktotaal',
       link: 'https://www.baktotaal.nl/',
-      image: 'advertisements/Bouwhuis.png',
+      image: 'advertisements/Baktotaal.png',
     },
     {
       title: 'Comfort Producten',
       link: 'https://www.comfort-producten.nl/nl/',
-      image: 'advertisements/Comfort_products.png',
+      image: 'advertisements/ComfortProducts.png',
     },
     {
       title: 'Huurzone',
@@ -58,12 +58,12 @@ export default Component.extend({
     {
       title: 'Inshared',
       link: 'https://www.inshared.nl/',
-      image: 'advertisements/inshared.png',
+      image: 'advertisements/Inshared.png',
     },
     {
       title: 'Ledlampenkopen.nu',
       link: 'https://www.ledlampenkopen.nu/',
-      image: 'advertisements/Ledlampenkopen.png',
+      image: 'advertisements/LedlampenKopen.png',
     },
     {
       title: 'Parcel Pro',
@@ -79,12 +79,12 @@ export default Component.extend({
     {
       title: 'Rotimshop',
       link: 'https://www.rotimshop.nl/',
-      image: 'advertisements/Rotimshop.png',
+      image: 'advertisements/RotimShop.png',
     },
     {
       title: 'Shops United',
       link: 'https://shops-united.nl/',
-      image: 'advertisements/Shops-united.png',
+      image: 'advertisements/ShopsUnited.png',
     },
     {
       title: 'Sleiderink',
@@ -94,12 +94,12 @@ export default Component.extend({
     {
       title: 'Sliponline',
       link: 'https://www.sliponline.nl/kinderen/kinder-nachtkleding/kinder-pyjama/',
-      image: 'advertisements/Sliponline.png',
+      image: 'advertisements/SlipOnline.png',
     },
     {
       title: 'Stellingstunt',
       link: 'https://www.stellingstunt.nl/',
-      image: 'advertisements/stellingstunt.png',
+      image: 'advertisements/StellingStunt.png',
     },
     {
       title: 'Traffic Today',
