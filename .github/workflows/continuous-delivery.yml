@@ -84,11 +84,11 @@ jobs:
           fi
 
       - name: Checkout code
-        if: fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }}
+        if: fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff
         uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
 
       - name: Run merge
-        if: fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }}
+        if: fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff
         uses: devmasx/merge-branch@854d3ac71ed1e9deb668e0074781b81fdd6e771f # tag=v1.4.0
         with:
           type: now
@@ -98,7 +98,7 @@ jobs:
 
       - name: Get merge commit SHA
         id: get_sha
-        if: fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }}
+        if: fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff
         run: |
           git fetch origin master
           echo 'sha='"$(git rev-parse origin/master)" >> "$GITHUB_OUTPUT"
@@ -106,7 +106,7 @@ jobs:
   continuous_integration:
     name: Continuous Integration
     needs: [metadata, merge]
-    if: fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }}
+    if: fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff
     uses: csvalpha/amber-ui/.github/workflows/continuous-integration.yml@staging
     with:
       sha: ${{ needs.merge.outputs.sha }}
@@ -114,7 +114,7 @@ jobs:
   publish_image:
     name: Publish Image
     needs: [metadata, merge]
-    if: fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }}
+    if: fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff
     uses: csvalpha/amber-ui/.github/workflows/publish-image.yml@staging
     with:
       sha: ${{ needs.merge.outputs.sha }}
@@ -127,8 +127,8 @@ jobs:
     needs: [metadata, merge, continuous_integration, publish_image]
     if: |
       (github.ref_name == 'staging' || github.ref_name == 'master') && ((github.ref_name == 'master' &&
-      github.event.inputs.merge == 'y' && (fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }}) && success()) ||
-      ((github.event.inputs.merge != 'y' || !(fromJSON(needs.metadata.outputs.has_diff) || ${{ github.event.inputs.ignore_metadata_diff }})) && !cancelled()))
+      github.event.inputs.merge == 'y' && (fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff) && success()) ||
+      ((github.event.inputs.merge != 'y' || !(fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff)) && !cancelled()))
     steps:
       - name: Get environment URL
         id: get_url
