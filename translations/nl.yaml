@@ -229,7 +229,7 @@ component:
           en weekenden weg. Maar ook het organiseren van “slechts” avondvullende activiteiten, 
           zoals een vormingsavond of een sportactiviteit, er is voor ieder wat wils! 
     interested:
-      header: LANG-TODO
+      header: LANG-TODO 
       intro: LANG-TODO
       fill-out-form: LANG-TODO
     memberStories:
