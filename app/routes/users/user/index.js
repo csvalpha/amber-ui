@@ -37,6 +37,12 @@ export default class UserIndexRoute extends AuthenticatedRoute {
         canAccess: this.abilities.can('show memberships'),
       },
       {
+        link: 'users.user.photos',
+        title: "Foto's",
+        linkArgument: user,
+        canAccess: this.abilities.can('show photo-tags'),
+      },
+      {
         link: 'users.user.settings',
         title: 'Instellingen',
         linkArgument: user,
