@@ -1,10 +1,12 @@
 <div class="position-relative photo-tags {{if showTags 'photo-tags--show'}}" {{on 'click' this.addTag}}>
   {{yield}}
 
-  <button class="btn btn-info photo-tags-button" type="button" {{on 'click' this.toggleShowTags}}>
-    <FaIcon @icon='tag' />
-    {{ @model.amountOfTags }}
-  </button>
+  {{#if (gt @model.amountOfTags 0)}}
+    <button class="btn btn-info photo-tags-button" type="button" {{on 'click' this.toggleShowTags}}>
+      <FaIcon @icon='tag' />
+      {{ @model.amountOfTags }}
+    </button>
+  {{/if}}
 
   {{#each @model.tags as |tag|}}
     <div class="photo-tag" style={{ tag.tagStyle }}>
