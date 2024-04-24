@@ -1,6 +1,8 @@
 html.authenticated {
   $dies-primary: #840400;
   $dies-foreground: #efead6;
+  $dies_logo: url('/images/dies_logo.png');
+  $dies_logo_width: 5rem;
 
   .header-nav {
     background-color: $dies-foreground;
@@ -11,11 +13,11 @@ html.authenticated {
     }
 
     .header-logo {
-      background-image: url('/images/dies_logo.png');
+      background-image: $dies_logo;
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      width: 5rem;
+      width: $dies_logo_width;
     }
   }
 
