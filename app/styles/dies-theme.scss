@@ -1,0 +1,90 @@
+html.authenticated {
+  $dies-primary: #840400;
+  $dies-foreground: #efead6;
+
+  .header-nav {
+    background-color: $dies-foreground;
+    color: $dies-primary;
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      color: $dies-primary;
+    }
+
+    .header-logo {
+      background-image: url('/images/dies_logo.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      width: 5rem;
+    }
+  }
+
+  .menu-sidebar {
+    background-color: $dies-primary;
+
+    .menu-sidebar-item {
+      color: $dies-foreground;
+
+      &.sidebar-item-minor {
+        color: shade-color($dies-foreground, 40%);
+      }
+    }
+  }
+
+  .btn-primary {
+    @include button-variant(
+      $dies-primary,
+      $dies-primary,
+      $color: $dies-foreground,
+      $hover-background: shade-color($dies-primary, $btn-hover-bg-shade-amount),
+      $hover-border: shade-color($dies-primary, $btn-hover-border-shade-amount),
+      $active-background: shade-color($dies-primary, $btn-active-bg-shade-amount),
+      $active-border: shade-color($dies-primary, $btn-active-border-shade-amount)
+    );
+  }
+
+  p a {
+    color: $dies-primary;
+  }
+
+  a:hover, 
+  a .list-group-item:hover, 
+  .link-highlight:hover {
+    color: shade-color($dies-primary, 30%);
+  }
+
+  .form-check-input { 
+    &:focus {
+      border-color: tint-color($dies-primary, 50%);
+      box-shadow: 0 0 0 0.25rem rgba($dies-primary, 0.25);
+    }
+
+    &:checked {
+      background-color: $dies-primary;
+      border-color: $dies-primary;
+    }
+  }
+
+  .bg-primary {
+    background-color: $dies-primary !important;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba($dies-primary, 0.25);
+  }
+
+  .text-primary {
+    color: $dies-primary !important;
+  }
+
+  .page-actions-buttons {
+    .input-group-text, .filter-bar-filter, .input-group button {
+      background-color: tint-color($dies-foreground, 50%);
+    }
+  }
+
+  .new-forum-posts {
+    background-color: $dies-primary;
+  }
+
+}
