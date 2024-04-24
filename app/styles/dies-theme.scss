@@ -1,23 +1,24 @@
+// stylelint-disable selector-no-qualifying-type
 html.authenticated {
   $dies-primary: #840400;
   $dies-foreground: #efead6;
-  $dies_logo: url('/images/dies_logo.png');
-  $dies_logo_width: 5rem;
+  $dies-logo-url: '/images/dies_logo.png';
+  $dies-logo-width: 5rem;
 
   .header-nav {
     background-color: $dies-foreground;
     color: $dies-primary;
 
-    .breadcrumb-item + .breadcrumb-item::before {
+    .breadcrumb-item::before {
       color: $dies-primary;
     }
 
     .header-logo {
-      background-image: $dies_logo;
+      background-image: url($dies-logo-url);
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
-      width: $dies_logo_width;
+      width: $dies-logo-width;
     }
   }
 
@@ -28,7 +29,7 @@ html.authenticated {
       color: $dies-foreground;
 
       &.sidebar-item-minor {
-        color: shade-color($dies-foreground, 40%);
+        color: shade-color($dies-foreground, 40%);  /* stylelint-disable-line function-no-unknown */
       }
     }
   }
@@ -52,18 +53,18 @@ html.authenticated {
   a:hover, 
   a .list-group-item:hover, 
   .link-highlight:hover {
-    color: shade-color($dies-primary, 30%);
+    color: shade-color($dies-primary, 30%);  /* stylelint-disable-line function-no-unknown */
   }
 
   .form-check-input { 
     &:focus {
-      border-color: tint-color($dies-primary, 50%);
+      border-color: tint-color($dies-primary, 50%);  /* stylelint-disable-line function-no-unknown */
       box-shadow: 0 0 0 0.25rem rgba($dies-primary, 0.25);
     }
 
     &:checked {
-      background-color: $dies-primary;
       border-color: $dies-primary;
+      background-color: $dies-primary;
     }
   }
 
@@ -80,8 +81,11 @@ html.authenticated {
   }
 
   .page-actions-buttons {
-    .input-group-text, .filter-bar-filter, .input-group button {
-      background-color: tint-color($dies-foreground, 50%);
+    // stylelint-disable selector-max-compound-selectors
+    .input-group-text, 
+    .filter-bar-filter, 
+    .input-group button {
+      background-color: tint-color($dies-foreground, 50%);  /* stylelint-disable-line function-no-unknown */
     }
   }
 
@@ -90,3 +94,4 @@ html.authenticated {
   }
 
 }
+// stylelint-enable selector-no-qualifying-type
