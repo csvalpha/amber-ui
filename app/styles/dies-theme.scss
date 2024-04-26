@@ -1,16 +1,29 @@
 // stylelint-disable selector-no-qualifying-type
 html.authenticated {
-  $dies-primary: #840400;
-  $dies-foreground: #efead6;
+  $primary-color: #840400;
+  $link-color: #840400;
+  $button-fg-color: #efead6;
+  $button-bg-color: #840400;
+  $app-bg-color: #efead6;
+  $sidebar-fg-color: #efead6;
+  $sidebar-bg-color: #840400;
+  $navbar-fg-color: #efead6;
+  $navbar-bg-color: #0f1c3f;
+  $navbar-button-fg-color: #efead6;
+  $navbar-button-bg-color: #840400;
   $dies-logo-url: '/images/dies_logo.png';
   $dies-logo-width: 5rem;
 
+  .app {
+    background-color: $app-bg-color;
+  }
+
   .header-nav {
-    background-color: $dies-foreground;
-    color: $dies-primary;
+    background-color: $navbar-bg-color;
+    color: $navbar-fg-color;
 
     .breadcrumb-item::before {
-      color: $dies-primary;
+      color: $navbar-fg-color;
     }
 
     .header-logo {
@@ -20,64 +33,70 @@ html.authenticated {
       background-size: contain;
       width: $dies-logo-width;
     }
+
+    .btn-primary {
+      @include button-variant(
+        $navbar-button-bg-color,
+        $navbar-button-bg-color,
+      );
+
+      color: $navbar-button-fg-color;
+    }
   }
 
   .menu-sidebar {
-    background-color: $dies-primary;
+    background-color: $sidebar-bg-color;
 
     .menu-sidebar-item {
-      color: $dies-foreground;
+      color: $sidebar-fg-color;
 
       &.sidebar-item-minor {
-        color: shade-color($dies-foreground, 40%);  /* stylelint-disable-line function-no-unknown */
+        color: shade-color($sidebar-fg-color, 40%);  /* stylelint-disable-line function-no-unknown */
       }
     }
   }
 
   .btn-primary {
     @include button-variant(
-      $dies-primary,
-      $dies-primary,
-      $color: $dies-foreground,
-      $hover-background: shade-color($dies-primary, $btn-hover-bg-shade-amount),
-      $hover-border: shade-color($dies-primary, $btn-hover-border-shade-amount),
-      $active-background: shade-color($dies-primary, $btn-active-bg-shade-amount),
-      $active-border: shade-color($dies-primary, $btn-active-border-shade-amount)
+      $button-bg-color,
+      $button-bg-color,
     );
+
+    color: $button-fg-color;
   }
 
   p a {
-    color: $dies-primary;
+    color: $link-color;
   }
 
   a:hover, 
   a .list-group-item:hover, 
   .link-highlight:hover {
-    color: shade-color($dies-primary, 30%);  /* stylelint-disable-line function-no-unknown */
+    color: shade-color($link-color, 30%);  /* stylelint-disable-line function-no-unknown */
   }
 
   .form-check-input { 
-    &:focus {
-      border-color: tint-color($dies-primary, 50%);  /* stylelint-disable-line function-no-unknown */
-      box-shadow: 0 0 0 0.25rem rgba($dies-primary, 0.25);
-    }
-
     &:checked {
-      border-color: $dies-primary;
-      background-color: $dies-primary;
+      border-color: $button-bg-color;
+      background-color: $button-bg-color;
     }
-  }
 
-  .bg-primary {
-    background-color: $dies-primary !important;
-  }
-
-  .form-control:focus {
-    box-shadow: 0 0 0 0.25rem rgba($dies-primary, 0.25);
+    &:focus {
+      border-color: tint-color($button-bg-color, 50%);  /* stylelint-disable-line function-no-unknown */
+      box-shadow: 0 0 0 0.25rem rgba($button-bg-color, 0.25);
+    }
   }
 
   .text-primary {
-    color: $dies-primary !important;
+    color: $primary-color !important;
+  }
+
+  .bg-primary {
+    background-color: $primary-color !important;
+  }
+
+  .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba($primary-color, 0.25);
   }
 
   .page-actions-buttons {
@@ -85,12 +104,26 @@ html.authenticated {
     .input-group-text, 
     .filter-bar-filter, 
     .input-group button {
-      background-color: tint-color($dies-foreground, 50%);  /* stylelint-disable-line function-no-unknown */
+      background-color: tint-color($navbar-bg-color, 10%);  /* stylelint-disable-line function-no-unknown */
+      color: $navbar-fg-color;
+    }
+
+    .filter-bar-filter::placeholder {
+      opacity: 1; /* Firefox */
+      color: shade-color($navbar-fg-color, 30%); /* stylelint-disable-line function-no-unknown */
+    }
+
+    .form-control:focus {
+      box-shadow: 0 0 0 0.25rem tint-color($navbar-bg-color, 15%); /* stylelint-disable-line function-no-unknown */
     }
   }
 
   .new-forum-posts {
-    background-color: $dies-primary;
+    background-color: $primary-color;
+  }
+
+  .advertisement-tool {
+    background: $white;
   }
 
 }
