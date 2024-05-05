@@ -3,6 +3,7 @@ version: '3'
 services:
   web:
     image: ghcr.io/csvalpha/amber-ui:latest
+    target: production
     labels:
       - traefik.enable=true
       - traefik.frontend.rule=Host:csvalpha.nl

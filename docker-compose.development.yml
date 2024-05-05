@@ -1,0 +1,10 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+    command: ember serve
+    network_mode: "host"
+    volumes:
+      - .:/opt
