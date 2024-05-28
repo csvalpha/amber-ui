@@ -127,6 +127,10 @@ $card-border: 0 solid $gray-300;
       bottom: 0;
       padding: 0.8rem;
       min-height: 5rem;
+
+      &.without-subtitle {
+        min-height: max-content;
+      }
     }
 
     .card-title {
@@ -162,6 +166,15 @@ $card-border: 0 solid $gray-300;
     &:last-child {
       border-right: 0;
     }
+  }
+}
+
+.card-sub-bottom-row {
+  border-top: 1px solid $gray-200;
+  width: 100%;
+
+  .card-sub-item {
+    color: $gray-600;
   }
 }
 
