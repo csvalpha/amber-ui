@@ -3,6 +3,7 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { next } from '@ember/runloop';
+import { htmlSafe } from '@ember/template';
 
 export default class PhotoTags extends Component {
   @service store;
@@ -13,7 +14,6 @@ export default class PhotoTags extends Component {
   @tracked showTags = false;
 
   get users() {
-    console.log(this.args.model.tags);
     return this.store.findAll('user');
   }
 
@@ -24,7 +24,9 @@ export default class PhotoTags extends Component {
 
   @action
   addTag(e) {
-    if (e.target.tagName.toLowerCase() != 'img') return;
+    if (e.target.tagName.toLowerCase() != 'img' || this.newTagX || this.newTagY)
+      return;
+    e.stopPropagation();
     let x = (e.layerX / e.target.width) * 100;
     let y = (e.layerY / e.target.height) * 100;
     this.newTagX = x;
@@ -35,9 +37,26 @@ export default class PhotoTags extends Component {
   }
 
   @action
-  hideAddTag() {
-    this.newTagX = null;
-    this.newTagY = null;
+  addCloseAddTagListener() {
+    this.closeAddTagListener = (e) => {
+      let element = e.target;
+      if (
+        element.closest('.ember-power-select-dropdown') !== null ||
+        element.closest('.photo-tag--new') !== null
+      )
+        return;
+      e.stopPropagation();
+      this.newTagX = null;
+      this.newTagY = null;
+      console.log('Closed tag', element);
+    };
+
+    document.addEventListener('click', this.closeAddTagListener);
+  }
+
+  @action
+  removeCloseAddTagListener() {
+    document.removeEventListener('click', this.closeAddTagListener);
   }
 
   @action
@@ -87,8 +106,8 @@ export default class PhotoTags extends Component {
 
   get newTagStyle() {
     if (!this.newTagX || !this.newTagY) return null;
-    return Ember.String.htmlSafe(`left: ${parseFloat(this.newTagX)}%; top: ${parseFloat(
-      this.newTagY
-    )}%;`);
+    return htmlSafe(
+      `left: ${parseFloat(this.newTagX)}%; top: ${parseFloat(this.newTagY)}%;`
+    );
   }
 }

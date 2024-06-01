@@ -1,4 +1,9 @@
-<div class="position-relative photo-tags {{if showTags 'photo-tags--show'}}" {{on 'click' this.addTag}}>
+<div class="position-relative photo-tags 
+  {{if showTags 'photo-tags--show'}}" 
+  {{on 'click' this.addTag}}
+  {{did-insert this.addCloseAddTagListener}}
+  {{will-destroy this.removeCloseAddTagListener}}
+>
   {{yield}}
 
   {{#if (gt @model.amountOfTags 0)}}
@@ -34,7 +39,3 @@
     </div>
   {{/if}}
 </div>
-
-{{#if newTagStyle }}
-  <div class="photo-tag-close" {{ on 'click' this.hideAddTag }}></div>
-{{/if}}
