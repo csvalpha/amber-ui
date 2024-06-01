@@ -1,5 +1,11 @@
 <div class='d-flex justify-content-center align-items-center'>
-  <img src={{@model.imageUrl}} class='photo-large' />
+  {{#if this.showComments}}
+    <PhotoTags::PhotoTags @model={{@model}}>
+      <img src={{@model.imageUrl}} class='photo-large' />
+    </PhotoTags::PhotoTags>
+  {{else}}
+    <img src={{@model.imageUrl}} class='photo-large' />
+  {{/if}}
 </div>
 
 {{#if (can 'show individual users')}}

@@ -1,0 +1,26 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<TabbedView @tabItems={{tabItems}}>
+  <h5>Foto's</h5>
+
+  <div class='row px-3'>
+    {{#each model.sortedPhotos as |photo|}}
+      <div class='col-md-3 col-xs-6 photo-album-image-card'>
+        <LinkTo
+          @route='photo-albums.photo-album.photos.photo'
+          @models={{array photo.photoAlbum photo.id}}
+        >
+          <img class='image' src='{{photo.imageThumbUrl}}' />
+        </LinkTo>
+      </div>
+    {{else}}
+      <div class='alert alert-warning'>
+        <LinkTo @route='photo-albums.photo-album.edit' @model={{model.id}}>
+          Geen foto's gevonden waarin {{ model.fullName }} getagd is.
+        </LinkTo>
+      </div>
+    {{/each}}
+  </div>
+</TabbedView>

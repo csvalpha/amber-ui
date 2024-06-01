@@ -63,6 +63,7 @@ module.exports = function () {
       'sort',
       'suitcase',
       'strikethrough',
+      'tag',
       'thumbtack',
       'trash',
       'upload',

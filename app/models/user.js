@@ -64,6 +64,9 @@ export default class User extends Model {
   @hasMany('debit/mandate') mandates;
   @hasMany mailAliases;
   @hasMany('mail-alias') groupMailAliases;
+  @hasMany('photo-tags', { inverse: 'author' }) createdPhotoTags;
+  @hasMany('photo-tags', { inverse: 'taggedUser' }) photoTags;
+  @hasMany('photos') photos;
 
   // Computed properties
   get fullName() {
@@ -149,6 +152,10 @@ export default class User extends Model {
 
   get avatarThumbUrlOrDefault() {
     return this.avatarThumbUrl || AvatarThumbFallback;
+  }
+
+  get sortedPhotos() {
+    return this.photos?.sortBy('exifDateTimeOriginal', 'createdAt');
   }
 
   // Methods

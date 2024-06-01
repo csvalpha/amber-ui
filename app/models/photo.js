@@ -18,6 +18,7 @@ export default class Photo extends Model {
   @attr imageThumbUrl;
   @attr imageMediumUrl;
   @attr amountOfComments;
+  @attr amountOfTags;
   @attr('date') updatedAt;
   @attr('date') createdAt;
 
@@ -35,6 +36,7 @@ export default class Photo extends Model {
   @belongsTo photoAlbum;
   @belongsTo('user') uploader;
   @hasMany('photoComment') comments;
+  @hasMany('photoTag') tags;
 
   // Getters
   get hasExif() {

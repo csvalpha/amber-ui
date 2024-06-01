@@ -1,0 +1,47 @@
+.photo-tag {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease opacity;
+  opacity: 0;
+  border-radius: 10px;
+  background: rgb(0 0 0 / 80%);
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 12px;
+  pointer-events: none;
+
+  &--new {
+    opacity: 1;
+    z-index: 2;
+    min-width: 200px;
+    pointer-events: auto;
+  }
+
+  &:hover {
+    z-index: 1;
+  }
+
+  &:has(.fa-xmark) {
+    padding-right: 25px;
+  }
+
+  .fa-xmark {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+}
+
+.photo-tags.photo-tags--show .photo-tag {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.photo-tags-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  color: #fff;
+}

@@ -240,6 +240,7 @@ Router.map(function () {
       this.route('mail');
       this.route('mandates');
       this.route('permissions');
+      this.route('photos');
       this.route('settings');
 
       this.route('resend-activation-code');

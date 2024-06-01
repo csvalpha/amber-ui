@@ -11,4 +11,8 @@ export default class Photo extends Ability {
       this.model.photoAlbum.get('publiclyVisible')
     );
   }
+
+  get canShowPhotoTags() {
+    return this.session.hasPermission('photo-tag.read');
+  }
 }

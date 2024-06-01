@@ -13,6 +13,7 @@ export default function (server) {
     'photo_album',
     'photo',
     'photo_comment',
+    'photo_tag',
     'quickpost_message',
     'forum/category',
     'forum/thread',
