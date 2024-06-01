@@ -1,13 +1,23 @@
-<div class='col-md-12 mb-5'>
-  <div class='d-flex'>
-    <div class='card mb-0 w-100'>
+<div class='col-md-12 room-advert-card {{if @collapsed "collapsed mb-5 col-xl-10 mx-xl-auto"}}' {{on "click" (fn @open @roomAdvert)}}>
+  <div class='d-flex justify-content-center'>
+    <div class='card mb-0 w-100 {{if @collapsed "mx-lg-5"}}'>
+      {{#if (not @collapsed)}}
+        <div class="advert-modal-header card-header card-header--overlay">
+          <img class="card-img-top" src="{{@roomAdvert.coverPhotoUrl}}">
+          <div class="card-title-bar gradient-overlay">
+            <h1 class="card-title title ms-3 mb-2">{{@roomAdvert.houseName}}</h1>
+          </div>
+        </div>
+      {{/if}}
       <div class='card-body m-4 fs-5'>
         <div class="row">
           <div class="pe-4 col-12 col-md-6 mb-3">
-            <div class="width-fit-content">
-              <h2 class="text-secondary me-5">{{@roomAdvert.houseName}}</h2>
-              <hr class="border border-secondary bg-secondary border-3 opacity-100 mt-0" />
-            </div>
+            {{#if @collapsed}}
+              <div class="width-fit-content">
+                <h2 class="text-secondary me-5">{{@roomAdvert.houseName}}</h2>
+                <hr class="border border-secondary bg-secondary border-3 opacity-100 mt-0" />
+              </div>
+            {{/if}}
             <table>
               {{#if @roomAdvert.location}}
                 <tr>
@@ -44,16 +54,22 @@
               </tr>
             </table>
           </div>
-          {{#if @roomAdvert.coverPhotoUrl}}
+          {{#if (and @roomAdvert.coverPhotoUrl @collapsed)}}
             <img src={{@roomAdvert.coverPhotoUrl}} class='col-12 col-md-6 mb-3 object-fit-cover'/> 
           {{/if}}
         </div>
-        <p class='card-text' data-test-room-advert-description>
+        <p class='card-text description overflow-hidden mb-1' data-test-room-advert-description>
           {{markdown-to-html
             @roomAdvert.descriptionCamofied
             extensions='youtubeEmbed bootstrapTable'
           }}
+          <div class="{{if @collapsed "fade-to-white-background"}}"></div>
         </p>
+        {{#if @collapsed}}
+          <button class="btn btn-secondary float-end fw-bold mt-1" type="button" {{on "click" (fn @open @roomAdvert)}}>
+            Lees meer...
+          </button>
+        {{/if}}
       </div>
     </div>
   </div>

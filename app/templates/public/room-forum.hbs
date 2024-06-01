@@ -7,7 +7,7 @@
   />
 
   {{#each @model as |roomAdvert|}}
-    <Cards::PublicRoomAdvertCard @roomAdvert={{roomAdvert}} />
+    <Cards::PublicRoomAdvertCard @roomAdvert={{roomAdvert}} @collapsed={{true}} @open={{this.openAdvert}} />
   {{/each}}
 
   {{#if (eq @model.length 0)}}
@@ -24,3 +24,20 @@
     </div>
   {{/if}}
 </div>
+
+<EmberWormhole @to='ember-wormhole-destination'>
+  <div class="modal modal-xl fade room-advert-modal" id="room-advert-modal" tabindex="-1" aria-hidden="true" {{on "hide.bs.modal" this.removeBackdrops}}>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          {{#if this.openedAdvert}}
+            <Cards::PublicRoomAdvertCard @roomAdvert={{this.openedAdvert}} @collapsed={{false}} @open={{this.openAdvert}} />
+          {{/if}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</EmberWormhole>
