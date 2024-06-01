@@ -10,7 +10,9 @@
 
   {{#each @model.tags as |tag|}}
     <div class="photo-tag" style={{ tag.tagStyle }}>
-      {{ tag.taggedUser.fullName }}
+      <LinkTo @route='users.user.photos' @model={{tag.taggedUser.id}}>
+        {{ tag.taggedUser.fullName }}
+      </LinkTo>
       {{#if (can 'destroy photo-tag' tag)}}
         <FaIcon @icon='xmark' {{ on 'click' (fn this.deleteTag tag) }} />
       {{/if}}
@@ -32,3 +34,7 @@
     </div>
   {{/if}}
 </div>
+
+{{#if newTagStyle }}
+  <div class="photo-tag-close" {{ on 'click' this.hideAddTag }}></div>
+{{/if}}

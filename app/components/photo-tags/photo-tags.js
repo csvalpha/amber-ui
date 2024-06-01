@@ -35,6 +35,12 @@ export default class PhotoTags extends Component {
   }
 
   @action
+  hideAddTag() {
+    this.newTagX = null;
+    this.newTagY = null;
+  }
+
+  @action
   async storeTag(taggedUser) {
     let photo = this.args.model;
     let photoTag = this.store.createRecord('photo-tag', {
@@ -81,8 +87,8 @@ export default class PhotoTags extends Component {
 
   get newTagStyle() {
     if (!this.newTagX || !this.newTagY) return null;
-    return `left: ${parseFloat(this.newTagX)}%; top: ${parseFloat(
+    return Ember.String.htmlSafe(`left: ${parseFloat(this.newTagX)}%; top: ${parseFloat(
       this.newTagY
-    )}%;`;
+    )}%;`);
   }
 }
