@@ -23,6 +23,7 @@ module.exports = function (defaults) {
     },
 
     babel: {
+      plugins: [...require('ember-cli-code-coverage').buildBabelPlugin()],
       sourceMaps: 'inline',
     },
 

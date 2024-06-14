@@ -11,6 +11,10 @@ on:
         description: The commit SHA to run the workflow on
         required: false
         type: string
+    secrets:
+      codecov_token:
+        description: Codecov token
+        required: true
 
 jobs:
   build:
@@ -70,6 +74,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+      - name: Checkout code
+        uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
+        with:
+          ref: ${{ inputs.sha }}
+
       - name: Load test image
         uses: guidojw/actions/load-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
         with:
@@ -77,4 +86,20 @@ jobs:
 
       - name: Test
         run: |
-          docker run -e CI=true -t app yarn test:ember
+          mkdir coverage
+          docker run -e CI=true -e COVERAGE=true -v "$(pwd)"'/coverage:/opt/app/coverage' app yarn test:ember
+
+      - name: Upload coverage report to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/codecov-action@54bcd8715eee62d40e33596ef5e8f0f48dbbccab # v4.1.0
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload coverage report artifact
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@a8a3f3ad30e3422c9c7b888a15615d19a852ae32 # v3.1.3
+        with:
+          name: coverage
+          path: coverage/
+          if-no-files-found: error
