@@ -2152,6 +2152,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.6":
+  version: 1.8.6
+  resolution: "@embroider/addon-shim@npm:1.8.6"
+  dependencies:
+    "@embroider/shared-internals": ^2.2.3
+    broccoli-funnel: ^3.0.8
+    semver: ^7.3.8
+  checksum: 63214fbc1b3f333b052791cdfc0c278c348dd6ca4ec2b53c96183150e3d5fe9882cdd3065853e3d6a2c964c962d718b87f2fd8a17414b53fc3a3997d5eedb30e
+  languageName: node
+  linkType: hard
+
 "@embroider/macros@npm:^1.0.0":
   version: 1.5.0
   resolution: "@embroider/macros@npm:1.5.0"
@@ -2243,6 +2254,23 @@ __metadata:
     semver: ^7.3.5
     typescript-memoize: ^1.0.1
   checksum: 19d2754182b9e1373177843a354852c82b35d71af66edcdf0662597442062e5f5f51adbdf7a63a263ee0052064c222ff33ddb983ec3f17b68b7275de8de3680e
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:^2.2.3":
+  version: 2.4.0
+  resolution: "@embroider/shared-internals@npm:2.4.0"
+  dependencies:
+    babel-import-util: ^2.0.0
+    debug: ^4.3.2
+    ember-rfc176-data: ^0.3.17
+    fs-extra: ^9.1.0
+    js-string-escape: ^1.0.1
+    lodash: ^4.17.21
+    resolve-package-path: ^4.0.1
+    semver: ^7.3.5
+    typescript-memoize: ^1.0.1
+  checksum: 9254dd1bdb98a3087564adf3d194e32213a6948f9ab4c2714ac3e6152af8bfb66f9d2d8b1e814b312253c5fdc84a10f918786a2cfeafe4018a68e35253a62aa7
   languageName: node
   linkType: hard
 
@@ -4133,7 +4161,7 @@ __metadata:
     ember-source: ~3.28.8
     ember-template-lint: ^3.6.0
     ember-test-selectors: ^6.0.0
-    ember-truth-helpers: ^3.1.1
+    ember-truth-helpers: ^4.0.3
     ember-wormhole: ^0.6.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
@@ -4912,6 +4940,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "babel-import-util@npm:2.0.0"
+  checksum: 8d9f62dcf522634ac340fb1380f45382d782f7202c98f7b0a6ad9e1aba50edef1f31f1e61e487953e35bcda98759aed7236398a9bb9798b68b6def697925293d
   languageName: node
   linkType: hard
 
@@ -8404,7 +8439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"debug@npm:^4.3.4":
+"debug@npm:^4.3.2, debug@npm:^4.3.4":
   version: 4.3.4
   resolution: "debug@npm:4.3.4"
   dependencies:
@@ -10069,6 +10104,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ember-functions-as-helper-polyfill@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "ember-functions-as-helper-polyfill@npm:2.1.2"
+  dependencies:
+    ember-cli-babel: ^7.26.11
+    ember-cli-typescript: ^5.0.0
+    ember-cli-version-checker: ^5.1.2
+  peerDependencies:
+    ember-source: ^3.25.0 || >=4.0.0
+  checksum: ed1fa320d73f684501b54ecf0679fc39d9db930a192dd0caba33c41672956ac3cf686fce1db8c67c03471fbd9023bcbe1ce11cdd664ac6b2dfffaf3a76e061cc
+  languageName: node
+  linkType: hard
+
 "ember-get-config@npm:0.2.4 - 0.5.0":
   version: 0.5.0
   resolution: "ember-get-config@npm:0.5.0"
@@ -10655,12 +10703,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-truth-helpers@npm:^3.0.0, ember-truth-helpers@npm:^3.1.1":
+"ember-truth-helpers@npm:^3.0.0":
   version: 3.1.1
   resolution: "ember-truth-helpers@npm:3.1.1"
   dependencies:
     ember-cli-babel: ^7.22.1
   checksum: 6f3a779ae714cec543b39ca93caa98121e65046e48929e1890aa24b2592c4e90a703148694bae9d7ca9bfc68d9ae1f7e00392f0f288158ee962aefbae1f3c0b0
+  languageName: node
+  linkType: hard
+
+"ember-truth-helpers@npm:^4.0.3":
+  version: 4.0.3
+  resolution: "ember-truth-helpers@npm:4.0.3"
+  dependencies:
+    "@embroider/addon-shim": ^1.8.6
+    ember-functions-as-helper-polyfill: ^2.1.2
+  peerDependencies:
+    ember-source: ">=3.28.0"
+  checksum: bcf81ab9848237fa336aa944a928e6894ab9fa50cf1ee37c9bd2721cba4a12728c61f08a52cb635aa9cd625c6451af5704030318e4b5a0b47ed141fe86e6f408
   languageName: node
   linkType: hard
 
