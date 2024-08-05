@@ -123,5 +123,5 @@
   "ember": {
     "edition": "octane"
   },
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.8.4"
 }
