@@ -2,11 +2,11 @@
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<TabbedView @tabItems={{tabItems}}>
+<TabbedView @tabItems={{this.tabItems}}>
   <h5>Foto's</h5>
 
   <div class='row px-3'>
-    {{#each model.sortedPhotos as |photo|}}
+    {{#each @model.sortedPhotos as |photo|}}
       <div class='col-md-3 col-xs-6 photo-album-image-card'>
         <LinkTo
           @route='photo-albums.photo-album.photos.photo'
@@ -18,7 +18,7 @@
     {{else}}
       <div class='alert alert-warning'>
         <LinkTo @route='photo-albums.photo-album.edit' @model={{model.id}}>
-          Geen foto's gevonden waarin {{ model.fullName }} getagd is.
+          Geen foto's gevonden waarin {{ @model.fullName }} getagd is.
         </LinkTo>
       </div>
     {{/each}}

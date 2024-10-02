@@ -13,7 +13,7 @@ export default class Photo extends Component {
     return this.args.showInfo ?? true;
   }
 
-  get showComments() {
+  get showTags() {
     return this.showInfo && this.abilities.can('show photo-tags');
   }
 

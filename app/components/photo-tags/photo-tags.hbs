@@ -24,14 +24,14 @@
     </div>
   {{/each}}
 
-  {{#if newTagStyle }}
-    <div class="photo-tag photo-tag--new" style={{ newTagStyle }}>
+  {{#if this.newTagStyle }}
+    <div class="photo-tag photo-tag--new" style={{ this.newTagStyle }}>
       <PowerSelect
         @options={{this.users}}
-        @onChange={{action 'storeTag'}}
+        @onChange={{this.storeTag}}
         @searchEnabled={{true}}
         @searchField='fullName'
-        @registerAPI={{ action 'openUserSelect' }}
+        @registerAPI={{this.openUserSelect}}
         as |user|
       >
         {{user.fullName}}
