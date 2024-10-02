@@ -139,6 +139,12 @@
         @title={{t 'mixin.menuItems.vacancies'}}
       />
       <MenuSidebarItem
+        @link='room-adverts'
+        @hasPermission={{can 'show room-adverts'}}
+        @icon='people-roof'
+        @title={{t 'mixin.menuItems.roomAdverts'}}
+      />
+      <MenuSidebarItem
         @link='forum'
         @hasPermission={{can 'show forum/categories'}}
         @icon='comments'
@@ -217,6 +223,12 @@
           @title={{title}}
         />
         {{/each-in}}
+        <MenuSidebarItem
+          @link='public.room-forum'
+          @hasPermission={{true}}
+          @icon='people-roof'
+          @title={{t 'mixin.menuItems.roomForum'}}
+        />
       </div>
 
       <MenuSidebarItem
