@@ -1,0 +1,41 @@
+<div class="position-relative photo-tags 
+  {{if showTags 'photo-tags--show'}}" 
+  {{on 'click' this.addTag}}
+  {{did-insert this.addCloseAddTagListener}}
+  {{will-destroy this.removeCloseAddTagListener}}
+>
+  {{yield}}
+
+  {{#if (gt @model.amountOfTags 0)}}
+    <button class="btn btn-info photo-tags-button" type="button" {{on 'click' this.toggleShowTags}}>
+      <FaIcon @icon='tag' />
+      {{ @model.amountOfTags }}
+    </button>
+  {{/if}}
+
+  {{#each @model.tags as |tag|}}
+    <div class="photo-tag" style={{ tag.tagStyle }}>
+      <LinkTo @route='users.user.photos' @model={{tag.taggedUser.id}}>
+        {{ tag.taggedUser.fullName }}
+      </LinkTo>
+      {{#if (can 'destroy photo-tag' tag)}}
+        <FaIcon @icon='xmark' {{ on 'click' (fn this.deleteTag tag) }} />
+      {{/if}}
+    </div>
+  {{/each}}
+
+  {{#if this.newTagStyle }}
+    <div class="photo-tag photo-tag--new" style={{ this.newTagStyle }}>
+      <PowerSelect
+        @options={{this.users}}
+        @onChange={{this.storeTag}}
+        @searchEnabled={{true}}
+        @searchField='fullName'
+        @registerAPI={{this.openUserSelect}}
+        as |user|
+      >
+        {{user.fullName}}
+      </PowerSelect>
+    </div>
+  {{/if}}
+</div>
