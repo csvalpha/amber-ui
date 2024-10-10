@@ -1,0 +1,8 @@
+.list-group-item:not(:first-child), a:not(:first-child) > .list-group-item {
+    border-top: 0;
+}
+
+.list-group-flush .list-group-item {
+    border-left: 0;
+    border-right: 0;
+}

@@ -18,3 +18,62 @@
     </div>
   </div>
 {{/if}}
+
+{{#if (can 'create photo-tag')}}
+  <div class='card'>
+    <div class='card-body'>
+      <h2 class='card-title'>Foto's taggen</h2>
+      <p class='card-text'>
+        Help jij mee om &aacute;lle foto's te taggen? Zoek een album of foto op zonder tags en tag wie er op de foto staan! Je kan ook een van de onderstaande albums bekijken, deze albums hebben momenteel geen enkele foto met tags.
+      </p>
+    </div>
+    <ul class='list-group list-group-flush mt-2'>
+      {{#each this.model.photoAlbumsWithoutTags as |album|}}
+        <LinkTo @route='photo-albums.photo-album' @model={{album.id}}>
+          <li class='list-group-item'>{{album.title}}</li>
+        </LinkTo>
+      {{else}}
+        <li class='list-group-item'>
+          <i>Alle albums bevatten al foto's met tags. Bekijk zelf of er nog foto's zijn in albums die nog tags missen!</i>
+        </li>
+      {{/each}}
+    </ul>
+    <div class='card-footer text-end'>
+      <LinkTo @route='photo-albums.index' class='btn btn-primary'>
+        Begin met taggen!
+      </LinkTo>
+    </div>
+  </div>
+{{/if}}
+
+{{#if (can 'show books')}}
+  <div class='card'>
+    <div class='card-body'>
+      <h2 class='card-title'>Leen een boek</h2>
+      <p class='card-text'>
+        Geen zin in je studie maar wil je toch wat nuttigs doen? Leen een boek uit de bibliotheek in de bestuurskamer! 
+      </p>
+    </div>
+    <div class='card-footer text-end'>
+      <LinkTo @route='books.index' class='btn btn-primary'>
+        Bekijk alle boeken!
+      </LinkTo>
+    </div>
+  </div>
+{{/if}}
+
+{{#if (can 'show forum/categories')}}
+  <div class='card'>
+    <div class='card-body'>
+      <h2 class='card-title'>Lees of schrijf op het forum</h2>
+      <p class='card-text'>
+        Neem deel aan het juffen op het forum, bekijk wat uw medeleden gezegd hebben op het grote quote topic, of start uw eigen topic!
+      </p>
+    </div>
+    <div class='card-footer text-end'>
+      <LinkTo @route='forum.categories' class='btn btn-primary'>
+        Bekijk het forum!
+      </LinkTo>
+    </div>
+  </div>
+{{/if}}
