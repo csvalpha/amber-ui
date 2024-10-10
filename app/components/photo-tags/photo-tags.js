@@ -48,7 +48,6 @@ export default class PhotoTags extends Component {
       e.stopPropagation();
       this.newTagX = null;
       this.newTagY = null;
-      console.log('Closed tag', element);
     };
 
     document.addEventListener('click', this.closeAddTagListener);
@@ -99,9 +98,7 @@ export default class PhotoTags extends Component {
 
   @action
   openUserSelect(userSelect) {
-    if (this.selectApi == null) {
-      this.selectApi = userSelect;
-    }
+    this.selectApi = userSelect;
   }
 
   get newTagStyle() {
