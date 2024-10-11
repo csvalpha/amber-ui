@@ -2,7 +2,6 @@
 
 [![Continuous Integration](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml)
 [![Continuous Delivery](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml)
-[![codecov](https://codecov.io/gh/csvalpha/amber-ui/graph/badge.svg?token=GMTXV28YQF)](https://codecov.io/gh/csvalpha/amber-ui)
 
 ## Prerequisites
 
