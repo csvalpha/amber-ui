@@ -1,17 +1,13 @@
-.header-nav {
-  position: fixed;
+.header-nav.navbar {position: fixed;
   top: 0;
+  flex-wrap: nowrap;
   transition: background-color 0.5s ease-in-out;
   z-index: 5;
   background-color: $brand-primary;
   width: 100vw;
 
-  .navbar {
-    flex-wrap: nowrap;
-
-    &.public {
-      border-bottom: 4px solid $brand-secondary;
-    }
+  &.public {
+    border-bottom: 4px solid $brand-secondary;
   }
 }
 
