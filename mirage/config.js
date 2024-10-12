@@ -32,6 +32,7 @@ export default function () {
   this.resource('board_room_presences');
   this.resource('photo_albums');
   this.resource('photo_comments');
+  this.resource('photo_tags');
   this.resource('photos');
   this.resource('static_pages');
   this.resource('users');
