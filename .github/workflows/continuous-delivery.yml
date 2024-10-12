@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Validate branch
         run: |
-          if [ "$GITHUB_REF_NAME" != 'feat/codecov' ] && [ "$GITHUB_REF_NAME" != 'staging' ] && [ "$GITHUB_REF_NAME" != 'master' ]; then
+          if [ "$GITHUB_REF_NAME" != 'staging' ] && [ "$GITHUB_REF_NAME" != 'master' ]; then
             echo 'This workflow can only be run on branches staging and master.'
             exit 1
           fi
