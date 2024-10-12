@@ -11,10 +11,6 @@ on:
         description: The commit SHA to run the workflow on
         required: false
         type: string
-    secrets:
-      codecov_token:
-        description: Codecov token
-        required: true
 
 jobs:
   build:
