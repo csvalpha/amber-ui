@@ -35,6 +35,17 @@ export default class PhotoAlbum extends Model {
     return this.photos?.sortBy('exifDateTimeOriginal', 'createdAt');
   }
 
+  get amountOfTags() {
+    var c = 0
+    for(var p of this.photos._objects){
+      c += p.amountOfTags
+      console.log(c)
+    } 
+    
+    //console.log(this.photos?._objects[1]?.amountOfTags)
+    return c
+  }
+
   // Methods
   isOwner(user) {
     if (user.get('id') === this.author.get('id')) {
