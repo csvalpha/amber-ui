@@ -14,7 +14,7 @@
       {{#if album.amountOfTags}}
           <span class='album-tag-counter badge bg-info bottom-0 end-0'>
             <FaIcon @icon='tag' />
-            {{album.amountOfTags}}
+            {{album.amountOfTags}}, {{album.amountOfTaggedPhotos}}/{{album.amountOfPhotos}}
           </span>
       {{/if}}
     </div>
