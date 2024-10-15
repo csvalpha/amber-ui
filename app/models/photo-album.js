@@ -36,21 +36,23 @@ export default class PhotoAlbum extends Model {
   }
 
   get amountOfTags() {
-    var counter = 0
-    for(var photo of this.photos._objects){
-      counter += photo.amountOfTags
-    } 
-    return counter
+    var counter = 0;
+    for (var photo of this.photos._objects) {
+      counter += photo.amountOfTags;
+    }
+    return counter;
   }
-  get amountOfTaggedPhotos() {
-    var counter = 0
-    for(var photo of this.photos._objects){
-      counter += photo.amountOfTags>0? 1 : 0
-    } 
-    return counter
+
+  get amountOfTaggedPhotos() { //not used anymore
+    var counter = 0;
+    for (var photo of this.photos._objects) {
+      counter += photo.amountOfTags>0? 1 : 0;
+    }
+    return counter;
   }
+
   get amountOfPhotos() {
-    return this.photos.length
+    return this.photos.length;
   }
 
   // Methods

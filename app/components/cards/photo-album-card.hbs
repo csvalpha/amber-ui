@@ -12,10 +12,10 @@
         <h3 class='card-subtitle'>{{moment-format album.date 'DD-MM-YYYY'}}</h3>
       </div>
       {{#if album.amountOfTags}}
-          <span class='album-tag-counter badge bg-info bottom-0 end-0'>
-            <FaIcon @icon='tag' />
-            {{album.amountOfTaggedPhotos}}/{{album.amountOfPhotos}}
-          </span>
+        <span class='album-tag-counter badge bg-info bottom-0 end-0'>
+          <FaIcon @icon='tag' />
+          {{album.amountOfTaggedPhotos}}/{{album.amountOfPhotos}}
+        </span>
       {{/if}}
     </div>
   </div>
