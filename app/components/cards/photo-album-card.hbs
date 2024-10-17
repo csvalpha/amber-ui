@@ -11,7 +11,7 @@
         <h2 class='card-title'>{{album.title}}</h2>
         <h3 class='card-subtitle'>{{moment-format album.date 'DD-MM-YYYY'}}</h3>
       </div>
-      {{#if album.amountOfTags}}
+      {{#if album.amountOfTaggedPhotos}}
         <span class='album-tag-counter badge bg-info bottom-0 end-0'>
           <FaIcon @icon='tag' />
           {{album.amountOfTaggedPhotos}}/{{album.amountOfPhotos}}
