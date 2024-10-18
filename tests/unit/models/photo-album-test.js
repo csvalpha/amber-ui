@@ -1,4 +1,3 @@
-import { run } from '@ember/runloop';
 import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 
@@ -23,7 +22,7 @@ module('Unit | Model | photo-album', function (hooks) {
     photos[0].amountOfTags = 0;
     photos[1].amountOfTags = 1;
     photos[2].amountOfTags = 5;
-    assert.equal(album.amountOfPhotos, 3, "Amount of photos is correct");
-    assert.equal(album.amountOfTaggedPhotos, 2, "Amount of tags in album is correct");
+    assert.equal(album.amountOfPhotos, 3, 'Amount of photos is correct');
+    assert.equal(album.amountOfTaggedPhotos, 2, 'Amount of tagged photos in album is correct');
   });
 });
