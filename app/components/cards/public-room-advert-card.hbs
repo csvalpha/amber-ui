@@ -1,4 +1,4 @@
-<div class='col-md-12 room-advert-card {{if @collapsed "collapsed mb-5 col-xl-10 mx-xl-auto"}}' {{on "click" (fn @open @roomAdvert)}}>
+<div class='col-md-12 room-advert-card {{if @collapsed "collapsed mb-5 col-xl-10 mx-xl-auto"}}' {{on "click" (fn this.open @roomAdvert)}}>
   <div class='d-flex justify-content-center'>
     <div class='card mb-0 w-100 {{if @collapsed "mx-lg-5"}}'>
       {{#if (not @collapsed)}}
@@ -55,7 +55,7 @@
             </table>
           </div>
           {{#if (and @roomAdvert.coverPhotoUrl @collapsed)}}
-            <img src={{@roomAdvert.coverPhotoUrl}} class='col-12 col-md-6 mb-3 object-fit-cover'/> 
+            <img src={{@roomAdvert.coverPhotoUrl}} class='col-12 col-md-6 mb-3 object-fit-cover'/>
           {{/if}}
         </div>
         <p class='card-text description overflow-hidden mb-1' data-test-room-advert-description>
@@ -66,7 +66,7 @@
           <div class="{{if @collapsed "fade-to-white-background"}}"></div>
         </p>
         {{#if @collapsed}}
-          <button class="btn btn-secondary float-end fw-bold mt-1" type="button" {{on "click" (fn @open @roomAdvert)}}>
+          <button class="btn btn-secondary float-end fw-bold mt-1" type="button" {{on "click" (fn this.open @roomAdvert)}}>
             Lees meer...
           </button>
         {{/if}}

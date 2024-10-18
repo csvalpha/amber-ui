@@ -1,8 +1,8 @@
 <div class="public">
-  <Public::Header 
-    @imageUrl="/images/public/room-forum/banner.jpg" 
-    @title="{{t 'component.public.roomForum.header'}}" 
-    @introTitle="{{t 'component.public.roomForum.intro-title'}}"  
+  <Public::Header
+    @imageUrl="/images/public/room-forum/banner.jpg"
+    @title="{{t 'component.public.roomForum.header'}}"
+    @introTitle="{{t 'component.public.roomForum.intro-title'}}"
     @intro="{{t 'component.public.roomForum.intro'}}"
   />
 
@@ -31,7 +31,7 @@
       <div class="modal-content">
         <div class="modal-body p-0">
           {{#if this.openedAdvert}}
-            <Cards::PublicRoomAdvertCard @roomAdvert={{this.openedAdvert}} @collapsed={{false}} @open={{this.openAdvert}} />
+            <Cards::PublicRoomAdvertCard @roomAdvert={{this.openedAdvert}} @collapsed={{false}}/>
           {{/if}}
         </div>
         <div class="modal-footer">
