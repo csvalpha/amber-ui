@@ -39,7 +39,7 @@ export default class PhotoAlbum extends Model {
     var counter = 0;
     this.photos.content.forEach((photo) => {
       counter += photo.amountOfTags > 0 ? 1 : 0;
-    })
+    });
     return counter;
   }
 
