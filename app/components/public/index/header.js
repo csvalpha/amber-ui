@@ -1,4 +1,4 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 
 export default class Header extends Component {
   images = ['/images/public/banner.jpg'];
