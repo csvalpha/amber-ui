@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Kamer advertentie aanmaken' 'Kamer advertentie wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' @onSubmit}}>
       <ModelForm::TextInput
         @model={{@model}}
         @property='houseName'
@@ -69,7 +69,7 @@
         @errorMessage={{@errorMessage}}
       >
         <button
-          {{action @onCancel}}
+          {{on 'click' @onCancel}}
           type="button"
           class='btn btn-default'
         >

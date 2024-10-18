@@ -2,13 +2,13 @@
   <div class="container-fluid d-flex justify-content-between">
     <span
       class='{{if this.session.isAuthenticated "half-toggle" "pe-2"}} left-sidebar-toggle d-block d-md-none link'
-      {{action 'toggleLeftSidebar'}}
+      {{on 'click' this.toggleLeftSidebar}}
     >
       ☰
     </span>
 
     {{#if this.session.isAuthenticated }}
-      <span {{action this.handleLogoAction}} class='navbar-brand'>
+      <span {{on 'click' this.handleLogoAction}} class='navbar-brand'>
         <div class='header-logo'> </div>
       </span>
     {{else}}
@@ -24,7 +24,7 @@
             <LinkTo @route='index' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq this.router.currentRouteName 'index') 'selected'}}">Home</BsButton>
             </LinkTo>
-            <BsDropdown class="position-static" as |dd| {{did-insert (action this.setStaticPages)}}>
+            <BsDropdown class="position-static" as |dd| {{did-insert this.setStaticPages}}>
               <dd.button @type="primary" class="public-navbar-button {{if this.onAboutUsPage 'selected'}}">
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
@@ -66,7 +66,7 @@
       <button
         class='btn btn-locale btn-inverse-locale-{{this.intl.locale}} me-2'
         title='{{t "component.headerNav.changeLocale"}}'
-        {{action 'toggleLocale'}}
+        {{on 'click' this.toggleLocale}}
         type='button'>
       </button>
     {{/unless}}
