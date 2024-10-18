@@ -68,7 +68,7 @@
             </div>
 
             <div class='card-body'>
-              <div class='card-text' itemprop='articleBody'>
+              <div class='card-text pb-2 h-100 d-flex flex-column' itemprop='vacancyBody'>
                 {{! Table without style }}
                 <table class='mb-4'>
                   {{#if vacancy.deadline}}
@@ -90,13 +90,13 @@
                     </tr>
                   {{/if}}
                 </table>
-
+                <div class="flex-grow-1" />
                 <LinkTo
-                  @route='articles.article'
-                  @model={{article.id}}
+                  @route='vacancies.vacancy'
+                  @model={{vacancy.id}}
                   itemprop='url'
                 >
-                  {{t 'tag.button.readMore'}}
+                  <i>{{t 'tag.button.readMore'}}</i>
                 </LinkTo>
               </div>
             </div>

@@ -1,0 +1,43 @@
+<div class="public">
+  <Public::Header
+    @imageUrl="/images/public/room-forum/banner.jpg"
+    @title="{{t 'component.public.roomForum.header'}}"
+    @introTitle="{{t 'component.public.roomForum.intro-title'}}"
+    @intro="{{t 'component.public.roomForum.intro'}}"
+  />
+
+  {{#each @model as |roomAdvert|}}
+    <Cards::PublicRoomAdvertCard @roomAdvert={{roomAdvert}} @collapsed={{true}} @open={{this.openAdvert}} />
+  {{/each}}
+
+  {{#if (eq @model.length 0)}}
+    <div class='col-12'>
+      <div class='alert alert-warning' role='alert'>
+        {{t 'component.public.roomForum.noAds'}}
+      </div>
+    </div>
+  {{/if}}
+
+  {{#if (gt @model.meta.page_count 1)}}
+    <div class='row justify-content-center'>
+      <PageNumbers @info={{@model.meta}} />
+    </div>
+  {{/if}}
+</div>
+
+<EmberWormhole @to='ember-wormhole-destination'>
+  <div class="modal modal-xl fade room-advert-modal" id="room-advert-modal" tabindex="-1" aria-hidden="true" {{on "hide.bs.modal" this.removeBackdrops}}>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body p-0">
+          {{#if this.openedAdvert}}
+            <Cards::PublicRoomAdvertCard @roomAdvert={{this.openedAdvert}} @collapsed={{false}}/>
+          {{/if}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary fw-bold" data-bs-dismiss="modal">Sluiten</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</EmberWormhole>
