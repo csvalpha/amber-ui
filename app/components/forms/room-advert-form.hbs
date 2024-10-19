@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Kamer advertentie aanmaken' 'Kamer advertentie wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{on 'submit' @onSubmit}}>
+    <form {{action @onSubmit on='submit'}}>
       <ModelForm::TextInput
         @model={{@model}}
         @property='houseName'
