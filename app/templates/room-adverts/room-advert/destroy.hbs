@@ -1,0 +1,21 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5>Kamer advertentie verwijderen</h5>
+  </div>
+  <div class='card-block p-3'>
+    <p class='card-text'>
+      Weet je zeker dat je deze kamer advertentie ({{@model.houseName}}) wil verwijderen?
+    </p>
+    {{#if errorMessage}}
+      <div class='text-danger'>{{this.errorMessage}}</div>
+    {{/if}}
+  </div>
+  <div class='card-footer'>
+    <button {{on 'click' this.destroyModel}} class='btn btn-danger' type='button'>
+      Kamer advertentie verwijderen
+    </button>
+    <button {{on 'click' this.cancel}} type="button" class='btn btn-default'>
+      Annuleren
+    </button>
+  </div>
+</div>
