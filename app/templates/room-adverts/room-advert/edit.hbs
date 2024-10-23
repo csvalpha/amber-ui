@@ -1,0 +1,12 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<Forms::RoomAdvertForm
+  @model={{@model}}
+  @errorMessage={{this.errorMessage}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
+  @onCoverPhotoLoaded={{action this.coverPhotoLoaded}}
+  @groups={{this.groups}}
+/>

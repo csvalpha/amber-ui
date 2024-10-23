@@ -1,0 +1,33 @@
+.room-advert-card {
+  max-width: var(--bs-modal-width);
+
+  .description {
+    max-height: max-content;
+  }
+
+  &.collapsed {
+    .description {
+      position: relative;
+      max-height: 15rem;
+    }
+  }
+
+  .advert-modal-header {
+    .title {
+      font-family: 'Advent Pro', sans-serif;
+      font-size: min(4rem, 6vw);
+    }
+  }
+}
+
+.room-advert-modal {
+  overflow: hidden;
+
+  .modal-dialog {
+    max-width: var(--bs-modal-width);
+
+    .modal-body {
+      max-height: 88vh;
+    }
+  }
+}
