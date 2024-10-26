@@ -1,13 +1,13 @@
 <div class='room-presence-dropdown page-action'>
   <BsButton @type='primary'>
-    <FaIcon @icon='mug-saucer' />
-    <span class='d-none d-md-inline'>Bestuurskamer</span>
+    <FaIcon @icon='book-open' />
+    <span class='d-none d-md-inline'>2de kamer</span>
     <span class='status-dot label-{{overallStatus}}'></span>
 
     <BsPopover
       {{!-- @triggerEvents='focus' --}}
       @placement='bottom'
-      @title='Aanwezig in de BK'
+      @title='Aanwezig in de 2de Kamer'
       @renderInPlace="{{true}}"
     >
       {{#each sortedPresences as |presence|}}
@@ -18,7 +18,7 @@
             </LinkTo>
           </div>
           <span class='presence-label label-{{presence.status}}'>
-            {{t (concat 'component.tools.boardRoomPresence.' presence.status)}}
+            {{t (concat 'component.tools.studyRoomPresence.' presence.status)}}
             van
             {{moment-format presence.startTime 'HH:mm'}}
             tot
@@ -29,14 +29,14 @@
         <div>Er is niemand aanwezig</div>
       {{/each}}
       
-      {{#if (can 'create board-room-presences')}}
+      {{#if (can 'create study-room-presences')}}
         <span class='d-flex'>
           <button
             class='btn btn-secondary mb-2 mt-3 update-presence-button'
             {{action 'setPresenceModalState' 'open'}}
             type='button'
           >
-            Beschikbaarheid updaten
+            Aanwezigheid updaten
           </button>
         </span>
       {{/if}}
@@ -47,7 +47,7 @@
 {{#if presenceModalIsOpen}}
   <EmberWormhole @to='ember-wormhole-destination'>
     <BasicModal
-      @title='Bestuurskamer beschikbaarheid opgeven'
+      @title='2de kamer beschikbaarheid opgeven'
       @closeModal={{action 'setPresenceModalState' 'closed'}}
       @onSubmit={{action 'save'}}
       @submitText='Beschikbaarheid opslaan'
@@ -69,12 +69,12 @@
                 <td>{{presence.user.fullNameWithNickname}}</td>
                 <td>
                   {{t
-                    (concat 'component.tools.boardRoomPresence.' presence.status)
+                    (concat 'component.tools.studyRoomPresence.' presence.status)
                   }}
                 </td>
                 <td> {{moment-format presence.endTime 'HH:mm'}} </td>
                 <td>
-                  {{#if (can 'destroy board-room-presences')}}
+                  {{#if (can 'destroy study-room-presences')}}
                     <button
                       class='btn btn-danger delete-presence-button float-end'
                       aria-hidden='true'
@@ -90,7 +90,7 @@
           </tbody>
         </table>
       {{else}}
-        <div class='alert alert-info'>Er zijn geen bestuursleden aanwezig</div>
+        <div class='alert alert-info'>Er zijn geen alphanen aanwezig</div>
       {{/if}}
 
       {{#if currentUserPresence}}
