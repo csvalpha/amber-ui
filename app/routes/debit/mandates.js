@@ -1,6 +1,6 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class MandatesRoute extends ApplicationRoute {
+export default class MandatesRoute extends AuthenticatedRoute {
   queryParams = {};
 
   breadcrumb = { title: 'Incasso mandaten' };

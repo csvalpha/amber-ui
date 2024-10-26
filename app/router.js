@@ -203,8 +203,6 @@ Router.map(function () {
 
   this.route('profile');
 
-  this.route('quickpost');
-
   this.route('sog', function () {
     this.route('name-trainer');
   });

@@ -14,7 +14,6 @@ export default function (server) {
     'photo',
     'photo_comment',
     'photo_tag',
-    'quickpost_message',
     'forum/category',
     'forum/thread',
     'forum/post',
