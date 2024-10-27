@@ -19,7 +19,7 @@ const StudyRoomPresence = Component.extend({
       label: 'Chillen',
     },
     {
-      value: 'Studying',
+      value: 'studying',
       label: 'Studeren',
     },
     {
@@ -72,9 +72,9 @@ const StudyRoomPresence = Component.extend({
       })
       .mapBy('status');
 
-    if (currentStatusses.includes('present')) {
-      return 'present';
-    } else if (currentStatusses.includes('Studeren')) {
+    if (currentStatusses.includes('chilling')) {
+      return 'Chillen';
+    } else if (currentStatusses.includes('studeren')) {
       return 'Studying';
     }
 
@@ -101,7 +101,7 @@ const StudyRoomPresence = Component.extend({
           {
             startTime: moment().startOf('minute').toDate(),
             endTime: moment().startOf('minute').add(1, 'hours').toDate(),
-            status: 'present',
+            status: 'Studying',
             user: this.session.currentUser,
           }
         );
