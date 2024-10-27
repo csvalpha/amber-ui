@@ -15,16 +15,16 @@ const StudyRoomPresence = Component.extend({
 
   statusOptions: [
     {
-      value: 'present',
-      label: 'Aanwezig',
+      value: 'chilling',
+      label: 'Chillen',
     },
     {
-      value: 'busy',
-      label: 'Bezig',
+      value: 'Studying',
+      label: 'Studeren',
     },
     {
-      value: 'absent',
-      label: 'Afwezig',
+      value: 'banaan',
+      label: 'Banaan',
     },
   ],
 
@@ -74,11 +74,11 @@ const StudyRoomPresence = Component.extend({
 
     if (currentStatusses.includes('present')) {
       return 'present';
-    } else if (currentStatusses.includes('busy')) {
-      return 'busy';
+    } else if (currentStatusses.includes('Studeren')) {
+      return 'Studying';
     }
 
-    return 'absent';
+    return 'banaan';
   }),
 
   saveButtonDisabled: equal('currentUserPresence', null),

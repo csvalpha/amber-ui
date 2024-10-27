@@ -281,6 +281,10 @@ component:
       present: Aanwezig
       busy: Bezig
       absent: Afwezig
+    studyRoomPresence:
+      chilling: Chillen
+      studying: Studeren
+      banaan: Banaan
   userComment:
     anonymous: Anonieme gebruiker
 mixin:
