@@ -119,4 +119,4 @@ const StudyRoomPresence = Component.extend({
   },
 });
 
-export default studyRoomPresence;
+export default StudyRoomPresence;
