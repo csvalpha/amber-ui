@@ -47,7 +47,7 @@
                 {{#if roomAdvert.availableFrom}}
                   <tr>
                     <th class="pe-3">Beschikbaar vanaf: </th>
-                    <td>{{roomAdvert.availableFrom}}</td>
+                    <td>{{moment-format roomAdvert.availableFrom 'DD-M-YYYY'}}</td>
                   </tr>
                 {{/if}}
               </table>

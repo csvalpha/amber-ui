@@ -39,7 +39,7 @@
     {{#if @roomAdvert.availableFrom}}
       <div class='col-12 col-md-6 card-subheader-item align-items-center p-3'>
         <b>Beschikbaar vanaf: </b>
-        {{@roomAdvert.availableFrom}}
+        {{moment-format @roomAdvert.availableFrom 'DD-M-YYYY'}}
       </div>
     {{/if}}
   </div>
