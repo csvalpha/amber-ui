@@ -30,11 +30,11 @@
         @label='Locatie'
         @maxlength={{100}}
       />
-      <ModelForm::TextInput
+      <ModelForm::DateInput
         @model={{@model}}
         @property='availableFrom'
         @label='Beschikbaar vanaf'
-        @maxlength={{100}}
+        @required={{true}}
       />
       <ModelForm::CheckboxInput
         @model={{@model}}
