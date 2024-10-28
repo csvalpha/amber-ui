@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Mandaat aanmaken' 'Mandaat wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' @onSubmit}}>
       <ModelForm::DateInput
         @model={{@model}}
         @property='startDate'
