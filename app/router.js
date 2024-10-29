@@ -258,5 +258,9 @@ Router.map(function () {
     });
   });
 
+  this.route('public', function () {
+    this.route('room-forum');
+  });
+
   return true;
 });

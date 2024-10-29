@@ -53,6 +53,7 @@ module.exports = function () {
       'pencil',
       'pen-to-square',
       'people-group',
+      'people-roof',
       'person-circle-plus',
       'phone',
       'plus',
