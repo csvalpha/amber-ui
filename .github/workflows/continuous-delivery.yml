@@ -4,9 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       merge:
-        description: Merge staging into master first? (y/N)
+        type: boolean
+        description: Merge staging into master first?
         required: false
-        default: 'n'
+        default: false
       ignore_metadata_diff:
         type: boolean
         description: Perform all jobs, regardless of whether there are actual changes?
