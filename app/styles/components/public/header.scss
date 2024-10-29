@@ -1,4 +1,4 @@
-.public-index-header {
+.public-header {
   display: flex;
   position: relative;
   flex-direction: column;
@@ -8,18 +8,8 @@
   padding-top: 80px;
   padding-bottom: 60px;
   height: fit-content;
-  min-height: 22vw;
+  min-height: 25vw;
   color: $white;
-
-  .header-background {
-    object-fit: cover;
-    object-position: bottom;
-  }
-
-  .header-overlay {
-    opacity: 0.45;
-    background-color: $black;
-  }
 
   .header-background, .header-overlay {
     position: absolute;
@@ -29,10 +19,22 @@
     margin-left: -50vw;
     width: 100vw;
     max-width: 100vw;
-    height: 100%;
   }
 
-  .header-slogan {
+  .header-background {
+    border-bottom: 4px solid $brand-secondary;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+  }
+
+  .header-overlay {
+    opacity: 0.35;
+    background-color: $black;
+    height: calc(100% - 4px);
+  }
+
+  .header-slogan, .header-title {
     z-index: 1;
     text-align: center;
     text-transform: uppercase;
@@ -44,6 +46,10 @@
     span {
       font-size: min(7rem, 11vw);
     }
+  }
+
+  .header-title {
+    font-size: min(7rem, 11vw);
   }
 
   .header-buttons {

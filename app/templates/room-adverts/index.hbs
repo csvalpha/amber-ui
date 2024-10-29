@@ -1,0 +1,84 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<div class='row'>
+  {{#each @model as |roomAdvert|}}
+    <div class='d-flex col-md-6 mb-3'>
+      <div class='d-flex'>
+        <div class='card mb-0'>
+          <LinkTo @route='room-adverts.room-advert' @model={{roomAdvert.id}}>
+            <div class='card-header card-header--overlay'>
+              <img
+                itemprop='image'
+                class='card-img-top'
+                src={{roomAdvert.coverPhotoUrlOrDefault}}
+              />
+
+              <div class='card-title-bar gradient-overlay without-subtitle'>
+                <div class='card-titles'>
+                  <LinkTo @route='room-adverts.room-advert' @model={{roomAdvert.id}}>
+                    <h2 class='card-title' itemprop='name headline'>
+                      {{roomAdvert.houseName}}
+                    </h2>
+                  </LinkTo>
+                </div>
+              </div>
+            </div>
+          </LinkTo>
+
+          <div class='card-body'>
+            <div class='card-text pb-2 h-100 d-flex flex-column' itemprop='roomAdvertBody'>
+              {{! Table without style }}
+              <table>
+                {{#if roomAdvert.location}}
+                  <tr>
+                    <th class="pe-3">Locatie: </th>
+                    <td>
+                      <a
+                        href='https://maps.google.com/?q={{roomAdvert.location}}'
+                        target='_blank'
+                      >
+                        {{roomAdvert.location}}
+                      </a>
+                    </td>
+                  </tr>
+                {{/if}}
+                {{#if roomAdvert.availableFrom}}
+                  <tr>
+                    <th class="pe-3">Beschikbaar vanaf: </th>
+                    <td>{{moment-format roomAdvert.availableFrom 'DD-M-YYYY'}}</td>
+                  </tr>
+                {{/if}}
+              </table>
+              <div class='mt-2 mb-4 overflow-hidden position-relative' style="max-height: 5rem">
+                {{roomAdvert.descriptionCamofied}}
+                <div class="fade-to-white-background fade-to-white-background-50"></div>
+              </div>
+              <div class="flex-grow-1" />
+              <LinkTo
+                @route='room-adverts.room-advert'
+                @model={{roomAdvert.id}}
+                itemprop='url'
+              >
+                <i>{{t 'tag.button.readMore'}}</i>
+              </LinkTo>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+
+  {{#if (eq @model.length 0)}}
+    <div class='col-12'>
+      <div class='alert alert-warning' role='alert'>
+        {{t 'component.public.roomForum.noAds'}}
+      </div>
+    </div>
+  {{/if}}
+</div>
+
+<div class='row justify-content-center'>
+  <PageNumbers @info={{@model.meta}} />
+</div>
