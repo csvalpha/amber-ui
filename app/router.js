@@ -205,6 +205,15 @@ Router.map(function () {
 
   this.route('quickpost');
 
+  this.route('room-adverts', function () {
+    this.route('new');
+
+    this.route('room-advert', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
+
   this.route('sog', function () {
     this.route('name-trainer');
   });
@@ -258,6 +267,10 @@ Router.map(function () {
       this.route('edit');
       this.route('destroy');
     });
+  });
+
+  this.route('public', function () {
+    this.route('room-forum');
   });
 
   return true;

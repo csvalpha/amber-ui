@@ -118,7 +118,7 @@ module.exports = function (environment) {
   }
 
   if (deployTarget === 'staging') {
-    ENV.clientId = 'rY_z6I7WAhNjzcIi3B4SB4KelwogD2BUK25D7vn9g1g';
+    ENV.clientId = 'D0HhpORylbWUgOBwyR-0GGDcfsi9PG6zSNgctW--f-4';
   }
 
   return ENV;
