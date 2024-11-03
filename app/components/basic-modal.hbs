@@ -24,14 +24,14 @@
           <button
             type='button'
             class='btn btn-secondary {{if @submitDisabled "disabled"}}'
-            {{action @onSubmit}}
+            {{on 'click' @onSubmit}}
             disabled={{@submitDisabled}}
           >
             {{@submitText}}
           </button>
         {{/if}}
         {{#if @closeModal}}
-          <button type='button' class='btn btn-default' {{action @closeModal}}>
+          <button type='button' class='btn btn-default' {{on 'click' @closeModal}}>
             Annuleren
           </button>
         {{/if}}
