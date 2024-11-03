@@ -47,5 +47,4 @@ export default function (server) {
   server.createList('article', 5);
   server.createList('group', 5, 'withMembers');
   server.createList('forum-category', 5, 'withThreads');
-  server.createList('quickpost-message', 10);
 }
