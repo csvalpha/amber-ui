@@ -4,4 +4,8 @@ export default class ThreadIndexRoute extends AuthenticatedRoute {
   beforeModel() {
     this.transitionTo('forum.categories.category.threads.thread.posts');
   }
+
+  canAccess() {
+    return this.abilities.can('show forum/threads');
+  }
 }

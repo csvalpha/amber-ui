@@ -4,4 +4,8 @@ export default class CollectionsRoute extends AuthenticatedRoute {
   queryParams = {};
 
   breadcrumb = { title: "Incasso's" };
+
+  canAccess() {
+    return this.abilities.can('show debit/collections');
+  }
 }
