@@ -1,53 +1,59 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import { action } from '@ember/object';
 import { OpenQuestionTypes } from 'amber-ui/constants';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
-const OpenQuestionComponent = Component.extend({
-  intl: service(),
-  question: null,
-  form: null,
-  questionTypes: OpenQuestionTypes,
-  questionTypeOptions: computed('questionTypes', function () {
+export default class OpenQuestionComponent extends Component {
+  @service intl;
+  questionTypes = OpenQuestionTypes;
+
+  get questionTypeOptions() {
     return this.questionTypes.map((questionType) => ({
       value: questionType,
       label: this.intl.t(`tag.input.types.${questionType}`),
     }));
-  }),
-  actions: {
-    moveQuestionUp() {
-      const index = this.form.get('sortedQuestions').indexOf(this.question);
-      if (index > 0) {
-        const previousQuestion = this.form
-          .get('sortedQuestions')
-          .objectAt(index - 1);
-        this.send('switchPositions', this.question, previousQuestion);
-      }
-    },
-    moveQuestionDown() {
-      const index = this.form.get('sortedQuestions').indexOf(this.question);
-      if (index < this.form.get('sortedQuestions.length') - 1) {
-        const nextQuestion = this.form
-          .get('sortedQuestions')
-          .objectAt(index + 1);
-        this.send('switchPositions', this.question, nextQuestion);
-      }
-    },
-    deleteQuestion() {
-      this.question.deleteRecord();
-    },
-    switchPositions(first, second) {
-      const firstPosition = first.get('position');
-      const secondPosition = second.get('position');
+  }
 
-      first.set('position', secondPosition);
-      second.set('position', firstPosition);
-    },
-  },
-});
+  get question() {
+    return this.args.question;
+  }
 
-OpenQuestionComponent.reopenClass({
-  positionalParams: ['question'],
-});
+  get form() {
+    return this.args.form;
+  }
 
-export default OpenQuestionComponent;
+  @action
+  moveQuestionUp() {
+    const index = this.form.get('sortedQuestions').indexOf(this.question);
+    if (index > 0) {
+      const previousQuestion = this.form
+        .get('sortedQuestions')
+        .objectAt(index - 1);
+      this.switchPositions(this.question, previousQuestion);
+    }
+  }
+
+  @action
+  moveQuestionDown() {
+    const index = this.form.get('sortedQuestions').indexOf(this.question);
+    if (index < this.form.get('sortedQuestions.length') - 1) {
+      const nextQuestion = this.form.get('sortedQuestions').objectAt(index + 1);
+      this.switchPositions(this.question, nextQuestion);
+    }
+  }
+
+  @action
+  deleteQuestion() {
+    this.question.deleteRecord();
+  }
+
+  @action
+  switchPositions(first, second) {
+    const firstPosition = first.get('position');
+    const secondPosition = second.get('position');
+
+    first.set('position', secondPosition);
+    second.set('position', firstPosition);
+  }
+}
