@@ -1,10 +1,8 @@
-import EditArticleController from './edit';
+import ArticleEditController from './article/edit';
 
-export default class NewArticleController extends EditArticleController {
+export default class ArticlesNewController extends ArticleEditController {
   successMessage = 'Artikel aangemaakt!';
   cancelMessage = 'Artikel aanmaken geannuleerd.';
-  cancelTransitionTarget = 'articles.index';
-  get cancelTransitionModel() {
-    return null;
-  }
+  cancelTransitionTarget = 'articles';
+  cancelTransitionModel = null;
 }

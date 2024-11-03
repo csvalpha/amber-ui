@@ -14,7 +14,7 @@ export default class User extends Ability {
   }
 
   get canShowOwn() {
-    return this.session.isAuthenticated;
+    return this.session.isAuthenticated && this.session.currentUser?.id;
   }
 
   get canCreate() {

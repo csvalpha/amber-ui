@@ -1,0 +1,23 @@
+<TabbedView @tabItems={{this.tabItems}}>
+  <form class='form' {{action 'submit' on='submit'}}>
+    <h5>Permissies</h5>
+    <Permissions::PermissionsTable
+      @modelPermissions={{@model.userPermissions}}
+      @editable={{true}}
+    />
+
+    <ModelForm::FormActions
+      @errors={{@model.errors}}
+      @errorMessage={{this.errorMessage}}
+      @inputLayout='vertical'
+    >
+      <button
+        {{action 'cancel'}}
+        type="button"
+        class='btn btn-default'
+      >
+        Annuleren
+      </button>
+    </ModelForm::FormActions>
+  </form>
+</TabbedView>

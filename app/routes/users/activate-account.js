@@ -1,3 +1,5 @@
-import Route from '@ember/routing/route';
+import ApplicationRoute from 'amber-ui/routes/application/application';
 
-export default Route;
+export default class ActivateAccountRoute extends ApplicationRoute {
+  breadcrumb = { title: 'Account activeren' };
+}

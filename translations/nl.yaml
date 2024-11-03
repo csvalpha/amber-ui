@@ -27,24 +27,24 @@ model:
       other: groepen
   mailAlias:
     name:
-      one: mail-alias
-      other: mail-aliassen
+      one: mail alias
+      other: mail aliassen
   mailModeration:
     name:
-      one: mail-moderatie
-      other: mail-moderaties
+      one: mail moderatie
+      other: mail moderaties
   forum:
     name:
       one: forum
       other: fora
   photoAlbum:
     name:
-      one: foto-album
-      other: foto-albums
+      one: fotoalbum
+      other: fotoalbums
   photoComment:
     name:
-      one: fotoreactie
-      other: fotoreacties
+      one: foto reactie
+      other: foto reacties
   photo:
     name:
       one: foto
@@ -94,115 +94,189 @@ component:
     aboutUs: Over ons
     sponsoring: Sponsoring
     becomeMember: Word lid!
-    becomeOldMember: Word oud-lid!
   footerNav:
     by: 'Met trots gebrouwen door de ICT-commissie der C.S.V. Alpha | © '
-  index:
-    public:
-      potentialMember:
-        banner: Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier je mail achter en we nemen contact met je op!
-        title: Geïnteresseerd in Alpha?
-        info:
-          Leuk dat je geïnteresseerd bent in Alpha. Stuur vooral een <a href="https://api.whatsapp.com/send?phone=31618053999&text=Hoi!%20Mijn%20naam%20is%20X%20en%20ben%20XX%20jaar%20oud.%20Ik%20ben%20ge%C3%AFnteresseerd%20in%20Alpha%20en%20zou%20graag%20een%20keer%20willen%20kennis%20maken%20met%20Alpha.">berichtje</a> naar 06-18053999, dan kan je een keertje vrijblijvend Alpha leren kennen op een van haar activiteiten!
-      aboutFlux:
-        title: Onze Sociëteit
-        info:
-          Aan de Oude Markt, staat de Pakkerij. Een imposant wit gebouw waar vier
-          studentenverenigingen gehuisvest zijn. Op de bovenste verdieping bevindt zich
-          de sociëteit van C.S.V. Alpha, 'Sociëteit Flux'. Elke donderdagavond wordt
-          er in deze gezellige ruimte een sociëteitsavond gehouden, maar Flux wordt
-          ook gebruikt voor Sing-Ins, thema-avonden en wordt soms verhuurd aan anderen.
-        more: Naar de website van Flux »
-      actionButtons:
-        room:
-          Zoek jij een kamer in Enschede? Of zoek je een logeerplek tijdens de introductie?
-          Laat hier je gegevens achter en wij proberen jou te helpen in jouw zoektocht!
-        roomButton: Ik zoek een kamer!
-        member:
-          Lid worden bij Alpha? Dat kan op een van onze activiteiten! Laat hier
-          je mail achter en we nemen contact met je op! Of word nu lid door je online
-          in te schrijven!
-        memberButton: Ik heb interesse!
-        memberNowButton: Ik word lid!
+    flux-contact: Neem contact op
+  public:
+    index:
+      header:
+        slogan-1: Voor wie
+        slogan-2: gelooft
+        slogan-3: in
+        slogan-4: een
+        slogan-5: studententijd!
+        interested: Geïnteresseerd
+        becomeMember: Word lid
       aboutAlpha:
-        slogan: Voor wie gelooft in een studententijd!
-        info:
-          Alpha is een christelijke studentenvereniging. Onze open sfeer zorgt ervoor
-          dat je je snel welkom voelt. We worden met ruim 100 leden vaak dé christelijke
-          gezelligheidsvereniging van Enschede genoemd. In onze eigen sociëteit Flux
-          in de Pakkerij aan de Oude Markt houden we van goede gesprekken onder het
-          genot van een biertje. Je bent ook van harte uitgenodigd om een keertje langs
-          te komen.
-        button: Lees meer over de vereniging
-        studiegids: Bekijk op Studiegids
-        studentenWegwijzer: Bekijk op StudentenWegwijzer
+        intro-title: Dé christelijke gezelligheidsvereniging van Enschede
+        intro:
+          C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging 
+          in Enschede, waar gezelligheid en christelijke vorming gecombineerd worden tot één unieke 
+          studentenvereniging. De grondslag van Alpha is "de boodschap van de Bijbel als 
+          richtsnoer voor het leven". Deze grondslag uit zich in de aspecten vriendschap, 
+          vorming en verantwoordelijkheid, de kern van de vereniging.
+        vriendschap-title: Vriendschap
+        vriendschap-text: 
+          Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en 
+          te onderhouden. Elke donderdag ontmoeten we elkaar hier, het is de plek waar 
+          een drankje en een goed gesprek hand in hand gaan.
+        vorming-title: Vorming
+        vorming-text: 
+          Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. 
+          Deze vorming uit zich in activiteiten als verenigingsavonden, 
+          sing-ins en natuurlijk de twee wekelijkse kring.
+        verantwoordelijkheid-title: Verantwoordelijkheid
+        verantwoordelijkheid-text: 
+          Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord 
+          zich in te zetten voor de vereniging, maar ook voor hun omgeving. Dit kan 
+          bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
       activities:
-        title: Activiteiten
+        title: Agenda
+        none: Er zijn geen open activiteiten de komende tijd.
       photos:
-        more: Bekijk meer foto's »
-      articles:
-        title: Recent nieuws
-        more: Meer recent nieuws »
-      memberStories:
-        title: Verhalen van leden
-        of: Verhaal van {name}
-        laurens1:
-          Héhé! Ik ben Laurens. In mijn eerste jaar als student ben ik bij Alpha
-          gegaan. Tijdens de Kick-In ben ik in aanraking gekomen met de vereniging.
-          Ik twijfelde in het begin nog of ik wel bij een studentenvereniging wilde,
-          maar ik wilde graag nieuwe (christelijke) vrienden maken in een nieuwe omgeving.
-          Hiervan heb ik absoluut geen spijt gekregen. In mijn eerste jaar heb ik veel
-          nieuwe contacten gemaakt en genoten van de activiteiten. Van studeren, sporten
-          en een biertje drinken met elkaar tot aan epische weekenden in binnen- en
-          buitenland.
-        laurens2:
-          Resultaat na het eerste jaar? Nieuwe vriendschappen, diepe en goede
-          geloofsgesprekken en veel nieuwe ervaring opgedaan in commissies. Na een half
-          jaar kwam ben ik in een Alpha huis gaan wonen. Het samen wonen met christelijke
-          studenten is super gaaf en toereikend. Verder organiseren we als huis epische
-          activiteiten  en is iedereen altijd welkom! Kortom, ben je op zoek naar gezelligheid,
-          vriendschap en uitdaging in je geloofsleven, dan is Alpha echt iets voor jou!
-        luuk1:
-          'Hey, ik ben Luuk. Toen ik in Enschede kwam ben ik niet direct bij een
-          studentenvereniging gegaan omdat ik niet dacht dat het iets voor mij zou zijn.
-          Na eerst een jaar gestudeerd te hebben nam een vriend van mijn studie me echter
-          een keer mee naar een borrel van Alpha. Daar heb ik toen zo’n gezellige avond
-          gehad dat ik er toch maar serieus over na ging denken om toch bij een vereniging
-          te gaan. Na nog een aantal intro activiteiten wist ik het zeker, ik ga bij
-          Alpha. '
-        luuk2:
-          En daar heb ik tot op de dag van vandaag absoluut geen spijt van gehad.
-          Bij Alpha heb ik vrienden gemaakt, in commissies gezeten en ben ik dieper
-          over het geloof gaan nadenken.  Van serieuze gesprekken tot gezellige borrels
-          en zo en dan een mooi feestjes, dat is precies de combinatie die ik  zo tof
-          vind aan Alpha. Ben je geïnteresseerd? Kom dan zeker eens langs!
-        susan:
-          Hoihoi, mijn naam is Susan. Toen ik twee jaar geleden naar Enschede kwam
-          was ik nooit van plan om bij een studentenvereniging te gaan. Toch werd ik
-          door huisgenoten een aantal keer meegesleept naar Alpha en ik was al snel
-          verkocht. Door de grootte diversiteit binnen de vereniging is er altijd wel
-          wat nieuws te beleven. Soms is dat een toffe commissie en een andere keer
-          een lang goed gesprek in de kroeg. Ook op geloofsgebied is er voor ieder wat
-          wils, met hele diverse kringen die je zelf mag kiezen kan je elk jaar weer
-          opnieuw bedenken waar je mee bezig wilt. Zo denk ik dat je bij Alpha veel
-          ruimte krijgt om te groeien en te ontdekken in je geloof. Ik heb erg veel
-          van mijn persoonlijke ontwikkeling te danken aan Alpha en zou de keuze om
-          erbij te gaan zo weer maken. Lijkt het jou ook leuk? Kom dan vooral een keer
-          kijken en proef de sfeer zelf!
-        afke1:
-          Heyhey! Al voor dat ik naar Enschede verhuisde hoorde ik goede verhalen
-          over Alpha. Tijdens de introperiode heb ik veel activiteiten meegepakt en
-          zo leerde ik Alpha nog veel beter kennen en heb ik besloten om lid te worden.
-          Ondertussen is er een jaar verstreken en heb ik het nog steeds enorm naar
-          mijn zin!
-        afke2:
-          Wat mij enorm aanspreekt in de vereniging is dat iedereen welkom is.
-          Er zijn leden uit allerlei verschillende kerken en ook niet-gelovige mensen,
-          maar iedereen gaat met elkaar om en iedereen heeft het gezellig met iedereen.
-          Zelf ben ik niet gelovig, maar ik voel me zeker helemaal op mijn plek binnen
-          Alpha. De goede gesprekken, de vriendschappen en de epische borrels en feesten
-          in onze sociëteit zorgen ervoor dat Alpha een superinvulling is van mijn studententijd
-          in Enschede!
+        title: Fotoalbums
+        more: Meer foto's
+        none: Er zijn op dit moment geen foto-albums om weer te geven.
+      sponsors:
+        potential-sponsor: Ook sponsor worden? Klik hier
+      youtube-videos:
+        title: C.S.V. Alpha in het kort
+    board:
+      header: LANG-TODO
+      intro-title: LANG-TODO
+      intro: LANG-TODO
+      slogan: LANG-TODO
+      senaat: Senaat
+      old-boards: Oud Besturen
+      board-member-stories:
+        member-1: LANG-TODO
+        member-2: LANG-TODO
+        member-3: LANG-TODO
+        member-4: LANG-TODO
+        member-5: LANG-TODO
+    contact:
+      header: LANG-TODO
+      intro: LANG-TODO
+      form:
+        name: Naam
+        email: E-mail
+        message: Bericht
+        submit: Versturen
+    externalRelations:
+      header: LANG-TODO
+      intro: LANG-TODO
+      choose-text: LANG-TODO
+      fact-text: LANG-TODO
+      ozon-text: LANG-TODO
+    flux:
+      header: LANG-TODO
+      intro: LANG-TODO
+      board:
+        title: LANG-TODO
+        intro: LANG-TODO
+        president: Voorzitter
+        secretary: Secretaris
+        treasurer: Penningmeester
+        renting: Verhuur
+        logistics: Logistiek Coördinator
+        vice-president: Vice Voorzitter
+    history:
+      header: LANG-TODO 
+      event-1980: LANG-TODO
+      event-1981: LANG-TODO
+      event-1982: LANG-TODO
+    identity:
+      header: LANG-TODO
+      intro: LANG-TODO
+      three-vs:
+        title: LANG-TODO
+        intro: LANG-TODO
+        vriendschap: LANG-TODO
+        vorming: LANG-TODO
+        verantwoordelijkheid: LANG-TODO
+    interested:
+      header: LANG-TODO
+      intro: LANG-TODO
+      fill-out-form: LANG-TODO
+    memberStories:
+      header: Verhalen van leden
+      intro-title: LANG-TODO
+      intro: LANG-TODO
+      laurens1:
+        Héhé! Ik ben Laurens. In mijn eerste jaar als student ben ik bij Alpha
+        gegaan. Tijdens de Kick-In ben ik in aanraking gekomen met de vereniging.
+        Ik twijfelde in het begin nog of ik wel bij een studentenvereniging wilde,
+        maar ik wilde graag nieuwe (christelijke) vrienden maken in een nieuwe omgeving.
+        Hiervan heb ik absoluut geen spijt gekregen. In mijn eerste jaar heb ik veel
+        nieuwe contacten gemaakt en genoten van de activiteiten. Van studeren, sporten
+        en een biertje drinken met elkaar tot aan epische weekenden in binnen- en
+        buitenland.
+      laurens2:
+        Resultaat na het eerste jaar? Nieuwe vriendschappen, diepe en goede
+        geloofsgesprekken en veel nieuwe ervaring opgedaan in commissies. Na een half
+        jaar kwam ben ik in een Alpha huis gaan wonen. Het samen wonen met christelijke
+        studenten is super gaaf en toereikend. Verder organiseren we als huis epische
+        activiteiten  en is iedereen altijd welkom! Kortom, ben je op zoek naar gezelligheid,
+        vriendschap en uitdaging in je geloofsleven, dan is Alpha echt iets voor jou!
+      luuk1:
+        'Hey, ik ben Luuk. Toen ik in Enschede kwam ben ik niet direct bij een
+        studentenvereniging gegaan omdat ik niet dacht dat het iets voor mij zou zijn.
+        Na eerst een jaar gestudeerd te hebben nam een vriend van mijn studie me echter
+        een keer mee naar een borrel van Alpha. Daar heb ik toen zo’n gezellige avond
+        gehad dat ik er toch maar serieus over na ging denken om toch bij een vereniging
+        te gaan. Na nog een aantal intro activiteiten wist ik het zeker, ik ga bij
+        Alpha. '
+      luuk2:
+        En daar heb ik tot op de dag van vandaag absoluut geen spijt van gehad.
+        Bij Alpha heb ik vrienden gemaakt, in commissies gezeten en ben ik dieper
+        over het geloof gaan nadenken.  Van serieuze gesprekken tot gezellige borrels
+        en zo en dan een mooi feestjes, dat is precies de combinatie die ik  zo tof
+        vind aan Alpha. Ben je geïnteresseerd? Kom dan zeker eens langs!
+      susan:
+        Hoihoi, mijn naam is Susan. Toen ik twee jaar geleden naar Enschede kwam
+        was ik nooit van plan om bij een studentenvereniging te gaan. Toch werd ik
+        door huisgenoten een aantal keer meegesleept naar Alpha en ik was al snel
+        verkocht. Door de grootte diversiteit binnen de vereniging is er altijd wel
+        wat nieuws te beleven. Soms is dat een toffe commissie en een andere keer
+        een lang goed gesprek in de kroeg. Ook op geloofsgebied is er voor ieder wat
+        wils, met hele diverse kringen die je zelf mag kiezen kan je elk jaar weer
+        opnieuw bedenken waar je mee bezig wilt. Zo denk ik dat je bij Alpha veel
+        ruimte krijgt om te groeien en te ontdekken in je geloof. Ik heb erg veel
+        van mijn persoonlijke ontwikkeling te danken aan Alpha en zou de keuze om
+        erbij te gaan zo weer maken. Lijkt het jou ook leuk? Kom dan vooral een keer
+        kijken en proef de sfeer zelf!
+      afke1:
+        Heyhey! Al voor dat ik naar Enschede verhuisde hoorde ik goede verhalen
+        over Alpha. Tijdens de introperiode heb ik veel activiteiten meegepakt en
+        zo leerde ik Alpha nog veel beter kennen en heb ik besloten om lid te worden.
+        Ondertussen is er een jaar verstreken en heb ik het nog steeds enorm naar
+        mijn zin!
+      afke2:
+        Wat mij enorm aanspreekt in de vereniging is dat iedereen welkom is.
+        Er zijn leden uit allerlei verschillende kerken en ook niet-gelovige mensen,
+        maar iedereen gaat met elkaar om en iedereen heeft het gezellig met iedereen.
+        Zelf ben ik niet gelovig, maar ik voel me zeker helemaal op mijn plek binnen
+        Alpha. De goede gesprekken, de vriendschappen en de epische borrels en feesten
+        in onze sociëteit zorgen ervoor dat Alpha een superinvulling is van mijn studententijd
+        in Enschede!
+    partners:
+      header: LANG-TODO
+      intro: LANG-TODO
+      our-partners:
+        title: Onze partners
+        partner-1: LANG-TODO
+        partner-2: LANG-TODO
+        partner-3: LANG-TODO
+    roomForum:
+      header: Kamer forum
+      intro-title: Check hier de beschikbare kamers bij Alphanen in huis!
+      intro: 
+        Alphanen wonen verspreidt over vele studentenhuizen, zowel in Alphahuizen als gewone studentenhuizen. 
+        Als er een kamer vrijkomt op een Alphahuis of bij een Alphaan, vind je dat hier!
+      location: Locatie
+      contact: Contact
+      availableFrom: Beschikbaar vanaf
+      noAds:  Momenteel zijn er geen kamers beschikbaar.
   socialMediaButtons:
     facebook: Like ons op Facebook
     instagram: Volg ons op Instagram
@@ -223,18 +297,20 @@ mixin:
     sponsorkliks: Sponsorkliks
     profile: Profiel
     settings: Instellingen
-    mailaliases: Mail aliassen
+    mailAliases: Mail aliassen
     collections: Incasso's
     mailModerations: Mail moderaties
     mandates: Mandaten
-    tomato: Streepsysteem
+    sofia: Streepsysteem
     nextcloud: Nextcloud
     home: Home
     articles: Artikelen
     activities: Activiteiten
     vacancies: Vacatures
+    roomAdverts: Kamers
+    roomForum: Kamerforum
     forum: Forum
-    photoAlbums: Foto-albums
+    photoAlbums: Fotoalbums
     polls: Polls
     groups: Groepen
     users: Gebruikers

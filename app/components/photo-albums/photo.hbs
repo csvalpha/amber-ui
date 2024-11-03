@@ -1,12 +1,18 @@
 <div class='d-flex justify-content-center align-items-center'>
-  <img src={{@model.imageUrl}} class='photo-large' />
+  {{#if this.showTags}}
+    <PhotoTags::PhotoTags @model={{@model}}>
+      <img src={{@model.imageUrl}} class='photo-large' />
+    </PhotoTags::PhotoTags>
+  {{else}}
+    <img src={{@model.imageUrl}} class='photo-large' />
+  {{/if}}
 </div>
 
 {{#if (can 'show individual users')}}
   {{#if this.showInfo}}
     <p class='text-end text-muted mt-2'>
       Foto geüpload door
-      <LinkTo @route='users.show' @model={{@model.uploader.id}}>
+      <LinkTo @route='users.user' @model={{@model.uploader.id}}>
         {{@model.uploader.fullNameWithNickname}}
       </LinkTo>
 
@@ -64,4 +70,6 @@
       </div>
     {{/if}}
   {{/if}}
+{{else}}
+  <div class="mt-3"></div>
 {{/if}}

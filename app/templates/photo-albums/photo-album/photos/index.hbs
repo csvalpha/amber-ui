@@ -10,16 +10,27 @@
 </EmberWormhole>
 
 <h3 class="row ps-1">{{model.title}}</h3>
-<p class="row ps-1">{{model.group.name}}</p>
+{{#if (can 'show group')}}
+  <p class="row ps-1">{{model.group.name}}</p>
+{{/if}}
 
 <div class='row'>
   {{#each sortedPhotos as |photo|}}
     <div class='col-md-3 col-xs-6 photo-album-image-card'>
-      <LinkTo @route='photo-albums.photo-album.photos.show' @model={{photo.id}}>
-        {{#if photo.amountOfComments}}
+      <LinkTo
+        @route='photo-albums.photo-album.photos.photo'
+        @model={{photo.id}}
+      >
+        {{#if (or photo.amountOfComments photo.amountOfTags)}}
           <span class='comments-counter badge bg-info bottom-0 start-0'>
-            <FaIcon @icon='comments' />
-            {{photo.amountOfComments}}
+            {{#if photo.amountOfComments}}
+              <FaIcon @icon='comments' />
+              {{photo.amountOfComments}}
+            {{/if}}
+            {{#if photo.amountOfTags}}
+              <FaIcon @icon='tag' />
+              {{photo.amountOfTags}}
+            {{/if}}
           </span>
         {{/if}}
         <img class='image' src='{{photo.imageThumbUrl}}' />

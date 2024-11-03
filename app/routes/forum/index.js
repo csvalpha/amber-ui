@@ -1,10 +1,6 @@
-import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class ForumIndexRoute extends AuthenticatedRoute {
-  canAccess() {
-    return this.abilities.can('show forum/categories');
-  }
-
+export default class ForumIndexRoute extends ApplicationRoute {
   beforeModel() {
     this.transitionTo('forum.categories');
   }

@@ -1,9 +1,12 @@
 {{#if form.amountOfResponses}}
   <div class='card'>
-    <div class='card-header my-2'>
+    <div class='card-header my-2 py-1'>
       <div class='row align-items-center'>
         <h5 class='card-title col'>Inschrijvingen</h5>
-        <div class='col col-md-auto'>
+        <div class='col col-md-auto d-flex align-items-center flex-wrap'>
+          <button class='btn btn-primary btn-sm me-3 my-2 text-nowrap' type="button" {{on 'click' (action 'copyUsernames')}}>
+            Kopieer gebruikersnamen
+          </button>
           <div class="form-check">
             <Input
                 @type='checkbox'

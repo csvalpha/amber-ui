@@ -1,7 +1,7 @@
 import JSONAPIAdapter from '@ember-data/adapter/json-api';
 import { underscore } from '@ember/string';
 import { inject as service } from '@ember/service';
-import ENV from '../config/environment';
+import ENV from 'amber-ui/config/environment';
 
 import { pluralize } from 'ember-inflector';
 
@@ -15,6 +15,7 @@ export default class ApplicationAdapter extends JSONAPIAdapter {
     let headers = {};
     if (this.session.isAuthenticated) {
       headers.Authorization = `Bearer ${this.session.data.authenticated.access_token}`;
+      document.documentElement.classList.add('authenticated');
     }
 
     return headers;

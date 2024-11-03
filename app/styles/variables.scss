@@ -1,7 +1,7 @@
 // Basic colors
 $brand-primary: #ffd218; //yellow
 $brand-primary-dark: #e0b400; //dark yellow
-$brand-secondary: #b9182c; //darkred
+$brand-secondary: #6f0218; //darkred
 $brand-info: #6889cc; //blue
 $brand-warning: #ff9904; //orange
 $brand-success: #00af43; //green
@@ -9,6 +9,7 @@ $brand-danger: #ba211c; //red
 $brand-hidden: #6c0894; //purple
 $facebook-blue: #3b5998;
 $youtube-red: #c00;
+$brand-cream: #FFFBE9;
 
 // grayscales (white to black)
 $white: #fff;
@@ -24,6 +25,7 @@ $opaque-white-halfly: rgb(255 255 255 / 50%);
 $brand-primary-transparent-halfly: rgb(255 210 24 / 30%);
 
 $photo-card-height: 200px;
+$public-activity-and-photo-holders-height: 400px;
 
 // also set the color scheme for Bootstrap
 $theme-colors: (
@@ -120,6 +122,9 @@ $container-max-widths: (
 
 $grid-columns: 12 !default;
 $grid-gutter-width: 1.875rem; // 30px
+
+// Allow negative margins
+$enable-negative-margins: true;
 
 // fonts
 $font-family-sans-serif: 'nunito sans', 'Arial', sans-serif;

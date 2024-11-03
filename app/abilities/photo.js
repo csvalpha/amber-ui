@@ -8,7 +8,11 @@ export default class Photo extends Ability {
   get canShowPhotoComments() {
     return (
       this.session.hasPermission('photo-comment.read') ||
-      this.model.photoAlbum.publiclyVisible
+      this.model.photoAlbum.get('publiclyVisible')
     );
+  }
+
+  get canShowPhotoTags() {
+    return this.session.hasPermission('photo-tag.read');
   }
 }

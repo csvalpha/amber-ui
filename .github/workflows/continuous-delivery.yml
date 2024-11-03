@@ -105,6 +105,8 @@ jobs:
     uses: csvalpha/amber-ui/.github/workflows/continuous-integration.yml@staging
     with:
       sha: ${{ needs.merge.outputs.sha }}
+    secrets:
+      codecov_token: ${{ secrets.CODECOV_TOKEN }}
 
   publish_image:
     name: Publish Image

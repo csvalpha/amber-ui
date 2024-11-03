@@ -1,107 +1,77 @@
-import { set } from '@ember/object';
 import { inject as service } from '@ember/service';
-import { computed } from '@ember/object';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 
-export default Component.extend({
-  tagName: 'nav',
-  classNames: 'header-nav',
-  session: service(),
-  layoutManager: service('layout-manager'),
-  media: service(),
-  intl: service(),
-  localStorage: service(),
-  store: service(),
-  router: service(),
-  abilities: service(),
-  availableStaticPages: tracked(),
-  staticPagesForDropdown: computed('availableStaticPages', function () {
-    const result = {};
-    if (this.availableStaticPages) {
-      Object.entries(this.availableStaticPages).forEach(([id, title]) => {
-        if (!['word-lid', 'word-oud-lid', 'sponsoring'].includes(id)) {
-          result[id] = title;
-        }
-      });
-    }
-    return result;
-  }),
-  unAuthenticatedMenuOptions: computed(
-    'intl.locale',
-    'availableStaticPages',
-    function () {
-      let list = [];
-      list = this.addStaticPageOption(list, 'word-lid', 'becomeMember');
-      list = this.addStaticPageOption(list, 'word-oud-lid', 'becomeOldMember');
-      list.push(
-        {
-          link: 'articles',
-          title: this.intl.t('mixin.menuItems.articles'),
-          icon: '',
-          canAccess: this.abilities.can('show articles'),
-        },
-        {
-          link: 'photo-albums',
-          title: this.intl.t('mixin.menuItems.photoAlbums'),
-          icon: '',
-          canAccess: this.abilities.can('show photo-albums'),
-        }
-      );
-      return this.addStaticPageOption(list, 'sponsoring', 'sponsoring');
-    }
-  ),
+export default class HeaderNav extends Component {
+  @service session;
+  @service('layout-manager') layoutManager;
+  @service media;
+  @service intl;
+  @service localStorage;
+  @service store;
+  @service router;
+  @service abilities;
+  @tracked staticPages;
 
-  actions: {
-    handleLogoAction() {
-      if (this.media.isMobile) {
-        this.send('toggleLeftSidebar');
-      } else {
-        this.router.transitionTo('index');
-      }
-    },
-    toggleLeftSidebar() {
-      this.layoutManager.toggleLeftSidebar();
-    },
-    toggleRightSidebar() {
-      this.layoutManager.toggleRightSidebar();
-    },
-    closeSidebars() {
-      this.layoutManager.closeSidebars();
-    },
-    toggleLocale() {
-      const { locale } = this.intl;
-      if (locale[0] === 'nl') {
-        this.set('intl.locale', 'en');
-        localStorage.setItem('locale', 'en-');
-      } else {
-        this.set('intl.locale', 'nl');
-        localStorage.setItem('locale', 'nl');
-      }
-    },
-    setAvailableStaticPages() {
-      if (!this.session.isAuthenticated && !this.media.isMobile) {
-        this.store.findAll('static-page').then((pages) => {
-          // make key-value pairs for all found static pages
-          let newAvailableStaticPages = pages.reduce(
-            (obj, page) => Object.assign(obj, { [page.id]: page.title }),
-            {}
-          );
-          set(this, 'availableStaticPages', newAvailableStaticPages);
+  get onAboutUsPage() {
+    return (
+      this.router.currentRouteName === 'public.room-forum' ||
+      (this.router.currentRouteName === 'static-pages.static-page.index' &&
+        this.router.currentURL !== '/static-pages/word-lid' &&
+        this.router.currentURL !== '/static-pages/sponsoring')
+    );
+  }
+
+  @action
+  handleLogoAction() {
+    if (this.media.isMobile) {
+      this.send('toggleLeftSidebar');
+    } else {
+      this.router.transitionTo('index');
+    }
+  }
+
+  @action
+  toggleLeftSidebar() {
+    this.layoutManager.toggleLeftSidebar();
+  }
+
+  @action
+  toggleRightSidebar() {
+    this.layoutManager.toggleRightSidebar();
+  }
+
+  @action
+  closeSidebars() {
+    this.layoutManager.closeSidebars();
+  }
+
+  @action
+  toggleLocale() {
+    const { locale } = this.intl;
+    if (locale[0] === 'nl') {
+      this.intl.locale = 'en';
+      this.localStorage.setItem('locale', 'en-');
+    } else {
+      this.intl.locale = 'nl';
+      this.localStorage.setItem('locale', 'nl');
+    }
+  }
+
+  @action
+  setStaticPages() {
+    if (!this.session.isAuthenticated && !this.media.isMobile) {
+      this.store.findAll('static-page').then((pages) => {
+        // make key-value pairs for all found static pages that do not appear by itself
+        let staticPages = {};
+        pages.forEach((page) => {
+          if (!['word-lid', 'sponsoring'].includes(page.id)) {
+            staticPages[page.id] = page.title;
+          }
         });
-      }
-    },
-  },
-  addStaticPageOption: function (list, id, localeName) {
-    if (this.availableStaticPages && this.availableStaticPages[id]) {
-      list.push({
-        link: 'static-pages.show',
-        linkArgument: id,
-        title: this.intl.t('component.headerNav.' + localeName),
-        icon: '',
-        canAccess: this.abilities.can('show static-pages'),
+        this.staticPages = staticPages;
       });
     }
-    return list;
-  },
-});
+  }
+}

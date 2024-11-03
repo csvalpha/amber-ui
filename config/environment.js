@@ -114,11 +114,11 @@ module.exports = function (environment) {
 
   if (deployTarget === 'production') {
     ENV.clientId = 'IIeYVVbdNhiSiSCxKP5eUgS5Vs1-9ccZEvISdCVqe5g';
-    ENV.googleAnalytics = { webPropertyId: 'UA-8136462-4' };
+    ENV.googleAnalytics = { webPropertyId: 'G-8XNQMRFWPZ' };
   }
 
   if (deployTarget === 'staging') {
-    ENV.clientId = 'rY_z6I7WAhNjzcIi3B4SB4KelwogD2BUK25D7vn9g1g';
+    ENV.clientId = 'D0HhpORylbWUgOBwyR-0GGDcfsi9PG6zSNgctW--f-4';
   }
 
   return ENV;

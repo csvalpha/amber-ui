@@ -1,0 +1,50 @@
+<div class="public-index-activities row p-2 px-sm-5 pt-4 pt-md-5 pb-0 d-flex flex-column align-items-center">
+  <h2 class="public-title public-title-smaller">{{t 'component.public.index.activities.title'}}</h2>
+  <hr class="public-title-border border border-secondary bg-secondary border-3 opacity-100" />
+  <div class='activity-list p-0 mt-2 mt-md-4'>
+    {{#each activitiesMatrix as |activityPair|}}
+      <div class="row">
+        {{#each activityPair as |activity|}}
+          <div class="{{if doubleActivityColumns "col-md-6" "col-md-12"}}">
+            {{cards/public-activity-card-small
+          activity
+          action=(action 'openModal' activity)
+        }}
+          </div>
+        {{/each}}
+      </div>
+    {{else}}
+      <p class="public-no-items-text"><i>{{t 'component.public.index.activities.none'}}</i></p>
+    {{/each}}
+  </div>
+</div>
+
+{{#if modalIsOpen}}
+  <EmberWormhole @to='ember-wormhole-destination'>
+    <div class='public-index-activity-modal modal d-block'>
+      <div class='activity-modal-backdrop' {{action 'closeModal'}}></div>
+      <div class='activity-modal-content-wrapper modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-body'>
+            <div class='modal-image-header rounded-top' style={{modalImageStyle}}></div>
+            <h2 class='modal-title'>{{modalTitle}}</h2>
+            <p><i>{{modalLocation}}</i></p>
+            {{markdown-to-html
+              modalText
+              extensions='youtubeEmbed bootstrapTable'
+            }}
+          </div>
+          <div class='modal-footer'>
+            <button
+              type='button'
+              class='btn btn-default'
+              {{action 'closeModal'}}
+            >
+              {{t 'tag.button.close'}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </EmberWormhole>
+{{/if}}

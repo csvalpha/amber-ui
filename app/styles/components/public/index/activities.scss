@@ -1,0 +1,11 @@
+.public-index-activity-modal {
+  .activity-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: $opaque-black-halfly;
+  }
+
+  .activity-modal-content-wrapper {
+    top: 100px;
+  }
+}

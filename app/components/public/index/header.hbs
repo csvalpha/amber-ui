@@ -1,0 +1,24 @@
+<div class='container-fluid public-header'>
+  <img src="/images/public/index/banner.jpg" class="header-background" />
+  <div class="header-overlay"></div>
+  <p class="header-slogan">
+    {{t 'component.public.index.header.slogan-1'}}
+    <span>{{t 'component.public.index.header.slogan-2'}}</span>
+    {{t 'component.public.index.header.slogan-3'}}
+    <br/>
+    {{t 'component.public.index.header.slogan-4'}}
+    <span>{{t 'component.public.index.header.slogan-5'}}</span>
+  </p>
+  <div class="header-buttons d-flex flex-wrap justify-content-center">
+    <a href='https://forms.gle/R4WYzbWameD6wN817' target='_blank' class="mt-4 mx-3">
+      <button class="btn btn-lg btn-primary header-button" type="button">
+        {{t 'component.public.index.header.interested'}}
+      </button>
+    </a>
+    <LinkTo @route='static-pages.static-page' @model='word-lid' class="mt-4 mx-3">
+      <button class="btn btn-lg btn-primary header-button" type="button">
+        {{t 'component.public.index.header.becomeMember'}}
+      </button>
+    </LinkTo>
+  </div>
+</div>

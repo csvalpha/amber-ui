@@ -6,6 +6,7 @@ export default class PhotoAlbumsIndexController extends FilterableAndSortableCon
   @tracked sortedAscending = false;
 
   queryParams = ['search', 'sort', 'page'];
+
   sortableAttributes = [
     {
       value: 'title',

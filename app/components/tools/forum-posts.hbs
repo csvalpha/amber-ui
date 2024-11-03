@@ -1,6 +1,6 @@
 <div class='card tool'>
   <div class='card-header'>
-    <LinkTo @route='forum.index'>
+    <LinkTo @route='forum'>
       <h5 class='card-text'>Forum</h5>
     </LinkTo>
   </div>
@@ -8,7 +8,7 @@
   <ul class='list-group list-group-flush'>
     {{#each threads as |thread|}}
       <LinkTo
-        @route='forum.categories.category.threads.thread.show'
+        @route='forum.categories.category.threads.thread'
         @models={{array thread.category.id thread.id}}
       >
         <li class='list-group-item'>
