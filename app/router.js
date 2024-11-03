@@ -203,6 +203,15 @@ Router.map(function () {
 
   this.route('profile');
 
+  this.route('room-adverts', function () {
+    this.route('new');
+
+    this.route('room-advert', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
+
   this.route('sog', function () {
     this.route('name-trainer');
   });
