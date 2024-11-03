@@ -2,7 +2,6 @@ import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { OpenQuestionTypes } from 'amber-ui/constants';
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 
 export default class OpenQuestionComponent extends Component {
   @service intl;
