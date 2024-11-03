@@ -1,4 +1,3 @@
-import { alias } from '@ember/object/computed';
 import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
