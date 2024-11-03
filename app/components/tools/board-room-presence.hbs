@@ -2,7 +2,7 @@
   <BsButton @type='primary'>
     <FaIcon @icon='mug-saucer' />
     <span class='d-none d-md-inline'>Bestuurskamer</span>
-    <span class='status-dot label-{{overallStatus}}'></span>
+    <span class='status-dot label-{{this.overallStatus}}'></span>
 
     <BsPopover
       {{!-- @triggerEvents='focus' --}}
@@ -10,7 +10,7 @@
       @title='Aanwezig in de BK'
       @renderInPlace="{{true}}"
     >
-      {{#each sortedPresences as |presence|}}
+      {{#each this.sortedPresences as |presence|}}
         <div class='py-1'>
           <div class='d-block'>
             <LinkTo @route='users.user' @model={{presence.user.id}}>
@@ -28,7 +28,7 @@
       {{else}}
         <div>Er is niemand aanwezig</div>
       {{/each}}
-      
+
       {{#if (can 'create board-room-presences')}}
         <span class='d-flex'>
           <button
@@ -48,12 +48,12 @@
   <EmberWormhole @to='ember-wormhole-destination'>
     <BasicModal
       @title='Bestuurskamer beschikbaarheid opgeven'
-      @closeModal={{fn 'setPresenceModalState' 'closed'}}
+      @closeModal={{fn this.setPresenceModalState 'closed'}}
       @onSubmit={{this.save}}
       @submitText='Beschikbaarheid opslaan'
       @submitDisabled={{saveButtonDisabled}}
     >
-      {{#if sortedPresences}}
+      {{#if this.sortedPresences}}
         <table class='table edit-presence'>
           <thead>
             <tr>
@@ -64,7 +64,7 @@
             </tr>
           </thead>
           <tbody>
-            {{#each sortedPresences as |presence|}}
+            {{#each this.sortedPresences as |presence|}}
               <tr class="edit-presence-row">
                 <td>{{presence.user.fullNameWithNickname}}</td>
                 <td>
@@ -93,31 +93,31 @@
         <div class='alert alert-info'>Er zijn geen bestuursleden aanwezig</div>
       {{/if}}
 
-      {{#if currentUserPresence}}
+      {{#if this.currentUserPresence}}
         <label for="new-user-presence-status">Status</label>
         <Input::SelectInput
           @class='form-control col-xs-12 presence-select'
           @required={{true}}
           @options={{statusOptions}}
           @placeholder={{Status}}
-          @value={{currentUserPresence.status}}
+          @value={{this.currentUserPresence.status}}
           @id="new-user-presence-status"
         />
         <label for="new-user-presence-starttime" class="mt-2">Van</label>
         <Input::TimeInput
-          @dateValue={{currentUserPresence.startTime}}
+          @dateValue={{this.currentUserPresence.startTime}}
           @class='col-xs-12 presence-time-input'
           @inputClass='form-control'
-          @placeholder={{currentUserPresence.startTime}}
+          @placeholder={{this.currentUserPresence.startTime}}
           @required={{true}}
           @id="new-user-presence-starttime"
         />
         <label for="new-user-presence-endtime" class="mt-2">Tot</label>
         <Input::TimeInput
-          @dateValue={{currentUserPresence.endTime}}
+          @dateValue={{this.currentUserPresence.endTime}}
           @class='col-xs-12 presence-time-input'
           @inputClass='form-control'
-          @placeholder={{currentUserPresence.endTime}}
+          @placeholder={{this.currentUserPresence.endTime}}
           @required={{true}}
           @id="new-user-presence-endtime"
         />
