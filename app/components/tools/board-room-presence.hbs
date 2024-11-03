@@ -33,7 +33,7 @@
         <span class='d-flex'>
           <button
             class='btn btn-secondary mb-2 mt-3 update-presence-button'
-            {{action 'setPresenceModalState' 'open'}}
+            {{on 'click' (fn this.setPresenceModalState 'open') }}
             type='button'
           >
             Beschikbaarheid updaten
