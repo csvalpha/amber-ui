@@ -1,4 +1,4 @@
-import { dropTask, restartableTask, timeout } from "ember-concurrency";
+import { dropTask, restartableTask, timeout } from 'ember-concurrency';
 import Component from '@glimmer/component';
 // import Ember from 'ember';
 import { action } from '@ember/object';
@@ -108,18 +108,14 @@ export default class BoardRoomPresence extends Component {
     });
   }
 
+  @action
   newPresence() {
-    if (this.abilities.can('create board-room-presences')) {
-      this.currentUserPresence = this.store.createRecord(
-        'board-room-presence',
-        {
-          startTime: moment().startOf('minute').toDate(),
-          endTime: moment().startOf('minute').add(1, 'hours').toDate(),
-          status: 'present',
-          user: this.session.currentUser,
-        }
-      );
-    }
+    this.currentUserPresence = this.store.createRecord('board-room-presence', {
+      startTime: moment().startOf('minute').toDate(),
+      endTime: moment().startOf('minute').add(1, 'hours').toDate(),
+      status: 'present',
+      user: this.session.currentUser,
+    });
   }
 
   @action
