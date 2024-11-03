@@ -26,7 +26,7 @@ export default class HeaderNav extends Component {
   @action
   handleLogoAction() {
     if (this.media.isMobile) {
-      this.send('toggleLeftSidebar');
+      this.toggleLeftSidebar();
     } else {
       this.router.transitionTo('index');
     }
