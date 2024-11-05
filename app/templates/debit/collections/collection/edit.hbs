@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Incasso aanmaken' 'Incasso wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{on 'submit' this.submit}}>
+    <form {{on 'submit' (prevent-default this.submit)}}>
       <ModelForm::TextInput
         @model={{model}}
         @property='name'
