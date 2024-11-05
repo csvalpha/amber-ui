@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class='card-body'>
-    <form {{action 'submitResponse' on='submit'}}>
+    <form {{on 'submit' (prevent-default this.submitResponse)}}>
       <Form::Response::ResponseForm @form={{@form}} @response={{@response}} />
 
       <ModelForm::FormActions
