@@ -15,8 +15,8 @@
   </table>
 </div>
 
-<button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
-<button {{action 'cancel'}} class="btn btn-default" type="button">Nee</button>
+<button {{on 'click' destroyModel}} class='btn btn-danger' type='button'>Ja</button>
+<button {{on 'click' cancel}} class="btn btn-default" type="button">Nee</button>
 
 {{#if errorMessage}}
   <div class='text-danger'>{{this.errorMessage}}</div>
