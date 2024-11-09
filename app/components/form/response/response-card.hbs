@@ -1,25 +1,27 @@
-<div class='card-header mt-2'>
-  <div class='d-flex justify-content-between'>
-    <h5>Inschrijven</h5>
-    <span class='text-muted'>{{form-opened-label form}}</span>
+<div class="card">
+  <div class='card-header mt-2'>
+    <div class='d-flex justify-content-between'>
+      <h5>Inschrijven</h5>
+      <span class='text-muted'>{{form-opened-label @form}}</span>
+    </div>
   </div>
-</div>
-<div class='card-body'>
-  <form {{action 'submitResponse' on='submit'}}>
-    {{form/response/response-form form response}}
+  <div class='card-body'>
+    <form {{on 'submit' (prevent-default this.submitResponse)}}>
+      <Form::Response::ResponseForm @form={{@form}} @response={{@response}} />
 
-    <ModelForm::FormActions
-      @errors={{form.errors}}
-      @errorMessage={{this.errorMessage}}
-      @submitButtonLabel='Inschrijven'
-      @inputLayout='vertical'
-    >
-      {{#if form.questions}}
-        <LinkTo @route='activities' class='btn btn-default'>
-          Annuleren
-        </LinkTo>
-        Vragen met een * zijn verplicht
-      {{/if}}
-    </ModelForm::FormActions>
-  </form>
+      <ModelForm::FormActions
+        @errors={{@form.errors}}
+        @errorMessage={{this.errorMessage}}
+        @submitButtonLabel='Inschrijven'
+        @inputLayout='vertical'
+      >
+        {{#if @form.questions}}
+          <LinkTo @route='activities' class='btn btn-default'>
+            Annuleren
+          </LinkTo>
+          Vragen met een * zijn verplicht
+        {{/if}}
+      </ModelForm::FormActions>
+    </form>
+  </div>
 </div>

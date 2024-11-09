@@ -3,14 +3,14 @@
     <div class='col col-md-auto page-action'>
       <button
         class='btn btn-primary'
-        {{action 'goToPreviousPhoto'}}
+        {{on 'click' goToPreviousPhoto}}
         type='button'
       >
         <FaIcon @icon='arrow-left' />
       </button>
     </div>
     <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{action 'goToNextPhoto'}} type='button'>
+      <button class='btn btn-primary' {{on 'click' goToNextPhoto}} type='button'>
         <FaIcon @icon='arrow-right' />
       </button>
     </div>

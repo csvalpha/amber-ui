@@ -11,7 +11,7 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
+    <button {{on 'click' destroyModel}} class='btn btn-danger' type='button'>
       Ja
     </button>
     <button {{on "click" this.cancel}} class="btn btn-default" type="button">

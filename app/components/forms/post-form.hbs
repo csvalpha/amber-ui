@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Forumbericht aanmaken' 'Forumbericht wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' (prevent-default @onSubmit)}}>
 
       <div class='row'>
         <label
@@ -22,7 +22,7 @@
         @errorMessage={{@errorMessage}}
       >
         <button
-          {{action @onCancel}}
+          {{on 'click' @onCancel}}
           type="button"
           class='btn btn-default'
         >

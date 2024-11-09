@@ -1,31 +1,31 @@
 import { inject as service } from '@ember/service';
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
-export const FormFormComponent = Component.extend({
-  model: null,
-  store: service(),
-  actions: {
-    createQuestion(modelClass, fieldType) {
-      const form = this.model;
-      const position = form.get('sortedQuestions.lastObject.position') + 1 || 0;
-      this.store.createRecord(modelClass, {
-        form,
-        fieldType,
-        position,
-        required: true,
-      });
-    },
-    addOpenQuestion() {
-      this.send('createQuestion', 'form/open-question', 'text');
-    },
-    addClosedQuestion() {
-      this.send('createQuestion', 'form/closed-question', 'radio');
-    },
-  },
-});
+export default class FormFormComponent extends Component {
+  @service store;
+  get model() {
+    return this.args.model;
+  }
 
-FormFormComponent.reopenClass({
-  positionalParams: ['model'],
-});
+  createQuestion(modelClass, fieldType) {
+    const form = this.model;
+    const position = form.get('sortedQuestions.lastObject.position') + 1 || 0;
+    this.store.createRecord(modelClass, {
+      form,
+      fieldType,
+      position,
+      required: true,
+    });
+  }
 
-export default FormFormComponent;
+  @action
+  addOpenQuestion() {
+    this.createQuestion('form/open-question', 'text');
+  }
+
+  @action
+  addClosedQuestion() {
+    this.createQuestion('form/closed-question', 'radio');
+  }
+}

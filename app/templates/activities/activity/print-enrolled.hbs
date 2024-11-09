@@ -48,19 +48,19 @@
               <br />
               <ul
                 class='list-group'
-                {{sortable-group onChange=(action 'reorderItems')}}
+                {{sortable-group onChange=reorderItems}}
               >
                 {{#each this.options as |option index|}}
                   <li class='list-group-item' {{sortable-item model=option}}>
                     <div class='row'>
                       <span class='col'>{{option}}</span>
                       <a
-                        class='ps-2 link-highlight text-danger'
-                        {{action 'removeOption' index}}
+                        class='col ps-2 link-highlight text-danger'
+                        {{on 'click' (fn removeOption index)}}
                       >
                         Verwijderen
                       </a>
-                      <span class='px-3' {{sortable-handle}}>
+                      <span class='col px-3' {{sortable-handle}}>
                         <FaIcon @icon='sort' class='handle text-muted' />
                       </span>
                     </div>

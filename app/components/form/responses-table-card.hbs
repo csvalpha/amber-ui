@@ -1,17 +1,17 @@
-{{#if form.amountOfResponses}}
+{{#if @form.amountOfResponses}}
   <div class='card'>
     <div class='card-header my-2 py-1'>
       <div class='row align-items-center'>
         <h5 class='card-title col'>Inschrijvingen</h5>
         <div class='col col-md-auto d-flex align-items-center flex-wrap'>
-          <button class='btn btn-primary btn-sm me-3 my-2 text-nowrap' type="button" {{on 'click' (action 'copyUsernames')}}>
+          <button class='btn btn-primary btn-sm me-3 my-2 text-nowrap' type="button" {{on 'click' this.copyUsernames}}>
             Kopieer gebruikersnamen
           </button>
           <div class="form-check">
             <Input
                 @type='checkbox'
                 id='show-allergy-info'
-                @checked={{showAllergyInfo}}
+                @checked={{this.showAllergyInfo}}
                 class='form-check-input'
             />
             <label class='form-check-label' for='show-allergy-info'>
@@ -22,11 +22,7 @@
       </div>
     </div>
     <div class='table-responsive responses-table'>
-      {{form/responses-table
-        form
-        form.responses
-        showAllergyInfo=showAllergyInfo
-      }}
+      <Form::ResponsesTable @form={{@form}} @responses={{@form.responses}} @showAllergyInfo={{this.showAllergyInfo}} />
     </div>
   </div>
 {{else}}

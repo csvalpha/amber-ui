@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Poll aanmaken' 'Poll wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' (prevent-default @onSubmit)}}>
       <ModelForm::DatetimeInput
         @model={{@model}}
         @property='respondFrom'
@@ -37,7 +37,7 @@
         @errorMessage={{@errorMessage}}
       >
         <button
-          {{action @onCancel}}
+          {{on 'click' @onCancel}}
           type="button"
           class='btn btn-default'
         >

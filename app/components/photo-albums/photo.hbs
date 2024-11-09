@@ -19,7 +19,7 @@
       {{#if @model.hasExif}}
         <button
           class='ms-1 btn btn-sm btn-outline-info'
-          {{action 'toggleShowExif'}}
+          {{on 'click' toggleShowExif}}
           type='button'
         >
           Toon Exif data

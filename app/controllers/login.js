@@ -14,9 +14,7 @@ export default class LoginController extends Controller {
   @tracked twoFactorRequired;
 
   @action
-  async authenticate(e) {
-    e.preventDefault();
-
+  async authenticate() {
     const headers = {};
     if (this.twoFactorRequired) {
       headers['X-Amber-OTP'] = this.verificationCode;

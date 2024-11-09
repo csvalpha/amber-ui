@@ -77,10 +77,10 @@
   </div>
 </div>
 
-<BsModal 
-  @onSubmit={{this.submitModal}} 
-  @onHidden={{action (mut modalOpen) false}} 
-  @fade={{true}} 
+<BsModal
+  @onSubmit={{this.submitModal}}
+  @onHidden={{fn (mut modalOpen) false}}
+  @fade={{true}}
   @open={{modalOpen}} as |Modal|
 >
   <Modal.header>
@@ -97,7 +97,7 @@
     />
   </Modal.body>
   <Modal.footer as |footer|>
-    <BsButton @onClick={{action Modal.close}} @type="default">Sluiten</BsButton>
-    <BsButton @onClick={{action Modal.submit}} @type="primary">Invoegen</BsButton>
+    <BsButton @onClick={{Modal.close}} @type="default">Sluiten</BsButton>
+    <BsButton @onClick={{Modal.submit}} @type="primary">Invoegen</BsButton>
   </Modal.footer>
 </BsModal>

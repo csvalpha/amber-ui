@@ -3,7 +3,7 @@
     <h2>Details</h2>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' (prevent-default @onSubmit)}}>
       <ModelForm::TextInput
         @model={{@model}}
         @property='email'
@@ -29,7 +29,7 @@
         <div class='col-sm-9'>
           <PowerSelect
             @options={{@groups}}
-            @onChange={{action (mut @model.moderatorGroup)}}
+            @onChange={{fn (mut @model.moderatorGroup)}}
             @selected={{@model.moderatorGroup}}
             @disabled={{@moderationTypeOpen}}
             @placeholder='Moderator'
@@ -59,7 +59,7 @@
         <div class='col-sm-9'>
           <PowerSelect
             @options={{@groups}}
-            @onChange={{action (mut @model.group)}}
+            @onChange={{fn (mut @model.group)}}
             @selected={{@model.group}}
             @disabled={{@anyUser}}
             @placeholder='Groep'
@@ -81,7 +81,7 @@
         <div class='col-sm-9'>
           <PowerSelect
             @options={{@users}}
-            @onChange={{action (mut @model.user)}}
+            @onChange={{fn (mut @model.user)}}
             @selected={{@model.user}}
             @disabled={{@anyGroup}}
             @placeholder='Gebruiker'
@@ -110,7 +110,7 @@
         @errorMessage={{@errorMessage}}
         @formActionWrapperClass="col-sm-9"
       >
-        <button {{action @onCancel}} type="button" class='btn btn-default'>
+        <button {{on 'click' @onCancel}} type="button" class='btn btn-default'>
           Annuleren
         </button>
       </ModelForm::FormActions>

@@ -1,5 +1,5 @@
 <TabbedView @tabItems={{this.tabItems}}>
-  <form class='form' {{action 'submit' on='submit'}}>
+  <form class='form' {{on 'submit' (prevent-default submit)}}>
     <h5>Permissies</h5>
     <Permissions::PermissionsTable
       @modelPermissions={{@model.userPermissions}}
@@ -12,7 +12,7 @@
       @inputLayout='vertical'
     >
       <button
-        {{action 'cancel'}}
+        {{on 'click' cancel}}
         type="button"
         class='btn btn-default'
       >
