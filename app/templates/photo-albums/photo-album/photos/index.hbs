@@ -1,7 +1,7 @@
 <EmberWormhole @to='navbar-wormhole'>
   {{#page-actions-buttons pageActions}}
     <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{action 'downloadAlbum'}} type='button'>
+      <button class='btn btn-primary' {{on 'click' downloadAlbum}} type='button'>
         <FaIcon @icon='download' />
         <span class='d-none d-md-inline'>Fotoalbum downloaden</span>
       </button>

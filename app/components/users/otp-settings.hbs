@@ -19,7 +19,7 @@
           <button
             type='button'
             class='btn btn-primary float-end'
-            {{action 'disableOTP'}}
+            {{on 'click' disableOTP}}
           >
             Deactiveren
           </button>
@@ -113,7 +113,7 @@
       </div>
     {{/if}}
 
-    <button type='button' class='btn btn-primary' {{action 'generateOTP'}}>
+    <button type='button' class='btn btn-primary' {{on 'click' generateOTP}}>
       Instellen
     </button>
   {{/if}}

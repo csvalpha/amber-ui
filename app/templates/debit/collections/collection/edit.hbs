@@ -90,7 +90,7 @@
                     <button
                       type='button'
                       class='btn btn-danger'
-                      {{action 'removeTransaction' transaction}}
+                      {{on 'click' (fn removeTransaction transaction)}}
                     >
                       <FaIcon @icon='trash' />
                     </button>
