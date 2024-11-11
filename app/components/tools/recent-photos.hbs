@@ -7,13 +7,13 @@
   {{#if (can 'show photo-comments')}}
     <div class='card-body'>
       <div class='d-flex'>
-        {{#each photosWithComments as |photo|}}
+        {{#each latestComments as |comment|}}
           <LinkTo
             @route='photo-albums.photo-album.photos.photo'
-            @models={{array photo.photoAlbum.id photo.id}}
+            @models={{array comment.photo.photoAlbum.id comment.photo.id}}
             class='picture-link col-xs'
           >
-            <img class='featured-picture' src={{photo.imageThumbUrl}} />
+            <img class='featured-picture' src={{comment.photo.imageThumbUrl}} />
           </LinkTo>
         {{else}}
           <div class='p-2'>
@@ -21,7 +21,7 @@
           </div>
         {{/each}}
       </div>
-      {{#if photosWithComments}}
+      {{#if latestComments}}
         <LinkTo @route='photo-comments'>
           <button class='btn btn-primary col-12 mt-2 mb-1' type='button'>
             Bekijk alle reacties
