@@ -1,7 +1,11 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class TransactionsRoute extends ApplicationRoute {
+export default class TransactionsRoute extends AuthenticatedRoute {
   queryParams = {};
 
   breadcrumb = { title: 'Transacties' };
+
+  canAccess() {
+    return this.abilities.can('show debit/transactions');
+  }
 }
