@@ -1,0 +1,27 @@
+.public {
+  .public-title {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: "Libre Franklin", sans-serif;
+    font-size: 3rem;
+  
+    &.public-title-smaller {
+      margin-bottom: 0.8rem;
+      font-size: 2.5rem;
+    }
+  }
+
+  .public-text {
+    font-size: 1.5rem;
+    hyphens: none;
+  }
+  
+  .public-title-border {
+    width: 30vw;
+  }
+
+  .public-no-items-text {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+}
