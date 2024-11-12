@@ -49,7 +49,7 @@ jobs:
           INPUT_MERGE: ${{ inputs.merge }}
         run: |
           if [ "$GITHUB_REF_NAME" = 'master' ]; then
-            if [ "$INPUT_MERGE" ]; then
+            if [ "$INPUT_MERGE" == 'true' ]; then
               git fetch origin staging
               if ! git diff origin/master origin/staging --exit-code; then
                 echo 'has_diff=true' >> "$GITHUB_OUTPUT"
