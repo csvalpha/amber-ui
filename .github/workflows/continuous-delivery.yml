@@ -46,10 +46,10 @@ jobs:
       - name: Get metadata
         id: get_metadata
         env:
-          INPUT_MERGE: ${{ github.event.inputs.merge }}
+          INPUT_MERGE: ${{ inputs.merge }}
         run: |
           if [ "$GITHUB_REF_NAME" = 'master' ]; then
-            if [ "$INPUT_MERGE" = true ]; then
+            if [ "$INPUT_MERGE" ]; then
               git fetch origin staging
               if ! git diff origin/master origin/staging --exit-code; then
                 echo 'has_diff=true' >> "$GITHUB_OUTPUT"
@@ -67,7 +67,7 @@ jobs:
     name: Merge
     runs-on: ubuntu-latest
     needs: metadata
-    if: github.event.inputs.merge == true
+    if: inputs.merge
     outputs:
       sha: ${{ steps.get_sha.outputs.sha }}
     steps:
@@ -128,8 +128,8 @@ jobs:
     needs: [metadata, merge, continuous_integration, publish_image]
     if: |
       (github.ref_name == 'staging' || github.ref_name == 'master') && ((github.ref_name == 'master' &&
-      github.event.inputs.merge && (fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff) && success()) ||
-      ((!github.event.inputs.merge || !(fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff)) && !cancelled()))
+      inputs.merge && (fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff) && success()) ||
+      ((!inputs.merge || !(fromJSON(needs.metadata.outputs.has_diff) || github.event.inputs.ignore_metadata_diff)) && !cancelled()))
     steps:
       - name: Get environment URL
         id: get_url
