@@ -31,6 +31,7 @@ export default function () {
   this.resource('daily_verse');
   this.resource('groups');
   this.resource('board_room_presences');
+  this.resource('study_room_presences');
   this.resource('photo_albums');
   this.resource('photo_comments');
   this.resource('photo_tags');
