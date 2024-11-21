@@ -13,7 +13,7 @@ export default class MenuSidebar extends Component {
   get sofiaUrl() {
     if (config.environment === 'development') {
       return 'http://localhost:5000';
-    } else if (config.deployTarget === 'staging') {
+    } else if (config.environment === 'staging') {
       return 'https://stagingstreep.csvalpha.nl';
     } else {
       return 'https://streep.csvalpha.nl';
