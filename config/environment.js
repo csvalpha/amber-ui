@@ -99,8 +99,6 @@ module.exports = function (environment) {
     ENV.APP.flashNoticeDefaultDuration = 1;
   }
 
-   
-
   ENV['@sentry/ember'] = {
     sentry: {
       dsn: 'https://invalid@sentry.io/12345', // invalid key, will be replaced when run as prod
