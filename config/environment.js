@@ -107,7 +107,7 @@ module.exports = function (environment) {
     },
   };
 
-  if (environment === 'build') {
+  if (environment === 'production') {
     // here you can enable a production-specific feature
     ENV['@sentry/ember'].sentry.dsn =
       'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
