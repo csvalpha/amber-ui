@@ -21,6 +21,10 @@ export default class UsersIndexController extends FilterableAndSortableControlle
       label: 'Achternaam',
     },
     {
+      value: 'startDate',
+      label: 'Lid sinds',
+    },
+    {
       value: 'address',
       label: 'Adres',
     },

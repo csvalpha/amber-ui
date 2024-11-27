@@ -10,16 +10,6 @@ export default class MenuSidebar extends Component {
   @service store;
   @tracked staticPages;
 
-  get sofiaUrl() {
-    if (config.environment === 'development') {
-      return 'http://localhost:5000';
-    } else if (config.deployTarget === 'staging') {
-      return 'https://stagingstreep.csvalpha.nl';
-    } else {
-      return 'https://streep.csvalpha.nl';
-    }
-  }
-
   @action
   invalidateSession() {
     this.session.invalidate();

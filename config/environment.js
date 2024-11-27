@@ -73,7 +73,8 @@ module.exports = function (environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     ENV.clientId = '123456789';
-
+    ENV.sofiaurl = 'http://localhost:5000'
+    
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
       enabled: false,
@@ -98,6 +99,8 @@ module.exports = function (environment) {
     ENV.APP.flashNoticeDefaultDuration = 1;
   }
 
+   
+
   ENV['@sentry/ember'] = {
     sentry: {
       dsn: 'https://invalid@sentry.io/12345', // invalid key, will be replaced when run as prod
@@ -106,7 +109,7 @@ module.exports = function (environment) {
     },
   };
 
-  if (environment === 'production') {
+  if (environment === 'build') {
     // here you can enable a production-specific feature
     ENV['@sentry/ember'].sentry.dsn =
       'https://8936a95696f7453ab03e59264a7fede8@sentry.io/186017';
@@ -115,10 +118,12 @@ module.exports = function (environment) {
   if (deployTarget === 'production') {
     ENV.clientId = 'IIeYVVbdNhiSiSCxKP5eUgS5Vs1-9ccZEvISdCVqe5g';
     ENV.googleAnalytics = { webPropertyId: 'G-8XNQMRFWPZ' };
+    ENV.sofiaurl = 'https://streep.csvalpha.nl';
   }
 
   if (deployTarget === 'staging') {
     ENV.clientId = 'D0HhpORylbWUgOBwyR-0GGDcfsi9PG6zSNgctW--f-4';
+    ENV.sofiaurl = 'https://stagingstreep.csvalpha.nl';
   }
 
   return ENV;
