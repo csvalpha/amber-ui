@@ -8,6 +8,7 @@ export default function (server) {
     'article',
     'article_comment',
     'board_room_presence',
+    'study_room_presence',
     'group',
     'membership',
     'photo_album',
