@@ -83,7 +83,7 @@ export default class BoardRoomPresence extends Component {
 
     if (currentStatusses.includes('chilling')) {
       return 'Chillen';
-    } 
+    }
 
     if (currentStatusses.includes('studeren')) {
       return 'Studying';
@@ -107,7 +107,7 @@ export default class BoardRoomPresence extends Component {
       this.currentUserPresence = null;
     });
   }
-   
+
   @action
   newPresence() {
     this.currentUserPresence = this.store.createRecord('board-room-presence', {
@@ -126,4 +126,3 @@ export default class BoardRoomPresence extends Component {
     this.presenceModalIsOpen = false;
   }
 }
-
