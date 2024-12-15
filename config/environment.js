@@ -74,7 +74,6 @@ module.exports = function (environment) {
 
     ENV.clientId = '123456789';
     ENV.sofiaurl = 'http://localhost:5000';
-    
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
       enabled: false,
