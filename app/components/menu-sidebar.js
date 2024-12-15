@@ -28,8 +28,8 @@ export default class MenuSidebar extends Component {
       this.staticPages = staticPages;
     });
   }
-  
+
   get sofiaUrl() {
-    return config.sofiaUrl;  // Access the sofiaUrl from config
+    return config.sofiaUrl; // Access the sofiaUrl from config
   }
 }
