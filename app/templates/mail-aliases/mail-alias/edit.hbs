@@ -1,7 +1,7 @@
 <Forms::MailAliasForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
   @mailAliasModerationTypes={{this.mailAliasModerationTypes}}
   @moderationTypeOpen={{this.moderationTypeOpen}}
   @groups={{this.groups}}

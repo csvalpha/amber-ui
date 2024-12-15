@@ -2,7 +2,7 @@
 
 {{#unless question.form.hasResponses}}
   <div class='float-md-end mb-3'>
-    <FaIcon @icon='xmark' {{on 'click' (action 'deleteQuestion')}} />
+    <FaIcon @icon='xmark' {{on 'click' this.deleteQuestion}} />
   </div>
 {{/unless}}
 
@@ -13,8 +13,8 @@
     aria-label='Vraag'
     name='question'
     placeholder='Vraag'
-    @value={{question.question}}
-    disabled={{question.form.hasResponses}}
+    @value={{@question.question}}
+    disabled={{@question.form.hasResponses}}
   />
 </div>
 
@@ -25,11 +25,10 @@
         <label class='visually-hidden form-label'>Vraagtype</label>
         <Input::SelectInput
           @class='form-select w-auto'
-          @required={{required}}
-          @options={{questionTypeOptions}}
-          @placeholder={{Vraagtype}}
-          @value={{question.fieldType}}
-          @disabled={{question.form.hasResponses}}
+          @options={{this.questionTypeOptions}}
+          @placeholder="vraagtype"
+          @value={{@question.fieldType}}
+          @disabled={{@question.form.hasResponses}}
         />
       </div>
 
@@ -38,22 +37,22 @@
             class='form-check-input'
             @type='checkbox'
             name='required'
-            @checked={{question.required}}
-            disabled={{question.form.hasResponses}}
-            id="question-{{question.position}}-required-check"
+            @checked={{@question.required}}
+            disabled={{@question.form.hasResponses}}
+            id="question-{{@question.position}}-required-check"
           />
-        <label class='form-check-label' for="question-{{question.position}}-required-check">Verplicht</label>
+        <label class='form-check-label' for="question-{{@question.position}}-required-check">Verplicht</label>
       </div>
     </div>
   </div>
 
-  {{#unless question.form.hasResponses}}
+  {{#unless @question.form.hasResponses}}
     <div class='col-md-7 col-sm-12'>
       <div class='float-md-end'>
         <button
           type='button'
           class='btn btn-default'
-          {{action 'moveQuestionUp'}}
+          {{on 'click' this.moveQuestionUp}}
         >
           <FaIcon @icon='arrow-up' />
           Omhoog
@@ -62,7 +61,7 @@
         <button
           type='button'
           class='btn btn-default'
-          {{action 'moveQuestionDown'}}
+          {{on 'click' this.moveQuestionDown}}
         >
           <FaIcon @icon='arrow-down' />
           Omlaag
@@ -72,14 +71,14 @@
   {{/unless}}
 </div>
 
-{{#each question.sortedOptions as |opt|}}
+{{#each @question.sortedOptions as |opt|}}
   {{#unless opt.isDeleted}}
     <div class='d-flex mb-3'>
       <span class='input-group-addon d-flex justify-content-center align-items-center me-3'>
-        <input id="question-{{question.position}}-option-{{opt.position}}-check" class="form-check-input" type={{question.fieldType}} disabled={{true}} />
-        <label for="question-{{question.position}}-option-{{opt.position}}-required-check"/>
+        <input id="question-{{@question.position}}-option-{{opt.position}}-check" class="form-check-input" type={{@question.fieldType}} disabled={{true}} />
+        <label for="question-{{@question.position}}-option-{{opt.position}}-required-check"/>
       </span>
-      
+
       <div class='input-group'>
         <Input
           @type='text'
@@ -88,28 +87,28 @@
           name='option'
           placeholder='Optie'
           @value={{opt.option}}
-          disabled={{question.form.hasResponses}}
+          disabled={{@question.form.hasResponses}}
         />
 
-        {{#unless question.form.hasResponses}}
+        {{#unless @question.form.hasResponses}}
           <button
             type='button'
             class='btn btn-default'
-            {{action 'moveOptionUp' opt}}
+            {{on 'click' (fn this.moveOptionUp opt)}}
           >
             <FaIcon @icon='arrow-up' />
           </button>
           <button
             type='button'
             class='btn btn-default'
-            {{action 'moveOptionDown' opt}}
+            {{on 'click' (fn this.moveOptionDown opt)}}
           >
             <FaIcon @icon='arrow-down' />
           </button>
           <button
             type='button'
             class='btn btn-default'
-            {{action 'deleteOption' opt}}
+            {{on 'click' (fn this.deleteOption opt)}}
           >
             <FaIcon @icon='trash' />
           </button>
@@ -119,8 +118,8 @@
   {{/unless}}
 {{/each}}
 
-{{#unless question.form.hasResponses}}
-  <button type='button' class='btn btn-default mb-3' {{action 'addOption'}}>
+{{#unless @question.form.hasResponses}}
+  <button type='button' class='btn btn-default mb-3' {{on 'click' this.addOption}}>
     Optie toevoegen
   </button>
 {{/unless}}

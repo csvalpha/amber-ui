@@ -26,7 +26,8 @@ export default class CollectionEditController extends EditController {
   }
 
   @action
-  async submit() {
+  async submit(event) {
+    event.preventDefault();
     this.errorMessage = null;
     try {
       await this.model.saveWithTransactions();

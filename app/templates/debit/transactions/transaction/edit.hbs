@@ -1,8 +1,8 @@
 <Forms::TransactionForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
   @users={{this.users}}
-  @onSetUser={{action 'setUser'}}
+  @onSetUser={{this.setUser}}
   @errorMessage={{this.errorMessage}}
 />

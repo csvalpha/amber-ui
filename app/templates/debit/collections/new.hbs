@@ -34,8 +34,8 @@
       <ModelForm::FileInput
         @model={{model}}
         @property='importFile'
-        @label='Import bestand'
-        @loadedCallback={{action 'fileLoaded'}}
+        @label='Importeer bestand'
+        @loadedCallback={{this.fileLoaded}}
         @validExtensions={{this.validExtensions}}
         @validMimetypes={{this.validMimetypes}}
       />

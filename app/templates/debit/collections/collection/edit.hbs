@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Incasso aanmaken' 'Incasso wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action 'submit' on='submit'}}>
+    <form {{on 'submit' this.submit}}>
       <ModelForm::TextInput
         @model={{model}}
         @property='name'
@@ -21,7 +21,7 @@
         @model={{model}}
         @errorMessage={{this.errorMessage}}
       >
-        <button {{action 'cancel'}} type="button" class='btn btn-default'>
+        <button {{on "click" this.cancel}} type="button" class='btn btn-default'>
           Annuleren
         </button>
       </ModelForm::FormActions>
@@ -35,7 +35,7 @@
       <div class='col-sm-10'>
         <PowerSelect
           @options={{users}}
-          @onChange={{action 'addUser'}}
+          @onChange={{this.addUser}}
           @selected={{transaction.user}}
           @searchEnabled={{true}}
           @searchField='fullName'
