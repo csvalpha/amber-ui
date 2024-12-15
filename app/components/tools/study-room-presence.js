@@ -1,19 +1,22 @@
-import { task, timeout } from 'ember-concurrency';
-import Component from '@ember/component';
-import Ember from 'ember';
-import { computed } from '@ember/object';
-import { equal } from '@ember/object/computed';
+import { dropTask, restartableTask, timeout } from 'ember-concurrency';
+import Component from '@glimmer/component';
+// import Ember from 'ember';
+import { action } from '@ember/object';
 import moment from 'moment';
 import { inject as service } from '@ember/service';
+import { tracked } from '@glimmer/tracking';
+import Ember from 'ember';
 
-const StudyRoomPresence = Component.extend({
-  session: service(),
-  store: service(),
-  abilities: service(),
-  presenceModalIsOpen: false,
-  model: [],
+export default class BoardRoomPresence extends Component {
+  @service session;
+  @service store;
+  @service abilities;
 
-  statusOptions: [
+  @tracked presenceModalIsOpen = false;
+  @tracked model = [];
+  @tracked newCurrentUserPresence = null;
+
+  statusOptions = [
     {
       value: 'chilling',
       label: 'Chillen',
@@ -26,41 +29,47 @@ const StudyRoomPresence = Component.extend({
       value: 'banaan',
       label: 'Banaan',
     },
-  ],
+  ];
 
-  // Periodically poll for new studyroom data
-  poll: task(function* () {
+  @dropTask({ cancelOn: 'didInsertElement' }) *poll() {
     while (!Ember.testing) {
-      this.fetchData.perform();
+      yield this.fetchData.perform();
       yield timeout(1000 * 30); // Wait 30 seconds
     }
-  })
-    .drop()
-    .on('didInsertElement'),
+  }
 
-  // Fetch task is separate from polling task, so we can call it individually.
-  fetchData: task(function* () {
+  @restartableTask *fetchData() {
     /* eslint-disable camelcase */
-    const model = yield this.store.query('study-room-presence', {
+    this.model = yield this.store.query('study-room-presence', {
       filter: { current_and_future: true },
     });
     /* eslint-enable camelcase */
+  }
 
-    this.set('model', model);
-  }).restartable(),
+  constructor() {
+    super(...arguments);
+    this.poll.perform();
+  }
 
-  currentUserPresence: computed('model.[]', function () {
+  get currentUserPresence() {
+    if (this.newCurrentUserPresence) {
+      return this.newCurrentUserPresence;
+    }
     return (
-      this.model.filter((presence) => presence.get('user.isCurrentUser'))[0] ||
+      this.model.filter((presence) => presence.user.get('isCurrentUser'))[0] ||
       null
     );
-  }),
+  }
 
-  sortedPresences: computed('model.[]', function () {
+  set currentUserPresence(presence) {
+    this.newCurrentUserPresence = presence;
+  }
+
+  get sortedPresences() {
     return this.model.sortBy('endTime');
-  }),
+  }
 
-  overallStatus: computed('model.[]', function () {
+  get overallStatus() {
     const currentStatusses = this.model
       .filter((presence) => {
         return moment().isBetween(
@@ -74,49 +83,47 @@ const StudyRoomPresence = Component.extend({
 
     if (currentStatusses.includes('chilling')) {
       return 'Chillen';
-    } else if (currentStatusses.includes('studeren')) {
+    } 
+
+    if (currentStatusses.includes('studeren')) {
       return 'Studying';
     }
 
     return 'banaan';
-  }),
+  }
 
-  saveButtonDisabled: equal('currentUserPresence', null),
+  get saveButtonDisabled() {
+    return this.currentUserPresence === null;
+  }
 
-  actions: {
-    setPresenceModalState(state) {
-      this.set('presenceModalIsOpen', state === 'open');
-    },
+  @action
+  setPresenceModalState(state) {
+    this.presenceModalIsOpen = state === 'open';
+  }
 
-    deletePresence() {
-      this.currentUserPresence.destroyRecord().then(() => {
-        this.set('currentUserPresence', null);
-      });
-    },
+  @action
+  deletePresence() {
+    this.currentUserPresence.destroyRecord().then(() => {
+      this.currentUserPresence = null;
+    });
+  }
+   
+  @action
+  newPresence() {
+    this.currentUserPresence = this.store.createRecord('board-room-presence', {
+      startTime: moment().startOf('minute').toDate(),
+      endTime: moment().startOf('minute').add(1, 'hours').toDate(),
+      status: 'present',
+      user: this.session.currentUser,
+    });
+  }
 
-    newPresence() {
-      if (this.abilities.can('create study-room-presences')) {
-        const newPresenceObject = this.store.createRecord(
-          'study-room-presence',
-          {
-            startTime: moment().startOf('minute').toDate(),
-            endTime: moment().startOf('minute').add(1, 'hours').toDate(),
-            status: 'Studying',
-            user: this.session.currentUser,
-          }
-        );
-        this.set('currentUserPresence', newPresenceObject);
-      }
-    },
+  @action
+  save() {
+    const presence = this.currentUserPresence;
+    const fetch = this.fetchData;
+    presence.save().then(() => fetch.perform());
+    this.presenceModalIsOpen = false;
+  }
+}
 
-    save() {
-      const presence = this.currentUserPresence;
-      const fetch = this.fetchData;
-
-      presence.save().then(() => fetch.perform());
-      this.set('presenceModalIsOpen', false);
-    },
-  },
-});
-
-export default StudyRoomPresence;
