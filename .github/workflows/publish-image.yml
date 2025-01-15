@@ -72,7 +72,7 @@ jobs:
 
       - name: Build and push image
         id: build_push_image
-        uses: docker/build-push-action@4f58ea79222b3b9dc2c8bbdd6debcef730109a75 # v6.9.0
+        uses: docker/build-push-action@67a2d409c0a876cbe6b11854e3e25193efe4e62d # v6.12.0
         with:
           push: true
           context: .
@@ -92,7 +92,7 @@ jobs:
 
       - name: Create Sentry release
         if: ${{ !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image') }}
-        uses: getsentry/action-release@4744f6a65149f441c5f396d5b0877307c0db52c7 # v1.4.1
+        uses: getsentry/action-release@f6dfa3d84a1c740b94aa45255c5e032b744a095d # v1.9.0
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ vars.SENTRY_ORG_NAME }}
@@ -123,7 +123,7 @@ jobs:
           done
 
       - name: Update Publish Image check run
-        uses: guidojw/actions/update-check-run@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
+        uses: guidojw/actions/update-check-run@3ad963828827110a6b716a011f242bf01fdf1db4 # v1.4.7
         with:
           app_id: ${{ vars.GH_APP_ID }}
           private_key: ${{ secrets.GH_APP_PRIVATE_KEY }}
