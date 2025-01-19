@@ -279,7 +279,7 @@ component:
     studyRoomPresence:
       chilling: Chilling
       studying: Studying
-      banaan: Banaan
+      vergaderen: Meeting
   userComment:
     anonymous: Anonymous user
 mixin:

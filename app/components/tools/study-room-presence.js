@@ -26,8 +26,8 @@ export default class BoardRoomPresence extends Component {
       label: 'Studeren',
     },
     {
-      value: 'banaan',
-      label: 'Banaan',
+      value: 'vergaderen',
+      label: 'vergaderen',
     },
   ];
 
@@ -89,7 +89,7 @@ export default class BoardRoomPresence extends Component {
       return 'Studying';
     }
 
-    return 'banaan';
+    return 'Vergaderen';
   }
 
   get saveButtonDisabled() {
