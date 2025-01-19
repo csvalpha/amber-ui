@@ -73,6 +73,7 @@ module.exports = function (environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
 
     ENV.clientId = '123456789';
+    ENV.sofiaurl = 'http://localhost:5000';
 
     // Disable mirage in development
     ENV['ember-cli-mirage'] = {
@@ -115,10 +116,12 @@ module.exports = function (environment) {
   if (deployTarget === 'production') {
     ENV.clientId = 'IIeYVVbdNhiSiSCxKP5eUgS5Vs1-9ccZEvISdCVqe5g';
     ENV.googleAnalytics = { webPropertyId: 'G-8XNQMRFWPZ' };
+    ENV.sofiaurl = 'https://streep.csvalpha.nl';
   }
 
   if (deployTarget === 'staging') {
     ENV.clientId = 'D0HhpORylbWUgOBwyR-0GGDcfsi9PG6zSNgctW--f-4';
+    ENV.sofiaurl = 'https://stagingstreep.csvalpha.nl';
   }
 
   return ENV;
