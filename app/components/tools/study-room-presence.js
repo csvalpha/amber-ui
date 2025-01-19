@@ -26,7 +26,7 @@ export default class BoardRoomPresence extends Component {
     },
     {
       value: 'vergaderen',
-      label: 'vergaderen',
+      label: 'Vergaderen',
     },
   ];
 
@@ -109,7 +109,7 @@ export default class BoardRoomPresence extends Component {
 
   @action
   newPresence() {
-    this.currentUserPresence = this.store.createRecord('board-room-presence', {
+    this.currentUserPresence = this.store.createRecord('study-room-presence', {
       startTime: moment().startOf('minute').toDate(),
       endTime: moment().startOf('minute').add(1, 'hours').toDate(),
       status: 'present',
