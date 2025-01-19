@@ -1,6 +1,6 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class PhotoCommentsIndexRoute extends ApplicationRoute {
+export default class PhotoCommentsIndexRoute extends AuthenticatedRoute {
   canAccess() {
     return this.abilities.can('show photo-comments');
   }

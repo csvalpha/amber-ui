@@ -13,7 +13,7 @@ export default function (server) {
     'photo_album',
     'photo',
     'photo_comment',
-    'quickpost_message',
+    'photo_tag',
     'forum/category',
     'forum/thread',
     'forum/post',
@@ -47,5 +47,4 @@ export default function (server) {
   server.createList('article', 5);
   server.createList('group', 5, 'withMembers');
   server.createList('forum-category', 5, 'withThreads');
-  server.createList('quickpost-message', 10);
 }

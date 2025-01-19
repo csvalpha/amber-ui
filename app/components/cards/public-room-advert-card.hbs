@@ -1,0 +1,76 @@
+<div class='col-md-12 room-advert-card {{if @collapsed "collapsed mb-5 col-xl-10 mx-xl-auto"}}' {{on "click" (fn this.open @roomAdvert)}}>
+  <div class='d-flex justify-content-center'>
+    <div class='card mb-0 w-100 {{if @collapsed "mx-lg-5"}}'>
+      {{#if (not @collapsed)}}
+        <div class="advert-modal-header card-header card-header--overlay">
+          <img class="card-img-top" src="{{@roomAdvert.coverPhotoUrl}}">
+          <div class="card-title-bar gradient-overlay">
+            <h1 class="card-title title ms-3 mb-2">{{@roomAdvert.houseName}}</h1>
+          </div>
+        </div>
+      {{/if}}
+      <div class='card-body m-4 fs-5'>
+        <div class="row">
+          <div class="pe-4 col-12 col-md-6 mb-3">
+            {{#if @collapsed}}
+              <div class="width-fit-content">
+                <h2 class="text-secondary me-5">{{@roomAdvert.houseName}}</h2>
+                <hr class="border border-secondary bg-secondary border-3 opacity-100 mt-0" />
+              </div>
+            {{/if}}
+            <table>
+              {{#if @roomAdvert.location}}
+                <tr>
+                  <th class="pe-3 text-secondary">{{t 'component.public.roomForum.location'}}</th>
+                  <td>
+                    <a
+                      href='https://maps.google.com/?q={{@roomAdvert.location}}'
+                      target='_blank'
+                    >
+                      {{@roomAdvert.location}}
+                    </a>
+                  </td>
+                </tr>
+              {{/if}}
+              {{#if @roomAdvert.availableFrom}}
+                <tr>
+                  <th class="pe-3 text-secondary">{{t 'component.public.roomForum.availableFrom'}}</th>
+                  <td>{{moment-format @roomAdvert.availableFrom 'DD-M-YYYY'}}</td>
+                </tr>
+              {{/if}}
+              <tr>
+                <th class="pe-3 text-secondary">{{t 'component.public.roomForum.contact'}}</th>
+                <td>
+                  {{#if (is-phone @roomAdvert.contact)}}
+                    <a href='tel:{{@roomAdvert.contact}}'>{{@roomAdvert.contact}}</a>
+                  {{else if (is-email @roomAdvert.contact)}}
+                    <a href='mailto:{{@roomAdvert.contact}}'>{{@roomAdvert.contact}}</a>
+                  {{else if (is-url @roomAdvert.contact)}}
+                    <a href='{{@roomAdvert.contact}}' target='_blank'>{{@roomAdvert.contact}}</a>
+                  {{else}}
+                    {{@roomAdvert.contact}}
+                  {{/if}}
+                </td>
+              </tr>
+            </table>
+          </div>
+          {{#if (and @roomAdvert.coverPhotoUrl @collapsed)}}
+            <img src={{@roomAdvert.coverPhotoUrl}} class='col-12 col-md-6 mb-3 object-fit-cover'/>
+          {{/if}}
+        </div>
+        <p class='card-text description overflow-hidden mb-1' data-test-room-advert-description>
+          {{markdown-to-html
+            @roomAdvert.descriptionCamofied
+            extensions='youtubeEmbed bootstrapTable'
+          }}
+          <div class="{{if @collapsed "fade-to-white-background"}}"></div>
+        </p>
+        {{#if @collapsed}}
+          <button class="btn btn-secondary float-end fw-bold mt-1" type="button" {{on "click" (fn this.open @roomAdvert)}}>
+            Lees meer...
+          </button>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

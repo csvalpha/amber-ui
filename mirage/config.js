@@ -1,4 +1,6 @@
 export default function () {
+  this.passthrough('/write-coverage');
+
   this.namespace = '/api/v1';
 
   this.post(
@@ -28,10 +30,10 @@ export default function () {
   this.resource('activities');
   this.resource('daily_verse');
   this.resource('groups');
-  this.resource('quickpost_messages');
   this.resource('board_room_presences');
   this.resource('photo_albums');
   this.resource('photo_comments');
+  this.resource('photo_tags');
   this.resource('photos');
   this.resource('static_pages');
   this.resource('users');

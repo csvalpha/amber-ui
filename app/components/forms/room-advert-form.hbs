@@ -1,0 +1,81 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5>{{if @model.isNew 'Kamer advertentie aanmaken' 'Kamer advertentie wijzigen'}}</h5>
+  </div>
+  <div class='card-body'>
+    <form {{action @onSubmit on='submit'}}>
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='houseName'
+        @label='Huisnaam'
+        @required={{true}}
+        @maxlength={{50}}
+      />
+      <ModelForm::FileInput
+        @model={{@model}}
+        @property='coverPhoto'
+        @label='Coverfoto'
+        @loadedCallback={{@onCoverPhotoLoaded}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='contact'
+        @label='Contact (e-mailadres, telefoonnummer of link)'
+        @required={{true}}
+        @maxlength={{50}}
+      />
+      <ModelForm::TextInput
+        @model={{@model}}
+        @property='location'
+        @label='Locatie'
+        @maxlength={{100}}
+      />
+      <ModelForm::DateInput
+        @model={{@model}}
+        @property='availableFrom'
+        @label='Beschikbaar vanaf'
+        @required={{true}}
+      />
+      <ModelForm::CheckboxInput
+        @model={{@model}}
+        @property='publiclyVisible'
+        @label='Zichtbaar voor externen'
+      />
+
+      {{#if @model.publiclyVisible}}
+        <div class="row">
+          <div class="col-sm-10 offset-sm-2">
+            <div class='alert alert-warning' role='alert'>
+              Een publieke kamer advertentie is ook zichtbaar voor niet-leden. Houd hier
+              rekening mee in je advertentie.
+              <br />
+              Plaats je een coverfoto met mensen er op? Zorg dan wel dat je
+              toestemming van deze mensen hebt.
+            </div>
+          </div>
+        </div>
+      {{/if}}
+
+      <ModelForm::MdInput
+        @model={{@model}}
+        @property='description'
+        @label='Beschrijving'
+        @required={{true}}
+        @inputIdentifier='article-form-content'
+      />
+
+      <ModelForm::FormActions
+        @errors={{@model.errors}}
+        @errorMessage={{@errorMessage}}
+      >
+        <button
+          {{on 'click' @onCancel}}
+          type="button"
+          class='btn btn-default'
+        >
+          Annuleren
+        </button>
+      </ModelForm::FormActions>
+    </form>
+  </div>
+</div>
