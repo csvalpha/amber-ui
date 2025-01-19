@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 
-.board-room-presence-dropdown {
+.room-presence-dropdown {
   color: $white;
 }
 
@@ -23,6 +23,18 @@
 }
 
 .label-absent {
+  background-color: $brand-danger;
+}
+
+.label-chilling {
+  background-color: $brand-success;
+}
+
+.label-studying {
+  background-color: $brand-warning;
+}
+
+.label-vergaderen {
   background-color: $brand-danger;
 }
 

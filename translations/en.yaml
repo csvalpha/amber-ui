@@ -281,6 +281,10 @@ component:
       present: Present
       busy: Busy
       absent: Absent
+    studyRoomPresence:
+      chilling: Chilling
+      studying: Studying
+      vergaderen: In a meeting
   userComment:
     anonymous: Anonymous user
 mixin:

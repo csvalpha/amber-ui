@@ -27,7 +27,7 @@ jobs:
           ref: ${{ inputs.sha }}
 
       - name: Build test image
-        uses: guidojw/actions/build-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
+        uses: guidojw/actions/build-docker-image@3ad963828827110a6b716a011f242bf01fdf1db4 # v1.4.7
         with:
           file: Dockerfile
           target: base
@@ -54,15 +54,15 @@ jobs:
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 1.7.7
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
+        uses: guidojw/actions/load-docker-image@3ad963828827110a6b716a011f242bf01fdf1db4 # v1.4.7
         with:
           name: app
 
       - name: Lint
         run: |
           EXIT_STATUS=0
-          ./actionlint -ignore 'property "gh_app_private_key" is not defined' -ignore 'SC2153:' \
-            -ignore 'property "sha" is not defined in object type {}' || EXIT_STATUS=$?
+          ./actionlint -ignore 'SC2153:'  -ignore 'property "sha" is not defined in object type {}' || \
+          EXIT_STATUS=$?
           docker run app yarn lint:hbs || EXIT_STATUS=$?
           docker run app yarn lint:js || EXIT_STATUS=$?
           docker run app /bin/bash -c 'yarn lint:scss -f github | sed "s|$(pwd)/||g" ; exit ${PIPESTATUS[0]}' || \
@@ -80,7 +80,7 @@ jobs:
           ref: ${{ inputs.sha }}
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@abb0ee8d1336edf73383f2e5a09abd3a22f25b13 # v1.3.3
+        uses: guidojw/actions/load-docker-image@3ad963828827110a6b716a011f242bf01fdf1db4 # v1.4.7
         with:
           name: app
 
@@ -98,7 +98,7 @@ jobs:
 
       - name: Upload coverage report artifact
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        uses: actions/upload-artifact@65c4c4a1ddee5b72f698fdd19549f0f0fb45cf08 # v4.6.0
         with:
           name: coverage
           path: coverage/

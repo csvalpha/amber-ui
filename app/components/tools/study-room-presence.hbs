@@ -1,0 +1,136 @@
+<div class='room-presence-dropdown page-action'>
+  <BsButton @type='primary'>
+    <FaIcon @icon='book' />
+    <span class='d-none d-md-inline'>2de kamer</span>
+    <span class='status-dot label-{{this.overallStatus}}'></span>
+
+    <BsPopover
+      @placement='bottom'
+      @title='Aanwezig in de 2de Kamer'
+      @renderInPlace="{{true}}"
+    >
+      {{#each this.sortedPresences as |presence|}}
+        <div class='py-1'>
+          <div class='d-block'>
+            <LinkTo @route='users.user' @model={{presence.user.id}}>
+              <small><b>{{presence.user.fullNameWithNickname}}</b></small>
+            </LinkTo>
+          </div>
+          <span class='presence-label label-{{presence.status}}'>
+            {{t (concat 'component.tools.studyRoomPresence.' presence.status)}}
+            van
+            {{moment-format presence.startTime 'HH:mm'}}
+            tot
+            {{moment-format presence.endTime 'HH:mm'}}
+          </span>
+        </div>
+      {{else}}
+        <div>Er is niemand aanwezig</div>
+      {{/each}}
+
+      {{#if (can 'create study-room-presences')}}
+        <span class='d-flex'>
+          <button
+            class='btn btn-secondary mb-2 mt-3 update-presence-button'
+            {{on 'click' (fn this.setPresenceModalState 'open') }}
+            type='button'
+          >
+            Aanwezigheid updaten
+          </button>
+        </span>
+      {{/if}}
+    </BsPopover>
+  </BsButton>
+</div>
+
+{{#if presenceModalIsOpen}}
+  <EmberWormhole @to='ember-wormhole-destination'>
+    <BasicModal
+      @title='2de kamer beschikbaarheid opgeven'
+      @closeModal={{fn this.setPresenceModalState 'closed'}}
+      @onSubmit={{this.save}}
+      @submitText='Beschikbaarheid opslaan'
+      @submitDisabled={{saveButtonDisabled}}
+    >
+      {{#if this.sortedPresences}}
+        <table class='table edit-presence'>
+          <thead>
+            <tr>
+              <th>Persoon</th>
+              <th>Status</th>
+              <th>Tot</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each this.sortedPresences as |presence|}}
+              <tr class="edit-presence-row">
+                <td>{{presence.user.fullNameWithNickname}}</td>
+                <td>
+                  {{t
+                    (concat 'component.tools.studyRoomPresence.' presence.status)
+                  }}
+                </td>
+                <td> {{moment-format presence.endTime 'HH:mm'}} </td>
+                <td>
+                  {{#if (can 'destroy study-room-presences')}}
+                    <button
+                      class='btn btn-danger delete-presence-button float-end'
+                      aria-hidden='true'
+                      {{on 'click' this.deletePresence}}
+                      type='button'
+                    >
+                      <FaIcon @icon='trash' @size="xs" />
+                    </button>
+                  {{/if}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      {{else}}
+        <div class='alert alert-info'>Er zijn geen alphanen aanwezig</div>
+      {{/if}}
+
+      {{#if (can 'create study-room-presences')}}
+        {{#if this.currentUserPresence}}
+          <label for="new-user-presence-status">Status</label>
+          <Input::SelectInput
+            @class='form-control col-xs-12 presence-select'
+            @required={{true}}
+            @options={{statusOptions}}
+            @placeholder={{Status}}
+            @value={{this.currentUserPresence.status}}
+            @id="new-user-presence-status"
+          />
+          <label for="new-user-presence-starttime" class="mt-2">Van</label>
+          <Input::TimeInput
+            @dateValue={{this.currentUserPresence.startTime}}
+            @class='col-xs-12 presence-time-input'
+            @inputClass='form-control'
+            @placeholder={{this.currentUserPresence.startTime}}
+            @required={{true}}
+            @id="new-user-presence-starttime"
+          />
+          <label for="new-user-presence-endtime" class="mt-2">Tot</label>
+          <Input::TimeInput
+            @dateValue={{this.currentUserPresence.endTime}}
+            @class='col-xs-12 presence-time-input'
+            @inputClass='form-control'
+            @placeholder={{this.currentUserPresence.endTime}}
+            @required={{true}}
+            @id="new-user-presence-endtime"
+          />
+        {{else}}
+          <button
+            class='btn btn-secondary'
+            {{on 'click' this.newPresence}}
+            type='button'
+          >
+            Nieuw
+          </button>
+        {{/if}}
+      {{/if}}
+    </BasicModal>
+  </EmberWormhole>
+{{/if}}
