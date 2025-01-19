@@ -61,8 +61,8 @@ jobs:
       - name: Lint
         run: |
           EXIT_STATUS=0
-          ./actionlint -ignore 'property "gh_app_private_key" is not defined' -ignore 'SC2153:' \
-            -ignore 'property "sha" is not defined in object type {}' || EXIT_STATUS=$?
+          ./actionlint -ignore 'SC2153:'  -ignore 'property "sha" is not defined in object type {}' || \
+          EXIT_STATUS=$?
           docker run app yarn lint:hbs || EXIT_STATUS=$?
           docker run app yarn lint:js || EXIT_STATUS=$?
           docker run app /bin/bash -c 'yarn lint:scss -f github | sed "s|$(pwd)/||g" ; exit ${PIPESTATUS[0]}' || \
