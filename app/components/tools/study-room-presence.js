@@ -26,7 +26,7 @@ export default class BoardRoomPresence extends Component {
     },
     {
       value: 'vergaderen',
-      label: 'vergaderen',
+      label: 'Vergaderen',
     },
   ];
 
