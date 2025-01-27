@@ -262,11 +262,16 @@ component:
         partner-1: LANG-TODO
         partner-2: LANG-TODO
         partner-3: LANG-TODO
-    rooms:
-      header: LANG-TODO
-      intro-title: LANG-TODO
-      intro: LANG-TODO
-      locatie: Location
+    roomForum:
+      header: Room forum
+      intro-title: Check the available rooms in homes of our members here!
+      intro: 
+        Members of Alpha mainly live in student housing, either in "Alpha houses" or other student houses.
+        If a room becomes available in an Alpha house or in a student house of a member, you will find it here!
+      location: Location
+      contact: Contact
+      availableFrom: Available from
+      noAds: There are no available rooms at the moment.
   socialMediaButtons:
     facebook: Like us on Facebook
     instagram: Follow us on Instagram
@@ -276,6 +281,10 @@ component:
       present: Present
       busy: Busy
       absent: Absent
+    studyRoomPresence:
+      chilling: Chilling
+      studying: Studying
+      vergaderen: In a meeting
   userComment:
     anonymous: Anonymous user
 mixin:
@@ -297,6 +306,8 @@ mixin:
     articles: Articles
     activities: Activities
     vacancies: Vacancies
+    roomAdverts: Rooms
+    roomForum: Room forum
     forum: Forum
     photoAlbums: Photo-albums
     polls: Polls

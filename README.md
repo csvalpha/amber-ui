@@ -2,6 +2,7 @@
 
 [![Continuous Integration](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-integration.yml)
 [![Continuous Delivery](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml/badge.svg)](https://github.com/csvalpha/amber-ui/actions/workflows/continuous-delivery.yml)
+[![codecov](https://codecov.io/gh/csvalpha/amber-ui/graph/badge.svg?token=GMTXV28YQF)](https://codecov.io/gh/csvalpha/amber-ui)
 
 ## Prerequisites
 
@@ -62,6 +63,8 @@ Deployments are done using GitHub Actions. To deploy a branch, follow the follow
 - Open the "Run workflow" modal.
 - Choose a branch and if you want to merge the changes on the staging branch into the master branch (only possible when the branch chosen in previous step is master).
 - Click the green button "Run workflow".
+
+*Note: If the workflow fails with an error message about blobs along the lines of the following: `buildx failed with: ERROR: failed to solve: [...] blob [...]`: remove all recent cache files for staging on the [Caches page](https://github.com/csvalpha/amber-ui/actions/caches) and try again. You might have to turn on the option `Perform all jobs, regardless of whether there are actual changes?` to force the workflow to re-execute all its jobs.*
 
 ## Further Reading / Useful Links
 

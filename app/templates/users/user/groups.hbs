@@ -2,16 +2,16 @@
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<TabbedView @tabItems={{tabItems}}>
+<TabbedView @tabItems={{this.tabItems}}>
   <div class='row tabs-with-filterbar-row'>
     <div class='col'>
       <ul class='nav nav-tabs d-flex'>
         <li class='nav-item'>
           <a
             class='nav-link
-              {{unless oldMembershipsTabActive "active"}}
-              {{if (eq currentMemberships.length 0) "disabled"}}'
-            {{action 'hideOldMemberships'}}
+              {{if this.currentMembershipsSelected "active"}}
+              {{if (not this.currentmembershipsExist) "disabled"}}'
+            {{action 'selectCurrentMemberships'}}
           >
             Huidige groepen
           </a>
@@ -19,9 +19,9 @@
         <li class='nav-item'>
           <a
             class='nav-link
-              {{if oldMembershipsTabActive "active"}}
-              {{if (eq oldMemberships.length 0) "disabled"}}'
-            {{action 'showOldMemberships'}}
+              {{if this.oldMembershipsSelected "active"}}
+              {{if (not this.oldMembershipsExist) "disabled"}}'
+            {{action 'selectOldMemberships'}}
           >
             Voorheen
           </a>

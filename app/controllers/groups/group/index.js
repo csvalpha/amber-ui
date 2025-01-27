@@ -4,7 +4,6 @@ import { tracked } from '@glimmer/tracking';
 
 export default class GroupIndexController extends GroupMembershipsController {
   @tracked sortedAttribute = 'user.firstName';
-
   filterableAttributes = ['user.username', 'user.fullName', 'function'];
   sortableAttributes = [
     {

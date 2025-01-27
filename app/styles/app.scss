@@ -11,27 +11,29 @@
 @import 'components/basic-modal';
 @import 'components/bread-crumbs';
 @import 'components/cards/public-activity-card-small';
+@import 'components/cards/public-room-advert-card';
 @import 'components/cards/membership-card';
 @import 'components/cards/photo-album-card';
 @import 'components/dropzone';
 @import 'components/flash-notice';
 @import 'components/forum/forum-post';
 @import 'components/footer';
+@import 'components/list-group';
 @import 'components/md-editor';
 @import 'components/menu-sidebar';
 @import 'components/navbar';
 @import 'components/page-actions';
 @import 'components/pagination';
+@import 'components/photo-tags';
+@import 'components/public/header';
 @import 'components/public/index/about-alpha';
 @import 'components/public/index/activities';
-@import 'components/public/index/header';
 @import 'components/public/index/photo-albums';
 @import 'components/public/index/sponsor-banner';
 @import 'components/public/index/youtube-videos';
-@import 'components/quickpost';
 @import 'components/sidebar';
 @import 'components/social-media-buttons';
-@import 'components/tools/board-room-presence';
+@import 'components/tools/room-presence';
 @import 'components/tools/upcoming-birthdays';
 @import 'components/tools/upcoming-activities';
 @import 'components/tools/forum-tool';
@@ -68,7 +70,7 @@
 @import 'routes/login';
 @import 'routes/photos';
 @import 'routes/polls';
-@import 'routes/public/index';
+@import 'routes/public';
 @import 'routes/sog/name-trainer';
 
 // Import package style
