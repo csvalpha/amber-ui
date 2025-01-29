@@ -135,7 +135,7 @@
                 @model="{{article.id}}"
                 class="col-6 col-sm-4 col-md-3"
               >
-                <Cards::ArticleCard @article={{article}} @showExcerpt={{true}}/>
+                <Cards::ArticleCard @article={{article}} @showExcerpt={{false}} @showGroup={{false}} @showPreview={{false}}/>
               </LinkTo>
             {{/each}}
           </div>

@@ -18,7 +18,7 @@
   {{#each @model as |article|}}
     <div class='article-col col-md-6'>
       <LinkTo @route='articles.article' @model={{article.id}}>
-        <Cards::ArticleCard @article={{article}} @showExcerpt={{true}} @useMaxHeight={{true}}/>
+        <Cards::ArticleCard @article={{article}} @showExcerpt={{true}} @showGroup={{true}} @showPreview={{true}} @useMaxHeight={{true}}/>
       </LinkTo>
     </div>
   {{/each}}

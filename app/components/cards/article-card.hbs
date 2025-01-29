@@ -12,15 +12,17 @@
       />
 
       <div class='card-title-bar gradient-overlay'>
-        <div class='hidden-xs-down'>
-          <img
-            src='{{@article.avatarThumbUrlOrDefault}}'
-            class='profile-picture-medium profile-picture-margin'
-            alt='{{@article.authorName}}'
-            height='60px'
-            style='display: inline;'
-          />
-        </div>
+        {{#if @showGroup}}
+          <div class='hidden-xs-down'>
+            <img
+              src='{{@article.avatarThumbUrlOrDefault}}'
+              class='profile-picture-medium profile-picture-margin'
+              alt='{{@article.authorName}}'
+              height='60px'
+              style='display: inline;'
+            />
+          </div>
+        {{/if}}
         <div class='card-titles'>
           <LinkTo @route='articles.article' @model={{@article.id}}>
             <h2 class='card-title' itemprop='name headline'>
@@ -30,19 +32,21 @@
           </LinkTo>
           <h3 class='card-subtitle'>
             {{#if @article.group}}
-              <LinkTo
-                @route='groups.group'
-                @model={{@article.group.id}}
-                class='link-to card-subtitle-link'
-              >
-                <span
-                  itemprop='author'
-                  itemscope
-                  itemtype='https://schema.org/Person'
+              {{#if showGroup}}
+                <LinkTo
+                  @route='groups.group'
+                  @model={{@article.group.id}}
+                  class='link-to card-subtitle-link'
                 >
-                  <span itemprop='name'>{{@article.authorName}}</span>
-                </span>
-              </LinkTo>
+                  <span
+                    itemprop='author'
+                    itemscope
+                    itemtype='https://schema.org/Person'
+                  >
+                    <span itemprop='name'>{{@article.authorName}}</span>
+                  </span>
+                </LinkTo>
+              {{/if}}
             {{else}}
               <LinkTo
                 @route='users.user'
@@ -64,6 +68,7 @@
     </div>
 
     <div class='card-body'>
+      {{#if showPreview}}
       <p class='card-text' itemprop='articleBody'>
         {{#if @showExcerpt}}
           {{clean-markdown @article.excerpt}}
@@ -74,6 +79,7 @@
           }}
         {{/if}}
       </p>
+      {{/if}}
       <meta
         itemprop='dateModified'
         content={{moment-format @article.updatedAt}}
