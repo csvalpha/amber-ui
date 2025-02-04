@@ -36,7 +36,7 @@ export default class User extends Model {
   @attr picturePublicationPreference;
 
   @attr ifesDataSharingPreference;
-  @attr({ allowNull: true }) allowTomatoSharing;
+  @attr({ allowNull: true }) allowSofiaSharing;
   @attr infoInAlmanak;
   @attr userDetailsSharingPreference;
   // Security properties
