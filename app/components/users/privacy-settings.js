@@ -44,10 +44,10 @@ export default class PrivacySettingsComponent extends Component {
     return this.args.model === this.session.currentUser;
   }
 
-  get canChangeSofiaSettings() {
+  get canChangeTomatoSettings() {
     return (
-      !isPresent(this.args.model.changedAttributes().allowSofiaSharing) &&
-      this.args.model.allowSofiaSharing
+      !isPresent(this.args.model.changedAttributes().allowTomatoSharing) &&
+      this.args.model.allowTomatoSharing
     );
   }
 }

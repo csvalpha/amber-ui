@@ -67,7 +67,7 @@ export default Component.extend({
     this._super(...arguments);
     if (
       this.model?.userDetailsSharingPreference === null ||
-      this.model?.allowSofiaSharing === null
+      this.model?.allowTomatoSharing === null
     ) {
       this.set('isOpen', true);
     } else {
