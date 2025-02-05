@@ -1,11 +1,11 @@
 <Forms::GroupForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
-  @onFileLoaded={{action 'fileLoaded'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
+  @onFileLoaded={{this.fileLoaded}}
   @groupKindOptions={{this.groupKindOptions}}
   @errorMessage={{this.errorMessage}}
   @users={{this.users}}
-  @onAddUser={{action 'addUser'}}
-  @onRemoveMembership={{action 'removeMembership'}}
+  @onAddUser={{this.addUser}}
+  @onRemoveMembership={{this.removeMembership}}
 />

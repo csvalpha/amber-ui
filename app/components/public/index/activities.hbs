@@ -6,10 +6,10 @@
       <div class="row">
         {{#each activityPair as |activity|}}
           <div class="{{if doubleActivityColumns "col-md-6" "col-md-12"}}">
-            {{cards/public-activity-card-small
-          activity
-          action=(action 'openModal' activity)
-        }}
+            <Cards::PublicActivityCardSmall
+              @activity={{activity}}
+              @action={{fn this.openModal activity}}>
+            </Cards::PublicActivityCardSmall>
           </div>
         {{/each}}
       </div>
