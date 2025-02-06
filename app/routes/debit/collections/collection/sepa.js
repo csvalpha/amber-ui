@@ -22,9 +22,9 @@ export default class CollectionSepaRoute extends AuthenticatedRoute {
     if (response.ok) {
       const blob = await response.blob();
       this.fileSaver.saveFileAs(
-        `${model.get('name')}.xml`,
+        `${model.get('name')}.zip`,
         blob,
-        'application/xml'
+        'application/zip'
       );
       return this.transitionTo('debit.collections.collection', model.id);
     } else if (isInvalidResponse(response)) {

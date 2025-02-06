@@ -26,9 +26,9 @@
         <div class='card'>
           <div class='card-body create-new-question'>
             {{#if question.isOpenQuestion}}
-              {{form/open-question question form=model}}
+              <Form::OpenQuestion @question={{question}} @form={{model}}/>
             {{else}}
-              {{form/closed-question question form=model}}
+              <Form::ClosedQuestion @question={{question}} @form={{model}}/>
             {{/if}}
           </div>
         </div>

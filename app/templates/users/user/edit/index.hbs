@@ -1,9 +1,9 @@
 <TabbedView @tabItems={{this.tabItems}}>
   <Forms::UserForm
     @model={{@model}}
-    @onSubmit={{action 'submit'}}
-    @onCancel={{action 'cancel'}}
-    @onFileLoaded={{action 'fileLoaded'}}
+    @onSubmit={{this.submit}}
+    @onCancel={{this.cancel}}
+    @onFileLoaded={{this.fileLoaded}}
     @canEditOnlyOwnProperties={{this.canEditOnlyOwnProperties}}
     @almanakSubscriptionPreferenceTypes={{this.almanakSubscriptionPreferenceTypes}}
     @digtusSubscriptionPreferenceTypes={{this.digtusSubscriptionPreferenceTypes}}
