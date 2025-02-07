@@ -36,10 +36,6 @@ export default class User extends Ability {
     return this.session.hasPermission('user.update');
   }
 
-  get canShowWebdav() {
-    return this.session.isAuthenticated;
-  }
-
   get canDestroy() {
     return !this.isCurrentUser && this.session.hasPermission('user.destroy');
   }

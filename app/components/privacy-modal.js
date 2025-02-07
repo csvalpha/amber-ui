@@ -14,7 +14,7 @@ export default Component.extend({
   model: alias('session.currentUser'),
   isOpen: false,
   step: 1,
-  maxSteps: 6,
+  maxSteps: 5,
   errorMessage: null,
   userDetailsPreferenceTypes: computed(function () {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
@@ -53,14 +53,6 @@ export default Component.extend({
       } else {
         this.set('step', this.step + 1);
       }
-    },
-    allowWebdav() {
-      return this.fetch
-        .fetch(`/users/${this.model.id}/activate_webdav`, { method: 'POST' })
-        .then(() => {
-          this.model.reload();
-          this.send('nextPage');
-        });
     },
   },
   init() {
