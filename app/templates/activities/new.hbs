@@ -1,13 +1,13 @@
 <Forms::ActivityForm
   @model={{@model}}
   @controller={{this}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
   @activityCategoryOptions={{this.activityCategoryOptions}}
-  @onCoverPhotoLoaded={{action 'coverPhotoLoaded'}}
+  @onCoverPhotoLoaded={{this.coverPhotoLoaded}}
   @groups={{this.groups}}
   @activityHasForm={{this.activityHasForm}}
   @combinedErrors={{this.combinedErrors}}
   @errorMessage={{this.errorMessage}}
-  @setContent={{action 'setContent'}}
+  @setContent={{this.setContent}}
 />

@@ -26,7 +26,7 @@
 
           {{#each @model.sortedQuestions as |question|}}
             {{#unless question.isDeleted}}
-              {{poll/closed-question question}}
+              <Poll::ClosedQuestion @question={{question}} />
             {{/unless}}
           {{/each}}
         </div>
