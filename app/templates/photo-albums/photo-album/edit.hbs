@@ -1,7 +1,7 @@
 <Forms::PhotoAlbumForm
   @model={{@model}}
-  @onSubmit={{action 'submit'}}
-  @onCancel={{action 'cancel'}}
+  @onSubmit={{this.submit}}
+  @onCancel={{this.cancel}}
   @groups={{this.groups}}
   @dropzoneHeaders={{this.dropzoneHeaders}}
   @errorMessage={{this.errorMessage}}

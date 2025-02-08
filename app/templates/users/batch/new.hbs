@@ -31,7 +31,7 @@
         @model={{model}}
         @property='importFile'
         @label='Bestand *'
-        @loadedCallback={{action 'fileLoaded'}}
+        @loadedCallback={{this.fileLoaded}}
         @validExtensions={{validExtensions}}
         @validMimetypes={{validMimetypes}}
       />
