@@ -92,7 +92,7 @@ jobs:
 
       - name: Create Sentry release
         if: ${{ !(github.event_name == 'workflow_dispatch' && github.workflow == 'Publish Image') }}
-        uses: getsentry/action-release@12bba0bd9c0f65f9f80d4965db646a1aed373d36 # v1.10.3
+        uses: getsentry/action-release@b5b5a8ce7540bd7f67594177d52464a9bb543fb8 # v1.10.4
         env:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           SENTRY_ORG: ${{ vars.SENTRY_ORG_NAME }}
