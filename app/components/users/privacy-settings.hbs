@@ -25,15 +25,15 @@
       <div class='col-2 col-sm-6'>
         <Input
           @type='checkbox'
-          @checked={{@model.allowTomatoSharing}}
-          disabled={{canChangeTomatoSettings}}
+          @checked={{@model.allowSofiaSharing}}
+          disabled={{canChangeSofiaSettings}}
           class='form-check-input'
           id="share-with-streep-check"
         />
       </div>
     </div>
 
-    {{#if @model.allowTomatoSharing}}
+    {{#if @model.allowSofiaSharing}}
       <div class='alert alert-info mb-5'>
         Het is alleen mogelijk deze instelling uit te zetten via het bestuur. Om
         dit te deactiveren moet uw saldo namelijk eerst 0 zijn.

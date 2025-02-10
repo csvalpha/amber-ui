@@ -63,7 +63,7 @@ export default class PrivacyModal extends Component {
     super(...arguments);
     if (
       this.model?.userDetailsSharingPreference === null ||
-      this.model?.allowTomatoSharing === null
+      this.model?.allowSofiaSharing === null
     ) {
       this.isOpen = true;
     } else {
