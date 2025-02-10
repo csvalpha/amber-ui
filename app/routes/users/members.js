@@ -11,12 +11,6 @@ export default class UsersMembersRoute extends AuthenticatedRoute {
         icon: 'plus',
         canAccess: this.abilities.can('create users'),
       },
-      {
-        link: 'users.webdav',
-        title: 'Contactsynchronisatie',
-        icon: 'address-book',
-        canAccess: this.abilities.can('show webdav users'),
-      },
     ];
   }
 
