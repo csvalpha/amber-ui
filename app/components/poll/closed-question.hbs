@@ -47,21 +47,21 @@
           <button
             type='button'
             class='btn btn-default'
-            {{action 'moveOptionUp' opt}}
+            {{on 'click' (fn moveOptionUp opt)}}
           >
             <FaIcon @icon='arrow-up' />
           </button>
           <button
             type='button'
             class='btn btn-default'
-            {{action 'moveOptionDown' opt}}
+            {{on 'click' (fn moveOptionDown opt)}}
           >
             <FaIcon @icon='arrow-down' />
           </button>
           <button
             type='button'
             class='btn btn-default'
-            {{action 'deleteOption' opt}}
+            {{on 'click' (fn deleteOption opt)}}
           >
             <FaIcon @icon='trash' />
           </button>
@@ -72,7 +72,7 @@
 {{/each}}
 
 {{#unless question.form.hasResponses}}
-  <button type='button' class='btn btn-default' {{action 'addOption'}}>
+  <button type='button' class='btn btn-default' {{on 'click' addOption}}>
     Optie toevoegen
   </button>
 {{/unless}}

@@ -3,7 +3,7 @@
   Er wordt een bericht naar de afzender gestuurd dat dit bericht is goedgekeurd.
 </p>
 
-<button {{action 'submit'}} class='btn btn-danger' type='button'>Ja</button>
+<button {{on 'click' submit}} class='btn btn-danger' type='button'>Ja</button>
 <LinkTo
   @route='mail-moderations.mail-moderation'
   @model={{@model.id}}

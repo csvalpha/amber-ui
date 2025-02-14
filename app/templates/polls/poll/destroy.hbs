@@ -8,7 +8,7 @@
       verwijderen?
     </p>
 
-    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>Ja</button>
+    <button {{on 'click' destroyModel}} class='btn btn-danger' type='button'>Ja</button>
     <LinkTo
       @route='polls.poll'
       @model={{model.id}}

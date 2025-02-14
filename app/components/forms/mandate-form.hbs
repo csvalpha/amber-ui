@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Mandaat aanmaken' 'Mandaat wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' (prevent-default @onSubmit)}}>
       <ModelForm::DateInput
         @model={{@model}}
         @property='startDate'
@@ -27,7 +27,7 @@
         <div class='col-sm-10'>
           <PowerSelect
             @options={{@users}}
-            @onChange={{action (mut @model.user)}}
+            @onChange={{fn (mut @model.user)}}
             @selected={{@model.user}}
             @searchEnabled={{true}}
             @searchField='fullName'
@@ -41,7 +41,7 @@
       </div>
 
       <ModelForm::FormActions @model={{@model}} @errorMessage={{@errorMessage}}>
-        <button {{action @onCancel}} type="button" class='btn btn-default'>
+        <button {{on 'click' @onCancel}} type="button" class='btn btn-default'>
           Annuleren
         </button>
       </ModelForm::FormActions>

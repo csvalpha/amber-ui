@@ -4,7 +4,7 @@
   opnieuw wil versturen? Dit zal de oude activatiecode ongeldig maken.
 </p>
 
-<button {{action 'resendActivationCode'}} class='btn btn-danger' type='button'>
+<button {{on 'click' resendActivationCode}} class='btn btn-danger' type='button'>
   Ja
 </button>
 <LinkTo @route='users.user' @model={{@model.id}} class='btn btn-default'>

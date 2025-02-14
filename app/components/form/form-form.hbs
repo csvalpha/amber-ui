@@ -1,10 +1,10 @@
 <ModelForm::DatetimeInput
-  @model={{model}}
+  @model={{@model}}
   @property='respondFrom'
   @label='Inschrijven vanaf'
 />
 <ModelForm::DatetimeInput
-  @model={{model}}
+  @model={{@model}}
   @property='respondUntil'
   @label='Inschrijven tot'
 />
@@ -26,9 +26,9 @@
         <div class='card'>
           <div class='card-body create-new-question'>
             {{#if question.isOpenQuestion}}
-              <Form::OpenQuestion @question={{question}} @form={{model}}/>
+              <Form::OpenQuestion @question={{question}} @form={{@model}}/>
             {{else}}
-              <Form::ClosedQuestion @question={{question}} @form={{model}}/>
+              <Form::ClosedQuestion @question={{question}} @form={{@model}}/>
             {{/if}}
           </div>
         </div>
@@ -39,14 +39,14 @@
       <button
         type='button'
         class='btn btn-default'
-        {{action 'addOpenQuestion'}}
+        {{on 'click' this.addOpenQuestion}}
       >
         Open vraag toevoegen
       </button>
       <button
         type='button'
         class='btn btn-default'
-        {{action 'addClosedQuestion'}}
+        {{on 'click' this.addClosedQuestion}}
       >
         Gesloten vraag toevoegen
       </button>
