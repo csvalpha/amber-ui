@@ -72,16 +72,12 @@ export default class GroupExportController extends Controller {
       label: 'Stad',
     },
     {
-      value: 'foodPreferences',
+      value: 'food_preferences',
       label: 'Dieetwensen',
     },
     {
       value: 'vegetarian',
       label: 'Vegetariër',
-    },
-    {
-      value: 'food_preferences',
-      label: 'Dieetwensen',
     },
     {
       value: 'phone_number',
