@@ -17,7 +17,7 @@ export default class PrivacyModal extends Component {
 
   @tracked isOpen = false;
   @tracked step = 1;
-  maxSteps = 6;
+  maxSteps = 7;
   @tracked errorMessage = null;
   get userDetailsPreferenceTypes() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({

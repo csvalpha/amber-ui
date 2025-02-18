@@ -87,6 +87,21 @@
     </div>
   </div>
 
+  <div class='mb-3 row align-items-center'>
+    <label class='col-10 col-sm-6 col-form-label form-label' for="be-drivers-license-check">
+      Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak
+    </label>
+    <div class='col-2 col-sm-6'>
+      {{input
+        data-test-beDriversLicense=true
+        type='checkbox'
+        checked=@model.beDriversLicense
+        class='form-check-input'
+        id="be-drivers-license-check"
+      }}
+    </div>
+  </div>
+
   {{#if formActionsVisible}}
     <ModelForm::FormActions
       @errors={{@model.errors}}

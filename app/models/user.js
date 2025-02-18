@@ -39,6 +39,7 @@ export default class User extends Model {
   @attr({ allowNull: true }) allowTomatoSharing;
   @attr infoInAlmanak;
   @attr userDetailsSharingPreference;
+  @attr beDriversLicense;
   // Security properties
   @attr otpRequired;
   @attr icalSecretKey;
