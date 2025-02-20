@@ -40,6 +40,7 @@ export default class User extends Model {
   @attr infoInAlmanak;
   @attr userDetailsSharingPreference;
   @attr beDriversLicense;
+  @attr setupComplete;
   // Security properties
   @attr otpRequired;
   @attr icalSecretKey;
