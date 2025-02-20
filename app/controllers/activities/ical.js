@@ -35,11 +35,11 @@ export default class ActivitiesIcalController extends Controller {
   }
 
   get iCalURL() {
-    return `${window.location.origin}${this.iCalBase}&${this.categoriesParams}`;
+    return `${window.location.origin}${this.iCalBase}`;
   }
 
   get webcalURL() {
-    return `webcal://${window.location.host}${this.iCalBase}&${this.categoriesParams}`;
+    return `webcal://${window.location.host}${this.iCalBase}`;
   }
 
   _activityCategoryToOption(activityCategory) {
