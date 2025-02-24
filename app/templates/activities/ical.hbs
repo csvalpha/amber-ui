@@ -17,8 +17,9 @@
             uitgelegd.
           </p>
         </div>
+
         <form class='row' id='activityCategoryForm'>
-          {{#each activityCategoryOptions as |opt|}}
+          {{#each this.activityCategoryOptions as |opt|}}
             <div class='col-sm-12 col-md-3'>
               <div class='form-check'>
                 <Input
@@ -34,6 +35,11 @@
               </div>
             </div>
           {{/each}}
+          <div class="col-12 mt-3">
+            <button type="button" class="btn btn-primary" {{on "click" (fn this.saveCategories)}}>
+              Opslaan
+            </button>
+          </div>
         </form>
 
         <hr />
@@ -51,7 +57,7 @@
             anderen.
           </b>
         </div>
-        <p><a href='{{webcalURL}}'><code>{{iCalURL}}</code></a> </p>
+        <p><a href='{{this.webcalURL}}'><code>{{this.iCalURL}}</code></a></p>
       </div>
     </div>
   </div>
