@@ -1,13 +1,12 @@
-import Controller from '@ember/controller';
+import EditController from 'amber-ui/controllers/application/edit';
 // eslint-disable-next-line ember/no-computed-properties-in-native-classes
 import { computed } from '@ember/object';
 import { inject as service } from '@ember/service';
 import { ActivityCategories } from 'amber-ui/constants';
 import { tracked } from '@glimmer/tracking';
 
-export default class ActivitiesIcalController extends Controller {
+export default class ActivitiesIcalController extends EditController {
   @service session;
-
   @tracked activityCategoryOptions;
 
   constructor() {
@@ -24,10 +23,9 @@ export default class ActivitiesIcalController extends Controller {
 
   @computed('activityCategoryOptions.@each.checked')
   get categoriesParams() {
-    const selected = this.activityCategoryOptions
-      .filter((category) => category.checked)
-      .map((category) => category.value);
-    return `categories=${selected.join(',')}`;
+    return this.activityCategoryOptions
+      .filter(category => category.checked)
+      .map(category => category.value);
   }
 
   get iCalBase() {
@@ -49,4 +47,21 @@ export default class ActivitiesIcalController extends Controller {
       checked: true,
     };
   }
+
+  saveCategories = () => {
+    const { currentUser } = this.session;
+    const selectedCategories = this.categoriesParams;
+
+    currentUser.set('icalCategories', selectedCategories);
+  
+    return currentUser.save()
+      .then(() => {
+        console.log('Categories saved successfully!');
+      })
+      .catch((error) => {
+        console.error('Failed to save categories:', error);
+      });
+  };
+  
+  
 }

@@ -42,6 +42,7 @@ export default class User extends Model {
   // Security properties
   @attr otpRequired;
   @attr icalSecretKey;
+  @attr icalCategories;
   @attr webdavSecretKey;
   @attr password;
 
