@@ -39,7 +39,7 @@ export default class User extends Model {
   @attr({ allowNull: true }) allowTomatoSharing;
   @attr infoInAlmanak;
   @attr userDetailsSharingPreference;
-  @attr beDriversLicense;
+  @attr trailerDriversLicense;
   @attr setupComplete;
   // Security properties
   @attr otpRequired;
