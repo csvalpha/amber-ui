@@ -46,6 +46,7 @@ export default class PrivacyModal extends Component {
     this.errorMessage = null;
     if (this.step >= this.maxSteps) {
       this.model.setupComplete = true;
+      this.isOpen = false;
       return;
     }
     this.step = this.step + 1;
