@@ -21,13 +21,13 @@
         @route='photo-albums.photo-album.photos.photo'
         @model={{photo.id}}
       >
-        {{#if (or photo.amountOfComments photo.amountOfTags)}}
+        {{#if (or (and photo.amountOfComments (can 'show photo-comment')) (and photo.amountOfTags (can 'show photo-tag')))}}
           <span class='comments-counter badge bg-info bottom-0 start-0'>
-            {{#if photo.amountOfComments}}
+            {{#if (and photo.amountOfComments (can 'show photo-comment'))}}
               <FaIcon @icon='comments' />
               {{photo.amountOfComments}}
             {{/if}}
-            {{#if photo.amountOfTags}}
+            {{#if (and photo.amountOfTags (can 'show photo-tag'))}}
               <FaIcon @icon='tag' />
               {{photo.amountOfTags}}
             {{/if}}
