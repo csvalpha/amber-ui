@@ -45,8 +45,7 @@ export default class PrivacyModal extends Component {
   @action nextPage() {
     this.errorMessage = null;
     if (this.step >= this.maxSteps) {
-      this.model.setupComplete = true
-      this.isOpen = false;
+      this.model.setupComplete = true;
       return;
     }
     this.step = this.step + 1;
@@ -62,13 +61,7 @@ export default class PrivacyModal extends Component {
 
   constructor() {
     super(...arguments);
-    if (
-      this.model.setupComplete == false
-    ) {
-      this.isOpen = true;
-    } else {
-      this.isOpen = false;
-    }
+    this.isOpen = !this.model.setupComplete;
   }
 }
 //
