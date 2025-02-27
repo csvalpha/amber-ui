@@ -11,14 +11,19 @@ export default class PrivacyModal extends Component {
   @service session;
   @service store;
   @service fetch;
+
+  @tracked step = 1;
+  maxSteps = 7;
+  @tracked errorMessage = null;
+
   get model() {
     return this.session.currentUser;
   }
 
-  @tracked isOpen = false;
-  @tracked step = 1;
-  maxSteps = 7;
-  @tracked errorMessage = null;
+  get isOpen() {
+    return this.model ? !this.model.setupComplete : false;
+  }
+
   get userDetailsPreferenceTypes() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
       value,
@@ -33,6 +38,7 @@ export default class PrivacyModal extends Component {
   }
 
   @action async select(attribute, value) {
+    if (!this.model) return;
     this.model.set(attribute, value);
     try {
       await this.model.save();
@@ -42,100 +48,31 @@ export default class PrivacyModal extends Component {
     }
   }
 
-  @action nextPage() {
+  @action async nextPage() {
+    if (!this.model) return;
     this.errorMessage = null;
     if (this.step >= this.maxSteps) {
-      this.model.setupComplete = true;
-      this.isOpen = false;
+      try {
+        this.model.set('setupComplete', true);
+        await this.model.save();
+      } catch (error) {
+        this.errorMessage = 'Failed to complete setup. Please try again.';
+      }
       return;
     }
-    this.step = this.step + 1;
+    this.step++;
   }
 
   @action async allowWebdav() {
-    await this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, {
-      method: 'POST',
-    });
-    this.model.reload();
-    this.nextPage();
-  }
-
-  constructor() {
-    super(...arguments);
-    if (this.model.setupComplete == false) {
-      this.isOpen = true;
-    } else {
-      this.isOpen = false;
+    if (!this.model) return;
+    try {
+      await this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, {
+        method: 'POST',
+      });
+      await this.model.reload();
+      this.nextPage();
+    } catch (error) {
+      this.errorMessage = 'Failed to activate WebDAV. Please try again.';
     }
   }
-  
 }
-//
-// export default Component.extend({
-//   session: service(),
-//   store: service(),
-//   fetch: service(),
-//   model: alias('session.currentUser'),
-//   isOpen: false,
-//   step: 1,
-//   maxSteps: 6,
-//   errorMessage: null,
-//   userDetailsPreferenceTypes: computed(function () {
-//     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
-//       value,
-//       label,
-//     }));
-//   }),
-//   picturePublicationPreferenceTypes: computed(function () {
-//     return Object.entries(PicturePublicationPreferenceTypes).map(
-//       ([value, label]) => ({ value, label })
-//     );
-//   }),
-//   actions: {
-//     select(attribute, value) {
-//       this.model.set(attribute, value);
-//       this.model
-//         .save()
-//         .then(() => {
-//           this.send('nextPage');
-//         })
-//         .catch((error) => {
-//           this.set(
-//             'errorMessage',
-//             error.errors
-//               .map((e) => {
-//                 return e.detail;
-//               })
-//               .join(', ')
-//           );
-//         });
-//     },
-//     nextPage() {
-//       this.set('errorMessage', null);
-//       if (this.step >= this.maxSteps) {
-//         this.set('isOpen', false);
-//       } else {
-//         this.set('step', this.step + 1);
-//       }
-//     },
-//     allowWebdav() {
-//       return this.fetch
-//         .fetch(`/users/${this.model.id}/activate_webdav`, { method: 'POST' })
-//         .then(() => {
-//           this.model.reload();
-//           this.send('nextPage');
-//         });
-//     },
-//   },
-//   init() {
-//     this._super(...arguments);
-//     if (
-//       this.model?.userDetailsSharingPreference === null ||
-//       this.model?.allowTomatoSharing === null
-//     ) {
-//       this.set('isOpen', true);
-//     } else {
-//       this.set('isOpen', false);
-//     }
-//   },
-// });
