@@ -1,21 +1,25 @@
 <EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
-    <div class='col col-md-auto page-action'>
-      {{#if (can 'show users')}}
-        <button
-          class='btn btn-primary'
-          {{action 'goToPreviousPhoto'}}
+    {{#if (can 'show users')}}
+      <div class='col col-md-auto page-action'>
+          <button
+            class='btn btn-primary'
+            {{action 'goToPreviousPhoto'}}
+            type='button'
+          >
+            <FaIcon @icon='arrow-left' />
+          </button>
+      </div>
+      <div class='col col-md-auto page-action'>
+        <button 
+          class='btn btn-primary' 
+          {{action 'goToNextPhoto'}} 
           type='button'
         >
-          <FaIcon @icon='arrow-left' />
+          <FaIcon @icon='arrow-right' />
         </button>
-      {{/if}}
-    </div>
-    <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{action 'goToNextPhoto'}} type='button'>
-        <FaIcon @icon='arrow-right' />
-      </button>
-    </div>
+      </div>
+    {{/if}}
     <div class='col col-md-auto page-action'>
       <a
         class='btn btn-primary col'
