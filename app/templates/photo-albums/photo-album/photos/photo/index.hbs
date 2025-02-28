@@ -1,35 +1,35 @@
 <EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
+    <div class='col col-md-auto page-action'>
+      <button
+        class='btn btn-primary'
+        {{action 'goToPreviousPhoto'}}
+        type='button'
+      >
+        <FaIcon @icon='arrow-left' />
+      </button>
+    </div>
+    <div class='col col-md-auto page-action'>
+      <button 
+        class='btn btn-primary' 
+        {{action 'goToNextPhoto'}} 
+        type='button'
+      >
+        <FaIcon @icon='arrow-right' />
+      </button>
+    </div>
     {{#if (can 'show users')}}
       <div class='col col-md-auto page-action'>
-          <button
-            class='btn btn-primary'
-            {{action 'goToPreviousPhoto'}}
-            type='button'
-          >
-            <FaIcon @icon='arrow-left' />
-          </button>
-      </div>
-      <div class='col col-md-auto page-action'>
-        <button 
-          class='btn btn-primary' 
-          {{action 'goToNextPhoto'}} 
-          type='button'
+        <a
+          class='btn btn-primary col'
+          href='{{@model.imageUrl}}'
+          download='{{@model.id}}'
         >
-          <FaIcon @icon='arrow-right' />
-        </button>
+          <FaIcon @icon='download' />
+          <span class='d-none d-md-inline'>Foto downloaden</span>
+        </a>
       </div>
-    {{/if}}
-    <div class='col col-md-auto page-action'>
-      <a
-        class='btn btn-primary col'
-        href='{{@model.imageUrl}}'
-        download='{{@model.id}}'
-      >
-        <FaIcon @icon='download' />
-        <span class='d-none d-md-inline'>Foto downloaden</span>
-      </a>
-    </div>
+     {{/if}}
   </PageActionsButtons>
 </EmberWormhole>
 
