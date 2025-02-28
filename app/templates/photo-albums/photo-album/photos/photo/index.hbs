@@ -1,20 +1,7 @@
 <EmberWormhole @to='navbar-wormhole'>
   <PageActionsButtons @pageActions={{pageActions}}>
     <div class='col col-md-auto page-action'>
-      <button
-        class='btn btn-primary'
-        {{action 'goToPreviousPhoto'}}
-        type='button'
-      >
-        <FaIcon @icon='arrow-left' />
-      </button>
-    </div>
-    <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{action 'goToNextPhoto'}} type='button'>
-        <FaIcon @icon='arrow-right' />
-      </button>
-    </div>
-    <div class='col col-md-auto page-action'>
+      {{#if (can 'show users')}}
       <a
         class='btn btn-primary col'
         href='{{@model.imageUrl}}'
@@ -23,13 +10,26 @@
         <FaIcon @icon='download' />
         <span class='d-none d-md-inline'>Foto downloaden</span>
       </a>
+      {{/if}}
     </div>
   </PageActionsButtons>
 </EmberWormhole>
 
 <Swipeable @onSwipeHorizontal={{this.onSwipe}}>
-  <div class='col'>
-    <PhotoAlbums::Photo @model={{@model}} />
-    <PhotoComments::Comments @model={{@model}} />
-  </div>
+  <PageActionsButtons @pageActions={{this.pageActions}}>
+    <div class="photo-container">
+      <button class="btn btn-primary" {{on "click" this.goToPreviousPhoto}} type="button">
+        <FaIcon @icon="arrow-left" />
+      </button>
+
+      <div class="photo-content">
+        <PhotoAlbums::Photo @model={{@model}} />
+        <PhotoComments::Comments @model={{@model}} />
+      </div>
+
+      <button class="btn btn-primary" {{on "click" this.goToNextPhoto}} type="button">
+        <FaIcon @icon="arrow-right" />
+      </button>
+    </div>
+  </PageActionsButtons>
 </Swipeable>
