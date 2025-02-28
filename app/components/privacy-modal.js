@@ -12,17 +12,14 @@ export default class PrivacyModal extends Component {
   @service store;
   @service fetch;
 
-  @tracked step = 1;
-  maxSteps = 7;
-  @tracked errorMessage = null;
-
   get model() {
     return this.session.currentUser;
   }
 
-  get isOpen() {
-    return this.model ? !this.model.setupComplete : false;
-  }
+  @tracked isOpen = false;
+  @tracked step = 1;
+  maxSteps = 7;
+  @tracked errorMessage = null;
 
   get userDetailsPreferenceTypes() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
@@ -38,33 +35,35 @@ export default class PrivacyModal extends Component {
   }
 
   @action async select(attribute, value) {
-    if (!this.model) return;
     this.model.set(attribute, value);
     try {
       await this.model.save();
       this.nextPage();
     } catch (error) {
-      this.errorMessage = error.errors.map((e) => e.detail).join(', ');
+      this.errorMessage =
+        error.errors?.map((e) => e.detail).join(', ') || 'An error occurred';
     }
   }
 
   @action async nextPage() {
-    if (!this.model) return;
     this.errorMessage = null;
     if (this.step >= this.maxSteps) {
+      this.model.set('setupComplete', true);
       try {
-        this.model.set('setupComplete', true);
         await this.model.save();
       } catch (error) {
-        this.errorMessage = 'Failed to complete setup. Please try again.';
+        this.errorMessage = error.errors
+          ?.map((e) => e.detail)
+          .join(', ') || 'An error occurred while completing setup.';
+        return;
       }
+      this.isOpen = false;
       return;
     }
-    this.step++;
+    this.step = this.step + 1;
   }
 
   @action async allowWebdav() {
-    if (!this.model) return;
     try {
       await this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, {
         method: 'POST',
@@ -72,7 +71,12 @@ export default class PrivacyModal extends Component {
       await this.model.reload();
       this.nextPage();
     } catch (error) {
-      this.errorMessage = 'Failed to activate WebDAV. Please try again.';
+      this.errorMessage = 'Failed to activate WebDAV';
     }
+  }
+
+  constructor() {
+    super(...arguments);
+    this.isOpen = !this.model?.setupComplete;
   }
 }
