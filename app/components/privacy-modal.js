@@ -11,7 +11,6 @@ export default class PrivacyModal extends Component {
   @service session;
   @service store;
   @service fetch;
-
   get model() {
     return this.session.currentUser;
   }
@@ -20,7 +19,6 @@ export default class PrivacyModal extends Component {
   @tracked step = 1;
   maxSteps = 7;
   @tracked errorMessage = null;
-
   get userDetailsPreferenceTypes() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
       value,
@@ -40,8 +38,7 @@ export default class PrivacyModal extends Component {
       await this.model.save();
       this.nextPage();
     } catch (error) {
-      this.errorMessage =
-        error.errors?.map((e) => e.detail).join(', ') || 'An error occurred';
+      this.errorMessage = error.errors.map((e) => e.detail).join(', ');
     }
   }
 
@@ -52,9 +49,7 @@ export default class PrivacyModal extends Component {
       try {
         await this.model.save();
       } catch (error) {
-        this.errorMessage = error.errors
-          ?.map((e) => e.detail)
-          .join(', ') || 'An error occurred while completing setup.';
+        this.errorMessage = error.errors.map((e) => e.detail).join(', ');
         return;
       }
       this.isOpen = false;
@@ -64,15 +59,11 @@ export default class PrivacyModal extends Component {
   }
 
   @action async allowWebdav() {
-    try {
-      await this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, {
-        method: 'POST',
-      });
-      await this.model.reload();
-      this.nextPage();
-    } catch (error) {
-      this.errorMessage = 'Failed to activate WebDAV';
-    }
+    await this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, {
+      method: 'POST',
+    });
+    this.model.reload();
+    this.nextPage();
   }
 
   constructor() {
