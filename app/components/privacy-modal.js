@@ -68,6 +68,10 @@ export default class PrivacyModal extends Component {
 
   constructor() {
     super(...arguments);
-    this.isOpen = !this.model?.setupComplete;
-  }
+    if (this.model?.setupComplete == false) {
+      this.isOpen = true;
+    } else {
+      this.isOpen = false;
+    }
+  }  
 }
