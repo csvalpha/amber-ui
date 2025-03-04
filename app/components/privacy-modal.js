@@ -73,5 +73,5 @@ export default class PrivacyModal extends Component {
     } else {
       this.isOpen = false;
     }
-  }  
+  }
 }
