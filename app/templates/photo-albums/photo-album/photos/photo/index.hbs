@@ -10,20 +10,26 @@
       </button>
     </div>
     <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{on 'click' goToNextPhoto}} type='button'>
+      <button 
+        class='btn btn-primary' 
+        {{on 'click' goToNextPhoto}} 
+        type='button'
+      >
         <FaIcon @icon='arrow-right' />
       </button>
     </div>
-    <div class='col col-md-auto page-action'>
-      <a
-        class='btn btn-primary col'
-        href='{{@model.imageUrl}}'
-        download='{{@model.id}}'
-      >
-        <FaIcon @icon='download' />
-        <span class='d-none d-md-inline'>Foto downloaden</span>
-      </a>
-    </div>
+    {{#if this.session.isAuthenticated}}
+      <div class='col col-md-auto page-action'>
+        <a
+          class='btn btn-primary col'
+          href='{{@model.imageUrl}}'
+          download='{{@model.id}}'
+        >
+          <FaIcon @icon='download' />
+          <span class='d-none d-md-inline'>Foto downloaden</span>
+        </a>
+      </div>
+    {{/if}}
   </PageActionsButtons>
 </EmberWormhole>
 

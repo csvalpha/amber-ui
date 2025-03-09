@@ -82,31 +82,18 @@
 
       <div
         class='btn btn-primary'
-        {{on 'click' (fn this.select 'allowTomatoSharing' true)}}
+        {{on 'click' (fn this.select 'allowSofiaSharing' true)}}
       >
         Ja
       </div>
       <div
         class='btn btn-danger'
-        {{on 'click' (fn this.select 'allowTomatoSharing' false)}}
+        {{on 'click' (fn this.select 'allowSofiaSharing' false)}}
       >
         Nee
       </div>
 
     {{else if (eq this.step 5)}}
-      <b>Mogen we je gegevens delen via de contactsynchronizatie?</b>
-      <br />
-      <small>
-        Om zelf gebruik te maken van de contactsynchronizatie ga naar Leden ->
-        Contactsynchronizatie.
-      </small>
-      <br />
-      <br />
-
-      <div class='btn btn-primary' {{on 'click' this.allowWebdav}}>Ja</div>
-      <div class='btn btn-danger' {{on 'click' this.nextPage}}>Nee</div>
-
-    {{else if (eq this.step 6)}}
       <b>Met wie mogen we je profieldetails delen?</b>
       <br />
       <small>
@@ -124,6 +111,29 @@
             </div>
           </div>
         {{/each}}
+      </div>
+    {{else if (eq this.step 7)}}
+      <b>Heb je een BE-rijbewijs?</b>
+      <br />
+      <small>
+        Binnen Alpha hebben we een keet om ervoor te zorgen dat 
+        het vervoer soepel verloopt, houdt de Keetcie een lijst bij 
+        van leden met een BE-rijbewijs.
+      </small>
+      <br />
+      <br />
+
+      <div
+        class='btn btn-primary'
+        {{on 'click' (fn this.select 'trailerDriversLicense' true)}}
+      >
+        Ja
+      </div>
+      <div
+        class='btn btn-danger'
+        {{on 'click' (fn this.select 'trailerDriversLicense' false)}}
+      >
+        Nee
       </div>
     {{/if}}
 

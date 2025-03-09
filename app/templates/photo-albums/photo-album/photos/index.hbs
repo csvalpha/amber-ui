@@ -1,11 +1,13 @@
 <EmberWormhole @to='navbar-wormhole'>
   {{#page-actions-buttons pageActions}}
-    <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{on 'click' downloadAlbum}} type='button'>
-        <FaIcon @icon='download' />
-        <span class='d-none d-md-inline'>Fotoalbum downloaden</span>
-      </button>
-    </div>
+    {{#if this.session.isAuthenticated}}
+      <div class='col col-md-auto page-action'>
+        <button class='btn btn-primary' {{on 'click' downloadAlbum}} type='button'>
+          <FaIcon @icon='download' />
+          <span class='d-none d-md-inline'>Fotoalbum downloaden</span>
+        </button>
+      </div>
+    {{/if}}
   {{/page-actions-buttons}}
 </EmberWormhole>
 
@@ -21,13 +23,13 @@
         @route='photo-albums.photo-album.photos.photo'
         @model={{photo.id}}
       >
-        {{#if (or photo.amountOfComments photo.amountOfTags)}}
+        {{#if (or (and photo.amountOfComments (can 'show photo-comment')) (and photo.amountOfTags (can 'show photo-tag')))}}
           <span class='comments-counter badge bg-info bottom-0 start-0'>
-            {{#if photo.amountOfComments}}
+            {{#if (and photo.amountOfComments (can 'show photo-comment'))}}
               <FaIcon @icon='comments' />
               {{photo.amountOfComments}}
             {{/if}}
-            {{#if photo.amountOfTags}}
+            {{#if (and photo.amountOfTags (can 'show photo-tag'))}}
               <FaIcon @icon='tag' />
               {{photo.amountOfTags}}
             {{/if}}

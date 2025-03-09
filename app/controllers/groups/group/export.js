@@ -72,7 +72,7 @@ export default class GroupExportController extends Controller {
       label: 'Stad',
     },
     {
-      value: 'foodPreferences',
+      value: 'food_preferences',
       label: 'Dieetwensen',
     },
     {
@@ -108,24 +108,12 @@ export default class GroupExportController extends Controller {
       label: 'IFES voorkeur',
     },
     {
-      value: 'iban',
-      label: 'IBAN',
-    },
-    {
-      value: 'iban_holder',
-      label: 'IBAN tenaamgestelde',
-    },
-    {
       value: 'emergency_contact',
       label: 'Noodcontact',
     },
     {
       value: 'emergency_number',
       label: 'Noodnummer',
-    },
-    {
-      value: 'avatar_url',
-      label: 'Profielfoto url',
     },
   ];
 

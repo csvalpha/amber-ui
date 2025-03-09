@@ -35,8 +35,8 @@
         Gegevens (naam, email, geboortedatum) mogen gedeeld worden met het
         streepsysteem
       </td>
-      <td data-test-allow-tomato-sharing>
-        {{boolean-tag @model.allowTomatoSharing}}
+      <td data-test-allow-sofia-sharing>
+        {{boolean-tag @model.allowSofiaSharing}}
       </td>
     </tr>
     <tr>
@@ -48,6 +48,10 @@
     <tr>
       <td>Gegevens (naam, afbeelding, studie) mogen gedeeld worden in de almanak</td>
       <td data-test-info-in-almanak>{{boolean-tag @model.infoInAlmanak}}</td>
+    </tr>
+    <tr>
+      <td>Bezit BE rijbewijs</td>
+      <td data-test-trailer-drivers-license>{{boolean-tag @model.trailerDriversLicense}}</td>
     </tr>
   </tbody>
 </table>
