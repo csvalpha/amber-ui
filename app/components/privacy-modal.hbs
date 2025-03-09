@@ -125,6 +125,29 @@
           </div>
         {{/each}}
       </div>
+    {{else if (eq this.step 7)}}
+      <b>Heb je een BE-rijbewijs?</b>
+      <br />
+      <small>
+        Binnen Alpha hebben we een keet om ervoor te zorgen dat 
+        het vervoer soepel verloopt, houdt de Keetcie een lijst bij 
+        van leden met een BE-rijbewijs.
+      </small>
+      <br />
+      <br />
+
+      <div
+        class='btn btn-primary'
+        {{on 'click' (fn this.select 'trailerDriversLicense' true)}}
+      >
+        Ja
+      </div>
+      <div
+        class='btn btn-danger'
+        {{on 'click' (fn this.select 'trailerDriversLicense' false)}}
+      >
+        Nee
+      </div>
     {{/if}}
 
     {{#if this.errorMessage}}

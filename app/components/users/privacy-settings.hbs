@@ -87,6 +87,21 @@
     </div>
   </div>
 
+  <div class='mb-3 row align-items-center'>
+    <label class='col-10 col-sm-6 col-form-label form-label' for="trailer-drivers-license-check">
+      Bezit BE rijbewijs
+    </label>
+    <div class='col-2 col-sm-6'>
+      {{input
+        data-test-trailerDriversLicense=true
+        type='checkbox'
+        checked=@model.trailerDriversLicense
+        class='form-check-input'
+        id="trailer-drivers-license-check"
+      }}
+    </div>
+  </div>
+
   {{#if formActionsVisible}}
     <ModelForm::FormActions
       @errors={{@model.errors}}

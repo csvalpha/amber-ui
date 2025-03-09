@@ -36,9 +36,11 @@ export default class User extends Model {
   @attr picturePublicationPreference;
 
   @attr ifesDataSharingPreference;
-  @attr({ allowNull: true }) allowSofiaSharing;
+  @attr allowTomatoSharing;
   @attr infoInAlmanak;
   @attr userDetailsSharingPreference;
+  @attr trailerDriversLicense;
+  @attr setupComplete;
   // Security properties
   @attr otpRequired;
   @attr icalSecretKey;
