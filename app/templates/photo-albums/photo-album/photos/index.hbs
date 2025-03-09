@@ -1,6 +1,6 @@
 <EmberWormhole @to='navbar-wormhole'>
   {{#page-actions-buttons pageActions}}
-    {{#if (can 'show users')}}
+    {{#if this.session.isAuthenticated}}
       <div class='col col-md-auto page-action'>
         <button class='btn btn-primary' {{action 'downloadAlbum'}} type='button'>
           <FaIcon @icon='download' />
