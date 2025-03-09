@@ -142,6 +142,13 @@
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
   />
+  <ModelForm::CheckboxInput
+    @model={{@model}}
+    @property='trailerDriversLicense'
+    @label='BE rijbewijs'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+  />
 
   <h5>Voorkeuren</h5>
   <ModelForm::SelectInput
@@ -168,6 +175,16 @@
     @labelClass='col-sm-5'
     @inputWrapperClass='col-sm-7'
     @label='Gebruiker kan inloggen'
+    @disabled={{@canEditOnlyOwnProperties}}
+    @labelColspan={{5}}
+  />
+
+  <ModelForm::CheckboxInput
+    @model={{@model}}
+    @property='sidekiqAccess'
+    @labelClass='col-sm-5'
+    @inputWrapperClass='col-sm-7'
+    @label='Sidekiq toegang'
     @disabled={{@canEditOnlyOwnProperties}}
     @labelColspan={{5}}
   />
