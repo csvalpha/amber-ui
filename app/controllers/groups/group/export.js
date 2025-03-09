@@ -119,6 +119,10 @@ export default class GroupExportController extends Controller {
       value: 'trailerDriversLicense',
       label: 'BE rijbewijs',
     },
+    {
+      value: 'setupComplete',
+      label: 'Setup voltooid',
+    },
   ];
 
   @computed('questions.@each.answer')
