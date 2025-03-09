@@ -1,5 +1,5 @@
 <h5>Privacyinstellingen</h5>
-<form class='form' {{action @onSubmit on='submit'}}>
+<form class='form' {{on 'submit' (prevent-default @onSubmit)}}>
   {{#if isOwnUser}}
     <div class='mb-3 row align-items-center'>
       <label class='col-sm-6 col-form-label form-label'>
@@ -108,7 +108,7 @@
       @errorMessage={{this.errorMessage}}
       @inputLayout='vertical'
     >
-      <button {{action @onCancel}} type="button" class='btn btn-default'>
+      <button {{on 'click' @onCancel}} type="button" class='btn btn-default'>
         Annuleren
       </button>
     </ModelForm::FormActions>

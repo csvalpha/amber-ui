@@ -11,7 +11,7 @@
     {{#unless post.isDeleted}}
       {{forum/forum-post
         post
-        addQuote=(action 'addQuote')
+        addQuote=addQuote
         data-test-forum-post=post.id
       }}
     {{/unless}}

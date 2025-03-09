@@ -30,7 +30,7 @@
     <br />
     <br />
 
-    <form {{action 'submit' on='submit'}}>
+    <form {{on 'submit' (prevent-default submit)}}>
       <ModelForm::FileInput
         @model={{model}}
         @property='importFile'

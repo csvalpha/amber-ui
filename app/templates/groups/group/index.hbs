@@ -48,7 +48,7 @@
                     class='nav-link
                       {{if this.currentMembershipsSelected "active"}}
                       {{if (not this.currentMembershipsExist) "disabled"}}'
-                    {{action 'selectCurrentMemberships'}}
+                    {{on 'click' selectCurrentMemberships}}
                   >
                     Leden
                   </a>
@@ -58,7 +58,7 @@
                     class='nav-link
                       {{if this.oldMembershipsSelected "active"}}
                       {{if (not this.oldMembershipsExist) "disabled"}}'
-                    {{action 'selectOldMemberships'}}
+                    {{on 'click' selectOldMemberships}}
                   >
                     Oud-leden
                   </a>

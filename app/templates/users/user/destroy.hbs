@@ -12,10 +12,10 @@
     {{/if}}
   </div>
   <div class='card-footer'>
-    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
+    <button {{on 'click' destroyModel}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <button {{action 'cancel'}} class="btn btn-default" type="button">Annuleren</button>
+    <button {{on 'click' cancel}} class="btn btn-default" type="button">Annuleren</button>
   </div>
 </div>
 

@@ -26,7 +26,7 @@
 
     <hr />
 
-    <form {{action 'uploadFile' on='submit'}}>
+    <form {{on 'submit' (prevent-default uploadFile)}}>
       <ModelForm::FileInput
         @model={{model}}
         @property='importFile'
@@ -43,7 +43,7 @@
           <PowerSelect
             @selected={{addToGroup}}
             @options={{groups}}
-            @onChange={{action (mut addToGroup)}}
+            @onChange={{fn (mut addToGroup)}}
             @searchEnabled={{true}}
             @searchField='name'
             @allowClear={{true}}
@@ -116,7 +116,7 @@
         <button
           type='button'
           class='btn btn-secondary btn-inline ms-3'
-          {{action 'confirmUpload'}}
+          {{on 'click' confirmUpload}}
           name='confirmUpload'
           disabled={{if importErrors true false}}
         >
