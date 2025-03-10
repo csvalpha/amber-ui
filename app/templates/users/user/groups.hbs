@@ -11,7 +11,7 @@
             class='nav-link
               {{if this.currentMembershipsSelected "active"}}
               {{if (not this.currentmembershipsExist) "disabled"}}'
-            {{action 'selectCurrentMemberships'}}
+            {{on 'click' selectCurrentMemberships}}
           >
             Huidige groepen
           </a>
@@ -21,7 +21,7 @@
             class='nav-link
               {{if this.oldMembershipsSelected "active"}}
               {{if (not this.oldMembershipsExist) "disabled"}}'
-            {{action 'selectOldMemberships'}}
+            {{on 'click' selectOldMemberships}}
           >
             Voorheen
           </a>

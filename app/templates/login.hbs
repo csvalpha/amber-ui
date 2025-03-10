@@ -11,7 +11,7 @@
             }}
           </h5>
         </div>
-        <form {{on 'submit' this.authenticate}} method='post'>
+        <form {{on 'submit' (prevent-default this.authenticate)}} method='post'>
           <div class='card-body p-4'>
             {{#if errorMessage}}
               <div class='alert alert-danger' role='alert' data-test-error>

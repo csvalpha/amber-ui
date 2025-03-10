@@ -1,4 +1,4 @@
-<form {{action @onSubmit on='submit'}}>
+<form {{on 'submit' (prevent-default @onSubmit)}}>
   <div class='card'>
     <div class='card-header'>
       <h5>Details</h5>
@@ -55,7 +55,7 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <button {{action @onCancel}} type="button" class='btn btn-default'>Annuleren</button>
+        <button {{on 'click' @onCancel}} type="button" class='btn btn-default'>Annuleren</button>
       </ModelForm::FormActions>
     </div>
   </div>
@@ -136,7 +136,7 @@
                           <button
                             type='button'
                             class='btn btn-danger'
-                            {{action @onRemoveMembership membership}}
+                            {{on 'click' (fn @onRemoveMembership membership)}}
                           >
                             <FaIcon @icon='trash' />
                           </button>

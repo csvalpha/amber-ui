@@ -40,7 +40,7 @@
                     (and answered (eq this.currentQuestion.question opt))
                     "bg-success"
                   }}'
-                {{action 'chooseOption' opt}}
+                {{on 'click' (fn chooseOption opt)}}
               >
                 <img
                   class='card-img-rounded'
@@ -66,7 +66,7 @@
                     (and answered (eq this.currentQuestion.question opt))
                     "bg-success"
                   }}'
-                {{action 'chooseOption' opt}}
+                {{on 'click' (fn chooseOption opt)}}
               >
                 {{opt.fullNameWithNickname}}
               </li>
@@ -101,7 +101,7 @@
               <button
                 type='button'
                 class='btn btn-primary'
-                {{action 'checkAnswer'}}
+                {{on 'click' checkAnswer}}
               >
                 Antwoord
               </button>
@@ -110,7 +110,7 @@
         {{/if}}
 
         <div class='card-footer text-end'>
-          <a class='btn btn-default' {{action 'stopTrainer'}}>Stoppen</a>
+          <a class='btn btn-default' {{on 'click' stopTrainer}}>Stoppen</a>
         </div>
       {{/if}}
 
@@ -201,7 +201,7 @@
       </div>
 
       <div class='card-footer text-end'>
-        <a class='btn btn-default' {{action 'stopTrainer'}}>
+        <a class='btn btn-default' {{on 'click' stopTrainer}}>
           Terug naar instellingen
         </a>
       </div>
@@ -238,7 +238,7 @@
         </div>
       </div>
       <div class='card-footer text-end'>
-        <a class='btn btn-primary' {{action 'startTrainer'}}>Starten</a>
+        <a class='btn btn-primary' {{on 'click' startTrainer}}>Starten</a>
       </div>
     {{/if}}
   </div>

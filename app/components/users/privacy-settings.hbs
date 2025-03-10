@@ -1,5 +1,5 @@
 <h5>Privacyinstellingen</h5>
-<form class='form' {{action @onSubmit on='submit'}}>
+<form class='form' {{on 'submit' (prevent-default @onSubmit)}}>
   {{#if isOwnUser}}
     <div class='mb-3 row align-items-center'>
       <label class='col-sm-6 col-form-label form-label'>
@@ -25,15 +25,15 @@
       <div class='col-2 col-sm-6'>
         <Input
           @type='checkbox'
-          @checked={{@model.allowTomatoSharing}}
-          disabled={{canChangeTomatoSettings}}
+          @checked={{@model.allowSofiaSharing}}
+          disabled={{canChangeSofiaSettings}}
           class='form-check-input'
           id="share-with-streep-check"
         />
       </div>
     </div>
 
-    {{#if @model.allowTomatoSharing}}
+    {{#if @model.allowSofiaSharing}}
       <div class='alert alert-info mb-5'>
         Het is alleen mogelijk deze instelling uit te zetten via het bestuur. Om
         dit te deactiveren moet uw saldo namelijk eerst 0 zijn.
@@ -87,28 +87,13 @@
     </div>
   </div>
 
-  <div class='mb-3 row align-items-center'>
-    <label class='col-10 col-sm-6 col-form-label form-label' for="trailer-drivers-license-check">
-      Bezit BE rijbewijs
-    </label>
-    <div class='col-2 col-sm-6'>
-      {{input
-        data-test-trailerDriversLicense=true
-        type='checkbox'
-        checked=@model.trailerDriversLicense
-        class='form-check-input'
-        id="trailer-drivers-license-check"
-      }}
-    </div>
-  </div>
-
   {{#if formActionsVisible}}
     <ModelForm::FormActions
       @errors={{@model.errors}}
       @errorMessage={{this.errorMessage}}
       @inputLayout='vertical'
     >
-      <button {{action @onCancel}} type="button" class='btn btn-default'>
+      <button {{on 'click' @onCancel}} type="button" class='btn btn-default'>
         Annuleren
       </button>
     </ModelForm::FormActions>

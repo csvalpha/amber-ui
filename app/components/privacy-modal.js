@@ -17,7 +17,7 @@ export default class PrivacyModal extends Component {
 
   @tracked isOpen = false;
   @tracked step = 1;
-  maxSteps = 7;
+  maxSteps = 6;
   @tracked errorMessage = null;
   get userDetailsPreferenceTypes() {
     return Object.entries(UserDetailsPreferenceTypes).map(([value, label]) => ({
@@ -56,14 +56,6 @@ export default class PrivacyModal extends Component {
       return;
     }
     this.step = this.step + 1;
-  }
-
-  @action async allowWebdav() {
-    await this.fetch.fetch(`/users/${this.model.id}/activate_webdav`, {
-      method: 'POST',
-    });
-    this.model.reload();
-    this.nextPage();
   }
 
   constructor() {

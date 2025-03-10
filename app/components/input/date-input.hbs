@@ -12,7 +12,7 @@
   <input
     {{pikaday
       value=@dateValue
-      onSelect=(action 'onPikadaySelection')
+      onSelect=onPikadaySelection
       format=this.pikadayFormat
       yearRange=@yearRange
       i18n=this.pikadayI18n

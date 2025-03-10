@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Categorie aanmaken' 'Categorie wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' (prevent-default @onSubmit)}}>
       <ModelForm::TextInput
         @model={{@model}}
         @property='name'
@@ -15,7 +15,7 @@
         @errors={{@model.errors}}
         @errorMessage={{@errorMessage}}
       >
-        <button {{action @onCancel}} type="button" class='btn btn-default'>
+        <button {{on 'click' @onCancel}} type="button" class='btn btn-default'>
           Annuleren
         </button>
       </ModelForm::FormActions>

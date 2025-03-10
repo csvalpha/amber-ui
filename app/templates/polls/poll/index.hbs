@@ -65,8 +65,8 @@
 
   <div class='card-body p-3'>
     {{#if @model.form.currentUserCanRespond}}
-      <form {{action 'submitResponse' on='submit'}}>
-        {{form/response/response-form @model.form @model.currentUserResponse}}
+      <form {{on 'submit' (prevent-default submitResponse)}}>
+        <Form::Response::ResponseForm @form={{@model.form}} @response={{@model.currentUserResponse}} />
         <ModelForm::FormActions
           @errors={{form.errors}}
           @errorMessage={{this.errorMessage}}

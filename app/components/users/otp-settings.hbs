@@ -19,7 +19,7 @@
           <button
             type='button'
             class='btn btn-primary float-end'
-            {{action 'disableOTP'}}
+            {{on 'click' disableOTP}}
           >
             Deactiveren
           </button>
@@ -75,7 +75,7 @@
       </div>
     {{/if}}
 
-    <form class='form' {{action 'confirmOTP' on='submit'}}>
+    <form class='form' {{on 'submit' (prevent-default confirmOTP)}}>
       <div>
         <QrCode @text={{this.otpKey}} @size={{240}} />
       </div>
@@ -113,7 +113,7 @@
       </div>
     {{/if}}
 
-    <button type='button' class='btn btn-primary' {{action 'generateOTP'}}>
+    <button type='button' class='btn btn-primary' {{on 'click' generateOTP}}>
       Instellen
     </button>
   {{/if}}
