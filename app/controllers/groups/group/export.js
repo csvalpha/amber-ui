@@ -116,11 +116,11 @@ export default class GroupExportController extends Controller {
       label: 'Noodnummer',
     },
     {
-      value: 'trailerDriversLicense',
+      value: 'trailer_drivers_license',
       label: 'BE rijbewijs',
     },
     {
-      value: 'setupComplete',
+      value: 'setup_complete',
       label: 'Setup voltooid',
     },
   ];
