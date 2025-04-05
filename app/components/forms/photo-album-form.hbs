@@ -15,12 +15,17 @@
         @property='date'
         @label='Datum van activiteit'
       />
-      <ModelForm::CheckboxInput
+     <item>
+      <ModelForm::RadioGroup
         @model={{@model}}
-        @property='publiclyVisible'
-        @label='Zichtbaar voor externen'
+        @property='visibility'
+        @options={{this.visibilityOptions}}
+        @inputLayout='vertical'
+        @label='Zichtbaar voor'
+        @inputIdentifier='photoCategory'
+        @class='sort-radio-group'
       />
-
+    </item>
       {{#if @model.publiclyVisible}}
         <div class="row">
           <div class="col-sm-10 offset-sm-2">
