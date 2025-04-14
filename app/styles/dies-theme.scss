@@ -1,18 +1,18 @@
 // stylelint-disable selector-no-qualifying-type
 html.authenticated {
-  $primary-color: #840400;
-  $link-color: #840400;
-  $button-fg-color: #efead6;
-  $button-bg-color: #840400;
-  $app-bg-color: #efead6;
-  $sidebar-fg-color: #efead6;
-  $sidebar-bg-color: #840400;
-  $navbar-fg-color: #efead6;
-  $navbar-bg-color: #0f1c3f;
-  $navbar-button-fg-color: #efead6;
-  $navbar-button-bg-color: #840400;
+  $primary-color: #3b4231;
+  $link-color: #3b4231;
+  $button-fg-color: #c8ab8b;
+  $button-bg-color: #3b4231;
+  $app-bg-color: #c8ab8b;
+  $sidebar-fg-color: #c8ab8b;
+  $sidebar-bg-color: #3b4231;
+  $navbar-fg-color: #c8ab8b;
+  $navbar-bg-color: #3b4231;
+  $navbar-button-fg-color: #c8ab8b;
+  $navbar-button-bg-color: #3b4231;
   $dies-logo-url: '/images/dies_logo.png';
-  $dies-logo-width: 5rem;
+  $dies-logo-width: 40px;
 
   .app {
     background-color: $app-bg-color;
