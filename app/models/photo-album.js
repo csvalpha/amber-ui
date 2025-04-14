@@ -4,7 +4,7 @@ export default class PhotoAlbum extends Model {
   // Properties
   @attr title;
   @attr('date-only') date;
-  @attr visibility;
+  @attr({ defaultValue: false }) publiclyVisible;
 
   // Relations
   @hasMany photos;
@@ -45,14 +45,6 @@ export default class PhotoAlbum extends Model {
 
   get amountOfPhotos() {
     return this.photos.length;
-  }
-
-  get visibilityOptions() {
-    return [
-      { value: 'public', label: 'Iedereen' },
-      { value: 'alumni', label: 'Leden & oudleden' },
-      { value: 'author', label: 'Leden' },
-    ];
   }
 
   // Methods
