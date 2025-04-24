@@ -15,8 +15,8 @@
         @property='date'
         @label='Datum van activiteit'
       />
-     <item>
-      <ModelForm::RadioGroup
+      <item>
+       <ModelForm::RadioGroup
         @model={{@model}}
         @property='visibility'
         @options={{this.visibilityOptions}}
@@ -24,8 +24,8 @@
         @label='Zichtbaar voor'
         @inputIdentifier='photoCategory'
         @class='sort-radio-group'
-      />
-    </item>
+       />
+     </item>
       {{#if @model.publiclyVisible}}
         <div class="row">
           <div class="col-sm-10 offset-sm-2">
