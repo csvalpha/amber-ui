@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class='table-responsive responses-table'>
-      <Form::ResponsesTable @form={{@form}} @responses={{@form.responses}} @showAllergyInfo={{this.showAllergyInfo}} />
+      <Form::ResponsesTable @form={{@form}} @responses={{@form.sortedResponses}} @showAllergyInfo={{this.showAllergyInfo}} />
     </div>
   </div>
 {{else}}
