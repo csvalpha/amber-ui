@@ -1,4 +1,46 @@
-<div class='d-none d-md-flex'>
+{{! Mobile-only Search Toggle Button }}
+{{! This button is visible only on screens smaller than 'md' (d-md-none) }}
+<div class="d-flex d-md-none justify-content-end p-2">
+  <button
+    type="button"
+    class="btn btn-outline-secondary" {{! Style as you like }}
+    {{on "click" this.toggleMobileFilterVisibility}}
+    aria-label="Open search and filter options"
+  >
+    <FaIcon @icon="magnifying-glass" />
+  </button>
+</div>
+
+{{! The Filter Bar container }}
+{{! - Mobile: Hidden by default ('d-none'). When 'isMobileFilterVisible' is true,
+            it becomes 'd-flex flex-column p-2 mobile-filter-expanded'.
+    - Desktop: 'd-md-flex flex-md-row align-items-md-center p-md-0'.
+               This ensures it's a flex container on desktop, laying out
+               children in a row, and resets padding.
+}}
+<div
+  class="
+    {{if this.isMobileFilterVisible 'd-flex flex-column p-2 mobile-filter-expanded' 'd-none'}}
+    d-md-flex flex-md-row align-items-md-center p-md-0
+  "
+>
+  {{! Optional: Mobile-only header/close button for the expanded view }}
+  {{#if this.isMobileFilterVisible}}
+    <div class="d-flex d-md-none justify-content-between align-items-center w-100 mb-2">
+      <span class="h5 mb-0">Filteren & Sorteren</span>
+      <button
+        type="button"
+        class="btn-close"
+        aria-label="Sluiten"
+        {{on "click" this.toggleMobileFilterVisibility}}
+      ></button>
+    </div>
+  {{/if}}
+
+  {{! Your original filter bar content.
+      The 'filter-bar w-100' div ensures the dropdown group takes full width
+      within this component's allocated space.
+  }}
   <div class='filter-bar w-100'>
     <div>
       <BsDropdown @class='w-100' as |dd|>
@@ -38,7 +80,11 @@
               />
             </ddm.item>
 
-            {{menu.divider}}
+            {{#if menu.divider}}
+              {{menu.divider}}
+            {{else}}
+              <hr class="my-2" />
+            {{/if}}
 
             <ddm.item>
               <div class='form-check'>
