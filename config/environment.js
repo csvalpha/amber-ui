@@ -22,8 +22,8 @@ module.exports = function (environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-      
       formLinkInterested: 'https://nextcloud.csvalpha.nl/apps/forms/s/PKfanXfcqzex3YzSkJK6X8C9',
+      
       flashNoticeDefaultDuration: 2000,
     },
 
