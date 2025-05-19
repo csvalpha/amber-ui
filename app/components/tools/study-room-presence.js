@@ -6,7 +6,7 @@ import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import Ember from 'ember';
 
-export default class BoardRoomPresence extends Component {
+export default class StudyRoomPresence extends Component {
   @service session;
   @service store;
   @service abilities;
@@ -72,8 +72,8 @@ export default class BoardRoomPresence extends Component {
     const currentStatusses = this.model
       .filter((presence) => {
         return moment().isBetween(
-          moment(presence.get('startTime')),
-          moment(presence.get('endTime')),
+          moment(presence.startTime),
+          moment(presence.endTime),
           'minute',
           '[)'
         );
@@ -81,14 +81,14 @@ export default class BoardRoomPresence extends Component {
       .mapBy('status');
 
     if (currentStatusses.includes('chilling')) {
-      return 'Chillen';
+      return 'chilling';
     }
 
-    if (currentStatusses.includes('studeren')) {
-      return 'Studying';
+    if (currentStatusses.includes('studying')) {
+      return 'studying';
     }
 
-    return 'Vergaderen';
+    return 'vergaderen';
   }
 
   get saveButtonDisabled() {
@@ -112,7 +112,7 @@ export default class BoardRoomPresence extends Component {
     this.currentUserPresence = this.store.createRecord('study-room-presence', {
       startTime: moment().startOf('minute').toDate(),
       endTime: moment().startOf('minute').add(1, 'hours').toDate(),
-      status: 'present',
+      status: 'chilling',
       user: this.session.currentUser,
     });
   }
