@@ -14,6 +14,7 @@ const GroupKinds = [
   'kring',
   'werkgroep',
   'curiositas',
+  'zal',
 ];
 
 const StaticPageCategories = ['vereniging', 'documenten', 'ict'];

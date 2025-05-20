@@ -42,6 +42,7 @@ export default class GroupsIndexController extends FilterableAndSortableControll
       'kring',
       'lichting',
       'curiositas',
+      'zal',
     ];
   }
 
