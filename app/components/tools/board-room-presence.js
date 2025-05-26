@@ -1,6 +1,5 @@
 import { dropTask, restartableTask, timeout } from 'ember-concurrency';
 import Component from '@glimmer/component';
-// import Ember from 'ember';
 import { action } from '@ember/object';
 import moment from 'moment';
 import { inject as service } from '@ember/service';
