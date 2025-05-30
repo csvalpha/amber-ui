@@ -27,7 +27,7 @@ jobs:
           ref: ${{ inputs.sha }}
 
       - name: Build test image
-        uses: guidojw/actions/build-docker-image@799830bc5952da2a44f888d276a9cf5003e3e55d # v1.4.9
+        uses: guidojw/actions/build-docker-image@93f79307970f9904f178fa99c97bf02f5bc955c9 # v2.0.0
         with:
           file: Dockerfile
           target: base
@@ -54,7 +54,7 @@ jobs:
           bash <(curl https://raw.githubusercontent.com/rhysd/actionlint/main/scripts/download-actionlint.bash) 1.7.7
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@799830bc5952da2a44f888d276a9cf5003e3e55d # v1.4.9
+        uses: guidojw/actions/load-docker-image@93f79307970f9904f178fa99c97bf02f5bc955c9 # v2.0.0
         with:
           name: app
 
@@ -80,7 +80,7 @@ jobs:
           ref: ${{ inputs.sha }}
 
       - name: Load test image
-        uses: guidojw/actions/load-docker-image@799830bc5952da2a44f888d276a9cf5003e3e55d # v1.4.9
+        uses: guidojw/actions/load-docker-image@93f79307970f9904f178fa99c97bf02f5bc955c9 # v2.0.0
         with:
           name: app
 
