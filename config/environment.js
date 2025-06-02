@@ -26,7 +26,7 @@ module.exports = function (environment) {
         'https://nextcloud.csvalpha.nl/apps/forms/s/PKfanXfcqzex3YzSkJK6X8C9',
       
       flashNoticeDefaultDuration: 2000,
-    	},
+    },
 
     historySupportMiddleware: true,
     maxFilesize: 8.5, // MB
