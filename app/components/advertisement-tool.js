@@ -42,7 +42,7 @@ export default Component.extend({
     },
     {
       title: 'Huurzone',
-      link: 'https://www.huurzone.nl/aanbod/nederland.html',
+      link: 'https://www.huurzone.nl/huurwoningen/heel-nederland',
       image: 'advertisements/Huurzone.png',
     },
     {
