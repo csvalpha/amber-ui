@@ -24,7 +24,7 @@ module.exports = function (environment) {
       // when it is created
       formLinkInterested: 
         'https://nextcloud.csvalpha.nl/apps/forms/s/PKfanXfcqzex3YzSkJK6X8C9',
-      
+
       flashNoticeDefaultDuration: 2000,
     },
 
