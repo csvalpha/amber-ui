@@ -68,7 +68,9 @@ export default class PostsIndexRoute extends AuthenticatedRoute {
   }
 
   activate() {
-    bindKeyboardShortcuts(this);
+    bindKeyboardShortcuts(this, {
+      ignoredElementSelectors: ['input', 'textarea'],
+    });
   }
 
   deactivate() {
