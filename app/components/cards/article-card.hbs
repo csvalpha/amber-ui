@@ -32,7 +32,7 @@
           </LinkTo>
           <h3 class='card-subtitle'>
             {{#if @article.group}}
-              {{#if showGroup}}
+              {{#if @showGroup}}
                 <LinkTo
                   @route='groups.group'
                   @model={{@article.group.id}}
@@ -68,7 +68,6 @@
     </div>
 
     <div class='card-body'>
-      {{#if showPreview}}
       <p class='card-text' itemprop='articleBody'>
         {{#if @showExcerpt}}
           {{clean-markdown @article.excerpt}}
@@ -79,7 +78,6 @@
           }}
         {{/if}}
       </p>
-      {{/if}}
       <meta
         itemprop='dateModified'
         content={{moment-format @article.updatedAt}}

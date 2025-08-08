@@ -86,7 +86,7 @@
               <LinkTo
                 @route='users.user'
                 @model={{membership.user.id}}
-                class='col-6 col-sm-4 col-md-3'
+                class='col-6 col-md-4 col-lg-3'
               >
                 <Cards::MembershipCard
                   @title={{membership.user.fullNameWithNickname}}
@@ -133,9 +133,9 @@
               <LinkTo
                 @route='articles.article'
                 @model="{{article.id}}"
-                class="col-6 col-sm-4 col-md-3"
+                class="col-12 col-md-6"
               >
-                <Cards::ArticleCard @article={{article}} @showExcerpt={{false}} @showGroup={{false}} @showPreview={{false}}/>
+                <Cards::ArticleCard @article={{article}}  @showExcerpt={{true}} @showGroup={{false}} @useMaxHeight={{true}}/>
               </LinkTo>
             {{/each}}
           </div>
