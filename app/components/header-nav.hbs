@@ -29,13 +29,10 @@
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
               <dd.menu class="public-about-us-dropdown" @renderInPlace={{true}} as |ddm|>
-                {{#each-in this.staticPages as |id title|}}
-                  <ddm.item>
-                    <ddm.linkTo @route='static-pages.static-page' @model={{id}} class="btn btn-primary">
-                      {{title}}
-                    </ddm.linkTo>
-                  </ddm.item>
-                {{/each-in}}
+                <!-- put links to other pages here -->
+                <LinkTo @route='public.flux' class="dropdown-item btn btn-primary">
+                  Sociëteit Flux
+                </LinkTo>
                 <LinkTo @route='public.room-forum' class="dropdown-item btn btn-primary">
                   {{t 'mixin.menuItems.roomForum'}}
                 </LinkTo>
