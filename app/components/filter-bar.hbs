@@ -1,9 +1,9 @@
 {{! Mobile-only Search Toggle Button }}
 {{! This button is visible only on screens smaller than 'md' (d-md-none) }}
-<div class="d-flex d-md-none justify-content-end p-2">
+<div class="d-flex d-md-none justify-content-end">
   <button
     type="button"
-    class="btn btn-primary" {{! Style as you like }}
+    class="btn btn-primary btn-search-toggle"
     {{on "click" this.toggleMobileFilterVisibility}}
     aria-label="Open search and filter options"
   >
