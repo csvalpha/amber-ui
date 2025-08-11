@@ -23,7 +23,6 @@ export default class PostsIndexRoute extends AuthenticatedRoute {
     this.router.on('routeDidChange', () => {
       const thread = this.modelFor('forum.categories.category.threads.thread');
       if (thread) {
-        // only mark as read if we are in a thread
         this.fetch.fetch(`/forum/threads/${thread.id}/mark_read`, {
           method: 'POST',
         });
@@ -68,8 +67,9 @@ export default class PostsIndexRoute extends AuthenticatedRoute {
   }
 
   activate() {
+    // CHANGED HERE: Use the specific ID of the textarea
     bindKeyboardShortcuts(this, {
-      ignoredElementSelectors: ['input', 'textarea'],
+      except: '#forum-post-new',
     });
   }
 
