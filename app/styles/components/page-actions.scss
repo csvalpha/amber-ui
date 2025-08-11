@@ -90,12 +90,12 @@
 
 .mobile-filter-expanded {
   position: absolute; /* Or 'fixed' if you want it relative to viewport */
-  z-index: 1050; /* Ensure it's above other content; adjust as needed */
   top: 100%; /* Positions it right below its offset parent (likely your navbar) */
+  z-index: 1050; /* Ensure it's above other content; adjust as needed */
   left: 0;
   border-top: 1px solid #dee2e6; /* Optional: for visual separation */
-  width: 100%; /* Or right: 0; */
   box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%); /* Optional: for depth */
+  width: 100%; /* Or right: 0; */
   background-color: #fff; /* Or your desired background color */
 }
 
