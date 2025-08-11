@@ -1,15 +1,6 @@
-{{!-- app/components/forum/forum-post-new.hbs --}}
 
 <p class='card-text'>
-  <MdEditor
-    @content={{content}}
-    @textareaId='forum-post-new'
-    @setContent={{@setContent}}
-    {{!-- Pass these actions to MdEditor, assuming it exposes hooks to attach them to its internal textarea --}}
-    @onFocusIn={{this.handleFocusIn}}
-    @onFocusOut={{this.handleFocusOut}}
-    @onKeyDown={{this.handleKeyDown}}
-  />
+  <MdEditor @content={{content}} @textareaId='forum-post-new' @setContent={{@setContent}} />
 </p>
 <div class='card-footer'>
   <div class='row justify-content-end'>
