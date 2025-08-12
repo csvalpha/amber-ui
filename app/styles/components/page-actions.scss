@@ -96,7 +96,12 @@
   border-top: 1px solid #dee2e6; /* Optional: for visual separation */
   box-shadow: 0 0.5rem 1rem rgb(0 0 0 / 15%); /* Optional: for depth */
   background-color: #fff; /* Or your desired background color */
-  width: 100%; /* Or right: 0; */
+  min-width: 100vw;
+  padding: 7.5px;
+
+  .input-group{
+    width: 100vw;
+  }
 }
 
 .btn-search-toggle {
