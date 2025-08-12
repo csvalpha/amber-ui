@@ -269,6 +269,7 @@ Router.map(function () {
   this.route('public', function () {
     this.route('room-forum');
     this.route('flux');
+    this.route('board');
   });
 
   return true;

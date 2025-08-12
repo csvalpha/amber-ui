@@ -29,9 +29,12 @@
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
               <dd.menu class="public-about-us-dropdown" @renderInPlace={{true}} as |ddm|>
-                <!-- put links to other pages here -->
+                {{! put links to other pages here }}
+                <LinkTo @route='public.board' class="dropdown-item btn btn-primary">
+                  {{t 'mixin.menuItems.board'}}
+                </LinkTo>
                 <LinkTo @route='public.flux' class="dropdown-item btn btn-primary">
-                  Sociëteit Flux
+                  {{t 'mixin.menuItems.flux'}}
                 </LinkTo>
                 <LinkTo @route='public.room-forum' class="dropdown-item btn btn-primary">
                   {{t 'mixin.menuItems.roomForum'}}
