@@ -107,9 +107,12 @@ template:
       photographer-url: https://shinebrightfotografie.nl/
       previous-boards: Previous Boards
       old-boards:
-        board1: Board XLVI
+        board1: Board XLIV
         board2: Board XLIII
         board3: Board XLII
+        board4: Board XLI
+        board5: Board XL
+        board6: Board XXXIX
 component:
   cards:
     articleCard:

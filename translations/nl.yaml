@@ -107,9 +107,12 @@ template:
       photographer-url: https://shinebrightfotografie.nl/
       previous-boards: Oud besturen
       old-boards:
-        board1: XLVIe senaat
-        board2: XLIIIe senaat
-        board3: XLIIe senaat
+        board1: XLIVe Senaat
+        board2: XLIIIe Senaat
+        board3: XLIIe Senaat
+        board4: XLIe Senaat
+        board5: XLe Senaat
+        board6: XXXIXe Senaat
 component:
   cards:
     articleCard:
