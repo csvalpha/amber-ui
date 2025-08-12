@@ -85,6 +85,31 @@ template:
   photos:
     show:
       photographer: Foto geüpload door
+  public:
+    board:
+      header: Algemeen bestuur
+      intro: Het komende jaar mogen wij als XLVe senaat zorgen voor Alpha en al haar bezigheden. Wij hebben onwijs veel zin in het komende lustrumjaar. We gaan veel mooie dingen meemaken en zorgen dat we er zoveel mogelijk van genieten, zoals ook weerspiegelt in de bijbeltekst die we komend jaar met ons meedragen':'
+      slogan: “Jongeman, het is heerlijk om jong te zijn! Geniet van elke minuut! Doe alles wat u wilt, pak alles wat u krijgen kunt, maar vergeet niet dat u van alles wat u doet, ook verantwoording moet afleggen tegenover God.” Prediker 11:9 HTB
+      senaat: Het XLVe Senaat der C.S.V.Alpha
+      chair: Preases
+      chair-name: Stefan Zwiers
+      chair-story: Hoi, ik ben Stefan en mag mezelf dit jaar Praeses noemen. Ik ben derdejaars student in Enschede en heb een half jaar IDE gestudeerd en heb er na een studieswitch nu een jaar Creative Business opzitten. Binnen Alpha ben ik de eindverantwoordelijke voor wat er gebeurt binnen de vereniging. Daarnaast zit ik vergadering voor, let ik erop dat het beleid goed wordt uitgevoerd, geef ik speeches en begeleid ik commissies en de andere bestuurders met hun taken.
+      secretary: Abactis
+      secretary-name: Jesse Emmens
+      secretary-story: Hey allemaal, ik ben Jesse en zal dit jaar de functie van Abactis bekleden. Ik ben op het moment derdejaars student in Enschede, 20 jaar oud en studeer normaal gesproken Advanced Technology. Dit jaar ben ik bij Alpha verantwoordelijk voor mails, brieven en notulen van vergaderingen. Ook zal ik me bezighouden met de financiën van Flux, en ben ik nog verantwoordelijk voor enkele commissies en externe verbanden.
+      treasurer: Queastor
+      treasurer-name: Niels Brouwer
+      treasurer-story: Hoihoi, ik ben Niels en ik ga dit jaar de mooie functie Quaestor oppakken. Inmiddels ben ik derdejaars student Creative Technology in Enschede en na twee jaar onwijs veel plezier bij Alpha zet ik de studie even op pauze om mij een jaar in te zetten voor deze prachtige vereniging en mijzelf te ontwikkelen. Dit jaar zal ik de financiën en voorraad van Alpha beheren, en hierbij ook de commissie penningmeesters begeleiden bij het maken van een begroting en het bijhouden van hun financiën. Naast deze taken zal ik mij binnen het Sociëteitsbestuur bezig houden met het onderhoud van onze Sociëteit en de Beheer Commissie Pakkerij.
+      assessor1: Assesor Internorum
+      assessor1-name: Alina Monster
+      assessor1-story: Hoi, ik ben Alina en ben de Assessor Internorum van onze mooie vereniging. Ik ben inmiddels al vijfdejaarsstudent. Ik heb eerst twee jaartjes fysiotherapie gestudeerd maar studeer nu Gezondheidswetenschappen en ga na mijn bestuursjaar door met mijn minor en afstuderen van mijn Bachelor. Binnen Alpha ben ik bezig met kringen, een paar externe verbanden, commissies en zorg ik ervoor dat eerstejaars hun plekje binnen de vereniging kunnen vinden. Daarnaast ga ik ook over de ledenzorg en de verbondenheid van leden binnen Alpha.
+      photographer: Ook mooie foto's? Onze fotograaf
+      photographer-url: https://shinebrightfotografie.nl/
+      previous-boards: Oud besturen
+      old-boards:
+        board1: XLVIe senaat
+        board2: XLIIIe senaat
+        board3: XLIIe senaat
 component:
   cards:
     articleCard:
@@ -141,19 +166,6 @@ component:
         potential-sponsor: Ook sponsor worden? Klik hier
       youtube-videos:
         title: C.S.V. Alpha in het kort
-    board:
-      header: LANG-TODO
-      intro-title: LANG-TODO
-      intro: LANG-TODO
-      slogan: LANG-TODO
-      senaat: Senaat
-      old-boards: Oud Besturen
-      board-member-stories:
-        member-1: LANG-TODO
-        member-2: LANG-TODO
-        member-3: LANG-TODO
-        member-4: LANG-TODO
-        member-5: LANG-TODO
     contact:
       header: LANG-TODO
       intro: LANG-TODO
@@ -318,6 +330,7 @@ mixin:
     vacancies: Vacatures
     roomAdverts: Kamers
     roomForum: Kamerforum
+    flux: Sociëteit Flux
     forum: Forum
     photoAlbums: Fotoalbums
     polls: Polls
@@ -326,6 +339,7 @@ mixin:
     staticPages: Informatie
     books: Boeken
     sog: SOG
+    board: Algemeen bestuur
 tag:
   button:
     close: Sluiten
