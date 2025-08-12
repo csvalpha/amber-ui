@@ -1,6 +1,6 @@
 .circle-card {
-  display: flex;
 
+  display: flex;
 
   &.vertical {
     flex-direction: column;
@@ -59,22 +59,21 @@
       font-size: 1.5rem;
     }
   }
+}
+/* Responsive: horizontal becomes vertical on small screens */
+@media (width <= 768px) {
+  .circle-card.horizontal {
+    flex-direction: column;
+    align-items: center;
 
-  /* Responsive: horizontal becomes vertical on small screens */
-  @media (width <= 768px) {
-    &.horizontal {
-      flex-direction: column;
+    .card-image {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .content {
       align-items: center;
-
-      .card-image {
-        margin-right: 0;
-        margin-bottom: 1.5rem;
-      }
-
-      .content {
-        align-items: center;
-        text-align: center;
-      }
+      text-align: center;
     }
   }
 }
