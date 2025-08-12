@@ -88,7 +88,7 @@ template:
   public:
     board:
       header: General Board
-      intro: In the coming year, we, the XLVth senate, will be responsible for Alpha and all its activities. We are incredibly excited about the upcoming anniversary year. We are going to experience many wonderful things and will make sure we enjoy them as much as possible, as reflected in the Bible verse we will carry with us next year':'
+      intro: "In the coming year, we, the XLVth senate, will be responsible for Alpha and all its activities. We are incredibly excited about the upcoming anniversary year. We are going to experience many wonderful things and will make sure we enjoy them as much as possible, as reflected in the Bible verse we will carry with us next year:"
       slogan: Young people, enjoy your youth! Be happy with what's good! While you're young, let your mind guide your life, and do as you think best. But remember that God will judge you for all your thoughts and actions. Ecclesiastes 11:9 FBV
       senaat: The 45th board of C.S.V.Alpha
       chair: Chairman
@@ -113,6 +113,36 @@ template:
         board4: Board XLI
         board5: Board XL
         board6: Board XXXIX
+    identity:
+      header: Identity
+      intro: "C.S.V. Alpha was founded in 1980 and is the Christian social association in
+        Enschede where fellowship and Christian development are combined into one unique student association."
+      paragraph2: "Alpha’s foundation is \"the message of the Bible as a guideline for life.\" When you join,
+        you can choose whether to endorse or respect this foundation. This means we are open not only to Christians,
+        but also to anyone who respects the Christian faith. With this foundation, Alpha’s Christian character is preserved,
+        while at the same time Alpha is a suitable association for people from all kinds of backgrounds."
+      three-vs:
+        title: "The 3 V’s"
+        intro: "This foundation is expressed in the three core aspects of the association: friendship, formation, and responsibility.
+          The association is built around these three core aspects, and everything we do aligns with them:"
+        vriendschap: "Our own society, Flux, is the ideal place to build and maintain friendships. Every Thursday
+          we meet here, it’s the place where a drink and a good conversation go hand in hand. In addition to our weekly
+          casual gatherings on Thursdays, several (themed) parties are held in Flux each year. Many Alpha members are eager
+          to join in, often showing up in the most creative outfits. Activities at the bar are perfect for building friendships,
+          but there are also plenty of opportunities outside of it. Having lunch together in the boardroom at the university,
+          getting invited to an Alpha house for dinner, or playing a game of volleyball in the city park; it’s all possible!"
+        vorming: "At Alpha, personal development is a high priority. This formation takes shape in activities
+          such as association evenings, sing-ins, and of course the biweekly “kring” (small group). At the start of each year,
+          you choose a group that suits you, meeting once every two weeks. After a good meal, we discuss serious topics that matter to us,
+          both in terms of faith and social issues. Several times a year, the whole association comes together for the association evening,
+          where we listen to a speaker and worship God with Alpha’s band. Thanks to the diversity of Christian backgrounds within the association,
+          there is always room for an engaging discussion where every opinion matters!"
+        verantwoordelijkheid: "Alpha is an association run by and for its members. Members are encouraged to contribute
+          not only to the association but also to the wider community. This can be done through committees, boards, or volunteer work.
+          Taking on this responsibility contributes to personal growth and prepares you for “adult” life. All activities offered by Alpha
+          are organized by Alpha members through various committees. This includes organizing large events such as the gala, a ski trip,
+          and weekend getaways, as well as “smaller” evening activities, such as a formation night or a sports event, there’s something for everyone!"
+
 component:
   cards:
     articleCard:
@@ -197,15 +227,6 @@ component:
       event-1980: LANG-TODO
       event-1981: LANG-TODO
       event-1982: LANG-TODO
-    identity:
-      header: LANG-TODO
-      intro: LANG-TODO
-      three-vs:
-        title: LANG-TODO
-        intro: LANG-TODO
-        vriendschap: LANG-TODO
-        vorming: LANG-TODO
-        verantwoordelijkheid: LANG-TODO
     interested:
       header: LANG-TODO
       intro: LANG-TODO
@@ -333,6 +354,7 @@ mixin:
     books: Books
     sog: SOG
     board: General Board
+    identity: Identity
 tag:
   button:
     close: Close

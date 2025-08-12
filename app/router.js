@@ -270,6 +270,7 @@ Router.map(function () {
     this.route('room-forum');
     this.route('flux');
     this.route('board');
+    this.route('identity');
   });
 
   return true;
