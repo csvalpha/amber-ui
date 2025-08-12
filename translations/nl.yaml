@@ -88,21 +88,37 @@ template:
   public:
     board:
       header: Algemeen bestuur
-      intro: Het komende jaar mogen wij als XLVe senaat zorgen voor Alpha en al haar bezigheden. Wij hebben onwijs veel zin in het komende lustrumjaar. We gaan veel mooie dingen meemaken en zorgen dat we er zoveel mogelijk van genieten, zoals ook weerspiegelt in de bijbeltekst die we komend jaar met ons meedragen':'
-      slogan: “Jongeman, het is heerlijk om jong te zijn! Geniet van elke minuut! Doe alles wat u wilt, pak alles wat u krijgen kunt, maar vergeet niet dat u van alles wat u doet, ook verantwoording moet afleggen tegenover God.” Prediker 11:9 HTB
+      intro: "Het komende jaar mogen wij als XLVe senaat zorgen voor Alpha en al haar bezigheden. Wij hebben onwijs veel zin in het komende lustrumjaar.
+        We gaan veel mooie dingen meemaken en zorgen dat we er zoveel mogelijk van genieten, zoals ook weerspiegelt in de bijbeltekst die we komend jaar met ons meedragen:"
+      slogan: “Jongeman, het is heerlijk om jong te zijn! Geniet van elke minuut! Doe alles wat u wilt, pak alles wat u krijgen kunt,
+        maar vergeet niet dat u van alles wat u doet, ook verantwoording moet afleggen tegenover God.” Prediker 11:9 HTB
       senaat: Het XLVe Senaat der C.S.V.Alpha
       chair: Preases
       chair-name: Stefan Zwiers
-      chair-story: Hoi, ik ben Stefan en mag mezelf dit jaar Praeses noemen. Ik ben derdejaars student in Enschede en heb een half jaar IDE gestudeerd en heb er na een studieswitch nu een jaar Creative Business opzitten. Binnen Alpha ben ik de eindverantwoordelijke voor wat er gebeurt binnen de vereniging. Daarnaast zit ik vergadering voor, let ik erop dat het beleid goed wordt uitgevoerd, geef ik speeches en begeleid ik commissies en de andere bestuurders met hun taken.
+      chair-story: Hoi, ik ben Stefan en mag mezelf dit jaar Praeses noemen. Ik ben derdejaars student in Enschede en heb een half jaar IDE gestudeerd
+        en heb er na een studieswitch nu een jaar Creative Business opzitten. Binnen Alpha ben ik de eindverantwoordelijke voor wat er gebeurt binnen
+        de vereniging. Daarnaast zit ik vergadering voor, let ik erop dat het beleid goed wordt uitgevoerd, geef ik speeches en begeleid ik commissies
+        en de andere bestuurders met hun taken.
       secretary: Abactis
       secretary-name: Jesse Emmens
-      secretary-story: Hey allemaal, ik ben Jesse en zal dit jaar de functie van Abactis bekleden. Ik ben op het moment derdejaars student in Enschede, 20 jaar oud en studeer normaal gesproken Advanced Technology. Dit jaar ben ik bij Alpha verantwoordelijk voor mails, brieven en notulen van vergaderingen. Ook zal ik me bezighouden met de financiën van Flux, en ben ik nog verantwoordelijk voor enkele commissies en externe verbanden.
+      secretary-story: Hey allemaal, ik ben Jesse en zal dit jaar de functie van Abactis bekleden. Ik ben op het moment derdejaars student in
+        Enschede, 20 jaar oud en studeer normaal gesproken Advanced Technology. Dit jaar ben ik bij Alpha verantwoordelijk voor mails, brieven
+        en notulen van vergaderingen. Ook zal ik me bezighouden met de financiën van Flux, en ben ik nog verantwoordelijk voor enkele commissies en externe verbanden.
       treasurer: Queastor
       treasurer-name: Niels Brouwer
-      treasurer-story: Hoihoi, ik ben Niels en ik ga dit jaar de mooie functie Quaestor oppakken. Inmiddels ben ik derdejaars student Creative Technology in Enschede en na twee jaar onwijs veel plezier bij Alpha zet ik de studie even op pauze om mij een jaar in te zetten voor deze prachtige vereniging en mijzelf te ontwikkelen. Dit jaar zal ik de financiën en voorraad van Alpha beheren, en hierbij ook de commissie penningmeesters begeleiden bij het maken van een begroting en het bijhouden van hun financiën. Naast deze taken zal ik mij binnen het Sociëteitsbestuur bezig houden met het onderhoud van onze Sociëteit en de Beheer Commissie Pakkerij.
+      treasurer-story: Hoihoi, ik ben Niels en ik ga dit jaar de mooie functie Quaestor oppakken. Inmiddels ben ik derdejaars
+        student Creative Technology in Enschede en na twee jaar onwijs veel plezier bij Alpha zet ik de studie even op pauze
+        om mij een jaar in te zetten voor deze prachtige vereniging en mijzelf te ontwikkelen. Dit jaar zal ik de financiën en
+        voorraad van Alpha beheren, en hierbij ook de commissie penningmeesters begeleiden bij het maken van een begroting en
+        het bijhouden van hun financiën. Naast deze taken zal ik mij binnen het Sociëteitsbestuur bezig houden met het
+        onderhoud van onze Sociëteit en de Beheer Commissie Pakkerij.
       assessor1: Assesor Internorum
       assessor1-name: Alina Monster
-      assessor1-story: Hoi, ik ben Alina en ben de Assessor Internorum van onze mooie vereniging. Ik ben inmiddels al vijfdejaarsstudent. Ik heb eerst twee jaartjes fysiotherapie gestudeerd maar studeer nu Gezondheidswetenschappen en ga na mijn bestuursjaar door met mijn minor en afstuderen van mijn Bachelor. Binnen Alpha ben ik bezig met kringen, een paar externe verbanden, commissies en zorg ik ervoor dat eerstejaars hun plekje binnen de vereniging kunnen vinden. Daarnaast ga ik ook over de ledenzorg en de verbondenheid van leden binnen Alpha.
+      assessor1-story: Hoi, ik ben Alina en ben de Assessor Internorum van onze mooie vereniging. Ik ben inmiddels al vijfdejaarsstudent.
+        Ik heb eerst twee jaartjes fysiotherapie gestudeerd maar studeer nu Gezondheidswetenschappen en ga na mijn bestuursjaar
+        door met mijn minor en afstuderen van mijn Bachelor. Binnen Alpha ben ik bezig met kringen, een paar externe verbanden,
+        commissies en zorg ik ervoor dat eerstejaars hun plekje binnen de vereniging kunnen vinden. Daarnaast ga ik ook over de
+        ledenzorg en de verbondenheid van leden binnen Alpha.
       photographer: Ook mooie foto's? Onze fotograaf
       photographer-url: https://shinebrightfotografie.nl/
       previous-boards: Oud besturen
@@ -113,6 +129,36 @@ template:
         board4: XLIe Senaat
         board5: XLe Senaat
         board6: XXXIXe Senaat
+    identity:
+      header: Identiteit
+      intro: C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging in
+        Enschede waar gezelligheid en christelijke vorming gecombineerd worden tot één unieke studentenvereniging.
+      paragraph2: De grondslag van Alpha is "de boodschap van de Bijbel als richtsnoer voor het leven". Als je lid
+        wordt kan je kiezen of je deze grondslag onderschrijft of respecteert. We staan hiermee niet alleen open voor
+        christenen, maar ook voor iedereen die respect heeft voor het christelijk geloof. Met deze grondslag blijft het
+        christelijk karakter van Alpha gewaarborgd, maar is Alpha tegelijkertijd voor allerlei soorten mensen een geschikte vereniging.
+      three-vs:
+        title: De 3 V’s
+        intro: "Deze gronslag uit zich in de drie kernaspecten van de vereniging:'' vriendschap, vorming en verantwoordelijkheid.
+          Rondom deze drie kernaspecten is de vereniging opgebouwd en alles wat we doen sluit hierop aan:"
+        vriendschap: Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en te onderhouden. Elke donderdag
+          ontmoeten we elkaar hier, het is de plek waar een drankje en een goed gesprek hand in hand gaan. Naast dat we elke donderdag
+          bij elkaar komen om elkaar te spreken op een laagdrempelige borrel, vinden er jaarlijks ook meerdere (thema) feesten plaats in
+          Flux. Hier is menig Alphaan wel voor te porren, en dat uit zich in de leukste outfits. Activiteiten op de kroeg lenen zich perfect
+          voor het opbouwen van vriendschappen, maar ook hierbuiten zijn er genoeg mogelijkheden. Samen lunchen in de bestuurskamer op de uni,
+          je innodigen bij een Alpha huis om mee te eten of een potje volleybal in het volkspark; het kan allemaal!
+        vorming: Bij Alpha hebben we persoonlijke ontwikkeling hoog in het vaandel staan. Deze vorming uit zich in activiteiten
+          als verenigingsavonden, sing-ins en natuurlijk de twee wekelijkse kring. Aan het begin van elk jaar kies je een kring
+          uit die bij jou past, waarmee je één keer in de twee weken samenkomt. Na een goede maaltijd snijden we hier serieuze thema’s
+          aan die ons bezighouden, zowel op geloofsgebied als maatschappelijk gebied. Daarnaast komen we meerdere keren per jaar met de
+          hele vereniging samen op de verenigingsavond, waar we luisteren naar een spreker en God aanbidden met de band van Alpha. Door de
+          diversiteit aan christelijke achtergronden binnen de vereniging is er altijd de mogelijkheid tot een interessante discussie waarbij elke mening telt!
+        verantwoordelijkheid: Alpha is een vereniging voor en door de leden. Daarom worden leden aangespoord zich in te zetten
+          voor de vereniging, maar ook voor hun omgeving. Dit kan bijvoorbeeld door middel van commissies, besturen of vrijwilligersacties.
+          Deze verantwoordelijkheid nemen draagt bij aan je persoonlijke groei en stoomt je klaar voor het “volwassen” leven. Alles
+           wat Alpha aan activiteiten aanbiedt, wordt georganiseerd door de leden van Alpha, aan de hand van verschillende commissies.
+           Denk hierbij aan het organiseren van grotere activiteiten zoals het gala, een skireis en weekenden weg. Maar ook het organiseren
+           van “slechts” avondvullende activiteiten, zoals een vormingsavond of een sportactiviteit, er is voor ieder wat wils!
 component:
   cards:
     articleCard:
@@ -205,15 +251,6 @@ component:
       event-1980: LANG-TODO
       event-1981: LANG-TODO
       event-1982: LANG-TODO
-    identity:
-      header: LANG-TODO
-      intro: LANG-TODO
-      three-vs:
-        title: LANG-TODO
-        intro: LANG-TODO
-        vriendschap: LANG-TODO
-        vorming: LANG-TODO
-        verantwoordelijkheid: LANG-TODO
     interested:
       header: LANG-TODO
       intro: LANG-TODO
@@ -343,6 +380,7 @@ mixin:
     books: Boeken
     sog: SOG
     board: Algemeen bestuur
+    identity: Identiteit
 tag:
   button:
     close: Sluiten
