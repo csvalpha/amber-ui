@@ -30,10 +30,11 @@
     position: relative;
     left: 50%;
     margin-left: -50vw;
+    background: linear-gradient(90deg, rgba(0 0 0 / 40%) 0%, $brand-secondary 100%), $brand-secondary;
+    padding: 1rem;
     width: 100vw;
     max-width: 100vw;
-    padding: 1rem;
-    background: linear-gradient(90deg, rgba(0 0 0 / 40%) 0%, $brand-secondary 100%), $brand-secondary;
+
 
     .public-title,.public-title-smaller{
       color: $brand-cream;
