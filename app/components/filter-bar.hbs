@@ -1,35 +1,7 @@
-<div class="d-flex d-md-none justify-content-end">
-  <button
-    type="button"
-    class="btn btn-primary btn-search-toggle"
-    {{on "click" this.toggleMobileFilterVisibility}}
-    aria-label="Open search and filter options"
-  >
-    <FaIcon @icon="magnifying-glass" />
-  </button>
-</div>
-<div
-  class="
-    {{if this.isMobileFilterVisible 'd-flex flex-column mobile-filter-expanded' 'd-none'}}
-    d-md-flex flex-md-row align-items-md-center p-md-0
-  "
->
-
-  {{#if this.isMobileFilterVisible}}
-    <div class="d-flex d-md-none justify-content-between align-items-center w-100 mb-2">
-      <span class="h5 mb-0">Filteren & Sorteren</span>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Sluiten"
-        {{on "click" this.toggleMobileFilterVisibility}}
-      ></button>
-    </div>
-  {{/if}}
-
-  <div class='filter-bar'>
+<div class='d-none d-md-flex'>
+  <div class='filter-bar w-100'>
     <div>
-      <BsDropdown as |dd|>
+      <BsDropdown @class='w-100' as |dd|>
         <div class='input-group'>
           <div class='input-group-text'>
             <FaIcon @icon='magnifying-glass' />
@@ -66,11 +38,7 @@
               />
             </ddm.item>
 
-            {{#if menu.divider}}
-              {{menu.divider}}
-            {{else}}
-              <hr class="my-2" />
-            {{/if}}
+            {{menu.divider}}
 
             <ddm.item>
               <div class='form-check'>
