@@ -152,6 +152,7 @@ component:
     aboutUs: About us
     sponsoring: Sponsoring
     becomeMember: Become a member!
+    partners: Partners
   footerNav:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
     flux-contact: Contact us
@@ -194,6 +195,8 @@ component:
         none: At this moment there are no photoalbums to display.
       sponsors:
         potential-sponsor: Also want to sponsor us? Click here
+      partners:
+        header: Partners
       youtube-videos:
         title: C.S.V. Alpha in short
     contact:
@@ -291,7 +294,7 @@ component:
         pub make sure that Alpha is a great completion of my time as a student in
         Enschede!
     partners:
-      header: LANG-TODO
+      header: Partners
       intro: LANG-TODO
       our-partners:
         title: Our partners

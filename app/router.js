@@ -271,6 +271,7 @@ Router.map(function () {
     this.route('flux');
     this.route('board');
     this.route('identity');
+    this.route('partners');
   });
 
   return true;
