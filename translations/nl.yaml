@@ -159,6 +159,14 @@ template:
            wat Alpha aan activiteiten aanbiedt, wordt georganiseerd door de leden van Alpha, aan de hand van verschillende commissies.
            Denk hierbij aan het organiseren van grotere activiteiten zoals het gala, een skireis en weekenden weg. Maar ook het organiseren
            van “slechts” avondvullende activiteiten, zoals een vormingsavond of een sportactiviteit, er is voor ieder wat wils!
+    partners:
+      header: Partners
+      intro: LANG-TODO
+      our-partners:
+        title: Onze partners
+        partner-1: LANG-TODO
+        partner-2: LANG-TODO
+        partner-3: LANG-TODO
 component:
   cards:
     articleCard:
@@ -317,14 +325,6 @@ component:
         Alpha. De goede gesprekken, de vriendschappen en de epische borrels en feesten
         in onze sociëteit zorgen ervoor dat Alpha een superinvulling is van mijn studententijd
         in Enschede!
-    partners:
-      header: Partners
-      intro: LANG-TODO
-      our-partners:
-        title: Onze partners
-        partner-1: LANG-TODO
-        partner-2: LANG-TODO
-        partner-3: LANG-TODO
     roomForum:
       header: Kamer forum
       intro-title: Check hier de beschikbare kamers bij Alphanen in huis!

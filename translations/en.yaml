@@ -142,7 +142,14 @@ template:
           Taking on this responsibility contributes to personal growth and prepares you for “adult” life. All activities offered by Alpha
           are organized by Alpha members through various committees. This includes organizing large events such as the gala, a ski trip,
           and weekend getaways, as well as “smaller” evening activities, such as a formation night or a sports event, there’s something for everyone!"
-
+    partners:
+      header: Partners
+      intro: LANG-TODO
+      our-partners:
+        title: Our partners
+        partner-1: LANG-TODO
+        partner-2: LANG-TODO
+        partner-3: LANG-TODO
 component:
   cards:
     articleCard:
@@ -195,8 +202,6 @@ component:
         none: At this moment there are no photoalbums to display.
       sponsors:
         potential-sponsor: Also want to sponsor us? Click here
-      partners:
-        header: Partners
       youtube-videos:
         title: C.S.V. Alpha in short
     contact:
@@ -293,14 +298,6 @@ component:
         The good conversations, the friendships and epic drinks and parties in our
         pub make sure that Alpha is a great completion of my time as a student in
         Enschede!
-    partners:
-      header: Partners
-      intro: LANG-TODO
-      our-partners:
-        title: Our partners
-        partner-1: LANG-TODO
-        partner-2: LANG-TODO
-        partner-3: LANG-TODO
     roomForum:
       header: Room forum
       intro-title: Check the available rooms in homes of our members here!
