@@ -99,8 +99,9 @@
   padding: 7.5px;
   width: 100vw;
 
+
   .input-group{
-    width: 100vw;
+    width: calc(100vw - 15px);
   }
 }
 
