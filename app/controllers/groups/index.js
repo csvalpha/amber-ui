@@ -46,7 +46,7 @@ export default class GroupsIndexController extends FilterableAndSortableControll
     ];
   }
 
-    get groupKinds2() {
+  get groupKinds2() {
     if (this.search) {
       return ['zoekresultaten'];
     }
