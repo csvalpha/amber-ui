@@ -46,6 +46,26 @@ export default class GroupsIndexController extends FilterableAndSortableControll
     ];
   }
 
+  get groupKinds2() {
+    if (this.search) {
+      return ['zoekresultaten'];
+    }
+
+    return [
+      'bestuur',
+      'commissie',
+      'dispuut',
+      'genootschap',
+      'groep',
+      'huis',
+      'werkgroep',
+      'kring',
+      'lichting',
+      'curiositas',
+      'zal',
+    ];
+  }
+
   get selectedGroupKind() {
     return this.search
       ? 'zoekresultaten'
