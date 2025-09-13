@@ -78,7 +78,7 @@
       </div>
     {{/if}}
 
-    <form class='form' {{on 'submit' (prevent-default confirmOTP)}}>
+    <form class='form' {{action 'confirmOTP' on='submit'}}>
       <div>
         <QrCode @text={{this.otpKey}} @size={{240}} />
       </div>
