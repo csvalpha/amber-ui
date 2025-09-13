@@ -4,30 +4,7 @@
     hyphens: none;
   }
 
-  .about-v {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  .about-v{
     padding: 0 5%;
-
-    .about-v-image {
-      width: 100%;
-      clip-path: circle();
-      object-fit: cover;
-      max-width: 25rem;
-    }
-
-    .about-v-title {
-      margin-top: 1rem;
-      text-align: center;
-      color: $brand-secondary;
-      font-family: "Libre Franklin", sans-serif;
-    }
-
-    .about-v-text {
-      text-align: justify;
-      line-height: 1.6rem;
-      font-size: 1.3rem;
-    }
   }
 }
