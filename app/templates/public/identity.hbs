@@ -1,0 +1,36 @@
+<div class="public">
+  <Public::Header
+    @imageUrl="/images/public/identity.png"
+    @title="{{t 'template.public.identity.header'}}"
+  />
+  <div class="board row my-4 d-flex flex-column align-items-center">
+    <p class="mt-2 text-center public-text">{{t 'template.public.identity.intro'}}</p>
+    <p class="text-center public-text">{{t 'template.public.identity.paragraph2'}}</p>
+    <h1 class="public-title mt-5">{{t 'template.public.identity.three-vs.title'}}</h1>
+    <hr class="public-title-border border border-secondary bg-secondary border-3 opacity-100" />
+    <p class="text-center public-text mt-1">{{t 'template.public.identity.three-vs.intro'}}</p>
+    <div class="row px-5">
+      <div class="col-12 mt-5">
+        <Public::Card
+          @imgurl="/images/public/index/vriendschap.jpg"
+          @text="{{t 'template.public.identity.three-vs.vriendschap'}}"
+          @horizontal = true
+        />
+      </div>
+      <div class="col-12 mt-5">
+        <Public::Card
+          @imgurl="/images/public/index/vorming.jpg"
+          @text="{{t 'template.public.identity.three-vs.vorming'}}"
+          @horizontal = true
+        />
+      </div>
+      <div class="col-12 mt-5">
+        <Public::Card
+          @imgurl="/images/public/index/verantwoordelijkheid.jpg"
+          @text="{{t 'template.public.identity.three-vs.verantwoordelijkheid'}}"
+          @horizontal = true
+        />
+      </div>
+    </div>
+  </div>
+</div>

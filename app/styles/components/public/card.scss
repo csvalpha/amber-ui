@@ -1,0 +1,79 @@
+.circle-card {
+  display: flex;
+
+  &.vertical {
+    flex-direction: column;
+    align-items: center;
+
+    .content {
+      align-items: center; // center titles and text
+      text-align: center;
+    }
+  }
+
+  &.horizontal {
+    flex-direction: row;
+    align-items: flex-start;
+
+    .card-image {
+      margin-right: 2rem; // space between image and content
+    }
+
+    .content {
+      align-items: flex-start; // align left
+      text-align: left;
+
+      .card-title {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .card-image {
+    width: 100%;
+    clip-path: circle();
+    object-fit: cover;
+    max-width: 25rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .card-title {
+      margin-top: 1rem;
+      color: $brand-secondary;
+      font-family: "Libre Franklin", sans-serif;
+    }
+
+    .card-subtitle {
+      margin-top: 0.3rem;
+      color: $brand-secondary;
+      font-family: "Libre Franklin", sans-serif;
+    }
+
+    .card-text {
+      margin-top: 1rem;
+      text-align: justify;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* Responsive: horizontal becomes vertical on small screens */
+@media (width <= 768px) {
+  .circle-card.horizontal {
+    flex-direction: column;
+    align-items: center;
+
+    .card-image {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .content {
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
