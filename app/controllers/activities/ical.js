@@ -24,8 +24,8 @@ export default class ActivitiesIcalController extends EditController {
   @computed('activityCategoryOptions.@each.checked')
   get categoriesParams() {
     return this.activityCategoryOptions
-      .filter(category => category.checked)
-      .map(category => category.value);
+      .filter((category) => category.checked)
+      .map((category) => category.value);
   }
 
   get iCalBase() {
@@ -53,8 +53,9 @@ export default class ActivitiesIcalController extends EditController {
     const selectedCategories = this.categoriesParams;
 
     currentUser.set('icalCategories', selectedCategories);
-  
-    return currentUser.save()
+
+    return currentUser
+      .save()
       .then(() => {
         console.log('Categories saved successfully!');
       })
@@ -62,6 +63,4 @@ export default class ActivitiesIcalController extends EditController {
         console.error('Failed to save categories:', error);
       });
   };
-  
-  
 }
