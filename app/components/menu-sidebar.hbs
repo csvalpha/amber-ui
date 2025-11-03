@@ -102,7 +102,7 @@
         </a>
 
         {{! Logout }}
-        <a class='link' {{action 'invalidateSession'}}>
+        <a class='link' {{on 'click' this.invalidateSession}}>
           <MenuSidebarItem
             @link=''
             @hasPermission={{true}}
@@ -137,6 +137,12 @@
         @hasPermission={{can 'show vacancies'}}
         @icon='suitcase'
         @title={{t 'mixin.menuItems.vacancies'}}
+      />
+      <MenuSidebarItem
+        @link='room-adverts'
+        @hasPermission={{can 'show room-adverts'}}
+        @icon='people-roof'
+        @title={{t 'mixin.menuItems.roomAdverts'}}
       />
       <MenuSidebarItem
         @link='forum'
@@ -199,7 +205,7 @@
       @icon='house'
       @title={{t 'mixin.menuItems.home'}}
     />
-      <div {{did-insert (action 'setStaticPages')}} class='menu-sidebar-item sidebar-item-static link'>
+      <div {{did-insert this.setStaticPages}} class='menu-sidebar-item sidebar-item-static link'>
         <span class='menu-sidebar-item-icon'>
           <FaIcon @icon='people-group' @fixedWidth={{true}} />
         </span>
@@ -217,6 +223,12 @@
           @title={{title}}
         />
         {{/each-in}}
+        <MenuSidebarItem
+          @link='public.room-forum'
+          @hasPermission={{true}}
+          @icon='people-roof'
+          @title={{t 'mixin.menuItems.roomForum'}}
+        />
       </div>
 
       <MenuSidebarItem

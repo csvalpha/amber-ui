@@ -8,10 +8,10 @@
       verwijderen?
     </p>
 
-    <button {{action 'destroyModel'}} class='btn btn-danger' type='button'>
+    <button {{on "click" this.destroyModel}} class='btn btn-danger' type='button'>
       Verwijderen
     </button>
-    <button {{action 'cancel'}} type="button" class='btn btn-default'>
+    <button {{on "click" this.cancel}} type="button" class='btn btn-default'>
       Annuleren
     </button>
     {{#if errorMessage}}

@@ -5,11 +5,18 @@
       src='{{album.albumMediumUrl}}'
       class='card-img-rounded'
     />
+    
     <div class='card-title-bar gradient-overlay-rounded'>
       <div class='card-titles'>
         <h2 class='card-title'>{{album.title}}</h2>
         <h3 class='card-subtitle'>{{moment-format album.date 'DD-MM-YYYY'}}</h3>
       </div>
+      {{#if (and album.amountOfTaggedPhotos (can 'show photo-tag'))}}
+        <span class='album-tag-counter badge bg-info bottom-0 end-0'>
+          <FaIcon @icon='tag' />
+          {{album.amountOfTaggedPhotos}}/{{album.amountOfPhotos}}
+        </span>
+      {{/if}}
     </div>
   </div>
 </div>

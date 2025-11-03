@@ -1,8 +1,8 @@
 <span class='fw-bold mb-3'>Open vraag</span>
 
-{{#unless question.form.hasResponses}}
+{{#unless @question.form.hasResponses}}
   <div class='float-md-end mb-3'>
-    <FaIcon @icon='xmark' {{on 'click' (action 'deleteQuestion')}} />
+    <FaIcon @icon='xmark' {{on 'click' this.deleteQuestion}} />
   </div>
 {{/unless}}
 
@@ -13,8 +13,8 @@
     aria-label='Vraag'
     name='question'
     placeholder='Vraag'
-    @value={{question.question}}
-    disabled={{question.form.hasResponses}}
+    @value={{@question.question}}
+    disabled={{@question.form.hasResponses}}
   />
 </div>
 
@@ -25,11 +25,10 @@
         <label class='visually-hidden form-label'>Vraagtype</label>
         <Input::SelectInput
           @class='form-select'
-          @required={{required}}
-          @options={{questionTypeOptions}}
-          @placeholder={{Vraagtype}}
-          @value={{question.fieldType}}
-          @disabled={{question.form.hasResponses}}
+          @options={{this.questionTypeOptions}}
+          @placeholder="vraagtype"
+          @value={{@question.fieldType}}
+          @disabled={{@question.form.hasResponses}}
         />
       </div>
 
@@ -38,22 +37,22 @@
             class='form-check-input'
             @type='checkbox'
             name='required'
-            @checked={{question.required}}
-            disabled={{question.form.hasResponses}}
-            id="question-{{question.position}}-required-check"
+            @checked={{@question.required}}
+            disabled={{@question.form.hasResponses}}
+            id="question-{{@question.position}}-required-check"
           />
-        <label class='form-check-label' for="question-{{question.position}}-required-check">Verplicht</label>
+        <label class='form-check-label' for="question-{{@question.position}}-required-check">Verplicht</label>
       </div>
     </div>
   </div>
 
-  {{#unless question.form.hasResponses}}
+  {{#unless @question.form.hasResponses}}
     <div class='col-md-7 col-sm-12'>
       <div class='float-md-end'>
         <button
           type='button'
           class='btn btn-default'
-          {{action 'moveQuestionUp'}}
+          {{on 'click' this.moveQuestionUp}}
         >
           <FaIcon @icon='arrow-up' />
           Omhoog
@@ -62,7 +61,7 @@
         <button
           type='button'
           class='btn btn-default'
-          {{action 'moveQuestionDown'}}
+          {{on 'click' this.moveQuestionDown}}
         >
           <FaIcon @icon='arrow-down' />
           Omlaag

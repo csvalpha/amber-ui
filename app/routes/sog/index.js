@@ -1,6 +1,6 @@
-import { ApplicationRoute } from 'amber-ui/routes/application/application';
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
 
-export default class SogIndexRoute extends ApplicationRoute {
+export default class SogIndexRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'SOG' };
 
   canAccess() {

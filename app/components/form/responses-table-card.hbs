@@ -1,4 +1,4 @@
-{{#if form.amountOfResponses}}
+{{#if @form.amountOfResponses}}
   <div class='card'>
     <div class='card-header my-2 py-1'>
       <div class='row align-items-center'>
@@ -11,7 +11,7 @@
             <Input
                 @type='checkbox'
                 id='show-allergy-info'
-                @checked={{showAllergyInfo}}
+                @checked={{this.showAllergyInfo}}
                 class='form-check-input'
             />
             <label class='form-check-label' for='show-allergy-info'>
@@ -22,11 +22,7 @@
       </div>
     </div>
     <div class='table-responsive responses-table'>
-      {{form/responses-table
-        form
-        form.responses
-        showAllergyInfo=showAllergyInfo
-      }}
+      <Form::ResponsesTable @form={{@form}} @responses={{@form.sortedResponses}} @showAllergyInfo={{this.showAllergyInfo}} />
     </div>
   </div>
 {{else}}

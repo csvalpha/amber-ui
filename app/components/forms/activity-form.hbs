@@ -3,7 +3,7 @@
     <h5>{{if @model.isNew 'Activiteit aanmaken' 'Activiteit wijzigen'}}</h5>
   </div>
   <div class='card-body'>
-    <form {{action @onSubmit on='submit'}}>
+    <form {{on 'submit' (prevent-default @onSubmit)}}>
 
       {{#if @model.form.hasResponses}}
         <div class='alert alert-danger'>
@@ -106,7 +106,7 @@
             <div class='col-sm-10'>
               <PowerSelect
                 @options={{@groups}}
-                @onChange={{action (mut @model.group)}}
+                @onChange={{fn (mut @model.group)}}
                 @selected={{@model.group}}
                 @searchEnabled={{true}}
                 @searchField='name'
@@ -134,7 +134,7 @@
           <div class="col-sm-10 offset-sm-2">
             <div class='alert alert-warning'>
               Inschrijflijsten zijn alleen zichtbaar voor leden. Voor extern gebruik
-              van formulieren kan gebruik gemaakt worden van Google Forms. Plaats
+              van formulieren kan gebruik gemaakt worden van Nextcloud. Plaats
               dan de link in de beschrijving van je activiteit.
             </div>
           </div>
@@ -154,7 +154,7 @@
         @errorMessage={{@errorMessage}}
       >
         <button
-          {{action @onCancel}}
+          {{on 'click' @onCancel}}
           type="button"
           class='btn btn-default'
         >
@@ -171,7 +171,7 @@
       <h5>Inschrijflijst</h5>
     </div>
     <div class='card-block p-3'>
-      {{form/form-form @model.form}}
+      <Form::FormForm @model={{@model.form}}/>
     </div>
   </div>
 {{/if}}

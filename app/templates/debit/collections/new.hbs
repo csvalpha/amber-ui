@@ -30,12 +30,12 @@
     <br />
     <br />
 
-    <form {{action 'submit' on='submit'}}>
+    <form {{on 'submit' (prevent-default submit)}}>
       <ModelForm::FileInput
         @model={{model}}
         @property='importFile'
-        @label='Import bestand'
-        @loadedCallback={{action 'fileLoaded'}}
+        @label='Importeer bestand'
+        @loadedCallback={{this.fileLoaded}}
         @validExtensions={{this.validExtensions}}
         @validMimetypes={{this.validMimetypes}}
       />

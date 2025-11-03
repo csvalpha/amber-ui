@@ -2,7 +2,7 @@
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<Cards::ArticleCard @article={{@model}} />
+<Cards::ArticleCard @article={{@model}} @showExcerpt={{false}} @showGroup={{true}} @useMaxHeight={{false}}/>
 
 {{#if (can 'show article comments of article' @model)}}
   <div class='card'>
@@ -39,11 +39,11 @@
             placeholder={{t 'template.articles.show.commentHint'}}
             minlength='1'
             maxlength='500'
-            @enter={{action 'submitArticleComment'}}
+            @enter={{this.submitArticleComment}}
           />
           <button
             class='btn btn-default'
-            {{action 'submitArticleComment'}}
+            {{on 'click' submitArticleComment}}
             type='button'
           >
             {{t 'tag.button.react'}}

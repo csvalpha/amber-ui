@@ -1,14 +1,7 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-const OpenQuestionComponent = Component.extend({
-  inputIdentifier: computed('question.id', function () {
-    return `question-${this.question.id}`;
-  }),
-});
-
-OpenQuestionComponent.reopenClass({
-  positionalParams: ['question', 'answer'],
-});
-
-export default OpenQuestionComponent;
+export default class OpenQuestionComponent extends Component {
+  get inputIdentifier() {
+    return `question-${this.args.question.id}`;
+  }
+}

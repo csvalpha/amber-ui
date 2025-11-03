@@ -26,7 +26,10 @@ export default class User extends Model {
   // Preferences / settings
   @attr foodPreferences;
   @attr vegetarian;
+  @attr trailerDriversLicense;
   @attr('date-only') startStudy;
+
+  // Restricted Settings
   @attr emergencyContact;
   @attr emergencyNumber;
   @attr almanakSubscriptionPreference;
@@ -34,16 +37,15 @@ export default class User extends Model {
 
   // Privacy settings
   @attr picturePublicationPreference;
-
   @attr ifesDataSharingPreference;
-  @attr({ allowNull: true }) allowTomatoSharing;
+  @attr allowTomatoSharing;
   @attr infoInAlmanak;
   @attr userDetailsSharingPreference;
+
   // Security properties
   @attr otpRequired;
   @attr icalSecretKey;
   @attr icalCategories;
-  @attr webdavSecretKey;
   @attr password;
 
   // Technical properties
@@ -51,6 +53,8 @@ export default class User extends Model {
   @attr('date') activatedAt;
   @attr('date') createdAt;
   @attr('date') updatedAt;
+  @attr sidekiqAccess;
+  @attr setupComplete;
 
   // Avatar
   @attr avatar;

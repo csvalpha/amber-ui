@@ -203,7 +203,14 @@ Router.map(function () {
 
   this.route('profile');
 
-  this.route('quickpost');
+  this.route('room-adverts', function () {
+    this.route('new');
+
+    this.route('room-advert', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+    });
+  });
 
   this.route('sog', function () {
     this.route('name-trainer');
@@ -225,7 +232,6 @@ Router.map(function () {
 
     this.route('forgot-password');
     this.route('members');
-    this.route('webdav');
     this.route('activate-account', { path: ':id/activate-account' });
 
     this.route('user', { path: ':id' }, function () {
@@ -258,6 +264,14 @@ Router.map(function () {
       this.route('edit');
       this.route('destroy');
     });
+  });
+
+  this.route('public', function () {
+    this.route('room-forum');
+    this.route('flux');
+    this.route('board');
+    this.route('identity');
+    this.route('partners');
   });
 
   return true;

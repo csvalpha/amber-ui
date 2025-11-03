@@ -30,8 +30,8 @@ export default function () {
   this.resource('activities');
   this.resource('daily_verse');
   this.resource('groups');
-  this.resource('quickpost_messages');
   this.resource('board_room_presences');
+  this.resource('study_room_presences');
   this.resource('photo_albums');
   this.resource('photo_comments');
   this.resource('photo_tags');

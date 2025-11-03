@@ -46,9 +46,9 @@
                 <li class='nav-item'>
                   <a
                     class='nav-link
-                      {{unless oldMembershipsTabActive "active"}}
-                      {{if (eq currentMemberships.length 0) "disabled"}}'
-                    {{action 'hideOldMemberships'}}
+                      {{if this.currentMembershipsSelected "active"}}
+                      {{if (not this.currentMembershipsExist) "disabled"}}'
+                    {{on 'click' selectCurrentMemberships}}
                   >
                     Leden
                   </a>
@@ -56,9 +56,9 @@
                 <li class='nav-item'>
                   <a
                     class='nav-link
-                      {{if oldMembershipsTabActive "active"}}
-                      {{if (eq oldMemberships.length 0) "disabled"}}'
-                    {{action 'showOldMemberships'}}
+                      {{if this.oldMembershipsSelected "active"}}
+                      {{if (not this.oldMembershipsExist) "disabled"}}'
+                    {{on 'click' selectOldMemberships}}
                   >
                     Oud-leden
                   </a>
@@ -81,12 +81,12 @@
           </div>
         </div>
         <div class='card-body'>
-          <div class='row userlist'>
+          <div class='row'>
             {{#each filteredModels as |membership|}}
               <LinkTo
                 @route='users.user'
                 @model={{membership.user.id}}
-                class='col-6 col-sm-4 col-md-3'
+                class='col-6 col-md-4 col-lg-3'
               >
                 <Cards::MembershipCard
                   @title={{membership.user.fullNameWithNickname}}
@@ -108,6 +108,35 @@
               <div class='alert alert-warning col-xs'>
                 Geen leden of oud-leden gevonden
               </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}
+
+{{#if (and (can 'show articles') @model.articles)}}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">
+              <h5>Artikelen gepubliceerd door {{@model.name}}</h5>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            {{#each @model.articles as |article|}}
+              <LinkTo
+                @route='articles.article'
+                @model="{{article.id}}"
+                class="col-12 col-md-6"
+              >
+                <Cards::ArticleCard @article={{article}}  @showExcerpt={{true}} @showGroup={{false}} @useMaxHeight={{true}}/>
+              </LinkTo>
             {{/each}}
           </div>
         </div>

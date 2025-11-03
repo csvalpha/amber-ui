@@ -6,12 +6,12 @@
   <PageNumbers @info={{@model.postsPaged.meta}} @replace={{true}} />
 </div>
 
-<Swipeable @onSwipeHorizontal={{action 'onSwipe'}}>
+<Swipeable @onSwipeHorizontal={{this.onSwipe}}>
   {{#each @model.postsPaged as |post|}}
     {{#unless post.isDeleted}}
       {{forum/forum-post
         post
-        addQuote=(action 'addQuote')
+        addQuote=addQuote
         data-test-forum-post=post.id
       }}
     {{/unless}}
@@ -39,8 +39,8 @@
         <Forum::ForumPostNew
           @thread={{@model}}
           @content={{newContent}}
-          @onSubmit={{action 'newPostCreated'}}
-          @setContent={{action 'setContent'}}
+          @onSubmit={{this.newPostCreated}}
+          @setContent={{this.setContent}}
         />
       </div>
     </div>

@@ -1,11 +1,13 @@
 <EmberWormhole @to='navbar-wormhole'>
   {{#page-actions-buttons pageActions}}
-    <div class='col col-md-auto page-action'>
-      <button class='btn btn-primary' {{action 'downloadAlbum'}} type='button'>
-        <FaIcon @icon='download' />
-        <span class='d-none d-md-inline'>Fotoalbum downloaden</span>
-      </button>
-    </div>
+    {{#if this.session.isAuthenticated}}
+      <div class='col col-md-auto page-action'>
+        <button class='btn btn-primary' {{on 'click' downloadAlbum}} type='button'>
+          <FaIcon @icon='download' />
+          <span class='d-none d-md-inline'>Fotoalbum downloaden</span>
+        </button>
+      </div>
+    {{/if}}
   {{/page-actions-buttons}}
 </EmberWormhole>
 
@@ -16,20 +18,32 @@
 
 <div class='row'>
   {{#each sortedPhotos as |photo|}}
-    <div class='col-md-3 col-xs-6 photo-album-image-card'>
-      <LinkTo
-        @route='photo-albums.photo-album.photos.photo'
-        @model={{photo.id}}
-      >
-        {{#if photo.amountOfComments}}
-          <span class='comments-counter badge bg-info bottom-0 start-0'>
-            <FaIcon @icon='comments' />
-            {{photo.amountOfComments}}
-          </span>
-        {{/if}}
+    {{#if this.session.isAuthenticated}}
+      <div class='col-md-3 col-xs-6 photo-album-image-card'>
+        <LinkTo
+          @route='photo-albums.photo-album.photos.photo'
+          @model={{photo.id}}
+        >
+          {{#if (or (and photo.amountOfComments (can 'show photo-comment')) (and photo.amountOfTags (can 'show photo-tag')))}}
+            <span class='comments-counter badge bg-info bottom-0 start-0'>
+              {{#if (and photo.amountOfComments (can 'show photo-comment'))}}
+                <FaIcon @icon='comments' />
+                {{photo.amountOfComments}}
+              {{/if}}
+              {{#if (and photo.amountOfTags (can 'show photo-tag'))}}
+                <FaIcon @icon='tag' />
+                {{photo.amountOfTags}}
+              {{/if}}
+            </span>
+          {{/if}}
+          <img class='image' src='{{photo.imageThumbUrl}}' />
+        </LinkTo>
+      </div>
+    {{else}}
+      <div class='col-md-3 col-xs-6 photo-album-image-card'>
         <img class='image' src='{{photo.imageThumbUrl}}' />
-      </LinkTo>
-    </div>
+      </div>
+    {{/if}}
   {{else}}
     <div class='alert alert-warning'>
       <LinkTo @route='photo-albums.photo-album.edit' @model={{model.id}}>
