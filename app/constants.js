@@ -27,11 +27,10 @@ const ActivityCategories = [
   'IFES',
   'OZON',
   'Disputen',
-  'Kiemgroepen',
+  'Genootschapen',
   'Huizen',
   'Extern',
   'Eerstejaars',
-  'Curiositates',
 ];
 
 const OpenQuestionTypes = ['text', 'textarea', 'number'];
