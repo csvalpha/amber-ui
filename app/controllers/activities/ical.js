@@ -57,9 +57,12 @@ export default class ActivitiesIcalController extends EditController {
     return currentUser
       .save()
       .then(() => {
-        console.log('Categories saved successfully!');
+        this.flashNotice.sendSuccess('Categorieën succesvol opgeslagen!');
       })
       .catch((error) => {
+       this.flashNotice.sendError(
+          'Er ging iets fout bij het opslaan van je categorieën.'
+        );
         console.error('Failed to save categories:', error);
       });
   };
