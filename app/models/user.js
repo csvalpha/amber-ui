@@ -45,6 +45,7 @@ export default class User extends Model {
   // Security properties
   @attr otpRequired;
   @attr icalSecretKey;
+  @attr icalCategories;
   @attr password;
 
   // Technical properties

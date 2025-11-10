@@ -16,16 +16,14 @@ export default Factory.extend({
       'algemeen',
       'sociëteit',
       'vorming',
-      'dinsdagkring',
-      'woensdagkring',
+      'kring',
       'choose',
       'ifes',
       'ozon',
       'disputen',
-      'kiemgroepen',
+      'genootschapen',
       'huizen',
       'extern',
-      'curiositates',
     ]),
 
   afterCreate(activity, server) {
