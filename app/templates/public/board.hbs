@@ -1,6 +1,6 @@
 <div class="public">
   <Public::Header
-    @imageUrl="/images/public/board/banner.jpeg"
+    @imageUrl="/images/public/board/banner.jpg"
     @title="{{t 'template.public.board.header'}}"
   />
   <div class="board row my-4 d-flex flex-column align-items-center">
@@ -9,9 +9,9 @@
     <p class="mt-3 text-center public-text">{{t 'template.public.board.intro'}}</p>
     <p class="text-center public-text"><i>{{t 'template.public.board.slogan'}}</i></p>
     <div class="members row">
-      <div class="member col-12 col-md-6" >
+      <div class="member col-12" >
         <Public::Card
-          @imgurl="/images/public/board/Stefan.jpg"
+          @imgurl="/images/public/board/Tijmen.jpg"
           @title="{{t 'template.public.board.chair'}}"
           @subtitle="{{t 'template.public.board.chair-name'}}"
           @text="{{t 'template.public.board.chair-story'}}"
@@ -19,7 +19,7 @@
       </div>
       <div class="member col-12 col-md-6">
         <Public::Card
-          @imgurl="/images/public/board/Jesse.jpg"
+          @imgurl="/images/public/board/Thijs.jpg"
           @title="{{t 'template.public.board.secretary'}}"
           @subtitle="{{t 'template.public.board.secretary-name'}}"
           @text="{{t 'template.public.board.secretary-story'}}"
@@ -27,7 +27,7 @@
       </div>
       <div class="member col-12 col-md-6">
         <Public::Card
-          @imgurl="/images/public/board/Niels.jpg"
+          @imgurl="/images/public/board/Maarten.jpg"
           @title="{{t 'template.public.board.treasurer'}}"
           @subtitle="{{t 'template.public.board.treasurer-name'}}"
           @text="{{t 'template.public.board.treasurer-story'}}"
@@ -35,10 +35,18 @@
       </div>
       <div class="member col-12 col-md-6">
         <Public::Card
-          @imgurl="/images/public/board/Alina.jpg"
+          @imgurl="/images/public/board/Joost.jpg"
           @title="{{t 'template.public.board.assessor1'}}"
           @subtitle="{{t 'template.public.board.assessor1-name'}}"
           @text="{{t 'template.public.board.assessor1-story'}}"
+        />
+      </div>
+      <div class="member col-12 col-md-6">
+        <Public::Card
+          @imgurl="/images/public/board/Jorai.jpg"
+          @title="{{t 'template.public.board.assessor2'}}"
+          @subtitle="{{t 'template.public.board.assessor2-name'}}"
+          @text="{{t 'template.public.board.assessor2-story'}}"
         />
       </div>
     </div>
@@ -49,28 +57,45 @@
     <hr class="public-title-border border border-primary bg-primary border-3 opacity-100" />
     <div class="previous-boards row px-10">
       <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
+        <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board0'}}</h3>
+        <img src="/images/public/board/XLV.jpeg" title="Praeses: Stefan Zwiers
+Abactis: Jesse Emmens
+Quaestor: Niels Brouwer
+Assessor Internorum: Alina Monster">
+      </div>
+      <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
         <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board1'}}</h3>
-        <img src="/images/public/board/XLIV.jpeg">
+        <img src="/images/public/board/XLIV.jpeg" title="Praeses: Lydia van Tebberen
+Abactis: Sylvia Janssen
+Quaestor: Hanna Visscher
+Assessor Internorum: Norely Wijnholds">
       </div>
       <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
         <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board2'}}</h3>
-        <img src="/images/public/board/XLIII.jpeg">
+        <img src="/images/public/board/XLIII.jpeg" title="Praeses: Jildert Brandsma
+Abactis: Iris Mulder
+Quaestor: Bernard Mulder
+Assessor Internorum: Annick de Vos
+Assessor Progressorum: Mart van der Stege">
       </div>
       <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
         <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board3'}}</h3>
-        <img src="/images/public/board/XLII.jpeg">
+        <img src="/images/public/board/XLII.jpeg" title="Praeses: Luc Hartmans
+Abactis: Elise van Doorn
+Quaestor: Henryk van den Brink
+Assessor Internorum: Hilke van den Born">
       </div>
       <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
         <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board4'}}</h3>
-        <img src="/images/public/board/XLI.jpeg">
+        <img src="/images/public/board/XLI.jpeg" title="Praeses: Feije van Abbema
+Abactis: Mathijs Boer
+Quaestor: Laura van den Berg">
       </div>
       <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
         <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board5'}}</h3>
-        <img src="/images/public/board/XL.jpeg">
-      </div>
-      <div class="previous-board col-12 col-sm-6 col-md-4 p-3">
-        <h3 class="public-title-smaller text-center">{{t 'template.public.board.old-boards.board6'}}</h3>
-        <img src="/images/public/board/XXXIX.jpeg">
+        <img src="/images/public/board/XL.jpeg"title="Praeses: Peter Brouwer
+Abactis: Wilco van Beijnum
+Quaestor: Matteo Bronkhorst">
       </div>
     </div>
   </div>
