@@ -29,6 +29,12 @@
                 {{t "component.headerNav.aboutUs"}}
               </dd.button>
               <dd.menu class="public-about-us-dropdown" @renderInPlace={{true}} as |ddm|>
+                <LinkTo @route='public.identity' class="dropdown-item btn btn-primary">
+                  {{t 'mixin.menuItems.identity'}}
+                </LinkTo>
+                <LinkTo @route='public.board' class="dropdown-item btn btn-primary">
+                  {{t 'mixin.menuItems.board'}}
+                </LinkTo>
                 {{#each-in this.staticPages as |id title|}}
                   <ddm.item>
                     <ddm.linkTo @route='static-pages.static-page' @model={{id}} class="btn btn-primary">
@@ -36,16 +42,6 @@
                     </ddm.linkTo>
                   </ddm.item>
                 {{/each-in}}
-                {{! put links to other pages here }}
-                <LinkTo @route='public.board' class="dropdown-item btn btn-primary">
-                  {{t 'mixin.menuItems.board'}}
-                </LinkTo>
-                <LinkTo @route='public.identity' class="dropdown-item btn btn-primary">
-                  {{t 'mixin.menuItems.identity'}}
-                </LinkTo>
-                <LinkTo @route='public.flux' class="dropdown-item btn btn-primary">
-                  {{t 'mixin.menuItems.flux'}}
-                </LinkTo>
                 <LinkTo @route='public.room-forum' class="dropdown-item btn btn-primary">
                   {{t 'mixin.menuItems.roomForum'}}
                 </LinkTo>
@@ -53,9 +49,6 @@
             </BsDropdown>
             <LinkTo @route='static-pages.static-page' @model='word-lid' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq this.router.currentURL '/static-pages/word-lid') 'selected'}}">{{t "component.headerNav.becomeMember"}}</BsButton>
-            </LinkTo>
-            <LinkTo @route='public.partners' class="page-actions-buttons">
-              <BsButton @type="primary" class="public-navbar-button {{if (eq this.router.currentURL '/public/partners') 'selected'}}">{{t "component.headerNav.partners"}}</BsButton>
             </LinkTo>
           {{/if}}
         </div>
