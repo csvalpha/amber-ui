@@ -1,3 +1,3 @@
-import Route from '@ember/routing/route';
+import { ApplicationRoute } from 'amber-ui/routes/application/application';
 
-export default class PublicBoardRoute extends Route {}
+export default class PublicBoardRoute extends ApplicationRoute {}
