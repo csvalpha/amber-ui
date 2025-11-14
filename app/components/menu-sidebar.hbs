@@ -214,6 +214,18 @@
         </span>
       </div>
       <div class='static-pages-menu ms-2'>
+        <MenuSidebarItem
+          @link='public.identity'
+          @hasPermission={{true}}
+          @icon='circle-info'
+          @title={{t 'mixin.menuItems.identity'}}
+        />
+        <MenuSidebarItem
+          @link='public.board'
+          @hasPermission={{true}}
+          @icon='circle-info'
+          @title={{t 'mixin.menuItems.board'}}
+        />
         {{#each-in staticPages as |id title|}}
           <MenuSidebarItem
           @link='static-pages.static-page'
