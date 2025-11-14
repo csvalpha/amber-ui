@@ -50,9 +50,6 @@
             <LinkTo @route='static-pages.static-page' @model='word-lid' class="page-actions-buttons">
               <BsButton @type="primary" class="public-navbar-button {{if (eq this.router.currentURL '/static-pages/word-lid') 'selected'}}">{{t "component.headerNav.becomeMember"}}</BsButton>
             </LinkTo>
-            <LinkTo @route='public.partners' class="page-actions-buttons">
-              <BsButton @type="primary" class="public-navbar-button {{if (eq this.router.currentURL '/public/partners') 'selected'}}">{{t "component.headerNav.partners"}}</BsButton>
-            </LinkTo>
           {{/if}}
         </div>
       </div>
