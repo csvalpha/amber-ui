@@ -23,17 +23,15 @@ const ActivityCategories = [
   'Algemeen',
   'Sociëteit',
   'Vorming',
-  'Dinsdagkring',
-  'Woensdagkring',
+  'Kring',
   'ChOOSE',
   'IFES',
   'OZON',
   'Disputen',
-  'Kiemgroepen',
+  'Genootschapen',
   'Huizen',
   'Extern',
   'Eerstejaars',
-  'Curiositates',
 ];
 
 const OpenQuestionTypes = ['text', 'textarea', 'number'];

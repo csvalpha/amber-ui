@@ -26,6 +26,7 @@
 @import 'components/pagination';
 @import 'components/photo-tags';
 @import 'components/public/header';
+@import 'components/public/card';
 @import 'components/public/index/about-alpha';
 @import 'components/public/index/activities';
 @import 'components/public/index/photo-albums';
@@ -72,6 +73,7 @@
 @import 'routes/polls';
 @import 'routes/public';
 @import 'routes/sog/name-trainer';
+@import 'routes/public/board';
 
 // Import package style
 @import 'ember-power-select/themes/bootstrap';

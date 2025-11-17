@@ -85,6 +85,74 @@ template:
   photos:
     show:
       photographer: Photo uploaded by
+  public:
+    board:
+      header: General Board
+      intro: "In the coming year, we as the 46th Senate have the honor of taking care of Alpha and all her activities. We are looking forward to everything this year has in store for us. Together, we will build beautiful moments and take care of everything that comes our way. Our Bible verse reflects this trust:"
+      slogan: “Commit everything you do to the Lord. Trust Him, and He will help you.” – Psalm 37:5 NLT
+      senaat: The XLVIth Senate of C.S.V. Alpha
+      chair: President
+      chair-name: Tijmen Schalk
+      chair-story: Hey everyone! I’m Tijmen, this year’s President of Alpha! I’ve completed two years of my Civil Engineering degree, but I’m taking a gap year to serve on the board. Next year, I hope to continue with my minor and finish my studies. This year, I’m ultimately responsible for everything that happens within Alpha. I chair meetings, oversee policy implementation, give speeches, and guide several committees as well as my fellow board members in their roles.
+      secretary: Secretary
+      secretary-name: Thijs van Boven
+      secretary-story: Hi everyone, I’m Thijs, and this year I have the honor of serving as Secretary within our wonderful Senate. I’m 21 years old and study Electrical Engineering at the University of Twente. Within Alpha, I’m responsible for emails, letters, and meeting minutes. I’m also involved in bar coordination and the Pakkerij Management Committee within the society board.
+      treasurer: Treasurer
+      treasurer-name: Maarten Beute
+      treasurer-story: I’m Maarten, and this year I’m the Treasurer. I’m a fourth-year student in Enschede, normally studying Mechanical Engineering at the university. This year, however, I’m responsible for Alpha’s finances. I’ll be guiding the treasurer committee in their work and managing Alpha’s inventory. In addition, I’ll be supervising a few other committees.
+      assessor1: Internal Affairs Officer
+      assessor1-name: Joost van Beijnum
+      assessor1-story: Hi there, my name is Joost van Beijnum, Internal Affairs Officer of C.S.V. Alpha. I’m a second-year Alpha member and currently in my fifth year of Mechanical Engineering. As Internal Affairs Officer, I’m responsible for organizing the small groups, guiding the member care team, and handling various other tasks. I also manage the finances of our beautiful society, Flux. Cheers!
+      assessor2: Development Officer
+      assessor2-name: Jorai Geertsema
+      assessor2-story: Hi, my name is Jorai Geertsema and this year I am the Assessor Progressorum of our wonderful association. For the past two years, I studied Advanced Technology. This year, I will be involved in setting up several large projects both within and outside the association. I will also represent Alpha in several external associations. In addition, I will supervise several committees.
+      photographer: Beautiful photos? Our photographer
+      photographer-url: https://shinebrightfotografie.nl/
+      previous-boards: Previous Boards
+      old-boards:
+        board0: 45th Senate
+        board1: 44th Senate
+        board2: 43rd Senate
+        board3: 42nd Senate
+        board4: 41st Senate
+        board5: 40th Senate
+    identity:
+      header: Identity
+      intro: "C.S.V. Alpha was founded in 1980 and is the Christian social association in
+        Enschede where fellowship and Christian development are combined into one unique student association."
+      paragraph2: "Alpha’s foundation is \"the message of the Bible as a guideline for life.\" When you join,
+        you can choose whether to endorse or respect this foundation. This means we are open not only to Christians,
+        but also to anyone who respects the Christian faith. With this foundation, Alpha’s Christian character is preserved,
+        while at the same time Alpha is a suitable association for people from all kinds of backgrounds."
+      three-vs:
+        title: "The 3 V’s"
+        intro: "This foundation is expressed in the three core aspects of the association: friendship, formation, and responsibility.
+          The association is built around these three core aspects, and everything we do aligns with them:"
+        vriendschap: "Our own society, Flux, is the ideal place to build and maintain friendships. Every Thursday
+          we meet here, it’s the place where a drink and a good conversation go hand in hand. In addition to our weekly
+          casual gatherings on Thursdays, several (themed) parties are held in Flux each year. Many Alpha members are eager
+          to join in, often showing up in the most creative outfits. Activities at the bar are perfect for building friendships,
+          but there are also plenty of opportunities outside of it. Having lunch together in the boardroom at the university,
+          getting invited to an Alpha house for dinner, or playing a game of volleyball in the city park; it’s all possible!"
+        vorming: "At Alpha, personal development is a high priority. This formation takes shape in activities
+          such as association evenings, sing-ins, and of course the biweekly “kring” (small group). At the start of each year,
+          you choose a group that suits you, meeting once every two weeks. After a good meal, we discuss serious topics that matter to us,
+          both in terms of faith and social issues. Several times a year, the whole association comes together for the association evening,
+          where we listen to a speaker and worship God with Alpha’s band. Thanks to the diversity of Christian backgrounds within the association,
+          there is always room for an engaging discussion where every opinion matters!"
+        verantwoordelijkheid: "Alpha is an association run by and for its members. Members are encouraged to contribute
+          not only to the association but also to the wider community. This can be done through committees, boards, or volunteer work.
+          Taking on this responsibility contributes to personal growth and prepares you for “adult” life. All activities offered by Alpha
+          are organized by Alpha members through various committees. This includes organizing large events such as the gala, a ski trip,
+          and weekend getaways, as well as “smaller” evening activities, such as a formation night or a sports event, there’s something for everyone!"
+    partners:
+      header: Partners
+      intro: LANG-TODO
+      our-partners:
+        title: Our partners
+        partner-1: LANG-TODO
+        partner-2: LANG-TODO
+        partner-3: LANG-TODO
 component:
   cards:
     articleCard:
@@ -94,6 +162,7 @@ component:
     aboutUs: About us
     sponsoring: Sponsoring
     becomeMember: Become a member!
+    partners: Partners
   footerNav:
     by: 'Proudly brewed by the ICT committee of C.S.V. Alpha | © '
     flux-contact: Contact us
@@ -109,23 +178,23 @@ component:
         becomeMember: Join
       aboutAlpha:
         intro-title: The Christian student association of Enschede
-        intro: 
-          C.S.V. Alpha was founded in 1980 and is the Christian social student association 
-          in Enschede, where socializing and Christian formation are combined into one unique 
-          student association. Alpha's core principle is "the message of the Bible as a 
-          guideline for life". This principle is expressed in the aspects of friendship, 
+        intro:
+          C.S.V. Alpha was founded in 1980 and is the Christian social student association
+          in Enschede, where socializing and Christian formation are combined into one unique
+          student association. Alpha's core principle is "the message of the Bible as a
+          guideline for life". This principle is expressed in the aspects of friendship,
           personal development and responsibility, the essence of the association.
         vriendschap-title: Friendship
         vriendschap-text:
-          Our own bar Flux is the ideal place to build and maintain friendships. 
+          Our own bar Flux is the ideal place to build and maintain friendships.
           Every Thursday we meet here, it is the place where drinks and good conversation go hand in hand.
         vorming-title: Personal development
-        vorming-text: At Alpha, we value personal development. This development expresses itself 
+        vorming-text: At Alpha, we value personal development. This development expresses itself
           in activities such as association evenings, sing-ins and, of course, the biweekly (bible) study.
         verantwoordelijkheid-title: Responsibility
         verantwoordelijkheid-text:
-          Alpha is an association for and by its members. That is why members are encouraged to be 
-          committed to the association, but also to their environment. This can be done, 
+          Alpha is an association for and by its members. That is why members are encouraged to be
+          committed to the association, but also to their environment. This can be done,
           for example, through committees, boards or volunteer actions.
       activities:
         title: Calendar
@@ -138,19 +207,6 @@ component:
         potential-sponsor: Also want to sponsor us? Click here
       youtube-videos:
         title: C.S.V. Alpha in short
-    board:
-      header: LANG-TODO
-      intro-title: LANG-TODO
-      intro: LANG-TODO
-      slogan: LANG-TODO
-      senaat: Board
-      old-boards: Oud Besturen
-      board-member-stories:
-        member-1: LANG-TODO
-        member-2: LANG-TODO
-        member-3: LANG-TODO
-        member-4: LANG-TODO
-        member-5: LANG-TODO
     contact:
       header: LANG-TODO
       intro: LANG-TODO
@@ -182,15 +238,6 @@ component:
       event-1980: LANG-TODO
       event-1981: LANG-TODO
       event-1982: LANG-TODO
-    identity:
-      header: LANG-TODO
-      intro: LANG-TODO
-      three-vs:
-        title: LANG-TODO
-        intro: LANG-TODO
-        vriendschap: LANG-TODO
-        vorming: LANG-TODO
-        verantwoordelijkheid: LANG-TODO
     interested:
       header: LANG-TODO
       intro: LANG-TODO
@@ -254,18 +301,10 @@ component:
         The good conversations, the friendships and epic drinks and parties in our
         pub make sure that Alpha is a great completion of my time as a student in
         Enschede!
-    partners:
-      header: LANG-TODO
-      intro: LANG-TODO
-      our-partners:
-        title: Our partners
-        partner-1: LANG-TODO
-        partner-2: LANG-TODO
-        partner-3: LANG-TODO
     roomForum:
       header: Room forum
       intro-title: Check the available rooms in homes of our members here!
-      intro: 
+      intro:
         Members of Alpha mainly live in student housing, either in "Alpha houses" or other student houses.
         If a room becomes available in an Alpha house or in a student house of a member, you will find it here!
       location: Location
@@ -308,6 +347,7 @@ mixin:
     vacancies: Vacancies
     roomAdverts: Rooms
     roomForum: Room forum
+    flux: Flux Society
     forum: Forum
     photoAlbums: Photo-albums
     polls: Polls
@@ -316,6 +356,8 @@ mixin:
     staticPages: Information
     books: Books
     sog: SOG
+    board: General Board
+    identity: Identity
 tag:
   button:
     close: Close

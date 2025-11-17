@@ -10,11 +10,14 @@
 // };
 
 module.exports = function (app) {
+  const cors = require('cors');
   const globSync = require('glob').sync;
   const mocks = globSync('./mocks/**/*.js', { cwd: __dirname }).map(require);
   const proxies = globSync('./proxies/**/*.js', { cwd: __dirname }).map(
     require
   );
+
+  app.use(cors({ origin: 'http://localhost:5000' }));
 
   // Log proxy requests
   const morgan = require('morgan');
