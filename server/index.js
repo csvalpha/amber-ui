@@ -17,7 +17,14 @@ module.exports = function (app) {
     require
   );
 
-  app.use(cors({ origin: 'http://localhost:5000' }));
+  // Use `sofiaUrl` only from env or Ember config (no hardcoded fallbacks).
+  // Load Ember config function with the current environment if provided.
+  const config = require('../config/environment')(
+    process.env.EMBER_ENV || process.env.NODE_ENV
+  );
+  const sofiaUrl = process.env.SOFIA_URL || config.sofiaUrl;
+
+  app.use(cors({ origin: sofiaUrl }));
 
   // Log proxy requests
   const morgan = require('morgan');
