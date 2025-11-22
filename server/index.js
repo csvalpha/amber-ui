@@ -17,14 +17,24 @@ module.exports = function (app) {
     require
   );
 
-  // Use `sofiaUrl` only from env or Ember config (no hardcoded fallbacks).
-  // Load Ember config function with the current environment if provided.
-  const config = require('../config/environment')(
-    process.env.EMBER_ENV || process.env.NODE_ENV
-  );
-  const sofiaUrl = process.env.SOFIA_URL || config.sofiaUrl;
+  // Hardcoded allowed origins for CORS
+  const allowedOrigins = new Set([
+    'http://localhost:5000',
+    'https://stagingstreep.csvalpha.nl',
+    'https://streep.csvalpha.nl',
+  ]);
 
-  app.use(cors({ origin: sofiaUrl }));
+  app.use(
+    cors({
+      origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps or curl)
+        if (!origin) return callback(null, true);
+        if (allowedOrigins.has(origin)) return callback(null, true);
+        return callback(new Error('Not allowed by CORS'));
+      },
+      credentials: true,
+    })
+  );
 
   // Log proxy requests
   const morgan = require('morgan');
