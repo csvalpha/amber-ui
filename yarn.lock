@@ -5537,7 +5537,6 @@ __metadata:
     babel-eslint: ^10.1.0
     bootstrap: ^5.2.3
     broccoli-asset-rev: ^3.0.0
-    cors: ^2.8.5
     ember-async-data: ^0.7.0
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
@@ -9685,7 +9684,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cors@npm:^2.8.5, cors@npm:~2.8.5":
+"cors@npm:~2.8.5":
   version: 2.8.5
   resolution: "cors@npm:2.8.5"
   dependencies:
