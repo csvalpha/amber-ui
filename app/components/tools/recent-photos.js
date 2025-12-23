@@ -4,11 +4,11 @@ import { computed } from '@ember/object';
 
 export default Component.extend({
   store: service(),
-  photosWithComments: computed(function () {
+  latestComments: computed(function () {
     /* eslint-disable camelcase */
-    return this.store.query('photo', {
+    return this.store.query('photo-comment', {
       sort: '-updated_at',
-      filter: { with_comments: true },
+      include: 'photo',
       page: { number: '1', size: 4 },
     });
     /* eslint-enable camelcase */
