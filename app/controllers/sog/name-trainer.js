@@ -89,9 +89,7 @@ export default class SogNameTrainerController extends Controller {
     let memberships = await group.get('memberships');
     
     if (!this.showFormerMembers) {
-      memberships = memberships.filter(
-        (membership) => !(membership.endDate && membership.endDate < moment.now())
-      );
+      memberships = memberships.filterBy('userIsCurrentlyMember', true);
     }
     
     return await Promise.all(memberships.mapBy('user'));
