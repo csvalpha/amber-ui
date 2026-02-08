@@ -3,6 +3,7 @@ import { action } from '@ember/object';
 import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
+import moment from 'moment';
 
 export default class SogNameTrainerController extends Controller {
   @service store;
@@ -17,6 +18,7 @@ export default class SogNameTrainerController extends Controller {
   @tracked started = false;
   @tracked finished = false;
   @tracked answered = false;
+  @tracked showFormerMembers = false;
 
   queryParams = ['groupId', 'difficulty'];
 
@@ -84,7 +86,14 @@ export default class SogNameTrainerController extends Controller {
     if (!group) {
       return [];
     }
-    const memberships = await group.get('memberships');
+    let memberships = await group.get('memberships');
+    
+    if (!this.showFormerMembers) {
+      memberships = memberships.filter(
+        (membership) => !(membership.endDate && membership.endDate < moment.now())
+      );
+    }
+    
     return await Promise.all(memberships.mapBy('user'));
   }
 
