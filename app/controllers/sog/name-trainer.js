@@ -3,7 +3,6 @@ import { action } from '@ember/object';
 import { run } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import moment from 'moment';
 
 export default class SogNameTrainerController extends Controller {
   @service store;
@@ -87,11 +86,11 @@ export default class SogNameTrainerController extends Controller {
       return [];
     }
     let memberships = await group.get('memberships');
-    
+
     if (!this.showFormerMembers) {
       memberships = memberships.filterBy('userIsCurrentlyMember', true);
     }
-    
+
     return await Promise.all(memberships.mapBy('user'));
   }
 
