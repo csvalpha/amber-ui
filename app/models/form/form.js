@@ -81,4 +81,22 @@ export default class Form extends Model {
     });
     this.rollbackAttributes();
   }
+
+  sortedResponsesBy(attribute = 'user.id', ascending = true, search = '') {
+    console.log("model: ", attribute, ascending, search);
+    let responses = this.responses;
+    const q = (search || '').toLowerCase().trim();
+    if (q) {
+      responses = responses.filter((resp) => {
+        const username = String(resp.user?.username || '').toLowerCase();
+        return username.includes(q);
+      });
+    }
+
+    responses = responses.sortBy(attribute);
+    if (!ascending) {
+      responses = responses.reverse();
+    }
+    return responses;
+  }
 }

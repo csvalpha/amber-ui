@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class='table-responsive responses-table'>
-      <Form::ResponsesTable @form={{@form}} @responses={{@form.sortedResponses}} @showAllergyInfo={{this.showAllergyInfo}} />
+      <Form::ResponsesTable @form={{@form}} @responses={{@form.sortedResponsesBy(this.sortedAttribute, this.sortedAscending, this.search)}} @showAllergyInfo={{this.showAllergyInfo}} />
     </div>
   </div>
 {{else}}
