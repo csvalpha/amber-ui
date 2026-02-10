@@ -4,6 +4,17 @@
       <div class='row align-items-center'>
         <h5 class='card-title col'>Inschrijvingen</h5>
         <div class='col col-md-auto d-flex align-items-center flex-wrap'>
+          <FilterBar
+            @class='col-12 col-md'
+            @filter={{this.search}}
+            @setFilter={{this.setSearch}}
+            @sortedAttribute={{this.sortedAttribute}}
+            @setSortedAttribute={{this.setSortedAttribute}}
+            @sortableAttributes={{this.sortableAttributes}}
+            @sortedAscending={{this.sortedAscending}}
+            @setSortedAscending={{this.setSortedAscending}}
+            @enter={{this.selectFirstItem}}
+          ></FilterBar>
           <button class='btn btn-primary btn-sm me-3 my-2 text-nowrap' type="button" {{on 'click' (action 'copyUsernames')}}>
             Kopieer gebruikersnamen
           </button>
