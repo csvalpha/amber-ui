@@ -162,7 +162,7 @@ template:
         but also to anyone who respects the Christian faith. With this foundation, Alpha’s Christian character is preserved,
         while at the same time Alpha is a suitable association for people from all kinds of backgrounds."
       three-vs:
-        title: "Our ralations"
+        title: "Our relations"
         intro: "This foundation is expressed in the three core aspects of the association: friendship, formation, and responsibility.
           The association is built around these three core aspects, and everything we do aligns with them:"
         vriendschap: "Our own society, Flux, is the ideal place to build and maintain friendships. Every Thursday
@@ -182,6 +182,12 @@ template:
           Taking on this responsibility contributes to personal growth and prepares you for “adult” life. All activities offered by Alpha
           are organized by Alpha members through various committees. This includes organizing large events such as the gala, a ski trip,
           and weekend getaways, as well as “smaller” evening activities, such as a formation night or a sports event, there’s something for everyone!"
+        ifes: "Our own society, Flux, is the ideal place to build and maintain friendships. Every Thursday
+          we meet here, it’s the place where a drink and a good conversation go hand in hand. In addition to our weekly
+          casual gatherings on Thursdays, several (themed) parties are held in Flux each year. Many Alpha members are eager
+          to join in, often showing up in the most creative outfits. Activities at the bar are perfect for building friendships,
+          but there are also plenty of opportunities outside of it. Having lunch together in the boardroom at the university,
+          getting invited to an Alpha house for dinner, or playing a game of volleyball in the city park; it’s all possible!"
 component:
   cards:
     articleCard:
@@ -250,6 +256,7 @@ component:
       choose-text: LANG-TODO
       fact-text: LANG-TODO
       ozon-text: LANG-TODO
+      ifes-text: LANG-TODO
     flux:
       header: LANG-TODO
       intro: LANG-TODO

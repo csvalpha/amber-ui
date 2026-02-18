@@ -200,6 +200,12 @@ template:
            wat Alpha aan activiteiten aanbiedt, wordt georganiseerd door de leden van Alpha, aan de hand van verschillende commissies.
            Denk hierbij aan het organiseren van grotere activiteiten zoals het gala, een skireis en weekenden weg. Maar ook het organiseren
            van “slechts” avondvullende activiteiten, zoals een vormingsavond of een sportactiviteit, er is voor ieder wat wils!
+        ifes: Onze eigen Sociëteit Flux is de ideale plek om vriendschappen op te bouwen en te onderhouden. Elke donderdag
+          ontmoeten we elkaar hier, het is de plek waar een drankje en een goed gesprek hand in hand gaan. Naast dat we elke donderdag
+          bij elkaar komen om elkaar te spreken op een laagdrempelige borrel, vinden er jaarlijks ook meerdere (thema) feesten plaats in
+          Flux. Hier is menig Alphaan wel voor te porren, en dat uit zich in de leukste outfits. Activiteiten op de kroeg lenen zich perfect
+          voor het opbouwen van vriendschappen, maar ook hierbuiten zijn er genoeg mogelijkheden. Samen lunchen in de bestuurskamer op de uni,
+          je innodigen bij een Alpha huis om mee te eten of een potje volleybal in het volkspark; het kan allemaal!
 component:
   cards:
     articleCard:
@@ -271,6 +277,7 @@ component:
       choose-text: LANG-TODO
       fact-text: LANG-TODO
       ozon-text: LANG-TODO
+      ifes-text: LANG-TODO
     flux:
       header: Sociëteit Flux
       intro:
