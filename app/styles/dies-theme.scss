@@ -1,5 +1,7 @@
 // stylelint-disable selector-no-qualifying-type
 html.authenticated {
+  $dies-font-family: 'Cormorant Garamond', serif;
+
   $primary-color: #3b4231;
   $link-color: #3b4231;
   $button-fg-color: #c8ab8b;
@@ -12,7 +14,9 @@ html.authenticated {
   $navbar-button-fg-color: #c8ab8b;
   $navbar-button-bg-color: #3b4231;
   $dies-logo-url: '/images/dies_logo.png';
-  $dies-logo-width: 2.5rem;
+  $dies-logo-width: 5rem;
+
+  font-family: $dies-font-family;
 
   .app {
     background-color: $app-bg-color;
