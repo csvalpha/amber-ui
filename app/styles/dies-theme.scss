@@ -1,18 +1,31 @@
 // stylelint-disable selector-no-qualifying-type
 html.authenticated {
-  $primary-color: #3b4231;
-  $link-color: #3b4231;
-  $button-fg-color: #c8ab8b;
-  $button-bg-color: #3b4231;
-  $app-bg-color: #c8ab8b;
-  $sidebar-fg-color: #c8ab8b;
-  $sidebar-bg-color: #3b4231;
-  $navbar-fg-color: #c8ab8b;
-  $navbar-bg-color: #3b4231;
-  $navbar-button-fg-color: #c8ab8b;
-  $navbar-button-bg-color: #3b4231;
+  /* Hoofdkleuren */
+  $primary-color: #F494A4;     /* Zachtroze uit de bloemen */
+  $link-color: #4A6B38;        /* Donkergroen voor goede leesbaarheid van linkjes */
+
+  /* Knoppen */
+  $button-bg-color: #F8B684;   /* Perzikkleur uit de letter S */
+  $button-fg-color: #FFFFFF;   /* Witte tekst op knoppen */
+
+  /* Achtergrond van de hele applicatie */
+  $app-bg-color: #EAF2E3;      /* Zacht pastelgroen voor de Midsommar sfeer */
+
+  /* Sidebar (Zijbalk links) */
+  $sidebar-bg-color: #FCE08B;  /* Zachtgeel voor een vrolijk contrast met het groen */
+  $sidebar-fg-color: #333333;  /* Donkergrijs voor de tekst in het menu */
+
+  /* Navbar (Balk bovenin) - Hierdoor valt je logo niet meer weg! */
+  $navbar-bg-color: #FDFBF6;   /* Crèmewit: exact dezelfde kleur als de achtergrond van je logo */
+  $navbar-fg-color: #333333;   /* Donkere tekst, anders is het niet leesbaar op het wit */
+  
+  /* Navbar knoppen */
+  $navbar-button-bg-color: transparent; 
+  $navbar-button-fg-color: #333333;
+
+  /* Logo instellingen (die had je al goed staan!) */
   $dies-logo-url: '/images/dies_logo.png';
-  $dies-logo-width: 2.5rem;
+  $dies-logo-width: 5rem;
 
   .app {
     background-color: $app-bg-color;
