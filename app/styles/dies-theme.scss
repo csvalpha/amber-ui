@@ -1,5 +1,7 @@
 // stylelint-disable selector-no-qualifying-type
 html.authenticated {
+  $dies-font-family: 'Cormorant Garamond', serif;
+
   /* Hoofdkleuren */
   $primary-color: #F494A4;     /* Zachtroze uit de bloemen */
   $link-color: #4A6B38;        /* Donkergroen voor goede leesbaarheid van linkjes */
@@ -26,6 +28,8 @@ html.authenticated {
   /* Logo instellingen (die had je al goed staan!) */
   $dies-logo-url: '/images/dies_logo.png';
   $dies-logo-width: 5rem;
+
+  font-family: $dies-font-family;
 
   .app {
     background-color: $app-bg-color;
