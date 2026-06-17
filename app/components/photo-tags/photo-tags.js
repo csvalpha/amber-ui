@@ -8,13 +8,24 @@ import { htmlSafe } from '@ember/template';
 export default class PhotoTags extends Component {
   @service store;
   @service flashNotice;
+  @service router;
   @tracked newTagX;
   @tracked newTagY;
   @tracked selectApi;
   @tracked showTags = false;
+  @tracked users = [];
 
-  get users() {
-    return this.store.findAll('user');
+  get includeOldMembers() {
+    return this.router.currentRoute.queryParams.includeOldMembers === 'true';
+  }
+
+  async fetchUsers() {
+    if (this.includeOldMembers) {
+      this.users = await this.store.findAll('user');
+    } else {
+      const params = { filter: { group: 'Leden' } };
+      this.users = await this.store.query('user', params);
+    }
   }
 
   @action
@@ -23,10 +34,28 @@ export default class PhotoTags extends Component {
   }
 
   @action
+  toggleIncludeOldMembers() {
+    const newValue = !this.includeOldMembers;
+    this.router.transitionTo({ queryParams: { includeOldMembers: newValue ? 'true' : 'false' } });
+    this.fetchUsers();
+  }
+
+  @action
+  onSearchChange(searchResults) {
+    // Auto-select the user if there's only one search result
+    if (searchResults && searchResults.length === 1 && this.selectApi) {
+      next(this, () => {
+        this.selectApi.actions.choose(searchResults[0]);
+      });
+    }
+  }
+
+  @action
   addTag(e) {
     if (e.target.tagName.toLowerCase() != 'img' || this.newTagX || this.newTagY)
       return;
     e.stopPropagation();
+    this.fetchUsers();
     let x = (e.offsetX / e.target.width) * 100;
     let y = (e.offsetY / e.target.height) * 100;
     this.newTagX = x;

@@ -45,3 +45,29 @@
   right: 8px;
   color: #fff;
 }
+
+.photo-tag-controls {
+  border-bottom: 1px solid rgb(255 255 255 / 20%);
+  padding: 8px 0;
+
+  .form-check {
+    margin-bottom: 0;
+  }
+
+  .form-check-label {
+    color: #fff;
+    margin-bottom: 0;
+    margin-left: 4px;
+    font-size: 12px;
+  }
+
+  .form-check-input {
+    border-color: rgb(255 255 255 / 50%);
+    background-color: rgb(255 255 255 / 20%);
+    
+    &:checked {
+      border-color: #007bff;
+      background-color: #007bff;
+    }
+  }
+}
