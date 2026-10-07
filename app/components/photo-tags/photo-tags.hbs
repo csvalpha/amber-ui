@@ -26,12 +26,24 @@
 
   {{#if this.newTagStyle }}
     <div class="photo-tag photo-tag--new" style={{ this.newTagStyle }}>
+      <div class="photo-tag-controls mb-2">
+        <label class="form-check form-check-inline">
+          <Input 
+            @type="checkbox" 
+            @checked={{this.includeOldMembers}} 
+            {{on 'change' this.toggleIncludeOldMembers}}
+            class="form-check-input"
+          />
+          <span class="form-check-label">Oude leden meenemen</span>
+        </label>
+      </div>
       <PowerSelect
         @options={{this.users}}
         @onChange={{this.storeTag}}
         @searchEnabled={{true}}
         @searchField='fullName'
         @registerAPI={{this.openUserSelect}}
+        @onSearchChange={{this.onSearchChange}}
         as |user|
       >
         {{user.fullName}}
