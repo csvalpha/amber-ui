@@ -28,7 +28,7 @@ const ActivityCategories = [
   'IFES',
   'OZON',
   'Disputen',
-  'Genootschapen',
+  'Genootschappen',
   'Huizen',
   'Extern',
   'Eerstejaars',
