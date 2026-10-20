@@ -3302,6 +3302,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.10.2":
+  version: 1.10.3
+  resolution: "@embroider/addon-shim@npm:1.10.3"
+  dependencies:
+    "@embroider/shared-internals": ^3.1.1
+    broccoli-funnel: ^3.0.8
+    common-ancestor-path: ^1.0.1
+    semver: ^7.3.8
+  checksum: 27f47133ae483d387c11778a5d4627dc19160fe735f796f0c5341d3fe43b0952eb07755113470e36f8c1c0b3ad16ec1cbadb6eea099ed8028dfe474d870f9d3a
+  languageName: node
+  linkType: hard
+
 "@embroider/addon-shim@npm:^1.5.0":
   version: 1.8.3
   resolution: "@embroider/addon-shim@npm:1.8.3"
@@ -3517,6 +3529,27 @@ __metadata:
     semver: ^7.3.5
     typescript-memoize: ^1.0.1
   checksum: 19d2754182b9e1373177843a354852c82b35d71af66edcdf0662597442062e5f5f51adbdf7a63a263ee0052064c222ff33ddb983ec3f17b68b7275de8de3680e
+  languageName: node
+  linkType: hard
+
+"@embroider/shared-internals@npm:^3.1.1":
+  version: 3.2.0
+  resolution: "@embroider/shared-internals@npm:3.2.0"
+  dependencies:
+    babel-import-util: ^3.0.1
+    debug: ^4.3.2
+    ember-rfc176-data: ^0.3.17
+    fs-extra: ^9.1.0
+    is-subdir: ^1.2.0
+    js-string-escape: ^1.0.1
+    lodash: ^4.17.21
+    minimatch: ^3.0.4
+    pkg-entry-points: ^1.1.1
+    resolve-package-path: ^4.0.1
+    resolve.exports: ^2.0.2
+    semver: ^7.3.5
+    typescript-memoize: ^1.0.1
+  checksum: 6850f98390bcb2f25c658b63fbc84a6d16f5796aba450a64bcfe03e08d452886f07b6e4f22a28fff0fdc7dcf4940e7643d0c5b14f16c1340a5cd5abbae48e8c5
   languageName: node
   linkType: hard
 
@@ -5608,7 +5641,7 @@ __metadata:
     stylelint-config-standard: ^33.0.0
     stylelint-order: ^6.0.3
     stylelint-scss: ^5.0.0
-    tracked-built-ins: ^3.1.1
+    tracked-built-ins: ^4.1.2
     webpack: ^5.65.0
   languageName: unknown
   linkType: soft
@@ -6361,6 +6394,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^3.0.0, babel-import-util@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "babel-import-util@npm:3.0.1"
+  checksum: 42c2480edb1dd469fafb743df0b7277f39d48ec125cc8f9a73eea7723431ee7c9c862c0983a1a4c8241034803fe44a3725cbe0653b2a45fa40621b318c9c4a14
   languageName: node
   linkType: hard
 
@@ -7153,6 +7193,15 @@ __metadata:
   dependencies:
     tweetnacl: ^0.14.3
   checksum: 4edfc9fe7d07019609ccf797a2af28351736e9d012c8402a07120c4453a3b789a15f2ee1530dc49eee8f7eb9379331a8dd4b3766042b9e502f74a68e7f662291
+  languageName: node
+  linkType: hard
+
+"better-path-resolve@npm:1.0.0":
+  version: 1.0.0
+  resolution: "better-path-resolve@npm:1.0.0"
+  dependencies:
+    is-windows: ^1.0.0
+  checksum: 5392dbe04e7fe68b944eb37961d9dfa147aaac3ee9ee3f6e13d42e2c9fbe949e68d16e896c14ee9016fa5f8e6e53ec7fd8b5f01b50a32067a7d94ac9cfb9a050
   languageName: node
   linkType: hard
 
@@ -9374,6 +9423,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"common-ancestor-path@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "common-ancestor-path@npm:1.0.1"
+  checksum: 1d2e4186067083d8cc413f00fc2908225f04ae4e19417ded67faa6494fb313c4fcd5b28a52326d1a62b466e2b3a4325e92c31133c5fee628cdf8856b3a57c3d7
+  languageName: node
+  linkType: hard
+
 "common-tags@npm:^1.8.0":
   version: 1.8.2
   resolution: "common-tags@npm:1.8.2"
@@ -10067,6 +10123,17 @@ __metadata:
   dependencies:
     mimic-response: ^1.0.0
   checksum: 952552ac3bd7de2fc18015086b09468645c9638d98a551305e485230ada278c039c91116e946d07894b39ee53c0f0d5b6473f25a224029344354513b412d7380
+  languageName: node
+  linkType: hard
+
+"decorator-transforms@npm:^2.0.0":
+  version: 2.4.0
+  resolution: "decorator-transforms@npm:2.4.0"
+  dependencies:
+    babel-import-util: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.23.0 || ^8.0.0
+  checksum: c45c59d12410580d5866a0b8c34583fc6daf376ac5181c41b27c0b803ab5544f723a59801fe938213c85a0c27e45e640f7af45a7bb82fcabfcc6e8bdbc80de83
   languageName: node
   linkType: hard
 
@@ -12283,16 +12350,6 @@ __metadata:
     ember-cli-babel: ^7.19.0
     ember-cli-htmlbars: ^4.3.1
   checksum: 27991766045bba77515ecf6e9609f580ee38b2e53026206d18155cbeac87e57979e613a73ca2fae51ed79e00ab6bf71aff7ce07e1e7a15851e2f013ff8c06c97
-  languageName: node
-  linkType: hard
-
-"ember-tracked-storage-polyfill@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "ember-tracked-storage-polyfill@npm:1.0.0"
-  dependencies:
-    ember-cli-babel: ^7.26.3
-    ember-cli-htmlbars: ^5.7.1
-  checksum: f0e1df126b17cd58a78e81cf73e6a3fa8b7052e3e7058537cce9f658463b0e7f5c3fa1baebff85e19617f5eab1fa762a9dd1f17738b7baca50ef5481dc20d672
   languageName: node
   linkType: hard
 
@@ -16061,6 +16118,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"is-subdir@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "is-subdir@npm:1.2.0"
+  dependencies:
+    better-path-resolve: 1.0.0
+  checksum: 31029a383972bff4cc4f1bd1463fd04dde017e0a04ae3a6f6e08124a90c6c4656312d593101b0f38805fa3f3c8f6bc4583524bbf72c50784fa5ca0d3e5a76279
+  languageName: node
+  linkType: hard
+
 "is-symbol@npm:^1.0.2, is-symbol@npm:^1.0.3":
   version: 1.0.4
   resolution: "is-symbol@npm:1.0.4"
@@ -16102,7 +16168,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-windows@npm:^1.0.1, is-windows@npm:^1.0.2":
+"is-windows@npm:^1.0.0, is-windows@npm:^1.0.1, is-windows@npm:^1.0.2":
   version: 1.0.2
   resolution: "is-windows@npm:1.0.2"
   checksum: 438b7e52656fe3b9b293b180defb4e448088e7023a523ec21a91a80b9ff8cdb3377ddb5b6e60f7c7de4fa8b63ab56e121b6705fe081b3cf1b828b0a380009ad7
@@ -19964,6 +20030,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pkg-entry-points@npm:^1.1.1":
+  version: 1.1.2
+  resolution: "pkg-entry-points@npm:1.1.2"
+  checksum: 054a65fc0edc765a7b56fa72c64fec7bcc35f6b5d6466724f00d49f96d8c7ae584589092ede079e4dd88a5e4f629ab46c65661fbf09a855f7200dce7b2eccf42
+  languageName: node
+  linkType: hard
+
 "pkg-up@npm:^2.0.0":
   version: 2.0.0
   resolution: "pkg-up@npm:2.0.0"
@@ -21434,6 +21507,13 @@ __metadata:
   version: 0.2.1
   resolution: "resolve-url@npm:0.2.1"
   checksum: 7b7035b9ed6e7bc7d289e90aef1eab5a43834539695dac6416ca6e91f1a94132ae4796bbd173cdacfdc2ade90b5f38a3fb6186bebc1b221cd157777a23b9ad14
+  languageName: node
+  linkType: hard
+
+"resolve.exports@npm:^2.0.2":
+  version: 2.0.4
+  resolution: "resolve.exports@npm:2.0.4"
+  checksum: 0f5d1d9fcce66e6c97783fd5a275ae9c2bbc81339615756e82d04b6df58ef13b77d444032df8d70d1b720d633b5bf2467944c7c4786d407964346757002c8c71
   languageName: node
   linkType: hard
 
@@ -23808,13 +23888,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tracked-built-ins@npm:^3.1.1":
-  version: 3.2.0
-  resolution: "tracked-built-ins@npm:3.2.0"
+"tracked-built-ins@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "tracked-built-ins@npm:4.1.2"
   dependencies:
-    "@embroider/addon-shim": ^1.8.3
-    ember-tracked-storage-polyfill: ^1.0.0
-  checksum: 262c8df5cfa2911a9b2288e1d34aa9b07b6e5673d0138531445e86426253176f51f4c96083f60e564a380df1f489cdd0bc522b75a9b04fdadfe374f543bbed85
+    "@embroider/addon-shim": ^1.10.2
+    decorator-transforms: ^2.0.0
+  checksum: c73a075d3e27df0f30ebbb6bfa163a595d35c7c26628675a0491aac468926cbec8df085b1010b0aef616e8324b880c4adc307633e11d492467e0e667b4ad5315
   languageName: node
   linkType: hard
 
