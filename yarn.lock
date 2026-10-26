@@ -3323,6 +3323,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.9":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
+  languageName: node
+  linkType: hard
+
 "@embroider/compat@npm:^0.47.0":
   version: 0.47.2
   resolution: "@embroider/compat@npm:0.47.2"
@@ -5540,7 +5547,7 @@ __metadata:
     ember-async-data: ^0.7.0
     ember-auto-import: ^2.2.4
     ember-bootstrap: ^5.1.1
-    ember-can: ^4.2.0
+    ember-can: ^8.0.0
     ember-cli: ~4.11.0
     ember-cli-babel: ^7.26.10
     ember-cli-code-coverage: ^2.0.0
@@ -6361,6 +6368,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "babel-import-util@npm:3.0.1"
+  checksum: 42c2480edb1dd469fafb743df0b7277f39d48ec125cc8f9a73eea7723431ee7c9c862c0983a1a4c8241034803fe44a3725cbe0653b2a45fa40621b318c9c4a14
   languageName: node
   linkType: hard
 
@@ -10070,6 +10084,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decorator-transforms@npm:^2.2.2":
+  version: 2.4.0
+  resolution: "decorator-transforms@npm:2.4.0"
+  dependencies:
+    babel-import-util: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.23.0 || ^8.0.0
+  checksum: c45c59d12410580d5866a0b8c34583fc6daf376ac5181c41b27c0b803ab5544f723a59801fe938213c85a0c27e45e640f7af45a7bb82fcabfcc6e8bdbc80de83
+  languageName: node
+  linkType: hard
+
 "deep-extend@npm:^0.6.0":
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
@@ -10704,14 +10729,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-can@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "ember-can@npm:4.2.0"
+"ember-can@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "ember-can@npm:8.0.0"
   dependencies:
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^6.0.0
-    ember-inflector: ^4.0.2
-  checksum: 45492720590e443857878e79b9de3114fa88b7079bf85533f9a2d78fdf7a3059b5c376ca99456c3a7e87e6d70726ace074c5513f00c87d52b8e5e94758e44216
+    "@embroider/addon-shim": ^1.8.9
+    decorator-transforms: ^2.2.2
+  peerDependencies:
+    "@ember/string": ">= 3.0.1"
+    ember-inflector: ">= 5.0.1"
+    ember-resolver: ">= 10.0.0"
+    ember-source: ">= 4.12.0"
+  checksum: 574b33b07f6fcdf0e99862f8d4771a481459cae10082ef73e80527fecb823f381cb71bf0affc1a09cba8dd2139adc0c6e7e87b6db2ecb0c89ddf4fb6fdfac605
   languageName: node
   linkType: hard
 
@@ -11772,7 +11801,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-inflector@npm:^2.0.0 || ^3.0.0 || ^4.0.2, ember-inflector@npm:^4.0.1, ember-inflector@npm:^4.0.2":
+"ember-inflector@npm:^2.0.0 || ^3.0.0 || ^4.0.2, ember-inflector@npm:^4.0.1":
   version: 4.0.2
   resolution: "ember-inflector@npm:4.0.2"
   dependencies:
