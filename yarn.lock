@@ -3302,6 +3302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.10.2":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
+  languageName: node
+  linkType: hard
+
 "@embroider/addon-shim@npm:^1.5.0":
   version: 1.8.3
   resolution: "@embroider/addon-shim@npm:1.8.3"
@@ -4244,84 +4251,87 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry-internal/tracing@npm:7.51.0":
-  version: 7.51.0
-  resolution: "@sentry-internal/tracing@npm:7.51.0"
+"@sentry/browser-utils@npm:11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/browser-utils@npm:11.10.0"
   dependencies:
-    "@sentry/core": 7.51.0
-    "@sentry/types": 7.51.0
-    "@sentry/utils": 7.51.0
-    tslib: ^1.9.3
-  checksum: 582d51f9eba63d4c191bd14374efc7256edb47d8ac79cc8bcd6812904eab0266ed5a0315cee404d724a5e530bb23cbe7d6511bb99685843bc55f7ce256e72f28
+    "@sentry/conventions": ^0.29.0
+    "@sentry/core": 11.10.0
+    web-vitals: ^6.2.3
+  checksum: 8d05b70a9cea56c47b8076768c3425ec590d1d918f3aa2dc09bedd45f3462064b1a21b5d476247bfd976250bbc8c676c37a0f0d55e52e85746a4a8180621a223
   languageName: node
   linkType: hard
 
-"@sentry/browser@npm:7.51.0":
-  version: 7.51.0
-  resolution: "@sentry/browser@npm:7.51.0"
+"@sentry/browser@npm:11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/browser@npm:11.10.0"
   dependencies:
-    "@sentry-internal/tracing": 7.51.0
-    "@sentry/core": 7.51.0
-    "@sentry/replay": 7.51.0
-    "@sentry/types": 7.51.0
-    "@sentry/utils": 7.51.0
-    tslib: ^1.9.3
-  checksum: 10ab6ef9b8025461dc99a4540b92922e2992f46b4df1e2b29909548987885f17264fb3ee5fbcd06a4e7f5ddc95409cd78853f1b323629f7357ce6815a9d5784a
+    "@sentry/browser-utils": 11.10.0
+    "@sentry/conventions": ^0.29.0
+    "@sentry/core": 11.10.0
+    "@sentry/feedback": 11.10.0
+    "@sentry/replay": 11.10.0
+    "@sentry/replay-canvas": 11.10.0
+  checksum: c170712c03b3f15486dfa6169f39ee6765ce47e09a9cd3d291939daf487dbbd5a32b83df27d4852851cebd8441694c1cdbb14ca82a15bb5236ced09f183a7dcb
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:7.51.0":
-  version: 7.51.0
-  resolution: "@sentry/core@npm:7.51.0"
-  dependencies:
-    "@sentry/types": 7.51.0
-    "@sentry/utils": 7.51.0
-    tslib: ^1.9.3
-  checksum: 9645906bf630617feeb1e7d906f0ebc4f09be0373cdf96821787888c583c5fb1f3d18a065dd46940686c75368e94a0df7d42b97a30c48330e702f60138094c5d
+"@sentry/conventions@npm:^0.29.0":
+  version: 0.29.0
+  resolution: "@sentry/conventions@npm:0.29.0"
+  checksum: ffa5da7cb9f587e00b92d27439cee021124b844f8637ea1783bd7199dd891e0040e73d857167e84aac868e6848d869ab11495875329ab146afb434c2334e33c6
   languageName: node
   linkType: hard
 
-"@sentry/ember@npm:^7.51.0":
-  version: 7.51.0
-  resolution: "@sentry/ember@npm:7.51.0"
+"@sentry/core@npm:11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/core@npm:11.10.0"
   dependencies:
-    "@embroider/macros": ^1.9.0
-    "@sentry/browser": 7.51.0
-    "@sentry/types": 7.51.0
-    "@sentry/utils": 7.51.0
-    ember-auto-import: ^1.12.1 || ^2.4.3
-    ember-cli-babel: ^7.26.11
-    ember-cli-htmlbars: ^6.1.1
-    ember-cli-typescript: ^5.1.1
-  checksum: 4df7f28fdacf62226818bded86f19784d119d18d8b192b65cf4f39b14b802e296211ef93e07821c72ff86f1c65580f076655e30a208c0d6594f90cbc561cf126
+    "@sentry/conventions": ^0.29.0
+  checksum: ca7ea85126d7979b7d4dfe20e907ed0667652ef7e160f36af454d462e75fc78fdaf8a2d3003b21499f4893a2be79c543961d1c4e973ced219aaacc40ebd3ced0
   languageName: node
   linkType: hard
 
-"@sentry/replay@npm:7.51.0":
-  version: 7.51.0
-  resolution: "@sentry/replay@npm:7.51.0"
+"@sentry/ember@npm:^11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/ember@npm:11.10.0"
   dependencies:
-    "@sentry/core": 7.51.0
-    "@sentry/types": 7.51.0
-    "@sentry/utils": 7.51.0
-  checksum: eeb663bbccfeb9fbd2d04091af6018a1bac3749ec565edcf6720688bbdfc7ffafd502528f753739c3b2144a569b6bb9b7d00fbba59f344ddf7a3dd78c1cd2211
+    "@embroider/addon-shim": ^1.10.2
+    "@embroider/macros": ^1.20.2
+    "@sentry/browser": 11.10.0
+    "@sentry/conventions": ^0.29.0
+    "@sentry/core": 11.10.0
+    decorator-transforms: ^2.3.2
+  checksum: e5d1f049513983846bc03eebe56418219a952cae4c57865463a04a5c5258ca98a270e4ad4b2128b6dc4c848dca9b1790a2497fbbe10ea15d91a3e678ade21f82
   languageName: node
   linkType: hard
 
-"@sentry/types@npm:7.51.0":
-  version: 7.51.0
-  resolution: "@sentry/types@npm:7.51.0"
-  checksum: dfd583bba204355047d654cc6fdd99c8e3be5d0613f71e807e1d809f9d80a2e2078c238e7fe187b715b7aa705f8dbf94e9569c051880f984e9de37a7ff859165
+"@sentry/feedback@npm:11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/feedback@npm:11.10.0"
+  dependencies:
+    "@sentry/core": 11.10.0
+  checksum: 3d7d8135ec4e77f4fb75f50aa63163510daafec1ea8dc724df4db1991c58cf11ccacc20533359bc1ea5b40be750b8932a37a64ac86dcd1570b71d1c819ca8e6c
   languageName: node
   linkType: hard
 
-"@sentry/utils@npm:7.51.0":
-  version: 7.51.0
-  resolution: "@sentry/utils@npm:7.51.0"
+"@sentry/replay-canvas@npm:11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/replay-canvas@npm:11.10.0"
   dependencies:
-    "@sentry/types": 7.51.0
-    tslib: ^1.9.3
-  checksum: 6de2f18dfc41021a8b16b5f99f678bae28efbbf0796466c64d11e37a225d0159f8864997274a8d95f819a4419a5622c867789bb1bc640e70e0817bfc7bd78b14
+    "@sentry/core": 11.10.0
+    "@sentry/replay": 11.10.0
+  checksum: 06fa0dab4a61f63dc4744928fa6cf6af5b06db17694c36da1ce1c80d1732ec84aa68d7cf4f8916508924b97bf6c1f9ec1c7c819f13e22d62eaf89618532bf231
+  languageName: node
+  linkType: hard
+
+"@sentry/replay@npm:11.10.0":
+  version: 11.10.0
+  resolution: "@sentry/replay@npm:11.10.0"
+  dependencies:
+    "@sentry/browser-utils": 11.10.0
+    "@sentry/core": 11.10.0
+  checksum: 5a9f3cd17a47971a39ddeb102f440c186339ea6011096880abf8d56c11c799e7963819628eaf0de73690f8bccac64bf51602311f7ca1d0a256b0fe67ab5b7677
   languageName: node
   linkType: hard
 
@@ -5533,7 +5543,7 @@ __metadata:
     "@fortawesome/free-solid-svg-icons": ^6.4.0
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
-    "@sentry/ember": ^7.51.0
+    "@sentry/ember": ^11.10.0
     babel-eslint: ^10.1.0
     bootstrap: ^5.2.3
     broccoli-asset-rev: ^3.0.0
@@ -6361,6 +6371,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "babel-import-util@npm:3.0.1"
+  checksum: 42c2480edb1dd469fafb743df0b7277f39d48ec125cc8f9a73eea7723431ee7c9c862c0983a1a4c8241034803fe44a3725cbe0653b2a45fa40621b318c9c4a14
   languageName: node
   linkType: hard
 
@@ -10070,6 +10087,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decorator-transforms@npm:^2.3.2":
+  version: 2.4.0
+  resolution: "decorator-transforms@npm:2.4.0"
+  dependencies:
+    babel-import-util: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.23.0 || ^8.0.0
+  checksum: c45c59d12410580d5866a0b8c34583fc6daf376ac5181c41b27c0b803ab5544f723a59801fe938213c85a0c27e45e640f7af45a7bb82fcabfcc6e8bdbc80de83
+  languageName: node
+  linkType: hard
+
 "deep-extend@npm:^0.6.0":
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
@@ -10512,44 +10540,6 @@ __metadata:
     walk-sync: ^0.3.3
     webpack: ^4.43.0
   checksum: 8230c3ff6fd222eee7179e0e5c2ea0268702b66400a4b51de4dbc608bdfa8d2236125999b7bfa25dc36acb51d9eb93bcc45aea5783bdf95ad74f7e898014013d
-  languageName: node
-  linkType: hard
-
-"ember-auto-import@npm:^1.12.1 || ^2.4.3":
-  version: 2.4.3
-  resolution: "ember-auto-import@npm:2.4.3"
-  dependencies:
-    "@babel/core": ^7.16.7
-    "@babel/plugin-proposal-class-properties": ^7.16.7
-    "@babel/plugin-proposal-decorators": ^7.16.7
-    "@babel/preset-env": ^7.16.7
-    "@embroider/macros": ^1.0.0
-    "@embroider/shared-internals": ^1.0.0
-    babel-loader: ^8.0.6
-    babel-plugin-ember-modules-api-polyfill: ^3.5.0
-    babel-plugin-htmlbars-inline-precompile: ^5.2.1
-    babel-plugin-syntax-dynamic-import: ^6.18.0
-    broccoli-debug: ^0.6.4
-    broccoli-funnel: ^3.0.8
-    broccoli-merge-trees: ^4.2.0
-    broccoli-plugin: ^4.0.0
-    broccoli-source: ^3.0.0
-    css-loader: ^5.2.0
-    debug: ^4.3.1
-    fs-extra: ^10.0.0
-    fs-tree-diff: ^2.0.0
-    handlebars: ^4.3.1
-    js-string-escape: ^1.0.1
-    lodash: ^4.17.19
-    mini-css-extract-plugin: ^2.5.2
-    parse5: ^6.0.1
-    resolve: ^1.20.0
-    resolve-package-path: ^4.0.3
-    semver: ^7.3.4
-    style-loader: ^2.0.0
-    typescript-memoize: ^1.0.0-alpha.3
-    walk-sync: ^3.0.0
-  checksum: 3af287874cc271a3dbcd628253b949b7ff0647ec59630e0684fad4df298d5acec1bf53f71294be8777b21ed6ff82e1076a41d9f68613ed2e21541663f49237f3
   languageName: node
   linkType: hard
 
@@ -11302,24 +11292,6 @@ __metadata:
     stagehand: ^1.0.0
     walk-sync: ^2.2.0
   checksum: 17020a4103a10e0b51c37cd5a05a77c6f1e52a8cbb263baf606fe59b8da34434e4986185b6aa903ecef694013f74e7ec98fdbea7de9510c0c8f55981f03d4fbf
-  languageName: node
-  linkType: hard
-
-"ember-cli-typescript@npm:^5.1.1":
-  version: 5.2.1
-  resolution: "ember-cli-typescript@npm:5.2.1"
-  dependencies:
-    ansi-to-html: ^0.6.15
-    broccoli-stew: ^3.0.0
-    debug: ^4.0.0
-    execa: ^4.0.0
-    fs-extra: ^9.0.1
-    resolve: ^1.5.0
-    rsvp: ^4.8.1
-    semver: ^7.3.2
-    stagehand: ^1.0.0
-    walk-sync: ^2.2.0
-  checksum: b4306b37e9a9e070cc61a67acf404b30636ad2681379589fbc349c7e83158a7b634d792ab5af4cd4dd0770eecb8a901fa84d29a15167826db9c97b664a115df0
   languageName: node
   linkType: hard
 
@@ -23887,7 +23859,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.9.0, tslib@npm:^1.9.3":
+"tslib@npm:^1.9.0":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
@@ -24642,6 +24614,13 @@ __metadata:
   dependencies:
     defaults: ^1.0.3
   checksum: 814e9d1ddcc9798f7377ffa448a5a3892232b9275ebb30a41b529607691c0491de47cba426e917a4d08ded3ee7e9ba2f3fe32e62ee3cd9c7d3bafb7754bd553c
+  languageName: node
+  linkType: hard
+
+"web-vitals@npm:^6.2.3":
+  version: 6.2.3
+  resolution: "web-vitals@npm:6.2.3"
+  checksum: 0a5f061927a40ddc89e6865a05502084e1d321e75c880bf4a8358e35e462755bd236b135cd82d7392989a24ae707f6e513a797dcb890563c29c71d069ab00e18
   languageName: node
   linkType: hard
 
