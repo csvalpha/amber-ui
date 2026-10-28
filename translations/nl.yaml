@@ -88,50 +88,36 @@ template:
   public:
     board:
       header: Algemeen bestuur
-      intro: "Het komende jaar mogen wij als XLVIe Senaat ons bezig houden met Alpha en haar activiteiten. Wij hebben zin in het komende jaar,
+      intro: "Het komende jaar mogen wij als XLVIIe Senaat ons bezig houden met Alpha en haar activiteiten. Wij hebben zin in het komende jaar,
         met alles wat ons daarin te wachten staat. We zullen samen bouwen aan mooie momenten en zorg dragen voor alles wat op ons pad komt.
         Onze bijbeltekst vat dit vertrouwen samen:"
-      slogan: “Vertel alles wat u bezighoudt aan de Here en vertrouw Hem. Hij zal in alles voor u zorgen” -Psalmen 37:5 HTB
-      senaat: Het XLVIe Senaat der C.S.V.Alpha
+      slogan: “Daarom zeg ik nog een keer, Je moet sterk en dapper zijn. Je hoeft nergens bang voor te zijn. Want ik ben je God. Ik ben altijd bij je, waar je ook heen gaat.” - Jozua 1:9 BGT
+      senaat: De XLVIIe Senaat der C.S.V. Alpha
       chair: Praeses
-      chair-name: Tijmen Schalk
-      chair-story: Hey iedereen! Ik ben Tijmen, dit jaar de Praeses van Alpha! Ik heb twee jaar van mijn studie civiele techniek afgerond,
-        maar zet dat nu een jaartje op pauze zodat ik bestuur kan doen. Volgend jaar hoop ik dan weer verder te gaan met mijn minor en af studeren.
-        Dit jaar ben ik eindverantwoordelijke voor alles wat er gebeurt binnen Alpha. Ik zit vergaderingen voor, ik zorg voor de uitvoering van het beleid,
-        ik geef speeches, en ik begeleid diverse commissies en daarnaast ook mijn medebestuurders met hun taken.
+      chair-name: Daphne Vader
+      chair-story: Hii allemaal! Ik ben Daphne, dit jaar Praeses van Alpha. Ik ben derdejaars student en studeer Biomedische Technologie, maar dit jaar staat mijn studie even op een lager pitje. Als Praeses ben ik eindverantwoordelijk voor alles wat er binnen Alpha gebeurt. Ik zit de vergaderingen voor, zorg voor de uitvoering van ons beleid, geef speeches en begeleid zowel commissies als mijn medebestuurders bij hun taken. Daarnaast beheer ik ook de financiën van onze mooie Sociëteit Flux.
       secretary: Abactis
-      secretary-name: Thijs van Boven
-      secretary-story: Hoi allemaal, Ik ben Thijs en ik heb dit jaar de eervolle taak van Abactis binnen onze mooie Senaat.
-        Ik ben 21 jaar oud en ik studeer Electrical Engineering aan de universiteit Twente. Dit jaar ben ik bij Alpha verantwoordelijk voor mails,
-        brieven en notulen van vergaderingen. Ook hou ik mij binnen het sociëteitsbestuur bezig met de tapperscoördinatie en met de Beheer Commissie Pakkerij
+      secretary-name: Manou van der Heijden
+      secretary-story: Heyhoihallooo, mijn naam is Manou en dit jaar ben ik de Abactis der C.S.V. Alpha. De afgelopen twee jaar heb ik Applied Mathematics gestudeerd, maar deze dagen hou ik me meer bezig met besturen. Dit houdt in dat ik verantwoordelijk ben voor allerlei soorten contact, zowel elektronisch als schriftelijk, ik ga over de ledenadministratie en ik notuleer natuurlijk alle vergaderingen. Daarnaast ben ik onderdeel van het Fact-bestuur als Penningmeester.
       treasurer: Quaestor
-      treasurer-name: Maarten Beute
-      treasurer-story: Ik ben Maarten en ik ben dit jaar Quaestor. Ik ben 4e jaars student in Enschede.
-        Normaal gesproken studeer ik Mechanical engineering aan de Uni, maar dit jaar houd ik me bezig met de financien van Alpha.
-        Ik zal de commissie penningmeesters begeleiden bij hun taak, en ben ik verantwoordelijk voor de inventaris van Alpha.
-        Daarnaast zal ik nog een paar commissies begeleiden.
+      treasurer-name: Jonna Werkman
+      treasurer-story: Hoi, mijn naam is Jonna en ik mag dit jaar de Quaestor zijn van Alpha. Normaal gezien zou ik nu in mijn derde jaar van de bachelor Technische Geneeskunde zitten maar dit jaar neem ik een tussenjaar en ga ik aan de slag als bestuurder van Alpha. Als Quaestor ben ik verantwoordelijk voor de financiële zaken van Alpha, dit houdt in dat ik de begroting maak, de boekhouding bijhoud, incasso’s uitvoer en de penningmeesters van de commissies begeleid.
       assessor1: Assessor Internorum
-      assessor1-name: Joost van Beijnum
-      assessor1-story: Hoihoi, Mijn naam is Joost van Beijnum, Assessor Internorum der C.S.V. Alpha. Ik ben tweedejaars Alphaan
-        en ondertussen vijfdejaars werktuigbouwkundige alweer. Als Assessor Internorum pak ik de organisatie van de kringen op,
-        begeleid ik het ledenzorgteam en doe ik hier en daar nog wat dingetjes erbij. Daarnaast beheer ik de financiën van onze
-        mooie sociëteit Flux. De groetjes!
-      assessor2: Assessor Progressorum
-      assessor2-name: Jorai Geertsema
-      assessor2-story: Hoi, mijn naam is Jorai Geertsema en ik ben dit jaar de Assessor Progressorum van onze mooie vereniging. 
-        Afgelopen twee jaar studeerde ik Advanced Technology. Dit jaar zal ik me bezighouden met het opzetten van enkele grote 
-        projecten binnen én buiten de vereniging. Ook zal ik Alpha vertegenwoordigen bij enkele externe verbanden. Daarnaast 
-        zal ik enkele commissies begeleiden.
+      assessor1-name: Jorick Schotsman
+      assessor1-story: Hoi allemaal, mijn naam is Jorick Schotsman. Ik ben dit jaar derdejaars Alphaan en heb de afgelopen 3 jaar Industrial Design Engineering gestudeerd. Dit jaar heb ik de eer om de rol van de Assessor Internorum op te mogen nemen. Dat houdt in dat ik me bezighoud met alle interne zaken van de vereniging, waaronder ook het opzetten van de kringen en het begeleiden van het ledenzorgteam. Daarnaast zal ik nog veel kleine projecten oppakken en bijspringen waar nodig is.
+      assessor2: Assessor externorum
+      assessor2-name: Geert Almekinders
+      assessor2-story: Hoi, ik ben Geert, ben derdejaars student en studeer psychologie. Dit jaar zal ik de taak van assessor externorum op mij nemen in het algemeen bestuur van C.S.V. Alpha. Dit houdt in dat ik Alpha zal vertegenwoordigen bij verscheidene externe verbanden, op zoek zal gaan naar nieuwe partners, en zal ik aan de externe representatie van Alpha gaan werken. Daarnaast zal ik in het sociëteitsbestuur de rol van onderhoud op mij nemen en zal ik Alpha vertegenwoordigen bij de BCP. Verder zal ik mij bezighouden met verschillende projectjes, en begeleid ik een aantal commissies.
       photographer: Ook mooie foto's? Onze fotograaf
       photographer-url: https://shinebrightfotografie.nl/
       previous-boards: Oud besturen
       old-boards:
-        board0: XLVe Senaat
-        board1: XLIVe Senaat
-        board2: XLIIIe Senaat
-        board3: XLIIe Senaat
-        board4: XLIe Senaat
-        board5: XLe Senaat
+        board0: XLVIe Senaat
+        board1: XLVe Senaat
+        board2: XLIVe Senaat
+        board3: XLIIIe Senaat
+        board4: XLIIe Senaat
+        board5: XLIe Senaat
     identity:
       header: Identiteit
       intro: C.S.V. Alpha is opgericht in 1980 en is dé christelijke gezelligheidsvereniging in
