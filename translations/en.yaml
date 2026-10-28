@@ -88,34 +88,34 @@ template:
   public:
     board:
       header: General Board
-      intro: "In the coming year, we as the 46th Senate have the honor of taking care of Alpha and all her activities. We are looking forward to everything this year has in store for us. Together, we will build beautiful moments and take care of everything that comes our way. Our Bible verse reflects this trust:"
-      slogan: “Commit everything you do to the Lord. Trust Him, and He will help you.” – Psalm 37:5 NLT
-      senaat: The XLVIth Senate of C.S.V. Alpha
+      intro: "In the coming year, we as the 47th Senate have the honor of taking care of Alpha and all her activities. We are looking forward to everything this year has in store for us. Together, we will build beautiful moments and take care of everything that comes our way. Our Bible verse reflects this trust:"
+      slogan: “Have I not commanded you? Be strong and courageous. Do not be frightened, and do not be dismayed, for the Lord your God is with you wherever you go.” – Joshua 1:9 ESV
+      senaat: The XLVIIth Senate of C.S.V. Alpha
       chair: President
-      chair-name: Tijmen Schalk
-      chair-story: Hey everyone! I’m Tijmen, this year’s President of Alpha! I’ve completed two years of my Civil Engineering degree, but I’m taking a gap year to serve on the board. Next year, I hope to continue with my minor and finish my studies. This year, I’m ultimately responsible for everything that happens within Alpha. I chair meetings, oversee policy implementation, give speeches, and guide several committees as well as my fellow board members in their roles.
+      chair-name: Daphne Vader
+      chair-story: Hii everyone! I’m Daphne, this year’s President of Alpha. I’m a third-year Biomedical Engineering student, but this year my studies are on the back burner. As President, I’m ultimately responsible for everything that happens within Alpha. I chair meetings, oversee the implementation of our policy, give speeches, and guide both committees and my fellow board members in their tasks. I also manage the finances of our beautiful society, Flux.
       secretary: Secretary
-      secretary-name: Thijs van Boven
-      secretary-story: Hi everyone, I’m Thijs, and this year I have the honor of serving as Secretary within our wonderful Senate. I’m 21 years old and study Electrical Engineering at the University of Twente. Within Alpha, I’m responsible for emails, letters, and meeting minutes. I’m also involved in bar coordination and the Pakkerij Management Committee within the society board.
+      secretary-name: Manou van der Heijden
+      secretary-story: Heyhoihallooo, my name is Manou and this year I’m the Secretary of C.S.V. Alpha. For the past two years I studied Applied Mathematics, but these days I’m mostly busy with board work. This means I’m responsible for all kinds of communication, both electronic and written, I manage the member administration, and of course I take the minutes of all meetings. I’m also part of the Fact board as Treasurer.
       treasurer: Treasurer
-      treasurer-name: Maarten Beute
-      treasurer-story: I’m Maarten, and this year I’m the Treasurer. I’m a fourth-year student in Enschede, normally studying Mechanical Engineering at the university. This year, however, I’m responsible for Alpha’s finances. I’ll be guiding the treasurer committee in their work and managing Alpha’s inventory. In addition, I’ll be supervising a few other committees.
+      treasurer-name: Jonna Werkman
+      treasurer-story: Hi, my name is Jonna and this year I get to be the Treasurer of Alpha. Normally I would now be in the third year of my Technical Medicine bachelor, but this year I’m taking a gap year to serve on Alpha’s board. As Treasurer, I’m responsible for Alpha’s financial affairs. This means I draw up the budget, keep the accounts, handle the direct debits, and guide the treasurers of the committees.
       assessor1: Internal Affairs Officer
-      assessor1-name: Joost van Beijnum
-      assessor1-story: Hi there, my name is Joost van Beijnum, Internal Affairs Officer of C.S.V. Alpha. I’m a second-year Alpha member and currently in my fifth year of Mechanical Engineering. As Internal Affairs Officer, I’m responsible for organizing the small groups, guiding the member care team, and handling various other tasks. I also manage the finances of our beautiful society, Flux. Cheers!
-      assessor2: Development Officer
-      assessor2-name: Jorai Geertsema
-      assessor2-story: Hi, my name is Jorai Geertsema and this year I am the Assessor Progressorum of our wonderful association. For the past two years, I studied Advanced Technology. This year, I will be involved in setting up several large projects both within and outside the association. I will also represent Alpha in several external associations. In addition, I will supervise several committees.
+      assessor1-name: Jorick Schotsman
+      assessor1-story: Hi everyone, my name is Jorick Schotsman. I’m a third-year Alpha member and have studied Industrial Design Engineering for the past three years. This year I have the honor of taking on the role of Internal Affairs Officer. This means I’m concerned with all internal affairs of the association, including setting up the small groups and guiding the member care team. In addition, I’ll pick up lots of small projects and help out wherever needed.
+      assessor2: External Affairs Officer
+      assessor2-name: Geert Almekinders
+      assessor2-story: Hi, I’m Geert, a third-year Psychology student. This year I’ll take on the role of External Affairs Officer on the general board of C.S.V. Alpha. This means I’ll represent Alpha in several external associations, search for new partners, and work on Alpha’s external representation. On the society board, I’m responsible for maintenance, and I represent Alpha at the BCP. I’ll also be working on various small projects and supervising a number of committees.
       photographer: Beautiful photos? Our photographer
       photographer-url: https://shinebrightfotografie.nl/
       previous-boards: Previous Boards
       old-boards:
-        board0: 45th Senate
-        board1: 44th Senate
-        board2: 43rd Senate
-        board3: 42nd Senate
-        board4: 41st Senate
-        board5: 40th Senate
+        board0: 46th Senate
+        board1: 45th Senate
+        board2: 44th Senate
+        board3: 43rd Senate
+        board4: 42nd Senate
+        board5: 41st Senate
     identity:
       header: Identity
       intro: "C.S.V. Alpha was founded in 1980 and is the Christian social association in
