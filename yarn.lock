@@ -2953,6 +2953,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@codemod-utils/files@npm:^4.1.2":
+  version: 4.1.2
+  resolution: "@codemod-utils/files@npm:4.1.2"
+  dependencies:
+    glob: ^13.0.6
+  checksum: da5715cd85dc2d704be48b4878f6b44b1c922db76e2a0d618831b742ab1638ae766dec3cbbeb45df47c3a171a96925eabbff768eb1559fd5e6def43cff9383a0
+  languageName: node
+  linkType: hard
+
 "@csstools/css-parser-algorithms@npm:^2.1.1":
   version: 2.1.1
   resolution: "@csstools/css-parser-algorithms@npm:2.1.1"
@@ -3161,6 +3170,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ember-intl/utils@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@ember-intl/utils@npm:0.6.0"
+  dependencies:
+    "@codemod-utils/files": ^4.1.2
+    js-yaml: ^5.5.0
+  checksum: 08c829a9893f59c530adb91c33eadd2ff29ef3a1434d941a81d22c2986a04ac85c4b52a15b91e593f3f3cc24c1ed49bd45cf1aae22e0ace2924aee631e842e9e
+  languageName: node
+  linkType: hard
+
 "@ember-template-lint/todo-utils@npm:^10.0.0":
   version: 10.0.0
   resolution: "@ember-template-lint/todo-utils@npm:10.0.0"
@@ -3299,6 +3318,13 @@ __metadata:
     "@embroider/shared-internals": ^1.6.0
     semver: ^7.3.5
   checksum: b6ef71db5781e5c1a167dda37d04cdd85b97f03716fcbe801d368bd731bc920f611dba1f384095bb23634726fa30eac94bc05bf20a450db7e17e2ad936696615
+  languageName: node
+  linkType: hard
+
+"@embroider/addon-shim@npm:^1.11.0":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
   languageName: node
   linkType: hard
 
@@ -3574,12 +3600,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@formatjs/ecma402-abstract@npm:1.5.2":
-  version: 1.5.2
-  resolution: "@formatjs/ecma402-abstract@npm:1.5.2"
+"@formatjs/fast-memoize@npm:3.1.7":
+  version: 3.1.7
+  resolution: "@formatjs/fast-memoize@npm:3.1.7"
+  checksum: e43851af836f868075fc59cef63913e1bbee39ff8716c79b2465cad38594750cf89d6fb3bd0542d68ea76b34987583df453c8193e2b96dcac2f10fa968718117
+  languageName: node
+  linkType: hard
+
+"@formatjs/icu-messageformat-parser@npm:3.5.22":
+  version: 3.5.22
+  resolution: "@formatjs/icu-messageformat-parser@npm:3.5.22"
   dependencies:
-    tslib: ^2.0.1
-  checksum: 80fe1acc1aa752444d8e20110cd4e8ea8e4c180d48ac00c72bd2f5edd990c8cff60b61c8111bd5bdeb4b511afd801c903679db8b044ab5b0aa0b9014120c07f3
+    "@formatjs/icu-skeleton-parser": 2.1.12
+  checksum: 76c2148361ed9d4795f6576adf260505c06fa0251bdc7e43ffe9c13bebc66387e27b7e489eb1c8ee3c6b6db34d88e90243034232e31b9f052e615c55ceadf76d
+  languageName: node
+  linkType: hard
+
+"@formatjs/icu-skeleton-parser@npm:2.1.12":
+  version: 2.1.12
+  resolution: "@formatjs/icu-skeleton-parser@npm:2.1.12"
+  checksum: aae336289b7ae30e89f50087656b75a99ed5df6f2f81688029f054e4919bd786894730a5f9a1f6b7ff49dcb95d505da2ca9a060231fb6b53ed10692f387261b6
+  languageName: node
+  linkType: hard
+
+"@formatjs/intl@npm:^6.1.4":
+  version: 6.1.4
+  resolution: "@formatjs/intl@npm:6.1.4"
+  dependencies:
+    "@formatjs/fast-memoize": 3.1.7
+    "@formatjs/icu-messageformat-parser": 3.5.22
+    intl-messageformat: 12.1.4
+  checksum: 78a87834cbcb8a41a4657f562774f7de2641a758a7757a64f1e91697cef225f613888bc9cd7cb462890463a689940293c0fc5af365acd937571b7d6ab1f27044
   languageName: node
   linkType: hard
 
@@ -4109,16 +4160,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mrmlnc/readdir-enhanced@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@mrmlnc/readdir-enhanced@npm:2.2.1"
-  dependencies:
-    call-me-maybe: ^1.0.1
-    glob-to-regexp: ^0.3.0
-  checksum: d3b82b29368821154ce8e10bef5ccdbfd070d3e9601643c99ea4607e56f3daeaa4e755dd6d2355da20762c695c1b0570543d9f84b48f70c211ec09c4aaada2e1
-  languageName: node
-  linkType: hard
-
 "@nodelib/fs.scandir@npm:2.1.4":
   version: 2.1.4
   resolution: "@nodelib/fs.scandir@npm:2.1.4"
@@ -4133,13 +4174,6 @@ __metadata:
   version: 2.0.4
   resolution: "@nodelib/fs.stat@npm:2.0.4"
   checksum: d0d9745f878816d041a8b36faf5797d88ba961274178f0ad1f7fe0efef8118ca9bd0e43e4d0d85a9af911bd35122ec1580e626a83d7595fc4d60f2c1c70e2665
-  languageName: node
-  linkType: hard
-
-"@nodelib/fs.stat@npm:^1.1.2":
-  version: 1.1.3
-  resolution: "@nodelib/fs.stat@npm:1.1.3"
-  checksum: 318deab369b518a34778cdaa0054dd28a4381c0c78e40bbd20252f67d084b1d7bf9295fea4423de2c19ac8e1a34f120add9125f481b2a710f7068bcac7e3e305
   languageName: node
   linkType: hard
 
@@ -5562,7 +5596,7 @@ __metadata:
     ember-data: ~3.27.1
     ember-fetch: ^8.1.1
     ember-file-upload: ^8.0.0
-    ember-intl: ^5.7.2
+    ember-intl: ^9.4.0
     ember-keyboard-shortcuts: ^1.2.0
     ember-link-action: ^2.0.4
     ember-linkify: ^4.1.2
@@ -5865,6 +5899,13 @@ __metadata:
   version: 2.0.1
   resolution: "argparse@npm:2.0.1"
   checksum: 83644b56493e89a254bae05702abf3a1101b4fa4d0ca31df1c9985275a5a5bd47b3c27b7fa0b71098d41114d8ca000e6ed90cad764b306f8a503665e4d517ced
+  languageName: node
+  linkType: hard
+
+"argparse@npm:^3.0.3":
+  version: 3.0.4
+  resolution: "argparse@npm:3.0.4"
+  checksum: b1c3b9611a251b400483ea97631e4ae27ba32a2cd8fe314cb3110b6694d6d3f551c4a675681aa03bcccadeb228e8f040a04e73cb19ac696dd280ae7a059e3231
   languageName: node
   linkType: hard
 
@@ -6361,6 +6402,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "babel-import-util@npm:3.0.1"
+  checksum: 42c2480edb1dd469fafb743df0b7277f39d48ec125cc8f9a73eea7723431ee7c9c862c0983a1a4c8241034803fe44a3725cbe0653b2a45fa40621b318c9c4a14
   languageName: node
   linkType: hard
 
@@ -7102,6 +7150,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"balanced-match@npm:^4.0.2":
+  version: 4.0.4
+  resolution: "balanced-match@npm:4.0.4"
+  checksum: fb07bb66a0959c2843fc055838047e2a95ccebb837c519614afb067ebfdf2fa967ca8d712c35ced07f2cd26fc6f07964230b094891315ad74f11eba3d53178a0
+  languageName: node
+  linkType: hard
+
 "base64-arraybuffer@npm:~1.0.1":
   version: 1.0.1
   resolution: "base64-arraybuffer@npm:1.0.1"
@@ -7445,6 +7500,15 @@ __metadata:
   dependencies:
     balanced-match: ^1.0.0
   checksum: a61e7cd2e8a8505e9f0036b3b6108ba5e926b4b55089eeb5550cd04a471fe216c96d4fe7e4c7f995c728c554ae20ddfc4244cad10aef255e72b62930afd233d1
+  languageName: node
+  linkType: hard
+
+"brace-expansion@npm:^5.0.8":
+  version: 5.0.12
+  resolution: "brace-expansion@npm:5.0.12"
+  dependencies:
+    balanced-match: ^4.0.2
+  checksum: eed95008709cb43e41945d4a4c0427a859ddaa798880bdd36497a719b1487fd9481afaa14f202c232a594a27c21f5c0de196a37994a6e6eed4f680913d5363d3
   languageName: node
   linkType: hard
 
@@ -7815,18 +7879,6 @@ __metadata:
     glob: ^5.0.10
     mkdirp: ^0.5.1
   checksum: c3af1f4a902ab69fa6e576430c2829cceaa2c34e6f6ff68eb5f6305c10835123b4644bfcb036452c7222d6853c720bf83ec1e5e125db7915d849c7968d0e652e
-  languageName: node
-  linkType: hard
-
-"broccoli-merge-files@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "broccoli-merge-files@npm:0.8.0"
-  dependencies:
-    broccoli-plugin: ^1.3.0
-    fast-glob: ^2.2.6
-    lodash.defaults: ^4.2.0
-    p-event: ^2.3.1
-  checksum: 84994fdeb62b7b76a3b7f4213a2b4ddcc72a64ed110686d554c43376ccab624f25609b4086f9ecb2f2aa592bed289e2abdf065f1379df64c332ef4aeb7c2a173
   languageName: node
   linkType: hard
 
@@ -8748,13 +8800,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"call-me-maybe@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "call-me-maybe@npm:1.0.1"
-  checksum: d19e9d6ac2c6a83fb1215718b64c5e233f688ebebb603bdfe4af59cde952df1f2b648530fab555bf290ea910d69d7d9665ebc916e871e0e194f47c2e48e4886b
-  languageName: node
-  linkType: hard
-
 "callsites@npm:^3.0.0, callsites@npm:^3.1.0":
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
@@ -9045,13 +9090,6 @@ __metadata:
     isobject: ^3.0.0
     static-extend: ^0.1.1
   checksum: be108900801e639e50f96a7e4bfa8867c753a7750a7603879f3981f8b0a89cba657497a2d5f40cd4ea557ff15d535a100818bb486baf6e26fe5d7872e75f1078
-  languageName: node
-  linkType: hard
-
-"cldr-core@npm:^36.0.0":
-  version: 36.0.0
-  resolution: "cldr-core@npm:36.0.0"
-  checksum: 41aec532261d855982dee138578b5ee2f744c630d858cc9461bbb2f22dc63becdd35704c7bd45cbc1984e3c957c53c862a66850c99af96683a96403ffadcc5eb
   languageName: node
   linkType: hard
 
@@ -10070,6 +10108,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decorator-transforms@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "decorator-transforms@npm:2.4.0"
+  dependencies:
+    babel-import-util: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.23.0 || ^8.0.0
+  checksum: c45c59d12410580d5866a0b8c34583fc6daf376ac5181c41b27c0b803ab5544f723a59801fe938213c85a0c27e45e640f7af45a7bb82fcabfcc6e8bdbc80de83
+  languageName: node
+  linkType: hard
+
 "deep-extend@npm:^0.6.0":
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
@@ -10478,7 +10527,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^1.11.3, ember-auto-import@npm:^1.12.0, ember-auto-import@npm:^1.5.3, ember-auto-import@npm:^1.6.0":
+"ember-auto-import@npm:^1.11.3, ember-auto-import@npm:^1.12.0, ember-auto-import@npm:^1.6.0":
   version: 1.12.1
   resolution: "ember-auto-import@npm:1.12.1"
   dependencies:
@@ -11781,40 +11830,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-intl@npm:^5.7.2":
-  version: 5.7.2
-  resolution: "ember-intl@npm:5.7.2"
+"ember-intl@npm:^9.4.0":
+  version: 9.4.0
+  resolution: "ember-intl@npm:9.4.0"
   dependencies:
-    broccoli-caching-writer: ^3.0.3
-    broccoli-funnel: ^3.0.3
-    broccoli-merge-files: ^0.8.0
-    broccoli-merge-trees: ^4.2.0
-    broccoli-source: ^3.0.0
-    broccoli-stew: ^3.0.0
-    calculate-cache-key-for-tree: ^2.0.0
-    cldr-core: ^36.0.0
-    ember-auto-import: ^1.5.3
-    ember-cli-babel: ^7.23.0
-    ember-cli-typescript: ^4.0.0
-    extend: ^3.0.2
-    fast-memoize: ^2.5.2
-    has-unicode: ^2.0.1
-    intl-messageformat: ^9.3.6
-    intl-messageformat-parser: ^6.0.5
-    js-yaml: ^3.13.1
-    json-stable-stringify: ^1.0.1
-    locale-emoji: ^0.3.0
-    lodash.castarray: ^4.4.0
-    lodash.last: ^3.0.0
-    lodash.omit: ^4.5.0
-    mkdirp: ^1.0.4
-    silent-error: ^1.1.1
+    "@ember-intl/utils": ^0.6.0
+    "@embroider/addon-shim": ^1.11.0
+    "@formatjs/intl": ^6.1.4
+    decorator-transforms: ^2.4.0
   peerDependencies:
-    typescript: ^4.0.0
+    "@ember/test-helpers": ^5.0.0
   peerDependenciesMeta:
-    typescript:
+    "@ember/test-helpers":
       optional: true
-  checksum: 75c5d4c96808c1ffa15d45b2f7baf0d0e4a3bc3404516f101db4afcb3900641e57fc6622844f54419e3034366c52bf955137a340777f2929b7e793346ab9df7d
+  checksum: af694fb994e2ace14a5ce5ac9b774e25d05bc2a902c6672200c5bb2e4dcc9c67f3c3cb6ec213e28ea064ef8f42faac542320fc75b360ab7a3e76bb243061fd2f
   languageName: node
   linkType: hard
 
@@ -13176,7 +13205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.2, extend@npm:~3.0.0, extend@npm:~3.0.2":
+"extend@npm:~3.0.0, extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: a50a8309ca65ea5d426382ff09f33586527882cf532931cb08ca786ea3146c0553310bda688710ff61d7668eba9f96b923fe1420cdf56a2c3eaf30fcab87b515
@@ -13252,20 +13281,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^2.2.6":
-  version: 2.2.7
-  resolution: "fast-glob@npm:2.2.7"
-  dependencies:
-    "@mrmlnc/readdir-enhanced": ^2.2.1
-    "@nodelib/fs.stat": ^1.1.2
-    glob-parent: ^3.1.0
-    is-glob: ^4.0.0
-    merge2: ^1.2.3
-    micromatch: ^3.1.10
-  checksum: 304ccff1d437fcc44ae0168b0c3899054b92e0fd6af6ad7c3ccc82ab4ddd210b99c7c739d60ee3686da2aa165cd1a31810b31fd91f7c2a575d297342a9fc0534
-  languageName: node
-  linkType: hard
-
 "fast-glob@npm:^3.0.3, fast-glob@npm:^3.2.9":
   version: 3.2.11
   resolution: "fast-glob@npm:3.2.11"
@@ -13303,13 +13318,6 @@ __metadata:
   version: 2.0.6
   resolution: "fast-levenshtein@npm:2.0.6"
   checksum: 92cfec0a8dfafd9c7a15fba8f2cc29cd0b62b85f056d99ce448bbcd9f708e18ab2764bda4dd5158364f4145a7c72788538994f0d1787b956ef0d1062b0f7c24c
-  languageName: node
-  linkType: hard
-
-"fast-memoize@npm:^2.5.2":
-  version: 2.5.2
-  resolution: "fast-memoize@npm:2.5.2"
-  checksum: 79fa759719ba4eac7e8c22fb3b0eb3f18f4a31e218c00b1eb4a5b53c5781921133a6b84472d59ec5a6ea8f26ad57b43cd99a350c0547ccce51489bc9a5f0b28d
   languageName: node
   linkType: hard
 
@@ -14320,17 +14328,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob-to-regexp@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "glob-to-regexp@npm:0.3.0"
-  checksum: d34b3219d860042d508c4893b67617cd16e2668827e445ff39cff9f72ef70361d3dc24f429e003cdfb6607c75c9664b8eadc41d2eeb95690af0b0d3113c1b23b
-  languageName: node
-  linkType: hard
-
 "glob-to-regexp@npm:^0.4.1":
   version: 0.4.1
   resolution: "glob-to-regexp@npm:0.4.1"
   checksum: e795f4e8f06d2a15e86f76e4d92751cf8bbfcf0157cea5c2f0f35678a8195a750b34096b1256e436f0cebc1883b5ff0888c47348443e69546a5a87f9e1eb1167
+  languageName: node
+  linkType: hard
+
+"glob@npm:^13.0.6":
+  version: 13.0.6
+  resolution: "glob@npm:13.0.6"
+  dependencies:
+    minimatch: ^10.2.2
+    minipass: ^7.1.3
+    path-scurry: ^2.0.2
+  checksum: 1eb421c696c66af3c26e4845dbdd222d3b982ede17448456b49272722d872e9a91741b50e4e827370c57d17a39a69790061f45033523f085c076d8fcc0f69d2b
   languageName: node
   linkType: hard
 
@@ -15518,24 +15530,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"intl-messageformat-parser@npm:6.3.2, intl-messageformat-parser@npm:^6.0.5":
-  version: 6.3.2
-  resolution: "intl-messageformat-parser@npm:6.3.2"
+"intl-messageformat@npm:12.1.4":
+  version: 12.1.4
+  resolution: "intl-messageformat@npm:12.1.4"
   dependencies:
-    "@formatjs/ecma402-abstract": 1.5.2
-    tslib: ^2.0.1
-  checksum: 39ec58e7fe7c67943894e5396a66b1aa9334c53b91ee33de2496925cabbb92eecdffbf66757c2d062c12d86edb2e0db89db03924f712dd0d263c99d27ca0f2b9
-  languageName: node
-  linkType: hard
-
-"intl-messageformat@npm:^9.3.6":
-  version: 9.4.7
-  resolution: "intl-messageformat@npm:9.4.7"
-  dependencies:
-    fast-memoize: ^2.5.2
-    intl-messageformat-parser: 6.3.2
-    tslib: ^2.0.1
-  checksum: a17385ae1aeab04f0afdef4bd3daf1de5a1fbe09c5c83ef720c678d9bdddcbda7e51d9ddbf90ff22e20d8a7dfec5ad1cec7184c04c558843f4ffc9858a17ddc8
+    "@formatjs/fast-memoize": 3.1.7
+    "@formatjs/icu-messageformat-parser": 3.5.22
+  checksum: e7240436a1af5337497808dde7cfee4496932e38846eb88000ed985d43f01307c5cf251522a2a3f87807d8ba6e07e981e6527b146e23ad2f4382b75cc265d51c
   languageName: node
   linkType: hard
 
@@ -16308,6 +16309,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"js-yaml@npm:^5.5.0":
+  version: 5.5.0
+  resolution: "js-yaml@npm:5.5.0"
+  dependencies:
+    argparse: ^3.0.3
+  bin:
+    js-yaml: bin/js-yaml.mjs
+  checksum: cc72b07047154c8ee26a30f081cd93b99ddd4c5ab06f57ab562f728fdd5b599a7c6658f2b41d5eb11908605c9c2f005b72b56d606a4d9a460cc6324a00ba26dc
+  languageName: node
+  linkType: hard
+
 "jsbn@npm:~0.1.0":
   version: 0.1.1
   resolution: "jsbn@npm:0.1.1"
@@ -16775,13 +16787,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"locale-emoji@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "locale-emoji@npm:0.3.0"
-  checksum: 0e253dc9f93e836726f0c8526f81ad87e94aa4772a56026c3891b07f1882db60d347fe5d7d532209c6a4a5f81ecc40a5e13641b7978da6ee81a9898217501ac8
-  languageName: node
-  linkType: hard
-
 "locate-character@npm:^2.0.5":
   version: 2.0.5
   resolution: "locate-character@npm:2.0.5"
@@ -17025,13 +17030,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.defaults@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "lodash.defaults@npm:4.2.0"
-  checksum: 84923258235592c8886e29de5491946ff8c2ae5c82a7ac5cddd2e3cb697e6fbdfbbb6efcca015795c86eec2bb953a5a2ee4016e3735a3f02720428a40efbb8f1
-  languageName: node
-  linkType: hard
-
 "lodash.defaultsdeep@npm:^4.6.1":
   version: 4.6.1
   resolution: "lodash.defaultsdeep@npm:4.6.1"
@@ -17172,13 +17170,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.last@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "lodash.last@npm:3.0.0"
-  checksum: 7e0a2d5abf8e30fa7662cfbf14666883cb7b021e478baa0fec3a9ad74619cfeef12a8cc57d3641c64916247defe69052228bbb61daad441782a927f8b92f27e8
-  languageName: node
-  linkType: hard
-
 "lodash.lowerfirst@npm:^4.3.1":
   version: 4.3.1
   resolution: "lodash.lowerfirst@npm:4.3.1"
@@ -17214,7 +17205,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.omit@npm:^4.1.0, lodash.omit@npm:^4.5.0":
+"lodash.omit@npm:^4.1.0":
   version: 4.5.0
   resolution: "lodash.omit@npm:4.5.0"
   checksum: 434645e49fe84ab315719bd5a9a3a585a0f624aa4160bc09157dd041a414bcc287c15840365c1379476a3f3eda41fbe838976c3f7bdecbbf4c5478e86c471a30
@@ -17360,6 +17351,13 @@ __metadata:
   version: 2.0.0
   resolution: "lowercase-keys@npm:2.0.0"
   checksum: 24d7ebd56ccdf15ff529ca9e08863f3c54b0b9d1edb97a3ae1af34940ae666c01a1e6d200707bce730a8ef76cb57cc10e65f245ecaaf7e6bc8639f2fb460ac23
+  languageName: node
+  linkType: hard
+
+"lru-cache@npm:^11.0.0":
+  version: 11.5.3
+  resolution: "lru-cache@npm:11.5.3"
+  checksum: 078ddba93ab3d93d143d01b7ee553cfd3fd510eceebcc846add4fa25ce3f23fe24b00b7710cbf590a799faa993e6a234aeaf7dc6944892532c05328c6e13b7bf
   languageName: node
   linkType: hard
 
@@ -17942,6 +17940,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"minimatch@npm:^10.2.2":
+  version: 10.2.6
+  resolution: "minimatch@npm:10.2.6"
+  dependencies:
+    brace-expansion: ^5.0.8
+  checksum: 6f3d0ba7654a6d667dc1787a3684192d65e130cbcf02c1b0cf0d0b2f7f69ab41703d4d255dc171632dc25994527a35fb6ea7d44cc6132e4d93de5a2efb210bd1
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^2.0.1":
   version: 2.0.10
   resolution: "minimatch@npm:2.0.10"
@@ -18084,6 +18091,13 @@ __metadata:
   dependencies:
     yallist: ^4.0.0
   checksum: 57a04041413a3531a65062452cb5175f93383ef245d6f4a2961d34386eb9aa8ac11ac7f16f791f5e8bbaf1dfb1ef01596870c88e8822215db57aa591a5bb0a77
+  languageName: node
+  linkType: hard
+
+"minipass@npm:^7.1.2, minipass@npm:^7.1.3":
+  version: 7.1.3
+  resolution: "minipass@npm:7.1.3"
+  checksum: 2ede17c0bf8fec499be3360fd07f0ec7666189e3907320a9b653f1530cf84af98928c5b12d80bfb75f321833bf2e97785b940540213ebdafe97a5f10327e664d
   languageName: node
   linkType: hard
 
@@ -19413,15 +19427,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"p-event@npm:^2.3.1":
-  version: 2.3.1
-  resolution: "p-event@npm:2.3.1"
-  dependencies:
-    p-timeout: ^2.0.1
-  checksum: 7f973c4c001045bcd561202fc1b2bdf9e148182bb28a7bafa8e7b2ebfaf71a4f9ba91554222040d364290e707e3ebbb049122b8eda9d2aac413b4cf8de0b79ff
-  languageName: node
-  linkType: hard
-
 "p-finally@npm:^1.0.0":
   version: 1.0.0
   resolution: "p-finally@npm:1.0.0"
@@ -19519,15 +19524,6 @@ __metadata:
   version: 3.0.0
   resolution: "p-reduce@npm:3.0.0"
   checksum: 387de355e906c07159d5e6270f3b58b7c7c7349ec7294ba0a9cff2a2e2faa8c602b841b079367685d3fa166a3ee529db7aaa73fadc936987c35e90f0ba64d955
-  languageName: node
-  linkType: hard
-
-"p-timeout@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "p-timeout@npm:2.0.1"
-  dependencies:
-    p-finally: ^1.0.0
-  checksum: 9205a661173f03adbeabda8e02826de876376b09c99768bdc33e5b25ae73230e3ac00e520acedbe3cf05fbd3352fb02efbd3811a9a021b148fb15eb07e7accac
   languageName: node
   linkType: hard
 
@@ -19833,6 +19829,16 @@ __metadata:
   dependencies:
     path-root-regex: ^0.1.0
   checksum: ff88aebfc1c59ace510cc06703d67692a11530989920427625e52b66a303ca9b3d4059b0b7d0b2a73248d1ad29bcb342b8b786ec00592f3101d38a45fd3b2e08
+  languageName: node
+  linkType: hard
+
+"path-scurry@npm:^2.0.2":
+  version: 2.0.2
+  resolution: "path-scurry@npm:2.0.2"
+  dependencies:
+    lru-cache: ^11.0.0
+    minipass: ^7.1.2
+  checksum: a723afe86e342e19dd1b49ce4f5b64a9a84b1e2e07ffc62f051c11623ecd461b1bf1599eee1ecacfce03dda8b6bb866a5df80c0ded45375d258ff22f631920a7
   languageName: node
   linkType: hard
 
@@ -23894,7 +23900,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0":
+"tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.2.0":
   version: 2.3.1
   resolution: "tslib@npm:2.3.1"
   checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
