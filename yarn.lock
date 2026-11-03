@@ -3302,6 +3302,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.10.0":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
+  languageName: node
+  linkType: hard
+
 "@embroider/addon-shim@npm:^1.5.0":
   version: 1.8.3
   resolution: "@embroider/addon-shim@npm:1.8.3"
@@ -3583,82 +3590,57 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fortawesome/ember-fontawesome@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "@fortawesome/ember-fontawesome@npm:0.4.1"
+"@fortawesome/ember-fontawesome@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "@fortawesome/ember-fontawesome@npm:3.1.1"
   dependencies:
-    "@fortawesome/fontawesome-svg-core": ^6.2.0
-    broccoli-file-creator: ^2.1.1
-    broccoli-merge-trees: ^4.2.0
-    broccoli-plugin: ^4.0.3
-    broccoli-rollup: ^4.1.1
-    broccoli-source: ^3.0.0
-    camel-case: ^4.1.1
-    ember-ast-helpers: 0.3.5
-    ember-cli-babel: ^7.26.6
-    ember-cli-htmlbars: ^5.7.1
-    ember-get-config: ^2.0.0
-    find-yarn-workspace-root: ^2.0.0
-    glob: ^7.1.2
-    rollup-plugin-node-resolve: ^5.2.0
-  checksum: 6ab27098e95aa48995e911f6135051023012295d7de4956363953f193cfd02a08403a89166114dd84ae3cc02ed45c474e8023556c18f0008d2baf1c7901ecc18
+    "@embroider/addon-shim": ^1.10.0
+    "@embroider/macros": ^1.10.0
+  peerDependencies:
+    "@fortawesome/fontawesome-svg-core": ^6.6.0 || ^7.0.0
+    "@glimmer/component": ">= 1.1.2"
+  checksum: 795754bec823a8f361492d8bfcdf3d2a228c7e217a543a61038ea1373968836a0e9fec6fff3bce97577bf6fc1151bd31d204129990e1afe6c110e72894345ffa
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.2.0":
-  version: 6.2.0
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.2.0"
-  checksum: 1d0a3340dc2d2798609195cf77f1b0db98f0d87144044eb7cd3d78745baac8509705c6ebc7cce3d9bb36c7d7358ca064f77f39d86478ab1e7aa7aadc344cfd91
+"@fortawesome/fontawesome-common-types@npm:7.3.1":
+  version: 7.3.1
+  resolution: "@fortawesome/fontawesome-common-types@npm:7.3.1"
+  checksum: 8ef4d8cff064fcbd6167d160f314b2f3c0e13c82b6fe7e149a4203df5f63297c47fb98a3b28b54528a9267d49c0e4475042531e95e2f86118a451ee2feb978be
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-common-types@npm:6.4.0":
-  version: 6.4.0
-  resolution: "@fortawesome/fontawesome-common-types@npm:6.4.0"
-  checksum: a9b79136caa615352bd921cfe2710516321b402cd76c3f0ae68e579a7e3d7645c5a5c0ecd7516c0b207adeeffd1d2174978638d8c0d3c8c937d66fca4f2ff556
+"@fortawesome/fontawesome-free@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "@fortawesome/fontawesome-free@npm:7.3.1"
+  checksum: ac7a5653795a01b390b6a886f932a29408dd5a4d716c1acaf38251fe98f741db747f9b16486e64942bec13c8fe410e519f6fc91d3a2fa292f77cacb8559a9836
   languageName: node
   linkType: hard
 
-"@fortawesome/fontawesome-free@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "@fortawesome/fontawesome-free@npm:6.4.0"
-  checksum: 0197cd7df96de375862fea561d69427deebb918cadc26074cc8d490180d536e7e58853d138ca74d081b46b2cbdec2783d01cdaccb8bd723d6ef6b4cc8455b84b
-  languageName: node
-  linkType: hard
-
-"@fortawesome/fontawesome-svg-core@npm:^6.2.0":
-  version: 6.2.0
-  resolution: "@fortawesome/fontawesome-svg-core@npm:6.2.0"
+"@fortawesome/free-brands-svg-icons@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "@fortawesome/free-brands-svg-icons@npm:7.3.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": 6.2.0
-  checksum: 3bae680cba4098bc3a6aee04e655e0c6b6bab2d78e6709dc0a44d106f57a09bc2fd979310108777a373df301273a2a276739056f8984cd8bc5a50d37338c5380
+    "@fortawesome/fontawesome-common-types": 7.3.1
+  checksum: 04ccfefb244fbde6fe17d20e3ee2b0b3c92ea8c691c8030d8140d39252f80c7f327c79afc2d7c2f115b603bef52638e6480c7e753e379224ab99582d8d74274b
   languageName: node
   linkType: hard
 
-"@fortawesome/free-brands-svg-icons@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "@fortawesome/free-brands-svg-icons@npm:6.4.0"
+"@fortawesome/free-regular-svg-icons@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "@fortawesome/free-regular-svg-icons@npm:7.3.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": 6.4.0
-  checksum: 110b22ec366793bc2daa10d0016dfcdf0a0341ced0d8d5c4f68c86e7ffb5e58d3a0b32062e0daaf38af010f85147a9d33e7fd7a8fde79309af7a05254eadbf31
+    "@fortawesome/fontawesome-common-types": 7.3.1
+  checksum: 3325dca9f15a9faab8627abbccf582d887e674ebf1b0694b3aa98021b8288e93117047a4d1b3edfc4dde964c707c0b3515e238a60257c989b12bf51c0cb047d0
   languageName: node
   linkType: hard
 
-"@fortawesome/free-regular-svg-icons@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "@fortawesome/free-regular-svg-icons@npm:6.4.0"
+"@fortawesome/free-solid-svg-icons@npm:^7.3.1":
+  version: 7.3.1
+  resolution: "@fortawesome/free-solid-svg-icons@npm:7.3.1"
   dependencies:
-    "@fortawesome/fontawesome-common-types": 6.4.0
-  checksum: a52689349b858a73b179532a207f98d9ee0f28b31e22eaffa6ce23cf3bfec8cc52bcd35770a0943a2dd1328bafbfdea6809231abee7a8601796bc0fb9759d25f
-  languageName: node
-  linkType: hard
-
-"@fortawesome/free-solid-svg-icons@npm:^6.4.0":
-  version: 6.4.0
-  resolution: "@fortawesome/free-solid-svg-icons@npm:6.4.0"
-  dependencies:
-    "@fortawesome/fontawesome-common-types": 6.4.0
-  checksum: efdd1688620be3d52aacaeac36c955571962e174ae981fc697b6e92fb0996b00166d02e7729a59ea93713a514e2c8d564ab1aa79c9653b4cfed0263e4874d070
+    "@fortawesome/fontawesome-common-types": 7.3.1
+  checksum: 21cc0a7128ba65bf2c541133b07408251b2bcfeb5eb8ccf97ebf2e063b6da9d88fcfc05d42b738f67b7baae23a08012c0b3f3680835ac66ebdd671d3aad5b208
   languageName: node
   linkType: hard
 
@@ -3666,19 +3648,6 @@ __metadata:
   version: 1.1.2
   resolution: "@gar/promisify@npm:1.1.2"
   checksum: d05081e0887a49c178b75ee3067bd6ee086f73c154d121b854fb2e044e8a89cb1cbb6de3a0dd93a519b80f0531fda68b099dd7256205f7fbb3490324342f2217
-  languageName: node
-  linkType: hard
-
-"@glimmer/compiler@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "@glimmer/compiler@npm:0.27.0"
-  dependencies:
-    "@glimmer/interfaces": ^0.27.0
-    "@glimmer/syntax": ^0.27.0
-    "@glimmer/util": ^0.27.0
-    "@glimmer/wire-format": ^0.27.0
-    simple-html-tokenizer: ^0.3.0
-  checksum: b3e54f79df2df7702d6dac768e06ef4e759b86f1bed7ba8a97fae10a2b6c8dc473bb223191ba7c3ca233b4614868a9d72a6039286e456f7ba6034196ba04bb02
   languageName: node
   linkType: hard
 
@@ -3768,15 +3737,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/interfaces@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "@glimmer/interfaces@npm:0.27.0"
-  dependencies:
-    "@glimmer/wire-format": ^0.27.0
-  checksum: 0f055362fde7b78fdc1165679f04702fae158206f4c6180e8cf0e33917a028aad24824ddaa3c01a3866bba3367e149a664d4702321b46b519926d68fd2c9c8bd
-  languageName: node
-  linkType: hard
-
 "@glimmer/interfaces@npm:^0.42.2":
   version: 0.42.2
   resolution: "@glimmer/interfaces@npm:0.42.2"
@@ -3839,18 +3799,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/syntax@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "@glimmer/syntax@npm:0.27.0"
-  dependencies:
-    "@glimmer/interfaces": ^0.27.0
-    "@glimmer/util": ^0.27.0
-    handlebars: ^4.0.6
-    simple-html-tokenizer: ^0.3.0
-  checksum: 33962d3de76e4893b843bbffb09b826bdf8e2fc27377615e4fe6dfd87f23002b13c20191d0ad2cb7e1eb1d22f95228acad28ae07f6ee4f15542f53c9882df102
-  languageName: node
-  linkType: hard
-
 "@glimmer/syntax@npm:^0.42.1":
   version: 0.42.2
   resolution: "@glimmer/syntax@npm:0.42.2"
@@ -3906,13 +3854,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@glimmer/util@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "@glimmer/util@npm:0.27.0"
-  checksum: 68604fdc30ceaf44c6e24e22d155e1f49f075c90d8438bd6f4d4539d249d9db0ce41aa140593aaa5c7650b15b9d388b06773a3795e6fb67066ad6663a1fabeed
-  languageName: node
-  linkType: hard
-
 "@glimmer/util@npm:^0.42.2":
   version: 0.42.2
   resolution: "@glimmer/util@npm:0.42.2"
@@ -3960,15 +3901,6 @@ __metadata:
     "@glimmer/interfaces": ^0.42.2
     "@glimmer/util": ^0.42.2
   checksum: 3adb1963fb5cfe9ee795e10f144ec0ba1c5e9289525a95b3e506d05477da47247f36e01837dbfe5f728d74a6d44f4d62e1a59e7ec9ebdaabf5cbe955c643dc34
-  languageName: node
-  linkType: hard
-
-"@glimmer/wire-format@npm:^0.27.0":
-  version: 0.27.0
-  resolution: "@glimmer/wire-format@npm:0.27.0"
-  dependencies:
-    "@glimmer/util": ^0.27.0
-  checksum: 265fdf5d7a6b6c9bdb83386131238cda2d86e37b291cace749c7e55daf7bf5145e07ab3b2416ff8d115dbfbf9f04ab0cfc48e02845125b17e36e9df2a023a54c
   languageName: node
   linkType: hard
 
@@ -4803,15 +4735,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/resolve@npm:0.0.8":
-  version: 0.0.8
-  resolution: "@types/resolve@npm:0.0.8"
-  dependencies:
-    "@types/node": "*"
-  checksum: f241bb773ab14b14500623ac3b57c52006ce32b20426b6d8bf2fe5fdc0344f42c77ac0f94ff57b443ae1d320a1a86c62b4e47239f0321699404402fbeb24bad6
-  languageName: node
-  linkType: hard
-
 "@types/responselike@npm:^1.0.0":
   version: 1.0.0
   resolution: "@types/responselike@npm:1.0.0"
@@ -5526,11 +5449,11 @@ __metadata:
     "@ember/render-modifiers": ^2.1.0
     "@ember/test-helpers": ^2.6.0
     "@faker-js/faker": ^7.6.0
-    "@fortawesome/ember-fontawesome": ^0.4.1
-    "@fortawesome/fontawesome-free": ^6.4.0
-    "@fortawesome/free-brands-svg-icons": ^6.4.0
-    "@fortawesome/free-regular-svg-icons": ^6.4.0
-    "@fortawesome/free-solid-svg-icons": ^6.4.0
+    "@fortawesome/ember-fontawesome": ^3.1.1
+    "@fortawesome/fontawesome-free": ^7.3.1
+    "@fortawesome/free-brands-svg-icons": ^7.3.1
+    "@fortawesome/free-regular-svg-icons": ^7.3.1
+    "@fortawesome/free-solid-svg-icons": ^7.3.1
     "@glimmer/component": ^1.0.4
     "@glimmer/tracking": ^1.0.4
     "@sentry/ember": ^7.51.0
@@ -8494,13 +8417,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"builtin-modules@npm:^3.1.0":
-  version: 3.2.0
-  resolution: "builtin-modules@npm:3.2.0"
-  checksum: 0265aa1ba78e1a16f4e18668d815cb43fb364e6a6b8aa9189c6f44c7b894a551a43b323c40206959d2d4b2568c1f2805607ad6c88adc306a776ce6904cca6715
-  languageName: node
-  linkType: hard
-
 "builtin-status-codes@npm:^3.0.0":
   version: 3.0.0
   resolution: "builtin-status-codes@npm:3.0.0"
@@ -8759,16 +8675,6 @@ __metadata:
   version: 3.1.0
   resolution: "callsites@npm:3.1.0"
   checksum: 072d17b6abb459c2ba96598918b55868af677154bec7e73d222ef95a8fdb9bbf7dae96a8421085cdad8cd190d86653b5b6dc55a4484f2e5b2e27d5e0c3fc15b3
-  languageName: node
-  linkType: hard
-
-"camel-case@npm:^4.1.1":
-  version: 4.1.2
-  resolution: "camel-case@npm:4.1.2"
-  dependencies:
-    pascal-case: ^3.1.2
-    tslib: ^2.0.3
-  checksum: bcbd25cd253b3cbc69be3f535750137dbf2beb70f093bdc575f73f800acc8443d34fd52ab8f0a2413c34f1e8203139ffc88428d8863e4dfe530cfb257a379ad6
   languageName: node
   linkType: hard
 
@@ -10458,16 +10364,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-ast-helpers@npm:0.3.5":
-  version: 0.3.5
-  resolution: "ember-ast-helpers@npm:0.3.5"
-  dependencies:
-    "@glimmer/compiler": ^0.27.0
-    "@glimmer/syntax": ^0.27.0
-  checksum: 6d00342b1a90bca84fc6969186deb64452da7cafceb08a089c5a339571e4bda520039aecc64823f520ea2ffc4a128f62b1b7e24a5d16302b841dbf960c7e1b65
-  languageName: node
-  linkType: hard
-
 "ember-async-data@npm:^0.7.0":
   version: 0.7.0
   resolution: "ember-async-data@npm:0.7.0"
@@ -11727,16 +11623,6 @@ __metadata:
     ember-cli-babel: ^7.26.6
     ember-cli-htmlbars: ^5.7.1
   checksum: c9ca75a44764705ea62324dba90770ae608d8614c1222ddc9f22ede506f056e65d0e2e518fbc3aa2665ea32e2d4c2735fff9fe4e031d1827c3ebaad3b03bfea2
-  languageName: node
-  linkType: hard
-
-"ember-get-config@npm:^2.0.0":
-  version: 2.0.0
-  resolution: "ember-get-config@npm:2.0.0"
-  dependencies:
-    "@embroider/macros": ^0.50.0 || ^1.0.0
-    ember-cli-babel: ^7.26.6
-  checksum: 8ffb92e6b6d1631b56c23f95d5e68a74f64617fe3d2b72dedca99b658f1dfded0be6f50ba55ed7a90bb5f2766e7d28ee57c724a929ea46f0b9dc8759717414dc
   languageName: node
   linkType: hard
 
@@ -14620,7 +14506,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"handlebars@npm:^4.0.4, handlebars@npm:^4.0.6, handlebars@npm:^4.3.1, handlebars@npm:^4.7.3":
+"handlebars@npm:^4.0.4, handlebars@npm:^4.3.1, handlebars@npm:^4.7.3":
   version: 4.7.7
   resolution: "handlebars@npm:4.7.7"
   dependencies:
@@ -15875,13 +15761,6 @@ __metadata:
   dependencies:
     "@babel/runtime": ^7.14.0
   checksum: 97d2cd7ce00c32721bd1c6b4dccbe775c145612f70f57f384400ee18c49697ab810893a64daf73a9baf07f5f373f241c90fad0e7c8e99c104add114ae5604ee5
-  languageName: node
-  linkType: hard
-
-"is-module@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "is-module@npm:1.0.0"
-  checksum: 8cd5390730c7976fb4e8546dd0b38865ee6f7bacfa08dfbb2cc07219606755f0b01709d9361e01f13009bbbd8099fa2927a8ed665118a6105d66e40f1b838c3f
   languageName: node
   linkType: hard
 
@@ -19726,16 +19605,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pascal-case@npm:^3.1.2":
-  version: 3.1.2
-  resolution: "pascal-case@npm:3.1.2"
-  dependencies:
-    no-case: ^3.0.4
-    tslib: ^2.0.3
-  checksum: ba98bfd595fc91ef3d30f4243b1aee2f6ec41c53b4546bfa3039487c367abaa182471dcfc830a1f9e1a0df00c14a370514fa2b3a1aacc68b15a460c31116873e
-  languageName: node
-  linkType: hard
-
 "pascalcase@npm:^0.1.1":
   version: 0.1.1
   resolution: "pascalcase@npm:0.1.1"
@@ -21600,21 +21469,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup-plugin-node-resolve@npm:^5.2.0":
-  version: 5.2.0
-  resolution: "rollup-plugin-node-resolve@npm:5.2.0"
-  dependencies:
-    "@types/resolve": 0.0.8
-    builtin-modules: ^3.1.0
-    is-module: ^1.0.0
-    resolve: ^1.11.1
-    rollup-pluginutils: ^2.8.1
-  peerDependencies:
-    rollup: ">=1.11.0"
-  checksum: 29687721d2d4332d29042bf6a2d349ba44135dd28e242150b7c4ea02c3207e152f11022f40ede5b3722b32cfab9782c14000d5e2370f45bb2411a769a7c5eee1
-  languageName: node
-  linkType: hard
-
 "rollup-pluginutils@npm:^2.0.1, rollup-pluginutils@npm:^2.8.1":
   version: 2.8.2
   resolution: "rollup-pluginutils@npm:2.8.2"
@@ -22226,13 +22080,6 @@ __metadata:
   dependencies:
     debug: ^2.2.0
   checksum: 4b35a081351acf5610bca231f8788fde72de17e0ab35b6d54a3090dac16ecec56becdbc619da756eee84b134f2030f806a105c70f8fcc6544738654b8aceefd7
-  languageName: node
-  linkType: hard
-
-"simple-html-tokenizer@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "simple-html-tokenizer@npm:0.3.0"
-  checksum: 21c640a09798d93bd941d6c12706b5b0b93f4fc848dbf024d23b6ac7c4392b1a4830bb515f81cbbba42bb5122e6a09b219535fde6a8c86eea2e47320aa5f2643
   languageName: node
   linkType: hard
 
