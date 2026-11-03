@@ -21,7 +21,7 @@ export default Factory.extend({
       'ifes',
       'ozon',
       'disputen',
-      'genootschapen',
+      'genootschappen',
       'huizen',
       'extern',
     ]),
