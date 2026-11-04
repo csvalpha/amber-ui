@@ -272,6 +272,7 @@ Router.map(function () {
     this.route('board');
     this.route('identity');
     this.route('partners');
+    this.route('relations');
   });
 
   return true;
