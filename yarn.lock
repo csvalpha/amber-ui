@@ -3230,20 +3230,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ember/render-modifiers@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "@ember/render-modifiers@npm:2.1.0"
+"@ember/render-modifiers@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@ember/render-modifiers@npm:4.0.0"
   dependencies:
-    "@embroider/macros": ^1.0.0
-    ember-cli-babel: ^7.26.11
-    ember-modifier-manager-polyfill: ^1.2.0
-  peerDependencies:
-    "@glint/template": ^1.0.2
-    ember-source: ^3.8 || ^4.0.0 || ^5.0.0
-  peerDependenciesMeta:
-    "@glint/template":
-      optional: true
-  checksum: 6c4d617b67ee52e8e29e9a2b9f42a30e8ea333a7b7a4c5a61fdf5f15623da11f40d82218aeddfbe32bee1f508c569740e842a8233f4a372728d18b66bbc197d5
+    "@embroider/addon-shim": ^1.10.2
+  checksum: ffd01c294219e9d1885e2d6a6c4072447e3ca3309e6a15c36ca4d17b60a2165c9bf5e574bd4f042b524b2c351032d5193ca0da150daf2f7ef2cd9fcecb0f81e9
   languageName: node
   linkType: hard
 
@@ -3299,6 +3291,13 @@ __metadata:
     "@embroider/shared-internals": ^1.6.0
     semver: ^7.3.5
   checksum: b6ef71db5781e5c1a167dda37d04cdd85b97f03716fcbe801d368bd731bc920f611dba1f384095bb23634726fa30eac94bc05bf20a450db7e17e2ad936696615
+  languageName: node
+  linkType: hard
+
+"@embroider/addon-shim@npm:^1.10.2":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
   languageName: node
   linkType: hard
 
@@ -5523,7 +5522,7 @@ __metadata:
   resolution: "amber-ui@workspace:."
   dependencies:
     "@ember/optional-features": ^2.0.0
-    "@ember/render-modifiers": ^2.1.0
+    "@ember/render-modifiers": ^4.0.0
     "@ember/test-helpers": ^2.6.0
     "@faker-js/faker": ^7.6.0
     "@fortawesome/ember-fontawesome": ^0.4.1
