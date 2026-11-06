@@ -3282,6 +3282,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ember/test-waiters@npm:^4.0.0":
+  version: 4.1.2
+  resolution: "@ember/test-waiters@npm:4.1.2"
+  dependencies:
+    "@embroider/addon-shim": ^1.9.0
+  checksum: 3b96a9a8dd9951e91fd66629c953789a1de43011eeb0ab9cbe3ab9872ccfe858f3361101d90a30c2db0984d4da93edac91f02935d75207a4d06d7643c0196744
+  languageName: node
+  linkType: hard
+
 "@embroider/addon-shim@npm:^0.50.2":
   version: 0.50.2
   resolution: "@embroider/addon-shim@npm:0.50.2"
@@ -3302,13 +3311,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@embroider/addon-shim@npm:^1.5.0":
-  version: 1.8.3
-  resolution: "@embroider/addon-shim@npm:1.8.3"
-  dependencies:
-    "@embroider/shared-internals": ^1.8.3
-    semver: ^7.3.5
-  checksum: 11dfdb956631179656727599eb6d6223369f6a04f0e28ac04b793064338c577a89a77c59254a4a665acc46e174cf87196d0f335ab8049be7fe8a2c71ef695974
+"@embroider/addon-shim@npm:^1.10.2, @embroider/addon-shim@npm:^1.9.0":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
   languageName: node
   linkType: hard
 
@@ -3485,22 +3491,6 @@ __metadata:
     semver: ^7.3.5
     typescript-memoize: ^1.0.1
   checksum: 86633012e1327da9b3f3e89299c8e0411a36d7a66d713e401c4c41f3080eea394cb3ec8db18805aa09514e6978e57208d7422b588b16de184448dbadfc1e21b0
-  languageName: node
-  linkType: hard
-
-"@embroider/shared-internals@npm:^1.8.3":
-  version: 1.8.3
-  resolution: "@embroider/shared-internals@npm:1.8.3"
-  dependencies:
-    babel-import-util: ^1.1.0
-    ember-rfc176-data: ^0.3.17
-    fs-extra: ^9.1.0
-    js-string-escape: ^1.0.1
-    lodash: ^4.17.21
-    resolve-package-path: ^4.0.1
-    semver: ^7.3.5
-    typescript-memoize: ^1.0.1
-  checksum: de636225b3e85379caad5bf4cb3c4f8cc8d95d1c9fab05668faf55654ae2cfe1ca2632c5cc4b81f0b52781d4fc5b80879e6cd143801976de46c591430957040f
   languageName: node
   linkType: hard
 
@@ -5561,7 +5551,7 @@ __metadata:
     ember-concurrency: ^3.0.0
     ember-data: ~3.27.1
     ember-fetch: ^8.1.1
-    ember-file-upload: ^8.0.0
+    ember-file-upload: ^10.1.0
     ember-intl: ^5.7.2
     ember-keyboard-shortcuts: ^1.2.0
     ember-link-action: ^2.0.4
@@ -10553,7 +10543,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-auto-import@npm:^2.0.0, ember-auto-import@npm:^2.2.3, ember-auto-import@npm:^2.4.0":
+"ember-auto-import@npm:^2.2.3, ember-auto-import@npm:^2.4.0":
   version: 2.4.1
   resolution: "ember-auto-import@npm:2.4.1"
   dependencies:
@@ -11684,28 +11674,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-file-upload@npm:^8.0.0":
-  version: 8.0.0
-  resolution: "ember-file-upload@npm:8.0.0"
+"ember-file-upload@npm:^10.1.0":
+  version: 10.1.0
+  resolution: "ember-file-upload@npm:10.1.0"
   dependencies:
-    "@ember/test-waiters": ^3.0.0
-    "@embroider/addon-shim": ^1.5.0
-    "@embroider/macros": ^1.0.0
-    ember-auto-import: ^2.0.0
+    "@ember/test-waiters": ^4.0.0
+    "@embroider/addon-shim": ^1.10.2
+    "@embroider/macros": ^1.20.2
   peerDependencies:
-    "@ember/test-helpers": ^2.9.3
-    "@glimmer/component": ^1.1.2
-    "@glimmer/tracking": ^1.1.2
+    "@ember/test-helpers": ^2.9.3 || ^3.0.3 || ^4.0.4 || ^5.0.0
+    "@glimmer/component": ">=1.1.2"
     ember-cli-mirage: "*"
     ember-modifier: ^3.2.7 || ^4.1.0
     miragejs: "*"
-    tracked-built-ins: ^3.1.1
+    tracked-built-ins: ">=3.1.1"
   peerDependenciesMeta:
     ember-cli-mirage:
       optional: true
     miragejs:
       optional: true
-  checksum: 5177a40f7b8c242f5a83e6e1abb07735846e5024a07e57aafda961425812c2f103ccc836fafe5733b8ced105d8a4d6bf900897a2bf587cbc062e7afa96e996bd
+  checksum: b5aaf6522b0e71602dba0bc2508b52127acdff939cdc3a07d0a979903b6e4d503aee736cf80c99ad702a508b704d72de8660e930d5c5cbb0e2b1373b9486e6de
   languageName: node
   linkType: hard
 
