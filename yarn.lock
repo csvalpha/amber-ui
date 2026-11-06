@@ -3323,6 +3323,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.7, @embroider/addon-shim@npm:^1.9.0":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
+  languageName: node
+  linkType: hard
+
 "@embroider/compat@npm:^0.47.0":
   version: 0.47.2
   resolution: "@embroider/compat@npm:0.47.2"
@@ -5569,7 +5576,7 @@ __metadata:
     ember-load-initializers: ^2.1.2
     ember-maybe-import-regenerator: ^0.1.6
     ember-moment: ^10.0.0
-    ember-pikaday: ^4.0.0
+    ember-pikaday: ^5.1.1
     ember-power-select: ^6.0.1
     ember-promise-helpers: ^2.0.0
     ember-qunit: ^5.1.5
@@ -6361,6 +6368,13 @@ __metadata:
   version: 1.1.0
   resolution: "babel-import-util@npm:1.1.0"
   checksum: d4e965a18ebeee78cd69f1735ab10b64e693b5d837cd887c7ce9f03756d55a49a9f434e29077eafc5bb1f15589dad5ceb1efece78a750d4fc2f0451d5a69da9d
+  languageName: node
+  linkType: hard
+
+"babel-import-util@npm:^3.0.0":
+  version: 3.0.1
+  resolution: "babel-import-util@npm:3.0.1"
+  checksum: 42c2480edb1dd469fafb743df0b7277f39d48ec125cc8f9a73eea7723431ee7c9c862c0983a1a4c8241034803fe44a3725cbe0653b2a45fa40621b318c9c4a14
   languageName: node
   linkType: hard
 
@@ -10070,6 +10084,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"decorator-transforms@npm:^2.0.0, decorator-transforms@npm:^2.3.0":
+  version: 2.4.0
+  resolution: "decorator-transforms@npm:2.4.0"
+  dependencies:
+    babel-import-util: ^3.0.0
+  peerDependencies:
+    "@babel/core": ^7.23.0 || ^8.0.0
+  checksum: c45c59d12410580d5866a0b8c34583fc6daf376ac5181c41b27c0b803ab5544f723a59801fe938213c85a0c27e45e640f7af45a7bb82fcabfcc6e8bdbc80de83
+  languageName: node
+  linkType: hard
+
 "deep-extend@npm:^0.6.0":
   version: 0.6.0
   resolution: "deep-extend@npm:0.6.0"
@@ -11894,19 +11919,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-modifier@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "ember-modifier@npm:3.0.0"
-  dependencies:
-    ember-cli-babel: ^7.26.6
-    ember-cli-normalize-entity-name: ^1.0.0
-    ember-cli-string-utils: ^1.1.0
-    ember-cli-typescript: ^4.2.1
-    ember-compatibility-helpers: ^1.2.5
-  checksum: 12cf77672cd784d924d6b797f8bbec4692b0590632bd46092d4c8bb35f6260181f03a69b8cf00a6f9e4897d7359972f38fe5ba5c3920e68b41113d689feaa00c
-  languageName: node
-  linkType: hard
-
 "ember-modifier@npm:^3.1.0, ember-modifier@npm:^3.2.7":
   version: 3.2.7
   resolution: "ember-modifier@npm:3.2.7"
@@ -11917,6 +11929,16 @@ __metadata:
     ember-cli-typescript: ^5.0.0
     ember-compatibility-helpers: ^1.2.5
   checksum: 2e96d9ec3939de178a9ce704d5a9360fd73f0276ffa4a9cce9f100a4087fdc8fae4a8b28bf1be22b05a4d1c61e1bb1ab93ca60576810c6556bc4d9323864c66a
+  languageName: node
+  linkType: hard
+
+"ember-modifier@npm:^3.2.7 || ^4.0.0":
+  version: 4.3.0
+  resolution: "ember-modifier@npm:4.3.0"
+  dependencies:
+    "@embroider/addon-shim": ^1.8.7
+    decorator-transforms: ^2.0.0
+  checksum: c069d24c073888f764ba30a07dede0306e20b12faead868cf66460069a8459c1b8f17ab4816e5dc54573e9b5a0cae67d178ae2a7e4277da82905bbc03b09896e
   languageName: node
   linkType: hard
 
@@ -11956,14 +11978,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-pikaday@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "ember-pikaday@npm:4.0.0"
+"ember-pikaday@npm:^5.1.1":
+  version: 5.1.1
+  resolution: "ember-pikaday@npm:5.1.1"
   dependencies:
-    "@embroider/addon-shim": ^0.50.2
-    ember-modifier: ^3.0.0
+    "@embroider/addon-shim": ^1.9.0
+    decorator-transforms: ^2.3.0
+    ember-modifier: ^3.2.7 || ^4.0.0
   peerDependencies:
-    "@ember/test-helpers": ^2
+    "@ember/test-helpers": ">=2.0.0"
     moment: ^2
     moment-timezone: ^0.5.34
   peerDependenciesMeta:
@@ -11973,7 +11996,7 @@ __metadata:
       optional: true
     moment-timezone:
       optional: true
-  checksum: 8988bdf2849b48796aefbefbb9b86e79690049d431ecdb3bd0327ea3599d9a3df4ae53abcbc50f7cecb7ffaaa35e86abb4969be96b4e76375af026d4ab6d19a0
+  checksum: 7c8c8923f8a21143f3245508c3ab18b1ba1e767d29baf03df1787d7b442fdea64cedee1f2884ccd6a1410e206071c71ad89fd3e00d45e6d0c9d1772864d5f1eb
   languageName: node
   linkType: hard
 
