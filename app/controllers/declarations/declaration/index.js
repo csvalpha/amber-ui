@@ -9,6 +9,7 @@ export default class DeclarationIndexController extends Controller {
   @service flashNotice;
 
   @tracked errorMessage = null;
+  @tracked missingMandate = false;
 
   get sortedTransactions() {
     return this.model.transactions.sortBy('createdAt');
@@ -17,6 +18,7 @@ export default class DeclarationIndexController extends Controller {
   @action
   async approve() {
     this.errorMessage = null;
+    this.missingMandate = false;
     const response = await this.fetch.post(
       `/declarations/${this.model.id}/approve`
     );
@@ -24,9 +26,18 @@ export default class DeclarationIndexController extends Controller {
     if (response.ok) {
       this.flashNotice.sendSuccess('Declaratie goedgekeurd!');
       await this.model.reload();
-    } else {
-      this.errorMessage = await this.errorFromResponse(response);
+      return;
     }
+
+    const errors = await this.errorsFromResponse(response);
+    // Approving requires an active direct debit mandate, see Declaration#approve! in amber-api
+    this.missingMandate = errors.some((error) =>
+      error.includes('incassomandaat')
+    );
+    const name = this.model.user.get('fullName');
+    this.errorMessage = this.missingMandate
+      ? `Goedkeuren kan niet: ${name} heeft geen actief incassomandaat. Voeg eerst een mandaat toe.`
+      : `Goedkeuren mislukt: ${errors.join(', ') || 'er ging iets mis.'}`;
   }
 
   @action
@@ -68,14 +79,12 @@ export default class DeclarationIndexController extends Controller {
     }
   }
 
-  async errorFromResponse(response) {
+  async errorsFromResponse(response) {
     try {
       const json = await response.json();
-      return json.errors
-        ?.map((error) => error.detail || error.title)
-        .join(', ');
+      return (json.errors || []).map((error) => error.detail || error.title);
     } catch {
-      return 'Er ging iets mis.';
+      return [];
     }
   }
 }

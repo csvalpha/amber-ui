@@ -10,7 +10,14 @@
 
   <div class='card-body'>
     {{#if this.errorMessage}}
-      <div class='alert alert-danger'>{{this.errorMessage}}</div>
+      <div class='alert alert-danger'>
+        {{this.errorMessage}}
+        {{#if (and this.missingMandate (can 'create debit/mandates'))}}
+          <LinkTo @route='debit.mandates.new' class='alert-link ms-1'>
+            Mandaat toevoegen
+          </LinkTo>
+        {{/if}}
+      </div>
     {{/if}}
 
     <dl class='row mb-0'>
