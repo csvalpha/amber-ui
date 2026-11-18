@@ -33,6 +33,8 @@ export default class Declaration extends Model {
   @attr('number') openAmount;
   @attr('boolean') hasReceipt;
   @attr('date') pdfUploadedAt;
+  // Same name as the PDF in Nextcloud, e.g. 2026-11-18_jan_de-vries_12_declaratie.pdf
+  @attr pdfFilename;
   @attr('date') createdAt;
   @attr('date') updatedAt;
 

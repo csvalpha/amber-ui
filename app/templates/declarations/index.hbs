@@ -11,26 +11,24 @@
       @setSortedAscending={{this.setSortedAscending}}
       @enter={{this.selectFirstItem}}
     />
+    {{#if (can 'show all declarations')}}
+      <div class='col-12 col-md-auto'>
+        <select
+          class='form-select'
+          aria-label='Status'
+          {{on 'change' this.setStatus}}
+        >
+          <option value='' selected={{eq this.status null}}>Alle statussen</option>
+          {{#each this.statusOptions as |statusOption|}}
+            <option value={{statusOption.value}} selected={{eq this.status statusOption.value}}>
+              {{statusOption.label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
   </PageActionsButtons>
 </EmberWormhole>
-
-{{#if (can 'show all declarations')}}
-  <div class='mb-3 col-12 col-md-4'>
-    <label class='form-label' for='declaration-status-filter'>Status</label>
-    <select
-      id='declaration-status-filter'
-      class='form-select'
-      {{on 'change' this.setStatus}}
-    >
-      <option value='' selected={{eq this.status null}}>Alle statussen</option>
-      {{#each this.statusOptions as |statusOption|}}
-        <option value={{statusOption.value}} selected={{eq this.status statusOption.value}}>
-          {{statusOption.label}}
-        </option>
-      {{/each}}
-    </select>
-  </div>
-{{/if}}
 
 <div class='card'>
   <div class='row rtable-row header d-none d-md-flex'>

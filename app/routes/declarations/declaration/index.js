@@ -18,13 +18,6 @@ export default class DeclarationIndexRoute extends AuthenticatedRoute {
         linkArgument: declaration,
         canAccess: this.abilities.can('destroy declaration', declaration),
       },
-      {
-        link: 'declarations.declaration.reject',
-        title: 'Afkeuren',
-        icon: 'xmark',
-        linkArgument: declaration,
-        canAccess: this.abilities.can('reject declaration', declaration),
-      },
     ];
   }
 

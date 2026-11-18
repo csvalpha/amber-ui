@@ -56,24 +56,28 @@ export default class DeclarationIndexController extends Controller {
   async downloadPdf() {
     await this.download(
       `/declarations/${this.model.id}/pdf`,
-      `declaratie-${this.model.id}.pdf`
+      () => this.model.pdfFilename || `declaratie-${this.model.id}.pdf`
     );
   }
 
+  // e.g. bon_2026-11-18_jan_de-vries_12_declaratie.jpg
   @action
   async downloadReceipt() {
-    await this.download(
-      `/declarations/${this.model.id}/receipt`,
-      `bon-declaratie-${this.model.id}`
-    );
+    await this.download(`/declarations/${this.model.id}/receipt`, (blob) => {
+      const extension = blob.type === 'application/pdf' ? 'pdf' : 'jpg';
+      const base = this.model.pdfFilename?.replace(/\.pdf$/, '');
+      return base
+        ? `bon_${base}.${extension}`
+        : `bon-declaratie-${this.model.id}.${extension}`;
+    });
   }
 
-  async download(url, filename) {
+  async download(url, filenameFor) {
     this.errorMessage = null;
     const response = await this.fetch.fetch(url);
     if (response.ok) {
       const blob = await response.blob();
-      this.fileSaver.saveAs(blob, filename);
+      this.fileSaver.saveAs(blob, filenameFor(blob));
     } else {
       this.errorMessage = 'Downloaden mislukt.';
     }
