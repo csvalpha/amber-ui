@@ -1,0 +1,139 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}} />
+</EmberWormhole>
+
+<div class='card mb-3'>
+  <div class='card-header d-flex justify-content-between align-items-center'>
+    <h5 class='mb-0'>{{@model.description}}</h5>
+    <span class='badge {{@model.statusClass}}'>{{@model.statusLabel}}</span>
+  </div>
+
+  <div class='card-body'>
+    {{#if this.errorMessage}}
+      <div class='alert alert-danger'>{{this.errorMessage}}</div>
+    {{/if}}
+
+    <dl class='row mb-0'>
+      <dt class='col-sm-4'>Lid</dt>
+      <dd class='col-sm-8'>
+        <LinkTo @route='users.user' @model={{@model.user.id}}>{{@model.user.fullName}}</LinkTo>
+      </dd>
+
+      <dt class='col-sm-4'>Bedrag</dt>
+      <dd class='col-sm-8'>&euro; {{format-number @model.amount minimumFractionDigits=2 maximumFractionDigits=2}}</dd>
+
+      <dt class='col-sm-4'>Aankoopdatum</dt>
+      <dd class='col-sm-8'>{{moment-format @model.purchaseDate 'DD-MM-YYYY'}}</dd>
+
+      <dt class='col-sm-4'>Ingediend op</dt>
+      <dd class='col-sm-8'>{{moment-format @model.createdAt 'DD-MM-YYYY HH:mm'}}</dd>
+
+      <dt class='col-sm-4'>Bonnetje</dt>
+      <dd class='col-sm-8'>
+        {{#if @model.hasReceipt}}
+          <button type='button' class='btn btn-link p-0' {{on 'click' this.downloadReceipt}}>
+            <FaIcon @icon='download' /> Bonnetje downloaden
+          </button>
+        {{else}}
+          <span class='text-muted'>Ontbreekt:</span> {{@model.missingReceiptReason}}
+        {{/if}}
+      </dd>
+
+      {{#if @model.approvedAt}}
+        <dt class='col-sm-4'>Goedgekeurd</dt>
+        <dd class='col-sm-8'>
+          {{moment-format @model.approvedAt 'DD-MM-YYYY'}} door {{@model.approvedBy.fullName}}
+        </dd>
+      {{/if}}
+
+      {{#if @model.rejectionReason}}
+        <dt class='col-sm-4'>Reden afkeuring</dt>
+        <dd class='col-sm-8'>{{@model.rejectionReason}}</dd>
+      {{/if}}
+    </dl>
+  </div>
+
+  {{#if (or (can 'approve declaration' @model) @model.hasPdf)}}
+    <div class='card-footer d-flex flex-wrap gap-2'>
+      {{#if (can 'approve declaration' @model)}}
+        <button type='button' class='btn btn-success' {{on 'click' this.approve}}>
+          <FaIcon @icon='check' /> Goedkeuren
+        </button>
+      {{/if}}
+      {{#if @model.hasPdf}}
+        <button type='button' class='btn btn-default' {{on 'click' this.downloadPdf}}>
+          <FaIcon @icon='file-pdf' /> PDF downloaden
+        </button>
+        {{#if (can 'show all declarations')}}
+          <span class='align-self-center text-muted small'>
+            {{#if @model.pdfUploadedAt}}
+              In Nextcloud gezet op {{moment-format @model.pdfUploadedAt 'DD-MM-YYYY HH:mm'}}
+            {{else}}
+              Nog niet in Nextcloud gezet
+            {{/if}}
+          </span>
+        {{/if}}
+      {{/if}}
+    </div>
+  {{/if}}
+</div>
+
+{{#if @model.approvedAt}}
+  <div class='card'>
+    <div class='card-header'>
+      <h5 class='mb-0'>Uitbetaling</h5>
+    </div>
+    <div class='card-body'>
+      <p>
+        Uitbetaald: <b>&euro; {{format-number @model.paidAmount minimumFractionDigits=2 maximumFractionDigits=2}}</b>
+        &middot;
+        Nog open: <b>&euro; {{format-number @model.openAmount minimumFractionDigits=2 maximumFractionDigits=2}}</b>
+      </p>
+
+      {{#if @model.isSettleable}}
+        {{#if (can 'toggle next collection declaration' @model)}}
+          <div class='form-check form-switch mb-3'>
+            <input
+              id='declaration-include-in-next-collection'
+              class='form-check-input'
+              type='checkbox'
+              checked={{@model.includeInNextCollection}}
+              {{on 'change' this.toggleIncludeInNextCollection}}
+            />
+            <label class='form-check-label' for='declaration-include-in-next-collection'>
+              Meenemen op de volgende incasso
+            </label>
+          </div>
+        {{else if @model.includeInNextCollection}}
+          <p class='text-muted'>Het openstaande bedrag wordt verrekend met de volgende incasso.</p>
+        {{else}}
+          <p class='text-muted'>Het openstaande bedrag wordt (nog) niet verrekend met een incasso.</p>
+        {{/if}}
+      {{/if}}
+
+      <h6>Verrekeningen</h6>
+      <table class='table table-sm'>
+        <thead>
+          <tr>
+            <th>Incasso</th>
+            <th>Datum</th>
+            <th>Bedrag</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each this.sortedTransactions as |transaction|}}
+            <tr>
+              <td>{{transaction.collection.name}}</td>
+              <td>{{moment-format transaction.collection.date 'DD-MM-YYYY'}}</td>
+              <td>&euro; {{format-number transaction.absoluteAmount minimumFractionDigits=2 maximumFractionDigits=2}}</td>
+            </tr>
+          {{else}}
+            <tr>
+              <td colspan='3' class='text-muted'>Nog niet verrekend met een incasso.</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{{/if}}

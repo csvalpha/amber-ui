@@ -74,6 +74,16 @@ Router.map(function () {
     });
   });
 
+  this.route('declarations', function () {
+    this.route('new');
+
+    this.route('declaration', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+      this.route('reject');
+    });
+  });
+
   this.route('debit', function () {
     this.route('collections', function () {
       this.route('new');
