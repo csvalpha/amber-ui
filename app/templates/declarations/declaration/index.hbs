@@ -35,11 +35,11 @@
       <dt class='col-sm-4'>Ingediend op</dt>
       <dd class='col-sm-8'>{{moment-format @model.createdAt 'DD-MM-YYYY HH:mm'}}</dd>
 
-      <dt class='col-sm-4'>Bonnetje</dt>
+      <dt class='col-sm-4'>Bon</dt>
       <dd class='col-sm-8'>
         {{#if @model.hasReceipt}}
           <button type='button' class='btn btn-link p-0' {{on 'click' this.downloadReceipt}}>
-            <FaIcon @icon='download' /> Bonnetje downloaden
+            <FaIcon @icon='download' /> Bon downloaden
           </button>
         {{else}}
           <span class='text-muted'>Ontbreekt:</span> {{@model.missingReceiptReason}}
@@ -125,6 +125,11 @@
         {{else}}
           <p class='text-muted'>Het openstaande bedrag wordt (nog) niet verrekend met een incasso.</p>
         {{/if}}
+        {{#if (can 'mark manually paid declaration' @model)}}
+          <button type='button' class='btn btn-default mb-3' {{on 'click' this.markManuallyPaid}}>
+            <FaIcon @icon='check' /> Handmatig uitbetaald
+          </button>
+        {{/if}}
       {{/if}}
 
       <h6>Verrekeningen</h6>
@@ -144,10 +149,19 @@
               <td>&euro; {{format-number transaction.absoluteAmount minimumFractionDigits=2 maximumFractionDigits=2}}</td>
             </tr>
           {{else}}
-            <tr>
-              <td colspan='3' class='text-muted'>Nog niet verrekend met een incasso.</td>
-            </tr>
+            {{#unless @model.manuallyPaidAt}}
+              <tr>
+                <td colspan='3' class='text-muted'>Nog niet verrekend met een incasso.</td>
+              </tr>
+            {{/unless}}
           {{/each}}
+          {{#if @model.manuallyPaidAt}}
+            <tr>
+              <td>Handmatig uitbetaald{{#if @model.manuallyPaidBy.fullName}} door {{@model.manuallyPaidBy.fullName}}{{/if}}</td>
+              <td>{{moment-format @model.manuallyPaidAt 'DD-MM-YYYY'}}</td>
+              <td>&euro; {{format-number @model.manuallyPaidAmount minimumFractionDigits=2 maximumFractionDigits=2}}</td>
+            </tr>
+          {{/if}}
         </tbody>
       </table>
     </div>

@@ -35,12 +35,16 @@ export default class Declaration extends Model {
   @attr('date') pdfUploadedAt;
   // Same name as the PDF in Nextcloud, e.g. 2026-11-18_jan_de-vries_12_declaratie.pdf
   @attr pdfFilename;
+  // Paid outside of a collection by the treasurer, e.g. by bank transfer
+  @attr('number') manuallyPaidAmount;
+  @attr('date') manuallyPaidAt;
   @attr('date') createdAt;
   @attr('date') updatedAt;
 
   // Relationships
   @belongsTo('user', { inverse: null }) user;
   @belongsTo('user', { inverse: null }) approvedBy;
+  @belongsTo('user', { inverse: null }) manuallyPaidBy;
   @hasMany('debit/transaction', { inverse: 'declaration' }) transactions;
 
   get statusLabel() {

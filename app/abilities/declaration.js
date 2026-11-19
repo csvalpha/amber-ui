@@ -49,6 +49,10 @@ export default class Declaration extends Ability {
     return this.isTreasurer('update') && this.model.isSettleable;
   }
 
+  get canMarkManuallyPaid() {
+    return this.canToggleNextCollection;
+  }
+
   isTreasurer(action) {
     return this.session.hasPermission(`declaration.${action}`);
   }

@@ -41,6 +41,33 @@ export default class DeclarationIndexController extends Controller {
   }
 
   @action
+  async markManuallyPaid() {
+    const confirmed = window.confirm(
+      'Weet je het zeker? Het openstaande bedrag wordt als handmatig uitbetaald gemarkeerd en niet meer met een incasso verrekend.'
+    );
+    if (!confirmed) {
+      return;
+    }
+
+    this.errorMessage = null;
+    const response = await this.fetch.post(
+      `/declarations/${this.model.id}/mark_manually_paid`
+    );
+    if (response.ok) {
+      this.flashNotice.sendSuccess(
+        'Declaratie gemarkeerd als handmatig uitbetaald!'
+      );
+      await this.model.reload();
+      return;
+    }
+
+    const errors = await this.errorsFromResponse(response);
+    this.errorMessage = `Markeren mislukt: ${
+      errors.join(', ') || 'er ging iets mis.'
+    }`;
+  }
+
+  @action
   async toggleIncludeInNextCollection(event) {
     this.errorMessage = null;
     this.model.includeInNextCollection = event.target.checked;

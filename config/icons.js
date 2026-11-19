@@ -71,6 +71,7 @@ module.exports = function () {
       'tag',
       'thumbtack',
       'trash',
+      'triangle-exclamation',
       'upload',
       'user',
       'users',

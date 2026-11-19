@@ -30,22 +30,26 @@
       {{on 'change' this.toggleReceiptMissing}}
     />
     <label class='form-check-label' for='declaration-receipt-missing'>
-      Ik heb geen bonnetje
+      Ik heb geen bon
     </label>
   </div>
 
   {{#if this.receiptMissing}}
+    <div class='alert alert-warning'>
+      <FaIcon @icon='triangle-exclamation' />
+      Let op: zonder bon ben je zelf persoonlijk verantwoordelijk voor de juistheid van deze declaratie.
+    </div>
     <ModelForm::TextareaInput
       @model={{@model}}
       @property='missingReceiptReason'
-      @label='Waarom ontbreekt het bonnetje?'
+      @label='Waarom ontbreekt de bon?'
       @required={{true}}
     />
   {{else}}
     <ModelForm::FileInput
       @model={{@model}}
       @property='receiptPreview'
-      @label='Bonnetje (foto of PDF)'
+      @label='Bon (foto of PDF)'
       @loadedCallback={{this.receiptLoaded}}
       @validExtensions={{this.validExtensions}}
       @validMimetypes={{this.validMimetypes}}
@@ -53,7 +57,7 @@
     {{#if this.receiptFileName}}
       <p class='text-muted'><FaIcon @icon='file' /> {{this.receiptFileName}}</p>
     {{else if @model.hasReceipt}}
-      <p class='text-muted'>Er is al een bonnetje geüpload. Kies een nieuw bestand om het te vervangen.</p>
+      <p class='text-muted'>Er is al een bon geüpload. Kies een nieuw bestand om het te vervangen.</p>
     {{/if}}
     {{form-control-feedback @model.errors.receipt}}
   {{/if}}

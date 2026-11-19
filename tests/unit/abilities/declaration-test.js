@@ -42,6 +42,7 @@ module('Unit | Ability | declaration', function (hooks) {
     assert.false(ability.canEdit);
     assert.false(ability.canDestroy);
     assert.false(ability.canToggleNextCollection);
+    assert.false(ability.canMarkManuallyPaid);
   });
 
   test('another member can not edit a declaration', function (assert) {
@@ -68,14 +69,17 @@ module('Unit | Ability | declaration', function (hooks) {
     assert.true(ability.canApprove);
     assert.true(ability.canReject);
     assert.true(ability.canShowAll);
+    assert.false(ability.canMarkManuallyPaid);
 
     ability.model = declaration('partially_paid', '1');
     assert.true(ability.canEdit);
     assert.false(ability.canEditContent);
     assert.true(ability.canToggleNextCollection);
+    assert.true(ability.canMarkManuallyPaid);
     assert.false(ability.canDestroy);
 
     ability.model = declaration('paid', '1');
     assert.false(ability.canEdit);
+    assert.false(ability.canMarkManuallyPaid);
   });
 });
