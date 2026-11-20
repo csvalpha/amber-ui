@@ -17,24 +17,39 @@ export default class DeclarationIndexController extends Controller {
 
   @action
   async approve() {
+    // The user can navigate to another declaration while the request is pending
+    const declaration = this.model;
+    const isActive = () => this.model === declaration;
+
     this.errorMessage = null;
     this.missingMandate = false;
-    const response = await this.fetch.post(
-      `/declarations/${this.model.id}/approve`
-    );
+    let response;
+    try {
+      response = await this.fetch.post(
+        `/declarations/${declaration.id}/approve`
+      );
+    } catch {
+      if (isActive()) {
+        this.errorMessage = 'Goedkeuren mislukt, probeer het opnieuw.';
+      }
+      return;
+    }
 
     if (response.ok) {
       this.flashNotice.sendSuccess('Declaratie goedgekeurd!');
-      await this.model.reload();
+      await this.reloadAfterSuccess(declaration);
       return;
     }
 
     const errors = await this.errorsFromResponse(response);
+    if (!isActive()) {
+      return;
+    }
     // Approving requires an active direct debit mandate, see Declaration#approve! in amber-api
     this.missingMandate = errors.some((error) =>
       error.includes('incassomandaat')
     );
-    const name = this.model.user.get('fullName');
+    const name = declaration.user.get('fullName');
     this.errorMessage = this.missingMandate
       ? `Goedkeuren kan niet: ${name} heeft geen actief incassomandaat. Voeg eerst een mandaat toe.`
       : `Goedkeuren mislukt: ${errors.join(', ') || 'er ging iets mis.'}`;
@@ -49,22 +64,48 @@ export default class DeclarationIndexController extends Controller {
       return;
     }
 
+    const declaration = this.model;
+    const isActive = () => this.model === declaration;
+
     this.errorMessage = null;
-    const response = await this.fetch.post(
-      `/declarations/${this.model.id}/mark_manually_paid`
-    );
+    let response;
+    try {
+      response = await this.fetch.post(
+        `/declarations/${declaration.id}/mark_manually_paid`
+      );
+    } catch {
+      // Don't retry automatically, the server may have recorded the payment
+      if (isActive()) {
+        this.errorMessage = 'Markeren mislukt, probeer het opnieuw.';
+      }
+      return;
+    }
+
     if (response.ok) {
       this.flashNotice.sendSuccess(
         'Declaratie gemarkeerd als handmatig uitbetaald!'
       );
-      await this.model.reload();
+      await this.reloadAfterSuccess(declaration);
       return;
     }
 
     const errors = await this.errorsFromResponse(response);
-    this.errorMessage = `Markeren mislukt: ${
-      errors.join(', ') || 'er ging iets mis.'
-    }`;
+    if (isActive()) {
+      this.errorMessage = `Markeren mislukt: ${
+        errors.join(', ') || 'er ging iets mis.'
+      }`;
+    }
+  }
+
+  // The action itself succeeded, so a failed refresh is not reported as a failed action
+  async reloadAfterSuccess(declaration) {
+    try {
+      await declaration.reload();
+    } catch {
+      this.flashNotice.sendWarning(
+        'De declaratie kon niet ververst worden, herlaad de pagina.'
+      );
+    }
   }
 
   @action
@@ -82,21 +123,24 @@ export default class DeclarationIndexController extends Controller {
 
   @action
   async downloadPdf() {
+    // Capture before the download, the model can change while it is pending
+    const { id, pdfFilename } = this.model;
     await this.download(
-      `/declarations/${this.model.id}/pdf`,
-      () => this.model.pdfFilename || `declaratie-${this.model.id}.pdf`
+      `/declarations/${id}/pdf`,
+      () => pdfFilename || `declaratie-${id}.pdf`
     );
   }
 
   // e.g. bon_2026-11-18_jan_de-vries_12_declaratie.jpg
   @action
   async downloadReceipt() {
-    await this.download(`/declarations/${this.model.id}/receipt`, (blob) => {
+    const { id, pdfFilename } = this.model;
+    await this.download(`/declarations/${id}/receipt`, (blob) => {
       const extension = blob.type === 'application/pdf' ? 'pdf' : 'jpg';
-      const base = this.model.pdfFilename?.replace(/\.pdf$/, '');
+      const base = pdfFilename?.replace(/\.pdf$/, '');
       return base
         ? `bon_${base}.${extension}`
-        : `bon-declaratie-${this.model.id}.${extension}`;
+        : `bon-declaratie-${id}.${extension}`;
     });
   }
 

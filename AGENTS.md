@@ -129,6 +129,8 @@ export default class ModelNamesIndexRoute extends AuthenticatedRoute {
 }
 
 // app/routes/model-names/new.js
+import { AuthenticatedRoute } from 'amber-ui/routes/application/application';
+
 export default class ModelNamesNewRoute extends AuthenticatedRoute {
   breadcrumb = { title: 'Item aanmaken' };
 
@@ -238,7 +240,7 @@ Build: `ember build` / `yarn build` (production)
 
 ## Docker Commands
 Enter: `docker exec -it development-environment-alpha-1 /bin/bash -l` then `cd ~/amber-ui`
-Start env: `cd "C:/Users/jorai/Programeren/1. Alpha/1. Development/development-environment" && docker compose -f docker-compose.development.yml up -d`
+Start env: from your own `development-environment` checkout, run `docker compose -f docker-compose.development.yml up -d`
 Run cmd: `docker exec -it development-environment-alpha-1 /bin/bash -l -c "cd ~/amber-ui && yarn lint"`
 Logs: `docker logs development-environment-alpha-1`
 
