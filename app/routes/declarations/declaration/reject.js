@@ -10,4 +10,12 @@ export default class DeclarationRejectRoute extends AuthenticatedRoute {
   model() {
     return this.modelFor('declarations.declaration');
   }
+
+  // Keep a draft reason for the same declaration, but don't carry it over to another one
+  setupController(controller, model) {
+    if (controller.model !== model) {
+      controller.resetDraft();
+    }
+    super.setupController(controller, model);
+  }
 }

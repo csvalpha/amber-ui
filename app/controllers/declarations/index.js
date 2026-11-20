@@ -7,6 +7,8 @@ export default class DeclarationsIndexController extends FilterableAndSortableCo
   @tracked sortedAttribute = 'created_at';
   @tracked sortedAscending = false;
   @tracked status = null;
+  // Tracked so resetting it in setStatus updates the query param
+  @tracked page = 1;
 
   queryParams = ['search', 'sort', 'page', 'status'];
 

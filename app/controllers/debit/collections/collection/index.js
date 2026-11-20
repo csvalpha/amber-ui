@@ -8,6 +8,7 @@ export default class CollectionIndexController extends Controller {
   @service flashNotice;
 
   @tracked finalizeErrors = null;
+  @tracked isFinalizing = false;
 
   get pendingCreditsTotal() {
     const credits = this.model.pendingDeclarationCredits || [];
@@ -17,6 +18,10 @@ export default class CollectionIndexController extends Controller {
   // Settles the pending declarations on this collection and locks it, then downloads the SEPA file
   @action
   async finalize() {
+    if (this.isFinalizing) {
+      return;
+    }
+
     const confirmed = window.confirm(
       'Weet je het zeker? De declaraties worden definitief verrekend en de incasso kan daarna niet meer verwijderd worden.'
     );
@@ -24,23 +29,62 @@ export default class CollectionIndexController extends Controller {
       return;
     }
 
-    this.finalizeErrors = null;
-    const response = await this.fetch.post(
-      `/debit/collections/${this.model.id}/finalize`
-    );
+    // The user can navigate to another collection while the request is pending
+    const collection = this.model;
+    const isActive = () => this.model === collection;
 
-    if (response.ok) {
-      this.flashNotice.sendSuccess('Incasso definitief gemaakt!');
-      await this.model.reload();
-      await this.model.hasMany('transactions').reload();
+    this.finalizeErrors = null;
+    this.isFinalizing = true;
+    try {
+      const response = await this.fetch.post(
+        `/debit/collections/${collection.id}/finalize`
+      );
+      if (!response.ok) {
+        const errors = await this.errorsFromResponse(response);
+        if (isActive()) {
+          this.finalizeErrors = errors;
+        }
+        return;
+      }
+    } catch {
+      if (isActive()) {
+        this.finalizeErrors = [{ title: 'Er ging iets mis' }];
+      }
+      return;
+    } finally {
+      this.isFinalizing = false;
+    }
+
+    this.flashNotice.sendSuccess('Incasso definitief gemaakt!');
+    try {
+      await collection.reload();
+      await collection.hasMany('transactions').reload();
+    } catch {
+      // Finalizing succeeded, so don't offer to retry it: after a page reload the SEPA download is available
+      this.flashNotice.sendWarning(
+        'De incasso is definitief gemaakt, maar de pagina kon niet ververst worden. Herlaad de pagina om het SEPA bestand te downloaden.'
+      );
+      return;
+    }
+
+    if (isActive()) {
       this.transitionToRoute(
         'debit.collections.collection.sepa',
-        this.model.id
+        collection.id
       );
-    } else {
-      const json = await response.json();
-      this.finalizeErrors = json.errors || [{ title: 'Er ging iets mis' }];
     }
+  }
+
+  async errorsFromResponse(response) {
+    try {
+      const json = await response.json();
+      if (json.errors?.length) {
+        return json.errors;
+      }
+    } catch {
+      // Fall through to the generic message
+    }
+    return [{ title: 'Er ging iets mis' }];
   }
 
   get groupedTransactions() {

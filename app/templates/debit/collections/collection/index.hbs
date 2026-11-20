@@ -64,7 +64,12 @@
         </div>
       {{/if}}
 
-      <button type='button' class='btn btn-primary' {{on 'click' this.finalize}}>
+      <button
+        type='button'
+        class='btn btn-primary'
+        disabled={{this.isFinalizing}}
+        {{on 'click' this.finalize}}
+      >
         <FaIcon @icon='lock' />
         Definitief maken &amp; SEPA downloaden
       </button>

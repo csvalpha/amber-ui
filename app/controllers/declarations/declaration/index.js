@@ -69,12 +69,13 @@ export default class DeclarationIndexController extends Controller {
 
   @action
   async toggleIncludeInNextCollection(event) {
+    const declaration = this.model;
     this.errorMessage = null;
-    this.model.includeInNextCollection = event.target.checked;
+    declaration.includeInNextCollection = event.target.checked;
     try {
-      await this.model.save();
+      await declaration.save();
     } catch (error) {
-      this.model.rollbackAttributes();
+      declaration.rollbackAttributes();
       this.errorMessage = `Opslaan mislukt: ${error}`;
     }
   }
@@ -113,7 +114,9 @@ export default class DeclarationIndexController extends Controller {
   async errorsFromResponse(response) {
     try {
       const json = await response.json();
-      return (json.errors || []).map((error) => error.detail || error.title);
+      return (json.errors || [])
+        .map((error) => error.detail || error.title)
+        .filter(Boolean);
     } catch {
       return [];
     }

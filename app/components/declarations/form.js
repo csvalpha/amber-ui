@@ -19,6 +19,10 @@ export default class DeclarationFormComponent extends Component {
 
   @action
   receiptLoaded(file) {
+    // A file can finish loading after the user switched to "Ik heb geen bon"
+    if (this.receiptMissing) {
+      return;
+    }
     this.args.model.receipt = file.data;
     this.args.model.missingReceiptReason = null;
     this.receiptFileName = file.name;
