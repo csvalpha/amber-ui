@@ -28,4 +28,13 @@ export default class DeclarationIndexRoute extends AuthenticatedRoute {
   model() {
     return this.modelFor('declarations.declaration');
   }
+
+  // Don't show an error or mandate hint from another declaration
+  setupController(controller, model) {
+    if (controller.model !== model) {
+      controller.errorMessage = null;
+      controller.missingMandate = false;
+    }
+    super.setupController(controller, model);
+  }
 }
