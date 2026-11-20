@@ -10,6 +10,7 @@
       class={{concat 'form-control ' inputValidityClass}}
       required={{required}}
       disabled={{disabled}}
+      maxlength={{maxlength}}
     />
 
     {{form-control-feedback (get @model.errors property)}}
@@ -29,6 +30,7 @@
       placeholder={{placeholder}}
       required={{required}}
       disabled={{disabled}}
+      maxlength={{maxlength}}
     />
 
     {{form-control-feedback (get @model.errors property)}}

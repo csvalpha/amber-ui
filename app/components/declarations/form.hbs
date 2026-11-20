@@ -44,6 +44,7 @@
       @property='missingReceiptReason'
       @label='Waarom ontbreekt de bon?'
       @required={{true}}
+      @maxlength={{1000}}
     />
   {{else}}
     <ModelForm::FileInput
