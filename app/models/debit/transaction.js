@@ -9,4 +9,10 @@ export default class Transaction extends Model {
   // Relationships
   @belongsTo user;
   @belongsTo('debit/collection') collection;
+  @belongsTo('declaration', { inverse: 'transactions' }) declaration;
+
+  // Declaration settlements are stored as negative amounts
+  get absoluteAmount() {
+    return Math.abs(this.amount);
+  }
 }

@@ -16,14 +16,17 @@ export default class CollectionIndexRoute extends AuthenticatedRoute {
         title: 'Verwijderen',
         icon: 'trash',
         linkArgument: collection,
-        canAccess: this.abilities.can('destroy debit/collections'),
+        canAccess: this.abilities.can('destroy debit/collection', collection),
       },
       {
         link: 'debit.collections.collection.sepa',
         title: 'SEPA bestand downloaden',
         icon: 'download',
         linkArgument: collection.id,
-        canAccess: this.abilities.can('download sepa debit/collections'),
+        canAccess: this.abilities.can(
+          'download sepa debit/collection',
+          collection
+        ),
       },
     ];
   }

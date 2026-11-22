@@ -2,6 +2,81 @@
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
+{{#if @model.isFinalized}}
+  <div class='alert alert-success'>
+    <FaIcon @icon='lock' />
+    Deze incasso is definitief gemaakt op
+    {{moment-format @model.finalizedAt 'DD-MM-YYYY HH:mm'}}. Verrekende
+    declaraties staan als negatieve regels bij de leden.
+  </div>
+{{else if (can 'finalize debit/collection' @model)}}
+  <div class='card mb-3'>
+    <div class='card-header'>
+      <h5 class='mb-0'>Te verrekenen declaraties (voorlopig)</h5>
+    </div>
+    <div class='card-body'>
+      {{#if @model.pendingDeclarationCredits.length}}
+        <p class='text-muted'>
+          Deze goedgekeurde declaraties worden verrekend zodra je de incasso
+          definitief maakt. Per lid wordt maximaal het incassobedrag verrekend,
+          de rest schuift door naar de volgende incasso.
+        </p>
+        <table class='table table-sm'>
+          <thead>
+            <tr>
+              <th>Declaratie</th>
+              <th>Te verrekenen</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each @model.pendingDeclarationCredits as |credit|}}
+              <tr>
+                <td>
+                  <LinkTo @route='declarations.declaration' @model={{credit.declaration_id}}>
+                    {{credit.description}}
+                  </LinkTo>
+                </td>
+                <td>&euro; -{{format-number credit.amount minimumFractionDigits=2 maximumFractionDigits=2}}</td>
+              </tr>
+            {{/each}}
+            <tr>
+              <td><b>Totaal</b></td>
+              <td><b>&euro; -{{format-number this.pendingCreditsTotal minimumFractionDigits=2 maximumFractionDigits=2}}</b></td>
+            </tr>
+          </tbody>
+        </table>
+      {{else}}
+        <p class='text-muted'>
+          Er zijn geen goedgekeurde declaraties om op deze incasso te verrekenen.
+          Alleen de meest recente incasso die nog niet definitief is, krijgt
+          declaraties.
+        </p>
+      {{/if}}
+
+      {{#if this.finalizeErrors}}
+        <div class='alert alert-danger'>
+          Definitief maken is mislukt:
+          <ul class='mb-0'>
+            {{#each this.finalizeErrors as |error|}}
+              <li>{{error.title}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      {{/if}}
+
+      <button
+        type='button'
+        class='btn btn-primary'
+        disabled={{this.isFinalizing}}
+        {{on 'click' this.finalize}}
+      >
+        <FaIcon @icon='lock' />
+        Definitief maken &amp; SEPA downloaden
+      </button>
+    </div>
+  </div>
+{{/if}}
+
 <div class='card'>
   <div class='card-header d-flex justify-content-between'>
     <h5>

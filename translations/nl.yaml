@@ -350,6 +350,7 @@ mixin:
     settings: Instellingen
     mailAliases: Mail aliassen
     collections: Incasso's
+    declarations: Declaraties
     mailModerations: Mail moderaties
     mandates: Mandaten
     sofia: Streepsysteem

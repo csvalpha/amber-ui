@@ -337,6 +337,7 @@ mixin:
     settings: Settings
     mailAliases: Mail aliases
     collections: Collections
+    declarations: Expense claims
     mailModerations: Mail moderations
     mandates: Mandates
     sofia: S.O.F.I.A
