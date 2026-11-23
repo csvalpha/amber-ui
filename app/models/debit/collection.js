@@ -4,12 +4,19 @@ export default class Collection extends Model {
   @attr name;
   @attr('date-only') date;
   @attr importFile;
+  @attr('date') finalizedAt;
+  // Read only preview: [{ declaration_id, user_id, description, amount }]
+  @attr pendingDeclarationCredits;
   @attr('date') createdAt;
   @attr('date') updatedAt;
 
   // Relationships
   @hasMany('debit/transaction') transactions;
   @belongsTo('user') author;
+
+  get isFinalized() {
+    return Boolean(this.finalizedAt);
+  }
 
   async saveWithTransactions() {
     const response = await this.save();

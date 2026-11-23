@@ -65,6 +65,13 @@
           @minor={{true}}
         />
         <MenuSidebarItem
+          @link='declarations'
+          @hasPermission={{can 'show declarations'}}
+          @icon='file-invoice-dollar'
+          @title={{t 'mixin.menuItems.declarations'}}
+          @minor={{true}}
+        />
+        <MenuSidebarItem
           @link='debit.collections'
           @hasPermission={{can 'show debit/collections'}}
           @icon='credit-card'

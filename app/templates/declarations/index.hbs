@@ -1,0 +1,82 @@
+<EmberWormhole @to='navbar-wormhole'>
+  <PageActionsButtons @pageActions={{pageActions}}>
+    <FilterBar
+      @class='col-12 col-md'
+      @filter={{this.search}}
+      @setFilter={{this.setSearch}}
+      @sortedAttribute={{this.sortedAttribute}}
+      @setSortedAttribute={{this.setSortedAttribute}}
+      @sortableAttributes={{this.sortableAttributes}}
+      @sortedAscending={{this.sortedAscending}}
+      @setSortedAscending={{this.setSortedAscending}}
+      @enter={{this.selectFirstItem}}
+    />
+    {{#if (can 'show all declarations')}}
+      <div class='col-12 col-md-auto'>
+        <select
+          class='form-select'
+          aria-label='Status'
+          {{on 'change' this.setStatus}}
+        >
+          <option value='' selected={{eq this.status null}}>Alle statussen</option>
+          {{#each this.statusOptions as |statusOption|}}
+            <option value={{statusOption.value}} selected={{eq this.status statusOption.value}}>
+              {{statusOption.label}}
+            </option>
+          {{/each}}
+        </select>
+      </div>
+    {{/if}}
+  </PageActionsButtons>
+</EmberWormhole>
+
+<div class='card'>
+  <div class='row rtable-row header d-none d-md-flex'>
+    <span class='col-2'> Aankoopdatum </span>
+    <span class='col-3'> Omschrijving </span>
+    <span class='col-2'> Lid </span>
+    <span class='col-2'> Bedrag </span>
+    <span class='col-1'> Open </span>
+    <span class='col-2'> Status </span>
+  </div>
+
+  {{#each model as |declaration|}}
+    <LinkTo @route='declarations.declaration' @model={{declaration.id}}>
+      <div class='row rtable-row'>
+        <span class='col-12 col-md-2 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> Aankoopdatum: </span>
+          {{moment-format declaration.purchaseDate 'DD-MM-YYYY'}}
+        </span>
+        <span class='col-12 col-md-3 rtable-item'>
+          <b>{{declaration.description}}</b>
+        </span>
+        <span class='col-12 col-md-2 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> Lid: </span>
+          {{declaration.user.fullName}}
+        </span>
+        <span class='col-6 col-md-2 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> Bedrag: </span>
+          &euro; {{format-number declaration.amount minimumFractionDigits=2 maximumFractionDigits=2}}
+        </span>
+        <span class='col-6 col-md-1 rtable-item'>
+          <span class='d-inline d-md-none text-muted'> Open: </span>
+          &euro; {{format-number declaration.openAmount minimumFractionDigits=2 maximumFractionDigits=2}}
+        </span>
+        <span class='col-12 col-md-2 rtable-item'>
+          <span class='badge {{declaration.statusClass}}'>{{declaration.statusLabel}}</span>
+          {{#if (and declaration.isSettleable (not declaration.includeInNextCollection))}}
+            <span class='badge bg-light text-dark' title='Wordt niet meegenomen op de volgende incasso'>
+              <FaIcon @icon='pause' />
+            </span>
+          {{/if}}
+        </span>
+      </div>
+    </LinkTo>
+  {{else}}
+    <div class='p-3 text-muted'>Er zijn nog geen declaraties.</div>
+  {{/each}}
+</div>
+
+<div class='row justify-content-center'>
+  <PageNumbers @info={{model.meta}} />
+</div>
