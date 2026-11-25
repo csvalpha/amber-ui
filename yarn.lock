@@ -3323,6 +3323,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embroider/addon-shim@npm:^1.8.9":
+  version: 1.11.0
+  resolution: "@embroider/addon-shim@npm:1.11.0"
+  checksum: 1d4762d94ba3a527ac5428d0dd67e7e7a6a8a80fee036e82ea48046e4b617940f381a45d51d7eb4ec08d8703965aca20f2dd380dd2b3dc42eea6d1f49caee1aa
+  languageName: node
+  linkType: hard
+
 "@embroider/compat@npm:^0.47.0":
   version: 0.47.2
   resolution: "@embroider/compat@npm:0.47.2"
@@ -5582,7 +5589,7 @@ __metadata:
     ember-source: ~3.28.8
     ember-template-lint: ^3.6.0
     ember-test-selectors: ^6.0.0
-    ember-truth-helpers: ^3.1.1
+    ember-truth-helpers: ^5.0.0
     ember-wormhole: ^0.6.0
     eslint: ^7.32.0
     eslint-config-prettier: ^8.3.0
@@ -12305,12 +12312,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ember-truth-helpers@npm:^3.0.0, ember-truth-helpers@npm:^3.1.1":
+"ember-truth-helpers@npm:^3.0.0":
   version: 3.1.1
   resolution: "ember-truth-helpers@npm:3.1.1"
   dependencies:
     ember-cli-babel: ^7.22.1
   checksum: 6f3a779ae714cec543b39ca93caa98121e65046e48929e1890aa24b2592c4e90a703148694bae9d7ca9bfc68d9ae1f7e00392f0f288158ee962aefbae1f3c0b0
+  languageName: node
+  linkType: hard
+
+"ember-truth-helpers@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "ember-truth-helpers@npm:5.0.0"
+  dependencies:
+    "@embroider/addon-shim": ^1.8.9
+  checksum: 8899b25318286c1be95767e292e2d984beeabe189b31756622a3baf5522250ee2ca99fb229e301f580b46b527b7bb5a61d46c3f244b316a0c3789923c37b86c7
   languageName: node
   linkType: hard
 
