@@ -236,6 +236,18 @@
             @value={{this.difficulty}}
           />
         </div>
+
+        <div class='form-check mb-3'>
+          <Input
+            @type='checkbox'
+            @checked={{this.showFormerMembers}}
+            class='form-check-input'
+            id="show-former-members-check"
+          />
+          <label class='form-check-label' for="show-former-members-check">
+            Ook oudleden trainen
+          </label>
+        </div>
       </div>
       <div class='card-footer text-end'>
         <a class='btn btn-primary' {{on 'click' startTrainer}}>Starten</a>

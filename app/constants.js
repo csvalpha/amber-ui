@@ -14,6 +14,7 @@ const GroupKinds = [
   'kring',
   'werkgroep',
   'curiositas',
+  'zal',
 ];
 
 const StaticPageCategories = ['vereniging', 'documenten', 'ict'];
@@ -22,17 +23,15 @@ const ActivityCategories = [
   'Algemeen',
   'Sociëteit',
   'Vorming',
-  'Dinsdagkring',
-  'Woensdagkring',
+  'Kring',
   'ChOOSE',
   'IFES',
   'OZON',
   'Disputen',
-  'Kiemgroepen',
+  'Genootschappen',
   'Huizen',
   'Extern',
   'Eerstejaars',
-  'Curiositates',
 ];
 
 const OpenQuestionTypes = ['text', 'textarea', 'number'];

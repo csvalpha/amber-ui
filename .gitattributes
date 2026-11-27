@@ -1,1 +1,10 @@
-*.* -crlf
+# Default to LF for most text files
+* text=auto eol=lf
+
+# Explicitly mark known image formats as binary to prevent any conversion
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+*.pdf binary
+*.mp4 binary

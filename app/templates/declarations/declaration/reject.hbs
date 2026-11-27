@@ -1,0 +1,34 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5>Declaratie afkeuren</h5>
+  </div>
+  <form {{on 'submit' (prevent-default this.submit)}}>
+    <div class='card-block p-3'>
+      <p class='card-text'>
+        Je keurt de declaratie "{{this.model.description}}" van
+        {{this.model.user.fullName}} af. Het lid krijgt een mail met de reden.
+      </p>
+      <label class='form-label' for='declaration-rejection-reason'>Reden *</label>
+      <Textarea
+        id='declaration-rejection-reason'
+        class='form-control'
+        rows='3'
+        required={{true}}
+        @value={{this.rejectionReason}}
+      />
+      {{#if this.errorMessage}}
+        <div class='text-danger mt-2'>{{this.errorMessage}}</div>
+      {{/if}}
+    </div>
+    <div class='card-footer'>
+      <button class='btn btn-danger' type='submit'>Afkeuren</button>
+      <LinkTo
+        @route='declarations.declaration'
+        @model={{this.model.id}}
+        class='btn btn-default'
+      >
+        Annuleren
+      </LinkTo>
+    </div>
+  </form>
+</div>

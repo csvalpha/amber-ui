@@ -31,19 +31,9 @@ export default Component.extend({
       full: true,
     },
     {
-      title: 'BeBo Parket',
-      link: 'https://www.beboparket.nl/',
-      image: 'advertisements/BeBo.png',
-    },
-    {
       title: 'Boeketcadeau',
       link: 'https://www.boeketcadeau.nl/',
       image: 'advertisements/BoeketCadeau.png',
-    },
-    {
-      title: 'Baktotaal',
-      link: 'https://www.baktotaal.nl/',
-      image: 'advertisements/Baktotaal.png',
     },
     {
       title: 'Comfort Producten',
@@ -52,23 +42,13 @@ export default Component.extend({
     },
     {
       title: 'Huurzone',
-      link: 'https://www.huurzone.nl/aanbod/nederland.html',
+      link: 'https://www.huurzone.nl/huurwoningen/heel-nederland',
       image: 'advertisements/Huurzone.png',
     },
     {
       title: 'Inshared',
       link: 'https://www.inshared.nl/',
       image: 'advertisements/Inshared.png',
-    },
-    {
-      title: 'Ledlampenkopen.nu',
-      link: 'https://www.ledlampenkopen.nu/',
-      image: 'advertisements/LedlampenKopen.png',
-    },
-    {
-      title: 'Parcel Pro',
-      link: 'https://parcelpro.nl/',
-      image: 'advertisements/ParcelPro.png',
     },
     {
       title: 'Bierglazen bedrukken met logo',
@@ -82,39 +62,9 @@ export default Component.extend({
       image: 'advertisements/RotimShop.png',
     },
     {
-      title: 'Shops United',
-      link: 'https://shops-united.nl/',
-      image: 'advertisements/ShopsUnited.png',
-    },
-    {
-      title: 'Sleiderink',
-      link: 'https://www.sleiderink.nl/',
-      image: 'advertisements/Sleiderink.png',
-    },
-    {
-      title: 'Sliponline',
-      link: 'https://www.sliponline.nl/kinderen/kinder-nachtkleding/kinder-pyjama/',
-      image: 'advertisements/SlipOnline.png',
-    },
-    {
-      title: 'Stellingstunt',
-      link: 'https://www.stellingstunt.nl/',
-      image: 'advertisements/StellingStunt.png',
-    },
-    {
       title: 'Traffic Today',
       link: 'https://www.traffictoday.nl/',
-      image: 'advertisements/TrafficToday.jpg',
-    },
-    {
-      title: 'Verzekering',
-      link: 'https://www.verzekering.nl/',
-      image: 'advertisements/VerzekeringNL.png',
-    },
-    {
-      title: 'Visser & Visser',
-      link: 'https://www.visserenvisser.nl/',
-      image: 'advertisements/Visser&Visser.png',
+      image: 'advertisements/TrafficToday.png',
     },
   ],
 });

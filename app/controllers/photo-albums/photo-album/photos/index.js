@@ -5,6 +5,7 @@ import moment from 'moment';
 import { inject as service } from '@ember/service';
 
 export default class PhotosIndexController extends Controller {
+  @service session;
   @service fetch;
   @service fileSaver;
 

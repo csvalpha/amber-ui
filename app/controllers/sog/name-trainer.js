@@ -17,6 +17,7 @@ export default class SogNameTrainerController extends Controller {
   @tracked started = false;
   @tracked finished = false;
   @tracked answered = false;
+  @tracked showFormerMembers = false;
 
   queryParams = ['groupId', 'difficulty'];
 
@@ -84,7 +85,12 @@ export default class SogNameTrainerController extends Controller {
     if (!group) {
       return [];
     }
-    const memberships = await group.get('memberships');
+    let memberships = await group.get('memberships');
+
+    if (!this.showFormerMembers) {
+      memberships = memberships.filterBy('userIsCurrentlyMember', true);
+    }
+
     return await Promise.all(memberships.mapBy('user'));
   }
 

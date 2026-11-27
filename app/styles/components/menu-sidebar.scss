@@ -1,6 +1,8 @@
 $animation-duration: 0.3s;
 $animation-behaviour: ease-in-out;
-$profile-menu-height: 360px;
+// Upper bound for the open profile menu; max-height lets it grow with the
+// number of visible items (which depends on the user's permissions)
+$profile-menu-max-height: 800px;
 
 .menu-sidebar {
   display: flex;
@@ -41,12 +43,12 @@ $profile-menu-height: 360px;
   }
 
   .profile-menu {
-    transition: height $animation-duration $animation-behaviour;
-    height: 0;
+    transition: max-height $animation-duration $animation-behaviour;
+    max-height: 0;
     overflow: hidden;
 
     &.open {
-      height: $profile-menu-height;
+      max-height: $profile-menu-max-height;
     }
   }
 
@@ -69,7 +71,7 @@ $profile-menu-height: 360px;
     }
   }
 
-  .sidebar-item-minor {
+  .menu-sidebar-item.sidebar-item-minor {
     color: $gray-600;
 
     &:hover {

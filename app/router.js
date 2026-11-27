@@ -74,6 +74,16 @@ Router.map(function () {
     });
   });
 
+  this.route('declarations', function () {
+    this.route('new');
+
+    this.route('declaration', { path: ':id' }, function () {
+      this.route('edit');
+      this.route('destroy');
+      this.route('reject');
+    });
+  });
+
   this.route('debit', function () {
     this.route('collections', function () {
       this.route('new');
@@ -268,6 +278,10 @@ Router.map(function () {
 
   this.route('public', function () {
     this.route('room-forum');
+    this.route('flux');
+    this.route('board');
+    this.route('identity');
+    this.route('partners');
   });
 
   return true;

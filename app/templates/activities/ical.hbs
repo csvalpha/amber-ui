@@ -7,9 +7,8 @@
       <div class='card-body'>
         <div class='alert alert-info'>
           <p>
-            Als je de agenda's die je wilt volgen wilt aanpassen, dien je eerst
-            in je agenda-programma je oude Alpha-agenda te verwijderen voordat
-            je de nieuwe agenda-url toevoegt.
+            Als je de agenda's die je wilt volgen wilt aanpassen, update die automatisch
+            de bestaande agenda's in je agenda-applicatie.
           </p>
           <p class="mb-0">
             Hoe je de agenda in Google Calendar importeert staat
@@ -17,8 +16,9 @@
             uitgelegd.
           </p>
         </div>
+
         <form class='row' id='activityCategoryForm'>
-          {{#each activityCategoryOptions as |opt|}}
+          {{#each this.activityCategoryOptions as |opt|}}
             <div class='col-sm-12 col-md-3'>
               <div class='form-check'>
                 <Input
@@ -34,6 +34,11 @@
               </div>
             </div>
           {{/each}}
+          <div class="col-12 mt-3">
+            <button type="button" class="btn btn-primary" {{on "click" this.saveCategories}}>
+              Opslaan
+            </button>
+          </div>
         </form>
 
         <hr />
@@ -51,7 +56,7 @@
             anderen.
           </b>
         </div>
-        <p><a href='{{webcalURL}}'><code>{{iCalURL}}</code></a> </p>
+        <p><a href='{{this.webcalURL}}'><code>{{this.iCalURL}}</code></a></p>
       </div>
     </div>
   </div>

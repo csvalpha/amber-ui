@@ -4,7 +4,7 @@
       <div class='row align-items-center'>
         <h5 class='card-title col'>Inschrijvingen</h5>
         <div class='col col-md-auto d-flex align-items-center flex-wrap'>
-          <button class='btn btn-primary btn-sm me-3 my-2 text-nowrap' type="button" {{on 'click' this.copyUsernames}}>
+          <button class='btn btn-primary btn-sm me-3 my-2 text-nowrap' type="button" {{on 'click' (action 'copyUsernames')}}>
             Kopieer gebruikersnamen
           </button>
           <div class="form-check">
@@ -22,7 +22,7 @@
       </div>
     </div>
     <div class='table-responsive responses-table'>
-      <Form::ResponsesTable @form={{@form}} @responses={{@form.responses}} @showAllergyInfo={{this.showAllergyInfo}} />
+      <Form::ResponsesTable @form={{@form}} @responses={{@form.sortedResponses}} @showAllergyInfo={{this.showAllergyInfo}} />
     </div>
   </div>
 {{else}}

@@ -27,8 +27,8 @@ export default class PhotoTags extends Component {
     if (e.target.tagName.toLowerCase() != 'img' || this.newTagX || this.newTagY)
       return;
     e.stopPropagation();
-    let x = (e.layerX / e.target.width) * 100;
-    let y = (e.layerY / e.target.height) * 100;
+    let x = (e.offsetX / e.target.width) * 100;
+    let y = (e.offsetY / e.target.height) * 100;
     this.newTagX = x;
     this.newTagY = y;
     next(this, () => {

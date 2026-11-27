@@ -2,7 +2,7 @@
   <PageActionsButtons @pageActions={{pageActions}} />
 </EmberWormhole>
 
-<Cards::ArticleCard @article={{@model}} />
+<Cards::ArticleCard @article={{@model}} @showExcerpt={{false}} @showGroup={{true}} @useMaxHeight={{false}}/>
 
 {{#if (can 'show article comments of article' @model)}}
   <div class='card'>

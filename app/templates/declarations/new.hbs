@@ -1,0 +1,22 @@
+<div class='card'>
+  <div class='card-header'>
+    <h5>Declaratie indienen</h5>
+  </div>
+  <div class='card-body'>
+    <p>
+      Heb je iets voor de vereniging betaald? Dien hier je declaratie in. Na
+      goedkeuring door de questor wordt het bedrag verrekend met een volgende
+      incasso.
+    </p>
+
+    <Declarations::Form
+      @model={{this.model}}
+      @onSubmit={{this.submit}}
+      @errorMessage={{this.errorMessage}}
+    >
+      <LinkTo @route='declarations' class='btn btn-default'>
+        Annuleren
+      </LinkTo>
+    </Declarations::Form>
+  </div>
+</div>
