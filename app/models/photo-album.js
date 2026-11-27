@@ -4,7 +4,7 @@ export default class PhotoAlbum extends Model {
   // Properties
   @attr title;
   @attr('date-only') date;
-  @attr({ defaultValue: false }) publiclyVisible;
+  @attr({ defaultValue: 'members' }) visibility;
 
   // Relations
   @hasMany photos;
@@ -45,6 +45,21 @@ export default class PhotoAlbum extends Model {
 
   get amountOfPhotos() {
     return this.photos.length;
+  }
+
+  get isPublic() {
+    return this.visibility === 'public';
+  }
+
+  get visibilityOptions() {
+    return [
+      { value: 'public', label: 'Iedereen, ook externen' },
+      { value: 'alumni', label: 'Leden en alle oud-leden' },
+      {
+        value: 'members',
+        label: 'Leden, en oud-leden die rond de datum van het album lid waren',
+      },
+    ];
   }
 
   // Methods

@@ -29,4 +29,21 @@ module('Unit | Model | photo-album', function (hooks) {
       'Amount of tagged photos in album is correct'
     );
   });
+
+  test('Visibility defaults to members', function (assert) {
+    assert.equal(album.visibility, 'members');
+    assert.false(album.isPublic);
+  });
+
+  test('Public visibility', function (assert) {
+    album.visibility = 'public';
+    assert.true(album.isPublic);
+  });
+
+  test('Visibility options match the visibilities of the API', function (assert) {
+    assert.deepEqual(
+      album.visibilityOptions.map((option) => option.value),
+      ['public', 'alumni', 'members']
+    );
+  });
 });
